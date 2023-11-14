@@ -52,7 +52,7 @@ function AllRestrictionsToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
         'links': (0, Links_1.LinksToJSON)(value.links),
         'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),

@@ -10,204 +10,204 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AccountOwnersDetails, AccountPrioritiesDetails, AccountTypesDetails, AddressTypesDetails, AlternateLanguageGuestTitlesDetails, BusinessSegmentsDetails, ChangeAlternateLanguageGuestTitlesRequest, ChangeBusinessSegmentsRequest, ChangeCityPostalCodesRequest, ChangeEcertificateLocationTypesRequest, ChangeGuestStatusesRequest, ChangeGuestTypesRequest, ChangeImmigrationStatusesRequest, ChangeMailingActionCodesRequest, ChangeMembershipClaimOriginsRequest, ChangeMembershipClaimTypesRequest, ChangeMembershipEnrollmentCodesRequest, ChangeMembershipStatusCodesRequest, ChangeOwnerTeamsRequest, ChangeTravelAgentTypesRequest, CityPostalCodesDetails, CompanyTypesDetails, CompetitionCodesDetails, DistanceTypesDetails, DistrictsDetails, EcertificateLocationTypesDetails, GenderTypes, GenderTypesToChange, GuestStatusesDetails, GuestTitlesDetails, GuestTypesDetails, IdentificationTypesDetails, ImmigrationStatusesDetails, IndustryCodesDetails, InfluenceCodesDetails, KeywordTypesDetails, MailingActionCodesDetails, MembershipClaimOriginsDetails, MembershipClaimTypesDetails, MembershipEnrollmentCodesDetails, MembershipStatusCodesDetails, NationalitiesDetails, OwnerTeamsDetails, PayDaysDetails, PostAccountPrioritiesRequest, PostAccountTypesRequest, PostAddressTypesRequest, PostAlternateLanguageGuestTitlesRequest, PostBusinessSegmentsRequest, PostCityPostalCodesRequest, PostCompanyTypesRequest, PostCompetitionCodesRequest, PostDistanceTypesRequest, PostDistrictsRequest, PostEcertificateLocationTypesRequest, PostGenderTypesRequest, PostGuestStatusesRequest, PostGuestTitlesRequest, PostGuestTypesRequest, PostIdentificationTypesRequest, PostImmigrationStatusesRequest, PostIndustryCodesRequest, PostInfluenceCodesRequest, PostKeywordTypesRequest, PostMailingActionCodesRequest, PostMembershipClaimOriginsRequest, PostMembershipClaimTypesRequest, PostMembershipEnrollmentCodesRequest, PostMembershipStatusCodesRequest, PostNationalitiesRequest, PostOwnerTeamsRequest, PostPayDaysRequest, PostProfileInactiveReasonsRequest, PostProfileRestrictionReasonsRequest, PostSourcesRequest, PostStatesRequest, PostTerritoriesRequest, PostTitlesRequest, PostTravelAgentTypesRequest, PostVIPLevelsRequest, ProfileInactiveReasonsDetails, ProfileRestrictionReasonsDetails, PutAccountPrioritiesRequest, PutAccountTypesRequest, PutAddressTypesRequest, PutCompanyTypesRequest, PutCompetitionCodesRequest, PutDistanceTypesRequest, PutDistrictsRequest, PutGenderTypesRequest, PutGuestTitlesRequest, PutIdentificationTypesRequest, PutIndustryCodesRequest, PutInfluenceCodesRequest, PutKeywordTypesRequest, PutNationalitiesRequest, PutPayDaysRequest, PutProfileInactiveReasonsRequest, PutProfileRestrictionReasonsRequest, PutSourcesRequest, PutTerritoriesRequest, PutTitlesRequest, PutVIPLevelsRequest, SourcesDetails, StatesDetails, Status, TerritoriesDetails, TitlesDetails, TravelAgentTypesDetails, VIPLevelsDetails } from '../models';
-export interface ChangeAlternateLanguageGuestTitlesOperationRequest {
-    guestTitlesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alternateLanguageGuestTitlesToBeChanged?: ChangeAlternateLanguageGuestTitlesRequest;
+import type { AccountOwnersDetails, AccountPrioritiesCriteria, AccountPrioritiesDetails, AccountPrioritiesToBeChanged, AccountTypesCriteria, AccountTypesDetails, AccountTypesToBeChanged, AddressTypesCriteria, AddressTypesDetails, AddressTypesToBeChanged, AlternateLanguageGuestTitlesCriteria, AlternateLanguageGuestTitlesDetails, AlternateLanguageGuestTitlesToBeChanged, BusinessSegmentsCriteria, BusinessSegmentsDetails, BusinessSegmentsToBeChanged, CityPostalCodesCriteria, CityPostalCodesDetails, CityPostalCodesToBeChanged, CompanyTypesCriteria, CompanyTypesDetails, CompanyTypesToBeChanged, CompetitionCodesCriteria, CompetitionCodesDetails, CompetitionCodesToBeChanged, DistanceTypesCriteria, DistanceTypesDetails, DistanceTypesToBeChanged, DistrictsCriteria, DistrictsDetails, DistrictsToBeChanged, EcertificateLocationTypesCriteria, EcertificateLocationTypesDetails, EcertificateLocationTypesToBeChanged, GenderTypes, GenderTypesCriteria, GenderTypesToChange, GuestStatusesCriteria, GuestStatusesDetails, GuestStatusesToBeChanged, GuestTitlesCriteria, GuestTitlesDetails, GuestTitlesToBeChanged, GuestTypesCriteria, GuestTypesDetails, GuestTypesToBeChanged, IdentificationTypesCriteria, IdentificationTypesDetails, IdentificationTypesToBeChanged, ImmigrationStatusesCriteria, ImmigrationStatusesDetails, ImmigrationStatusesToBeChanged, IndustryCodesCriteria, IndustryCodesDetails, IndustryCodesToBeChanged, InfluenceCodesCriteria, InfluenceCodesDetails, InfluenceCodesToBeChanged, KeywordTypesCriteria, KeywordTypesDetails, KeywordTypesToBeChanged, MailingActionCodesCriteria, MailingActionCodesDetails, MailingActionCodesToBeChanged, MembershipClaimOriginsCriteria, MembershipClaimOriginsDetails, MembershipClaimOriginsToBeChanged, MembershipClaimTypesCriteria, MembershipClaimTypesDetails, MembershipClaimTypesToBeChanged, MembershipEnrollmentCodesCriteria, MembershipEnrollmentCodesDetails, MembershipEnrollmentCodesToBeChanged, MembershipStatusCodesCriteria, MembershipStatusCodesDetails, MembershipStatusCodesToBeChanged, NationalitiesCriteria, NationalitiesDetails, NationalitiesToBeChanged, OwnerTeamsCriteria, OwnerTeamsDetails, OwnerTeamsToBeChanged, PayDaysCriteria, PayDaysDetails, PayDaysToBeChanged, ProfileInactiveReasonsCriteria, ProfileInactiveReasonsDetails, ProfileInactiveReasonsToBeChanged, ProfileRestrictionReasonsCriteria, ProfileRestrictionReasonsDetails, ProfileRestrictionReasonsToBeChanged, SourcesCriteria, SourcesDetails, SourcesToBeChanged, StatesCriteria, StatesDetails, Status, TerritoriesCriteria, TerritoriesDetails, TerritoriesToBeChanged, TitlesCriteria, TitlesDetails, TitlesToBeChanged, TravelAgentTypesCriteria, TravelAgentTypesDetails, TravelAgentTypesToBeChanged, VIPLevelsCriteria, VIPLevelsDetails, VIPLevelsToBeChanged } from '../models/index';
+export interface ChangeAlternateLanguageGuestTitlesRequest {
+    guestTitlesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alternateLanguageGuestTitlesToBeChanged: AlternateLanguageGuestTitlesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeBusinessSegmentsOperationRequest {
-    businessSegmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    businessSegmentsToBeChanged?: ChangeBusinessSegmentsRequest;
+export interface ChangeBusinessSegmentsRequest {
+    businessSegmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    businessSegmentsToBeChanged: BusinessSegmentsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCityPostalCodesOperationRequest {
-    postalCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cityPostalCodesToBeChanged?: ChangeCityPostalCodesRequest;
+export interface ChangeCityPostalCodesRequest {
+    postalCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cityPostalCodesToBeChanged: CityPostalCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeEcertificateLocationTypesOperationRequest {
-    locationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ecertificateLocationTypesToBeChanged?: ChangeEcertificateLocationTypesRequest;
+export interface ChangeEcertificateLocationTypesRequest {
+    locationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ecertificateLocationTypesToBeChanged: EcertificateLocationTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeGuestStatusesOperationRequest {
-    guestStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestStatusesToBeChanged?: ChangeGuestStatusesRequest;
+export interface ChangeGuestStatusesRequest {
+    guestStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestStatusesToBeChanged: GuestStatusesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeGuestTypesOperationRequest {
-    guestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestTypesToBeChanged?: ChangeGuestTypesRequest;
+export interface ChangeGuestTypesRequest {
+    guestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestTypesToBeChanged: GuestTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeImmigrationStatusesOperationRequest {
-    immigrationStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    immigrationStatusesToBeChanged?: ChangeImmigrationStatusesRequest;
+export interface ChangeImmigrationStatusesRequest {
+    immigrationStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    immigrationStatusesToBeChanged: ImmigrationStatusesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMailingActionCodesOperationRequest {
-    mailingActionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    mailingActionCodesToBeChanged?: ChangeMailingActionCodesRequest;
+export interface ChangeMailingActionCodesRequest {
+    mailingActionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    mailingActionCodesToBeChanged: MailingActionCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMembershipClaimOriginsOperationRequest {
-    membershipClaimOriginCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClaimOriginsToBeChanged?: ChangeMembershipClaimOriginsRequest;
+export interface ChangeMembershipClaimOriginsRequest {
+    membershipClaimOriginCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClaimOriginsToBeChanged: MembershipClaimOriginsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMembershipClaimTypesOperationRequest {
-    membershipClaimTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClaimTypesToBeChanged?: ChangeMembershipClaimTypesRequest;
+export interface ChangeMembershipClaimTypesRequest {
+    membershipClaimTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClaimTypesToBeChanged: MembershipClaimTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMembershipEnrollmentCodesOperationRequest {
-    enrollmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipEnrollmentCodesToBeChanged?: ChangeMembershipEnrollmentCodesRequest;
+export interface ChangeMembershipEnrollmentCodesRequest {
+    enrollmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipEnrollmentCodesToBeChanged: MembershipEnrollmentCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMembershipStatusCodesOperationRequest {
-    membershipStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipStatusCodesToBeChanged?: ChangeMembershipStatusCodesRequest;
+export interface ChangeMembershipStatusCodesRequest {
+    membershipStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipStatusCodesToBeChanged: MembershipStatusCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeOwnerTeamsOperationRequest {
-    ownerTeamCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ownerTeamsToBeChanged?: ChangeOwnerTeamsRequest;
+export interface ChangeOwnerTeamsRequest {
+    ownerTeamCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ownerTeamsToBeChanged: OwnerTeamsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTravelAgentTypesOperationRequest {
-    fiscalAgentTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    travelAgentTypesToBeChanged?: ChangeTravelAgentTypesRequest;
+export interface ChangeTravelAgentTypesRequest {
+    fiscalAgentTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    travelAgentTypesToBeChanged: TravelAgentTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAccountPrioritiesRequest {
-    accountPriorityId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountPriorityId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAccountTypesRequest {
-    accountTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAddressTypesRequest {
-    addressTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    addressTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCompanyTypesRequest {
-    companyTypesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    companyTypesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCompetitionCodesRequest {
-    competitionCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    competitionCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteDistanceTypesRequest {
-    distanceTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    distanceTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteDistrictsRequest {
-    districtsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    districtsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGenderTypesRequest {
-    genderTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    genderTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGuestTitlesRequest {
-    guestTitlesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestTitlesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     languageCode?: Array<string>;
     titleType?: Array<number>;
     description?: Array<string>;
@@ -219,106 +219,106 @@ export interface DeleteGuestTitlesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteIdentificationTypesRequest {
-    identificationTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    identificationTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteIndustryCodesRequest {
-    industryCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    industryCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteInfluenceCodesRequest {
-    influenceCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    influenceCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteKeywordTypesRequest {
-    keywordTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    keywordTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteNationalitiesRequest {
-    nationalitiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    nationalitiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePayDaysRequest {
-    payDaysId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    payDaysId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileInactiveReasonsRequest {
-    profileInactiveReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileInactiveReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileRestrictionReasonsRequest {
-    profileRestrictionReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileRestrictionReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteSourcesRequest {
-    sourcesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourcesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTerritoriesRequest {
-    territoriesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    territoriesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTitlesRequest {
-    titlesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    titlesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteVIPLevelsRequest {
-    vipLevelsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    vipLevelsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAccountOwnersRequest {
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     findExactOwnerCodeMatch?: boolean;
     maxFetchRecords?: number;
     hotelId?: string;
@@ -329,9 +329,9 @@ export interface GetAccountOwnersRequest {
     acceptLanguage?: string;
 }
 export interface GetAccountPrioritiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -340,9 +340,9 @@ export interface GetAccountPrioritiesRequest {
     acceptLanguage?: string;
 }
 export interface GetAccountTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -351,9 +351,9 @@ export interface GetAccountTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetAddressTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -362,9 +362,9 @@ export interface GetAddressTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetAlternateLanguageGuestTitlesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     titleCodes?: Array<string>;
     description?: string;
@@ -372,9 +372,9 @@ export interface GetAlternateLanguageGuestTitlesRequest {
     acceptLanguage?: string;
 }
 export interface GetBusinessSegmentsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -383,9 +383,9 @@ export interface GetBusinessSegmentsRequest {
     acceptLanguage?: string;
 }
 export interface GetCityPostalCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     postalCodeFrom?: string;
@@ -403,9 +403,9 @@ export interface GetCityPostalCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetCompanyTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -414,10 +414,10 @@ export interface GetCompanyTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetCompetitionCodesRequest {
-    fetchInactive?: boolean;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fetchInactive: boolean;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     wildCard?: string;
     description?: string;
@@ -425,9 +425,9 @@ export interface GetCompetitionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetDistanceTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -436,9 +436,9 @@ export interface GetDistanceTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetDistrictsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -447,10 +447,10 @@ export interface GetDistrictsRequest {
     acceptLanguage?: string;
 }
 export interface GetEcertificateLocationTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -459,9 +459,9 @@ export interface GetEcertificateLocationTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetGenderTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     code?: Array<string>;
     wildCard?: string;
@@ -470,9 +470,9 @@ export interface GetGenderTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestStatusesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -481,9 +481,9 @@ export interface GetGuestStatusesRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestTitlesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     titleCodes?: Array<string>;
     description?: string;
@@ -491,9 +491,9 @@ export interface GetGuestTitlesRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -502,9 +502,9 @@ export interface GetGuestTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetIdentificationTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -513,9 +513,9 @@ export interface GetIdentificationTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetImmigrationStatusesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -524,9 +524,9 @@ export interface GetImmigrationStatusesRequest {
     acceptLanguage?: string;
 }
 export interface GetIndustryCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -535,9 +535,9 @@ export interface GetIndustryCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetInfluenceCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -546,9 +546,9 @@ export interface GetInfluenceCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetKeywordTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -557,9 +557,9 @@ export interface GetKeywordTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetMailingActionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -568,9 +568,9 @@ export interface GetMailingActionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClaimOriginsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -579,9 +579,9 @@ export interface GetMembershipClaimOriginsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClaimTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -590,9 +590,9 @@ export interface GetMembershipClaimTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipEnrollmentCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -601,9 +601,9 @@ export interface GetMembershipEnrollmentCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipStatusCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -612,9 +612,9 @@ export interface GetMembershipStatusCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetNationalitiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -623,9 +623,9 @@ export interface GetNationalitiesRequest {
     acceptLanguage?: string;
 }
 export interface GetOwnerTeamsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -634,9 +634,9 @@ export interface GetOwnerTeamsRequest {
     acceptLanguage?: string;
 }
 export interface GetPayDaysRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -645,9 +645,9 @@ export interface GetPayDaysRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileInactiveReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -656,9 +656,9 @@ export interface GetProfileInactiveReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRestrictionReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -667,9 +667,9 @@ export interface GetProfileRestrictionReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetSourcesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -678,9 +678,9 @@ export interface GetSourcesRequest {
     acceptLanguage?: string;
 }
 export interface GetStatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     wildCard?: string;
     stateWildCard?: string;
@@ -688,9 +688,9 @@ export interface GetStatesRequest {
     acceptLanguage?: string;
 }
 export interface GetTerritoriesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -699,9 +699,9 @@ export interface GetTerritoriesRequest {
     acceptLanguage?: string;
 }
 export interface GetTitlesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -710,9 +710,9 @@ export interface GetTitlesRequest {
     acceptLanguage?: string;
 }
 export interface GetTravelAgentTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -721,9 +721,9 @@ export interface GetTravelAgentTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetVIPLevelsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -731,489 +731,489 @@ export interface GetVIPLevelsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAccountPrioritiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountPrioritiesCriteria?: PostAccountPrioritiesRequest;
+export interface PostAccountPrioritiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountPrioritiesCriteria: AccountPrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAccountTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountTypesCriteria?: PostAccountTypesRequest;
+export interface PostAccountTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountTypesCriteria: AccountTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAddressTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    addressTypesCriteria?: PostAddressTypesRequest;
+export interface PostAddressTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    addressTypesCriteria: AddressTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAlternateLanguageGuestTitlesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alternateLanguageGuestTitlesCriteria?: PostAlternateLanguageGuestTitlesRequest;
+export interface PostAlternateLanguageGuestTitlesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alternateLanguageGuestTitlesCriteria: AlternateLanguageGuestTitlesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBusinessSegmentsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    businessSegmentsCriteria?: PostBusinessSegmentsRequest;
+export interface PostBusinessSegmentsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    businessSegmentsCriteria: BusinessSegmentsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCityPostalCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cityPostalCodesCriteria?: PostCityPostalCodesRequest;
+export interface PostCityPostalCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cityPostalCodesCriteria: CityPostalCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCompanyTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    companyTypesCriteria?: PostCompanyTypesRequest;
+export interface PostCompanyTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    companyTypesCriteria: CompanyTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCompetitionCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    competitionCodesCriteria?: PostCompetitionCodesRequest;
+export interface PostCompetitionCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    competitionCodesCriteria: CompetitionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDistanceTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    distanceTypesCriteria?: PostDistanceTypesRequest;
+export interface PostDistanceTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    distanceTypesCriteria: DistanceTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDistrictsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    districtsCriteria?: PostDistrictsRequest;
+export interface PostDistrictsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    districtsCriteria: DistrictsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostEcertificateLocationTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ecertificateLocationTypesCriteria?: PostEcertificateLocationTypesRequest;
+export interface PostEcertificateLocationTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ecertificateLocationTypesCriteria: EcertificateLocationTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGenderTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    genderTypesCriteria?: PostGenderTypesRequest;
+export interface PostGenderTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    genderTypesCriteria: GenderTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuestStatusesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestStatusesCriteria?: PostGuestStatusesRequest;
+export interface PostGuestStatusesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestStatusesCriteria: GuestStatusesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuestTitlesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestTitlesCriteria?: PostGuestTitlesRequest;
+export interface PostGuestTitlesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestTitlesCriteria: GuestTitlesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuestTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestTypesCriteria?: PostGuestTypesRequest;
+export interface PostGuestTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestTypesCriteria: GuestTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostIdentificationTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    identificationTypesCriteria?: PostIdentificationTypesRequest;
+export interface PostIdentificationTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    identificationTypesCriteria: IdentificationTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostImmigrationStatusesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    immigrationStatusesCriteria?: PostImmigrationStatusesRequest;
+export interface PostImmigrationStatusesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    immigrationStatusesCriteria: ImmigrationStatusesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostIndustryCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    industryCodesCriteria?: PostIndustryCodesRequest;
+export interface PostIndustryCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    industryCodesCriteria: IndustryCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostInfluenceCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    influenceCodesCriteria?: PostInfluenceCodesRequest;
+export interface PostInfluenceCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    influenceCodesCriteria: InfluenceCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostKeywordTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    keywordTypesCriteria?: PostKeywordTypesRequest;
+export interface PostKeywordTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    keywordTypesCriteria: KeywordTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMailingActionCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    mailingActionCodesCriteria?: PostMailingActionCodesRequest;
+export interface PostMailingActionCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    mailingActionCodesCriteria: MailingActionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipClaimOriginsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClaimOriginsCriteria?: PostMembershipClaimOriginsRequest;
+export interface PostMembershipClaimOriginsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClaimOriginsCriteria: MembershipClaimOriginsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipClaimTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClaimTypesCriteria?: PostMembershipClaimTypesRequest;
+export interface PostMembershipClaimTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClaimTypesCriteria: MembershipClaimTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipEnrollmentCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipEnrollmentCodesCriteria?: PostMembershipEnrollmentCodesRequest;
+export interface PostMembershipEnrollmentCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipEnrollmentCodesCriteria: MembershipEnrollmentCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipStatusCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipStatusCodesCriteria?: PostMembershipStatusCodesRequest;
+export interface PostMembershipStatusCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipStatusCodesCriteria: MembershipStatusCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostNationalitiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    nationalitiesCriteria?: PostNationalitiesRequest;
+export interface PostNationalitiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    nationalitiesCriteria: NationalitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostOwnerTeamsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ownerTeamsCriteria?: PostOwnerTeamsRequest;
+export interface PostOwnerTeamsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ownerTeamsCriteria: OwnerTeamsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostPayDaysOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    payDaysCriteria?: PostPayDaysRequest;
+export interface PostPayDaysRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    payDaysCriteria: PayDaysCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostProfileInactiveReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileInactiveReasonsCriteria?: PostProfileInactiveReasonsRequest;
+export interface PostProfileInactiveReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileInactiveReasonsCriteria: ProfileInactiveReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostProfileRestrictionReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileRestrictionReasonsCriteria?: PostProfileRestrictionReasonsRequest;
+export interface PostProfileRestrictionReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileRestrictionReasonsCriteria: ProfileRestrictionReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSourcesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourcesCriteria?: PostSourcesRequest;
+export interface PostSourcesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourcesCriteria: SourcesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostStatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    statesCriteria?: PostStatesRequest;
+export interface PostStatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    statesCriteria: StatesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTerritoriesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    territoriesCriteria?: PostTerritoriesRequest;
+export interface PostTerritoriesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    territoriesCriteria: TerritoriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTitlesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    titlesCriteria?: PostTitlesRequest;
+export interface PostTitlesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    titlesCriteria: TitlesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTravelAgentTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    travelAgentTypesCriteria?: PostTravelAgentTypesRequest;
+export interface PostTravelAgentTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    travelAgentTypesCriteria: TravelAgentTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostVIPLevelsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    vIPLevelsCriteria?: PostVIPLevelsRequest;
+export interface PostVIPLevelsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    vIPLevelsCriteria: VIPLevelsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAccountPrioritiesOperationRequest {
-    accountPriorityId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountPrioritiesToBeChanged?: PutAccountPrioritiesRequest;
+export interface PutAccountPrioritiesRequest {
+    accountPriorityId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountPrioritiesToBeChanged: AccountPrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAccountTypesOperationRequest {
-    accountTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountTypesToBeChanged?: PutAccountTypesRequest;
+export interface PutAccountTypesRequest {
+    accountTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountTypesToBeChanged: AccountTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAddressTypesOperationRequest {
-    addressTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    addressTypesToBeChanged?: PutAddressTypesRequest;
+export interface PutAddressTypesRequest {
+    addressTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    addressTypesToBeChanged: AddressTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCompanyTypesOperationRequest {
-    companyTypesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    companyTypesToBeChanged?: PutCompanyTypesRequest;
+export interface PutCompanyTypesRequest {
+    companyTypesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    companyTypesToBeChanged: CompanyTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCompetitionCodesOperationRequest {
-    competitionCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    competitionCodesToBeChanged?: PutCompetitionCodesRequest;
+export interface PutCompetitionCodesRequest {
+    competitionCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    competitionCodesToBeChanged: CompetitionCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDistanceTypesOperationRequest {
-    distanceTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    distanceTypesToBeChanged?: PutDistanceTypesRequest;
+export interface PutDistanceTypesRequest {
+    distanceTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    distanceTypesToBeChanged: DistanceTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDistrictsOperationRequest {
-    districtsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    districtsToBeChanged?: PutDistrictsRequest;
+export interface PutDistrictsRequest {
+    districtsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    districtsToBeChanged: DistrictsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGenderTypesOperationRequest {
-    genderTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    genderTypesToChange?: PutGenderTypesRequest;
+export interface PutGenderTypesRequest {
+    genderTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    genderTypesToChange: GenderTypesToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGuestTitlesOperationRequest {
-    guestTitlesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestTitlesToBeChanged?: PutGuestTitlesRequest;
+export interface PutGuestTitlesRequest {
+    guestTitlesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestTitlesToBeChanged: GuestTitlesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutIdentificationTypesOperationRequest {
-    identificationTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    identificationTypesToBeChanged?: PutIdentificationTypesRequest;
+export interface PutIdentificationTypesRequest {
+    identificationTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    identificationTypesToBeChanged: IdentificationTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutIndustryCodesOperationRequest {
-    industryCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    industryCodesToBeChanged?: PutIndustryCodesRequest;
+export interface PutIndustryCodesRequest {
+    industryCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    industryCodesToBeChanged: IndustryCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutInfluenceCodesOperationRequest {
-    influenceCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    influenceCodesToBeChanged?: PutInfluenceCodesRequest;
+export interface PutInfluenceCodesRequest {
+    influenceCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    influenceCodesToBeChanged: InfluenceCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutKeywordTypesOperationRequest {
-    keywordTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    keywordTypesToBeChanged?: PutKeywordTypesRequest;
+export interface PutKeywordTypesRequest {
+    keywordTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    keywordTypesToBeChanged: KeywordTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutNationalitiesOperationRequest {
-    nationalitiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    nationalitiesToBeChanged?: PutNationalitiesRequest;
+export interface PutNationalitiesRequest {
+    nationalitiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    nationalitiesToBeChanged: NationalitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPayDaysOperationRequest {
-    payDaysId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    payDaysToBeChanged?: PutPayDaysRequest;
+export interface PutPayDaysRequest {
+    payDaysId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    payDaysToBeChanged: PayDaysToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutProfileInactiveReasonsOperationRequest {
-    profileInactiveReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileInactiveReasonsToBeChanged?: PutProfileInactiveReasonsRequest;
+export interface PutProfileInactiveReasonsRequest {
+    profileInactiveReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileInactiveReasonsToBeChanged: ProfileInactiveReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutProfileRestrictionReasonsOperationRequest {
-    profileRestrictionReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileRestrictionReasonsToBeChanged?: PutProfileRestrictionReasonsRequest;
+export interface PutProfileRestrictionReasonsRequest {
+    profileRestrictionReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileRestrictionReasonsToBeChanged: ProfileRestrictionReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutSourcesOperationRequest {
-    sourcesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourcesToBeChanged?: PutSourcesRequest;
+export interface PutSourcesRequest {
+    sourcesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourcesToBeChanged: SourcesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTerritoriesOperationRequest {
-    territoriesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    territoriesToBeChanged?: PutTerritoriesRequest;
+export interface PutTerritoriesRequest {
+    territoriesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    territoriesToBeChanged: TerritoriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTitlesOperationRequest {
-    titlesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    titlesToBeChanged?: PutTitlesRequest;
+export interface PutTitlesRequest {
+    titlesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    titlesToBeChanged: TitlesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutVIPLevelsOperationRequest {
-    vipLevelsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    vIPLevelsToBeChanged?: PutVIPLevelsRequest;
+export interface PutVIPLevelsRequest {
+    vipLevelsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    vIPLevelsToBeChanged: VIPLevelsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveAlternateLanguageGuestTitlesRequest {
-    guestTitlesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestTitlesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     languageCode?: Array<string>;
     titleTypes?: Array<number>;
     titleDescription?: Array<string>;
@@ -1225,107 +1225,107 @@ export interface RemoveAlternateLanguageGuestTitlesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveBusinessSegmentsRequest {
-    businessSegmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    businessSegmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCityPostalCodesRequest {
-    postalCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    postalCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveEcertificateLocationTypesRequest {
-    locationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    locationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveGuestStatusesRequest {
-    guestStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveGuestTypesRequest {
-    guestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveImmigrationStatusesRequest {
-    immigrationStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    immigrationStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMailingActionCodesRequest {
-    mailingActionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    mailingActionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMembershipClaimOriginsRequest {
-    membershipClaimOriginCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipClaimOriginCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMembershipClaimTypesRequest {
-    membershipClaimTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipClaimTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMembershipEnrollmentCodesRequest {
-    enrollmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    enrollmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMembershipStatusCodesRequest {
-    membershipStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveOwnerTeamsRequest {
-    ownerTeamCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ownerTeamCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTravelAgentTypesRequest {
-    fiscalAgentTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fiscalAgentTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1337,142 +1337,142 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to modify Alternate Language Guest Titles. <p><strong>OperationId:</strong>changeAlternateLanguageGuestTitles</p>
      * Change Alternate Language Guest Titles
      */
-    changeAlternateLanguageGuestTitlesRaw(requestParameters: ChangeAlternateLanguageGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeAlternateLanguageGuestTitlesRaw(requestParameters: ChangeAlternateLanguageGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to modify Alternate Language Guest Titles. <p><strong>OperationId:</strong>changeAlternateLanguageGuestTitles</p>
      * Change Alternate Language Guest Titles
      */
-    changeAlternateLanguageGuestTitles(requestParameters: ChangeAlternateLanguageGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeAlternateLanguageGuestTitles(requestParameters: ChangeAlternateLanguageGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Business Segments. <p><strong>OperationId:</strong>changeBusinessSegments</p>
      * Change Business Segments
      */
-    changeBusinessSegmentsRaw(requestParameters: ChangeBusinessSegmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeBusinessSegmentsRaw(requestParameters: ChangeBusinessSegmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Business Segments. <p><strong>OperationId:</strong>changeBusinessSegments</p>
      * Change Business Segments
      */
-    changeBusinessSegments(requestParameters: ChangeBusinessSegmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeBusinessSegments(requestParameters: ChangeBusinessSegmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update City Postal Codes. <p><strong>OperationId:</strong>changeCityPostalCodes</p>
      * Change City Postal Codes
      */
-    changeCityPostalCodesRaw(requestParameters: ChangeCityPostalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCityPostalCodesRaw(requestParameters: ChangeCityPostalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update City Postal Codes. <p><strong>OperationId:</strong>changeCityPostalCodes</p>
      * Change City Postal Codes
      */
-    changeCityPostalCodes(requestParameters: ChangeCityPostalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCityPostalCodes(requestParameters: ChangeCityPostalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Ecertificate Location Types. <p><strong>OperationId:</strong>changeEcertificateLocationTypes</p>
      * Change Ecertificate Location Types
      */
-    changeEcertificateLocationTypesRaw(requestParameters: ChangeEcertificateLocationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeEcertificateLocationTypesRaw(requestParameters: ChangeEcertificateLocationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Ecertificate Location Types. <p><strong>OperationId:</strong>changeEcertificateLocationTypes</p>
      * Change Ecertificate Location Types
      */
-    changeEcertificateLocationTypes(requestParameters: ChangeEcertificateLocationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeEcertificateLocationTypes(requestParameters: ChangeEcertificateLocationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Guest Statuses. <p><strong>OperationId:</strong>changeGuestStatuses</p>
      * Change Guest Statuses
      */
-    changeGuestStatusesRaw(requestParameters: ChangeGuestStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeGuestStatusesRaw(requestParameters: ChangeGuestStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Guest Statuses. <p><strong>OperationId:</strong>changeGuestStatuses</p>
      * Change Guest Statuses
      */
-    changeGuestStatuses(requestParameters: ChangeGuestStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeGuestStatuses(requestParameters: ChangeGuestStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Guest Types. <p><strong>OperationId:</strong>changeGuestTypes</p>
      * Change Guest Types
      */
-    changeGuestTypesRaw(requestParameters: ChangeGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeGuestTypesRaw(requestParameters: ChangeGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Guest Types. <p><strong>OperationId:</strong>changeGuestTypes</p>
      * Change Guest Types
      */
-    changeGuestTypes(requestParameters: ChangeGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeGuestTypes(requestParameters: ChangeGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Immigration Statuses. <p><strong>OperationId:</strong>changeImmigrationStatuses</p>
      * Change Immigration Statuses
      */
-    changeImmigrationStatusesRaw(requestParameters: ChangeImmigrationStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeImmigrationStatusesRaw(requestParameters: ChangeImmigrationStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Immigration Statuses. <p><strong>OperationId:</strong>changeImmigrationStatuses</p>
      * Change Immigration Statuses
      */
-    changeImmigrationStatuses(requestParameters: ChangeImmigrationStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeImmigrationStatuses(requestParameters: ChangeImmigrationStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Mailing Action Codes. <p><strong>OperationId:</strong>changeMailingActionCodes</p>
      * Change Mailing Action Codes
      */
-    changeMailingActionCodesRaw(requestParameters: ChangeMailingActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMailingActionCodesRaw(requestParameters: ChangeMailingActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Mailing Action Codes. <p><strong>OperationId:</strong>changeMailingActionCodes</p>
      * Change Mailing Action Codes
      */
-    changeMailingActionCodes(requestParameters: ChangeMailingActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMailingActionCodes(requestParameters: ChangeMailingActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Membership Claim Origins. <p><strong>OperationId:</strong>changeMembershipClaimOrigins</p>
      * Change Membership Claim Origins
      */
-    changeMembershipClaimOriginsRaw(requestParameters: ChangeMembershipClaimOriginsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMembershipClaimOriginsRaw(requestParameters: ChangeMembershipClaimOriginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Membership Claim Origins. <p><strong>OperationId:</strong>changeMembershipClaimOrigins</p>
      * Change Membership Claim Origins
      */
-    changeMembershipClaimOrigins(requestParameters: ChangeMembershipClaimOriginsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMembershipClaimOrigins(requestParameters: ChangeMembershipClaimOriginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Membership Claim Types. <p><strong>OperationId:</strong>changeMembershipClaimTypes</p>
      * Change Membership Claim Types
      */
-    changeMembershipClaimTypesRaw(requestParameters: ChangeMembershipClaimTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMembershipClaimTypesRaw(requestParameters: ChangeMembershipClaimTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Membership Claim Types. <p><strong>OperationId:</strong>changeMembershipClaimTypes</p>
      * Change Membership Claim Types
      */
-    changeMembershipClaimTypes(requestParameters: ChangeMembershipClaimTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMembershipClaimTypes(requestParameters: ChangeMembershipClaimTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Membership Enrollment Codes. <p><strong>OperationId:</strong>changeMembershipEnrollmentCodes</p>
      * Change Membership Enrollment Codes
      */
-    changeMembershipEnrollmentCodesRaw(requestParameters: ChangeMembershipEnrollmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMembershipEnrollmentCodesRaw(requestParameters: ChangeMembershipEnrollmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Membership Enrollment Codes. <p><strong>OperationId:</strong>changeMembershipEnrollmentCodes</p>
      * Change Membership Enrollment Codes
      */
-    changeMembershipEnrollmentCodes(requestParameters: ChangeMembershipEnrollmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMembershipEnrollmentCodes(requestParameters: ChangeMembershipEnrollmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Membership Status Codes. <p><strong>OperationId:</strong>changeMembershipStatusCodes</p>
      * Change Membership Status Codes
      */
-    changeMembershipStatusCodesRaw(requestParameters: ChangeMembershipStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMembershipStatusCodesRaw(requestParameters: ChangeMembershipStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Membership Status Codes. <p><strong>OperationId:</strong>changeMembershipStatusCodes</p>
      * Change Membership Status Codes
      */
-    changeMembershipStatusCodes(requestParameters: ChangeMembershipStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMembershipStatusCodes(requestParameters: ChangeMembershipStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Owner Teams. <p><strong>OperationId:</strong>changeOwnerTeams</p>
      * Change Owner Teams
      */
-    changeOwnerTeamsRaw(requestParameters: ChangeOwnerTeamsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeOwnerTeamsRaw(requestParameters: ChangeOwnerTeamsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Owner Teams. <p><strong>OperationId:</strong>changeOwnerTeams</p>
      * Change Owner Teams
      */
-    changeOwnerTeams(requestParameters: ChangeOwnerTeamsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeOwnerTeams(requestParameters: ChangeOwnerTeamsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Travel Agent Types. <p><strong>OperationId:</strong>changeTravelAgentTypes</p>
      * Change Travel Agent Types
      */
-    changeTravelAgentTypesRaw(requestParameters: ChangeTravelAgentTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTravelAgentTypesRaw(requestParameters: ChangeTravelAgentTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Travel Agent Types. <p><strong>OperationId:</strong>changeTravelAgentTypes</p>
      * Change Travel Agent Types
      */
-    changeTravelAgentTypes(requestParameters: ChangeTravelAgentTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTravelAgentTypes(requestParameters: ChangeTravelAgentTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to remove Account Priorities. <p><strong>OperationId:</strong>deleteAccountPriorities</p>
      * Remove Account Priorities
@@ -2057,572 +2057,572 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Account Priorities. <p><strong>OperationId:</strong>postAccountPriorities</p>
      * Create Account Priorities
      */
-    postAccountPrioritiesRaw(requestParameters: PostAccountPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAccountPrioritiesRaw(requestParameters: PostAccountPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Account Priorities. <p><strong>OperationId:</strong>postAccountPriorities</p>
      * Create Account Priorities
      */
-    postAccountPriorities(requestParameters: PostAccountPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAccountPriorities(requestParameters: PostAccountPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Account Types. <p><strong>OperationId:</strong>postAccountTypes</p>
      * Create Account Types
      */
-    postAccountTypesRaw(requestParameters: PostAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAccountTypesRaw(requestParameters: PostAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Account Types. <p><strong>OperationId:</strong>postAccountTypes</p>
      * Create Account Types
      */
-    postAccountTypes(requestParameters: PostAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAccountTypes(requestParameters: PostAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Address type. <p><strong>OperationId:</strong>postAddressTypes</p>
      * Create a new Address type
      */
-    postAddressTypesRaw(requestParameters: PostAddressTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAddressTypesRaw(requestParameters: PostAddressTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Address type. <p><strong>OperationId:</strong>postAddressTypes</p>
      * Create a new Address type
      */
-    postAddressTypes(requestParameters: PostAddressTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAddressTypes(requestParameters: PostAddressTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Alternate Language Guest Titles. <p><strong>OperationId:</strong>postAlternateLanguageGuestTitles</p>
      * Create Alternate Language Guest Titles
      */
-    postAlternateLanguageGuestTitlesRaw(requestParameters: PostAlternateLanguageGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAlternateLanguageGuestTitlesRaw(requestParameters: PostAlternateLanguageGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Alternate Language Guest Titles. <p><strong>OperationId:</strong>postAlternateLanguageGuestTitles</p>
      * Create Alternate Language Guest Titles
      */
-    postAlternateLanguageGuestTitles(requestParameters: PostAlternateLanguageGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAlternateLanguageGuestTitles(requestParameters: PostAlternateLanguageGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Business Segments. <p><strong>OperationId:</strong>postBusinessSegments</p>
      * Create Business Segments
      */
-    postBusinessSegmentsRaw(requestParameters: PostBusinessSegmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBusinessSegmentsRaw(requestParameters: PostBusinessSegmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Business Segments. <p><strong>OperationId:</strong>postBusinessSegments</p>
      * Create Business Segments
      */
-    postBusinessSegments(requestParameters: PostBusinessSegmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBusinessSegments(requestParameters: PostBusinessSegmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create City Postal Codes. <p><strong>OperationId:</strong>postCityPostalCodes</p>
      * Create CityPostalCodes
      */
-    postCityPostalCodesRaw(requestParameters: PostCityPostalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCityPostalCodesRaw(requestParameters: PostCityPostalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create City Postal Codes. <p><strong>OperationId:</strong>postCityPostalCodes</p>
      * Create CityPostalCodes
      */
-    postCityPostalCodes(requestParameters: PostCityPostalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCityPostalCodes(requestParameters: PostCityPostalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Company Types. <p><strong>OperationId:</strong>postCompanyTypes</p>
      * Create Company Types
      */
-    postCompanyTypesRaw(requestParameters: PostCompanyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCompanyTypesRaw(requestParameters: PostCompanyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Company Types. <p><strong>OperationId:</strong>postCompanyTypes</p>
      * Create Company Types
      */
-    postCompanyTypes(requestParameters: PostCompanyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCompanyTypes(requestParameters: PostCompanyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Competition Codes. Competition codes enable you to identify other hospitality businesses that are competing with you for an account&apos;s business opportunities.<p><strong>OperationId:</strong>postCompetitionCodes</p>
      * Create competition codes
      */
-    postCompetitionCodesRaw(requestParameters: PostCompetitionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCompetitionCodesRaw(requestParameters: PostCompetitionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Competition Codes. Competition codes enable you to identify other hospitality businesses that are competing with you for an account&apos;s business opportunities.<p><strong>OperationId:</strong>postCompetitionCodes</p>
      * Create competition codes
      */
-    postCompetitionCodes(requestParameters: PostCompetitionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCompetitionCodes(requestParameters: PostCompetitionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Distance Types. <p><strong>OperationId:</strong>postDistanceTypes</p>
      * Create Distance Types
      */
-    postDistanceTypesRaw(requestParameters: PostDistanceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDistanceTypesRaw(requestParameters: PostDistanceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Distance Types. <p><strong>OperationId:</strong>postDistanceTypes</p>
      * Create Distance Types
      */
-    postDistanceTypes(requestParameters: PostDistanceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDistanceTypes(requestParameters: PostDistanceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Districts. <p><strong>OperationId:</strong>postDistricts</p>
      * Create Districts
      */
-    postDistrictsRaw(requestParameters: PostDistrictsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDistrictsRaw(requestParameters: PostDistrictsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Districts. <p><strong>OperationId:</strong>postDistricts</p>
      * Create Districts
      */
-    postDistricts(requestParameters: PostDistrictsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDistricts(requestParameters: PostDistrictsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Ecertificate Location Types. <p><strong>OperationId:</strong>postEcertificateLocationTypes</p>
      * Create Ecertificate Location Types
      */
-    postEcertificateLocationTypesRaw(requestParameters: PostEcertificateLocationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postEcertificateLocationTypesRaw(requestParameters: PostEcertificateLocationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Ecertificate Location Types. <p><strong>OperationId:</strong>postEcertificateLocationTypes</p>
      * Create Ecertificate Location Types
      */
-    postEcertificateLocationTypes(requestParameters: PostEcertificateLocationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postEcertificateLocationTypes(requestParameters: PostEcertificateLocationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Gender Types. <p><strong>OperationId:</strong>postGenderTypes</p>
      * Create Gender Types
      */
-    postGenderTypesRaw(requestParameters: PostGenderTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGenderTypesRaw(requestParameters: PostGenderTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Gender Types. <p><strong>OperationId:</strong>postGenderTypes</p>
      * Create Gender Types
      */
-    postGenderTypes(requestParameters: PostGenderTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGenderTypes(requestParameters: PostGenderTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Guest Statuses. <p><strong>OperationId:</strong>postGuestStatuses</p>
      * Create Guest Statuses
      */
-    postGuestStatusesRaw(requestParameters: PostGuestStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGuestStatusesRaw(requestParameters: PostGuestStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Guest Statuses. <p><strong>OperationId:</strong>postGuestStatuses</p>
      * Create Guest Statuses
      */
-    postGuestStatuses(requestParameters: PostGuestStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGuestStatuses(requestParameters: PostGuestStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Guest Titles. <p><strong>OperationId:</strong>postGuestTitles</p>
      * Create Guest Titles
      */
-    postGuestTitlesRaw(requestParameters: PostGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGuestTitlesRaw(requestParameters: PostGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Guest Titles. <p><strong>OperationId:</strong>postGuestTitles</p>
      * Create Guest Titles
      */
-    postGuestTitles(requestParameters: PostGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGuestTitles(requestParameters: PostGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Guest Types. <p><strong>OperationId:</strong>postGuestTypes</p>
      * Create Guest Types
      */
-    postGuestTypesRaw(requestParameters: PostGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGuestTypesRaw(requestParameters: PostGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Guest Types. <p><strong>OperationId:</strong>postGuestTypes</p>
      * Create Guest Types
      */
-    postGuestTypes(requestParameters: PostGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGuestTypes(requestParameters: PostGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Identification Types. <p><strong>OperationId:</strong>postIdentificationTypes</p>
      * Create Identification Types
      */
-    postIdentificationTypesRaw(requestParameters: PostIdentificationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postIdentificationTypesRaw(requestParameters: PostIdentificationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Identification Types. <p><strong>OperationId:</strong>postIdentificationTypes</p>
      * Create Identification Types
      */
-    postIdentificationTypes(requestParameters: PostIdentificationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postIdentificationTypes(requestParameters: PostIdentificationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Immigration Statuses. <p><strong>OperationId:</strong>postImmigrationStatuses</p>
      * Create Immigration Statuses
      */
-    postImmigrationStatusesRaw(requestParameters: PostImmigrationStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postImmigrationStatusesRaw(requestParameters: PostImmigrationStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Immigration Statuses. <p><strong>OperationId:</strong>postImmigrationStatuses</p>
      * Create Immigration Statuses
      */
-    postImmigrationStatuses(requestParameters: PostImmigrationStatusesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postImmigrationStatuses(requestParameters: PostImmigrationStatusesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Industry Codes. <p><strong>OperationId:</strong>postIndustryCodes</p>
      * Create Industry Codes
      */
-    postIndustryCodesRaw(requestParameters: PostIndustryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postIndustryCodesRaw(requestParameters: PostIndustryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Industry Codes. <p><strong>OperationId:</strong>postIndustryCodes</p>
      * Create Industry Codes
      */
-    postIndustryCodes(requestParameters: PostIndustryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postIndustryCodes(requestParameters: PostIndustryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Influence Codes. <p><strong>OperationId:</strong>postInfluenceCodes</p>
      * Create Influence Codes
      */
-    postInfluenceCodesRaw(requestParameters: PostInfluenceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postInfluenceCodesRaw(requestParameters: PostInfluenceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Influence Codes. <p><strong>OperationId:</strong>postInfluenceCodes</p>
      * Create Influence Codes
      */
-    postInfluenceCodes(requestParameters: PostInfluenceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postInfluenceCodes(requestParameters: PostInfluenceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Keyword Types. <p><strong>OperationId:</strong>postKeywordTypes</p>
      * Create Keyword Types
      */
-    postKeywordTypesRaw(requestParameters: PostKeywordTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postKeywordTypesRaw(requestParameters: PostKeywordTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Keyword Types. <p><strong>OperationId:</strong>postKeywordTypes</p>
      * Create Keyword Types
      */
-    postKeywordTypes(requestParameters: PostKeywordTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postKeywordTypes(requestParameters: PostKeywordTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Mailing Action Codes. <p><strong>OperationId:</strong>postMailingActionCodes</p>
      * Create Mailing Action Codes
      */
-    postMailingActionCodesRaw(requestParameters: PostMailingActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMailingActionCodesRaw(requestParameters: PostMailingActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Mailing Action Codes. <p><strong>OperationId:</strong>postMailingActionCodes</p>
      * Create Mailing Action Codes
      */
-    postMailingActionCodes(requestParameters: PostMailingActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMailingActionCodes(requestParameters: PostMailingActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Membership Claim Origins. <p><strong>OperationId:</strong>postMembershipClaimOrigins</p>
      * Create Membership Claim Origins
      */
-    postMembershipClaimOriginsRaw(requestParameters: PostMembershipClaimOriginsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipClaimOriginsRaw(requestParameters: PostMembershipClaimOriginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Membership Claim Origins. <p><strong>OperationId:</strong>postMembershipClaimOrigins</p>
      * Create Membership Claim Origins
      */
-    postMembershipClaimOrigins(requestParameters: PostMembershipClaimOriginsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipClaimOrigins(requestParameters: PostMembershipClaimOriginsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Membership Claim Types. <p><strong>OperationId:</strong>postMembershipClaimTypes</p>
      * Create Membership Claim Types
      */
-    postMembershipClaimTypesRaw(requestParameters: PostMembershipClaimTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipClaimTypesRaw(requestParameters: PostMembershipClaimTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Membership Claim Types. <p><strong>OperationId:</strong>postMembershipClaimTypes</p>
      * Create Membership Claim Types
      */
-    postMembershipClaimTypes(requestParameters: PostMembershipClaimTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipClaimTypes(requestParameters: PostMembershipClaimTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Membership Enrollment Codes. <p><strong>OperationId:</strong>postMembershipEnrollmentCodes</p>
      * Create Membership Enrollment Codes
      */
-    postMembershipEnrollmentCodesRaw(requestParameters: PostMembershipEnrollmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipEnrollmentCodesRaw(requestParameters: PostMembershipEnrollmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Membership Enrollment Codes. <p><strong>OperationId:</strong>postMembershipEnrollmentCodes</p>
      * Create Membership Enrollment Codes
      */
-    postMembershipEnrollmentCodes(requestParameters: PostMembershipEnrollmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipEnrollmentCodes(requestParameters: PostMembershipEnrollmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Membership Status Codes. <p><strong>OperationId:</strong>postMembershipStatusCodes</p>
      * Create Membership Status Codes
      */
-    postMembershipStatusCodesRaw(requestParameters: PostMembershipStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipStatusCodesRaw(requestParameters: PostMembershipStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Membership Status Codes. <p><strong>OperationId:</strong>postMembershipStatusCodes</p>
      * Create Membership Status Codes
      */
-    postMembershipStatusCodes(requestParameters: PostMembershipStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipStatusCodes(requestParameters: PostMembershipStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Nationalities. <p><strong>OperationId:</strong>postNationalities</p>
      * Create Nationalities
      */
-    postNationalitiesRaw(requestParameters: PostNationalitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postNationalitiesRaw(requestParameters: PostNationalitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Nationalities. <p><strong>OperationId:</strong>postNationalities</p>
      * Create Nationalities
      */
-    postNationalities(requestParameters: PostNationalitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postNationalities(requestParameters: PostNationalitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Owner Teams. <p><strong>OperationId:</strong>postOwnerTeams</p>
      * Create Owner Teams
      */
-    postOwnerTeamsRaw(requestParameters: PostOwnerTeamsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postOwnerTeamsRaw(requestParameters: PostOwnerTeamsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Owner Teams. <p><strong>OperationId:</strong>postOwnerTeams</p>
      * Create Owner Teams
      */
-    postOwnerTeams(requestParameters: PostOwnerTeamsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postOwnerTeams(requestParameters: PostOwnerTeamsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Pay Days. <p><strong>OperationId:</strong>postPayDays</p>
      * Create Pay Days
      */
-    postPayDaysRaw(requestParameters: PostPayDaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postPayDaysRaw(requestParameters: PostPayDaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Pay Days. <p><strong>OperationId:</strong>postPayDays</p>
      * Create Pay Days
      */
-    postPayDays(requestParameters: PostPayDaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postPayDays(requestParameters: PostPayDaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Profile Inactive Reasons. <p><strong>OperationId:</strong>postProfileInactiveReasons</p>
      * Create Profile Inactive Reasons
      */
-    postProfileInactiveReasonsRaw(requestParameters: PostProfileInactiveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postProfileInactiveReasonsRaw(requestParameters: PostProfileInactiveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Profile Inactive Reasons. <p><strong>OperationId:</strong>postProfileInactiveReasons</p>
      * Create Profile Inactive Reasons
      */
-    postProfileInactiveReasons(requestParameters: PostProfileInactiveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postProfileInactiveReasons(requestParameters: PostProfileInactiveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Profile Restriction Reasons. <p><strong>OperationId:</strong>postProfileRestrictionReasons</p>
      * Create Profile Restriction Reasons
      */
-    postProfileRestrictionReasonsRaw(requestParameters: PostProfileRestrictionReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postProfileRestrictionReasonsRaw(requestParameters: PostProfileRestrictionReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Profile Restriction Reasons. <p><strong>OperationId:</strong>postProfileRestrictionReasons</p>
      * Create Profile Restriction Reasons
      */
-    postProfileRestrictionReasons(requestParameters: PostProfileRestrictionReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postProfileRestrictionReasons(requestParameters: PostProfileRestrictionReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Sources. <p><strong>OperationId:</strong>postSources</p>
      * Create Sources
      */
-    postSourcesRaw(requestParameters: PostSourcesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postSourcesRaw(requestParameters: PostSourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Sources. <p><strong>OperationId:</strong>postSources</p>
      * Create Sources
      */
-    postSources(requestParameters: PostSourcesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postSources(requestParameters: PostSourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create States. <p><strong>OperationId:</strong>postStates</p>
      * Create States
      */
-    postStatesRaw(requestParameters: PostStatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postStatesRaw(requestParameters: PostStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create States. <p><strong>OperationId:</strong>postStates</p>
      * Create States
      */
-    postStates(requestParameters: PostStatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postStates(requestParameters: PostStatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Territories. <p><strong>OperationId:</strong>postTerritories</p>
      * Create Territories
      */
-    postTerritoriesRaw(requestParameters: PostTerritoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTerritoriesRaw(requestParameters: PostTerritoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Territories. <p><strong>OperationId:</strong>postTerritories</p>
      * Create Territories
      */
-    postTerritories(requestParameters: PostTerritoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTerritories(requestParameters: PostTerritoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Titles. <p><strong>OperationId:</strong>postTitles</p>
      * Create Titles
      */
-    postTitlesRaw(requestParameters: PostTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTitlesRaw(requestParameters: PostTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Titles. <p><strong>OperationId:</strong>postTitles</p>
      * Create Titles
      */
-    postTitles(requestParameters: PostTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTitles(requestParameters: PostTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Travel Agent Types. <p><strong>OperationId:</strong>postTravelAgentTypes</p>
      * Create Travel Agent Types
      */
-    postTravelAgentTypesRaw(requestParameters: PostTravelAgentTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTravelAgentTypesRaw(requestParameters: PostTravelAgentTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Travel Agent Types. <p><strong>OperationId:</strong>postTravelAgentTypes</p>
      * Create Travel Agent Types
      */
-    postTravelAgentTypes(requestParameters: PostTravelAgentTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTravelAgentTypes(requestParameters: PostTravelAgentTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create VIP Levels. <p><strong>OperationId:</strong>postVIPLevels</p>
      * Create VIP Levels
      */
-    postVIPLevelsRaw(requestParameters: PostVIPLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postVIPLevelsRaw(requestParameters: PostVIPLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create VIP Levels. <p><strong>OperationId:</strong>postVIPLevels</p>
      * Create VIP Levels
      */
-    postVIPLevels(requestParameters: PostVIPLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postVIPLevels(requestParameters: PostVIPLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Account Priorities. <p><strong>OperationId:</strong>putAccountPriorities</p>
      * Change Account Priorities
      */
-    putAccountPrioritiesRaw(requestParameters: PutAccountPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAccountPrioritiesRaw(requestParameters: PutAccountPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Account Priorities. <p><strong>OperationId:</strong>putAccountPriorities</p>
      * Change Account Priorities
      */
-    putAccountPriorities(requestParameters: PutAccountPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAccountPriorities(requestParameters: PutAccountPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Account Types. <p><strong>OperationId:</strong>putAccountTypes</p>
      * Change Account Types
      */
-    putAccountTypesRaw(requestParameters: PutAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAccountTypesRaw(requestParameters: PutAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Account Types. <p><strong>OperationId:</strong>putAccountTypes</p>
      * Change Account Types
      */
-    putAccountTypes(requestParameters: PutAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAccountTypes(requestParameters: PutAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update an existing Address type. <p><strong>OperationId:</strong>putAddressTypes</p>
      * Change an existing Address type
      */
-    putAddressTypesRaw(requestParameters: PutAddressTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAddressTypesRaw(requestParameters: PutAddressTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update an existing Address type. <p><strong>OperationId:</strong>putAddressTypes</p>
      * Change an existing Address type
      */
-    putAddressTypes(requestParameters: PutAddressTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAddressTypes(requestParameters: PutAddressTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Company Types. <p><strong>OperationId:</strong>putCompanyTypes</p>
      * Change Company Types
      */
-    putCompanyTypesRaw(requestParameters: PutCompanyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCompanyTypesRaw(requestParameters: PutCompanyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Company Types. <p><strong>OperationId:</strong>putCompanyTypes</p>
      * Change Company Types
      */
-    putCompanyTypes(requestParameters: PutCompanyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCompanyTypes(requestParameters: PutCompanyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Competition Codes. <p><strong>OperationId:</strong>putCompetitionCodes</p>
      * Change Competition Codes
      */
-    putCompetitionCodesRaw(requestParameters: PutCompetitionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCompetitionCodesRaw(requestParameters: PutCompetitionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Competition Codes. <p><strong>OperationId:</strong>putCompetitionCodes</p>
      * Change Competition Codes
      */
-    putCompetitionCodes(requestParameters: PutCompetitionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCompetitionCodes(requestParameters: PutCompetitionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Distance Types. <p><strong>OperationId:</strong>putDistanceTypes</p>
      * Change Distance Types
      */
-    putDistanceTypesRaw(requestParameters: PutDistanceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDistanceTypesRaw(requestParameters: PutDistanceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Distance Types. <p><strong>OperationId:</strong>putDistanceTypes</p>
      * Change Distance Types
      */
-    putDistanceTypes(requestParameters: PutDistanceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDistanceTypes(requestParameters: PutDistanceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Districts. <p><strong>OperationId:</strong>putDistricts</p>
      * Change Districts
      */
-    putDistrictsRaw(requestParameters: PutDistrictsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDistrictsRaw(requestParameters: PutDistrictsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Districts. <p><strong>OperationId:</strong>putDistricts</p>
      * Change Districts
      */
-    putDistricts(requestParameters: PutDistrictsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDistricts(requestParameters: PutDistrictsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Gender Type. <p><strong>OperationId:</strong>putGenderTypes</p>
      * Change Gender Types
      */
-    putGenderTypesRaw(requestParameters: PutGenderTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GenderTypesToChange>>;
+    putGenderTypesRaw(requestParameters: PutGenderTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GenderTypesToChange>>;
     /**
      * Use this API to update Gender Type. <p><strong>OperationId:</strong>putGenderTypes</p>
      * Change Gender Types
      */
-    putGenderTypes(requestParameters: PutGenderTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GenderTypesToChange>;
+    putGenderTypes(requestParameters: PutGenderTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GenderTypesToChange>;
     /**
      * Use this API to update Guest Titles. <p><strong>OperationId:</strong>putGuestTitles</p>
      * Change Guest Titles
      */
-    putGuestTitlesRaw(requestParameters: PutGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putGuestTitlesRaw(requestParameters: PutGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Guest Titles. <p><strong>OperationId:</strong>putGuestTitles</p>
      * Change Guest Titles
      */
-    putGuestTitles(requestParameters: PutGuestTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putGuestTitles(requestParameters: PutGuestTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Identification Types. <p><strong>OperationId:</strong>putIdentificationTypes</p>
      * Change Identification Types
      */
-    putIdentificationTypesRaw(requestParameters: PutIdentificationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putIdentificationTypesRaw(requestParameters: PutIdentificationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Identification Types. <p><strong>OperationId:</strong>putIdentificationTypes</p>
      * Change Identification Types
      */
-    putIdentificationTypes(requestParameters: PutIdentificationTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putIdentificationTypes(requestParameters: PutIdentificationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Industry Codes. <p><strong>OperationId:</strong>putIndustryCodes</p>
      * Change Industry Codes
      */
-    putIndustryCodesRaw(requestParameters: PutIndustryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putIndustryCodesRaw(requestParameters: PutIndustryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Industry Codes. <p><strong>OperationId:</strong>putIndustryCodes</p>
      * Change Industry Codes
      */
-    putIndustryCodes(requestParameters: PutIndustryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putIndustryCodes(requestParameters: PutIndustryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Influence Codes. <p><strong>OperationId:</strong>putInfluenceCodes</p>
      * Change Influence Codes
      */
-    putInfluenceCodesRaw(requestParameters: PutInfluenceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putInfluenceCodesRaw(requestParameters: PutInfluenceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Influence Codes. <p><strong>OperationId:</strong>putInfluenceCodes</p>
      * Change Influence Codes
      */
-    putInfluenceCodes(requestParameters: PutInfluenceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putInfluenceCodes(requestParameters: PutInfluenceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Keyword Types. <p><strong>OperationId:</strong>putKeywordTypes</p>
      * Change Keyword Types
      */
-    putKeywordTypesRaw(requestParameters: PutKeywordTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putKeywordTypesRaw(requestParameters: PutKeywordTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Keyword Types. <p><strong>OperationId:</strong>putKeywordTypes</p>
      * Change Keyword Types
      */
-    putKeywordTypes(requestParameters: PutKeywordTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putKeywordTypes(requestParameters: PutKeywordTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Nationalities. <p><strong>OperationId:</strong>putNationalities</p>
      * Change Nationalities
      */
-    putNationalitiesRaw(requestParameters: PutNationalitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putNationalitiesRaw(requestParameters: PutNationalitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Nationalities. <p><strong>OperationId:</strong>putNationalities</p>
      * Change Nationalities
      */
-    putNationalities(requestParameters: PutNationalitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putNationalities(requestParameters: PutNationalitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Pay Days. <p><strong>OperationId:</strong>putPayDays</p>
      * Change Pay Days
      */
-    putPayDaysRaw(requestParameters: PutPayDaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPayDaysRaw(requestParameters: PutPayDaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Pay Days. <p><strong>OperationId:</strong>putPayDays</p>
      * Change Pay Days
      */
-    putPayDays(requestParameters: PutPayDaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPayDays(requestParameters: PutPayDaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Profile Inactive Reasons. <p><strong>OperationId:</strong>putProfileInactiveReasons</p>
      * Change Profile Inactive Reasons
      */
-    putProfileInactiveReasonsRaw(requestParameters: PutProfileInactiveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putProfileInactiveReasonsRaw(requestParameters: PutProfileInactiveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Profile Inactive Reasons. <p><strong>OperationId:</strong>putProfileInactiveReasons</p>
      * Change Profile Inactive Reasons
      */
-    putProfileInactiveReasons(requestParameters: PutProfileInactiveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putProfileInactiveReasons(requestParameters: PutProfileInactiveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Profile Restriction Reasons. <p><strong>OperationId:</strong>putProfileRestrictionReasons</p>
      * Change Profile Restriction Reasons
      */
-    putProfileRestrictionReasonsRaw(requestParameters: PutProfileRestrictionReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putProfileRestrictionReasonsRaw(requestParameters: PutProfileRestrictionReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Profile Restriction Reasons. <p><strong>OperationId:</strong>putProfileRestrictionReasons</p>
      * Change Profile Restriction Reasons
      */
-    putProfileRestrictionReasons(requestParameters: PutProfileRestrictionReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putProfileRestrictionReasons(requestParameters: PutProfileRestrictionReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Sources. <p><strong>OperationId:</strong>putSources</p>
      * Change Sources
      */
-    putSourcesRaw(requestParameters: PutSourcesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putSourcesRaw(requestParameters: PutSourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Sources. <p><strong>OperationId:</strong>putSources</p>
      * Change Sources
      */
-    putSources(requestParameters: PutSourcesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putSources(requestParameters: PutSourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Territories. <p><strong>OperationId:</strong>putTerritories</p>
      * Change Territories
      */
-    putTerritoriesRaw(requestParameters: PutTerritoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTerritoriesRaw(requestParameters: PutTerritoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Territories. <p><strong>OperationId:</strong>putTerritories</p>
      * Change Territories
      */
-    putTerritories(requestParameters: PutTerritoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTerritories(requestParameters: PutTerritoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Titles. <p><strong>OperationId:</strong>putTitles</p>
      * Change Titles
      */
-    putTitlesRaw(requestParameters: PutTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTitlesRaw(requestParameters: PutTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Titles. <p><strong>OperationId:</strong>putTitles</p>
      * Change Titles
      */
-    putTitles(requestParameters: PutTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTitles(requestParameters: PutTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update VIP Levels. <p><strong>OperationId:</strong>putVIPLevels</p>
      * Change VIP Levels
      */
-    putVIPLevelsRaw(requestParameters: PutVIPLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putVIPLevelsRaw(requestParameters: PutVIPLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update VIP Levels. <p><strong>OperationId:</strong>putVIPLevels</p>
      * Change VIP Levels
      */
-    putVIPLevels(requestParameters: PutVIPLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putVIPLevels(requestParameters: PutVIPLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Alternate Language Guest Titles. <p><strong>OperationId:</strong>removeAlternateLanguageGuestTitles</p>
      * Delete Alternate Language Guest Titles

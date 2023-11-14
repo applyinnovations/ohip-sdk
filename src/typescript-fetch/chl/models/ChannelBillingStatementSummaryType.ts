@@ -142,13 +142,13 @@ export function ChannelBillingStatementSummaryTypeToJSON(value?: ChannelBillingS
     return {
         
         'accountCodeList': CodeListTypeToJSON(value.accountCodeList),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'dirty': value.dirty,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'generated': value.generated,
-        'lockDate': value.lockDate === undefined ? undefined : (value.lockDate.toISOString().substr(0,10)),
+        'lockDate': value.lockDate === undefined ? undefined : (value.lockDate.toISOString().substring(0,10)),
         'note': value.note,
-        'statementDate': value.statementDate === undefined ? undefined : (value.statementDate.toISOString().substr(0,10)),
+        'statementDate': value.statementDate === undefined ? undefined : (value.statementDate.toISOString().substring(0,10)),
         'statementId': UniqueIDTypeToJSON(value.statementId),
         'totalAmount': CurrencyAmountTypeToJSON(value.totalAmount),
     };

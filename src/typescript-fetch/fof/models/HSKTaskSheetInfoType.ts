@@ -158,7 +158,7 @@ export function HSKTaskSheetInfoTypeToJSON(value?: HSKTaskSheetInfoType | null):
         'attendant': value.attendant,
         'averageActualTimeInSecs': value.averageActualTimeInSecs,
         'roomSummary': value.roomSummary === undefined ? undefined : ((value.roomSummary as Array<any>).map(HSKTaskSheetInfoTypeRoomSummaryInnerToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0,10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
         'taskSeqNo': value.taskSeqNo,
         'taskSheetDetails': HSKTaskSheetDetailsInfoTypeToJSON(value.taskSheetDetails),
         'taskSheetNo': value.taskSheetNo,

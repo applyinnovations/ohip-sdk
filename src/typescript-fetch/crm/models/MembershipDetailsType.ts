@@ -127,8 +127,8 @@ export function MembershipDetailsTypeToJSON(value?: MembershipDetailsType | null
     }
     return {
         
-        'cardExpirationDate': value.cardExpirationDate === undefined ? undefined : (value.cardExpirationDate.toISOString().substr(0,10)),
-        'joinedDate': value.joinedDate === undefined ? undefined : (value.joinedDate.toISOString().substr(0,10)),
+        'cardExpirationDate': value.cardExpirationDate === undefined ? undefined : (value.cardExpirationDate.toISOString().substring(0,10)),
+        'joinedDate': value.joinedDate === undefined ? undefined : (value.joinedDate.toISOString().substring(0,10)),
         'membershipCardNo': value.membershipCardNo,
         'membershipId': UniqueIDTypeToJSON(value.membershipId),
         'membershipLevel': value.membershipLevel,

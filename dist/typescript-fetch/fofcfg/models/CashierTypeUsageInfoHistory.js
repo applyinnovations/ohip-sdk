@@ -45,7 +45,7 @@ function CashierTypeUsageInfoHistoryToJSON(value) {
         return null;
     }
     return {
-        'lastOpened': value.lastOpened === undefined ? undefined : (value.lastOpened.toISOString().substr(0, 10)),
+        'lastOpened': value.lastOpened === undefined ? undefined : (value.lastOpened.toISOString().substring(0, 10)),
         'timesOpened': value.timesOpened,
     };
 }

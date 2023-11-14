@@ -114,7 +114,7 @@ function AutoGenerateTaskSheetsCriteriaTypeToJSON(value) {
         'status': (0, TaskSheetGenerationStatusTypesType_1.TaskSheetGenerationStatusTypesTypeToJSON)(value.status),
         'stayOverFirst': value.stayOverFirst,
         'taskCodes': value.taskCodes,
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0, 10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
         'templateCode': value.templateCode,
         'templateDescription': value.templateDescription,
         'turndown': value.turndown,

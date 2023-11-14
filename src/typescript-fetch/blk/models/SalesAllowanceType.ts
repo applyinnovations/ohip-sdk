@@ -118,7 +118,7 @@ export function SalesAllowanceTypeToJSON(value?: SalesAllowanceType | null): any
         'allotmentDeductQty': value.allotmentDeductQty,
         'available': value.available,
         'booked': value.booked,
-        'ceilingDate': value.ceilingDate === undefined ? undefined : (value.ceilingDate.toISOString().substr(0,10)),
+        'ceilingDate': value.ceilingDate === undefined ? undefined : (value.ceilingDate.toISOString().substring(0,10)),
         'ceilingId': SalesAllowanceIDTypeToJSON(value.ceilingId),
         'hotelId': value.hotelId,
         'overBooked': value.overBooked,

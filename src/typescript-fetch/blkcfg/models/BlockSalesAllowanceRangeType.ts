@@ -158,7 +158,7 @@ export function BlockSalesAllowanceRangeTypeToJSON(value?: BlockSalesAllowanceRa
     return {
         
         'cutoffDays': value.cutoffDays,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'friday': value.friday,
         'hotelId': value.hotelId,
         'incrementFlag': value.incrementFlag,
@@ -166,7 +166,7 @@ export function BlockSalesAllowanceRangeTypeToJSON(value?: BlockSalesAllowanceRa
         'overwriteExistingSalesAllowance': value.overwriteExistingSalesAllowance,
         'quantity': value.quantity,
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

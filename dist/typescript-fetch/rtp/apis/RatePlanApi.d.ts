@@ -10,54 +10,54 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockRatePlans, CopyPromotionGroupsRequest, CopyRatePlansRequest, CopyTieredRateSchedulesRequest, DistributeNegotiatedRatesRequest, GetBestAvailableRatesDetails, HotelPackageForecastGroups, ManageRatePlansSchedulesRequest, MassRateChangeStatus, NegotiatedRates, NegotiatedRatesDetails, OperaVersion, PackageFormulaRanges, PackageGroupsInfo, PackageInfo, PackageRates, PackagesCopy, PackagesInfo, PostBestAvailableRatesRequest, PostHotelPackageForecastGroupsRequest, PostNegotiatedRatesRequest, PostPackageFormulaRangesRequest, PostRatePlanRequest, PostRatePlanSchedulesRequest, PostRateStrategyRequest, PromotionGroups, PropertyPromotionCodes, PutHotelPackageForecastGroupsRequest, PutPackageGroupRequest, PutPackageRequest, PutPromotionCodeRequest, PutPromotionGroupRequest, PutRateGroupsRequest, PutRatePlanPackagesRequest, PutRatePlanPostingRhythmsRequest, PutRatePlanSchedulesRequest, PutTemplatePackageForecastGroupsRequest, PutTemplatePromotionCodeRequest, RateActivityLog, RateGroupsInfo, RatePlanInfo, RatePlanScheduleYieldAdjustments, RatePlanSchedulesInfo, RatePlansCopyDetails, RatePlansSummary, RateStrategies, SetDailyRatePlanScheduleRangeRequest, SetMassRatePlanSchedulesRequest, SetRateAccessExclusionsRequest, SetRateStrategiesRequest, SplitRatePlanScheduleRequest, Status, TemplatePackageForecastGroups, TemplatePromotionCodes, YieldAdjustments } from '../models';
+import type { BlockRatePlans, CreateBestAvailableRates, DailyRatePlanScheduleRange, DistributedNegotiatedRates, GetBestAvailableRatesDetails, HotelPackageForecastGroups, HotelPackageForecastGroupsToChange, HotelPackageForecastGroupsToCreate, MassRateChangeStatus, MassRatePlanSchedules, NegotiatedRates, NegotiatedRatesDetails, OperaVersion, PackageFormulaRanges, PackageGroup, PackageGroupsInfo, PackageInfo, PackageRates, PackagesCopy, PackagesInfo, PromotionGroup, PromotionGroups, PromotionGroupsCopy, PropertyPromotionCode, PropertyPromotionCodes, RateAccessExclusions, RateActivityLog, RateGroups, RateGroupsInfo, RatePlan, RatePlanInfo, RatePlanPackages, RatePlanPostingRhythms, RatePlanScheduleToSplit, RatePlanScheduleYieldAdjustments, RatePlanSchedules, RatePlanSchedulesInfo, RatePlanSchedulesToCreate, RatePlansCopy, RatePlansCopyDetails, RatePlansSchedulesToManage, RatePlansSummary, RateStrategies, RateStrategiesToSet, RateStrategy, Status, TemplatePackageForecastGroups, TemplatePromotionCode, TemplatePromotionCodes, TieredRateSchedulesCopy, YieldAdjustments } from '../models/index';
 export interface CopyPackagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packagesCopy?: PackagesCopy;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packagesCopy: PackagesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyPromotionGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    promotionGroupsCopy?: CopyPromotionGroupsRequest;
+export interface CopyPromotionGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    promotionGroupsCopy: PromotionGroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyRatePlansOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlansCopy?: CopyRatePlansRequest;
+export interface CopyRatePlansRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlansCopy: RatePlansCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTieredRateSchedulesOperationRequest {
-    destinationTierId?: string;
-    sourceTierId?: string;
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    tieredRateSchedulesCopy?: CopyTieredRateSchedulesRequest;
+export interface CopyTieredRateSchedulesRequest {
+    destinationTierId: string;
+    sourceTierId: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    tieredRateSchedulesCopy: TieredRateSchedulesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBestAvailableRatesRequest {
-    hotelId?: string;
-    code?: Array<string>;
-    end?: Date;
-    start?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    code: Array<string>;
+    end: Date;
+    start: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -77,13 +77,13 @@ export interface DeleteBestAvailableRatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteDailyRatePlanScheduleRangeRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    startDate: Date;
+    endDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomType?: Array<string>;
     roomClass?: Array<string>;
     friday?: boolean;
@@ -99,76 +99,76 @@ export interface DeleteDailyRatePlanScheduleRangeRequest {
     acceptLanguage?: string;
 }
 export interface DeleteHotelPackageForecastGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMassRateChangeLogRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteNegotiatedRatesRequest {
-    ratePlanId?: string;
-    startDate?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanId: string;
+    startDate: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePackageRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePackageFormulaRangesRequest {
-    packageFormulaRangeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageFormulaRangeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     amount?: number;
     currencyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePackageGroupsRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePromotionGroupRequest {
-    groupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    groupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRateAccessExclusionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateCode?: string;
     allowCancelReservation?: Array<boolean>;
     allowCreateReservation?: Array<boolean>;
@@ -183,50 +183,50 @@ export interface DeleteRateAccessExclusionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRateGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanPackagesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packageCode?: Array<string>;
     packageGroup?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanPostingRhythmsRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    ratePlanScheduleIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    ratePlanScheduleIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     tierID?: number;
     seasonCode?: string;
     start?: Date;
@@ -243,53 +243,53 @@ export interface DeleteRatePlanSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRatePlanServiceCacheRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRateStrategyRequest {
-    rateStrategyId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateStrategyId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplatePackageForecastGroupsRequest {
-    packageForecastGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageForecastGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DistributeNegotiatedRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    distributedNegotiatedRates?: DistributeNegotiatedRatesRequest;
+export interface DistributeNegotiatedRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    distributedNegotiatedRates: DistributedNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DownloadExternalRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBestAvailableRatesRequest {
-    hotelId?: string;
-    startDay?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    startDay: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     rateCode?: Array<string>;
@@ -300,10 +300,10 @@ export interface GetBestAvailableRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelPackageForecastGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -314,19 +314,19 @@ export interface GetHotelPackageForecastGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMassRateChangeStatusRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     detailStatus?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     startDate?: Date;
     endDate?: Date;
@@ -337,11 +337,11 @@ export interface GetNegotiatedRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
-    rateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     startDate?: Date;
     endDate?: Date;
@@ -352,10 +352,10 @@ export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesForGivenProfileRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     startDate?: Date;
     endDate?: Date;
@@ -368,29 +368,29 @@ export interface GetNegotiatedRatesForGivenProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetPackageFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPackageFormulaRangesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taxRangeType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPackageGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     code?: string;
@@ -399,19 +399,19 @@ export interface GetPackageGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageRatesRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPackagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     hotelId?: Array<string>;
     packageCode?: Array<string>;
@@ -434,10 +434,10 @@ export interface GetPackagesRequest {
     acceptLanguage?: string;
 }
 export interface GetPromotionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     promotionCode?: Array<string>;
@@ -449,10 +449,10 @@ export interface GetPromotionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetPromotionGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     code?: Array<string>;
@@ -464,13 +464,13 @@ export interface GetPromotionGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetRateActivityLogRequest {
-    hotelId?: string;
-    module?: GetRateActivityLogModuleEnum;
-    parameterName?: Array<string>;
-    parameterValue?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    module: GetRateActivityLogModuleEnum;
+    parameterName: Array<string>;
+    parameterValue: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     activityGroup?: string;
@@ -484,10 +484,10 @@ export interface GetRateActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetRateGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     code?: Array<string>;
@@ -497,20 +497,20 @@ export interface GetRateGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetRatePlanFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRatePlanScheduleYieldAdjustmentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     summaryInfo?: boolean;
     id?: string;
@@ -519,11 +519,11 @@ export interface GetRatePlanScheduleYieldAdjustmentsRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     excludeRatePlanPackage?: boolean;
     limit?: number;
     tierId?: number;
@@ -539,10 +539,10 @@ export interface GetRatePlanSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeRateInformation?: boolean;
     limit?: number;
     offset?: number;
@@ -563,20 +563,20 @@ export interface GetRatePlansRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansByHotelRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     fetchInstructions?: Set<GetRatePlansByHotelFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRatePlansForBlockRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: Array<string>;
     beginDate?: Date;
     endDate?: Date;
@@ -592,10 +592,10 @@ export interface GetRatePlansForBlockRequest {
     acceptLanguage?: string;
 }
 export interface GetRateStrategiesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     restrictionDate?: Date;
@@ -603,19 +603,19 @@ export interface GetRateStrategiesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePackageForecastGroupsRequest {
-    includeInactive?: boolean;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: boolean;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packageForecastGroupCode?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplatePromotionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: Array<string>;
@@ -628,366 +628,366 @@ export interface GetTemplatePromotionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetYieldAdjustmentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     currencyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ManageRatePlansSchedulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlansSchedulesToManage?: ManageRatePlansSchedulesRequest;
+export interface ManageRatePlansSchedulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlansSchedulesToManage: RatePlansSchedulesToManage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PingRatePlanServiceRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBestAvailableRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createBestAvailableRates?: PostBestAvailableRatesRequest;
+export interface PostBestAvailableRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createBestAvailableRates: CreateBestAvailableRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHotelPackageForecastGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelPackageForecastGroupsToCreate?: PostHotelPackageForecastGroupsRequest;
+export interface PostHotelPackageForecastGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelPackageForecastGroupsToCreate: HotelPackageForecastGroupsToCreate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostNegotiatedRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    negotiatedRates?: PostNegotiatedRatesRequest;
+export interface PostNegotiatedRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    negotiatedRates: NegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPackageRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageInfo?: PutPackageRequest;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageInfo: PackageInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostPackageFormulaRangesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageFormulaRanges?: PostPackageFormulaRangesRequest;
+export interface PostPackageFormulaRangesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageFormulaRanges: PackageFormulaRanges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPackageGroupRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageGroup?: PutPackageGroupRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageGroup: PackageGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPromotionCodeRequest {
-    promotionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyPromotionCode?: PutPromotionCodeRequest;
+    promotionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyPromotionCode: PropertyPromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPromotionGroupRequest {
-    groupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    promotionGroup?: PutPromotionGroupRequest;
+    groupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    promotionGroup: PromotionGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRateGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateGroups?: PutRateGroupsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateGroups: RateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRatePlanOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlan?: PostRatePlanRequest;
+export interface PostRatePlanRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlan: RatePlan;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRatePlanPackagesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPackages?: PutRatePlanPackagesRequest;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPackages: RatePlanPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRatePlanPostingRhythmsRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPostingRhythms?: PutRatePlanPostingRhythmsRequest;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPostingRhythms: RatePlanPostingRhythms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRatePlanSchedulesOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanSchedulesToCreate?: PostRatePlanSchedulesRequest;
+export interface PostRatePlanSchedulesRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanSchedulesToCreate: RatePlanSchedulesToCreate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRateStrategyOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateStrategy?: PostRateStrategyRequest;
+export interface PostRateStrategyRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateStrategy: RateStrategy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplatePackageForecastGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePackageForecastGroups?: PutTemplatePackageForecastGroupsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePackageForecastGroups: TemplatePackageForecastGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplatePromotionCodeRequest {
-    promotionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePromotionCode?: PutTemplatePromotionCodeRequest;
+    promotionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePromotionCode: TemplatePromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutHotelPackageForecastGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelPackageForecastGroupsToChange?: PutHotelPackageForecastGroupsRequest;
+export interface PutHotelPackageForecastGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelPackageForecastGroupsToChange: HotelPackageForecastGroupsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutNegotiatedRatesRequest {
-    rateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    negotiatedRates?: PostNegotiatedRatesRequest;
+    rateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    negotiatedRates: NegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPackageOperationRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageInfo?: PutPackageRequest;
+export interface PutPackageRequest {
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageInfo: PackageInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPackageFormulaRangesRequest {
-    packageFormulaRangeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageFormulaRanges?: PostPackageFormulaRangesRequest;
+    packageFormulaRangeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageFormulaRanges: PackageFormulaRanges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPackageGroupOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageGroup?: PutPackageGroupRequest;
+export interface PutPackageGroupRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageGroup: PackageGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPromotionCodeOperationRequest {
-    promotionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyPromotionCode?: PutPromotionCodeRequest;
+export interface PutPromotionCodeRequest {
+    promotionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyPromotionCode: PropertyPromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPromotionGroupOperationRequest {
-    groupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    promotionGroup?: PutPromotionGroupRequest;
+export interface PutPromotionGroupRequest {
+    groupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    promotionGroup: PromotionGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRateGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateGroups?: PutRateGroupsRequest;
+export interface PutRateGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateGroups: RateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlan?: PostRatePlanRequest;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlan: RatePlan;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRatePlanPackagesOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPackages?: PutRatePlanPackagesRequest;
+export interface PutRatePlanPackagesRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPackages: RatePlanPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRatePlanPostingRhythmsOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPostingRhythms?: PutRatePlanPostingRhythmsRequest;
+export interface PutRatePlanPostingRhythmsRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPostingRhythms: RatePlanPostingRhythms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRatePlanSchedulesOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanSchedules?: PutRatePlanSchedulesRequest;
+export interface PutRatePlanSchedulesRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanSchedules: RatePlanSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRateStrategyRequest {
-    rateStrategyId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateStrategy?: PostRateStrategyRequest;
+    rateStrategyId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateStrategy: RateStrategy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplatePackageForecastGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePackageForecastGroups?: PutTemplatePackageForecastGroupsRequest;
+export interface PutTemplatePackageForecastGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePackageForecastGroups: TemplatePackageForecastGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplatePromotionCodeOperationRequest {
-    promotionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePromotionCode?: PutTemplatePromotionCodeRequest;
+export interface PutTemplatePromotionCodeRequest {
+    promotionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePromotionCode: TemplatePromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetDailyRatePlanScheduleRangeOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyRatePlanScheduleRange?: SetDailyRatePlanScheduleRangeRequest;
+export interface SetDailyRatePlanScheduleRangeRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyRatePlanScheduleRange: DailyRatePlanScheduleRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetMassRatePlanSchedulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    massRatePlanSchedules?: SetMassRatePlanSchedulesRequest;
+export interface SetMassRatePlanSchedulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    massRatePlanSchedules: MassRatePlanSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetRateAccessExclusionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateAccessExclusions?: SetRateAccessExclusionsRequest;
+export interface SetRateAccessExclusionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateAccessExclusions: RateAccessExclusions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetRateStrategiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateStrategiesToSet?: SetRateStrategiesRequest;
+export interface SetRateStrategiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateStrategiesToSet: RateStrategiesToSet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SplitRatePlanScheduleOperationRequest {
-    scheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanScheduleToSplit?: SplitRatePlanScheduleRequest;
+export interface SplitRatePlanScheduleRequest {
+    scheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanScheduleToSplit: RatePlanScheduleToSplit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1009,32 +1009,32 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to copy promotions groups. <p><strong>OperationId:</strong>copyPromotionGroups</p>
      * Copy promotion groups
      */
-    copyPromotionGroupsRaw(requestParameters: CopyPromotionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyPromotionGroupsRaw(requestParameters: CopyPromotionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to copy promotions groups. <p><strong>OperationId:</strong>copyPromotionGroups</p>
      * Copy promotion groups
      */
-    copyPromotionGroups(requestParameters: CopyPromotionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyPromotionGroups(requestParameters: CopyPromotionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to copy Rate Plans. <p><strong>OperationId:</strong>copyRatePlans</p>
      * Copy rate plans
      */
-    copyRatePlansRaw(requestParameters: CopyRatePlansOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlansCopyDetails>>;
+    copyRatePlansRaw(requestParameters: CopyRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlansCopyDetails>>;
     /**
      * This API allows you to copy Rate Plans. <p><strong>OperationId:</strong>copyRatePlans</p>
      * Copy rate plans
      */
-    copyRatePlans(requestParameters: CopyRatePlansOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatePlansCopyDetails>;
+    copyRatePlans(requestParameters: CopyRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatePlansCopyDetails>;
     /**
      * This API allows you to copy tiered rate schedules. <p><strong>OperationId:</strong>copyTieredRateSchedules</p>
      * Copy tiered rate schedules
      */
-    copyTieredRateSchedulesRaw(requestParameters: CopyTieredRateSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTieredRateSchedulesRaw(requestParameters: CopyTieredRateSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to copy tiered rate schedules. <p><strong>OperationId:</strong>copyTieredRateSchedules</p>
      * Copy tiered rate schedules
      */
-    copyTieredRateSchedules(requestParameters: CopyTieredRateSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTieredRateSchedules(requestParameters: CopyTieredRateSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows to fetch Best Available rates for rate code(s). <p><strong>OperationId:</strong>deleteBestAvailableRates</p>
      * Delete Best Available Rates
@@ -1219,12 +1219,12 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to distribute negotiated Rate. <p><strong>OperationId:</strong>distributeNegotiatedRates</p>
      * Distribute negotiated rates
      */
-    distributeNegotiatedRatesRaw(requestParameters: DistributeNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    distributeNegotiatedRatesRaw(requestParameters: DistributeNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to distribute negotiated Rate. <p><strong>OperationId:</strong>distributeNegotiatedRates</p>
      * Distribute negotiated rates
      */
-    distributeNegotiatedRates(requestParameters: DistributeNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    distributeNegotiatedRates(requestParameters: DistributeNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to fetch external Rate Plan. <p><strong>OperationId:</strong>downloadExternalRatePlan</p>
      * Get external rate plan
@@ -1489,12 +1489,12 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan schedules. <p><strong>OperationId:</strong>manageRatePlansSchedules</p>
      * Manages rate plan schedules
      */
-    manageRatePlansSchedulesRaw(requestParameters: ManageRatePlansSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    manageRatePlansSchedulesRaw(requestParameters: ManageRatePlansSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update Rate Plan schedules. <p><strong>OperationId:</strong>manageRatePlansSchedules</p>
      * Manages rate plan schedules
      */
-    manageRatePlansSchedules(requestParameters: ManageRatePlansSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    manageRatePlansSchedules(requestParameters: ManageRatePlansSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to fetch Rate Plan Service version. <p><strong>OperationId:</strong>pingRatePlanService</p>
      * Get Rate plan service version
@@ -1509,32 +1509,32 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows to create Best Available rates for rate code(s). <p><strong>OperationId:</strong>postBestAvailableRates</p>
      * Create a Best Available Rates
      */
-    postBestAvailableRatesRaw(requestParameters: PostBestAvailableRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBestAvailableRatesRaw(requestParameters: PostBestAvailableRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows to create Best Available rates for rate code(s). <p><strong>OperationId:</strong>postBestAvailableRates</p>
      * Create a Best Available Rates
      */
-    postBestAvailableRates(requestParameters: PostBestAvailableRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBestAvailableRates(requestParameters: PostBestAvailableRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create package forecast groups. <p><strong>OperationId:</strong>postHotelPackageForecastGroups</p>
      * Create Hotel Package Forecast Groups
      */
-    postHotelPackageForecastGroupsRaw(requestParameters: PostHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHotelPackageForecastGroupsRaw(requestParameters: PostHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to create package forecast groups. <p><strong>OperationId:</strong>postHotelPackageForecastGroups</p>
      * Create Hotel Package Forecast Groups
      */
-    postHotelPackageForecastGroups(requestParameters: PostHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHotelPackageForecastGroups(requestParameters: PostHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create negotiated rate for a given profile. <p><strong>OperationId:</strong>postNegotiatedRates</p>
      * Create negotiated rates
      */
-    postNegotiatedRatesRaw(requestParameters: PostNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postNegotiatedRatesRaw(requestParameters: PostNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to create negotiated rate for a given profile. <p><strong>OperationId:</strong>postNegotiatedRates</p>
      * Create negotiated rates
      */
-    postNegotiatedRates(requestParameters: PostNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postNegotiatedRates(requestParameters: PostNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create a package. <p><strong>OperationId:</strong>postPackage</p>
      * Create package
@@ -1549,12 +1549,12 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create package formula ranges. <p><strong>OperationId:</strong>postPackageFormulaRanges</p>
      * Create package formula ranges
      */
-    postPackageFormulaRangesRaw(requestParameters: PostPackageFormulaRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postPackageFormulaRangesRaw(requestParameters: PostPackageFormulaRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to create package formula ranges. <p><strong>OperationId:</strong>postPackageFormulaRanges</p>
      * Create package formula ranges
      */
-    postPackageFormulaRanges(requestParameters: PostPackageFormulaRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postPackageFormulaRanges(requestParameters: PostPackageFormulaRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create package group. <p><strong>OperationId:</strong>postPackageGroup</p>
      * Create package group
@@ -1599,12 +1599,12 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * Use this API you to get Rate Plans for a given hotel.<p><strong>OperationId:</strong>postRatePlan</p>
      * Create rate plans
      */
-    postRatePlanRaw(requestParameters: PostRatePlanOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRatePlanRaw(requestParameters: PostRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API you to get Rate Plans for a given hotel.<p><strong>OperationId:</strong>postRatePlan</p>
      * Create rate plans
      */
-    postRatePlan(requestParameters: PostRatePlanOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRatePlan(requestParameters: PostRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create Rate Plan package. <p><strong>OperationId:</strong>postRatePlanPackages</p>
      * Create rate plan package
@@ -1629,22 +1629,22 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create Rate Plan pricing schedule. <p><strong>OperationId:</strong>postRatePlanSchedules</p>
      * Create rate plan schedules
      */
-    postRatePlanSchedulesRaw(requestParameters: PostRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRatePlanSchedulesRaw(requestParameters: PostRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to create Rate Plan pricing schedule. <p><strong>OperationId:</strong>postRatePlanSchedules</p>
      * Create rate plan schedules
      */
-    postRatePlanSchedules(requestParameters: PostRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRatePlanSchedules(requestParameters: PostRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create rate strategies. <p><strong>OperationId:</strong>postRateStrategy</p>
      * Create rate strategies
      */
-    postRateStrategyRaw(requestParameters: PostRateStrategyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRateStrategyRaw(requestParameters: PostRateStrategyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to create rate strategies. <p><strong>OperationId:</strong>postRateStrategy</p>
      * Create rate strategies
      */
-    postRateStrategy(requestParameters: PostRateStrategyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRateStrategy(requestParameters: PostRateStrategyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create Package Forecast groups template. <p><strong>OperationId:</strong>postTemplatePackageForecastGroups</p>
      * Create Template Package Forecast Groups
@@ -1669,12 +1669,12 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update package forecast groups. <p><strong>OperationId:</strong>putHotelPackageForecastGroups</p>
      * Change Hotel Package Forecast Groups
      */
-    putHotelPackageForecastGroupsRaw(requestParameters: PutHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putHotelPackageForecastGroupsRaw(requestParameters: PutHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update package forecast groups. <p><strong>OperationId:</strong>putHotelPackageForecastGroups</p>
      * Change Hotel Package Forecast Groups
      */
-    putHotelPackageForecastGroups(requestParameters: PutHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putHotelPackageForecastGroups(requestParameters: PutHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update negotiated rate for a given profile. <p><strong>OperationId:</strong>putNegotiatedRates</p>
      * Change negotiated rates
@@ -1689,12 +1689,12 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update a package. <p><strong>OperationId:</strong>putPackage</p>
      * Change the package
      */
-    putPackageRaw(requestParameters: PutPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPackageRaw(requestParameters: PutPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update a package. <p><strong>OperationId:</strong>putPackage</p>
      * Change the package
      */
-    putPackage(requestParameters: PutPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPackage(requestParameters: PutPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update package formula ranges. <p><strong>OperationId:</strong>putPackageFormulaRanges</p>
      * Change package formula ranges
@@ -1709,42 +1709,42 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to change package group. <p><strong>OperationId:</strong>putPackageGroup</p>
      * Change package group
      */
-    putPackageGroupRaw(requestParameters: PutPackageGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPackageGroupRaw(requestParameters: PutPackageGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to change package group. <p><strong>OperationId:</strong>putPackageGroup</p>
      * Change package group
      */
-    putPackageGroup(requestParameters: PutPackageGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPackageGroup(requestParameters: PutPackageGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update promotion codes. <p><strong>OperationId:</strong>putPromotionCode</p>
      * Change promotion codes
      */
-    putPromotionCodeRaw(requestParameters: PutPromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPromotionCodeRaw(requestParameters: PutPromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update promotion codes. <p><strong>OperationId:</strong>putPromotionCode</p>
      * Change promotion codes
      */
-    putPromotionCode(requestParameters: PutPromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPromotionCode(requestParameters: PutPromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update promotion groups. <p><strong>OperationId:</strong>putPromotionGroup</p>
      * Change promotion groups
      */
-    putPromotionGroupRaw(requestParameters: PutPromotionGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPromotionGroupRaw(requestParameters: PutPromotionGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update promotion groups. <p><strong>OperationId:</strong>putPromotionGroup</p>
      * Change promotion groups
      */
-    putPromotionGroup(requestParameters: PutPromotionGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPromotionGroup(requestParameters: PutPromotionGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update rate groups. <p><strong>OperationId:</strong>putRateGroups</p>
      * Change rate groups
      */
-    putRateGroupsRaw(requestParameters: PutRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRateGroupsRaw(requestParameters: PutRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update rate groups. <p><strong>OperationId:</strong>putRateGroups</p>
      * Change rate groups
      */
-    putRateGroups(requestParameters: PutRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRateGroups(requestParameters: PutRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Rate Plan information such as date range, linked room types, and rate controls for a given hotel. Use the putRatePlanSchedules operation to add or update the rate plan pricing schedule.<p><strong>OperationId:</strong>putRatePlan</p>
      * Change rate plan
@@ -1759,32 +1759,32 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan package. <p><strong>OperationId:</strong>putRatePlanPackages</p>
      * Change rate plan package
      */
-    putRatePlanPackagesRaw(requestParameters: PutRatePlanPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRatePlanPackagesRaw(requestParameters: PutRatePlanPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update Rate Plan package. <p><strong>OperationId:</strong>putRatePlanPackages</p>
      * Change rate plan package
      */
-    putRatePlanPackages(requestParameters: PutRatePlanPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRatePlanPackages(requestParameters: PutRatePlanPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update Rate Plan posting rhythms. <p><strong>OperationId:</strong>putRatePlanPostingRhythms</p>
      * Change rate plan posting rhythms
      */
-    putRatePlanPostingRhythmsRaw(requestParameters: PutRatePlanPostingRhythmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRatePlanPostingRhythmsRaw(requestParameters: PutRatePlanPostingRhythmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update Rate Plan posting rhythms. <p><strong>OperationId:</strong>putRatePlanPostingRhythms</p>
      * Change rate plan posting rhythms
      */
-    putRatePlanPostingRhythms(requestParameters: PutRatePlanPostingRhythmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRatePlanPostingRhythms(requestParameters: PutRatePlanPostingRhythmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to  update Rate Plan pricing schedules.<p><strong>OperationId:</strong>putRatePlanSchedules</p>
      * Change rate plan schedules
      */
-    putRatePlanSchedulesRaw(requestParameters: PutRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRatePlanSchedulesRaw(requestParameters: PutRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to  update Rate Plan pricing schedules.<p><strong>OperationId:</strong>putRatePlanSchedules</p>
      * Change rate plan schedules
      */
-    putRatePlanSchedules(requestParameters: PutRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRatePlanSchedules(requestParameters: PutRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update rate strategies. <p><strong>OperationId:</strong>putRateStrategy</p>
      * Change rate strategies
@@ -1799,72 +1799,72 @@ export declare class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Package Forecast groups template. <p><strong>OperationId:</strong>putTemplatePackageForecastGroups</p>
      * Change Template Package Forecast Groups
      */
-    putTemplatePackageForecastGroupsRaw(requestParameters: PutTemplatePackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplatePackageForecastGroupsRaw(requestParameters: PutTemplatePackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update Package Forecast groups template. <p><strong>OperationId:</strong>putTemplatePackageForecastGroups</p>
      * Change Template Package Forecast Groups
      */
-    putTemplatePackageForecastGroups(requestParameters: PutTemplatePackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplatePackageForecastGroups(requestParameters: PutTemplatePackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update Promotion Code template. <p><strong>OperationId:</strong>putTemplatePromotionCode</p>
      * Change Template Promotion Code
      */
-    putTemplatePromotionCodeRaw(requestParameters: PutTemplatePromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplatePromotionCodeRaw(requestParameters: PutTemplatePromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update Promotion Code template. <p><strong>OperationId:</strong>putTemplatePromotionCode</p>
      * Change Template Promotion Code
      */
-    putTemplatePromotionCode(requestParameters: PutTemplatePromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplatePromotionCode(requestParameters: PutTemplatePromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to set Rate Plan schedule range. <p><strong>OperationId:</strong>setDailyRatePlanScheduleRange</p>
      * Set daily rate plan schedule range
      */
-    setDailyRatePlanScheduleRangeRaw(requestParameters: SetDailyRatePlanScheduleRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setDailyRatePlanScheduleRangeRaw(requestParameters: SetDailyRatePlanScheduleRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to set Rate Plan schedule range. <p><strong>OperationId:</strong>setDailyRatePlanScheduleRange</p>
      * Set daily rate plan schedule range
      */
-    setDailyRatePlanScheduleRange(requestParameters: SetDailyRatePlanScheduleRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setDailyRatePlanScheduleRange(requestParameters: SetDailyRatePlanScheduleRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update mass Rate Plan schedules. <p><strong>OperationId:</strong>setMassRatePlanSchedules</p>
      * Set mass rate plan schedules
      */
-    setMassRatePlanSchedulesRaw(requestParameters: SetMassRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setMassRatePlanSchedulesRaw(requestParameters: SetMassRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to update mass Rate Plan schedules. <p><strong>OperationId:</strong>setMassRatePlanSchedules</p>
      * Set mass rate plan schedules
      */
-    setMassRatePlanSchedules(requestParameters: SetMassRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setMassRatePlanSchedules(requestParameters: SetMassRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to set rate access exclusions. <p><strong>OperationId:</strong>setRateAccessExclusions</p>
      * Set rate access exclusions
      */
-    setRateAccessExclusionsRaw(requestParameters: SetRateAccessExclusionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setRateAccessExclusionsRaw(requestParameters: SetRateAccessExclusionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to set rate access exclusions. <p><strong>OperationId:</strong>setRateAccessExclusions</p>
      * Set rate access exclusions
      */
-    setRateAccessExclusions(requestParameters: SetRateAccessExclusionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setRateAccessExclusions(requestParameters: SetRateAccessExclusionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to set Rate strategies. <p><strong>OperationId:</strong>setRateStrategies</p>
      * Set rate strategies
      */
-    setRateStrategiesRaw(requestParameters: SetRateStrategiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setRateStrategiesRaw(requestParameters: SetRateStrategiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to set Rate strategies. <p><strong>OperationId:</strong>setRateStrategies</p>
      * Set rate strategies
      */
-    setRateStrategies(requestParameters: SetRateStrategiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setRateStrategies(requestParameters: SetRateStrategiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to split Rate Plan schedule. <p><strong>OperationId:</strong>splitRatePlanSchedule</p>
      * Split rate plan schedule
      */
-    splitRatePlanScheduleRaw(requestParameters: SplitRatePlanScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    splitRatePlanScheduleRaw(requestParameters: SplitRatePlanScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to split Rate Plan schedule. <p><strong>OperationId:</strong>splitRatePlanSchedule</p>
      * Split rate plan schedule
      */
-    splitRatePlanSchedule(requestParameters: SplitRatePlanScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    splitRatePlanSchedule(requestParameters: SplitRatePlanScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

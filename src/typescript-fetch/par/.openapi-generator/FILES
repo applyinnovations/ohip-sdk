@@ -59,7 +59,6 @@ models/ChildAgeType.ts
 models/ChildAgesType.ts
 models/ChildBucketsType.ts
 models/ClearAllRestrictions.ts
-models/ClearAllRestrictionsRequest.ts
 models/CodeDescriptionType.ts
 models/CodeListType.ts
 models/CommentInfoType.ts
@@ -231,8 +230,6 @@ models/PointsType.ts
 models/PolicyAmountPercentType.ts
 models/PolicyBasisTypeType.ts
 models/PolicyDeadlineType.ts
-models/PostHurdleRatesRequest.ts
-models/PostRestrictionRequest.ts
 models/PostingRhythmType.ts
 models/PreferenceType.ts
 models/PreferenceTypeType.ts
@@ -272,7 +269,6 @@ models/ProfileTypeTelephones.ts
 models/ProfileTypeType.ts
 models/ProfileTypeURLs.ts
 models/PromotionType.ts
-models/PutHurdleRatesRequest.ts
 models/QueueTextInfoType.ts
 models/RateAnalysisCodeType.ts
 models/RateAnalysisDetails.ts
@@ -399,7 +395,6 @@ models/UsedInModuleType.ts
 models/UserDefinedFieldsType.ts
 models/VIPType.ts
 models/ValidateReservationGuarantees.ts
-models/ValidateReservationGuaranteesRequest.ts
 models/WaitlistResType.ts
 models/WarningType.ts
 models/WarningsType.ts

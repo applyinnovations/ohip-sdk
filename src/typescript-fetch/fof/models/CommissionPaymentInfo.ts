@@ -112,7 +112,7 @@ export function CommissionPaymentInfoToJSON(value?: CommissionPaymentInfo | null
         'checkNo': value.checkNo,
         'commissionAmount': value.commissionAmount,
         'commissionStatus': value.commissionStatus,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substr(0,10)),
+        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0,10)),
         'paymentId': value.paymentId,
         'paymentMethod': value.paymentMethod,
         'remarks': value.remarks,

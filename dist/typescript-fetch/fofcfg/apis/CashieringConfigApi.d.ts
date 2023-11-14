@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdjustmentCodes, ArticlesInfo, AuthorizationConfigRulesInfo, AuthorizerGroups, BudgetForecastInformation, CalculatedPosting, CashierNumber, CashiersDetails, ChangeCompTypesRequest, ChangeFiscalCommandsRequest, ChangeFiscalPartnersRequest, ChangeFolioTypeLegendMappingConfigRequest, CollectingAgentTaxes, CompAuthorizers, CompBucketRedemptionConfigDetails, CompTypesDetails, CompTypesStatus, CopyAdjustmentCodesRequest, CopyCustomChargeExemptionsConfigRequest, CopyExpenseArrangementCodesRequest, CopyFiscalFolioParametersRequest, CopyFolioArrangementCodesRequest, CopyGroupArrangementCodesRequest, CopyPackageArrangementCodesRequest, CopyPaymentMethodsRequest, CopyRevenueBucketCodesRequest, CopyRevenueBucketTypesRequest, CopyRevenueTypeMappingRequest, CopyRoutingInstructionsRequest, CopyTaxBracketsRequest, CopyTaxTypesRequest, CopyTransactionCodesRequest, CopyTransactionGroupsRequest, CopyTransactionSubgroupsRequest, CurrencyExchangeServiceTaxes, CustomChargeExemptionsConfig, CustomChargesConfigDetails, CustomNumberConfigDetails, DailyPlanCodes, DefaultPaymentMethodRule, DeleteBudgetForecastRequest, DeleteExchangeRatesRequest, ExchangeRatesDetails, ExpenseArrangementCodes, FiscalCommandsDetails, FiscalFolioParameters, FiscalPartnersDetails, FiscalPeriodsInfo, FiscalYears, FolioArrangementCodes, FolioCopyLegends, FolioPrintQueues, FolioTypeLegendMappingConfigStatus, FolioTypeLegendMappingsConfigDetails, FolioTypesConfig, ForeignCurrencies, FuturePastExchangeRates, GUINumberRulesDetails, GroupArrangementCodes, HotelTransactionCode, HotelTransactionCodes, HotelTransactionSubgroup, HotelTransactionSubgroups, NoShowPostingRules, NumberDescriptions, OperaControlSequences, PackageArrangementCodes, PaymentMethodsInfo, PostAuthorizerGroupsRequest, PostCompBucketRedemptionConfigRequest, PostCompTypesRequest, PostCustomChargeExemptionsConfigRequest, PostCustomChargesConfigRequest, PostCustomNumberConfigRequest, PostFiscalPartnersRequest, PostFiscalPeriodsRequest, PostFolioTypeLegendMappingConfigRequest, PostNoShowPostingRulesRequest, PostTemplateCustomNumberConfigRequest, PutAdjustmentCodesRequest, PutArticlesRequest, PutAuthorizationConfigRuleRequest, PutAuthorizerGroupsRequest, PutCashiersRequest, PutCollectingAgentTaxesRequest, PutCurrencyExchangeServiceTaxesRequest, PutCustomChargeExemptionsConfigRequest, PutDailyPlanCodesRequest, PutExpenseArrangementCodesRequest, PutFiscalFolioParametersRequest, PutFiscalPeriodsRequest, PutFiscalYearsRequest, PutFolioArrangementCodesRequest, PutFolioCopyLegendsRequest, PutFolioPrintQueuesRequest, PutFolioTypesConfigRequest, PutForeignCurrenciesRequest, PutGUINumberRulesRequest, PutGroupArrangementCodesRequest, PutNoShowPostingRulesRequest, PutNumberDescriptionsRequest, PutOperaControlSequencesRequest, PutPackageArrangementCodesRequest, PutPaymentMethodsRequest, PutRevenueBucketCodesRequest, PutRevenueBucketTypesRequest, PutRevenueTypeMappingRequest, PutRoutingInstructionsRequest, PutTaxBracketsRequest, PutTaxTypesRequest, PutTemplateTransactionCodesRequest, PutTemplateTransactionGroupsRequest, PutTemplateTransactionSubgroupsRequest, PutTransactionCodeOwnershipRequest, PutTransactionCodesRequest, PutTransactionDiscountsRequest, PutTransactionDiversionRulesRequest, PutTransactionGeneratesRequest, PutTransactionGroupsRequest, PutTransactionSubgroupsRequest, RevenueBucketCodes, RevenueBucketTypes, RevenueTypeMappingList, RoutingInstructions, SetBudgetForecastRequest, SetCompAuthorizerRequest, SetTransactionCodeAccessRolesRequest, Status, TaxBrackets, TaxTypes, TaxTypesGenerate, TemplateCustomNumberConfigDetails, TemplateTransactionCodes, TemplateTransactionGroups, TemplateTransactionSubgroups, TransactionArrangementCodes, TransactionCodeAccessRoles, TransactionCodes, TransactionDiscounts, TransactionDiversionRules, TransactionGroup, TransactionGroups } from '../models';
+import type { AdjustmentCodes, AdjustmentCodesCopy, Articles, ArticlesInfo, AuthorizationConfigRules, AuthorizationConfigRulesInfo, AuthorizerGroups, AuthorizerGroupsToChange, BudgetForecastInformation, BudgetForecastInformationBase, BudgetForecastToDelete, CalculatedPosting, CashierNumber, Cashiers, CashiersDetails, ChangeFiscalCommands, ChangeFiscalPartners, CollectingAgentTaxes, CompAuthorizer, CompAuthorizers, CompBucketRedemptionConfig, CompBucketRedemptionConfigDetails, CompTypesCriteria, CompTypesDetails, CompTypesStatus, CompTypesToBeChanged, CreateFiscalPartners, CurrencyExchangeServiceTaxes, CustomChargeExemptionsConfig, CustomChargeExemptionsConfigCopy, CustomChargeExemptionsConfigToBeChanged, CustomChargeExemptionsConfigToBeCreated, CustomChargesConfig, CustomChargesConfigDetails, CustomNumberConfigDetails, CustomNumberConfiguration, DailyPlanCodes, DefaultPaymentMethodRule, ExchangeRates, ExchangeRatesDetails, ExpenseArrangementCodes, ExpenseArrangementCodesCopy, FiscalCommandsDetails, FiscalFolioParameters, FiscalFolioParametersCopy, FiscalPartnersDetails, FiscalPeriods, FiscalPeriodsEdit, FiscalPeriodsInfo, FiscalYears, FolioArrangementCodes, FolioArrangementCodesCopy, FolioCopyLegend, FolioCopyLegends, FolioPrintQueues, FolioTypeLegendMappingConfigCriteria, FolioTypeLegendMappingConfigStatus, FolioTypeLegendMappingConfigToBeChanged, FolioTypeLegendMappingsConfigDetails, FolioTypesConfig, ForeignCurrencies, FuturePastExchangeRates, GUINumberRulesDetails, GroupArrangementCodes, GroupArrangementCodesCopy, HotelTransactionCode, HotelTransactionCodes, HotelTransactionGenerates, HotelTransactionSubgroup, HotelTransactionSubgroups, NoShowPostingRules, NoShowPostingRulesEdit, NumberDescriptions, OperaControlSequences, PackageArrangementCodes, PackageArrangementCodesCopy, PaymentMethods, PaymentMethodsCopy, PaymentMethodsInfo, RevenueBucketCodes, RevenueBucketCodesCopy, RevenueBucketTypes, RevenueBucketTypesCopy, RevenueTypeMapping, RevenueTypeMappingCopy, RevenueTypeMappingList, RoutingInstructions, RoutingInstructionsCopy, Status, TaxBrackets, TaxBracketsCopy, TaxTypes, TaxTypesCopy, TaxTypesGenerate, TemplateCustomNumberConfig, TemplateCustomNumberConfigDetails, TemplateTransactionCodes, TemplateTransactionGroups, TemplateTransactionSubgroups, TransactionArrangementCodes, TransactionCodeAccessRoles, TransactionCodeOwnership, TransactionCodes, TransactionCodesCopy, TransactionDiscount, TransactionDiscounts, TransactionDiversionRules, TransactionGroup, TransactionGroups, TransactionGroupsCopy, TransactionSubgroupsCopy } from '../models/index';
 export interface CalculatePostingRequest {
-    transactionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     postingAmount?: number;
     taxType?: string;
     guestBalance?: number;
@@ -24,193 +24,193 @@ export interface CalculatePostingRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCompTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    compTypesToBeChanged?: ChangeCompTypesRequest;
+export interface ChangeCompTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    compTypesToBeChanged: CompTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFiscalCommandsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeFiscalCommands?: ChangeFiscalCommandsRequest;
+export interface ChangeFiscalCommandsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeFiscalCommands: ChangeFiscalCommands;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFiscalPartnersOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeFiscalPartners?: ChangeFiscalPartnersRequest;
+export interface ChangeFiscalPartnersRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeFiscalPartners: ChangeFiscalPartners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFolioTypeLegendMappingConfigOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioTypeLegendMappingConfigToBeChanged?: ChangeFolioTypeLegendMappingConfigRequest;
+export interface ChangeFolioTypeLegendMappingConfigRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioTypeLegendMappingConfigToBeChanged: FolioTypeLegendMappingConfigToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyAdjustmentCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    adjustmentCodesCopy?: CopyAdjustmentCodesRequest;
+export interface CopyAdjustmentCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    adjustmentCodesCopy: AdjustmentCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyCustomChargeExemptionsConfigOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customChargeExemptionsConfigCopy?: CopyCustomChargeExemptionsConfigRequest;
+export interface CopyCustomChargeExemptionsConfigRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customChargeExemptionsConfigCopy: CustomChargeExemptionsConfigCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyExpenseArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    expenseArrangementCodesCopy?: CopyExpenseArrangementCodesRequest;
+export interface CopyExpenseArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    expenseArrangementCodesCopy: ExpenseArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyFiscalFolioParametersOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalFolioParametersCopy?: CopyFiscalFolioParametersRequest;
+export interface CopyFiscalFolioParametersRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalFolioParametersCopy: FiscalFolioParametersCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyFolioArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioArrangementCodesCopy?: CopyFolioArrangementCodesRequest;
+export interface CopyFolioArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioArrangementCodesCopy: FolioArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyGroupArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    groupArrangementCodesCopy?: CopyGroupArrangementCodesRequest;
+export interface CopyGroupArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    groupArrangementCodesCopy: GroupArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyPackageArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageArrangementCodesCopy?: CopyPackageArrangementCodesRequest;
+export interface CopyPackageArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageArrangementCodesCopy: PackageArrangementCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyPaymentMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    paymentMethodsCopy?: CopyPaymentMethodsRequest;
+export interface CopyPaymentMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    paymentMethodsCopy: PaymentMethodsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyRevenueBucketCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueBucketCodesCopy?: CopyRevenueBucketCodesRequest;
+export interface CopyRevenueBucketCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueBucketCodesCopy: RevenueBucketCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyRevenueBucketTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueBucketTypesCopy?: CopyRevenueBucketTypesRequest;
+export interface CopyRevenueBucketTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueBucketTypesCopy: RevenueBucketTypesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyRevenueTypeMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueTypeMappingCopy?: CopyRevenueTypeMappingRequest;
+export interface CopyRevenueTypeMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueTypeMappingCopy: RevenueTypeMappingCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyRoutingInstructionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructionsCopy?: CopyRoutingInstructionsRequest;
+export interface CopyRoutingInstructionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructionsCopy: RoutingInstructionsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTaxBracketsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxBracketsCopy?: CopyTaxBracketsRequest;
+export interface CopyTaxBracketsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxBracketsCopy: TaxBracketsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTaxTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxTypesCopy?: CopyTaxTypesRequest;
+export interface CopyTaxTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxTypesCopy: TaxTypesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTransactionCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionCodesCopy?: CopyTransactionCodesRequest;
+export interface CopyTransactionCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionCodesCopy: TransactionCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTransactionGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionGroupsCopy?: CopyTransactionGroupsRequest;
+export interface CopyTransactionGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionGroupsCopy: TransactionGroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTransactionSubgroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionSubgroupsCopy?: CopyTransactionSubgroupsRequest;
+export interface CopyTransactionSubgroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionSubgroupsCopy: TransactionSubgroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAdjustmentCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     adjustmentCode?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteArticlesRequest {
-    hotelId?: string;
-    articleCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    articleCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     articleHotelId?: Array<string>;
     inactive?: Array<boolean>;
     orderSequence?: Array<number>;
@@ -225,10 +225,10 @@ export interface DeleteArticlesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAuthorizationConfigRuleRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomType?: Array<string>;
     roomClassHotelId?: string;
     roomClassCode?: string;
@@ -241,98 +241,98 @@ export interface DeleteAuthorizationConfigRuleRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAuthorizerGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     authorizerGroup?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DeleteBudgetForecastOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    budgetForecastToDelete?: DeleteBudgetForecastRequest;
+export interface DeleteBudgetForecastRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    budgetForecastToDelete: BudgetForecastToDelete;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCollectingAgentTaxesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taxCode?: Array<number>;
     taxTypeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    redemptionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCurrencyExchangeServiceTaxesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currencyExchangeServiceTaxCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DeleteExchangeRatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exchangeRates?: DeleteExchangeRatesRequest;
+export interface DeleteExchangeRatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExpenseArrangementCodesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteFiscalFolioParametersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     partner?: Array<string>;
     code?: Array<string>;
@@ -340,80 +340,80 @@ export interface DeleteFiscalFolioParametersRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFiscalPeriodsRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     yearId?: Array<number>;
     startDate?: Array<Date>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteFiscalYearsRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     yearId?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteFolioArrangementCodesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteFolioPrintQueuesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     queueName?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteFolioTypesConfigRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteForeignCurrenciesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currencyCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGlobalExchangeRatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    exchangeRates?: DeleteExchangeRatesRequest;
+    authorization: string;
+    xAppKey: string;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGroupArrangementCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteNoShowPostingRulesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationType?: Array<string>;
     sourceCode?: Array<string>;
     postingRule?: Set<DeleteNoShowPostingRulesPostingRuleEnum>;
@@ -421,38 +421,38 @@ export interface DeleteNoShowPostingRulesRequest {
     acceptLanguage?: string;
 }
 export interface DeletePackageArrangementCodesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRevenueBucketCodesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     revenueBucketType?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRevenueBucketTypesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRevenueTypeMappingRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     revenueTypeMappingID?: string;
     idExtension?: number;
     idContext?: string;
@@ -469,100 +469,100 @@ export interface DeleteRevenueTypeMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoutingInstructionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTaxBracketsRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taxPercentage?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTaxTypesRequest {
-    taxTypeCode?: Array<string>;
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxTypeCode: Array<string>;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateCustomNumberRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     configurationId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateTransactionCodesRequest {
-    transactionCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateTransactionGroupsRequest {
-    templateTransactionCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    templateTransactionCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateTransactionSubgroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     subgroup?: Array<string>;
     group?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTransactionCodesRequest {
-    transactionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTransactionDiscountsRequest {
-    hotelId?: string;
-    transactionDiscountCode?: string;
+    hotelId: string;
+    transactionDiscountCode: string;
 }
 export interface DeleteTransactionGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTransactionSubgroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     subgroup?: Array<string>;
     group?: Array<string>;
     hotelId?: Array<string>;
@@ -570,20 +570,20 @@ export interface DeleteTransactionSubgroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetAdjustmentCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     adjustmentCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetArticlesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionCodes?: Array<string>;
     articleCodes?: Array<string>;
     universalProductCode?: string;
@@ -592,34 +592,34 @@ export interface GetArticlesRequest {
     acceptLanguage?: string;
 }
 export interface GetAuthorizationConfigRulesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAuthorizerGroupsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     authorizerGroupsCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAvailableCashierNumberRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBudgetForecastRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     year?: string;
     marketSegmentNights?: boolean;
@@ -671,10 +671,10 @@ export interface GetBudgetForecastRequest {
     acceptLanguage?: string;
 }
 export interface GetCashiersRequest {
-    cashierIDs?: Array<number>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierIDs: Array<number>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     name?: string;
@@ -684,19 +684,19 @@ export interface GetCashiersRequest {
     acceptLanguage?: string;
 }
 export interface GetCollectingAgentTaxesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     taxCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCompAuthorizersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeCompAuthorizerDetails?: boolean;
     includeInactiveAuthorizers?: boolean;
     includeTerminatedAuthorizers?: boolean;
@@ -707,10 +707,10 @@ export interface GetCompAuthorizersRequest {
     acceptLanguage?: string;
 }
 export interface GetCompBucketRedemptionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     redemptionCode?: Array<string>;
     wildCard?: string;
@@ -718,38 +718,38 @@ export interface GetCompBucketRedemptionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    redemptionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCompTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     compTypeCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCurrencyExchangeServiceTaxesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCustomChargeCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     configurationId?: Array<string>;
     wildCard?: string;
@@ -757,9 +757,9 @@ export interface GetCustomChargeCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomChargeExemptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     configurationId?: Array<string>;
     wildCard?: string;
@@ -768,32 +768,32 @@ export interface GetCustomChargeExemptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomChargeExemptionsConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     wildCard?: string;
     includeInactive?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     wildCard?: string;
     description?: string;
@@ -805,10 +805,10 @@ export interface GetCustomNumberConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomNumbersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     includeInactive?: boolean;
     configurationId?: Array<string>;
@@ -822,10 +822,10 @@ export interface GetCustomNumbersRequest {
     acceptLanguage?: string;
 }
 export interface GetDailyPlanCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTransactionCodes?: boolean;
     arrangementCodes?: Array<string>;
     wildCard?: string;
@@ -833,12 +833,12 @@ export interface GetDailyPlanCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetDefaultPaymentMethodRuleRequest {
-    hotelIds?: Array<string>;
-    transactionCodes?: Array<string>;
-    paymentMethods?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    transactionCodes: Array<string>;
+    paymentMethods: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     fetchInstructions?: Set<GetDefaultPaymentMethodRuleFetchInstructionsEnum>;
@@ -846,28 +846,28 @@ export interface GetDefaultPaymentMethodRuleRequest {
     acceptLanguage?: string;
 }
 export interface GetExchangeRatesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exchangeTypes?: Set<GetExchangeRatesExchangeTypesEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExchangeRatesInfoRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     exchangeTypes?: Set<GetExchangeRatesInfoExchangeTypesEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExpenseArrangementCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTransactionCodes?: boolean;
     arrangementCodes?: Array<string>;
     wildCard?: string;
@@ -875,10 +875,10 @@ export interface GetExpenseArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalCommandsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     code?: Array<string>;
     partnerCode?: Array<string>;
@@ -887,10 +887,10 @@ export interface GetFiscalCommandsRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalFolioParametersRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -899,20 +899,20 @@ export interface GetFiscalFolioParametersRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalPartnersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     partnerCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFiscalPeriodsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     year?: number;
     periodType?: GetFiscalPeriodsPeriodTypeEnum;
     period?: string;
@@ -920,20 +920,20 @@ export interface GetFiscalPeriodsRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalYearsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     year?: number;
     yearType?: GetFiscalYearsYearTypeEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFolioArrangementCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTransactionCodes?: boolean;
     arrangementCodes?: Array<string>;
     wildCard?: string;
@@ -941,48 +941,48 @@ export interface GetFolioArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioCopyLegendsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     languageCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFolioPrintQueuesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     queueName?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFolioTypeLegendMappingsConfigRequest {
-    hotelId?: string;
-    legendCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    legendCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFolioTypesConfigRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioTypeNamesCodes?: Array<string>;
     taxTypeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetForeignCurrenciesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currencies?: Array<string>;
     wildCard?: string;
     description?: string;
@@ -991,46 +991,46 @@ export interface GetForeignCurrenciesRequest {
     acceptLanguage?: string;
 }
 export interface GetFuturePastExchangeRatesRequest {
-    currencyCode?: string;
-    hotelId?: string;
-    exchangeTypes?: GetFuturePastExchangeRatesExchangeTypesEnum;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    currencyCode: string;
+    hotelId: string;
+    exchangeTypes: GetFuturePastExchangeRatesExchangeTypesEnum;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     dateRangeStart?: Date;
     dateRangeEnd?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetGUINumberRulesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetGenerateTaxTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetGlobalExchangeRatesInfoRequest {
-    authorization?: string;
-    xAppKey?: string;
+    authorization: string;
+    xAppKey: string;
     exchangeTypes?: Set<GetGlobalExchangeRatesInfoExchangeTypesEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetGroupArrangementCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTransactionCodes?: boolean;
     arrangementCodes?: Array<string>;
     wildCard?: string;
@@ -1038,19 +1038,19 @@ export interface GetGroupArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetNoShowPostingRulesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     sourceCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetNumberDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     numberCodes?: Array<string>;
     wildCard?: string;
     description?: string;
@@ -1058,10 +1058,10 @@ export interface GetNumberDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetOperaControlSequencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     countryCode?: string;
     code?: Array<string>;
     hotelCode?: Array<string>;
@@ -1070,10 +1070,10 @@ export interface GetOperaControlSequencesRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageArrangementCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     arrangementCodes?: Array<string>;
     wildCard?: string;
     includeInactive?: boolean;
@@ -1081,10 +1081,10 @@ export interface GetPackageArrangementCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentMethodsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     transactionCodes?: Array<string>;
@@ -1094,10 +1094,10 @@ export interface GetPaymentMethodsRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     trxCodeArrangementCodes?: Array<string>;
     wildCard?: string;
     trxCodeArrangementType?: GetRevenueBucketCodesTrxCodeArrangementTypeEnum;
@@ -1107,10 +1107,10 @@ export interface GetRevenueBucketCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketTypesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     revenueBucketTypeCodes?: Array<string>;
     wildCard?: string;
     bucketType?: GetRevenueBucketTypesBucketTypeEnum;
@@ -1118,10 +1118,10 @@ export interface GetRevenueBucketTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypeMappingRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eventTypeCodes?: Array<string>;
     revenueTypeCodes?: Array<string>;
     transactionCodes?: Array<string>;
@@ -1130,10 +1130,10 @@ export interface GetRevenueTypeMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     trxCodeArrangementCode?: Array<string>;
     wildCard?: string;
     compAccounting?: boolean;
@@ -1141,30 +1141,30 @@ export interface GetRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxBracketsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taxPercentagesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTaxTypesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taxTypeCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     wildCard?: string;
     startDate?: Date;
@@ -1173,9 +1173,9 @@ export interface GetTemplateCustomNumberConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateCustomNumbersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     configurationId?: Array<string>;
     wildCard?: string;
@@ -1185,9 +1185,9 @@ export interface GetTemplateCustomNumbersRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateTransactionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     compTransactionCodes?: boolean;
     includeInactive?: boolean;
     transactionGroupCodes?: Array<string>;
@@ -1201,9 +1201,9 @@ export interface GetTemplateTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateTransactionGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionGroupCodes?: Array<string>;
     wildCard?: string;
     transactionGroupType?: GetTemplateTransactionGroupsTransactionGroupTypeEnum;
@@ -1211,9 +1211,9 @@ export interface GetTemplateTransactionGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateTransactionSubgroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionGroupCodes?: Array<string>;
     transactionSubgroupsCodes?: Array<string>;
     wildCard?: string;
@@ -1221,38 +1221,38 @@ export interface GetTemplateTransactionSubgroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionArrangementCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTransactionCodeRequest {
-    transactionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetTransactionCodeFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTransactionCodeAccessRolesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roleCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     compTransactionCodes?: boolean;
     includeInactive?: boolean;
     transactionGroupCodes?: Array<string>;
@@ -1266,10 +1266,10 @@ export interface GetTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDiscountsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionDiscountCodes?: Array<string>;
     description?: string;
     ruleType?: GetTransactionDiscountsRuleTypeEnum;
@@ -1281,10 +1281,10 @@ export interface GetTransactionDiscountsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDiversionRulesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ruleCodes?: Array<string>;
     wildCard?: string;
     type?: GetTransactionDiversionRulesTypeEnum;
@@ -1297,20 +1297,20 @@ export interface GetTransactionDiversionRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionGroupRequest {
-    transactionGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetTransactionGroupFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTransactionGroupsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionGroupCodes?: Array<string>;
     wildCard?: string;
     transactionGroupType?: GetTransactionGroupsTransactionGroupTypeEnum;
@@ -1318,21 +1318,21 @@ export interface GetTransactionGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionSubgroupRequest {
-    transactionGroupCode?: string;
-    transactionSubGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionGroupCode: string;
+    transactionSubGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetTransactionSubgroupFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTransactionSubgroupsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionGroupCodes?: Array<string>;
     transactionSubgroupsCodes?: Array<string>;
     wildCard?: string;
@@ -1340,814 +1340,814 @@ export interface GetTransactionSubgroupsRequest {
     acceptLanguage?: string;
 }
 export interface PostAdjustmentCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    adjustmentCodes?: PutAdjustmentCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    adjustmentCodes: AdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostArticlesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    articles?: PutArticlesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    articles: Articles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAuthorizationConfigRuleRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    authorizationConfigRules?: PutAuthorizationConfigRuleRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    authorizationConfigRules: AuthorizationConfigRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAuthorizerGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    authorizerGroups?: PostAuthorizerGroupsRequest;
+export interface PostAuthorizerGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    authorizerGroups: AuthorizerGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCashiersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashiers?: PutCashiersRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashiers: Cashiers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCollectingAgentTaxesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    collectingAgentTaxes?: PutCollectingAgentTaxesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    collectingAgentTaxes: CollectingAgentTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCompBucketRedemptionConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    compBucketRedemptionConfig?: PostCompBucketRedemptionConfigRequest;
+export interface PostCompBucketRedemptionConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    compBucketRedemptionConfig: CompBucketRedemptionConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCompTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    compTypesCriteria?: PostCompTypesRequest;
+export interface PostCompTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    compTypesCriteria: CompTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCurrencyExchangeServiceTaxesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    currencyExchangeServiceTaxes?: PutCurrencyExchangeServiceTaxesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    currencyExchangeServiceTaxes: CurrencyExchangeServiceTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCustomChargeExemptionsConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customChargeExemptionsConfigToBeCreated?: PostCustomChargeExemptionsConfigRequest;
+export interface PostCustomChargeExemptionsConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customChargeExemptionsConfigToBeCreated: CustomChargeExemptionsConfigToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCustomChargesConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customChargesConfig?: PostCustomChargesConfigRequest;
+export interface PostCustomChargesConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customChargesConfig: CustomChargesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCustomNumberConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customNumberConfiguration?: PostCustomNumberConfigRequest;
+export interface PostCustomNumberConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customNumberConfiguration: CustomNumberConfiguration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExpenseArrangementCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    expenseArrangementCodes?: PutExpenseArrangementCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    expenseArrangementCodes: ExpenseArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFiscalPartnersOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createFiscalPartners?: PostFiscalPartnersRequest;
+export interface PostFiscalPartnersRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createFiscalPartners: CreateFiscalPartners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFiscalPeriodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalPeriods?: PostFiscalPeriodsRequest;
+export interface PostFiscalPeriodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalPeriods: FiscalPeriods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFiscalYearsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalYears?: PutFiscalYearsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalYears: FiscalYears;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFolioArrangementCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioArrangementCodes?: PutFolioArrangementCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioArrangementCodes: FolioArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFolioPrintQueuesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioPrintQueues?: PutFolioPrintQueuesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioPrintQueues: FolioPrintQueues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFolioTypeLegendMappingConfigOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioTypeLegendMappingConfigCriteria?: PostFolioTypeLegendMappingConfigRequest;
+export interface PostFolioTypeLegendMappingConfigRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioTypeLegendMappingConfigCriteria: FolioTypeLegendMappingConfigCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFolioTypesConfigRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioTypesConfig?: PutFolioTypesConfigRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioTypesConfig: FolioTypesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostForeignCurrenciesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    foreignCurrencies?: PutForeignCurrenciesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    foreignCurrencies: ForeignCurrencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostGroupArrangementCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    groupArrangementCodes?: PutGroupArrangementCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    groupArrangementCodes: GroupArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostNoShowPostingRulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    noShowPostingRules?: PostNoShowPostingRulesRequest;
+export interface PostNoShowPostingRulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    noShowPostingRules: NoShowPostingRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPackageArrangementCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageArrangementCodes?: PutPackageArrangementCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageArrangementCodes: PackageArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPaymentMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    paymentMethods?: PutPaymentMethodsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRevenueBucketCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueBucketCodes?: PutRevenueBucketCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueBucketCodes: RevenueBucketCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRevenueBucketTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueBucketTypes?: PutRevenueBucketTypesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueBucketTypes: RevenueBucketTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRevenueTypeMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueTypeMapping?: PutRevenueTypeMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueTypeMapping: RevenueTypeMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoutingInstructionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructions?: PutRoutingInstructionsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTaxBracketsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxBrackets?: PutTaxBracketsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxBrackets: TaxBrackets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTaxTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxTypes?: PutTaxTypesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxTypes: TaxTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateCustomNumberRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCustomNumberConfig?: PostTemplateCustomNumberConfigRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateCustomNumberConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCustomNumberConfig?: PostTemplateCustomNumberConfigRequest;
+export interface PostTemplateCustomNumberConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateTransactionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTransactionCodes?: PutTemplateTransactionCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTransactionCodes: TemplateTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateTransactionGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTransactionGroups?: PutTemplateTransactionGroupsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTransactionGroups: TemplateTransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateTransactionSubgroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTransactionSubgroups?: PutTemplateTransactionSubgroupsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTransactionSubgroups: TemplateTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTransactionCodes?: PutTransactionCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTransactionCodes: HotelTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionDiscountsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionDiscount?: PutTransactionDiscountsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionDiscount: TransactionDiscount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionDiversionRulesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionDiversionRules?: PutTransactionDiversionRulesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionGeneratesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTransactionGenerates?: PutTransactionGeneratesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionGroups?: PutTransactionGroupsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionGroups: TransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionSubgroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTransactionSubgroups?: PutTransactionSubgroupsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTransactionSubgroups: HotelTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAdjustmentCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    adjustmentCodes?: PutAdjustmentCodesRequest;
+export interface PutAdjustmentCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    adjustmentCodes: AdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutArticlesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    articles?: PutArticlesRequest;
+export interface PutArticlesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    articles: Articles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAuthorizationConfigRuleOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    authorizationConfigRules?: PutAuthorizationConfigRuleRequest;
+export interface PutAuthorizationConfigRuleRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    authorizationConfigRules: AuthorizationConfigRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAuthorizerGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    authorizerGroupsToChange?: PutAuthorizerGroupsRequest;
+export interface PutAuthorizerGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    authorizerGroupsToChange: AuthorizerGroupsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCashiersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashiers?: PutCashiersRequest;
+export interface PutCashiersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashiers: Cashiers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCollectingAgentTaxesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    collectingAgentTaxes?: PutCollectingAgentTaxesRequest;
+export interface PutCollectingAgentTaxesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    collectingAgentTaxes: CollectingAgentTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCompBucketRedemptionConfigRequest {
-    redemptionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    compBucketRedemptionConfig?: PostCompBucketRedemptionConfigRequest;
+    redemptionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    compBucketRedemptionConfig: CompBucketRedemptionConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCurrencyExchangeServiceTaxesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    currencyExchangeServiceTaxes?: PutCurrencyExchangeServiceTaxesRequest;
+export interface PutCurrencyExchangeServiceTaxesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    currencyExchangeServiceTaxes: CurrencyExchangeServiceTaxes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCustomChargeExemptionsConfigOperationRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customChargeExemptionsConfigToBeChanged?: PutCustomChargeExemptionsConfigRequest;
+export interface PutCustomChargeExemptionsConfigRequest {
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customChargeExemptionsConfigToBeChanged: CustomChargeExemptionsConfigToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCustomChargesConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customChargesConfig?: PostCustomChargesConfigRequest;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customChargesConfig: CustomChargesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customNumberConfiguration?: PostCustomNumberConfigRequest;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customNumberConfiguration: CustomNumberConfiguration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDailyPlanCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyPlanCodes?: PutDailyPlanCodesRequest;
+export interface PutDailyPlanCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyPlanCodes: DailyPlanCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutExpenseArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    expenseArrangementCodes?: PutExpenseArrangementCodesRequest;
+export interface PutExpenseArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    expenseArrangementCodes: ExpenseArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFiscalFolioParametersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalFolioParameters?: PutFiscalFolioParametersRequest;
+export interface PutFiscalFolioParametersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalFolioParameters: FiscalFolioParameters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFiscalPeriodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalPeriodsEdit?: PutFiscalPeriodsRequest;
+export interface PutFiscalPeriodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalPeriodsEdit: FiscalPeriodsEdit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFiscalYearsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalYears?: PutFiscalYearsRequest;
+export interface PutFiscalYearsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalYears: FiscalYears;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFolioArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioArrangementCodes?: PutFolioArrangementCodesRequest;
+export interface PutFolioArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioArrangementCodes: FolioArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFolioCopyLegendsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioCopyLegend?: PutFolioCopyLegendsRequest;
+export interface PutFolioCopyLegendsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioCopyLegend: FolioCopyLegend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFolioPrintQueuesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioPrintQueues?: PutFolioPrintQueuesRequest;
+export interface PutFolioPrintQueuesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioPrintQueues: FolioPrintQueues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFolioTypesConfigOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioTypesConfig?: PutFolioTypesConfigRequest;
+export interface PutFolioTypesConfigRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioTypesConfig: FolioTypesConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutForeignCurrenciesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    foreignCurrencies?: PutForeignCurrenciesRequest;
+export interface PutForeignCurrenciesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    foreignCurrencies: ForeignCurrencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGUINumberRulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    gUINumberRulesDetails?: PutGUINumberRulesRequest;
+export interface PutGUINumberRulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    gUINumberRulesDetails: GUINumberRulesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGroupArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    groupArrangementCodes?: PutGroupArrangementCodesRequest;
+export interface PutGroupArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    groupArrangementCodes: GroupArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutNoShowPostingRulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    noShowPostingRulesEdit?: PutNoShowPostingRulesRequest;
+export interface PutNoShowPostingRulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    noShowPostingRulesEdit: NoShowPostingRulesEdit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutNumberDescriptionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    numberDescriptions?: PutNumberDescriptionsRequest;
+export interface PutNumberDescriptionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    numberDescriptions: NumberDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutOperaControlSequencesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    operaControlSequences?: PutOperaControlSequencesRequest;
+export interface PutOperaControlSequencesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    operaControlSequences: OperaControlSequences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPackageArrangementCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageArrangementCodes?: PutPackageArrangementCodesRequest;
+export interface PutPackageArrangementCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageArrangementCodes: PackageArrangementCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPaymentMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    paymentMethods?: PutPaymentMethodsRequest;
+export interface PutPaymentMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRevenueBucketCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueBucketCodes?: PutRevenueBucketCodesRequest;
+export interface PutRevenueBucketCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueBucketCodes: RevenueBucketCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRevenueBucketTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueBucketTypes?: PutRevenueBucketTypesRequest;
+export interface PutRevenueBucketTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueBucketTypes: RevenueBucketTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRevenueTypeMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueTypeMapping?: PutRevenueTypeMappingRequest;
+export interface PutRevenueTypeMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueTypeMapping: RevenueTypeMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoutingInstructionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructions?: PutRoutingInstructionsRequest;
+export interface PutRoutingInstructionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTaxBracketsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxBrackets?: PutTaxBracketsRequest;
+export interface PutTaxBracketsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxBrackets: TaxBrackets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTaxTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxTypes?: PutTaxTypesRequest;
+export interface PutTaxTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxTypes: TaxTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTemplateCustomNumberRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCustomNumberConfig?: PostTemplateCustomNumberConfigRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTemplateCustomNumberConfigRequest {
-    configurationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCustomNumberConfig?: PostTemplateCustomNumberConfigRequest;
+    configurationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCustomNumberConfig: TemplateCustomNumberConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplateTransactionCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTransactionCodes?: PutTemplateTransactionCodesRequest;
+export interface PutTemplateTransactionCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTransactionCodes: TemplateTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplateTransactionGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTransactionGroups?: PutTemplateTransactionGroupsRequest;
+export interface PutTemplateTransactionGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTransactionGroups: TemplateTransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplateTransactionSubgroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTransactionSubgroups?: PutTemplateTransactionSubgroupsRequest;
+export interface PutTemplateTransactionSubgroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTransactionSubgroups: TemplateTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionCodeOwnershipOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionCodeOwnership?: PutTransactionCodeOwnershipRequest;
+export interface PutTransactionCodeOwnershipRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionCodeOwnership: TransactionCodeOwnership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTransactionCodes?: PutTransactionCodesRequest;
+export interface PutTransactionCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTransactionCodes: HotelTransactionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionDiscountsOperationRequest {
-    hotelId?: string;
-    transactionDiscountCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionDiscount?: PutTransactionDiscountsRequest;
+export interface PutTransactionDiscountsRequest {
+    hotelId: string;
+    transactionDiscountCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionDiscount: TransactionDiscount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionDiversionRulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionDiversionRules?: PutTransactionDiversionRulesRequest;
+export interface PutTransactionDiversionRulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionGeneratesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTransactionGenerates?: PutTransactionGeneratesRequest;
+export interface PutTransactionGeneratesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionGroups?: PutTransactionGroupsRequest;
+export interface PutTransactionGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionGroups: TransactionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionSubgroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTransactionSubgroups?: PutTransactionSubgroupsRequest;
+export interface PutTransactionSubgroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTransactionSubgroups: HotelTransactionSubgroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCompTypesRequest {
-    compTypesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    compTypesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFiscalPartnersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     partnerCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFolioTypeLegendMappingConfigRequest {
-    legendCode?: string;
-    folioType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    legendCode: string;
+    folioType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemovePaymentMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    paymentMethods?: PutPaymentMethodsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    paymentMethods: PaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTransactionDiversionRulesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionDiversionRules?: PutTransactionDiversionRulesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionDiversionRules: TransactionDiversionRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTransactionGeneratesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTransactionGenerates?: PutTransactionGeneratesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTransactionGenerates: HotelTransactionGenerates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetBudgetForecastOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    budgetForecastInformationBase?: SetBudgetForecastRequest;
+export interface SetBudgetForecastRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    budgetForecastInformationBase: BudgetForecastInformationBase;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetCompAuthorizerOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    compAuthorizer?: SetCompAuthorizerRequest;
+export interface SetCompAuthorizerRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    compAuthorizer: CompAuthorizer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetExchangeRatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exchangeRates?: DeleteExchangeRatesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SetGlobalExchangeRatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    exchangeRates?: DeleteExchangeRatesRequest;
+    authorization: string;
+    xAppKey: string;
+    exchangeRates: ExchangeRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetTransactionCodeAccessRolesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionCodeAccessRoles?: SetTransactionCodeAccessRolesRequest;
+export interface SetTransactionCodeAccessRolesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionCodeAccessRoles: TransactionCodeAccessRoles;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2169,212 +2169,212 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to Change Comp Types. <p><strong>OperationId:</strong>changeCompTypes</p>
      * Operation to Change Comp Types.
      */
-    changeCompTypesRaw(requestParameters: ChangeCompTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompTypesStatus>>;
+    changeCompTypesRaw(requestParameters: ChangeCompTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompTypesStatus>>;
     /**
      * Operation to Change Comp Types. <p><strong>OperationId:</strong>changeCompTypes</p>
      * Operation to Change Comp Types.
      */
-    changeCompTypes(requestParameters: ChangeCompTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompTypesStatus>;
+    changeCompTypes(requestParameters: ChangeCompTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompTypesStatus>;
     /**
      * Use this API to update configuration fiscal commands. <p><strong>OperationId:</strong>changeFiscalCommands</p>
      * Change configuration fiscal commands
      */
-    changeFiscalCommandsRaw(requestParameters: ChangeFiscalCommandsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFiscalCommandsRaw(requestParameters: ChangeFiscalCommandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update configuration fiscal commands. <p><strong>OperationId:</strong>changeFiscalCommands</p>
      * Change configuration fiscal commands
      */
-    changeFiscalCommands(requestParameters: ChangeFiscalCommandsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFiscalCommands(requestParameters: ChangeFiscalCommandsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update configuration fiscal partners. <p><strong>OperationId:</strong>changeFiscalPartners</p>
      * Change configuration fiscal partners
      */
-    changeFiscalPartnersRaw(requestParameters: ChangeFiscalPartnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFiscalPartnersRaw(requestParameters: ChangeFiscalPartnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update configuration fiscal partners. <p><strong>OperationId:</strong>changeFiscalPartners</p>
      * Change configuration fiscal partners
      */
-    changeFiscalPartners(requestParameters: ChangeFiscalPartnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFiscalPartners(requestParameters: ChangeFiscalPartnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change folio type legend mappings config. <p><strong>OperationId:</strong>changeFolioTypeLegendMappingConfig</p>
      * Operation to change folio type legend mappings config.
      */
-    changeFolioTypeLegendMappingConfigRaw(requestParameters: ChangeFolioTypeLegendMappingConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTypeLegendMappingConfigStatus>>;
+    changeFolioTypeLegendMappingConfigRaw(requestParameters: ChangeFolioTypeLegendMappingConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTypeLegendMappingConfigStatus>>;
     /**
      * Operation to change folio type legend mappings config. <p><strong>OperationId:</strong>changeFolioTypeLegendMappingConfig</p>
      * Operation to change folio type legend mappings config.
      */
-    changeFolioTypeLegendMappingConfig(requestParameters: ChangeFolioTypeLegendMappingConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FolioTypeLegendMappingConfigStatus>;
+    changeFolioTypeLegendMappingConfig(requestParameters: ChangeFolioTypeLegendMappingConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FolioTypeLegendMappingConfigStatus>;
     /**
      * Operation to copy Adjustment Codes. <p><strong>OperationId:</strong>copyAdjustmentCodes</p>
      * Operation to copy AdjustmentCodes.
      */
-    copyAdjustmentCodesRaw(requestParameters: CopyAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyAdjustmentCodesRaw(requestParameters: CopyAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy Adjustment Codes. <p><strong>OperationId:</strong>copyAdjustmentCodes</p>
      * Operation to copy AdjustmentCodes.
      */
-    copyAdjustmentCodes(requestParameters: CopyAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyAdjustmentCodes(requestParameters: CopyAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy Custom Charge Exemptions Config. <p><strong>OperationId:</strong>copyCustomChargeExemptionsConfig</p>
      * Operation to copy Custom Charge Exemptions Config.
      */
-    copyCustomChargeExemptionsConfigRaw(requestParameters: CopyCustomChargeExemptionsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyCustomChargeExemptionsConfigRaw(requestParameters: CopyCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy Custom Charge Exemptions Config. <p><strong>OperationId:</strong>copyCustomChargeExemptionsConfig</p>
      * Operation to copy Custom Charge Exemptions Config.
      */
-    copyCustomChargeExemptionsConfig(requestParameters: CopyCustomChargeExemptionsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyCustomChargeExemptionsConfig(requestParameters: CopyCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>copyExpenseArrangementCodes</p>
      * Operation to copy ExpenseArrangementCodes.
      */
-    copyExpenseArrangementCodesRaw(requestParameters: CopyExpenseArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyExpenseArrangementCodesRaw(requestParameters: CopyExpenseArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>copyExpenseArrangementCodes</p>
      * Operation to copy ExpenseArrangementCodes.
      */
-    copyExpenseArrangementCodes(requestParameters: CopyExpenseArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyExpenseArrangementCodes(requestParameters: CopyExpenseArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy Fiscal Folio Parameters. <p><strong>OperationId:</strong>copyFiscalFolioParameters</p>
      * Operation to copy FiscalFolioParameters.
      */
-    copyFiscalFolioParametersRaw(requestParameters: CopyFiscalFolioParametersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyFiscalFolioParametersRaw(requestParameters: CopyFiscalFolioParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy Fiscal Folio Parameters. <p><strong>OperationId:</strong>copyFiscalFolioParameters</p>
      * Operation to copy FiscalFolioParameters.
      */
-    copyFiscalFolioParameters(requestParameters: CopyFiscalFolioParametersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyFiscalFolioParameters(requestParameters: CopyFiscalFolioParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>copyFolioArrangementCodes</p>
      * Operation to copy FolioArrangementCodes.
      */
-    copyFolioArrangementCodesRaw(requestParameters: CopyFolioArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyFolioArrangementCodesRaw(requestParameters: CopyFolioArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>copyFolioArrangementCodes</p>
      * Operation to copy FolioArrangementCodes.
      */
-    copyFolioArrangementCodes(requestParameters: CopyFolioArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyFolioArrangementCodes(requestParameters: CopyFolioArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>copyGroupArrangementCodes</p>
      * Operation to copy GroupArrangementCodes.
      */
-    copyGroupArrangementCodesRaw(requestParameters: CopyGroupArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyGroupArrangementCodesRaw(requestParameters: CopyGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>copyGroupArrangementCodes</p>
      * Operation to copy GroupArrangementCodes.
      */
-    copyGroupArrangementCodes(requestParameters: CopyGroupArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyGroupArrangementCodes(requestParameters: CopyGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>copyPackageArrangementCodes</p>
      * Operation to copy PackageArrangementCodes.
      */
-    copyPackageArrangementCodesRaw(requestParameters: CopyPackageArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyPackageArrangementCodesRaw(requestParameters: CopyPackageArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>copyPackageArrangementCodes</p>
      * Operation to copy PackageArrangementCodes.
      */
-    copyPackageArrangementCodes(requestParameters: CopyPackageArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyPackageArrangementCodes(requestParameters: CopyPackageArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy payment methods. <p><strong>OperationId:</strong>copyPaymentMethods</p>
      * Operation to copy PaymentMethods.
      */
-    copyPaymentMethodsRaw(requestParameters: CopyPaymentMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyPaymentMethodsRaw(requestParameters: CopyPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy payment methods. <p><strong>OperationId:</strong>copyPaymentMethods</p>
      * Operation to copy PaymentMethods.
      */
-    copyPaymentMethods(requestParameters: CopyPaymentMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyPaymentMethods(requestParameters: CopyPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy Revenue Bucket Codes. <p><strong>OperationId:</strong>copyRevenueBucketCodes</p>
      * Operation to copy RevenueBucketCodes.
      */
-    copyRevenueBucketCodesRaw(requestParameters: CopyRevenueBucketCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyRevenueBucketCodesRaw(requestParameters: CopyRevenueBucketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy Revenue Bucket Codes. <p><strong>OperationId:</strong>copyRevenueBucketCodes</p>
      * Operation to copy RevenueBucketCodes.
      */
-    copyRevenueBucketCodes(requestParameters: CopyRevenueBucketCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyRevenueBucketCodes(requestParameters: CopyRevenueBucketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy Revenue Bucket Types. <p><strong>OperationId:</strong>copyRevenueBucketTypes</p>
      * Operation to copy RevenueBucketTypes.
      */
-    copyRevenueBucketTypesRaw(requestParameters: CopyRevenueBucketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyRevenueBucketTypesRaw(requestParameters: CopyRevenueBucketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy Revenue Bucket Types. <p><strong>OperationId:</strong>copyRevenueBucketTypes</p>
      * Operation to copy RevenueBucketTypes.
      */
-    copyRevenueBucketTypes(requestParameters: CopyRevenueBucketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyRevenueBucketTypes(requestParameters: CopyRevenueBucketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>copyRevenueTypeMapping</p>
      * Operation to copy RevenueTypeMapping.
      */
-    copyRevenueTypeMappingRaw(requestParameters: CopyRevenueTypeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyRevenueTypeMappingRaw(requestParameters: CopyRevenueTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>copyRevenueTypeMapping</p>
      * Operation to copy RevenueTypeMapping.
      */
-    copyRevenueTypeMapping(requestParameters: CopyRevenueTypeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyRevenueTypeMapping(requestParameters: CopyRevenueTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy routing instructions. <p><strong>OperationId:</strong>copyRoutingInstructions</p>
      * Operation to copy RoutingInstructions.
      */
-    copyRoutingInstructionsRaw(requestParameters: CopyRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyRoutingInstructionsRaw(requestParameters: CopyRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy routing instructions. <p><strong>OperationId:</strong>copyRoutingInstructions</p>
      * Operation to copy RoutingInstructions.
      */
-    copyRoutingInstructions(requestParameters: CopyRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyRoutingInstructions(requestParameters: CopyRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy Tax Brackets. This function only be available when the parameter \"Tax Bracket Calculation\" is on. <p><strong>OperationId:</strong>copyTaxBrackets</p>
      * Operation to copy TaxBrackets.
      */
-    copyTaxBracketsRaw(requestParameters: CopyTaxBracketsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTaxBracketsRaw(requestParameters: CopyTaxBracketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy Tax Brackets. This function only be available when the parameter \"Tax Bracket Calculation\" is on. <p><strong>OperationId:</strong>copyTaxBrackets</p>
      * Operation to copy TaxBrackets.
      */
-    copyTaxBrackets(requestParameters: CopyTaxBracketsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTaxBrackets(requestParameters: CopyTaxBracketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy Tax Types. <p><strong>OperationId:</strong>copyTaxTypes</p>
      * Operation to copy TaxTypes.
      */
-    copyTaxTypesRaw(requestParameters: CopyTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTaxTypesRaw(requestParameters: CopyTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy Tax Types. <p><strong>OperationId:</strong>copyTaxTypes</p>
      * Operation to copy TaxTypes.
      */
-    copyTaxTypes(requestParameters: CopyTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTaxTypes(requestParameters: CopyTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy transaction codes. <p><strong>OperationId:</strong>copyTransactionCodes</p>
      * Operation to copy TransactionCodes.
      */
-    copyTransactionCodesRaw(requestParameters: CopyTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTransactionCodesRaw(requestParameters: CopyTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy transaction codes. <p><strong>OperationId:</strong>copyTransactionCodes</p>
      * Operation to copy TransactionCodes.
      */
-    copyTransactionCodes(requestParameters: CopyTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTransactionCodes(requestParameters: CopyTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy transaction groups. <p><strong>OperationId:</strong>copyTransactionGroups</p>
      * Operation to copy TransactionGroups.
      */
-    copyTransactionGroupsRaw(requestParameters: CopyTransactionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTransactionGroupsRaw(requestParameters: CopyTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy transaction groups. <p><strong>OperationId:</strong>copyTransactionGroups</p>
      * Operation to copy TransactionGroups.
      */
-    copyTransactionGroups(requestParameters: CopyTransactionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTransactionGroups(requestParameters: CopyTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to copy transaction subgroups <p><strong>OperationId:</strong>copyTransactionSubgroups</p>
      * Operation to copy TransactionSubgroups.
      */
-    copyTransactionSubgroupsRaw(requestParameters: CopyTransactionSubgroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTransactionSubgroupsRaw(requestParameters: CopyTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to copy transaction subgroups <p><strong>OperationId:</strong>copyTransactionSubgroups</p>
      * Operation to copy TransactionSubgroups.
      */
-    copyTransactionSubgroups(requestParameters: CopyTransactionSubgroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTransactionSubgroups(requestParameters: CopyTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to remove Adjustment Codes. <p><strong>OperationId:</strong>deleteAdjustmentCodes</p>
      * Operation to delete AdjustmentCodes.
@@ -2419,12 +2419,12 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to Delete Budget Forecast information. <p><strong>OperationId:</strong>deleteBudgetForecast</p>
      * Operation to delete BudgetForecast.
      */
-    deleteBudgetForecastRaw(requestParameters: DeleteBudgetForecastOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    deleteBudgetForecastRaw(requestParameters: DeleteBudgetForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to Delete Budget Forecast information. <p><strong>OperationId:</strong>deleteBudgetForecast</p>
      * Operation to delete BudgetForecast.
      */
-    deleteBudgetForecast(requestParameters: DeleteBudgetForecastOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    deleteBudgetForecast(requestParameters: DeleteBudgetForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to remove Collecting Agent Taxes. <p><strong>OperationId:</strong>deleteCollectingAgentTaxes</p>
      * Operation to delete CollectingAgentTaxes.
@@ -2489,12 +2489,12 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to Delete Exchange Rates. <p><strong>OperationId:</strong>deleteExchangeRates</p>
      * Operation to delete ExchangeRates.
      */
-    deleteExchangeRatesRaw(requestParameters: DeleteExchangeRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    deleteExchangeRatesRaw(requestParameters: DeleteExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to Delete Exchange Rates. <p><strong>OperationId:</strong>deleteExchangeRates</p>
      * Operation to delete ExchangeRates.
      */
-    deleteExchangeRates(requestParameters: DeleteExchangeRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    deleteExchangeRates(requestParameters: DeleteExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>deleteExpenseArrangementCodes</p>
      * Operation to delete ExpenseArrangementCodes.
@@ -2688,11 +2688,13 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
     /**
      * You can use this API to remove template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use deleteTemplateCustomNumber instead</mark></strong></p> <p><strong>OperationId:</strong>deleteTemplateCustomNumberConfig</p>
      * Operation to remove template custom number configuration.
+     * @deprecated
      */
     deleteTemplateCustomNumberConfigRaw(requestParameters: DeleteTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to remove template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use deleteTemplateCustomNumber instead</mark></strong></p> <p><strong>OperationId:</strong>deleteTemplateCustomNumberConfig</p>
      * Operation to remove template custom number configuration.
+     * @deprecated
      */
     deleteTemplateCustomNumberConfig(requestParameters: DeleteTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -2868,11 +2870,13 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
     /**
      * You can use this API to fetch Comp Bucket Redemption Codes.<br><p><strong><mark>This API is deprecated. Please use getCompBucketRedemptionCodes instead</mark></strong></p> <p><strong>OperationId:</strong>getCompBucketRedemptionConfig</p>
      * Operation to fetch Comp Bucket Redemption Codes.
+     * @deprecated
      */
     getCompBucketRedemptionConfigRaw(requestParameters: GetCompBucketRedemptionConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompBucketRedemptionConfigDetails>>;
     /**
      * You can use this API to fetch Comp Bucket Redemption Codes.<br><p><strong><mark>This API is deprecated. Please use getCompBucketRedemptionCodes instead</mark></strong></p> <p><strong>OperationId:</strong>getCompBucketRedemptionConfig</p>
      * Operation to fetch Comp Bucket Redemption Codes.
+     * @deprecated
      */
     getCompBucketRedemptionConfig(requestParameters: GetCompBucketRedemptionConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompBucketRedemptionConfigDetails>;
     /**
@@ -2918,31 +2922,37 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
     /**
      * You can use this API to fetch Custom Charge Exemptions Config.<br><p><strong><mark>This API is deprecated. Please use getCustomChargeExemptions instead</mark></strong></p> <p><strong>OperationId:</strong>getCustomChargeExemptionsConfig</p>
      * Operation to fetch Custom Charge Exemptions Config.
+     * @deprecated
      */
     getCustomChargeExemptionsConfigRaw(requestParameters: GetCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChargeExemptionsConfig>>;
     /**
      * You can use this API to fetch Custom Charge Exemptions Config.<br><p><strong><mark>This API is deprecated. Please use getCustomChargeExemptions instead</mark></strong></p> <p><strong>OperationId:</strong>getCustomChargeExemptionsConfig</p>
      * Operation to fetch Custom Charge Exemptions Config.
+     * @deprecated
      */
     getCustomChargeExemptionsConfig(requestParameters: GetCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChargeExemptionsConfig>;
     /**
      * You can use this API to fetch Custom Charge Codes.<br><p><strong><mark>This API is deprecated. Please use getCustomChargeCodes instead</mark></strong></p> <p><strong>OperationId:</strong>getCustomChargesConfig</p>
      * Operation to fetch Custom Charge Codes.
+     * @deprecated
      */
     getCustomChargesConfigRaw(requestParameters: GetCustomChargesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomChargesConfigDetails>>;
     /**
      * You can use this API to fetch Custom Charge Codes.<br><p><strong><mark>This API is deprecated. Please use getCustomChargeCodes instead</mark></strong></p> <p><strong>OperationId:</strong>getCustomChargesConfig</p>
      * Operation to fetch Custom Charge Codes.
+     * @deprecated
      */
     getCustomChargesConfig(requestParameters: GetCustomChargesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomChargesConfigDetails>;
     /**
      * You can use this API to fetch custom number config.<br><p><strong><mark>This API is deprecated. Please use getCustomNumbers instead</mark></strong></p> <p><strong>OperationId:</strong>getCustomNumberConfig</p>
      * Operation to fetch custom number config.
+     * @deprecated
      */
     getCustomNumberConfigRaw(requestParameters: GetCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomNumberConfigDetails>>;
     /**
      * You can use this API to fetch custom number config.<br><p><strong><mark>This API is deprecated. Please use getCustomNumbers instead</mark></strong></p> <p><strong>OperationId:</strong>getCustomNumberConfig</p>
      * Operation to fetch custom number config.
+     * @deprecated
      */
     getCustomNumberConfig(requestParameters: GetCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomNumberConfigDetails>;
     /**
@@ -2978,11 +2988,13 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
     /**
      * You can use this API to retrieve exchange rate information for a hotel. You can search by hotel, Currency Code and exchange types. Results can include past, current and future exchange rate information for a currency.<br><p><strong><mark>This API is deprecated. Please use getExchangeRatesInfo instead</mark></strong></p> <p><strong>OperationId:</strong>getExchangeRates</p>
      * Operation to fetch ExchangeRates.
+     * @deprecated
      */
     getExchangeRatesRaw(requestParameters: GetExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExchangeRatesDetails>>;
     /**
      * You can use this API to retrieve exchange rate information for a hotel. You can search by hotel, Currency Code and exchange types. Results can include past, current and future exchange rate information for a currency.<br><p><strong><mark>This API is deprecated. Please use getExchangeRatesInfo instead</mark></strong></p> <p><strong>OperationId:</strong>getExchangeRates</p>
      * Operation to fetch ExchangeRates.
+     * @deprecated
      */
     getExchangeRates(requestParameters: GetExchangeRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExchangeRatesDetails>;
     /**
@@ -3278,11 +3290,13 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
     /**
      * You can use this API to fetch template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use getTemplateCustomNumbers instead</mark></strong></p> <p><strong>OperationId:</strong>getTemplateCustomNumberConfig</p>
      * Operation to fetch template custom number configuration.
+     * @deprecated
      */
     getTemplateCustomNumberConfigRaw(requestParameters: GetTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateCustomNumberConfigDetails>>;
     /**
      * You can use this API to fetch template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use getTemplateCustomNumbers instead</mark></strong></p> <p><strong>OperationId:</strong>getTemplateCustomNumberConfig</p>
      * Operation to fetch template custom number configuration.
+     * @deprecated
      */
     getTemplateCustomNumberConfig(requestParameters: GetTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TemplateCustomNumberConfigDetails>;
     /**
@@ -3459,12 +3473,12 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create Authorizer Groups. <p><strong>OperationId:</strong>postAuthorizerGroups</p>
      * Operation to create AuthorizerGroups.
      */
-    postAuthorizerGroupsRaw(requestParameters: PostAuthorizerGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAuthorizerGroupsRaw(requestParameters: PostAuthorizerGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to create Authorizer Groups. <p><strong>OperationId:</strong>postAuthorizerGroups</p>
      * Operation to create AuthorizerGroups.
      */
-    postAuthorizerGroups(requestParameters: PostAuthorizerGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAuthorizerGroups(requestParameters: PostAuthorizerGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to Create Cashier. <p><strong>OperationId:</strong>postCashiers</p>
      * Operation to create Cashiers.
@@ -3489,22 +3503,22 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create Comp Bucket Redemption Codes. <p><strong>OperationId:</strong>postCompBucketRedemptionConfig</p>
      * Operation to create Comp Bucket Redemption Codes.
      */
-    postCompBucketRedemptionConfigRaw(requestParameters: PostCompBucketRedemptionConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCompBucketRedemptionConfigRaw(requestParameters: PostCompBucketRedemptionConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to create Comp Bucket Redemption Codes. <p><strong>OperationId:</strong>postCompBucketRedemptionConfig</p>
      * Operation to create Comp Bucket Redemption Codes.
      */
-    postCompBucketRedemptionConfig(requestParameters: PostCompBucketRedemptionConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCompBucketRedemptionConfig(requestParameters: PostCompBucketRedemptionConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to Create Comp Types <p><strong>OperationId:</strong>postCompTypes</p>
      * Operation to Create Comp Types
      */
-    postCompTypesRaw(requestParameters: PostCompTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCompTypesRaw(requestParameters: PostCompTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to Create Comp Types <p><strong>OperationId:</strong>postCompTypes</p>
      * Operation to Create Comp Types
      */
-    postCompTypes(requestParameters: PostCompTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCompTypes(requestParameters: PostCompTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to create currency exchange service taxes. <p><strong>OperationId:</strong>postCurrencyExchangeServiceTaxes</p>
      * Operation to create CurrencyExchangeServiceTaxes.
@@ -3519,32 +3533,32 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create Custom Charge Exemptions Config. <p><strong>OperationId:</strong>postCustomChargeExemptionsConfig</p>
      * Operation to create Custom Charge Exemptions Config.
      */
-    postCustomChargeExemptionsConfigRaw(requestParameters: PostCustomChargeExemptionsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCustomChargeExemptionsConfigRaw(requestParameters: PostCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to create Custom Charge Exemptions Config. <p><strong>OperationId:</strong>postCustomChargeExemptionsConfig</p>
      * Operation to create Custom Charge Exemptions Config.
      */
-    postCustomChargeExemptionsConfig(requestParameters: PostCustomChargeExemptionsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCustomChargeExemptionsConfig(requestParameters: PostCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to create Custom Charge Codes. <p><strong>OperationId:</strong>postCustomChargesConfig</p>
      * Operation to create Custom Charge Codes.
      */
-    postCustomChargesConfigRaw(requestParameters: PostCustomChargesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCustomChargesConfigRaw(requestParameters: PostCustomChargesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to create Custom Charge Codes. <p><strong>OperationId:</strong>postCustomChargesConfig</p>
      * Operation to create Custom Charge Codes.
      */
-    postCustomChargesConfig(requestParameters: PostCustomChargesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCustomChargesConfig(requestParameters: PostCustomChargesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>postCustomNumberConfig</p>
      * Operation to create custom number config.
      */
-    postCustomNumberConfigRaw(requestParameters: PostCustomNumberConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCustomNumberConfigRaw(requestParameters: PostCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>postCustomNumberConfig</p>
      * Operation to create custom number config.
      */
-    postCustomNumberConfig(requestParameters: PostCustomNumberConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCustomNumberConfig(requestParameters: PostCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>postExpenseArrangementCodes</p>
      * Operation to create ExpenseArrangementCodes.
@@ -3559,22 +3573,22 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Use this API to create fiscal partners. <p><strong>OperationId:</strong>postFiscalPartners</p>
      * Create fiscal partners
      */
-    postFiscalPartnersRaw(requestParameters: PostFiscalPartnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFiscalPartnersRaw(requestParameters: PostFiscalPartnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create fiscal partners. <p><strong>OperationId:</strong>postFiscalPartners</p>
      * Create fiscal partners
      */
-    postFiscalPartners(requestParameters: PostFiscalPartnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFiscalPartners(requestParameters: PostFiscalPartnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to create Fiscal Periods. <p><strong>OperationId:</strong>postFiscalPeriods</p>
      * Operation to create FiscalPeriods.
      */
-    postFiscalPeriodsRaw(requestParameters: PostFiscalPeriodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFiscalPeriodsRaw(requestParameters: PostFiscalPeriodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to create Fiscal Periods. <p><strong>OperationId:</strong>postFiscalPeriods</p>
      * Operation to create FiscalPeriods.
      */
-    postFiscalPeriods(requestParameters: PostFiscalPeriodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFiscalPeriods(requestParameters: PostFiscalPeriodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to create Fiscal Years. <p><strong>OperationId:</strong>postFiscalYears</p>
      * Operation to create FiscalYears.
@@ -3609,12 +3623,12 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create folio type legend mappings config. <p><strong>OperationId:</strong>postFolioTypeLegendMappingConfig</p>
      * Operation to create folio type legend mappings config.
      */
-    postFolioTypeLegendMappingConfigRaw(requestParameters: PostFolioTypeLegendMappingConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFolioTypeLegendMappingConfigRaw(requestParameters: PostFolioTypeLegendMappingConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to create folio type legend mappings config. <p><strong>OperationId:</strong>postFolioTypeLegendMappingConfig</p>
      * Operation to create folio type legend mappings config.
      */
-    postFolioTypeLegendMappingConfig(requestParameters: PostFolioTypeLegendMappingConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFolioTypeLegendMappingConfig(requestParameters: PostFolioTypeLegendMappingConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to Create Folio Type Names. <p><strong>OperationId:</strong>postFolioTypesConfig</p>
      * Operation to create FolioTypesConfig.
@@ -3649,12 +3663,12 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to create No Show Posting Rules. <p><strong>OperationId:</strong>postNoShowPostingRules</p>
      * Operation to create NoShowPostingRules.
      */
-    postNoShowPostingRulesRaw(requestParameters: PostNoShowPostingRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postNoShowPostingRulesRaw(requestParameters: PostNoShowPostingRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to create No Show Posting Rules. <p><strong>OperationId:</strong>postNoShowPostingRules</p>
      * Operation to create NoShowPostingRules.
      */
-    postNoShowPostingRules(requestParameters: PostNoShowPostingRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postNoShowPostingRules(requestParameters: PostNoShowPostingRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>postPackageArrangementCodes</p>
      * Operation to create PackageArrangementCodes.
@@ -3748,13 +3762,15 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
     /**
      * You can use this API to create a new template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use postTemplateCustomNumber instead</mark></strong></p> <p><strong>OperationId:</strong>postTemplateCustomNumberConfig</p>
      * Operation to create a new template custom number configuration.
+     * @deprecated
      */
-    postTemplateCustomNumberConfigRaw(requestParameters: PostTemplateCustomNumberConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateCustomNumberConfigRaw(requestParameters: PostTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create a new template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use postTemplateCustomNumber instead</mark></strong></p> <p><strong>OperationId:</strong>postTemplateCustomNumberConfig</p>
      * Operation to create a new template custom number configuration.
+     * @deprecated
      */
-    postTemplateCustomNumberConfig(requestParameters: PostTemplateCustomNumberConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateCustomNumberConfig(requestParameters: PostTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template transaction codes.<p><strong>OperationId:</strong>postTemplateTransactionCodes</p>
      * Post template transaction codes
@@ -3849,62 +3865,62 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change Adjustment Codes. <p><strong>OperationId:</strong>putAdjustmentCodes</p>
      * Operation to change AdjustmentCodes.
      */
-    putAdjustmentCodesRaw(requestParameters: PutAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAdjustmentCodesRaw(requestParameters: PutAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Adjustment Codes. <p><strong>OperationId:</strong>putAdjustmentCodes</p>
      * Operation to change AdjustmentCodes.
      */
-    putAdjustmentCodes(requestParameters: PutAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAdjustmentCodes(requestParameters: PutAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change articles. <p><strong>OperationId:</strong>putArticles</p>
      * Operation to change Articles.
      */
-    putArticlesRaw(requestParameters: PutArticlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putArticlesRaw(requestParameters: PutArticlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change articles. <p><strong>OperationId:</strong>putArticles</p>
      * Operation to change Articles.
      */
-    putArticles(requestParameters: PutArticlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putArticles(requestParameters: PutArticlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putAuthorizationConfigRule</p>
      * Operation to change AuthorizationConfigRule.
      */
-    putAuthorizationConfigRuleRaw(requestParameters: PutAuthorizationConfigRuleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAuthorizationConfigRuleRaw(requestParameters: PutAuthorizationConfigRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putAuthorizationConfigRule</p>
      * Operation to change AuthorizationConfigRule.
      */
-    putAuthorizationConfigRule(requestParameters: PutAuthorizationConfigRuleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAuthorizationConfigRule(requestParameters: PutAuthorizationConfigRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Authorizer Groups. <p><strong>OperationId:</strong>putAuthorizerGroups</p>
      * Operation to change AuthorizerGroups.
      */
-    putAuthorizerGroupsRaw(requestParameters: PutAuthorizerGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAuthorizerGroupsRaw(requestParameters: PutAuthorizerGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Authorizer Groups. <p><strong>OperationId:</strong>putAuthorizerGroups</p>
      * Operation to change AuthorizerGroups.
      */
-    putAuthorizerGroups(requestParameters: PutAuthorizerGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAuthorizerGroups(requestParameters: PutAuthorizerGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This Operation to Change a Cashier. <p><strong>OperationId:</strong>putCashiers</p>
      * Operation to change CashiersDetails.
      */
-    putCashiersRaw(requestParameters: PutCashiersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCashiersRaw(requestParameters: PutCashiersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This Operation to Change a Cashier. <p><strong>OperationId:</strong>putCashiers</p>
      * Operation to change CashiersDetails.
      */
-    putCashiers(requestParameters: PutCashiersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCashiers(requestParameters: PutCashiersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Collecting Agent Taxes. <p><strong>OperationId:</strong>putCollectingAgentTaxes</p>
      * Operation to change CollectingAgentTaxes.
      */
-    putCollectingAgentTaxesRaw(requestParameters: PutCollectingAgentTaxesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCollectingAgentTaxesRaw(requestParameters: PutCollectingAgentTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Collecting Agent Taxes. <p><strong>OperationId:</strong>putCollectingAgentTaxes</p>
      * Operation to change CollectingAgentTaxes.
      */
-    putCollectingAgentTaxes(requestParameters: PutCollectingAgentTaxesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCollectingAgentTaxes(requestParameters: PutCollectingAgentTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Comp Bucket Redemption Codes. <p><strong>OperationId:</strong>putCompBucketRedemptionConfig</p>
      * Operation to change Comp Bucket Redemption Codes.
@@ -3919,22 +3935,22 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to change currency exchange service taxes. <p><strong>OperationId:</strong>putCurrencyExchangeServiceTaxes</p>
      * Operation to change ExchangeServiceTaxes.
      */
-    putCurrencyExchangeServiceTaxesRaw(requestParameters: PutCurrencyExchangeServiceTaxesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCurrencyExchangeServiceTaxesRaw(requestParameters: PutCurrencyExchangeServiceTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change currency exchange service taxes. <p><strong>OperationId:</strong>putCurrencyExchangeServiceTaxes</p>
      * Operation to change ExchangeServiceTaxes.
      */
-    putCurrencyExchangeServiceTaxes(requestParameters: PutCurrencyExchangeServiceTaxesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCurrencyExchangeServiceTaxes(requestParameters: PutCurrencyExchangeServiceTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Custom Charge Exemptions Config. <p><strong>OperationId:</strong>putCustomChargeExemptionsConfig</p>
      * Operation to change Custom Charge Exemptions Config.
      */
-    putCustomChargeExemptionsConfigRaw(requestParameters: PutCustomChargeExemptionsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCustomChargeExemptionsConfigRaw(requestParameters: PutCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Custom Charge Exemptions Config. <p><strong>OperationId:</strong>putCustomChargeExemptionsConfig</p>
      * Operation to change Custom Charge Exemptions Config.
      */
-    putCustomChargeExemptionsConfig(requestParameters: PutCustomChargeExemptionsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCustomChargeExemptionsConfig(requestParameters: PutCustomChargeExemptionsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Custom ChargeCodes. <p><strong>OperationId:</strong>putCustomChargesConfig</p>
      * Operation to change Custom Charge Codes.
@@ -3959,232 +3975,232 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putDailyPlanCodes</p>
      * Operation to change DailyPlanCodes.
      */
-    putDailyPlanCodesRaw(requestParameters: PutDailyPlanCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDailyPlanCodesRaw(requestParameters: PutDailyPlanCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putDailyPlanCodes</p>
      * Operation to change DailyPlanCodes.
      */
-    putDailyPlanCodes(requestParameters: PutDailyPlanCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDailyPlanCodes(requestParameters: PutDailyPlanCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putExpenseArrangementCodes</p>
      * Operation to change ExpenseArrangementCodes.
      */
-    putExpenseArrangementCodesRaw(requestParameters: PutExpenseArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putExpenseArrangementCodesRaw(requestParameters: PutExpenseArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putExpenseArrangementCodes</p>
      * Operation to change ExpenseArrangementCodes.
      */
-    putExpenseArrangementCodes(requestParameters: PutExpenseArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putExpenseArrangementCodes(requestParameters: PutExpenseArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Fiscal Folio Parameters. <p><strong>OperationId:</strong>putFiscalFolioParameters</p>
      * Operation to change FiscalFolioParameters.
      */
-    putFiscalFolioParametersRaw(requestParameters: PutFiscalFolioParametersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFiscalFolioParametersRaw(requestParameters: PutFiscalFolioParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Fiscal Folio Parameters. <p><strong>OperationId:</strong>putFiscalFolioParameters</p>
      * Operation to change FiscalFolioParameters.
      */
-    putFiscalFolioParameters(requestParameters: PutFiscalFolioParametersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFiscalFolioParameters(requestParameters: PutFiscalFolioParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Fiscal Periods. <p><strong>OperationId:</strong>putFiscalPeriods</p>
      * Operation to change FiscalPeriods.
      */
-    putFiscalPeriodsRaw(requestParameters: PutFiscalPeriodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFiscalPeriodsRaw(requestParameters: PutFiscalPeriodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Fiscal Periods. <p><strong>OperationId:</strong>putFiscalPeriods</p>
      * Operation to change FiscalPeriods.
      */
-    putFiscalPeriods(requestParameters: PutFiscalPeriodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFiscalPeriods(requestParameters: PutFiscalPeriodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Fiscal Years. <p><strong>OperationId:</strong>putFiscalYears</p>
      * Operation to change FiscalYears.
      */
-    putFiscalYearsRaw(requestParameters: PutFiscalYearsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFiscalYearsRaw(requestParameters: PutFiscalYearsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Fiscal Years. <p><strong>OperationId:</strong>putFiscalYears</p>
      * Operation to change FiscalYears.
      */
-    putFiscalYears(requestParameters: PutFiscalYearsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFiscalYears(requestParameters: PutFiscalYearsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putFolioArrangementCodes</p>
      * Operation to change FolioArrangementCodes.
      */
-    putFolioArrangementCodesRaw(requestParameters: PutFolioArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFolioArrangementCodesRaw(requestParameters: PutFolioArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putFolioArrangementCodes</p>
      * Operation to change FolioArrangementCodes.
      */
-    putFolioArrangementCodes(requestParameters: PutFolioArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFolioArrangementCodes(requestParameters: PutFolioArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change folio copy legends information <p><strong>OperationId:</strong>putFolioCopyLegends</p>
      * Operation to change FolioCopyLegends.
      */
-    putFolioCopyLegendsRaw(requestParameters: PutFolioCopyLegendsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFolioCopyLegendsRaw(requestParameters: PutFolioCopyLegendsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change folio copy legends information <p><strong>OperationId:</strong>putFolioCopyLegends</p>
      * Operation to change FolioCopyLegends.
      */
-    putFolioCopyLegends(requestParameters: PutFolioCopyLegendsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFolioCopyLegends(requestParameters: PutFolioCopyLegendsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change folio print queues. <p><strong>OperationId:</strong>putFolioPrintQueues</p>
      * Operation to change FolioPrintQueues.
      */
-    putFolioPrintQueuesRaw(requestParameters: PutFolioPrintQueuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFolioPrintQueuesRaw(requestParameters: PutFolioPrintQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change folio print queues. <p><strong>OperationId:</strong>putFolioPrintQueues</p>
      * Operation to change FolioPrintQueues.
      */
-    putFolioPrintQueues(requestParameters: PutFolioPrintQueuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFolioPrintQueues(requestParameters: PutFolioPrintQueuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Folio Type Names. <p><strong>OperationId:</strong>putFolioTypesConfig</p>
      * Operation to change FolioTypesConfig.
      */
-    putFolioTypesConfigRaw(requestParameters: PutFolioTypesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFolioTypesConfigRaw(requestParameters: PutFolioTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Folio Type Names. <p><strong>OperationId:</strong>putFolioTypesConfig</p>
      * Operation to change FolioTypesConfig.
      */
-    putFolioTypesConfig(requestParameters: PutFolioTypesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFolioTypesConfig(requestParameters: PutFolioTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Foreign Currencies. <p><strong>OperationId:</strong>putForeignCurrencies</p>
      * Operation to change ForeignCurrencies.
      */
-    putForeignCurrenciesRaw(requestParameters: PutForeignCurrenciesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putForeignCurrenciesRaw(requestParameters: PutForeignCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Foreign Currencies. <p><strong>OperationId:</strong>putForeignCurrencies</p>
      * Operation to change ForeignCurrencies.
      */
-    putForeignCurrencies(requestParameters: PutForeignCurrenciesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putForeignCurrencies(requestParameters: PutForeignCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change GUI Number rules <p><strong>OperationId:</strong>putGUINumberRules</p>
      * Operation to change GUINumberRules.
      */
-    putGUINumberRulesRaw(requestParameters: PutGUINumberRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putGUINumberRulesRaw(requestParameters: PutGUINumberRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change GUI Number rules <p><strong>OperationId:</strong>putGUINumberRules</p>
      * Operation to change GUINumberRules.
      */
-    putGUINumberRules(requestParameters: PutGUINumberRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putGUINumberRules(requestParameters: PutGUINumberRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putGroupArrangementCodes</p>
      * Operation to change GroupArrangementCodes.
      */
-    putGroupArrangementCodesRaw(requestParameters: PutGroupArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putGroupArrangementCodesRaw(requestParameters: PutGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putGroupArrangementCodes</p>
      * Operation to change GroupArrangementCodes.
      */
-    putGroupArrangementCodes(requestParameters: PutGroupArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putGroupArrangementCodes(requestParameters: PutGroupArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change No Show Posting Rules. <p><strong>OperationId:</strong>putNoShowPostingRules</p>
      * Operation to change NoShowPostingRules.
      */
-    putNoShowPostingRulesRaw(requestParameters: PutNoShowPostingRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putNoShowPostingRulesRaw(requestParameters: PutNoShowPostingRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change No Show Posting Rules. <p><strong>OperationId:</strong>putNoShowPostingRules</p>
      * Operation to change NoShowPostingRules.
      */
-    putNoShowPostingRules(requestParameters: PutNoShowPostingRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putNoShowPostingRules(requestParameters: PutNoShowPostingRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * The operation is to change the description corresponding to a number. <p><strong>OperationId:</strong>putNumberDescriptions</p>
      * Operation to change NumberDescriptions.
      */
-    putNumberDescriptionsRaw(requestParameters: PutNumberDescriptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putNumberDescriptionsRaw(requestParameters: PutNumberDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * The operation is to change the description corresponding to a number. <p><strong>OperationId:</strong>putNumberDescriptions</p>
      * Operation to change NumberDescriptions.
      */
-    putNumberDescriptions(requestParameters: PutNumberDescriptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putNumberDescriptions(requestParameters: PutNumberDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Opera Document Sequences. <p><strong>OperationId:</strong>putOperaControlSequences</p>
      * Operation to change OperaControlSequences.
      */
-    putOperaControlSequencesRaw(requestParameters: PutOperaControlSequencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putOperaControlSequencesRaw(requestParameters: PutOperaControlSequencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Opera Document Sequences. <p><strong>OperationId:</strong>putOperaControlSequences</p>
      * Operation to change OperaControlSequences.
      */
-    putOperaControlSequences(requestParameters: PutOperaControlSequencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putOperaControlSequences(requestParameters: PutOperaControlSequencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putPackageArrangementCodes</p>
      * Operation to change PackageArrangementCodes.
      */
-    putPackageArrangementCodesRaw(requestParameters: PutPackageArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPackageArrangementCodesRaw(requestParameters: PutPackageArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putPackageArrangementCodes</p>
      * Operation to change PackageArrangementCodes.
      */
-    putPackageArrangementCodes(requestParameters: PutPackageArrangementCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPackageArrangementCodes(requestParameters: PutPackageArrangementCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change payment methods. <p><strong>OperationId:</strong>putPaymentMethods</p>
      * Operation to change PaymentMethods.
      */
-    putPaymentMethodsRaw(requestParameters: PutPaymentMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPaymentMethodsRaw(requestParameters: PutPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change payment methods. <p><strong>OperationId:</strong>putPaymentMethods</p>
      * Operation to change PaymentMethods.
      */
-    putPaymentMethods(requestParameters: PutPaymentMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPaymentMethods(requestParameters: PutPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Revenue Bucket Codes. <p><strong>OperationId:</strong>putRevenueBucketCodes</p>
      * Operation to change RevenueBucketCodes.
      */
-    putRevenueBucketCodesRaw(requestParameters: PutRevenueBucketCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRevenueBucketCodesRaw(requestParameters: PutRevenueBucketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Revenue Bucket Codes. <p><strong>OperationId:</strong>putRevenueBucketCodes</p>
      * Operation to change RevenueBucketCodes.
      */
-    putRevenueBucketCodes(requestParameters: PutRevenueBucketCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRevenueBucketCodes(requestParameters: PutRevenueBucketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Revenue Bucket Types. <p><strong>OperationId:</strong>putRevenueBucketTypes</p>
      * Operation to change RevenueBucketTypes.
      */
-    putRevenueBucketTypesRaw(requestParameters: PutRevenueBucketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRevenueBucketTypesRaw(requestParameters: PutRevenueBucketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Revenue Bucket Types. <p><strong>OperationId:</strong>putRevenueBucketTypes</p>
      * Operation to change RevenueBucketTypes.
      */
-    putRevenueBucketTypes(requestParameters: PutRevenueBucketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRevenueBucketTypes(requestParameters: PutRevenueBucketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putRevenueTypeMapping</p>
      * Operation to change RevenueTypeMapping.
      */
-    putRevenueTypeMappingRaw(requestParameters: PutRevenueTypeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRevenueTypeMappingRaw(requestParameters: PutRevenueTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putRevenueTypeMapping</p>
      * Operation to change RevenueTypeMapping.
      */
-    putRevenueTypeMapping(requestParameters: PutRevenueTypeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRevenueTypeMapping(requestParameters: PutRevenueTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change routing instructions. <p><strong>OperationId:</strong>putRoutingInstructions</p>
      * Operation to change RoutingInstructions.
      */
-    putRoutingInstructionsRaw(requestParameters: PutRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoutingInstructionsRaw(requestParameters: PutRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change routing instructions. <p><strong>OperationId:</strong>putRoutingInstructions</p>
      * Operation to change RoutingInstructions.
      */
-    putRoutingInstructions(requestParameters: PutRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoutingInstructions(requestParameters: PutRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Tax Brackets. This function only be available when the parameter \"Tax Bracket Calculation\" is on. <p><strong>OperationId:</strong>putTaxBrackets</p>
      * Operation to change TaxBrackets.
      */
-    putTaxBracketsRaw(requestParameters: PutTaxBracketsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTaxBracketsRaw(requestParameters: PutTaxBracketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Tax Brackets. This function only be available when the parameter \"Tax Bracket Calculation\" is on. <p><strong>OperationId:</strong>putTaxBrackets</p>
      * Operation to change TaxBrackets.
      */
-    putTaxBrackets(requestParameters: PutTaxBracketsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTaxBrackets(requestParameters: PutTaxBracketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Tax Types. <p><strong>OperationId:</strong>putTaxTypes</p>
      * Operation to change TaxTypes.
      */
-    putTaxTypesRaw(requestParameters: PutTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTaxTypesRaw(requestParameters: PutTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Tax Types. <p><strong>OperationId:</strong>putTaxTypes</p>
      * Operation to change TaxTypes.
      */
-    putTaxTypes(requestParameters: PutTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTaxTypes(requestParameters: PutTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change template custom number configuration. <p><strong>OperationId:</strong>putTemplateCustomNumber</p>
      * Operation to change template custom number configuration.
@@ -4198,113 +4214,115 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
     /**
      * You can use this API to change template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use putTemplateCustomNumber instead</mark></strong></p> <p><strong>OperationId:</strong>putTemplateCustomNumberConfig</p>
      * Operation to change template custom number configuration.
+     * @deprecated
      */
     putTemplateCustomNumberConfigRaw(requestParameters: PutTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change template custom number configuration.<br><p><strong><mark>This API is deprecated. Please use putTemplateCustomNumber instead</mark></strong></p> <p><strong>OperationId:</strong>putTemplateCustomNumberConfig</p>
      * Operation to change template custom number configuration.
+     * @deprecated
      */
     putTemplateCustomNumberConfig(requestParameters: PutTemplateCustomNumberConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change template transaction codes. <p><strong>OperationId:</strong>putTemplateTransactionCodes</p>
      * Operation to change TemplateTransactionCodes.
      */
-    putTemplateTransactionCodesRaw(requestParameters: PutTemplateTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplateTransactionCodesRaw(requestParameters: PutTemplateTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change template transaction codes. <p><strong>OperationId:</strong>putTemplateTransactionCodes</p>
      * Operation to change TemplateTransactionCodes.
      */
-    putTemplateTransactionCodes(requestParameters: PutTemplateTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplateTransactionCodes(requestParameters: PutTemplateTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change existing template transaction group. <p><strong>OperationId:</strong>putTemplateTransactionGroups</p>
      * Operation to change TemplateTransactionGroups.
      */
-    putTemplateTransactionGroupsRaw(requestParameters: PutTemplateTransactionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplateTransactionGroupsRaw(requestParameters: PutTemplateTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change existing template transaction group. <p><strong>OperationId:</strong>putTemplateTransactionGroups</p>
      * Operation to change TemplateTransactionGroups.
      */
-    putTemplateTransactionGroups(requestParameters: PutTemplateTransactionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplateTransactionGroups(requestParameters: PutTemplateTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change template transaction subgroups <p><strong>OperationId:</strong>putTemplateTransactionSubgroups</p>
      * Operation to change TemplateTransactionSubgroups.
      */
-    putTemplateTransactionSubgroupsRaw(requestParameters: PutTemplateTransactionSubgroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplateTransactionSubgroupsRaw(requestParameters: PutTemplateTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change template transaction subgroups <p><strong>OperationId:</strong>putTemplateTransactionSubgroups</p>
      * Operation to change TemplateTransactionSubgroups.
      */
-    putTemplateTransactionSubgroups(requestParameters: PutTemplateTransactionSubgroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplateTransactionSubgroups(requestParameters: PutTemplateTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change ownership of transaction code. <p><strong>OperationId:</strong>putTransactionCodeOwnership</p>
      * Operation to change TransactionCodeOwnership.
      */
-    putTransactionCodeOwnershipRaw(requestParameters: PutTransactionCodeOwnershipOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTransactionCodeOwnershipRaw(requestParameters: PutTransactionCodeOwnershipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change ownership of transaction code. <p><strong>OperationId:</strong>putTransactionCodeOwnership</p>
      * Operation to change TransactionCodeOwnership.
      */
-    putTransactionCodeOwnership(requestParameters: PutTransactionCodeOwnershipOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTransactionCodeOwnership(requestParameters: PutTransactionCodeOwnershipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update transaction codes for a specific property.<p><strong>OperationId:</strong>putTransactionCodes</p>
      * Put transaction codes
      */
-    putTransactionCodesRaw(requestParameters: PutTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransactionCodes>>;
+    putTransactionCodesRaw(requestParameters: PutTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransactionCodes>>;
     /**
      * Use this API to update transaction codes for a specific property.<p><strong>OperationId:</strong>putTransactionCodes</p>
      * Put transaction codes
      */
-    putTransactionCodes(requestParameters: PutTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransactionCodes>;
+    putTransactionCodes(requestParameters: PutTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransactionCodes>;
     /**
      * Operation to change Transaction Discounts. <p><strong>OperationId:</strong>putTransactionDiscounts</p>
      * Operation to change TransactionDiscounts.
      */
-    putTransactionDiscountsRaw(requestParameters: PutTransactionDiscountsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTransactionDiscountsRaw(requestParameters: PutTransactionDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Transaction Discounts. <p><strong>OperationId:</strong>putTransactionDiscounts</p>
      * Operation to change TransactionDiscounts.
      */
-    putTransactionDiscounts(requestParameters: PutTransactionDiscountsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTransactionDiscounts(requestParameters: PutTransactionDiscountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change Transaction Diversion Rules. <p><strong>OperationId:</strong>putTransactionDiversionRules</p>
      * Operation to change TransactionDiversionRules.
      */
-    putTransactionDiversionRulesRaw(requestParameters: PutTransactionDiversionRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTransactionDiversionRulesRaw(requestParameters: PutTransactionDiversionRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change Transaction Diversion Rules. <p><strong>OperationId:</strong>putTransactionDiversionRules</p>
      * Operation to change TransactionDiversionRules.
      */
-    putTransactionDiversionRules(requestParameters: PutTransactionDiversionRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTransactionDiversionRules(requestParameters: PutTransactionDiversionRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update transaction generates for a specific property.<p><strong>OperationId:</strong>putTransactionGenerates</p>
      * Put transaction generates
      */
-    putTransactionGeneratesRaw(requestParameters: PutTransactionGeneratesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTransactionGeneratesRaw(requestParameters: PutTransactionGeneratesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update transaction generates for a specific property.<p><strong>OperationId:</strong>putTransactionGenerates</p>
      * Put transaction generates
      */
-    putTransactionGenerates(requestParameters: PutTransactionGeneratesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTransactionGenerates(requestParameters: PutTransactionGeneratesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change transaction groups. <p><strong>OperationId:</strong>putTransactionGroups</p>
      * Operation to change TransactionGroups.
      */
-    putTransactionGroupsRaw(requestParameters: PutTransactionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTransactionGroupsRaw(requestParameters: PutTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change transaction groups. <p><strong>OperationId:</strong>putTransactionGroups</p>
      * Operation to change TransactionGroups.
      */
-    putTransactionGroups(requestParameters: PutTransactionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTransactionGroups(requestParameters: PutTransactionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to change transaction sub groups. <p><strong>OperationId:</strong>putTransactionSubgroups</p>
      * Operation to change TransactionSubgroups.
      */
-    putTransactionSubgroupsRaw(requestParameters: PutTransactionSubgroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTransactionSubgroupsRaw(requestParameters: PutTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change transaction sub groups. <p><strong>OperationId:</strong>putTransactionSubgroups</p>
      * Operation to change TransactionSubgroups.
      */
-    putTransactionSubgroups(requestParameters: PutTransactionSubgroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTransactionSubgroups(requestParameters: PutTransactionSubgroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to Remove Comp Types. <p><strong>OperationId:</strong>removeCompTypes</p>
      * Operation to Remove Comp Types.
@@ -4369,22 +4387,22 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to add/update Budget Forecast information. <p><strong>OperationId:</strong>setBudgetForecast</p>
      * Operation to set BudgetForecast.
      */
-    setBudgetForecastRaw(requestParameters: SetBudgetForecastOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setBudgetForecastRaw(requestParameters: SetBudgetForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to add/update Budget Forecast information. <p><strong>OperationId:</strong>setBudgetForecast</p>
      * Operation to set BudgetForecast.
      */
-    setBudgetForecast(requestParameters: SetBudgetForecastOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setBudgetForecast(requestParameters: SetBudgetForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to Set Comp Authorizer. <p><strong>OperationId:</strong>setCompAuthorizer</p>
      * Operation to set CompAuthorizer.
      */
-    setCompAuthorizerRaw(requestParameters: SetCompAuthorizerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setCompAuthorizerRaw(requestParameters: SetCompAuthorizerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to Set Comp Authorizer. <p><strong>OperationId:</strong>setCompAuthorizer</p>
      * Operation to set CompAuthorizer.
      */
-    setCompAuthorizer(requestParameters: SetCompAuthorizerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setCompAuthorizer(requestParameters: SetCompAuthorizerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * The operation sets exchange rates. <p><strong>OperationId:</strong>setExchangeRates</p>
      * Operation to set ExchangeRates.
@@ -4409,12 +4427,12 @@ export declare class CashieringConfigApi extends runtime.BaseAPI {
      * Operation to Set Transaction Code Access Roles. <p><strong>OperationId:</strong>setTransactionCodeAccessRoles</p>
      * Operation to set TransactionCodeAccessRoles.
      */
-    setTransactionCodeAccessRolesRaw(requestParameters: SetTransactionCodeAccessRolesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setTransactionCodeAccessRolesRaw(requestParameters: SetTransactionCodeAccessRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to Set Transaction Code Access Roles. <p><strong>OperationId:</strong>setTransactionCodeAccessRoles</p>
      * Operation to set TransactionCodeAccessRoles.
      */
-    setTransactionCodeAccessRoles(requestParameters: SetTransactionCodeAccessRolesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setTransactionCodeAccessRoles(requestParameters: SetTransactionCodeAccessRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

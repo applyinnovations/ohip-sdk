@@ -55,7 +55,7 @@ function StagedProfileAddressTypeToJSON(value) {
     return {
         'address': (0, AddressType_1.AddressTypeToJSON)(value.address),
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'postalCodeExtension': value.postalCodeExtension,
         'barCode': value.barCode,
         'cleansStatus': (0, StagedAddressCleansStatus_1.StagedAddressCleansStatusToJSON)(value.cleansStatus),

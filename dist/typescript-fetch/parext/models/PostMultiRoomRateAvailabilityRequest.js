@@ -54,8 +54,8 @@ function PostMultiRoomRateAvailabilityRequestToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': (value.arrivalDate.toISOString().substr(0, 10)),
-        'departureDate': (value.departureDate.toISOString().substr(0, 10)),
+        'arrivalDate': (value.arrivalDate.toISOString().substring(0, 10)),
+        'departureDate': (value.departureDate.toISOString().substring(0, 10)),
         'hotelIds': value.hotelIds,
         'rates': (0, RatesSearchType_1.RatesSearchTypeToJSON)(value.rates),
         'rooms': (value.rooms.map(RoomsSearchType_1.RoomsSearchTypeToJSON)),

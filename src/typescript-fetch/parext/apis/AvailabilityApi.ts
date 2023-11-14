@@ -20,7 +20,7 @@ import type {
   PostMultiRoomRateAvailabilityRequest,
   SearchPropertyRequestType,
   SearchPropertyResponseType,
-} from '../models';
+} from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
@@ -32,22 +32,22 @@ import {
     SearchPropertyRequestTypeToJSON,
     SearchPropertyResponseTypeFromJSON,
     SearchPropertyResponseTypeToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface PostMinimumRateAvailabilityRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
     body?: SearchPropertyRequestType;
 }
 
 export interface PostMultiRoomRateAvailabilityOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    request?: PostMultiRoomRateAvailabilityRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    request: PostMultiRoomRateAvailabilityRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -62,6 +62,18 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Advanced Property Search with minimum rates.
      */
     async postMinimumRateAvailabilityRaw(requestParameters: PostMinimumRateAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchPropertyResponseType>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMinimumRateAvailability.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMinimumRateAvailability.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMinimumRateAvailability.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -113,6 +125,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Advanced multi property search with multiple room and rates.
      */
     async postMultiRoomRateAvailabilityRaw(requestParameters: PostMultiRoomRateAvailabilityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MultiRoomRateAvailabilityResponseType>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMultiRoomRateAvailability.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMultiRoomRateAvailability.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMultiRoomRateAvailability.');
+        }
+
+        if (requestParameters.request === null || requestParameters.request === undefined) {
+            throw new runtime.RequiredError('request','Required parameter requestParameters.request was null or undefined when calling postMultiRoomRateAvailability.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -50,7 +50,7 @@ function RegionalParityRateTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0, 10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
         'currencyCode': value.currencyCode,
         'maximumRate': value.maximumRate,
         'minimumRate': value.minimumRate,

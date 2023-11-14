@@ -168,7 +168,7 @@ export function ChannelAccountSummaryTypeToJSON(value?: ChannelAccountSummaryTyp
         'accountDetails': ChannelAccountDetailsTypeToJSON(value.accountDetails),
         'addressInfo': AddressInfoTypeToJSON(value.addressInfo),
         'channelAccountIndicators': IndicatorsTypeToJSON(value.channelAccountIndicators),
-        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substr(0,10)),
+        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0,10)),
         'emailInfo': EmailInfoTypeToJSON(value.emailInfo),
         'hotelId': value.hotelId,
         'hotels': CodeListTypeToJSON(value.hotels),

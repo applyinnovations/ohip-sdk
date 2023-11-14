@@ -55,7 +55,7 @@ function BillingChargesCriteriaTypeToJSON(value) {
         'cashierId': value.cashierId,
         'charges': (0, ChargesCriteriaType_1.ChargesCriteriaTypeToJSON)(value.charges),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0, 10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0, 10)),
         'postIt': value.postIt,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'welcomeOfferPosting': value.welcomeOfferPosting,

@@ -60,8 +60,8 @@ function ReservationRateSummaryDetailTypeToJSON(value) {
         'ratePlanCode': value.ratePlanCode,
         'rateSuppressed': value.rateSuppressed,
         'revenue': value.revenue,
-        'revenueSimulationDate': value.revenueSimulationDate === undefined ? undefined : (value.revenueSimulationDate.toISOString().substr(0, 10)),
-        'summaryDate': value.summaryDate === undefined ? undefined : (value.summaryDate.toISOString().substr(0, 10)),
+        'revenueSimulationDate': value.revenueSimulationDate === undefined ? undefined : (value.revenueSimulationDate.toISOString().substring(0, 10)),
+        'summaryDate': value.summaryDate === undefined ? undefined : (value.summaryDate.toISOString().substring(0, 10)),
         'tax': value.tax,
     };
 }

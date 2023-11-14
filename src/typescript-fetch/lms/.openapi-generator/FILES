@@ -26,10 +26,8 @@ models/ChangeActivityTypes.ts
 models/ChangeActivityTypesRS.ts
 models/CopyActivityLocations.ts
 models/CopyActivityLocationsRS.ts
-models/CopyActivityLocationsRequest.ts
 models/CopyActivityTypes.ts
 models/CopyActivityTypesRS.ts
-models/CopyActivityTypesRequest.ts
 models/CopyConfigurationCodeType.ts
 models/CopyConfigurationCodesType.ts
 models/CountryNameType.ts
@@ -54,15 +52,6 @@ models/LocationNotificationStatus.ts
 models/LocationNotificationToBeCreated.ts
 models/PersonNameType.ts
 models/PersonNameTypeType.ts
-models/PostActivityBookingRequest.ts
-models/PostActivityLocationsRequest.ts
-models/PostActivityStatusCodesRequest.ts
-models/PostActivityTypesRequest.ts
-models/PostLocationNotificationRequest.ts
-models/PutActivityBookingRequest.ts
-models/PutActivityLocationsRequest.ts
-models/PutActivityStatusCodesRequest.ts
-models/PutActivityTypesRequest.ts
 models/Status.ts
 models/UniqueIDListType.ts
 models/UniqueIDType.ts

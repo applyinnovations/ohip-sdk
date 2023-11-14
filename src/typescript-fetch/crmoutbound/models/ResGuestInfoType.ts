@@ -331,7 +331,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
         'altFullName': value.altFullName,
         'phoneNumber': value.phoneNumber,
         'email': value.email,
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substr(0,10)),
+        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
         'language': value.language,
         'nationality': CountryNameTypeToJSON(value.nationality),
         'vip': VIPTypeToJSON(value.vip),

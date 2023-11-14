@@ -82,7 +82,7 @@ export function HousekeepingAttendantsScheduleTypeToJSON(value?: HousekeepingAtt
         
         'attendantsSchedule': value.attendantsSchedule === undefined ? undefined : ((value.attendantsSchedule as Array<any>).map(HousekeepingAttendantScheduleTypeToJSON)),
         'hotelId': value.hotelId,
-        'scheduleDate': value.scheduleDate === undefined ? undefined : (value.scheduleDate.toISOString().substr(0,10)),
+        'scheduleDate': value.scheduleDate === undefined ? undefined : (value.scheduleDate.toISOString().substring(0,10)),
     };
 }
 

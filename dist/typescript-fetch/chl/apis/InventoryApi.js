@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InventoryApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,21 @@ class InventoryApi extends runtime.BaseAPI {
      */
     changeChannelSellLimitsByDateRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeChannelSellLimitsByDate.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeChannelSellLimitsByDate.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeChannelSellLimitsByDate.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeChannelSellLimitsByDate.');
+            }
+            if (requestParameters.channelSellLimitsByDate === null || requestParameters.channelSellLimitsByDate === undefined) {
+                throw new runtime.RequiredError('channelSellLimitsByDate', 'Required parameter requestParameters.channelSellLimitsByDate was null or undefined when calling changeChannelSellLimitsByDate.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -81,9 +96,9 @@ class InventoryApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeChannelSellLimitsByDateRequestToJSON)(requestParameters.channelSellLimitsByDate),
+                body: (0, index_1.ChannelSellLimitsByDateToJSON)(requestParameters.channelSellLimitsByDate),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -102,6 +117,24 @@ class InventoryApi extends runtime.BaseAPI {
      */
     changeChannelSellLimitsByDateRangeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelId === null || requestParameters.channelId === undefined) {
+                throw new runtime.RequiredError('channelId', 'Required parameter requestParameters.channelId was null or undefined when calling changeChannelSellLimitsByDateRange.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeChannelSellLimitsByDateRange.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeChannelSellLimitsByDateRange.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeChannelSellLimitsByDateRange.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeChannelSellLimitsByDateRange.');
+            }
+            if (requestParameters.channelSellLimitsByDateRange === null || requestParameters.channelSellLimitsByDateRange === undefined) {
+                throw new runtime.RequiredError('channelSellLimitsByDateRange', 'Required parameter requestParameters.channelSellLimitsByDateRange was null or undefined when calling changeChannelSellLimitsByDateRange.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -125,9 +158,9 @@ class InventoryApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeChannelSellLimitsByDateRangeRequestToJSON)(requestParameters.channelSellLimitsByDateRange),
+                body: (0, index_1.ChannelSellLimitsByDateRangeToJSON)(requestParameters.channelSellLimitsByDateRange),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -146,6 +179,21 @@ class InventoryApi extends runtime.BaseAPI {
      */
     deleteChannelSellLimitsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.id === null || requestParameters.id === undefined) {
+                throw new runtime.RequiredError('id', 'Required parameter requestParameters.id was null or undefined when calling deleteChannelSellLimits.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelSellLimits.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelSellLimits.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelSellLimits.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelSellLimits.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -169,7 +217,7 @@ class InventoryApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -188,9 +236,24 @@ class InventoryApi extends runtime.BaseAPI {
      */
     getChannelSellLimitsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelSellLimits.');
+            }
+            if (requestParameters.fromDate === null || requestParameters.fromDate === undefined) {
+                throw new runtime.RequiredError('fromDate', 'Required parameter requestParameters.fromDate was null or undefined when calling getChannelSellLimits.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelSellLimits.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelSellLimits.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelSellLimits.');
+            }
             const queryParameters = {};
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substr(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
             }
             if (requestParameters.bookingChannelCode !== undefined) {
                 queryParameters['bookingChannelCode'] = requestParameters.bookingChannelCode;
@@ -220,7 +283,7 @@ class InventoryApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelSellLimitsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelSellLimitsFromJSON)(jsonValue));
         });
     }
     /**

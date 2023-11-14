@@ -144,7 +144,7 @@ export function RoomPoolRoomTypeTypeToJSON(value?: RoomPoolRoomTypeType | null):
     return {
         
         'accessible': value.accessible,
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substr(0,10)),
+        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0,10)),
         'inactive': value.inactive,
         'meetingRoom': value.meetingRoom,
         'numberOfRooms': value.numberOfRooms,

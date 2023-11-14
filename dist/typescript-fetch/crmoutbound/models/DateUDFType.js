@@ -47,7 +47,7 @@ function DateUDFTypeToJSON(value) {
     }
     return {
         'name': value.name,
-        'value': value.value === undefined ? undefined : (value.value.toISOString().substr(0, 10)),
+        'value': value.value === undefined ? undefined : (value.value.toISOString().substring(0, 10)),
         'altname': value.altname,
     };
 }

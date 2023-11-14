@@ -62,7 +62,7 @@ function BestAvailableRatePlanTypeToJSON(value) {
         'los6': value.los6,
         'los7': value.los7,
         'los8': value.los8,
-        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substr(0, 10)),
+        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0, 10)),
         'ratePlanCodes': (0, BestAvailableRateCodesType_1.BestAvailableRateCodesTypeToJSON)(value.ratePlanCodes),
     };
 }

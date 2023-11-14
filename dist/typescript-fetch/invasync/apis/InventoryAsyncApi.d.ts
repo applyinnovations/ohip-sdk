@@ -10,59 +10,59 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { RevenueInventoryStatisticsDetails, RevenueInventoryStatisticsSearchType, SellLimitByDateStatus, SellLimitsByDate } from '../models';
+import type { RevenueInventoryStatisticsDetails, RevenueInventoryStatisticsSearchType, SellLimitByDateStatus, SellLimitsByDate } from '../models/index';
 export interface GetRevenueInventoryStatisticsRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetRevenueInventoryStatisticsProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetSellLimitsRequest {
-    requestId?: string;
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetSellLimitsProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface PostSellLimitsProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellLimitsByDate?: SellLimitsByDate;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellLimitsByDate: SellLimitsByDate;
     acceptLanguage?: string;
 }
 export interface StartRevenueInventoryStatisticsProcessRequest {
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    criteria?: RevenueInventoryStatisticsSearchType;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    criteria: RevenueInventoryStatisticsSearchType;
     acceptLanguage?: string;
 }
 /**

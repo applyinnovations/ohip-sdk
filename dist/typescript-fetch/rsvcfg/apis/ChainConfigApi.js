@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetScriptsTypeEnum = exports.ChainConfigApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     changeBlockConversionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.blockConversionCode === null || requestParameters.blockConversionCode === undefined) {
+                throw new runtime.RequiredError('blockConversionCode', 'Required parameter requestParameters.blockConversionCode was null or undefined when calling changeBlockConversions.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeBlockConversions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeBlockConversions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeBlockConversions.');
+            }
+            if (requestParameters.blockConversionsToBeChanged === null || requestParameters.blockConversionsToBeChanged === undefined) {
+                throw new runtime.RequiredError('blockConversionsToBeChanged', 'Required parameter requestParameters.blockConversionsToBeChanged was null or undefined when calling changeBlockConversions.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -81,9 +96,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeBlockConversionsRequestToJSON)(requestParameters.blockConversionsToBeChanged),
+                body: (0, index_1.BlockConversionsToBeChangedToJSON)(requestParameters.blockConversionsToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -102,6 +117,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     changeBlockRankingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.blockRankingsCode === null || requestParameters.blockRankingsCode === undefined) {
+                throw new runtime.RequiredError('blockRankingsCode', 'Required parameter requestParameters.blockRankingsCode was null or undefined when calling changeBlockRankings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeBlockRankings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeBlockRankings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeBlockRankings.');
+            }
+            if (requestParameters.blockRankingsToBeChanged === null || requestParameters.blockRankingsToBeChanged === undefined) {
+                throw new runtime.RequiredError('blockRankingsToBeChanged', 'Required parameter requestParameters.blockRankingsToBeChanged was null or undefined when calling changeBlockRankings.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -125,9 +155,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeBlockRankingsRequestToJSON)(requestParameters.blockRankingsToBeChanged),
+                body: (0, index_1.BlockRankingsToBeChangedToJSON)(requestParameters.blockRankingsToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -146,6 +176,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     changeGlobalActionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.actionCode === null || requestParameters.actionCode === undefined) {
+                throw new runtime.RequiredError('actionCode', 'Required parameter requestParameters.actionCode was null or undefined when calling changeGlobalActionCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeGlobalActionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeGlobalActionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeGlobalActionCodes.');
+            }
+            if (requestParameters.globalActionCodesToBeChanged === null || requestParameters.globalActionCodesToBeChanged === undefined) {
+                throw new runtime.RequiredError('globalActionCodesToBeChanged', 'Required parameter requestParameters.globalActionCodesToBeChanged was null or undefined when calling changeGlobalActionCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -169,9 +214,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeGlobalActionCodesRequestToJSON)(requestParameters.globalActionCodesToBeChanged),
+                body: (0, index_1.GlobalActionCodesToBeChangedToJSON)(requestParameters.globalActionCodesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -190,6 +235,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     changeScriptsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.scriptCode === null || requestParameters.scriptCode === undefined) {
+                throw new runtime.RequiredError('scriptCode', 'Required parameter requestParameters.scriptCode was null or undefined when calling changeScripts.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeScripts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeScripts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeScripts.');
+            }
+            if (requestParameters.scriptsToBeChanged === null || requestParameters.scriptsToBeChanged === undefined) {
+                throw new runtime.RequiredError('scriptsToBeChanged', 'Required parameter requestParameters.scriptsToBeChanged was null or undefined when calling changeScripts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -213,9 +273,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeScriptsRequestToJSON)(requestParameters.scriptsToBeChanged),
+                body: (0, index_1.ScriptsToBeChangedToJSON)(requestParameters.scriptsToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -234,6 +294,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteBookingTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.bookingTypesId === null || requestParameters.bookingTypesId === undefined) {
+                throw new runtime.RequiredError('bookingTypesId', 'Required parameter requestParameters.bookingTypesId was null or undefined when calling deleteBookingTypes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteBookingTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteBookingTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteBookingTypes.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingTypesCodes) {
                 queryParameters['bookingTypesCodes'] = requestParameters.bookingTypesCodes;
@@ -260,7 +332,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -279,6 +351,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteCancellationCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.cancellationCodesId === null || requestParameters.cancellationCodesId === undefined) {
+                throw new runtime.RequiredError('cancellationCodesId', 'Required parameter requestParameters.cancellationCodesId was null or undefined when calling deleteCancellationCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCancellationCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCancellationCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCancellationCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.cancellationCodes) {
                 queryParameters['cancellationCodes'] = requestParameters.cancellationCodes;
@@ -305,7 +389,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -324,6 +408,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteDiscountReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.discountReasonsId === null || requestParameters.discountReasonsId === undefined) {
+                throw new runtime.RequiredError('discountReasonsId', 'Required parameter requestParameters.discountReasonsId was null or undefined when calling deleteDiscountReasons.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteDiscountReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteDiscountReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteDiscountReasons.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -347,7 +443,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -366,6 +462,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteEntryPointsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.entryPointsId === null || requestParameters.entryPointsId === undefined) {
+                throw new runtime.RequiredError('entryPointsId', 'Required parameter requestParameters.entryPointsId was null or undefined when calling deleteEntryPoints.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteEntryPoints.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteEntryPoints.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteEntryPoints.');
+            }
             const queryParameters = {};
             if (requestParameters.entryPointsCodes) {
                 queryParameters['entryPointsCodes'] = requestParameters.entryPointsCodes;
@@ -392,7 +500,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -411,6 +519,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteMoveReasonCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.moveReasonCodesId === null || requestParameters.moveReasonCodesId === undefined) {
+                throw new runtime.RequiredError('moveReasonCodesId', 'Required parameter requestParameters.moveReasonCodesId was null or undefined when calling deleteMoveReasonCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteMoveReasonCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteMoveReasonCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteMoveReasonCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.moveReasonCodes) {
                 queryParameters['moveReasonCodes'] = requestParameters.moveReasonCodes;
@@ -437,7 +557,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -456,6 +576,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteOriginCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.originCodesId === null || requestParameters.originCodesId === undefined) {
+                throw new runtime.RequiredError('originCodesId', 'Required parameter requestParameters.originCodesId was null or undefined when calling deleteOriginCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteOriginCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteOriginCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteOriginCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.originCodes) {
                 queryParameters['originCodes'] = requestParameters.originCodes;
@@ -482,7 +614,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -501,6 +633,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deletePurposeOfStaysRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.purposeOfStaysId === null || requestParameters.purposeOfStaysId === undefined) {
+                throw new runtime.RequiredError('purposeOfStaysId', 'Required parameter requestParameters.purposeOfStaysId was null or undefined when calling deletePurposeOfStays.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deletePurposeOfStays.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deletePurposeOfStays.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deletePurposeOfStays.');
+            }
             const queryParameters = {};
             if (requestParameters.purposeOfStaysCodes) {
                 queryParameters['purposeOfStaysCodes'] = requestParameters.purposeOfStaysCodes;
@@ -527,7 +671,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -546,6 +690,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteWaitlistCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.waitlistCodesId === null || requestParameters.waitlistCodesId === undefined) {
+                throw new runtime.RequiredError('waitlistCodesId', 'Required parameter requestParameters.waitlistCodesId was null or undefined when calling deleteWaitlistCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteWaitlistCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteWaitlistCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteWaitlistCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.waitlistCodes) {
                 queryParameters['waitlistCodes'] = requestParameters.waitlistCodes;
@@ -572,7 +728,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -591,6 +747,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     deleteWaitlistPrioritiesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.waitlistPrioritiesId === null || requestParameters.waitlistPrioritiesId === undefined) {
+                throw new runtime.RequiredError('waitlistPrioritiesId', 'Required parameter requestParameters.waitlistPrioritiesId was null or undefined when calling deleteWaitlistPriorities.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteWaitlistPriorities.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteWaitlistPriorities.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteWaitlistPriorities.');
+            }
             const queryParameters = {};
             if (requestParameters.waitlistPrioritiesCodes) {
                 queryParameters['waitlistPrioritiesCodes'] = requestParameters.waitlistPrioritiesCodes;
@@ -617,7 +785,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -636,6 +804,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getBlockConversionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getBlockConversions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getBlockConversions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getBlockConversions.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -671,7 +848,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.BlockConversionsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BlockConversionsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -690,6 +867,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getBlockRankingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getBlockRankings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRankings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRankings.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -725,7 +911,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.BlockRankingsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BlockRankingsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -744,6 +930,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getBookingTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getBookingTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getBookingTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getBookingTypes.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -779,7 +974,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.BookingTypesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BookingTypesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -798,6 +993,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getCancellationCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCancellationCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCancellationCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCancellationCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -833,7 +1037,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CancellationCodesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CancellationCodesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -852,6 +1056,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getDiscountReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getDiscountReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getDiscountReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getDiscountReasons.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchAdvanced !== undefined) {
                 queryParameters['fetchAdvanced'] = requestParameters.fetchAdvanced;
@@ -893,7 +1106,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.DiscountReasonsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.DiscountReasonsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -912,6 +1125,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getEntryPointsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getEntryPoints.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getEntryPoints.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getEntryPoints.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -947,7 +1169,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.EntryPointsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.EntryPointsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -966,6 +1188,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getGlobalActionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getGlobalActionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getGlobalActionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getGlobalActionCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1001,7 +1232,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.GlobalActionCodesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GlobalActionCodesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1020,6 +1251,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getMoveReasonCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getMoveReasonCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getMoveReasonCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getMoveReasonCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1055,7 +1295,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.MoveReasonCodesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MoveReasonCodesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1074,6 +1314,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getOriginCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getOriginCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getOriginCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getOriginCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1109,7 +1358,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.OriginCodesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.OriginCodesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1128,6 +1377,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getPurposeOfStaysRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getPurposeOfStays.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getPurposeOfStays.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getPurposeOfStays.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1163,7 +1421,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.PurposeOfStaysDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PurposeOfStaysDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1182,6 +1440,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getScriptsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getScripts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getScripts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getScripts.');
+            }
             const queryParameters = {};
             if (requestParameters.codes) {
                 queryParameters['codes'] = requestParameters.codes;
@@ -1223,7 +1490,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ScriptsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ScriptsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1242,6 +1509,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getWaitlistCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getWaitlistCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getWaitlistCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getWaitlistCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1277,7 +1553,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.WaitlistCodesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.WaitlistCodesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1296,6 +1572,15 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     getWaitlistPrioritiesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getWaitlistPriorities.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getWaitlistPriorities.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getWaitlistPriorities.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -1331,7 +1616,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.WaitlistPrioritiesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.WaitlistPrioritiesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1350,6 +1635,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postBlockConversionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postBlockConversions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postBlockConversions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postBlockConversions.');
+            }
+            if (requestParameters.blockConversionsCriteria === null || requestParameters.blockConversionsCriteria === undefined) {
+                throw new runtime.RequiredError('blockConversionsCriteria', 'Required parameter requestParameters.blockConversionsCriteria was null or undefined when calling postBlockConversions.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1373,9 +1670,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostBlockConversionsRequestToJSON)(requestParameters.blockConversionsCriteria),
+                body: (0, index_1.BlockConversionsCriteriaToJSON)(requestParameters.blockConversionsCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1394,6 +1691,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postBlockRankingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postBlockRankings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postBlockRankings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postBlockRankings.');
+            }
+            if (requestParameters.blockRankingsCriteria === null || requestParameters.blockRankingsCriteria === undefined) {
+                throw new runtime.RequiredError('blockRankingsCriteria', 'Required parameter requestParameters.blockRankingsCriteria was null or undefined when calling postBlockRankings.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1417,9 +1726,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostBlockRankingsRequestToJSON)(requestParameters.blockRankingsCriteria),
+                body: (0, index_1.BlockRankingsCriteriaToJSON)(requestParameters.blockRankingsCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1438,6 +1747,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postBookingTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postBookingTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postBookingTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postBookingTypes.');
+            }
+            if (requestParameters.bookingTypesCriteria === null || requestParameters.bookingTypesCriteria === undefined) {
+                throw new runtime.RequiredError('bookingTypesCriteria', 'Required parameter requestParameters.bookingTypesCriteria was null or undefined when calling postBookingTypes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1461,9 +1782,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostBookingTypesRequestToJSON)(requestParameters.bookingTypesCriteria),
+                body: (0, index_1.BookingTypesCriteriaToJSON)(requestParameters.bookingTypesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1482,6 +1803,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postCancellationCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCancellationCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCancellationCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCancellationCodes.');
+            }
+            if (requestParameters.cancellationCodesCriteria === null || requestParameters.cancellationCodesCriteria === undefined) {
+                throw new runtime.RequiredError('cancellationCodesCriteria', 'Required parameter requestParameters.cancellationCodesCriteria was null or undefined when calling postCancellationCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1505,9 +1838,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostCancellationCodesRequestToJSON)(requestParameters.cancellationCodesCriteria),
+                body: (0, index_1.CancellationCodesCriteriaToJSON)(requestParameters.cancellationCodesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1526,6 +1859,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postDiscountReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postDiscountReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postDiscountReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postDiscountReasons.');
+            }
+            if (requestParameters.discountReasonsCriteria === null || requestParameters.discountReasonsCriteria === undefined) {
+                throw new runtime.RequiredError('discountReasonsCriteria', 'Required parameter requestParameters.discountReasonsCriteria was null or undefined when calling postDiscountReasons.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1549,9 +1894,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostDiscountReasonsRequestToJSON)(requestParameters.discountReasonsCriteria),
+                body: (0, index_1.DiscountReasonsCriteriaToJSON)(requestParameters.discountReasonsCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1570,6 +1915,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postEntryPointsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postEntryPoints.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postEntryPoints.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postEntryPoints.');
+            }
+            if (requestParameters.entryPointsCriteria === null || requestParameters.entryPointsCriteria === undefined) {
+                throw new runtime.RequiredError('entryPointsCriteria', 'Required parameter requestParameters.entryPointsCriteria was null or undefined when calling postEntryPoints.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1593,9 +1950,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostEntryPointsRequestToJSON)(requestParameters.entryPointsCriteria),
+                body: (0, index_1.EntryPointsCriteriaToJSON)(requestParameters.entryPointsCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1614,6 +1971,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postGlobalActionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postGlobalActionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postGlobalActionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postGlobalActionCodes.');
+            }
+            if (requestParameters.globalActionCodesCriteria === null || requestParameters.globalActionCodesCriteria === undefined) {
+                throw new runtime.RequiredError('globalActionCodesCriteria', 'Required parameter requestParameters.globalActionCodesCriteria was null or undefined when calling postGlobalActionCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1637,9 +2006,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostGlobalActionCodesRequestToJSON)(requestParameters.globalActionCodesCriteria),
+                body: (0, index_1.GlobalActionCodesCriteriaToJSON)(requestParameters.globalActionCodesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1658,6 +2027,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postMoveReasonCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postMoveReasonCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postMoveReasonCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postMoveReasonCodes.');
+            }
+            if (requestParameters.moveReasonCodesCriteria === null || requestParameters.moveReasonCodesCriteria === undefined) {
+                throw new runtime.RequiredError('moveReasonCodesCriteria', 'Required parameter requestParameters.moveReasonCodesCriteria was null or undefined when calling postMoveReasonCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1681,9 +2062,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostMoveReasonCodesRequestToJSON)(requestParameters.moveReasonCodesCriteria),
+                body: (0, index_1.MoveReasonCodesCriteriaToJSON)(requestParameters.moveReasonCodesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1702,6 +2083,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postOriginCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postOriginCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postOriginCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postOriginCodes.');
+            }
+            if (requestParameters.originCodesCriteria === null || requestParameters.originCodesCriteria === undefined) {
+                throw new runtime.RequiredError('originCodesCriteria', 'Required parameter requestParameters.originCodesCriteria was null or undefined when calling postOriginCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1725,9 +2118,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostOriginCodesRequestToJSON)(requestParameters.originCodesCriteria),
+                body: (0, index_1.OriginCodesCriteriaToJSON)(requestParameters.originCodesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1746,6 +2139,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postPurposeOfStaysRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postPurposeOfStays.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postPurposeOfStays.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postPurposeOfStays.');
+            }
+            if (requestParameters.purposeOfStaysCriteria === null || requestParameters.purposeOfStaysCriteria === undefined) {
+                throw new runtime.RequiredError('purposeOfStaysCriteria', 'Required parameter requestParameters.purposeOfStaysCriteria was null or undefined when calling postPurposeOfStays.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1769,9 +2174,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostPurposeOfStaysRequestToJSON)(requestParameters.purposeOfStaysCriteria),
+                body: (0, index_1.PurposeOfStaysCriteriaToJSON)(requestParameters.purposeOfStaysCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1790,6 +2195,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postScriptsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postScripts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postScripts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postScripts.');
+            }
+            if (requestParameters.scriptsCriteria === null || requestParameters.scriptsCriteria === undefined) {
+                throw new runtime.RequiredError('scriptsCriteria', 'Required parameter requestParameters.scriptsCriteria was null or undefined when calling postScripts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1813,9 +2230,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostScriptsRequestToJSON)(requestParameters.scriptsCriteria),
+                body: (0, index_1.ScriptsCriteriaToJSON)(requestParameters.scriptsCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1834,6 +2251,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postWaitlistCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postWaitlistCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postWaitlistCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postWaitlistCodes.');
+            }
+            if (requestParameters.waitlistCodesCriteria === null || requestParameters.waitlistCodesCriteria === undefined) {
+                throw new runtime.RequiredError('waitlistCodesCriteria', 'Required parameter requestParameters.waitlistCodesCriteria was null or undefined when calling postWaitlistCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1857,9 +2286,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostWaitlistCodesRequestToJSON)(requestParameters.waitlistCodesCriteria),
+                body: (0, index_1.WaitlistCodesCriteriaToJSON)(requestParameters.waitlistCodesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1878,6 +2307,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     postWaitlistPrioritiesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postWaitlistPriorities.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postWaitlistPriorities.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postWaitlistPriorities.');
+            }
+            if (requestParameters.waitlistPrioritiesCriteria === null || requestParameters.waitlistPrioritiesCriteria === undefined) {
+                throw new runtime.RequiredError('waitlistPrioritiesCriteria', 'Required parameter requestParameters.waitlistPrioritiesCriteria was null or undefined when calling postWaitlistPriorities.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1901,9 +2342,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostWaitlistPrioritiesRequestToJSON)(requestParameters.waitlistPrioritiesCriteria),
+                body: (0, index_1.WaitlistPrioritiesCriteriaToJSON)(requestParameters.waitlistPrioritiesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1922,6 +2363,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putBookingTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.bookingTypesId === null || requestParameters.bookingTypesId === undefined) {
+                throw new runtime.RequiredError('bookingTypesId', 'Required parameter requestParameters.bookingTypesId was null or undefined when calling putBookingTypes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putBookingTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putBookingTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putBookingTypes.');
+            }
+            if (requestParameters.bookingTypesToBeChanged === null || requestParameters.bookingTypesToBeChanged === undefined) {
+                throw new runtime.RequiredError('bookingTypesToBeChanged', 'Required parameter requestParameters.bookingTypesToBeChanged was null or undefined when calling putBookingTypes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1945,9 +2401,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutBookingTypesRequestToJSON)(requestParameters.bookingTypesToBeChanged),
+                body: (0, index_1.BookingTypesToBeChangedToJSON)(requestParameters.bookingTypesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1966,6 +2422,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putCancellationCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.cancellationCodesId === null || requestParameters.cancellationCodesId === undefined) {
+                throw new runtime.RequiredError('cancellationCodesId', 'Required parameter requestParameters.cancellationCodesId was null or undefined when calling putCancellationCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putCancellationCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putCancellationCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putCancellationCodes.');
+            }
+            if (requestParameters.cancellationCodesToBeChanged === null || requestParameters.cancellationCodesToBeChanged === undefined) {
+                throw new runtime.RequiredError('cancellationCodesToBeChanged', 'Required parameter requestParameters.cancellationCodesToBeChanged was null or undefined when calling putCancellationCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1989,9 +2460,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutCancellationCodesRequestToJSON)(requestParameters.cancellationCodesToBeChanged),
+                body: (0, index_1.CancellationCodesToBeChangedToJSON)(requestParameters.cancellationCodesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2010,6 +2481,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putDiscountReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.discountReasonsId === null || requestParameters.discountReasonsId === undefined) {
+                throw new runtime.RequiredError('discountReasonsId', 'Required parameter requestParameters.discountReasonsId was null or undefined when calling putDiscountReasons.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putDiscountReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putDiscountReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putDiscountReasons.');
+            }
+            if (requestParameters.discountReasonsToBeChanged === null || requestParameters.discountReasonsToBeChanged === undefined) {
+                throw new runtime.RequiredError('discountReasonsToBeChanged', 'Required parameter requestParameters.discountReasonsToBeChanged was null or undefined when calling putDiscountReasons.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2033,9 +2519,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutDiscountReasonsRequestToJSON)(requestParameters.discountReasonsToBeChanged),
+                body: (0, index_1.DiscountReasonsToBeChangedToJSON)(requestParameters.discountReasonsToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2054,6 +2540,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putEntryPointsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.entryPointsId === null || requestParameters.entryPointsId === undefined) {
+                throw new runtime.RequiredError('entryPointsId', 'Required parameter requestParameters.entryPointsId was null or undefined when calling putEntryPoints.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putEntryPoints.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putEntryPoints.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putEntryPoints.');
+            }
+            if (requestParameters.entryPointsToBeChanged === null || requestParameters.entryPointsToBeChanged === undefined) {
+                throw new runtime.RequiredError('entryPointsToBeChanged', 'Required parameter requestParameters.entryPointsToBeChanged was null or undefined when calling putEntryPoints.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2077,9 +2578,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutEntryPointsRequestToJSON)(requestParameters.entryPointsToBeChanged),
+                body: (0, index_1.EntryPointsToBeChangedToJSON)(requestParameters.entryPointsToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2098,6 +2599,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putMoveReasonCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.moveReasonCodesId === null || requestParameters.moveReasonCodesId === undefined) {
+                throw new runtime.RequiredError('moveReasonCodesId', 'Required parameter requestParameters.moveReasonCodesId was null or undefined when calling putMoveReasonCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putMoveReasonCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putMoveReasonCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putMoveReasonCodes.');
+            }
+            if (requestParameters.moveReasonCodesToBeChanged === null || requestParameters.moveReasonCodesToBeChanged === undefined) {
+                throw new runtime.RequiredError('moveReasonCodesToBeChanged', 'Required parameter requestParameters.moveReasonCodesToBeChanged was null or undefined when calling putMoveReasonCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2121,9 +2637,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutMoveReasonCodesRequestToJSON)(requestParameters.moveReasonCodesToBeChanged),
+                body: (0, index_1.MoveReasonCodesToBeChangedToJSON)(requestParameters.moveReasonCodesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2142,6 +2658,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putOriginCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.originCodesId === null || requestParameters.originCodesId === undefined) {
+                throw new runtime.RequiredError('originCodesId', 'Required parameter requestParameters.originCodesId was null or undefined when calling putOriginCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putOriginCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putOriginCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putOriginCodes.');
+            }
+            if (requestParameters.originCodesToBeChanged === null || requestParameters.originCodesToBeChanged === undefined) {
+                throw new runtime.RequiredError('originCodesToBeChanged', 'Required parameter requestParameters.originCodesToBeChanged was null or undefined when calling putOriginCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2165,9 +2696,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutOriginCodesRequestToJSON)(requestParameters.originCodesToBeChanged),
+                body: (0, index_1.OriginCodesToBeChangedToJSON)(requestParameters.originCodesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2186,6 +2717,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putPurposeOfStaysRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.purposeOfStaysId === null || requestParameters.purposeOfStaysId === undefined) {
+                throw new runtime.RequiredError('purposeOfStaysId', 'Required parameter requestParameters.purposeOfStaysId was null or undefined when calling putPurposeOfStays.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putPurposeOfStays.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putPurposeOfStays.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putPurposeOfStays.');
+            }
+            if (requestParameters.purposeOfStaysToBeChanged === null || requestParameters.purposeOfStaysToBeChanged === undefined) {
+                throw new runtime.RequiredError('purposeOfStaysToBeChanged', 'Required parameter requestParameters.purposeOfStaysToBeChanged was null or undefined when calling putPurposeOfStays.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2209,9 +2755,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutPurposeOfStaysRequestToJSON)(requestParameters.purposeOfStaysToBeChanged),
+                body: (0, index_1.PurposeOfStaysToBeChangedToJSON)(requestParameters.purposeOfStaysToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2230,6 +2776,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putWaitlistCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.waitlistCodesId === null || requestParameters.waitlistCodesId === undefined) {
+                throw new runtime.RequiredError('waitlistCodesId', 'Required parameter requestParameters.waitlistCodesId was null or undefined when calling putWaitlistCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putWaitlistCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putWaitlistCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putWaitlistCodes.');
+            }
+            if (requestParameters.waitlistCodesToBeChanged === null || requestParameters.waitlistCodesToBeChanged === undefined) {
+                throw new runtime.RequiredError('waitlistCodesToBeChanged', 'Required parameter requestParameters.waitlistCodesToBeChanged was null or undefined when calling putWaitlistCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2253,9 +2814,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutWaitlistCodesRequestToJSON)(requestParameters.waitlistCodesToBeChanged),
+                body: (0, index_1.WaitlistCodesToBeChangedToJSON)(requestParameters.waitlistCodesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2274,6 +2835,21 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     putWaitlistPrioritiesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.waitlistPrioritiesId === null || requestParameters.waitlistPrioritiesId === undefined) {
+                throw new runtime.RequiredError('waitlistPrioritiesId', 'Required parameter requestParameters.waitlistPrioritiesId was null or undefined when calling putWaitlistPriorities.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putWaitlistPriorities.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putWaitlistPriorities.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putWaitlistPriorities.');
+            }
+            if (requestParameters.waitlistPrioritiesToBeChanged === null || requestParameters.waitlistPrioritiesToBeChanged === undefined) {
+                throw new runtime.RequiredError('waitlistPrioritiesToBeChanged', 'Required parameter requestParameters.waitlistPrioritiesToBeChanged was null or undefined when calling putWaitlistPriorities.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2297,9 +2873,9 @@ class ChainConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutWaitlistPrioritiesRequestToJSON)(requestParameters.waitlistPrioritiesToBeChanged),
+                body: (0, index_1.WaitlistPrioritiesToBeChangedToJSON)(requestParameters.waitlistPrioritiesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2318,6 +2894,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     removeBlockConversionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.blockConversionCode === null || requestParameters.blockConversionCode === undefined) {
+                throw new runtime.RequiredError('blockConversionCode', 'Required parameter requestParameters.blockConversionCode was null or undefined when calling removeBlockConversions.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeBlockConversions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeBlockConversions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeBlockConversions.');
+            }
             const queryParameters = {};
             if (requestParameters.blockConversionsCodes) {
                 queryParameters['blockConversionsCodes'] = requestParameters.blockConversionsCodes;
@@ -2344,7 +2932,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2363,6 +2951,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     removeBlockRankingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.blockRankingsCode === null || requestParameters.blockRankingsCode === undefined) {
+                throw new runtime.RequiredError('blockRankingsCode', 'Required parameter requestParameters.blockRankingsCode was null or undefined when calling removeBlockRankings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeBlockRankings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeBlockRankings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeBlockRankings.');
+            }
             const queryParameters = {};
             if (requestParameters.blockRankingsCodes) {
                 queryParameters['blockRankingsCodes'] = requestParameters.blockRankingsCodes;
@@ -2389,7 +2989,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2408,6 +3008,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     removeGlobalActionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.actionCode === null || requestParameters.actionCode === undefined) {
+                throw new runtime.RequiredError('actionCode', 'Required parameter requestParameters.actionCode was null or undefined when calling removeGlobalActionCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeGlobalActionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeGlobalActionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeGlobalActionCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.globalActionCodesCodes) {
                 queryParameters['globalActionCodesCodes'] = requestParameters.globalActionCodesCodes;
@@ -2434,7 +3046,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2453,6 +3065,18 @@ class ChainConfigApi extends runtime.BaseAPI {
      */
     removeScriptsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.scriptCode === null || requestParameters.scriptCode === undefined) {
+                throw new runtime.RequiredError('scriptCode', 'Required parameter requestParameters.scriptCode was null or undefined when calling removeScripts.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeScripts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeScripts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeScripts.');
+            }
             const queryParameters = {};
             if (requestParameters.idContext) {
                 queryParameters['idContext'] = requestParameters.idContext;
@@ -2482,7 +3106,7 @@ class ChainConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**

@@ -64,7 +64,7 @@ function DepositPolicyTypeToJSON(value) {
         'formattedRule': value.formattedRule,
         'manual': value.manual,
         'policyCode': value.policyCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0, 10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
         'typeOfCharges': (0, DepositCancelRevenueType_1.DepositCancelRevenueTypeToJSON)(value.typeOfCharges),
     };
 }

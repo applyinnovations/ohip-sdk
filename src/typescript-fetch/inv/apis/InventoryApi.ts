@@ -15,25 +15,20 @@
 
 import * as runtime from '../runtime';
 import type {
-  ChangeSellLimitByDateRangeRequest,
-  ChangeSellLimitByDateRequest,
   ExceptionDetailType,
   HoldItemInventory,
   HoldItemsInventory,
   HotelInventory,
   ItemInventory,
-  PutHoldItemsInventoryRequest,
-  PutItemInventoryHoldRequest,
+  ReleaseItemInventoryHold,
   ReleasedItemInventoryHeld,
+  SellLimit,
   SellLimitByDateResponse,
+  SellLimitByRange,
   SellLimitResponse,
   Status,
-} from '../models';
+} from '../models/index';
 import {
-    ChangeSellLimitByDateRangeRequestFromJSON,
-    ChangeSellLimitByDateRangeRequestToJSON,
-    ChangeSellLimitByDateRequestFromJSON,
-    ChangeSellLimitByDateRequestToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     HoldItemInventoryFromJSON,
@@ -44,58 +39,60 @@ import {
     HotelInventoryToJSON,
     ItemInventoryFromJSON,
     ItemInventoryToJSON,
-    PutHoldItemsInventoryRequestFromJSON,
-    PutHoldItemsInventoryRequestToJSON,
-    PutItemInventoryHoldRequestFromJSON,
-    PutItemInventoryHoldRequestToJSON,
+    ReleaseItemInventoryHoldFromJSON,
+    ReleaseItemInventoryHoldToJSON,
     ReleasedItemInventoryHeldFromJSON,
     ReleasedItemInventoryHeldToJSON,
+    SellLimitFromJSON,
+    SellLimitToJSON,
     SellLimitByDateResponseFromJSON,
     SellLimitByDateResponseToJSON,
+    SellLimitByRangeFromJSON,
+    SellLimitByRangeToJSON,
     SellLimitResponseFromJSON,
     SellLimitResponseToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ChangeSellLimitByDateOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellLimit?: ChangeSellLimitByDateRequest;
+export interface ChangeSellLimitByDateRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellLimit: SellLimit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeSellLimitByDateRangeOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellLimitByRange?: ChangeSellLimitByDateRangeRequest;
+export interface ChangeSellLimitByDateRangeRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellLimitByRange: SellLimitByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHoldItemsInventoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemHoldId?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHotelInventoryRequest {
-    hotelId?: string;
-    dateRangeStart?: Date;
-    dateRangeEnd?: Date;
-    roomCountRequested?: number;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    dateRangeStart: Date;
+    dateRangeEnd: Date;
+    roomCountRequested: number;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTentativeInventory?: boolean;
     dailyInventory?: boolean;
     houseLevel?: boolean;
@@ -106,10 +103,10 @@ export interface GetHotelInventoryRequest {
 }
 
 export interface GetItemInventoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -131,30 +128,30 @@ export interface GetItemInventoryRequest {
 }
 
 export interface PostHoldItemInventoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdItemInventory?: PutHoldItemsInventoryRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutHoldItemsInventoryOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdItemInventory?: PutHoldItemsInventoryRequest;
+export interface PutHoldItemsInventoryRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutItemInventoryHoldOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    releaseItemInventoryHold?: PutItemInventoryHoldRequest;
+export interface PutItemInventoryHoldRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    releaseItemInventoryHold: ReleaseItemInventoryHold;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -168,7 +165,27 @@ export class InventoryApi extends runtime.BaseAPI {
      * You can use this API to create sell limits in OPERA by date. <p><strong>OperationId:</strong>changeSellLimitByDate</p>
      * Set sell limits by date
      */
-    async changeSellLimitByDateRaw(requestParameters: ChangeSellLimitByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitResponse>> {
+    async changeSellLimitByDateRaw(requestParameters: ChangeSellLimitByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitResponse>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeSellLimitByDate.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeSellLimitByDate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeSellLimitByDate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeSellLimitByDate.');
+        }
+
+        if (requestParameters.sellLimit === null || requestParameters.sellLimit === undefined) {
+            throw new runtime.RequiredError('sellLimit','Required parameter requestParameters.sellLimit was null or undefined when calling changeSellLimitByDate.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -200,7 +217,7 @@ export class InventoryApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeSellLimitByDateRequestToJSON(requestParameters.sellLimit),
+            body: SellLimitToJSON(requestParameters.sellLimit),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SellLimitResponseFromJSON(jsonValue));
@@ -210,7 +227,7 @@ export class InventoryApi extends runtime.BaseAPI {
      * You can use this API to create sell limits in OPERA by date. <p><strong>OperationId:</strong>changeSellLimitByDate</p>
      * Set sell limits by date
      */
-    async changeSellLimitByDate(requestParameters: ChangeSellLimitByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitResponse> {
+    async changeSellLimitByDate(requestParameters: ChangeSellLimitByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitResponse> {
         const response = await this.changeSellLimitByDateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -219,7 +236,27 @@ export class InventoryApi extends runtime.BaseAPI {
      * You can use this API to create sell limits in OPERA by date range. <p><strong>OperationId:</strong>changeSellLimitByDateRange</p>
      * Set sell limits by date range
      */
-    async changeSellLimitByDateRangeRaw(requestParameters: ChangeSellLimitByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitByDateResponse>> {
+    async changeSellLimitByDateRangeRaw(requestParameters: ChangeSellLimitByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitByDateResponse>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeSellLimitByDateRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeSellLimitByDateRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeSellLimitByDateRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeSellLimitByDateRange.');
+        }
+
+        if (requestParameters.sellLimitByRange === null || requestParameters.sellLimitByRange === undefined) {
+            throw new runtime.RequiredError('sellLimitByRange','Required parameter requestParameters.sellLimitByRange was null or undefined when calling changeSellLimitByDateRange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -251,7 +288,7 @@ export class InventoryApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeSellLimitByDateRangeRequestToJSON(requestParameters.sellLimitByRange),
+            body: SellLimitByRangeToJSON(requestParameters.sellLimitByRange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SellLimitByDateResponseFromJSON(jsonValue));
@@ -261,7 +298,7 @@ export class InventoryApi extends runtime.BaseAPI {
      * You can use this API to create sell limits in OPERA by date range. <p><strong>OperationId:</strong>changeSellLimitByDateRange</p>
      * Set sell limits by date range
      */
-    async changeSellLimitByDateRange(requestParameters: ChangeSellLimitByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitByDateResponse> {
+    async changeSellLimitByDateRange(requestParameters: ChangeSellLimitByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitByDateResponse> {
         const response = await this.changeSellLimitByDateRangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -271,6 +308,22 @@ export class InventoryApi extends runtime.BaseAPI {
      * Get items inventory that are held
      */
     async getHoldItemsInventoryRaw(requestParameters: GetHoldItemsInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HoldItemsInventory>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHoldItemsInventory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHoldItemsInventory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHoldItemsInventory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHoldItemsInventory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.itemHoldId) {
@@ -323,14 +376,42 @@ export class InventoryApi extends runtime.BaseAPI {
      * Get hotel inventory
      */
     async getHotelInventoryRaw(requestParameters: GetHotelInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelInventory>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelInventory.');
+        }
+
+        if (requestParameters.dateRangeStart === null || requestParameters.dateRangeStart === undefined) {
+            throw new runtime.RequiredError('dateRangeStart','Required parameter requestParameters.dateRangeStart was null or undefined when calling getHotelInventory.');
+        }
+
+        if (requestParameters.dateRangeEnd === null || requestParameters.dateRangeEnd === undefined) {
+            throw new runtime.RequiredError('dateRangeEnd','Required parameter requestParameters.dateRangeEnd was null or undefined when calling getHotelInventory.');
+        }
+
+        if (requestParameters.roomCountRequested === null || requestParameters.roomCountRequested === undefined) {
+            throw new runtime.RequiredError('roomCountRequested','Required parameter requestParameters.roomCountRequested was null or undefined when calling getHotelInventory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInventory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInventory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInventory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.dateRangeStart !== undefined) {
-            queryParameters['dateRangeStart'] = (requestParameters.dateRangeStart as any).toISOString().substr(0,10);
+            queryParameters['dateRangeStart'] = (requestParameters.dateRangeStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.dateRangeEnd !== undefined) {
-            queryParameters['dateRangeEnd'] = (requestParameters.dateRangeEnd as any).toISOString().substr(0,10);
+            queryParameters['dateRangeEnd'] = (requestParameters.dateRangeEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomCountRequested !== undefined) {
@@ -403,14 +484,30 @@ export class InventoryApi extends runtime.BaseAPI {
      * Get item inventory
      */
     async getItemInventoryRaw(requestParameters: GetItemInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemInventory>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getItemInventory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemInventory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemInventory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemInventory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -515,6 +612,26 @@ export class InventoryApi extends runtime.BaseAPI {
      * Hold item inventory
      */
     async postHoldItemInventoryRaw(requestParameters: PostHoldItemInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postHoldItemInventory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postHoldItemInventory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postHoldItemInventory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postHoldItemInventory.');
+        }
+
+        if (requestParameters.holdItemInventory === null || requestParameters.holdItemInventory === undefined) {
+            throw new runtime.RequiredError('holdItemInventory','Required parameter requestParameters.holdItemInventory was null or undefined when calling postHoldItemInventory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -546,7 +663,7 @@ export class InventoryApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutHoldItemsInventoryRequestToJSON(requestParameters.holdItemInventory),
+            body: HoldItemInventoryToJSON(requestParameters.holdItemInventory),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -565,7 +682,27 @@ export class InventoryApi extends runtime.BaseAPI {
      * You can update item inventory that is being held using this API. <p><strong>OperationId:</strong>putHoldItemsInventory</p>
      * update items inventory that are held
      */
-    async putHoldItemsInventoryRaw(requestParameters: PutHoldItemsInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HoldItemInventory>> {
+    async putHoldItemsInventoryRaw(requestParameters: PutHoldItemsInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HoldItemInventory>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putHoldItemsInventory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putHoldItemsInventory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putHoldItemsInventory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putHoldItemsInventory.');
+        }
+
+        if (requestParameters.holdItemInventory === null || requestParameters.holdItemInventory === undefined) {
+            throw new runtime.RequiredError('holdItemInventory','Required parameter requestParameters.holdItemInventory was null or undefined when calling putHoldItemsInventory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -597,7 +734,7 @@ export class InventoryApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutHoldItemsInventoryRequestToJSON(requestParameters.holdItemInventory),
+            body: HoldItemInventoryToJSON(requestParameters.holdItemInventory),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HoldItemInventoryFromJSON(jsonValue));
@@ -607,7 +744,7 @@ export class InventoryApi extends runtime.BaseAPI {
      * You can update item inventory that is being held using this API. <p><strong>OperationId:</strong>putHoldItemsInventory</p>
      * update items inventory that are held
      */
-    async putHoldItemsInventory(requestParameters: PutHoldItemsInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HoldItemInventory> {
+    async putHoldItemsInventory(requestParameters: PutHoldItemsInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HoldItemInventory> {
         const response = await this.putHoldItemsInventoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -616,7 +753,23 @@ export class InventoryApi extends runtime.BaseAPI {
      * This API will release item inventory that has been held. <p><strong>OperationId:</strong>putItemInventoryHold</p>
      * Release item inventory held
      */
-    async putItemInventoryHoldRaw(requestParameters: PutItemInventoryHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReleasedItemInventoryHeld>> {
+    async putItemInventoryHoldRaw(requestParameters: PutItemInventoryHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReleasedItemInventoryHeld>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putItemInventoryHold.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putItemInventoryHold.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putItemInventoryHold.');
+        }
+
+        if (requestParameters.releaseItemInventoryHold === null || requestParameters.releaseItemInventoryHold === undefined) {
+            throw new runtime.RequiredError('releaseItemInventoryHold','Required parameter requestParameters.releaseItemInventoryHold was null or undefined when calling putItemInventoryHold.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -648,7 +801,7 @@ export class InventoryApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutItemInventoryHoldRequestToJSON(requestParameters.releaseItemInventoryHold),
+            body: ReleaseItemInventoryHoldToJSON(requestParameters.releaseItemInventoryHold),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReleasedItemInventoryHeldFromJSON(jsonValue));
@@ -658,7 +811,7 @@ export class InventoryApi extends runtime.BaseAPI {
      * This API will release item inventory that has been held. <p><strong>OperationId:</strong>putItemInventoryHold</p>
      * Release item inventory held
      */
-    async putItemInventoryHold(requestParameters: PutItemInventoryHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReleasedItemInventoryHeld> {
+    async putItemInventoryHold(requestParameters: PutItemInventoryHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReleasedItemInventoryHeld> {
         const response = await this.putItemInventoryHoldRaw(requestParameters, initOverrides);
         return await response.value();
     }

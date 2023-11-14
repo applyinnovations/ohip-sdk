@@ -16,76 +16,73 @@
 import * as runtime from '../runtime';
 import type {
   ActivityLog,
-  AddReservationToQueueRequest,
+  AdvanceCheckInReservation,
   AiraLastRunStatusInfo,
-  AssignRoomsAIRequest,
   AssignedRoom,
-  AutoAssignRoomRequest,
+  AutoAssignRoom,
   AutoAssignedRoom,
+  BatchCCAuth,
   BatchCCAuthToProcess,
   ChangedWakeUpCalls,
   CheckedinReservation,
   DailyDocket,
-  DeleteAssignRoomRequest,
-  DeliverQueueRoomsTextMessageRequest,
+  DeliverQueueRoomsTextMessage,
   ExceptionDetailType,
   FloorPlans,
+  HoldRooms,
   HotelRooms,
   LinkedReservations,
-  MoveInHouseGuestRequest,
+  MassAdvanceCheckInReservations,
+  MassCheckInReservations,
+  MoveInHouseGuest,
   MovedInHouseGuest,
-  PlaceRoomsOnHoldRequest,
-  PostAdvanceCheckInRequest,
   PostCheckInRequest,
-  PostMassAdvanceCheckInRequest,
-  PostMassCheckInRequest,
-  PostRoomAssignmentRequest,
-  PostRoomKeyRequest,
-  ProcessBatchCCAuthRequest,
-  PutDailyDocketRequest,
-  PutReservationQueuePriorityRequest,
-  PutRoomInterfaceStatusRequest,
-  PutServiceRequestsRequest,
-  PutWakeUpCallRequest,
+  QueueReservation,
   QueueRoomsTextMessage,
   QueuedRoomsTextMessage,
+  ReservationInterface,
   ReservationQueuePriority,
+  ReservationQueuePriorityNumber,
   ReservationsInQueue,
   ReservationsInfo,
   ResvForBatchCCAut,
+  Room,
   RoomInterfaceStatus,
+  RoomKey,
   RoomKeyDetails,
   RoomKeyInfo,
   RoomKeyInterfaceDetails,
   RoomKeyMultipleGuests,
   RoomKeyStatus,
   RoomMoveHistory,
+  RoomsAI,
   ServiceRequestsInfo,
-  ShiftRoomsRequest,
+  ShiftRooms,
   ShortReservation,
   Status,
   SuggestedRooms,
-  SwapRoomsRequest,
+  SwapRooms,
+  UnAssignRoomCriteria,
   UnAssignedRoom,
   UpdateRoomKeys,
   VerifiedCheckinReservation,
   WakeUpCalls,
-} from '../models';
+} from '../models/index';
 import {
     ActivityLogFromJSON,
     ActivityLogToJSON,
-    AddReservationToQueueRequestFromJSON,
-    AddReservationToQueueRequestToJSON,
+    AdvanceCheckInReservationFromJSON,
+    AdvanceCheckInReservationToJSON,
     AiraLastRunStatusInfoFromJSON,
     AiraLastRunStatusInfoToJSON,
-    AssignRoomsAIRequestFromJSON,
-    AssignRoomsAIRequestToJSON,
     AssignedRoomFromJSON,
     AssignedRoomToJSON,
-    AutoAssignRoomRequestFromJSON,
-    AutoAssignRoomRequestToJSON,
+    AutoAssignRoomFromJSON,
+    AutoAssignRoomToJSON,
     AutoAssignedRoomFromJSON,
     AutoAssignedRoomToJSON,
+    BatchCCAuthFromJSON,
+    BatchCCAuthToJSON,
     BatchCCAuthToProcessFromJSON,
     BatchCCAuthToProcessToJSON,
     ChangedWakeUpCallsFromJSON,
@@ -94,62 +91,52 @@ import {
     CheckedinReservationToJSON,
     DailyDocketFromJSON,
     DailyDocketToJSON,
-    DeleteAssignRoomRequestFromJSON,
-    DeleteAssignRoomRequestToJSON,
-    DeliverQueueRoomsTextMessageRequestFromJSON,
-    DeliverQueueRoomsTextMessageRequestToJSON,
+    DeliverQueueRoomsTextMessageFromJSON,
+    DeliverQueueRoomsTextMessageToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     FloorPlansFromJSON,
     FloorPlansToJSON,
+    HoldRoomsFromJSON,
+    HoldRoomsToJSON,
     HotelRoomsFromJSON,
     HotelRoomsToJSON,
     LinkedReservationsFromJSON,
     LinkedReservationsToJSON,
-    MoveInHouseGuestRequestFromJSON,
-    MoveInHouseGuestRequestToJSON,
+    MassAdvanceCheckInReservationsFromJSON,
+    MassAdvanceCheckInReservationsToJSON,
+    MassCheckInReservationsFromJSON,
+    MassCheckInReservationsToJSON,
+    MoveInHouseGuestFromJSON,
+    MoveInHouseGuestToJSON,
     MovedInHouseGuestFromJSON,
     MovedInHouseGuestToJSON,
-    PlaceRoomsOnHoldRequestFromJSON,
-    PlaceRoomsOnHoldRequestToJSON,
-    PostAdvanceCheckInRequestFromJSON,
-    PostAdvanceCheckInRequestToJSON,
     PostCheckInRequestFromJSON,
     PostCheckInRequestToJSON,
-    PostMassAdvanceCheckInRequestFromJSON,
-    PostMassAdvanceCheckInRequestToJSON,
-    PostMassCheckInRequestFromJSON,
-    PostMassCheckInRequestToJSON,
-    PostRoomAssignmentRequestFromJSON,
-    PostRoomAssignmentRequestToJSON,
-    PostRoomKeyRequestFromJSON,
-    PostRoomKeyRequestToJSON,
-    ProcessBatchCCAuthRequestFromJSON,
-    ProcessBatchCCAuthRequestToJSON,
-    PutDailyDocketRequestFromJSON,
-    PutDailyDocketRequestToJSON,
-    PutReservationQueuePriorityRequestFromJSON,
-    PutReservationQueuePriorityRequestToJSON,
-    PutRoomInterfaceStatusRequestFromJSON,
-    PutRoomInterfaceStatusRequestToJSON,
-    PutServiceRequestsRequestFromJSON,
-    PutServiceRequestsRequestToJSON,
-    PutWakeUpCallRequestFromJSON,
-    PutWakeUpCallRequestToJSON,
+    QueueReservationFromJSON,
+    QueueReservationToJSON,
     QueueRoomsTextMessageFromJSON,
     QueueRoomsTextMessageToJSON,
     QueuedRoomsTextMessageFromJSON,
     QueuedRoomsTextMessageToJSON,
+    ReservationInterfaceFromJSON,
+    ReservationInterfaceToJSON,
     ReservationQueuePriorityFromJSON,
     ReservationQueuePriorityToJSON,
+    ReservationQueuePriorityNumberFromJSON,
+    ReservationQueuePriorityNumberToJSON,
     ReservationsInQueueFromJSON,
     ReservationsInQueueToJSON,
     ReservationsInfoFromJSON,
     ReservationsInfoToJSON,
     ResvForBatchCCAutFromJSON,
     ResvForBatchCCAutToJSON,
+    RoomFromJSON,
+    RoomToJSON,
     RoomInterfaceStatusFromJSON,
     RoomInterfaceStatusToJSON,
+    RoomKeyFromJSON,
+    RoomKeyToJSON,
     RoomKeyDetailsFromJSON,
     RoomKeyDetailsToJSON,
     RoomKeyInfoFromJSON,
@@ -162,18 +149,22 @@ import {
     RoomKeyStatusToJSON,
     RoomMoveHistoryFromJSON,
     RoomMoveHistoryToJSON,
+    RoomsAIFromJSON,
+    RoomsAIToJSON,
     ServiceRequestsInfoFromJSON,
     ServiceRequestsInfoToJSON,
-    ShiftRoomsRequestFromJSON,
-    ShiftRoomsRequestToJSON,
+    ShiftRoomsFromJSON,
+    ShiftRoomsToJSON,
     ShortReservationFromJSON,
     ShortReservationToJSON,
     StatusFromJSON,
     StatusToJSON,
     SuggestedRoomsFromJSON,
     SuggestedRoomsToJSON,
-    SwapRoomsRequestFromJSON,
-    SwapRoomsRequestToJSON,
+    SwapRoomsFromJSON,
+    SwapRoomsToJSON,
+    UnAssignRoomCriteriaFromJSON,
+    UnAssignRoomCriteriaToJSON,
     UnAssignedRoomFromJSON,
     UnAssignedRoomToJSON,
     UpdateRoomKeysFromJSON,
@@ -182,44 +173,44 @@ import {
     VerifiedCheckinReservationToJSON,
     WakeUpCallsFromJSON,
     WakeUpCallsToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface AddReservationToQueueOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    queueReservation?: AddReservationToQueueRequest;
+export interface AddReservationToQueueRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    queueReservation: QueueReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface AssignRoomsAIOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomsAI?: AssignRoomsAIRequest;
+export interface AssignRoomsAIRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomsAI: RoomsAI;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface AutoAssignRoomOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoAssignRoom?: AutoAssignRoomRequest;
+export interface AutoAssignRoomRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoAssignRoom: AutoAssignRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface AutoUnAssignRoomRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idExtension?: Array<number>;
     type?: Array<string>;
@@ -262,32 +253,32 @@ export interface AutoUnAssignRoomRequest {
 }
 
 export interface DeleteAdvanceCheckInRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface DeleteAssignRoomOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    unAssignRoomCriteria?: DeleteAssignRoomRequest;
+export interface DeleteAssignRoomRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    unAssignRoomCriteria: UnAssignRoomCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCheckinRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomStatus?: DeleteCheckinRoomStatusEnum;
     unassignRoom?: boolean;
     xExternalsystem?: string;
@@ -295,51 +286,51 @@ export interface DeleteCheckinRequest {
 }
 
 export interface DeleteDailyDocketRequest {
-    docketId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    docketId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteReservationFromQueueRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomKeyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteServiceRequestsRequest {
-    serviceRequestId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    serviceRequestId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     callTime?: Array<string>;
     followUpCallTime?: Array<string>;
     startDate?: Date;
@@ -349,32 +340,32 @@ export interface DeleteWakeUpCallRequest {
     acceptLanguage?: string;
 }
 
-export interface DeliverQueueRoomsTextMessageOperationRequest {
-    messageType?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    deliverQueueRoomsTextMessage?: DeliverQueueRoomsTextMessageRequest;
+export interface DeliverQueueRoomsTextMessageRequest {
+    messageType: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    deliverQueueRoomsTextMessage: DeliverQueueRoomsTextMessage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface FetchAiraLastRunStatusRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetDailyDocketRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     docketDate?: Date;
     department?: string;
     xExternalsystem?: string;
@@ -382,20 +373,20 @@ export interface GetDailyDocketRequest {
 }
 
 export interface GetFloorPlansRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     room?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetFulfillmentActivityLogRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     module?: GetFulfillmentActivityLogModuleEnum;
@@ -413,10 +404,10 @@ export interface GetFulfillmentActivityLogRequest {
 }
 
 export interface GetHotelRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     roomNumberWildcard?: string;
@@ -461,11 +452,11 @@ export interface GetHotelRoomsRequest {
 }
 
 export interface GetLinkedReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     additionalReservationId?: Array<string>;
     additionalReservationIdContext?: Array<string>;
     additionalReservationIdType?: Array<string>;
@@ -474,11 +465,11 @@ export interface GetLinkedReservationsRequest {
 }
 
 export interface GetQueueRoomsTextMessageRequest {
-    messageType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    messageType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     reservationIdContext?: string;
     reservationIdType?: string;
@@ -488,10 +479,10 @@ export interface GetQueueRoomsTextMessageRequest {
 }
 
 export interface GetReservationSummariesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     searchType?: GetReservationSummariesSearchTypeEnum;
     reservationId?: Array<string>;
     reservationIdContext?: Array<string>;
@@ -542,10 +533,10 @@ export interface GetReservationSummariesRequest {
 }
 
 export interface GetReservationsForBillingRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     searchType?: GetReservationsForBillingSearchTypeEnum;
@@ -602,10 +593,10 @@ export interface GetReservationsForBillingRequest {
 }
 
 export interface GetReservationsInQueueRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomClassCodes?: Array<string>;
     roomTypeCodes?: Array<string>;
     roomNumberWildCard?: string;
@@ -615,10 +606,10 @@ export interface GetReservationsInQueueRequest {
 }
 
 export interface GetResvForBatchCCAuthRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     guestName?: string;
     room?: string;
     cardType?: Set<GetResvForBatchCCAuthCardTypeEnum>;
@@ -628,11 +619,11 @@ export interface GetResvForBatchCCAuthRequest {
 }
 
 export interface GetRoomInterfaceStatusRequest {
-    interfaceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    interfaceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     interfaceName?: string;
     interfaceType?: GetRoomInterfaceStatusInterfaceTypeEnum;
     logo?: string;
@@ -672,31 +663,31 @@ export interface GetRoomInterfaceStatusRequest {
 }
 
 export interface GetRoomKeyInterfaceDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomNumbersCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRoomKeysRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRoomMoveHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     xExternalsystem?: string;
@@ -704,10 +695,10 @@ export interface GetRoomMoveHistoryRequest {
 }
 
 export interface GetServiceRequestsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     code?: Array<string>;
     status?: Set<GetServiceRequestsStatusEnum>;
@@ -729,11 +720,11 @@ export interface GetServiceRequestsRequest {
 }
 
 export interface GetSuggestedRoomsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomType?: string;
     startDate?: Date;
     nights?: number;
@@ -743,11 +734,11 @@ export interface GetSuggestedRoomsRequest {
 }
 
 export interface GetWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchCancelled?: boolean;
     fetchCompleted?: boolean;
     fetchNoAnswer?: boolean;
@@ -766,202 +757,202 @@ export interface GetWakeUpCallRequest {
     acceptLanguage?: string;
 }
 
-export interface MoveInHouseGuestOperationRequest {
-    roomId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    moveInHouseGuest?: MoveInHouseGuestRequest;
+export interface MoveInHouseGuestRequest {
+    roomId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    moveInHouseGuest: MoveInHouseGuest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PlaceRoomsOnHoldOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdRooms?: PlaceRoomsOnHoldRequest;
+export interface PlaceRoomsOnHoldRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdRooms: HoldRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAdvanceCheckInOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    advanceCheckInReservation?: PostAdvanceCheckInRequest;
+export interface PostAdvanceCheckInRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    advanceCheckInReservation: AdvanceCheckInReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCheckInOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservation?: PostCheckInRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservation: PostCheckInRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostDailyDocketRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyDocket?: PutDailyDocketRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyDocket: DailyDocket;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMassAdvanceCheckInOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    massAdvanceCheckInReservations?: PostMassAdvanceCheckInRequest;
+export interface PostMassAdvanceCheckInRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    massAdvanceCheckInReservations: MassAdvanceCheckInReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMassCheckInOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    massCheckInReservations?: PostMassCheckInRequest;
+export interface PostMassCheckInRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    massCheckInReservations: MassCheckInReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomAssignmentOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    room?: PostRoomAssignmentRequest;
+export interface PostRoomAssignmentRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    room: Room;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomKeyOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomKey?: PostRoomKeyRequest;
+export interface PostRoomKeyRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomKey: RoomKey;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostServiceRequestsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestsInfo?: PutServiceRequestsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestsInfo: ServiceRequestsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    wakeUpCalls?: PutWakeUpCallRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    wakeUpCalls: WakeUpCalls;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ProcessBatchCCAuthOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchCCAuth?: ProcessBatchCCAuthRequest;
+export interface ProcessBatchCCAuthRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchCCAuth: BatchCCAuth;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutDailyDocketOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyDocket?: PutDailyDocketRequest;
+export interface PutDailyDocketRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyDocket: DailyDocket;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutReservationQueuePriorityOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationQueuePriorityNumber?: PutReservationQueuePriorityRequest;
+export interface PutReservationQueuePriorityRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationQueuePriorityNumber: ReservationQueuePriorityNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoomInterfaceStatusOperationRequest {
-    interfaceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationInterface?: PutRoomInterfaceStatusRequest;
+export interface PutRoomInterfaceStatusRequest {
+    interfaceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationInterface: ReservationInterface;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomKeysRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomKeys?: RoomKeyMultipleGuests;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomKeys: RoomKeyMultipleGuests;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutServiceRequestsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestsInfo?: PutServiceRequestsRequest;
+export interface PutServiceRequestsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestsInfo: ServiceRequestsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutWakeUpCallOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    wakeUpCalls?: PutWakeUpCallRequest;
+export interface PutWakeUpCallRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    wakeUpCalls: WakeUpCalls;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ReadRoomKeyRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     encoderTerminal?: string;
     encoderId?: string;
     encoderIdContext?: string;
@@ -971,45 +962,45 @@ export interface ReadRoomKeyRequest {
 }
 
 export interface ReleaseRoomsOnHoldRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdRooms?: PlaceRoomsOnHoldRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdRooms: HoldRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ShiftRoomsOperationRequest {
-    hotelId?: string;
-    sourceReservationId?: string;
-    targetReservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    shiftRooms?: ShiftRoomsRequest;
+export interface ShiftRoomsRequest {
+    hotelId: string;
+    sourceReservationId: string;
+    targetReservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    shiftRooms: ShiftRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SwapRoomsOperationRequest {
-    hotelId?: string;
-    sourceReservationId?: string;
-    targetReservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    swapRooms?: SwapRoomsRequest;
+export interface SwapRoomsRequest {
+    hotelId: string;
+    sourceReservationId: string;
+    targetReservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    swapRooms: SwapRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface VerifyCheckinReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     verifyCheckinInstructions?: Set<VerifyCheckinReservationVerifyCheckinInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1024,7 +1015,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Using this API you can assign reservations to the reservation queue if the guest\'s room is not ready for assignment or if there are no available rooms of the room type attached to the reservation. Housekeeping staff can use the Queue Rooms functionality to determine if there are guests waiting to check in to a particular room or type of room; if there are, the queue list can provide guidance in determining which rooms need attention first. <p><strong>OperationId:</strong>addReservationToQueue</p>
      * Add reservation to queue
      */
-    async addReservationToQueueRaw(requestParameters: AddReservationToQueueOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>> {
+    async addReservationToQueueRaw(requestParameters: AddReservationToQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling addReservationToQueue.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling addReservationToQueue.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling addReservationToQueue.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling addReservationToQueue.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling addReservationToQueue.');
+        }
+
+        if (requestParameters.queueReservation === null || requestParameters.queueReservation === undefined) {
+            throw new runtime.RequiredError('queueReservation','Required parameter requestParameters.queueReservation was null or undefined when calling addReservationToQueue.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1056,7 +1071,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AddReservationToQueueRequestToJSON(requestParameters.queueReservation),
+            body: QueueReservationToJSON(requestParameters.queueReservation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReservationQueuePriorityFromJSON(jsonValue));
@@ -1066,7 +1081,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Using this API you can assign reservations to the reservation queue if the guest\'s room is not ready for assignment or if there are no available rooms of the room type attached to the reservation. Housekeeping staff can use the Queue Rooms functionality to determine if there are guests waiting to check in to a particular room or type of room; if there are, the queue list can provide guidance in determining which rooms need attention first. <p><strong>OperationId:</strong>addReservationToQueue</p>
      * Add reservation to queue
      */
-    async addReservationToQueue(requestParameters: AddReservationToQueueOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority> {
+    async addReservationToQueue(requestParameters: AddReservationToQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority> {
         const response = await this.addReservationToQueueRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1075,7 +1090,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API runs AI Room Assignment and allocates rooms to incoming reservations. <p><strong>OperationId:</strong>assignRoomsAI</p>
      * AI Assign Rooms
      */
-    async assignRoomsAIRaw(requestParameters: AssignRoomsAIOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async assignRoomsAIRaw(requestParameters: AssignRoomsAIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling assignRoomsAI.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling assignRoomsAI.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling assignRoomsAI.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling assignRoomsAI.');
+        }
+
+        if (requestParameters.roomsAI === null || requestParameters.roomsAI === undefined) {
+            throw new runtime.RequiredError('roomsAI','Required parameter requestParameters.roomsAI was null or undefined when calling assignRoomsAI.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1107,7 +1142,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AssignRoomsAIRequestToJSON(requestParameters.roomsAI),
+            body: RoomsAIToJSON(requestParameters.roomsAI),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1117,7 +1152,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API runs AI Room Assignment and allocates rooms to incoming reservations. <p><strong>OperationId:</strong>assignRoomsAI</p>
      * AI Assign Rooms
      */
-    async assignRoomsAI(requestParameters: AssignRoomsAIOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async assignRoomsAI(requestParameters: AssignRoomsAIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.assignRoomsAIRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1126,7 +1161,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    async autoAssignRoomRaw(requestParameters: AutoAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignedRoom>> {
+    async autoAssignRoomRaw(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignedRoom>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling autoAssignRoom.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling autoAssignRoom.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling autoAssignRoom.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling autoAssignRoom.');
+        }
+
+        if (requestParameters.autoAssignRoom === null || requestParameters.autoAssignRoom === undefined) {
+            throw new runtime.RequiredError('autoAssignRoom','Required parameter requestParameters.autoAssignRoom was null or undefined when calling autoAssignRoom.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1158,7 +1213,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AutoAssignRoomRequestToJSON(requestParameters.autoAssignRoom),
+            body: AutoAssignRoomToJSON(requestParameters.autoAssignRoom),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AutoAssignedRoomFromJSON(jsonValue));
@@ -1168,7 +1223,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    async autoAssignRoom(requestParameters: AutoAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignedRoom> {
+    async autoAssignRoom(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignedRoom> {
         const response = await this.autoAssignRoomRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1178,6 +1233,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Auto unassign room
      */
     async autoUnAssignRoomRaw(requestParameters: AutoUnAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling autoUnAssignRoom.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling autoUnAssignRoom.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling autoUnAssignRoom.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling autoUnAssignRoom.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.id) {
@@ -1233,11 +1304,11 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -1374,6 +1445,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Reverse Advance Checkin 
      */
     async deleteAdvanceCheckInRaw(requestParameters: DeleteAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteAdvanceCheckIn.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAdvanceCheckIn.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAdvanceCheckIn.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAdvanceCheckIn.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAdvanceCheckIn.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1421,7 +1512,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to remove an assigned room from a reservation in reserved status. <p><strong>OperationId:</strong>deleteAssignRoom</p>
      * Remove an assigned room
      */
-    async deleteAssignRoomRaw(requestParameters: DeleteAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnAssignedRoom>> {
+    async deleteAssignRoomRaw(requestParameters: DeleteAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnAssignedRoom>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteAssignRoom.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAssignRoom.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAssignRoom.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAssignRoom.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAssignRoom.');
+        }
+
+        if (requestParameters.unAssignRoomCriteria === null || requestParameters.unAssignRoomCriteria === undefined) {
+            throw new runtime.RequiredError('unAssignRoomCriteria','Required parameter requestParameters.unAssignRoomCriteria was null or undefined when calling deleteAssignRoom.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1453,7 +1568,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: DeleteAssignRoomRequestToJSON(requestParameters.unAssignRoomCriteria),
+            body: UnAssignRoomCriteriaToJSON(requestParameters.unAssignRoomCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UnAssignedRoomFromJSON(jsonValue));
@@ -1463,7 +1578,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to remove an assigned room from a reservation in reserved status. <p><strong>OperationId:</strong>deleteAssignRoom</p>
      * Remove an assigned room
      */
-    async deleteAssignRoom(requestParameters: DeleteAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnAssignedRoom> {
+    async deleteAssignRoom(requestParameters: DeleteAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnAssignedRoom> {
         const response = await this.deleteAssignRoomRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1473,6 +1588,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Revert a checked-in Reservation
      */
     async deleteCheckinRaw(requestParameters: DeleteCheckinRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteCheckin.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCheckin.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCheckin.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCheckin.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCheckin.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomStatus !== undefined) {
@@ -1529,6 +1664,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Delete Daily Docket 
      */
     async deleteDailyDocketRaw(requestParameters: DeleteDailyDocketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.docketId === null || requestParameters.docketId === undefined) {
+            throw new runtime.RequiredError('docketId','Required parameter requestParameters.docketId was null or undefined when calling deleteDailyDocket.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteDailyDocket.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDailyDocket.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDailyDocket.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDailyDocket.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1577,6 +1732,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Delete reservation from queue
      */
     async deleteReservationFromQueueRaw(requestParameters: DeleteReservationFromQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteReservationFromQueue.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteReservationFromQueue.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteReservationFromQueue.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteReservationFromQueue.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteReservationFromQueue.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1625,6 +1800,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Delete room key
      */
     async deleteRoomKeyRaw(requestParameters: DeleteRoomKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteRoomKey.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRoomKey.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomKey.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomKey.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomKey.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1673,6 +1868,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Delete Service Requests
      */
     async deleteServiceRequestsRaw(requestParameters: DeleteServiceRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.serviceRequestId === null || requestParameters.serviceRequestId === undefined) {
+            throw new runtime.RequiredError('serviceRequestId','Required parameter requestParameters.serviceRequestId was null or undefined when calling deleteServiceRequests.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteServiceRequests.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteServiceRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteServiceRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteServiceRequests.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1721,6 +1936,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Delete Wake Up Call
      */
     async deleteWakeUpCallRaw(requestParameters: DeleteWakeUpCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteWakeUpCall.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteWakeUpCall.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteWakeUpCall.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteWakeUpCall.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteWakeUpCall.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.callTime) {
@@ -1732,7 +1967,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.newCallTime) {
@@ -1788,7 +2023,35 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will deliver Queue rooms text message. <p><strong>OperationId:</strong>deliverQueueRoomsTextMessage</p>
      * Deliver Queue rooms text message
      */
-    async deliverQueueRoomsTextMessageRaw(requestParameters: DeliverQueueRoomsTextMessageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueRoomsTextMessage>> {
+    async deliverQueueRoomsTextMessageRaw(requestParameters: DeliverQueueRoomsTextMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueRoomsTextMessage>> {
+        if (requestParameters.messageType === null || requestParameters.messageType === undefined) {
+            throw new runtime.RequiredError('messageType','Required parameter requestParameters.messageType was null or undefined when calling deliverQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deliverQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deliverQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deliverQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deliverQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deliverQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.deliverQueueRoomsTextMessage === null || requestParameters.deliverQueueRoomsTextMessage === undefined) {
+            throw new runtime.RequiredError('deliverQueueRoomsTextMessage','Required parameter requestParameters.deliverQueueRoomsTextMessage was null or undefined when calling deliverQueueRoomsTextMessage.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1820,7 +2083,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: DeliverQueueRoomsTextMessageRequestToJSON(requestParameters.deliverQueueRoomsTextMessage),
+            body: DeliverQueueRoomsTextMessageToJSON(requestParameters.deliverQueueRoomsTextMessage),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => QueueRoomsTextMessageFromJSON(jsonValue));
@@ -1830,7 +2093,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will deliver Queue rooms text message. <p><strong>OperationId:</strong>deliverQueueRoomsTextMessage</p>
      * Deliver Queue rooms text message
      */
-    async deliverQueueRoomsTextMessage(requestParameters: DeliverQueueRoomsTextMessageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueRoomsTextMessage> {
+    async deliverQueueRoomsTextMessage(requestParameters: DeliverQueueRoomsTextMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueRoomsTextMessage> {
         const response = await this.deliverQueueRoomsTextMessageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1840,6 +2103,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Automated Intelligence Room Assignment last run status
      */
     async fetchAiraLastRunStatusRaw(requestParameters: FetchAiraLastRunStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AiraLastRunStatusInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling fetchAiraLastRunStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling fetchAiraLastRunStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling fetchAiraLastRunStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling fetchAiraLastRunStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1888,10 +2167,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get Daily Docket
      */
     async getDailyDocketRaw(requestParameters: GetDailyDocketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DailyDocket>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDailyDocket.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDailyDocket.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDailyDocket.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDailyDocket.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.docketDate !== undefined) {
-            queryParameters['docketDate'] = (requestParameters.docketDate as any).toISOString().substr(0,10);
+            queryParameters['docketDate'] = (requestParameters.docketDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.department !== undefined) {
@@ -1944,6 +2239,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get floor plans
      */
     async getFloorPlansRaw(requestParameters: GetFloorPlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FloorPlans>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFloorPlans.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFloorPlans.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFloorPlans.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFloorPlans.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.room !== undefined) {
@@ -1996,6 +2307,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get the fullfillment activity log
      */
     async getFulfillmentActivityLogRaw(requestParameters: GetFulfillmentActivityLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivityLog>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFulfillmentActivityLog.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFulfillmentActivityLog.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFulfillmentActivityLog.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFulfillmentActivityLog.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2027,11 +2354,11 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substr(0,10);
+            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substr(0,10);
+            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.searchText !== undefined) {
@@ -2092,6 +2419,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get hotel available rooms
      */
     async getHotelRoomsRaw(requestParameters: GetHotelRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelRooms>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelRooms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2123,11 +2466,11 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.hotelRoomStartDate !== undefined) {
-            queryParameters['hotelRoomStartDate'] = (requestParameters.hotelRoomStartDate as any).toISOString().substr(0,10);
+            queryParameters['hotelRoomStartDate'] = (requestParameters.hotelRoomStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.hotelRoomEndDate !== undefined) {
-            queryParameters['hotelRoomEndDate'] = (requestParameters.hotelRoomEndDate as any).toISOString().substr(0,10);
+            queryParameters['hotelRoomEndDate'] = (requestParameters.hotelRoomEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -2296,6 +2639,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get linked reservations
      */
     async getLinkedReservationsRaw(requestParameters: GetLinkedReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LinkedReservations>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getLinkedReservations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getLinkedReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getLinkedReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getLinkedReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getLinkedReservations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.additionalReservationId) {
@@ -2356,6 +2719,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get Queue room text message
      */
     async getQueueRoomsTextMessageRaw(requestParameters: GetQueueRoomsTextMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueuedRoomsTextMessage>> {
+        if (requestParameters.messageType === null || requestParameters.messageType === undefined) {
+            throw new runtime.RequiredError('messageType','Required parameter requestParameters.messageType was null or undefined when calling getQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getQueueRoomsTextMessage.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getQueueRoomsTextMessage.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationId !== undefined) {
@@ -2420,6 +2803,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get hotel reservation summaries
      */
     async getReservationSummariesRaw(requestParameters: GetReservationSummariesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShortReservation>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationSummaries.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationSummaries.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationSummaries.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationSummaries.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.searchType !== undefined) {
@@ -2451,43 +2850,43 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrivalEnd !== undefined) {
-            queryParameters['arrivalEnd'] = (requestParameters.arrivalEnd as any).toISOString().substr(0,10);
+            queryParameters['arrivalEnd'] = (requestParameters.arrivalEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.arrivalStart !== undefined) {
-            queryParameters['arrivalStart'] = (requestParameters.arrivalStart as any).toISOString().substr(0,10);
+            queryParameters['arrivalStart'] = (requestParameters.arrivalStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.departureEnd !== undefined) {
-            queryParameters['departureEnd'] = (requestParameters.departureEnd as any).toISOString().substr(0,10);
+            queryParameters['departureEnd'] = (requestParameters.departureEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.departureStart !== undefined) {
-            queryParameters['departureStart'] = (requestParameters.departureStart as any).toISOString().substr(0,10);
+            queryParameters['departureStart'] = (requestParameters.departureStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.stayOnEnd !== undefined) {
-            queryParameters['stayOnEnd'] = (requestParameters.stayOnEnd as any).toISOString().substr(0,10);
+            queryParameters['stayOnEnd'] = (requestParameters.stayOnEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.stayOnStart !== undefined) {
-            queryParameters['stayOnStart'] = (requestParameters.stayOnStart as any).toISOString().substr(0,10);
+            queryParameters['stayOnStart'] = (requestParameters.stayOnStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.createdOnEnd !== undefined) {
-            queryParameters['createdOnEnd'] = (requestParameters.createdOnEnd as any).toISOString().substr(0,10);
+            queryParameters['createdOnEnd'] = (requestParameters.createdOnEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.createOnStart !== undefined) {
-            queryParameters['createOnStart'] = (requestParameters.createOnStart as any).toISOString().substr(0,10);
+            queryParameters['createOnStart'] = (requestParameters.createOnStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.depositDateEnd !== undefined) {
-            queryParameters['depositDateEnd'] = (requestParameters.depositDateEnd as any).toISOString().substr(0,10);
+            queryParameters['depositDateEnd'] = (requestParameters.depositDateEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.depositDateStart !== undefined) {
-            queryParameters['depositDateStart'] = (requestParameters.depositDateStart as any).toISOString().substr(0,10);
+            queryParameters['depositDateStart'] = (requestParameters.depositDateStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.dateCriteriaExpectedArrivalEndTime !== undefined) {
@@ -2499,11 +2898,11 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.depositDueDateEnd !== undefined) {
-            queryParameters['depositDueDateEnd'] = (requestParameters.depositDueDateEnd as any).toISOString().substr(0,10);
+            queryParameters['depositDueDateEnd'] = (requestParameters.depositDueDateEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.depositDueDateStart !== undefined) {
-            queryParameters['depositDueDateStart'] = (requestParameters.depositDueDateStart as any).toISOString().substr(0,10);
+            queryParameters['depositDueDateStart'] = (requestParameters.depositDueDateStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expectedReturnEndTime !== undefined) {
@@ -2571,11 +2970,11 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expectedArrivalEndTime !== undefined) {
-            queryParameters['expectedArrivalEndTime'] = (requestParameters.expectedArrivalEndTime as any).toISOString().substr(0,10);
+            queryParameters['expectedArrivalEndTime'] = (requestParameters.expectedArrivalEndTime as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expectedArrivalStartTime !== undefined) {
-            queryParameters['expectedArrivalStartTime'] = (requestParameters.expectedArrivalStartTime as any).toISOString().substr(0,10);
+            queryParameters['expectedArrivalStartTime'] = (requestParameters.expectedArrivalStartTime as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomTypes) {
@@ -2648,6 +3047,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get Reservations for billing
      */
     async getReservationsForBillingRaw(requestParameters: GetReservationsForBillingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationsForBilling.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationsForBilling.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsForBilling.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsForBilling.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2687,19 +3102,19 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrivalEnd !== undefined) {
-            queryParameters['arrivalEnd'] = (requestParameters.arrivalEnd as any).toISOString().substr(0,10);
+            queryParameters['arrivalEnd'] = (requestParameters.arrivalEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.arrivalStart !== undefined) {
-            queryParameters['arrivalStart'] = (requestParameters.arrivalStart as any).toISOString().substr(0,10);
+            queryParameters['arrivalStart'] = (requestParameters.arrivalStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.departureEnd !== undefined) {
-            queryParameters['departureEnd'] = (requestParameters.departureEnd as any).toISOString().substr(0,10);
+            queryParameters['departureEnd'] = (requestParameters.departureEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.departureStart !== undefined) {
-            queryParameters['departureStart'] = (requestParameters.departureStart as any).toISOString().substr(0,10);
+            queryParameters['departureStart'] = (requestParameters.departureStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.reservationProfileType) {
@@ -2900,6 +3315,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get the reservation in queue
      */
     async getReservationsInQueueRaw(requestParameters: GetReservationsInQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationsInQueue>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationsInQueue.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationsInQueue.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsInQueue.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsInQueue.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomClassCodes) {
@@ -2964,6 +3395,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get resrvation for batch CCAuth
      */
     async getResvForBatchCCAuthRaw(requestParameters: GetResvForBatchCCAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResvForBatchCCAut>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getResvForBatchCCAuth.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getResvForBatchCCAuth.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getResvForBatchCCAuth.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getResvForBatchCCAuth.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.guestName !== undefined) {
@@ -3028,6 +3475,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get room interface status
      */
     async getRoomInterfaceStatusRaw(requestParameters: GetRoomInterfaceStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomInterfaceStatus>> {
+        if (requestParameters.interfaceId === null || requestParameters.interfaceId === undefined) {
+            throw new runtime.RequiredError('interfaceId','Required parameter requestParameters.interfaceId was null or undefined when calling getRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomInterfaceStatus.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.interfaceName !== undefined) {
@@ -3095,11 +3562,11 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrivalEnd !== undefined) {
-            queryParameters['arrivalEnd'] = (requestParameters.arrivalEnd as any).toISOString().substr(0,10);
+            queryParameters['arrivalEnd'] = (requestParameters.arrivalEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.arrivalStart !== undefined) {
-            queryParameters['arrivalStart'] = (requestParameters.arrivalStart as any).toISOString().substr(0,10);
+            queryParameters['arrivalStart'] = (requestParameters.arrivalStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expectedArrivalEndTime !== undefined) {
@@ -3212,6 +3679,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get key encoder interface configuration details
      */
     async getRoomKeyInterfaceDetailsRaw(requestParameters: GetRoomKeyInterfaceDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomKeyInterfaceDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomKeyInterfaceDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomKeyInterfaceDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomKeyInterfaceDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomKeyInterfaceDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomNumbersCode) {
@@ -3264,6 +3747,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Fetch the room keys
      */
     async getRoomKeysRaw(requestParameters: GetRoomKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomKeyInfo>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getRoomKeys.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomKeys.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomKeys.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomKeys.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomKeys.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3312,6 +3815,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get room move history of a reservation
      */
     async getRoomMoveHistoryRaw(requestParameters: GetRoomMoveHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomMoveHistory>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getRoomMoveHistory.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomMoveHistory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomMoveHistory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomMoveHistory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomMoveHistory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationIdContext !== undefined) {
@@ -3368,6 +3891,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get Service Requests
      */
     async getServiceRequestsRaw(requestParameters: GetServiceRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceRequestsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getServiceRequests.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getServiceRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequests.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -3419,19 +3958,19 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.creationEndDate !== undefined) {
-            queryParameters['creationEndDate'] = (requestParameters.creationEndDate as any).toISOString().substr(0,10);
+            queryParameters['creationEndDate'] = (requestParameters.creationEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.creationStartDate !== undefined) {
-            queryParameters['creationStartDate'] = (requestParameters.creationStartDate as any).toISOString().substr(0,10);
+            queryParameters['creationStartDate'] = (requestParameters.creationStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.closedEndDate !== undefined) {
-            queryParameters['closedEndDate'] = (requestParameters.closedEndDate as any).toISOString().substr(0,10);
+            queryParameters['closedEndDate'] = (requestParameters.closedEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.closedStartDate !== undefined) {
-            queryParameters['closedStartDate'] = (requestParameters.closedStartDate as any).toISOString().substr(0,10);
+            queryParameters['closedStartDate'] = (requestParameters.closedStartDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3480,6 +4019,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get Suggested Rooms
      */
     async getSuggestedRoomsRaw(requestParameters: GetSuggestedRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuggestedRooms>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getSuggestedRooms.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSuggestedRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSuggestedRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSuggestedRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSuggestedRooms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomType !== undefined) {
@@ -3487,7 +4046,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.nights !== undefined) {
@@ -3544,6 +4103,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Get Wake Up Call
      */
     async getWakeUpCallRaw(requestParameters: GetWakeUpCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WakeUpCalls>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getWakeUpCall.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getWakeUpCall.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getWakeUpCall.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getWakeUpCall.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getWakeUpCall.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchCancelled !== undefined) {
@@ -3575,11 +4154,11 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substr(0,10);
+            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.beginTime !== undefined) {
@@ -3647,7 +4226,35 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to change rooms for an in-house guest. <p><strong>OperationId:</strong>moveInHouseGuest</p>
      * Move in-house guest
      */
-    async moveInHouseGuestRaw(requestParameters: MoveInHouseGuestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedInHouseGuest>> {
+    async moveInHouseGuestRaw(requestParameters: MoveInHouseGuestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedInHouseGuest>> {
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling moveInHouseGuest.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling moveInHouseGuest.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling moveInHouseGuest.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling moveInHouseGuest.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling moveInHouseGuest.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling moveInHouseGuest.');
+        }
+
+        if (requestParameters.moveInHouseGuest === null || requestParameters.moveInHouseGuest === undefined) {
+            throw new runtime.RequiredError('moveInHouseGuest','Required parameter requestParameters.moveInHouseGuest was null or undefined when calling moveInHouseGuest.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3679,7 +4286,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: MoveInHouseGuestRequestToJSON(requestParameters.moveInHouseGuest),
+            body: MoveInHouseGuestToJSON(requestParameters.moveInHouseGuest),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MovedInHouseGuestFromJSON(jsonValue));
@@ -3689,7 +4296,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to change rooms for an in-house guest. <p><strong>OperationId:</strong>moveInHouseGuest</p>
      * Move in-house guest
      */
-    async moveInHouseGuest(requestParameters: MoveInHouseGuestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedInHouseGuest> {
+    async moveInHouseGuest(requestParameters: MoveInHouseGuestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedInHouseGuest> {
         const response = await this.moveInHouseGuestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3698,7 +4305,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * You can use this API to place Rooms On Hold. <p><strong>OperationId:</strong>placeRoomsOnHold</p>
      * Place Rooms On Hold
      */
-    async placeRoomsOnHoldRaw(requestParameters: PlaceRoomsOnHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async placeRoomsOnHoldRaw(requestParameters: PlaceRoomsOnHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling placeRoomsOnHold.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling placeRoomsOnHold.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling placeRoomsOnHold.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling placeRoomsOnHold.');
+        }
+
+        if (requestParameters.holdRooms === null || requestParameters.holdRooms === undefined) {
+            throw new runtime.RequiredError('holdRooms','Required parameter requestParameters.holdRooms was null or undefined when calling placeRoomsOnHold.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3730,7 +4357,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PlaceRoomsOnHoldRequestToJSON(requestParameters.holdRooms),
+            body: HoldRoomsToJSON(requestParameters.holdRooms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3740,7 +4367,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * You can use this API to place Rooms On Hold. <p><strong>OperationId:</strong>placeRoomsOnHold</p>
      * Place Rooms On Hold
      */
-    async placeRoomsOnHold(requestParameters: PlaceRoomsOnHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async placeRoomsOnHold(requestParameters: PlaceRoomsOnHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.placeRoomsOnHoldRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3749,7 +4376,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * At times, when guests arrive to the property prior to a room being ready, you can flag a reservation as Advance Checked In for arrivals due in on the current business date. This enables guests to post charges to their reservation folio prior to check in, and helps the rooms management team prioritize room cleaning and assignment. Individual reservations (including Walk In reservations, Pre Registered reservations, and reservations that are in Queue) and group block reservations can be Advance Checked In. <p><strong>OperationId:</strong>postAdvanceCheckIn</p>
      * Advance checkin a reservation
      */
-    async postAdvanceCheckInRaw(requestParameters: PostAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAdvanceCheckInRaw(requestParameters: PostAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postAdvanceCheckIn.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAdvanceCheckIn.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAdvanceCheckIn.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAdvanceCheckIn.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAdvanceCheckIn.');
+        }
+
+        if (requestParameters.advanceCheckInReservation === null || requestParameters.advanceCheckInReservation === undefined) {
+            throw new runtime.RequiredError('advanceCheckInReservation','Required parameter requestParameters.advanceCheckInReservation was null or undefined when calling postAdvanceCheckIn.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3781,7 +4432,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAdvanceCheckInRequestToJSON(requestParameters.advanceCheckInReservation),
+            body: AdvanceCheckInReservationToJSON(requestParameters.advanceCheckInReservation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3791,7 +4442,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * At times, when guests arrive to the property prior to a room being ready, you can flag a reservation as Advance Checked In for arrivals due in on the current business date. This enables guests to post charges to their reservation folio prior to check in, and helps the rooms management team prioritize room cleaning and assignment. Individual reservations (including Walk In reservations, Pre Registered reservations, and reservations that are in Queue) and group block reservations can be Advance Checked In. <p><strong>OperationId:</strong>postAdvanceCheckIn</p>
      * Advance checkin a reservation
      */
-    async postAdvanceCheckIn(requestParameters: PostAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAdvanceCheckIn(requestParameters: PostAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAdvanceCheckInRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3801,6 +4452,30 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Checks in a guest
      */
     async postCheckInRaw(requestParameters: PostCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckedinReservation>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postCheckIn.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCheckIn.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCheckIn.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCheckIn.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCheckIn.');
+        }
+
+        if (requestParameters.reservation === null || requestParameters.reservation === undefined) {
+            throw new runtime.RequiredError('reservation','Required parameter requestParameters.reservation was null or undefined when calling postCheckIn.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3852,6 +4527,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Create Daily Docket 
      */
     async postDailyDocketRaw(requestParameters: PostDailyDocketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postDailyDocket.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDailyDocket.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDailyDocket.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDailyDocket.');
+        }
+
+        if (requestParameters.dailyDocket === null || requestParameters.dailyDocket === undefined) {
+            throw new runtime.RequiredError('dailyDocket','Required parameter requestParameters.dailyDocket was null or undefined when calling postDailyDocket.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3883,7 +4578,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutDailyDocketRequestToJSON(requestParameters.dailyDocket),
+            body: DailyDocketToJSON(requestParameters.dailyDocket),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3902,7 +4597,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to perform a mass advance checkin for reservations. <p><strong>OperationId:</strong>postMassAdvanceCheckIn</p>
      * Mass Advance Check in Reservations
      */
-    async postMassAdvanceCheckInRaw(requestParameters: PostMassAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMassAdvanceCheckInRaw(requestParameters: PostMassAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postMassAdvanceCheckIn.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMassAdvanceCheckIn.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMassAdvanceCheckIn.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMassAdvanceCheckIn.');
+        }
+
+        if (requestParameters.massAdvanceCheckInReservations === null || requestParameters.massAdvanceCheckInReservations === undefined) {
+            throw new runtime.RequiredError('massAdvanceCheckInReservations','Required parameter requestParameters.massAdvanceCheckInReservations was null or undefined when calling postMassAdvanceCheckIn.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3934,7 +4649,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMassAdvanceCheckInRequestToJSON(requestParameters.massAdvanceCheckInReservations),
+            body: MassAdvanceCheckInReservationsToJSON(requestParameters.massAdvanceCheckInReservations),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3944,7 +4659,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to perform a mass advance checkin for reservations. <p><strong>OperationId:</strong>postMassAdvanceCheckIn</p>
      * Mass Advance Check in Reservations
      */
-    async postMassAdvanceCheckIn(requestParameters: PostMassAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMassAdvanceCheckIn(requestParameters: PostMassAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMassAdvanceCheckInRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3953,7 +4668,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to perform a mass Checkin for reservations. <p><strong>OperationId:</strong>postMassCheckIn</p>
      * Mass checkin reservations
      */
-    async postMassCheckInRaw(requestParameters: PostMassCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMassCheckInRaw(requestParameters: PostMassCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postMassCheckIn.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMassCheckIn.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMassCheckIn.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMassCheckIn.');
+        }
+
+        if (requestParameters.massCheckInReservations === null || requestParameters.massCheckInReservations === undefined) {
+            throw new runtime.RequiredError('massCheckInReservations','Required parameter requestParameters.massCheckInReservations was null or undefined when calling postMassCheckIn.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3985,7 +4720,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMassCheckInRequestToJSON(requestParameters.massCheckInReservations),
+            body: MassCheckInReservationsToJSON(requestParameters.massCheckInReservations),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3995,7 +4730,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to perform a mass Checkin for reservations. <p><strong>OperationId:</strong>postMassCheckIn</p>
      * Mass checkin reservations
      */
-    async postMassCheckIn(requestParameters: PostMassCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMassCheckIn(requestParameters: PostMassCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMassCheckInRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4004,7 +4739,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to assign a room to a reservation in reserved status. Override instructions are available to assign a room despite warnings returned in the response message. <p><strong>OperationId:</strong>postRoomAssignment</p>
      * Assign a Room to a Reservation
      */
-    async postRoomAssignmentRaw(requestParameters: PostRoomAssignmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignedRoom>> {
+    async postRoomAssignmentRaw(requestParameters: PostRoomAssignmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignedRoom>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postRoomAssignment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRoomAssignment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomAssignment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomAssignment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomAssignment.');
+        }
+
+        if (requestParameters.room === null || requestParameters.room === undefined) {
+            throw new runtime.RequiredError('room','Required parameter requestParameters.room was null or undefined when calling postRoomAssignment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4036,7 +4795,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomAssignmentRequestToJSON(requestParameters.room),
+            body: RoomToJSON(requestParameters.room),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AssignedRoomFromJSON(jsonValue));
@@ -4046,7 +4805,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to assign a room to a reservation in reserved status. Override instructions are available to assign a room despite warnings returned in the response message. <p><strong>OperationId:</strong>postRoomAssignment</p>
      * Assign a Room to a Reservation
      */
-    async postRoomAssignment(requestParameters: PostRoomAssignmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignedRoom> {
+    async postRoomAssignment(requestParameters: PostRoomAssignmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignedRoom> {
         const response = await this.postRoomAssignmentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4055,7 +4814,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * You can use this API to create a room key request for a reservation to the active Door Locking System Property Interface. <p><strong>OperationId:</strong>postRoomKey</p>
      * Requests room key(s)
      */
-    async postRoomKeyRaw(requestParameters: PostRoomKeyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomKeyDetails>> {
+    async postRoomKeyRaw(requestParameters: PostRoomKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomKeyDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postRoomKey.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRoomKey.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomKey.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomKey.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomKey.');
+        }
+
+        if (requestParameters.roomKey === null || requestParameters.roomKey === undefined) {
+            throw new runtime.RequiredError('roomKey','Required parameter requestParameters.roomKey was null or undefined when calling postRoomKey.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4087,7 +4870,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomKeyRequestToJSON(requestParameters.roomKey),
+            body: RoomKeyToJSON(requestParameters.roomKey),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoomKeyDetailsFromJSON(jsonValue));
@@ -4097,7 +4880,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * You can use this API to create a room key request for a reservation to the active Door Locking System Property Interface. <p><strong>OperationId:</strong>postRoomKey</p>
      * Requests room key(s)
      */
-    async postRoomKey(requestParameters: PostRoomKeyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomKeyDetails> {
+    async postRoomKey(requestParameters: PostRoomKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomKeyDetails> {
         const response = await this.postRoomKeyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4107,6 +4890,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Create Service Requests
      */
     async postServiceRequestsRaw(requestParameters: PostServiceRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postServiceRequests.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postServiceRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postServiceRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postServiceRequests.');
+        }
+
+        if (requestParameters.serviceRequestsInfo === null || requestParameters.serviceRequestsInfo === undefined) {
+            throw new runtime.RequiredError('serviceRequestsInfo','Required parameter requestParameters.serviceRequestsInfo was null or undefined when calling postServiceRequests.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4138,7 +4941,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutServiceRequestsRequestToJSON(requestParameters.serviceRequestsInfo),
+            body: ServiceRequestsInfoToJSON(requestParameters.serviceRequestsInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4158,6 +4961,30 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Create Wake Up Call
      */
     async postWakeUpCallRaw(requestParameters: PostWakeUpCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postWakeUpCall.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postWakeUpCall.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postWakeUpCall.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postWakeUpCall.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postWakeUpCall.');
+        }
+
+        if (requestParameters.wakeUpCalls === null || requestParameters.wakeUpCalls === undefined) {
+            throw new runtime.RequiredError('wakeUpCalls','Required parameter requestParameters.wakeUpCalls was null or undefined when calling postWakeUpCall.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4189,7 +5016,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutWakeUpCallRequestToJSON(requestParameters.wakeUpCalls),
+            body: WakeUpCallsToJSON(requestParameters.wakeUpCalls),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4208,7 +5035,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API is used to process batch CC Authorization. <p><strong>OperationId:</strong>processBatchCCAuth</p>
      * Process batch CC Auth
      */
-    async processBatchCCAuthRaw(requestParameters: ProcessBatchCCAuthOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchCCAuthToProcess>> {
+    async processBatchCCAuthRaw(requestParameters: ProcessBatchCCAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchCCAuthToProcess>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling processBatchCCAuth.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling processBatchCCAuth.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling processBatchCCAuth.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling processBatchCCAuth.');
+        }
+
+        if (requestParameters.batchCCAuth === null || requestParameters.batchCCAuth === undefined) {
+            throw new runtime.RequiredError('batchCCAuth','Required parameter requestParameters.batchCCAuth was null or undefined when calling processBatchCCAuth.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4240,7 +5087,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ProcessBatchCCAuthRequestToJSON(requestParameters.batchCCAuth),
+            body: BatchCCAuthToJSON(requestParameters.batchCCAuth),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BatchCCAuthToProcessFromJSON(jsonValue));
@@ -4250,7 +5097,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API is used to process batch CC Authorization. <p><strong>OperationId:</strong>processBatchCCAuth</p>
      * Process batch CC Auth
      */
-    async processBatchCCAuth(requestParameters: ProcessBatchCCAuthOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchCCAuthToProcess> {
+    async processBatchCCAuth(requestParameters: ProcessBatchCCAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchCCAuthToProcess> {
         const response = await this.processBatchCCAuthRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4259,7 +5106,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to change Daily Docket. <p><strong>OperationId:</strong>putDailyDocket</p>
      * Change Daily Docket 
      */
-    async putDailyDocketRaw(requestParameters: PutDailyDocketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putDailyDocketRaw(requestParameters: PutDailyDocketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putDailyDocket.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putDailyDocket.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putDailyDocket.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putDailyDocket.');
+        }
+
+        if (requestParameters.dailyDocket === null || requestParameters.dailyDocket === undefined) {
+            throw new runtime.RequiredError('dailyDocket','Required parameter requestParameters.dailyDocket was null or undefined when calling putDailyDocket.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4291,7 +5158,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutDailyDocketRequestToJSON(requestParameters.dailyDocket),
+            body: DailyDocketToJSON(requestParameters.dailyDocket),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4301,7 +5168,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to change Daily Docket. <p><strong>OperationId:</strong>putDailyDocket</p>
      * Change Daily Docket 
      */
-    async putDailyDocket(requestParameters: PutDailyDocketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putDailyDocket(requestParameters: PutDailyDocketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putDailyDocketRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4310,7 +5177,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API can be used to change the resrevations Queue Priority. <p><strong>OperationId:</strong>putReservationQueuePriority</p>
      * Change the reservation queue priority
      */
-    async putReservationQueuePriorityRaw(requestParameters: PutReservationQueuePriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>> {
+    async putReservationQueuePriorityRaw(requestParameters: PutReservationQueuePriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling putReservationQueuePriority.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putReservationQueuePriority.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putReservationQueuePriority.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putReservationQueuePriority.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putReservationQueuePriority.');
+        }
+
+        if (requestParameters.reservationQueuePriorityNumber === null || requestParameters.reservationQueuePriorityNumber === undefined) {
+            throw new runtime.RequiredError('reservationQueuePriorityNumber','Required parameter requestParameters.reservationQueuePriorityNumber was null or undefined when calling putReservationQueuePriority.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4342,7 +5233,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutReservationQueuePriorityRequestToJSON(requestParameters.reservationQueuePriorityNumber),
+            body: ReservationQueuePriorityNumberToJSON(requestParameters.reservationQueuePriorityNumber),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReservationQueuePriorityFromJSON(jsonValue));
@@ -4352,7 +5243,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API can be used to change the resrevations Queue Priority. <p><strong>OperationId:</strong>putReservationQueuePriority</p>
      * Change the reservation queue priority
      */
-    async putReservationQueuePriority(requestParameters: PutReservationQueuePriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority> {
+    async putReservationQueuePriority(requestParameters: PutReservationQueuePriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority> {
         const response = await this.putReservationQueuePriorityRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4361,7 +5252,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * You can use this API to change room interface status. <p><strong>OperationId:</strong>putRoomInterfaceStatus</p>
      * Change room interface status
      */
-    async putRoomInterfaceStatusRaw(requestParameters: PutRoomInterfaceStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRoomInterfaceStatusRaw(requestParameters: PutRoomInterfaceStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.interfaceId === null || requestParameters.interfaceId === undefined) {
+            throw new runtime.RequiredError('interfaceId','Required parameter requestParameters.interfaceId was null or undefined when calling putRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomInterfaceStatus.');
+        }
+
+        if (requestParameters.reservationInterface === null || requestParameters.reservationInterface === undefined) {
+            throw new runtime.RequiredError('reservationInterface','Required parameter requestParameters.reservationInterface was null or undefined when calling putRoomInterfaceStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4393,7 +5308,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoomInterfaceStatusRequestToJSON(requestParameters.reservationInterface),
+            body: ReservationInterfaceToJSON(requestParameters.reservationInterface),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4403,7 +5318,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * You can use this API to change room interface status. <p><strong>OperationId:</strong>putRoomInterfaceStatus</p>
      * Change room interface status
      */
-    async putRoomInterfaceStatus(requestParameters: PutRoomInterfaceStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRoomInterfaceStatus(requestParameters: PutRoomInterfaceStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRoomInterfaceStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4413,6 +5328,30 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Update room keys.
      */
     async putRoomKeysRaw(requestParameters: PutRoomKeysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateRoomKeys>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling putRoomKeys.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRoomKeys.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomKeys.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomKeys.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomKeys.');
+        }
+
+        if (requestParameters.roomKeys === null || requestParameters.roomKeys === undefined) {
+            throw new runtime.RequiredError('roomKeys','Required parameter requestParameters.roomKeys was null or undefined when calling putRoomKeys.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4463,7 +5402,27 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to modify any service requests that exist on a reservation. <p><strong>OperationId:</strong>putServiceRequests</p>
      * Change Service Requests
      */
-    async putServiceRequestsRaw(requestParameters: PutServiceRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putServiceRequestsRaw(requestParameters: PutServiceRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putServiceRequests.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putServiceRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putServiceRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putServiceRequests.');
+        }
+
+        if (requestParameters.serviceRequestsInfo === null || requestParameters.serviceRequestsInfo === undefined) {
+            throw new runtime.RequiredError('serviceRequestsInfo','Required parameter requestParameters.serviceRequestsInfo was null or undefined when calling putServiceRequests.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4495,7 +5454,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutServiceRequestsRequestToJSON(requestParameters.serviceRequestsInfo),
+            body: ServiceRequestsInfoToJSON(requestParameters.serviceRequestsInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4505,7 +5464,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to modify any service requests that exist on a reservation. <p><strong>OperationId:</strong>putServiceRequests</p>
      * Change Service Requests
      */
-    async putServiceRequests(requestParameters: PutServiceRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putServiceRequests(requestParameters: PutServiceRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putServiceRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4514,7 +5473,31 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Update an existing wake up call.  Wake up call can only be added to in-house reservations. <p><strong>OperationId:</strong>putWakeUpCall</p>
      * Change Wake Up Call
      */
-    async putWakeUpCallRaw(requestParameters: PutWakeUpCallOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedWakeUpCalls>> {
+    async putWakeUpCallRaw(requestParameters: PutWakeUpCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedWakeUpCalls>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling putWakeUpCall.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putWakeUpCall.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putWakeUpCall.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putWakeUpCall.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putWakeUpCall.');
+        }
+
+        if (requestParameters.wakeUpCalls === null || requestParameters.wakeUpCalls === undefined) {
+            throw new runtime.RequiredError('wakeUpCalls','Required parameter requestParameters.wakeUpCalls was null or undefined when calling putWakeUpCall.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4546,7 +5529,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutWakeUpCallRequestToJSON(requestParameters.wakeUpCalls),
+            body: WakeUpCallsToJSON(requestParameters.wakeUpCalls),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedWakeUpCallsFromJSON(jsonValue));
@@ -4556,7 +5539,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Update an existing wake up call.  Wake up call can only be added to in-house reservations. <p><strong>OperationId:</strong>putWakeUpCall</p>
      * Change Wake Up Call
      */
-    async putWakeUpCall(requestParameters: PutWakeUpCallOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedWakeUpCalls> {
+    async putWakeUpCall(requestParameters: PutWakeUpCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedWakeUpCalls> {
         const response = await this.putWakeUpCallRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4566,6 +5549,22 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Read room key
      */
     async readRoomKeyRaw(requestParameters: ReadRoomKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomKeyStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling readRoomKey.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling readRoomKey.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling readRoomKey.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling readRoomKey.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.encoderTerminal !== undefined) {
@@ -4630,6 +5629,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Release Rooms On Hold
      */
     async releaseRoomsOnHoldRaw(requestParameters: ReleaseRoomsOnHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling releaseRoomsOnHold.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling releaseRoomsOnHold.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling releaseRoomsOnHold.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling releaseRoomsOnHold.');
+        }
+
+        if (requestParameters.holdRooms === null || requestParameters.holdRooms === undefined) {
+            throw new runtime.RequiredError('holdRooms','Required parameter requestParameters.holdRooms was null or undefined when calling releaseRoomsOnHold.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4661,7 +5680,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PlaceRoomsOnHoldRequestToJSON(requestParameters.holdRooms),
+            body: HoldRoomsToJSON(requestParameters.holdRooms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4680,7 +5699,35 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to quickly shift rooms for two reservations. <p><strong>OperationId:</strong>shiftRooms</p>
      * Operation for Shift Rooms between two reservations
      */
-    async shiftRoomsRaw(requestParameters: ShiftRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async shiftRoomsRaw(requestParameters: ShiftRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling shiftRooms.');
+        }
+
+        if (requestParameters.sourceReservationId === null || requestParameters.sourceReservationId === undefined) {
+            throw new runtime.RequiredError('sourceReservationId','Required parameter requestParameters.sourceReservationId was null or undefined when calling shiftRooms.');
+        }
+
+        if (requestParameters.targetReservationId === null || requestParameters.targetReservationId === undefined) {
+            throw new runtime.RequiredError('targetReservationId','Required parameter requestParameters.targetReservationId was null or undefined when calling shiftRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling shiftRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling shiftRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling shiftRooms.');
+        }
+
+        if (requestParameters.shiftRooms === null || requestParameters.shiftRooms === undefined) {
+            throw new runtime.RequiredError('shiftRooms','Required parameter requestParameters.shiftRooms was null or undefined when calling shiftRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4712,7 +5759,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ShiftRoomsRequestToJSON(requestParameters.shiftRooms),
+            body: ShiftRoomsToJSON(requestParameters.shiftRooms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4722,7 +5769,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to quickly shift rooms for two reservations. <p><strong>OperationId:</strong>shiftRooms</p>
      * Operation for Shift Rooms between two reservations
      */
-    async shiftRooms(requestParameters: ShiftRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async shiftRooms(requestParameters: ShiftRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.shiftRoomsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4731,7 +5778,35 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to quickly swap rooms for two reservations. <p><strong>OperationId:</strong>swapRooms</p>
      * Operation for Swap/Shift Rooms between two reservations
      */
-    async swapRoomsRaw(requestParameters: SwapRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async swapRoomsRaw(requestParameters: SwapRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling swapRooms.');
+        }
+
+        if (requestParameters.sourceReservationId === null || requestParameters.sourceReservationId === undefined) {
+            throw new runtime.RequiredError('sourceReservationId','Required parameter requestParameters.sourceReservationId was null or undefined when calling swapRooms.');
+        }
+
+        if (requestParameters.targetReservationId === null || requestParameters.targetReservationId === undefined) {
+            throw new runtime.RequiredError('targetReservationId','Required parameter requestParameters.targetReservationId was null or undefined when calling swapRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling swapRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling swapRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling swapRooms.');
+        }
+
+        if (requestParameters.swapRooms === null || requestParameters.swapRooms === undefined) {
+            throw new runtime.RequiredError('swapRooms','Required parameter requestParameters.swapRooms was null or undefined when calling swapRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4763,7 +5838,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SwapRoomsRequestToJSON(requestParameters.swapRooms),
+            body: SwapRoomsToJSON(requestParameters.swapRooms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4773,7 +5848,7 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to quickly swap rooms for two reservations. <p><strong>OperationId:</strong>swapRooms</p>
      * Operation for Swap/Shift Rooms between two reservations
      */
-    async swapRooms(requestParameters: SwapRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async swapRooms(requestParameters: SwapRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.swapRoomsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4783,6 +5858,26 @@ export class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Verify checkin reservation
      */
     async verifyCheckinReservationRaw(requestParameters: VerifyCheckinReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifiedCheckinReservation>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling verifyCheckinReservation.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling verifyCheckinReservation.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling verifyCheckinReservation.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling verifyCheckinReservation.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling verifyCheckinReservation.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.verifyCheckinInstructions) {

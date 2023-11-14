@@ -132,7 +132,7 @@ function BlockInstructionTypeToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'markAsRecentlyAccessed': value.markAsRecentlyAccessed,
         'masterBlockInfo': (0, MasterBlockInfoType_1.MasterBlockInfoTypeToJSON)(value.masterBlockInfo),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'ratePrograms': value.ratePrograms === undefined ? undefined : (value.ratePrograms.map(RateProgramType_1.RateProgramTypeToJSON)),
         'reservationDetails': (0, BlockReservationDetailsType_1.BlockReservationDetailsTypeToJSON)(value.reservationDetails),
         'reservationPolicies': value.reservationPolicies === undefined ? undefined : (value.reservationPolicies.map(ReservationPoliciesType_1.ReservationPoliciesTypeToJSON)),

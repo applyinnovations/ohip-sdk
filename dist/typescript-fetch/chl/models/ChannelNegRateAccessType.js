@@ -50,8 +50,8 @@ function ChannelNegRateAccessTypeToJSON(value) {
     return {
         'accessCode': value.accessCode,
         'accessInfoDetail': (0, ChannelNegRateAccessDetailType_1.ChannelNegRateAccessDetailTypeToJSON)(value.accessInfoDetail),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.ChannelNegRateAccessTypeToJSON = ChannelNegRateAccessTypeToJSON;

@@ -50,7 +50,7 @@ function MembershipTransactionRevenueTypeToJSON(value) {
     }
     return {
         'centralRevenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.centralRevenue),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'pMSRevenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.pMSRevenue),
         'qualified': value.qualified,
         'revenueType': value.revenueType,

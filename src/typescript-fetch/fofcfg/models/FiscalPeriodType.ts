@@ -117,10 +117,10 @@ export function FiscalPeriodTypeToJSON(value?: FiscalPeriodType | null): any {
         
         'code': value.code,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
         'periodType': YearTypeTypeToJSON(value.periodType),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
         'year': value.year,
         'yearId': value.yearId,
     };

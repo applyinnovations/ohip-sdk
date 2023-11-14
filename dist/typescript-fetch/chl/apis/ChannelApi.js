@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetStatementDetailsStatisticsFetchInstructionsEnum = exports.GetChannelRoomsGlobalDescriptionsGlobalDescriptionTypeEnum = exports.GetChannelRatesGlobalDescriptionsGlobalDescriptionTypeEnum = exports.GetChannelRateRoomSeqChannelRateRoomParameterNameEnum = exports.GetChannelMarketingTextFetchInstructionsEnum = exports.GetChannelHotelLettersLetterTypeEnum = exports.GetChannelBillingStatementDetailsOrderTypeEnum = exports.GetChannelAccountsOrderTypeEnum = exports.GetChannelAccountsAccountTypeEnum = exports.GetChannelAccountContractElementsOrderTypeEnum = exports.GetChannelAccountFetchInstructionsEnum = exports.GetChannelFetchInstructionsEnum = exports.DeleteChannelRoomsGlobalDescriptionsGlobalDescTypeEnum = exports.DeleteChannelRatesGlobalDescriptionsGlobalDescTypeEnum = exports.DeleteChannelNegotiatedRateNameTypeEnum = exports.DeleteChannelHotelLettersLetterTypeEnum = exports.DeleteAmenitiesMappingAmenityGroupEnum = exports.ChannelApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     copyChannelAccountContractsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyChannelAccountContracts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyChannelAccountContracts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyChannelAccountContracts.');
+            }
+            if (requestParameters.channelAccountContractsCopy === null || requestParameters.channelAccountContractsCopy === undefined) {
+                throw new runtime.RequiredError('channelAccountContractsCopy', 'Required parameter requestParameters.channelAccountContractsCopy was null or undefined when calling copyChannelAccountContracts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -81,9 +93,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.CopyChannelAccountContractsRequestToJSON)(requestParameters.channelAccountContractsCopy),
+                body: (0, index_1.ChannelAccountContractsCopyToJSON)(requestParameters.channelAccountContractsCopy),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelAccountContractsDetailsCopyFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelAccountContractsDetailsCopyFromJSON)(jsonValue));
         });
     }
     /**
@@ -102,6 +114,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     copyChannelMarketingTextRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyChannelMarketingText.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyChannelMarketingText.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyChannelMarketingText.');
+            }
+            if (requestParameters.channelMarketingTextCopy === null || requestParameters.channelMarketingTextCopy === undefined) {
+                throw new runtime.RequiredError('channelMarketingTextCopy', 'Required parameter requestParameters.channelMarketingTextCopy was null or undefined when calling copyChannelMarketingText.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -125,9 +149,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.CopyChannelMarketingTextRequestToJSON)(requestParameters.channelMarketingTextCopy),
+                body: (0, index_1.ChannelMarketingTextCopyToJSON)(requestParameters.channelMarketingTextCopy),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -146,6 +170,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     copyTotalPricingElementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyTotalPricingElements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyTotalPricingElements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyTotalPricingElements.');
+            }
+            if (requestParameters.totalPricingElementsCopy === null || requestParameters.totalPricingElementsCopy === undefined) {
+                throw new runtime.RequiredError('totalPricingElementsCopy', 'Required parameter requestParameters.totalPricingElementsCopy was null or undefined when calling copyTotalPricingElements.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -169,9 +205,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.CopyTotalPricingElementsRequestToJSON)(requestParameters.totalPricingElementsCopy),
+                body: (0, index_1.TotalPricingElementsCopyToJSON)(requestParameters.totalPricingElementsCopy),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -190,6 +226,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteAmenitiesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteAmenitiesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteAmenitiesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteAmenitiesMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -222,10 +267,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -255,7 +300,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -274,6 +319,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelAccountContractsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelAccountContracts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelAccountContracts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelAccountContracts.');
+            }
             const queryParameters = {};
             if (requestParameters.id !== undefined) {
                 queryParameters['id'] = requestParameters.id;
@@ -321,7 +375,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -340,6 +394,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelBillingStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelBillingStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelBillingStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelBillingStatements.');
+            }
             const queryParameters = {};
             if (requestParameters.id) {
                 queryParameters['id'] = requestParameters.id;
@@ -375,7 +438,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -394,6 +457,24 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelCardTypeMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.cardTypeCode === null || requestParameters.cardTypeCode === undefined) {
+                throw new runtime.RequiredError('cardTypeCode', 'Required parameter requestParameters.cardTypeCode was null or undefined when calling deleteChannelCardTypeMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelCardTypeMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelCardTypeMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelCardTypeMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelCardTypeMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelCardTypeMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.channelCardType !== undefined) {
                 queryParameters['channelCardType'] = requestParameters.channelCardType;
@@ -420,7 +501,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -439,6 +520,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelCarriersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
+                throw new runtime.RequiredError('bookingChannelCodes', 'Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelCarriers.');
+            }
+            if (requestParameters.carriers === null || requestParameters.carriers === undefined) {
+                throw new runtime.RequiredError('carriers', 'Required parameter requestParameters.carriers was null or undefined when calling deleteChannelCarriers.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelCarriers.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelCarriers.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelCarriers.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingChannelCodes) {
                 queryParameters['bookingChannelCodes'] = requestParameters.bookingChannelCodes;
@@ -468,7 +564,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -487,6 +583,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelErrorsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelErrors.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelErrors.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelErrors.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingChannelCode) {
                 queryParameters['bookingChannelCode'] = requestParameters.bookingChannelCode;
@@ -516,7 +621,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -535,6 +640,24 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelGuaranteeCodeMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+                throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelGuaranteeCodeMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -558,7 +681,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -577,6 +700,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelHotelLettersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelHotelLetters.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelHotelLetters.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelHotelLetters.');
+            }
             const queryParameters = {};
             if (requestParameters.code !== undefined) {
                 queryParameters['code'] = requestParameters.code;
@@ -618,7 +750,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -637,6 +769,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelMarketingTextRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelMarketingText.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelMarketingText.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelMarketingText.');
+            }
             const queryParameters = {};
             if (requestParameters.beginDate) {
                 queryParameters['beginDate'] = requestParameters.beginDate;
@@ -702,7 +843,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -721,6 +862,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelNegotiatedRateRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelNegotiatedRate.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelNegotiatedRate.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelNegotiatedRate.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingChannelCode !== undefined) {
                 queryParameters['bookingChannelCode'] = requestParameters.bookingChannelCode;
@@ -792,10 +942,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['channelRatePlanCodeOrder'] = requestParameters.channelRatePlanCodeOrder;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -822,7 +972,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -841,6 +991,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelOrgMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.tenantCode === null || requestParameters.tenantCode === undefined) {
+                throw new runtime.RequiredError('tenantCode', 'Required parameter requestParameters.tenantCode was null or undefined when calling deleteChannelOrgMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelOrgMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelOrgMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelOrgMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelOrgMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.chainCode !== undefined) {
                 queryParameters['chainCode'] = requestParameters.chainCode;
@@ -867,7 +1032,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -886,6 +1051,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelRateCategoriesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
+                throw new runtime.RequiredError('bookingChannelCodes', 'Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelRateCategories.');
+            }
+            if (requestParameters.rateCategories === null || requestParameters.rateCategories === undefined) {
+                throw new runtime.RequiredError('rateCategories', 'Required parameter requestParameters.rateCategories was null or undefined when calling deleteChannelRateCategories.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRateCategories.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRateCategories.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRateCategories.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingChannelCodes) {
                 queryParameters['bookingChannelCodes'] = requestParameters.bookingChannelCodes;
@@ -915,7 +1095,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -934,6 +1114,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelRateLevelsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
+                throw new runtime.RequiredError('bookingChannelCodes', 'Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelRateLevels.');
+            }
+            if (requestParameters.rateLevels === null || requestParameters.rateLevels === undefined) {
+                throw new runtime.RequiredError('rateLevels', 'Required parameter requestParameters.rateLevels was null or undefined when calling deleteChannelRateLevels.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRateLevels.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRateLevels.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRateLevels.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingChannelCodes) {
                 queryParameters['bookingChannelCodes'] = requestParameters.bookingChannelCodes;
@@ -963,7 +1158,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -982,6 +1177,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelRateMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRateMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRateMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRateMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingChannelCode) {
                 queryParameters['bookingChannelCode'] = requestParameters.bookingChannelCode;
@@ -1023,7 +1227,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1042,6 +1246,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelRatesGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRatesGlobalDescriptions.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -1083,7 +1296,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1102,15 +1315,33 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelRoomMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.roomTypeCode === null || requestParameters.roomTypeCode === undefined) {
+                throw new runtime.RequiredError('roomTypeCode', 'Required parameter requestParameters.roomTypeCode was null or undefined when calling deleteChannelRoomMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling deleteChannelRoomMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelRoomMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRoomMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRoomMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRoomMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substr(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
             }
             if (requestParameters.channelRoomType !== undefined) {
                 queryParameters['channelRoomType'] = requestParameters.channelRoomType;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -1134,7 +1365,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1153,6 +1384,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelRoomTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.bookingChannelCodes === null || requestParameters.bookingChannelCodes === undefined) {
+                throw new runtime.RequiredError('bookingChannelCodes', 'Required parameter requestParameters.bookingChannelCodes was null or undefined when calling deleteChannelRoomTypes.');
+            }
+            if (requestParameters.roomTypes === null || requestParameters.roomTypes === undefined) {
+                throw new runtime.RequiredError('roomTypes', 'Required parameter requestParameters.roomTypes was null or undefined when calling deleteChannelRoomTypes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRoomTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRoomTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRoomTypes.');
+            }
             const queryParameters = {};
             if (requestParameters.bookingChannelCodes) {
                 queryParameters['bookingChannelCodes'] = requestParameters.bookingChannelCodes;
@@ -1182,7 +1428,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1201,6 +1447,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteChannelRoomsGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelRoomsGlobalDescriptions.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -1242,7 +1497,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1261,6 +1516,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteCreditCardsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCreditCardsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCreditCardsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCreditCardsMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -1293,10 +1557,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1323,7 +1587,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1342,6 +1606,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteCurrenciesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCurrenciesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCurrenciesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCurrenciesMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -1374,10 +1647,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1410,7 +1683,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1429,6 +1702,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteDistributionTemplatesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteDistributionTemplates.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteDistributionTemplates.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteDistributionTemplates.');
+            }
             const queryParameters = {};
             if (requestParameters.codes) {
                 queryParameters['codes'] = requestParameters.codes;
@@ -1461,7 +1743,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1480,6 +1762,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteGuaranteesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteGuaranteesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteGuaranteesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteGuaranteesMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -1512,10 +1803,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1545,7 +1836,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1564,6 +1855,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteHotelsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteHotelsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteHotelsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteHotelsMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -1596,10 +1896,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1665,7 +1965,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1684,6 +1984,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     deleteTotalPricingElementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTotalPricingElements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTotalPricingElements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTotalPricingElements.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -1716,7 +2025,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1735,6 +2044,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     generateChannelBillingStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling generateChannelBillingStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling generateChannelBillingStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling generateChannelBillingStatements.');
+            }
+            if (requestParameters.channelBillingStatements === null || requestParameters.channelBillingStatements === undefined) {
+                throw new runtime.RequiredError('channelBillingStatements', 'Required parameter requestParameters.channelBillingStatements was null or undefined when calling generateChannelBillingStatements.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1758,9 +2079,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelBillingStatementsRequestToJSON)(requestParameters.channelBillingStatements),
+                body: (0, index_1.ChannelBillingStatementsToJSON)(requestParameters.channelBillingStatements),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -1779,6 +2100,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getAmenitiesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getAmenitiesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getAmenitiesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getAmenitiesMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -1826,7 +2156,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.AmenitiesMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AmenitiesMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -1845,6 +2175,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling getChannel.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannel.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannel.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannel.');
+            }
             const queryParameters = {};
             if (requestParameters.includeInactive) {
                 queryParameters['includeInactive'] = requestParameters.includeInactive;
@@ -1874,7 +2216,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelFromJSON)(jsonValue));
         });
     }
     /**
@@ -1893,6 +2235,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelAccountRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
+                throw new runtime.RequiredError('accountProfileId', 'Required parameter requestParameters.accountProfileId was null or undefined when calling getChannelAccount.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelAccount.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelAccount.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelAccount.');
+            }
             const queryParameters = {};
             if (requestParameters.markAsRecentlyAccessed !== undefined) {
                 queryParameters['markAsRecentlyAccessed'] = requestParameters.markAsRecentlyAccessed;
@@ -1922,7 +2276,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelAccountFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelAccountFromJSON)(jsonValue));
         });
     }
     /**
@@ -1941,6 +2295,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelAccountContractElementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.contractId === null || requestParameters.contractId === undefined) {
+                throw new runtime.RequiredError('contractId', 'Required parameter requestParameters.contractId was null or undefined when calling getChannelAccountContractElements.');
+            }
+            if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
+                throw new runtime.RequiredError('accountProfileId', 'Required parameter requestParameters.accountProfileId was null or undefined when calling getChannelAccountContractElements.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelAccountContractElements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelAccountContractElements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelAccountContractElements.');
+            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -1976,7 +2345,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelAccountContractElementsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelAccountContractElementsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1995,6 +2364,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelAccounts.');
+            }
             const queryParameters = {};
             if (requestParameters.excludeInactive !== undefined) {
                 queryParameters['excludeInactive'] = requestParameters.excludeInactive;
@@ -2048,7 +2426,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelAccountsSummaryFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelAccountsSummaryFromJSON)(jsonValue));
         });
     }
     /**
@@ -2067,6 +2445,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelBillingStatementRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.statementId === null || requestParameters.statementId === undefined) {
+                throw new runtime.RequiredError('statementId', 'Required parameter requestParameters.statementId was null or undefined when calling getChannelBillingStatement.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelBillingStatement.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelBillingStatement.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelBillingStatement.');
+            }
             const queryParameters = {};
             if (requestParameters.idContext !== undefined) {
                 queryParameters['idContext'] = requestParameters.idContext;
@@ -2096,7 +2486,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelBillingStatementFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelBillingStatementFromJSON)(jsonValue));
         });
     }
     /**
@@ -2115,6 +2505,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelBillingStatementDetailsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.statementId === null || requestParameters.statementId === undefined) {
+                throw new runtime.RequiredError('statementId', 'Required parameter requestParameters.statementId was null or undefined when calling getChannelBillingStatementDetails.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelBillingStatementDetails.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelBillingStatementDetails.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelBillingStatementDetails.');
+            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2156,7 +2558,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelBillingStatementDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelBillingStatementDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2175,6 +2577,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelBillingStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelBillingStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelBillingStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelBillingStatements.');
+            }
             const queryParameters = {};
             if (requestParameters.includeLocked !== undefined) {
                 queryParameters['includeLocked'] = requestParameters.includeLocked;
@@ -2192,10 +2603,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['statementIdType'] = requestParameters.statementIdType;
             }
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substr(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.profileId) {
                 queryParameters['profileId'] = requestParameters.profileId;
@@ -2225,7 +2636,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelBillingStatementSummariesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelBillingStatementSummariesFromJSON)(jsonValue));
         });
     }
     /**
@@ -2244,6 +2655,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelCardTypeMappingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+                throw new runtime.RequiredError('hotelIds', 'Required parameter requestParameters.hotelIds was null or undefined when calling getChannelCardTypeMappings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelCardTypeMappings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelCardTypeMappings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelCardTypeMappings.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -2294,7 +2717,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelCardTypeMappingDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelCardTypeMappingDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2313,6 +2736,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelGuaranteeCodeMappingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelGuaranteeCodeMappings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelGuaranteeCodeMappings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelGuaranteeCodeMappings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelGuaranteeCodeMappings.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -2363,7 +2798,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelGuaranteeCodeMappingDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelGuaranteeCodeMappingDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2382,6 +2817,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelHotelCodeMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling getChannelHotelCodeMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelHotelCodeMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelHotelCodeMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelHotelCodeMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId !== undefined) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -2411,7 +2858,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelHotelCodeMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelHotelCodeMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -2430,6 +2877,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelHotelLettersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelHotelLetters.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelHotelLetters.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelHotelLetters.');
+            }
             const queryParameters = {};
             if (requestParameters.channelCode) {
                 queryParameters['channelCode'] = requestParameters.channelCode;
@@ -2465,7 +2921,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.FetchedChannelHotelLettersFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.FetchedChannelHotelLettersFromJSON)(jsonValue));
         });
     }
     /**
@@ -2484,6 +2940,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelMarketingTextRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelMarketingText.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelMarketingText.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelMarketingText.');
+            }
             const queryParameters = {};
             if (requestParameters.transactionType !== undefined) {
                 queryParameters['transactionType'] = requestParameters.transactionType;
@@ -2495,7 +2960,7 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['policyDetail'] = requestParameters.policyDetail;
             }
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substr(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
             }
             if (requestParameters.filterHotelIds) {
                 queryParameters['filterHotelIds'] = requestParameters.filterHotelIds;
@@ -2549,7 +3014,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelMarketingTextsInfoFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelMarketingTextsInfoFromJSON)(jsonValue));
         });
     }
     /**
@@ -2568,6 +3033,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelNegotiatedRateRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelNegotiatedRate.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelNegotiatedRate.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelNegotiatedRate.');
+            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2612,7 +3086,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelNegotiatedRateDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelNegotiatedRateDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2631,6 +3105,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelOrgMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.tenantCode === null || requestParameters.tenantCode === undefined) {
+                throw new runtime.RequiredError('tenantCode', 'Required parameter requestParameters.tenantCode was null or undefined when calling getChannelOrgMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling getChannelOrgMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelOrgMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelOrgMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelOrgMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.chainCode !== undefined) {
                 queryParameters['chainCode'] = requestParameters.chainCode;
@@ -2657,7 +3146,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelOrgMappingsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelOrgMappingsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2676,6 +3165,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelParametersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling getChannelParameters.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelParameters.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelParameters.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelParameters.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelParameters.');
+            }
             const queryParameters = {};
             if (requestParameters.parameterNameWildCard !== undefined) {
                 queryParameters['parameterNameWildCard'] = requestParameters.parameterNameWildCard;
@@ -2702,7 +3206,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelParameterMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelParameterMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -2721,15 +3225,30 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelPoliciesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling getChannelPolicies.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelPolicies.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelPolicies.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelPolicies.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelPolicies.');
+            }
             const queryParameters = {};
             if (requestParameters.requestType !== undefined) {
                 queryParameters['requestType'] = requestParameters.requestType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -2774,7 +3293,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelPoliciesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelPoliciesFromJSON)(jsonValue));
         });
     }
     /**
@@ -2793,6 +3312,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRateCodeGlobalDescRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+                throw new runtime.RequiredError('ratePlanCode', 'Required parameter requestParameters.ratePlanCode was null or undefined when calling getChannelRateCodeGlobalDesc.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelRateCodeGlobalDesc.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRateCodeGlobalDesc.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRateCodeGlobalDesc.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRateCodeGlobalDesc.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -2816,7 +3350,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelEnhancedGlobalDescriptionFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelEnhancedGlobalDescriptionFromJSON)(jsonValue));
         });
     }
     /**
@@ -2835,6 +3369,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRateMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRateMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRateMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRateMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2894,7 +3437,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelRateMappingsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelRateMappingsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2913,6 +3456,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRateRoomSeqRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling getChannelRateRoomSeq.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRateRoomSeq.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRateRoomSeq.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRateRoomSeq.');
+            }
             const queryParameters = {};
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -2957,7 +3512,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelRateRoomSequenceDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelRateRoomSequenceDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2976,6 +3531,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRatesGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRatesGlobalDescriptions.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -3011,7 +3575,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelGlobalDescriptionsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelGlobalDescriptionsFromJSON)(jsonValue));
         });
     }
     /**
@@ -3030,6 +3594,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRoomMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelRoomMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -3080,7 +3656,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelRoomMappingsSummaryFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelRoomMappingsSummaryFromJSON)(jsonValue));
         });
     }
     /**
@@ -3099,9 +3675,27 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRoomMappingByIdRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.roomTypeCode === null || requestParameters.roomTypeCode === undefined) {
+                throw new runtime.RequiredError('roomTypeCode', 'Required parameter requestParameters.roomTypeCode was null or undefined when calling getChannelRoomMappingById.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling getChannelRoomMappingById.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelRoomMappingById.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomMappingById.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomMappingById.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomMappingById.');
+            }
             const queryParameters = {};
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substr(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
             }
             if (requestParameters.channelRoomType !== undefined) {
                 queryParameters['channelRoomType'] = requestParameters.channelRoomType;
@@ -3128,7 +3722,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelRoomMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelRoomMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -3147,6 +3741,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRoomTypeGlobalDescRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.roomType === null || requestParameters.roomType === undefined) {
+                throw new runtime.RequiredError('roomType', 'Required parameter requestParameters.roomType was null or undefined when calling getChannelRoomTypeGlobalDesc.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getChannelRoomTypeGlobalDesc.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomTypeGlobalDesc.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomTypeGlobalDesc.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomTypeGlobalDesc.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -3170,7 +3779,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelEnhancedGlobalDescriptionFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelEnhancedGlobalDescriptionFromJSON)(jsonValue));
         });
     }
     /**
@@ -3189,6 +3798,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelRoomsGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannelRoomsGlobalDescriptions.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -3224,7 +3842,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelGlobalDescriptionsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelGlobalDescriptionsFromJSON)(jsonValue));
         });
     }
     /**
@@ -3243,6 +3861,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getChannelsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getChannels.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getChannels.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getChannels.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -3290,7 +3917,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ChannelsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChannelsFromJSON)(jsonValue));
         });
     }
     /**
@@ -3309,6 +3936,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getCreditCardsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCreditCardsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCreditCardsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCreditCardsMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -3359,7 +3995,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CreditCardsMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CreditCardsMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -3378,6 +4014,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getCurrenciesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCurrenciesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCurrenciesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCurrenciesMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -3428,7 +4073,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CurrenciesMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CurrenciesMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -3447,6 +4092,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getDistributionTemplatesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getDistributionTemplates.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getDistributionTemplates.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getDistributionTemplates.');
+            }
             const queryParameters = {};
             if (requestParameters.isChain !== undefined) {
                 queryParameters['isChain'] = requestParameters.isChain;
@@ -3485,7 +4139,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.DistributionTemplatesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.DistributionTemplatesFromJSON)(jsonValue));
         });
     }
     /**
@@ -3504,6 +4158,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getGuaranteesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getGuaranteesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getGuaranteesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getGuaranteesMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -3554,7 +4217,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.GuaranteesMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GuaranteesMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -3573,6 +4236,15 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getHotelsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getHotelsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getHotelsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getHotelsMapping.');
+            }
             const queryParameters = {};
             if (requestParameters.inactive !== undefined) {
                 queryParameters['inactive'] = requestParameters.inactive;
@@ -3623,7 +4295,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.PropertiesMappingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PropertiesMappingFromJSON)(jsonValue));
         });
     }
     /**
@@ -3642,6 +4314,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getStatementDetailsStatisticsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.statementId === null || requestParameters.statementId === undefined) {
+                throw new runtime.RequiredError('statementId', 'Required parameter requestParameters.statementId was null or undefined when calling getStatementDetailsStatistics.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getStatementDetailsStatistics.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getStatementDetailsStatistics.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getStatementDetailsStatistics.');
+            }
             const queryParameters = {};
             if (requestParameters.contractId !== undefined) {
                 queryParameters['contractId'] = requestParameters.contractId;
@@ -3674,7 +4358,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatementDetailsStatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatementDetailsStatisticsFromJSON)(jsonValue));
         });
     }
     /**
@@ -3693,6 +4377,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     getTotalPricingElementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getTotalPricingElements.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTotalPricingElements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTotalPricingElements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTotalPricingElements.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -3731,7 +4427,7 @@ class ChannelApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.TotalPricingElementsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TotalPricingElementsFromJSON)(jsonValue));
         });
     }
     /**
@@ -3750,6 +4446,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     manageChannelRoomMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling manageChannelRoomMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling manageChannelRoomMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling manageChannelRoomMapping.');
+            }
+            if (requestParameters.channelRoomMappings === null || requestParameters.channelRoomMappings === undefined) {
+                throw new runtime.RequiredError('channelRoomMappings', 'Required parameter requestParameters.channelRoomMappings was null or undefined when calling manageChannelRoomMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3773,9 +4481,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ManageChannelRoomMappingRequestToJSON)(requestParameters.channelRoomMappings),
+                body: (0, index_1.ChannelRoomMappingsToJSON)(requestParameters.channelRoomMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3794,6 +4502,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postAmenitiesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAmenitiesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAmenitiesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAmenitiesMapping.');
+            }
+            if (requestParameters.amenities === null || requestParameters.amenities === undefined) {
+                throw new runtime.RequiredError('amenities', 'Required parameter requestParameters.amenities was null or undefined when calling postAmenitiesMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3817,9 +4537,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutAmenitiesMappingRequestToJSON)(requestParameters.amenities),
+                body: (0, index_1.AmenitiesToJSON)(requestParameters.amenities),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3838,6 +4558,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelAccountContractsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
+                throw new runtime.RequiredError('accountProfileId', 'Required parameter requestParameters.accountProfileId was null or undefined when calling postChannelAccountContracts.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelAccountContracts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelAccountContracts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelAccountContracts.');
+            }
+            if (requestParameters.channelAccountContracts === null || requestParameters.channelAccountContracts === undefined) {
+                throw new runtime.RequiredError('channelAccountContracts', 'Required parameter requestParameters.channelAccountContracts was null or undefined when calling postChannelAccountContracts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3861,9 +4596,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelAccountContractsRequestToJSON)(requestParameters.channelAccountContracts),
+                body: (0, index_1.ChannelAccountContractsToJSON)(requestParameters.channelAccountContracts),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3882,6 +4617,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelAccounts.');
+            }
+            if (requestParameters.channelAccounts === null || requestParameters.channelAccounts === undefined) {
+                throw new runtime.RequiredError('channelAccounts', 'Required parameter requestParameters.channelAccounts was null or undefined when calling postChannelAccounts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3905,9 +4652,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChannelAccountsRequestToJSON)(requestParameters.channelAccounts),
+                body: (0, index_1.ChannelAccountsToJSON)(requestParameters.channelAccounts),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3926,6 +4673,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelBillingStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelBillingStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelBillingStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelBillingStatements.');
+            }
+            if (requestParameters.channelBillingStatements === null || requestParameters.channelBillingStatements === undefined) {
+                throw new runtime.RequiredError('channelBillingStatements', 'Required parameter requestParameters.channelBillingStatements was null or undefined when calling postChannelBillingStatements.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3949,9 +4708,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelBillingStatementsRequestToJSON)(requestParameters.channelBillingStatements),
+                body: (0, index_1.ChannelBillingStatementsToJSON)(requestParameters.channelBillingStatements),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3970,6 +4729,27 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelCardTypeMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.cardTypeCode === null || requestParameters.cardTypeCode === undefined) {
+                throw new runtime.RequiredError('cardTypeCode', 'Required parameter requestParameters.cardTypeCode was null or undefined when calling postChannelCardTypeMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelCardTypeMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postChannelCardTypeMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelCardTypeMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelCardTypeMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelCardTypeMapping.');
+            }
+            if (requestParameters.channelCardTypeMappings === null || requestParameters.channelCardTypeMappings === undefined) {
+                throw new runtime.RequiredError('channelCardTypeMappings', 'Required parameter requestParameters.channelCardTypeMappings was null or undefined when calling postChannelCardTypeMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3993,9 +4773,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelCardTypeMappingRequestToJSON)(requestParameters.channelCardTypeMappings),
+                body: (0, index_1.ChannelCardTypeMappingsToJSON)(requestParameters.channelCardTypeMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4014,6 +4794,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelCarriersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelCarriers.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelCarriers.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelCarriers.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelCarriers.');
+            }
+            if (requestParameters.channelCarriers === null || requestParameters.channelCarriers === undefined) {
+                throw new runtime.RequiredError('channelCarriers', 'Required parameter requestParameters.channelCarriers was null or undefined when calling postChannelCarriers.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4037,9 +4832,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelCarriersRequestToJSON)(requestParameters.channelCarriers),
+                body: (0, index_1.ChannelCarriersToJSON)(requestParameters.channelCarriers),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4058,6 +4853,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelErrorsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelErrors.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelErrors.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelErrors.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelErrors.');
+            }
+            if (requestParameters.channelErrors === null || requestParameters.channelErrors === undefined) {
+                throw new runtime.RequiredError('channelErrors', 'Required parameter requestParameters.channelErrors was null or undefined when calling postChannelErrors.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4081,9 +4891,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelErrorsRequestToJSON)(requestParameters.channelErrors),
+                body: (0, index_1.ChannelErrorsToJSON)(requestParameters.channelErrors),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4102,6 +4912,27 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelGuaranteeCodeMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+                throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling postChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.channelGuaranteeCodeMappings === null || requestParameters.channelGuaranteeCodeMappings === undefined) {
+                throw new runtime.RequiredError('channelGuaranteeCodeMappings', 'Required parameter requestParameters.channelGuaranteeCodeMappings was null or undefined when calling postChannelGuaranteeCodeMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4125,9 +4956,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelGuaranteeCodeMappingRequestToJSON)(requestParameters.channelGuaranteeCodeMappings),
+                body: (0, index_1.ChannelGuaranteeCodeMappingsToJSON)(requestParameters.channelGuaranteeCodeMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4146,6 +4977,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelHotelLettersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelHotelLetters.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelHotelLetters.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelHotelLetters.');
+            }
+            if (requestParameters.channelHotelLettersToBeCreated === null || requestParameters.channelHotelLettersToBeCreated === undefined) {
+                throw new runtime.RequiredError('channelHotelLettersToBeCreated', 'Required parameter requestParameters.channelHotelLettersToBeCreated was null or undefined when calling postChannelHotelLetters.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4169,9 +5012,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChannelHotelLettersRequestToJSON)(requestParameters.channelHotelLettersToBeCreated),
+                body: (0, index_1.ChannelHotelLettersToBeCreatedToJSON)(requestParameters.channelHotelLettersToBeCreated),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4190,6 +5033,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelMarketingTextRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelMarketingText.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelMarketingText.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelMarketingText.');
+            }
+            if (requestParameters.channelMarketingText === null || requestParameters.channelMarketingText === undefined) {
+                throw new runtime.RequiredError('channelMarketingText', 'Required parameter requestParameters.channelMarketingText was null or undefined when calling postChannelMarketingText.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4213,9 +5068,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChannelMarketingTextRequestToJSON)(requestParameters.channelMarketingText),
+                body: (0, index_1.ChannelMarketingTextToJSON)(requestParameters.channelMarketingText),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4234,6 +5089,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelNegotiatedRateRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelNegotiatedRate.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelNegotiatedRate.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelNegotiatedRate.');
+            }
+            if (requestParameters.channelNegotiatedRates === null || requestParameters.channelNegotiatedRates === undefined) {
+                throw new runtime.RequiredError('channelNegotiatedRates', 'Required parameter requestParameters.channelNegotiatedRates was null or undefined when calling postChannelNegotiatedRate.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4257,9 +5124,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelNegotiatedRateRequestToJSON)(requestParameters.channelNegotiatedRates),
+                body: (0, index_1.ChannelNegotiatedRatesToJSON)(requestParameters.channelNegotiatedRates),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4278,6 +5145,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelOrgMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelOrgMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelOrgMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelOrgMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelOrgMapping.');
+            }
+            if (requestParameters.channelOrgMapping === null || requestParameters.channelOrgMapping === undefined) {
+                throw new runtime.RequiredError('channelOrgMapping', 'Required parameter requestParameters.channelOrgMapping was null or undefined when calling postChannelOrgMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4301,9 +5183,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChannelOrgMappingRequestToJSON)(requestParameters.channelOrgMapping),
+                body: (0, index_1.ChannelOrgMappingToJSON)(requestParameters.channelOrgMapping),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4322,6 +5204,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRateCategoriesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelRateCategories.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRateCategories.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRateCategories.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRateCategories.');
+            }
+            if (requestParameters.channelRateCategories === null || requestParameters.channelRateCategories === undefined) {
+                throw new runtime.RequiredError('channelRateCategories', 'Required parameter requestParameters.channelRateCategories was null or undefined when calling postChannelRateCategories.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4345,9 +5242,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRateCategoriesRequestToJSON)(requestParameters.channelRateCategories),
+                body: (0, index_1.ChannelRateCategoriesToJSON)(requestParameters.channelRateCategories),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4366,6 +5263,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRateLevelsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelRateLevels.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRateLevels.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRateLevels.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRateLevels.');
+            }
+            if (requestParameters.channelRateLevels === null || requestParameters.channelRateLevels === undefined) {
+                throw new runtime.RequiredError('channelRateLevels', 'Required parameter requestParameters.channelRateLevels was null or undefined when calling postChannelRateLevels.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4389,9 +5301,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRateLevelsRequestToJSON)(requestParameters.channelRateLevels),
+                body: (0, index_1.ChannelRateLevelsToJSON)(requestParameters.channelRateLevels),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4410,6 +5322,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRateMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRateMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRateMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRateMapping.');
+            }
+            if (requestParameters.channelRateMapping === null || requestParameters.channelRateMapping === undefined) {
+                throw new runtime.RequiredError('channelRateMapping', 'Required parameter requestParameters.channelRateMapping was null or undefined when calling postChannelRateMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4433,9 +5357,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRateMappingRequestToJSON)(requestParameters.channelRateMapping),
+                body: (0, index_1.ChannelRateMappingToJSON)(requestParameters.channelRateMapping),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4454,6 +5378,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRatesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postChannelRates.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRates.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRates.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRates.');
+            }
+            if (requestParameters.channelRates === null || requestParameters.channelRates === undefined) {
+                throw new runtime.RequiredError('channelRates', 'Required parameter requestParameters.channelRates was null or undefined when calling postChannelRates.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4477,9 +5416,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChannelRatesRequestToJSON)(requestParameters.channelRates),
+                body: (0, index_1.ChannelRatesToJSON)(requestParameters.channelRates),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4498,6 +5437,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRatesGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
+                throw new runtime.RequiredError('channelGlobalDescriptions', 'Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling postChannelRatesGlobalDescriptions.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4521,9 +5472,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRatesGlobalDescriptionsRequestToJSON)(requestParameters.channelGlobalDescriptions),
+                body: (0, index_1.ChannelGlobalDescriptionsToJSON)(requestParameters.channelGlobalDescriptions),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4542,6 +5493,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRoomMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomMapping.');
+            }
+            if (requestParameters.channelRoomMappings === null || requestParameters.channelRoomMappings === undefined) {
+                throw new runtime.RequiredError('channelRoomMappings', 'Required parameter requestParameters.channelRoomMappings was null or undefined when calling postChannelRoomMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4565,9 +5528,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ManageChannelRoomMappingRequestToJSON)(requestParameters.channelRoomMappings),
+                body: (0, index_1.ChannelRoomMappingsToJSON)(requestParameters.channelRoomMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4586,6 +5549,27 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRoomTypeRateRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelRoomType === null || requestParameters.channelRoomType === undefined) {
+                throw new runtime.RequiredError('channelRoomType', 'Required parameter requestParameters.channelRoomType was null or undefined when calling postChannelRoomTypeRate.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelRoomTypeRate.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postChannelRoomTypeRate.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomTypeRate.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomTypeRate.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomTypeRate.');
+            }
+            if (requestParameters.channelRates === null || requestParameters.channelRates === undefined) {
+                throw new runtime.RequiredError('channelRates', 'Required parameter requestParameters.channelRates was null or undefined when calling postChannelRoomTypeRate.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4609,9 +5593,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChannelRatesRequestToJSON)(requestParameters.channelRates),
+                body: (0, index_1.ChannelRatesToJSON)(requestParameters.channelRates),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4630,6 +5614,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRoomTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling postChannelRoomTypes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomTypes.');
+            }
+            if (requestParameters.channelRoomTypes === null || requestParameters.channelRoomTypes === undefined) {
+                throw new runtime.RequiredError('channelRoomTypes', 'Required parameter requestParameters.channelRoomTypes was null or undefined when calling postChannelRoomTypes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4653,9 +5652,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRoomTypesRequestToJSON)(requestParameters.channelRoomTypes),
+                body: (0, index_1.ChannelRoomTypesToJSON)(requestParameters.channelRoomTypes),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4674,6 +5673,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelRoomsGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
+                throw new runtime.RequiredError('channelGlobalDescriptions', 'Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling postChannelRoomsGlobalDescriptions.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4697,9 +5708,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRatesGlobalDescriptionsRequestToJSON)(requestParameters.channelGlobalDescriptions),
+                body: (0, index_1.ChannelGlobalDescriptionsToJSON)(requestParameters.channelGlobalDescriptions),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4718,6 +5729,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postChannelsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChannels.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChannels.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChannels.');
+            }
+            if (requestParameters.channels === null || requestParameters.channels === undefined) {
+                throw new runtime.RequiredError('channels', 'Required parameter requestParameters.channels was null or undefined when calling postChannels.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4741,9 +5764,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelsRequestToJSON)(requestParameters.channels),
+                body: (0, index_1.ChannelsToJSON)(requestParameters.channels),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4762,6 +5785,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postCreditCardsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCreditCardsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCreditCardsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCreditCardsMapping.');
+            }
+            if (requestParameters.creditCards === null || requestParameters.creditCards === undefined) {
+                throw new runtime.RequiredError('creditCards', 'Required parameter requestParameters.creditCards was null or undefined when calling postCreditCardsMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4785,9 +5820,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutCreditCardsMappingRequestToJSON)(requestParameters.creditCards),
+                body: (0, index_1.CreditCardsToJSON)(requestParameters.creditCards),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4806,6 +5841,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postCurrenciesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCurrenciesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCurrenciesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCurrenciesMapping.');
+            }
+            if (requestParameters.currencies === null || requestParameters.currencies === undefined) {
+                throw new runtime.RequiredError('currencies', 'Required parameter requestParameters.currencies was null or undefined when calling postCurrenciesMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4829,9 +5876,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutCurrenciesMappingRequestToJSON)(requestParameters.currencies),
+                body: (0, index_1.CurrenciesToJSON)(requestParameters.currencies),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4850,6 +5897,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postDistributionTemplatesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postDistributionTemplates.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postDistributionTemplates.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postDistributionTemplates.');
+            }
+            if (requestParameters.distributionTemplates === null || requestParameters.distributionTemplates === undefined) {
+                throw new runtime.RequiredError('distributionTemplates', 'Required parameter requestParameters.distributionTemplates was null or undefined when calling postDistributionTemplates.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4873,9 +5932,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutDistributionTemplatesRequestToJSON)(requestParameters.distributionTemplates),
+                body: (0, index_1.DistributionTemplatesToJSON)(requestParameters.distributionTemplates),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4894,6 +5953,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postGuaranteesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postGuaranteesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postGuaranteesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postGuaranteesMapping.');
+            }
+            if (requestParameters.guarantees === null || requestParameters.guarantees === undefined) {
+                throw new runtime.RequiredError('guarantees', 'Required parameter requestParameters.guarantees was null or undefined when calling postGuaranteesMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4917,9 +5988,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutGuaranteesMappingRequestToJSON)(requestParameters.guarantees),
+                body: (0, index_1.GuaranteesToJSON)(requestParameters.guarantees),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4938,6 +6009,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postHotelsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postHotelsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postHotelsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postHotelsMapping.');
+            }
+            if (requestParameters.properties === null || requestParameters.properties === undefined) {
+                throw new runtime.RequiredError('properties', 'Required parameter requestParameters.properties was null or undefined when calling postHotelsMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4961,9 +6044,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutHotelsMappingRequestToJSON)(requestParameters.properties),
+                body: (0, index_1.PropertiesToJSON)(requestParameters.properties),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4982,6 +6065,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     postTotalPricingElementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTotalPricingElements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTotalPricingElements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTotalPricingElements.');
+            }
+            if (requestParameters.totalPricingElements === null || requestParameters.totalPricingElements === undefined) {
+                throw new runtime.RequiredError('totalPricingElements', 'Required parameter requestParameters.totalPricingElements was null or undefined when calling postTotalPricingElements.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5005,9 +6100,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutTotalPricingElementsRequestToJSON)(requestParameters.totalPricingElements),
+                body: (0, index_1.TotalPricingElementsToJSON)(requestParameters.totalPricingElements),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5026,6 +6121,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     publishChannelAvailabilityRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling publishChannelAvailability.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling publishChannelAvailability.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling publishChannelAvailability.');
+            }
+            if (requestParameters.channelAvailability === null || requestParameters.channelAvailability === undefined) {
+                throw new runtime.RequiredError('channelAvailability', 'Required parameter requestParameters.channelAvailability was null or undefined when calling publishChannelAvailability.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5049,9 +6156,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PublishChannelAvailabilityRequestToJSON)(requestParameters.channelAvailability),
+                body: (0, index_1.ChannelAvailabilityToJSON)(requestParameters.channelAvailability),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5070,6 +6177,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     publishChannelRatePlansRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling publishChannelRatePlans.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling publishChannelRatePlans.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling publishChannelRatePlans.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling publishChannelRatePlans.');
+            }
+            if (requestParameters.channelRatePlans === null || requestParameters.channelRatePlans === undefined) {
+                throw new runtime.RequiredError('channelRatePlans', 'Required parameter requestParameters.channelRatePlans was null or undefined when calling publishChannelRatePlans.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5093,9 +6215,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PublishChannelRatePlansRequestToJSON)(requestParameters.channelRatePlans),
+                body: (0, index_1.ChannelRatePlansToJSON)(requestParameters.channelRatePlans),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5114,6 +6236,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     publishChannelRestrictionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling publishChannelRestrictions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling publishChannelRestrictions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling publishChannelRestrictions.');
+            }
+            if (requestParameters.channelRestrictions === null || requestParameters.channelRestrictions === undefined) {
+                throw new runtime.RequiredError('channelRestrictions', 'Required parameter requestParameters.channelRestrictions was null or undefined when calling publishChannelRestrictions.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5137,9 +6271,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PublishChannelRestrictionsRequestToJSON)(requestParameters.channelRestrictions),
+                body: (0, index_1.ChannelRestrictionsToJSON)(requestParameters.channelRestrictions),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5158,6 +6292,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     publishHotelChannelRatePlansRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling publishHotelChannelRatePlans.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling publishHotelChannelRatePlans.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling publishHotelChannelRatePlans.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling publishHotelChannelRatePlans.');
+            }
+            if (requestParameters.channelRatePlans === null || requestParameters.channelRatePlans === undefined) {
+                throw new runtime.RequiredError('channelRatePlans', 'Required parameter requestParameters.channelRatePlans was null or undefined when calling publishHotelChannelRatePlans.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5181,9 +6330,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PublishChannelRatePlansRequestToJSON)(requestParameters.channelRatePlans),
+                body: (0, index_1.ChannelRatePlansToJSON)(requestParameters.channelRatePlans),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5202,6 +6351,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putAmenitiesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putAmenitiesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putAmenitiesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putAmenitiesMapping.');
+            }
+            if (requestParameters.amenities === null || requestParameters.amenities === undefined) {
+                throw new runtime.RequiredError('amenities', 'Required parameter requestParameters.amenities was null or undefined when calling putAmenitiesMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5225,9 +6386,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutAmenitiesMappingRequestToJSON)(requestParameters.amenities),
+                body: (0, index_1.AmenitiesToJSON)(requestParameters.amenities),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5246,6 +6407,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelAccountContractsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountProfileId === null || requestParameters.accountProfileId === undefined) {
+                throw new runtime.RequiredError('accountProfileId', 'Required parameter requestParameters.accountProfileId was null or undefined when calling putChannelAccountContracts.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelAccountContracts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelAccountContracts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelAccountContracts.');
+            }
+            if (requestParameters.channelAccountContracts === null || requestParameters.channelAccountContracts === undefined) {
+                throw new runtime.RequiredError('channelAccountContracts', 'Required parameter requestParameters.channelAccountContracts was null or undefined when calling putChannelAccountContracts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5269,9 +6445,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelAccountContractsRequestToJSON)(requestParameters.channelAccountContracts),
+                body: (0, index_1.ChannelAccountContractsToJSON)(requestParameters.channelAccountContracts),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5290,6 +6466,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelAccounts.');
+            }
+            if (requestParameters.channelAccountsToChange === null || requestParameters.channelAccountsToChange === undefined) {
+                throw new runtime.RequiredError('channelAccountsToChange', 'Required parameter requestParameters.channelAccountsToChange was null or undefined when calling putChannelAccounts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5313,9 +6501,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChannelAccountsToChangeToJSON)(requestParameters.channelAccountsToChange),
+                body: (0, index_1.ChannelAccountsToChangeToJSON)(requestParameters.channelAccountsToChange),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5334,6 +6522,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelBillingStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelBillingStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelBillingStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelBillingStatements.');
+            }
+            if (requestParameters.channelBillingStatements === null || requestParameters.channelBillingStatements === undefined) {
+                throw new runtime.RequiredError('channelBillingStatements', 'Required parameter requestParameters.channelBillingStatements was null or undefined when calling putChannelBillingStatements.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5357,9 +6557,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelBillingStatementsRequestToJSON)(requestParameters.channelBillingStatements),
+                body: (0, index_1.ChannelBillingStatementsToJSON)(requestParameters.channelBillingStatements),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5378,6 +6578,27 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelCardTypeMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.cardTypeCode === null || requestParameters.cardTypeCode === undefined) {
+                throw new runtime.RequiredError('cardTypeCode', 'Required parameter requestParameters.cardTypeCode was null or undefined when calling putChannelCardTypeMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelCardTypeMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putChannelCardTypeMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelCardTypeMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelCardTypeMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelCardTypeMapping.');
+            }
+            if (requestParameters.channelCardTypeMappings === null || requestParameters.channelCardTypeMappings === undefined) {
+                throw new runtime.RequiredError('channelCardTypeMappings', 'Required parameter requestParameters.channelCardTypeMappings was null or undefined when calling putChannelCardTypeMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5401,9 +6622,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelCardTypeMappingRequestToJSON)(requestParameters.channelCardTypeMappings),
+                body: (0, index_1.ChannelCardTypeMappingsToJSON)(requestParameters.channelCardTypeMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5422,6 +6643,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelCarriersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelCarriers.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelCarriers.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelCarriers.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelCarriers.');
+            }
+            if (requestParameters.channelCarriers === null || requestParameters.channelCarriers === undefined) {
+                throw new runtime.RequiredError('channelCarriers', 'Required parameter requestParameters.channelCarriers was null or undefined when calling putChannelCarriers.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5445,9 +6681,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelCarriersRequestToJSON)(requestParameters.channelCarriers),
+                body: (0, index_1.ChannelCarriersToJSON)(requestParameters.channelCarriers),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5466,6 +6702,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelErrorsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelErrors.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelErrors.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelErrors.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelErrors.');
+            }
+            if (requestParameters.channelErrors === null || requestParameters.channelErrors === undefined) {
+                throw new runtime.RequiredError('channelErrors', 'Required parameter requestParameters.channelErrors was null or undefined when calling putChannelErrors.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5489,9 +6740,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelErrorsRequestToJSON)(requestParameters.channelErrors),
+                body: (0, index_1.ChannelErrorsToJSON)(requestParameters.channelErrors),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5510,6 +6761,27 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelGuaranteeCodeMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+                throw new runtime.RequiredError('guaranteeCode', 'Required parameter requestParameters.guaranteeCode was null or undefined when calling putChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelGuaranteeCodeMapping.');
+            }
+            if (requestParameters.channelGuaranteeCodeMappings === null || requestParameters.channelGuaranteeCodeMappings === undefined) {
+                throw new runtime.RequiredError('channelGuaranteeCodeMappings', 'Required parameter requestParameters.channelGuaranteeCodeMappings was null or undefined when calling putChannelGuaranteeCodeMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5533,9 +6805,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelGuaranteeCodeMappingRequestToJSON)(requestParameters.channelGuaranteeCodeMappings),
+                body: (0, index_1.ChannelGuaranteeCodeMappingsToJSON)(requestParameters.channelGuaranteeCodeMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5554,6 +6826,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelHotelLettersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelHotelLetters.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelHotelLetters.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelHotelLetters.');
+            }
+            if (requestParameters.channelHotelLettersToBeChanged === null || requestParameters.channelHotelLettersToBeChanged === undefined) {
+                throw new runtime.RequiredError('channelHotelLettersToBeChanged', 'Required parameter requestParameters.channelHotelLettersToBeChanged was null or undefined when calling putChannelHotelLetters.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5577,9 +6861,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelHotelLettersRequestToJSON)(requestParameters.channelHotelLettersToBeChanged),
+                body: (0, index_1.ChannelHotelLettersToBeChangedToJSON)(requestParameters.channelHotelLettersToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5598,6 +6882,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelMarketingTextRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelMarketingText.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelMarketingText.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelMarketingText.');
+            }
+            if (requestParameters.channelMarketingTextToChange === null || requestParameters.channelMarketingTextToChange === undefined) {
+                throw new runtime.RequiredError('channelMarketingTextToChange', 'Required parameter requestParameters.channelMarketingTextToChange was null or undefined when calling putChannelMarketingText.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5621,9 +6917,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelMarketingTextRequestToJSON)(requestParameters.channelMarketingTextToChange),
+                body: (0, index_1.ChannelMarketingTextToChangeToJSON)(requestParameters.channelMarketingTextToChange),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5642,6 +6938,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelNegotiatedRateRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelNegotiatedRate.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelNegotiatedRate.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelNegotiatedRate.');
+            }
+            if (requestParameters.channelNegotiatedRates === null || requestParameters.channelNegotiatedRates === undefined) {
+                throw new runtime.RequiredError('channelNegotiatedRates', 'Required parameter requestParameters.channelNegotiatedRates was null or undefined when calling putChannelNegotiatedRate.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5665,9 +6973,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelNegotiatedRateRequestToJSON)(requestParameters.channelNegotiatedRates),
+                body: (0, index_1.ChannelNegotiatedRatesToJSON)(requestParameters.channelNegotiatedRates),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5686,6 +6994,24 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelOrgMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.tenantCode === null || requestParameters.tenantCode === undefined) {
+                throw new runtime.RequiredError('tenantCode', 'Required parameter requestParameters.tenantCode was null or undefined when calling putChannelOrgMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelOrgMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelOrgMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelOrgMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelOrgMapping.');
+            }
+            if (requestParameters.channelOrgMapping === null || requestParameters.channelOrgMapping === undefined) {
+                throw new runtime.RequiredError('channelOrgMapping', 'Required parameter requestParameters.channelOrgMapping was null or undefined when calling putChannelOrgMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5709,9 +7035,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChannelOrgMappingRequestToJSON)(requestParameters.channelOrgMapping),
+                body: (0, index_1.ChannelOrgMappingToJSON)(requestParameters.channelOrgMapping),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5730,6 +7056,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelParametersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelParameters.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelParameters.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelParameters.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelParameters.');
+            }
+            if (requestParameters.changeChannelParameters === null || requestParameters.changeChannelParameters === undefined) {
+                throw new runtime.RequiredError('changeChannelParameters', 'Required parameter requestParameters.changeChannelParameters was null or undefined when calling putChannelParameters.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5753,9 +7094,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelParametersRequestToJSON)(requestParameters.changeChannelParameters),
+                body: (0, index_1.ChangeChannelParametersToJSON)(requestParameters.changeChannelParameters),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5774,6 +7115,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRateCategoriesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelRateCategories.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRateCategories.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateCategories.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateCategories.');
+            }
+            if (requestParameters.channelRateCategories === null || requestParameters.channelRateCategories === undefined) {
+                throw new runtime.RequiredError('channelRateCategories', 'Required parameter requestParameters.channelRateCategories was null or undefined when calling putChannelRateCategories.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5797,9 +7153,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRateCategoriesRequestToJSON)(requestParameters.channelRateCategories),
+                body: (0, index_1.ChannelRateCategoriesToJSON)(requestParameters.channelRateCategories),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5818,6 +7174,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRateLevelsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelRateLevels.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRateLevels.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateLevels.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateLevels.');
+            }
+            if (requestParameters.channelRateLevels === null || requestParameters.channelRateLevels === undefined) {
+                throw new runtime.RequiredError('channelRateLevels', 'Required parameter requestParameters.channelRateLevels was null or undefined when calling putChannelRateLevels.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5841,9 +7212,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRateLevelsRequestToJSON)(requestParameters.channelRateLevels),
+                body: (0, index_1.ChannelRateLevelsToJSON)(requestParameters.channelRateLevels),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5862,6 +7233,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRateMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRateMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateMapping.');
+            }
+            if (requestParameters.channelRateMapping === null || requestParameters.channelRateMapping === undefined) {
+                throw new runtime.RequiredError('channelRateMapping', 'Required parameter requestParameters.channelRateMapping was null or undefined when calling putChannelRateMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5885,9 +7268,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRateMappingRequestToJSON)(requestParameters.channelRateMapping),
+                body: (0, index_1.ChannelRateMappingToJSON)(requestParameters.channelRateMapping),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5906,6 +7289,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRateRoomSeqRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRateRoomSeq.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRateRoomSeq.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRateRoomSeq.');
+            }
+            if (requestParameters.channelRateRoomSequence === null || requestParameters.channelRateRoomSequence === undefined) {
+                throw new runtime.RequiredError('channelRateRoomSequence', 'Required parameter requestParameters.channelRateRoomSequence was null or undefined when calling putChannelRateRoomSeq.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5929,9 +7324,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRateRoomSeqRequestToJSON)(requestParameters.channelRateRoomSequence),
+                body: (0, index_1.ChannelRateRoomSequenceToJSON)(requestParameters.channelRateRoomSequence),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5950,6 +7345,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRatesGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRatesGlobalDescriptions.');
+            }
+            if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
+                throw new runtime.RequiredError('channelGlobalDescriptions', 'Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling putChannelRatesGlobalDescriptions.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -5973,9 +7380,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRatesGlobalDescriptionsRequestToJSON)(requestParameters.channelGlobalDescriptions),
+                body: (0, index_1.ChannelGlobalDescriptionsToJSON)(requestParameters.channelGlobalDescriptions),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -5994,6 +7401,27 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRoomMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.roomTypeCode === null || requestParameters.roomTypeCode === undefined) {
+                throw new runtime.RequiredError('roomTypeCode', 'Required parameter requestParameters.roomTypeCode was null or undefined when calling putChannelRoomMapping.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelRoomMapping.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putChannelRoomMapping.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRoomMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRoomMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRoomMapping.');
+            }
+            if (requestParameters.channelRoomMapping === null || requestParameters.channelRoomMapping === undefined) {
+                throw new runtime.RequiredError('channelRoomMapping', 'Required parameter requestParameters.channelRoomMapping was null or undefined when calling putChannelRoomMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6017,9 +7445,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRoomMappingRequestToJSON)(requestParameters.channelRoomMapping),
+                body: (0, index_1.ChannelRoomMappingToJSON)(requestParameters.channelRoomMapping),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6038,6 +7466,21 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRoomTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putChannelRoomTypes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRoomTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRoomTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRoomTypes.');
+            }
+            if (requestParameters.channelRoomTypes === null || requestParameters.channelRoomTypes === undefined) {
+                throw new runtime.RequiredError('channelRoomTypes', 'Required parameter requestParameters.channelRoomTypes was null or undefined when calling putChannelRoomTypes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6061,9 +7504,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRoomTypesRequestToJSON)(requestParameters.channelRoomTypes),
+                body: (0, index_1.ChannelRoomTypesToJSON)(requestParameters.channelRoomTypes),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6082,6 +7525,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelRoomsGlobalDescriptionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannelRoomsGlobalDescriptions.');
+            }
+            if (requestParameters.channelGlobalDescriptions === null || requestParameters.channelGlobalDescriptions === undefined) {
+                throw new runtime.RequiredError('channelGlobalDescriptions', 'Required parameter requestParameters.channelGlobalDescriptions was null or undefined when calling putChannelRoomsGlobalDescriptions.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6105,9 +7560,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelRatesGlobalDescriptionsRequestToJSON)(requestParameters.channelGlobalDescriptions),
+                body: (0, index_1.ChannelGlobalDescriptionsToJSON)(requestParameters.channelGlobalDescriptions),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6126,6 +7581,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putChannelsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putChannels.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putChannels.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putChannels.');
+            }
+            if (requestParameters.channels === null || requestParameters.channels === undefined) {
+                throw new runtime.RequiredError('channels', 'Required parameter requestParameters.channels was null or undefined when calling putChannels.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6149,9 +7616,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutChannelsRequestToJSON)(requestParameters.channels),
+                body: (0, index_1.ChannelsToJSON)(requestParameters.channels),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6170,6 +7637,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putCreditCardsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putCreditCardsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putCreditCardsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putCreditCardsMapping.');
+            }
+            if (requestParameters.creditCards === null || requestParameters.creditCards === undefined) {
+                throw new runtime.RequiredError('creditCards', 'Required parameter requestParameters.creditCards was null or undefined when calling putCreditCardsMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6193,9 +7672,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutCreditCardsMappingRequestToJSON)(requestParameters.creditCards),
+                body: (0, index_1.CreditCardsToJSON)(requestParameters.creditCards),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6214,6 +7693,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putCurrenciesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putCurrenciesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putCurrenciesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putCurrenciesMapping.');
+            }
+            if (requestParameters.currencies === null || requestParameters.currencies === undefined) {
+                throw new runtime.RequiredError('currencies', 'Required parameter requestParameters.currencies was null or undefined when calling putCurrenciesMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6237,9 +7728,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutCurrenciesMappingRequestToJSON)(requestParameters.currencies),
+                body: (0, index_1.CurrenciesToJSON)(requestParameters.currencies),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6258,6 +7749,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putDistributionTemplatesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putDistributionTemplates.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putDistributionTemplates.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putDistributionTemplates.');
+            }
+            if (requestParameters.distributionTemplates === null || requestParameters.distributionTemplates === undefined) {
+                throw new runtime.RequiredError('distributionTemplates', 'Required parameter requestParameters.distributionTemplates was null or undefined when calling putDistributionTemplates.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6281,9 +7784,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutDistributionTemplatesRequestToJSON)(requestParameters.distributionTemplates),
+                body: (0, index_1.DistributionTemplatesToJSON)(requestParameters.distributionTemplates),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6302,6 +7805,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putGuaranteesMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putGuaranteesMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putGuaranteesMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putGuaranteesMapping.');
+            }
+            if (requestParameters.guarantees === null || requestParameters.guarantees === undefined) {
+                throw new runtime.RequiredError('guarantees', 'Required parameter requestParameters.guarantees was null or undefined when calling putGuaranteesMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6325,9 +7840,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutGuaranteesMappingRequestToJSON)(requestParameters.guarantees),
+                body: (0, index_1.GuaranteesToJSON)(requestParameters.guarantees),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6346,6 +7861,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putHotelsMappingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putHotelsMapping.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putHotelsMapping.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putHotelsMapping.');
+            }
+            if (requestParameters.properties === null || requestParameters.properties === undefined) {
+                throw new runtime.RequiredError('properties', 'Required parameter requestParameters.properties was null or undefined when calling putHotelsMapping.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6369,9 +7896,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutHotelsMappingRequestToJSON)(requestParameters.properties),
+                body: (0, index_1.PropertiesToJSON)(requestParameters.properties),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6390,6 +7917,24 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putRateGlobalDescriptionRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.channelRateCode === null || requestParameters.channelRateCode === undefined) {
+                throw new runtime.RequiredError('channelRateCode', 'Required parameter requestParameters.channelRateCode was null or undefined when calling putRateGlobalDescription.');
+            }
+            if (requestParameters.channelCode === null || requestParameters.channelCode === undefined) {
+                throw new runtime.RequiredError('channelCode', 'Required parameter requestParameters.channelCode was null or undefined when calling putRateGlobalDescription.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putRateGlobalDescription.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putRateGlobalDescription.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putRateGlobalDescription.');
+            }
+            if (requestParameters.channelGlobalDescription === null || requestParameters.channelGlobalDescription === undefined) {
+                throw new runtime.RequiredError('channelGlobalDescription', 'Required parameter requestParameters.channelGlobalDescription was null or undefined when calling putRateGlobalDescription.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6413,9 +7958,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutRoomDescriptionRequestToJSON)(requestParameters.channelGlobalDescription),
+                body: (0, index_1.ChannelGlobalDescriptionToJSON)(requestParameters.channelGlobalDescription),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6434,6 +7979,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putRoomDescriptionRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putRoomDescription.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putRoomDescription.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putRoomDescription.');
+            }
+            if (requestParameters.channelGlobalDescription === null || requestParameters.channelGlobalDescription === undefined) {
+                throw new runtime.RequiredError('channelGlobalDescription', 'Required parameter requestParameters.channelGlobalDescription was null or undefined when calling putRoomDescription.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6457,9 +8014,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutRoomDescriptionRequestToJSON)(requestParameters.channelGlobalDescription),
+                body: (0, index_1.ChannelGlobalDescriptionToJSON)(requestParameters.channelGlobalDescription),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -6478,6 +8035,18 @@ class ChannelApi extends runtime.BaseAPI {
      */
     putTotalPricingElementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTotalPricingElements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTotalPricingElements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTotalPricingElements.');
+            }
+            if (requestParameters.totalPricingElements === null || requestParameters.totalPricingElements === undefined) {
+                throw new runtime.RequiredError('totalPricingElements', 'Required parameter requestParameters.totalPricingElements was null or undefined when calling putTotalPricingElements.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -6501,9 +8070,9 @@ class ChannelApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutTotalPricingElementsRequestToJSON)(requestParameters.totalPricingElements),
+                body: (0, index_1.TotalPricingElementsToJSON)(requestParameters.totalPricingElements),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**

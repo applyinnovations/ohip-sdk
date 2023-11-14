@@ -63,7 +63,7 @@ function ChannelAccountSummaryTypeToJSON(value) {
         'accountDetails': (0, ChannelAccountDetailsType_1.ChannelAccountDetailsTypeToJSON)(value.accountDetails),
         'addressInfo': (0, AddressInfoType_1.AddressInfoTypeToJSON)(value.addressInfo),
         'channelAccountIndicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.channelAccountIndicators),
-        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substr(0, 10)),
+        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0, 10)),
         'emailInfo': (0, EmailInfoType_1.EmailInfoTypeToJSON)(value.emailInfo),
         'hotelId': value.hotelId,
         'hotels': (0, CodeListType_1.CodeListTypeToJSON)(value.hotels),

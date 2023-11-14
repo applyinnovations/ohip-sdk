@@ -55,14 +55,14 @@ function BlockRatePlanTypeToJSON(value) {
     return {
         'currencyCode': value.currencyCode,
         'description': value.description,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substr(0, 10)),
+        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
         'marketCode': value.marketCode,
         'negotiated': value.negotiated,
         'rateCode': value.rateCode,
         'sellSequence': value.sellSequence,
         'showRateAmount': value.showRateAmount,
         'sourceCode': value.sourceCode,
-        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substr(0, 10)),
+        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockRatePlanTypeToJSON = BlockRatePlanTypeToJSON;

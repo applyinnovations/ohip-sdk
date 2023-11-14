@@ -123,7 +123,7 @@ export function StagedProfileAddressTypeToJSON(value?: StagedProfileAddressType 
         
         'address': AddressTypeToJSON(value.address),
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'postalCodeExtension': value.postalCodeExtension,
         'barCode': value.barCode,
         'cleansStatus': StagedAddressCleansStatusToJSON(value.cleansStatus),

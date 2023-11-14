@@ -176,7 +176,7 @@ export function ResCashieringTypeToJSON(value?: ResCashieringType | null): any {
         'billingPrivileges': BillingPrivilegesTypeToJSON(value.billingPrivileges),
         'compAccounting': ResCompAccountingTypeToJSON(value.compAccounting),
         'folioTexts': FolioTextsTypeToJSON(value.folioTexts),
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substr(0,10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0,10)),
         'reservationPreConfiguredRoutingInstruction': ResPreConfiguredRoutingInstrTypeToJSON(value.reservationPreConfiguredRoutingInstruction),
         'revenuesAndBalances': ResRevenueBalanceTypeToJSON(value.revenuesAndBalances),
         'reverseAdvanceCheckInAllowed': value.reverseAdvanceCheckInAllowed,

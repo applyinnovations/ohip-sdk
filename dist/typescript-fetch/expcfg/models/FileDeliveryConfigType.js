@@ -79,7 +79,7 @@ function FileDeliveryConfigTypeToJSON(value) {
         'useSOAPProtocol': value.useSOAPProtocol,
         'userId': value.userId,
         'validAuthentication': value.validAuthentication,
-        'validUpdateDate': value.validUpdateDate === undefined ? undefined : (value.validUpdateDate.toISOString().substr(0, 10)),
+        'validUpdateDate': value.validUpdateDate === undefined ? undefined : (value.validUpdateDate.toISOString().substring(0, 10)),
     };
 }
 exports.FileDeliveryConfigTypeToJSON = FileDeliveryConfigTypeToJSON;

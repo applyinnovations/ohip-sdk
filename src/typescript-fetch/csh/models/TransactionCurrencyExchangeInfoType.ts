@@ -113,7 +113,7 @@ export function TransactionCurrencyExchangeInfoTypeToJSON(value?: TransactionCur
         'commissionPercent': value.commissionPercent,
         'currencyAmount': CurrencyAmountTypeToJSON(value.currencyAmount),
         'description': value.description,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substr(0,10)),
+        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0,10)),
         'exchangeRate': CurrencyAmountTypeToJSON(value.exchangeRate),
     };
 }

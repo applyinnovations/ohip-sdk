@@ -16,137 +16,144 @@
 import * as runtime from '../runtime';
 import type {
   AcquiredCashierLock,
-  ActivatePrepaidCardRequest,
+  ActivatePrepaidCard,
   ActivatePrepaidCardStatus,
   AdditionalTaxesDetails,
-  AdjustTransactionsRequest,
   AdjustedTransactions,
   AdvancePaymentBalance,
+  AdvanceRoomCharges,
   AdvanceRoomChargesReservationInfo,
   AlertNotices,
   AmountEligible,
-  ApplyFinalPostingsRequest,
-  ApplyFlexibleBenefitPostingsRequest,
   ArticlesSale,
-  AttachDepositPolicyToPaymentRequest,
+  ArticlesSaleCriteria,
+  AttachPolicyApplyCriteria,
   AuthorizationHistory,
   AuthorizationInfo,
-  AuthorizeCreditCardAmountByProfileRequest,
   AuthorizersCreditInfo,
-  AutoSettleCompFoliosRequest,
+  AutoSettleCompFolios,
   AutoSettleCompFoliosStatus,
+  AwardPaymentDetails,
   BalanceInfoCriteria,
+  BatchAdvanceFolio,
   BatchAutoCheckoutDetails,
+  BatchAutoCheckoutReservation,
+  BatchAutoSettlementCriteria,
+  BatchDeposit,
   BatchZeroBalanceCheckoutDetails,
+  BatchZeroBalanceCheckoutReservation,
+  BedTaxCriteria,
   BedTaxInfo,
+  BillingCharge,
   BillingChargeStatus,
+  BillingCharges,
   BillingChargesDetails,
+  BillingChargesInBatchCriteria,
   BillingChargesStatus,
+  BillingCheckChargesCriteria,
   BillingInstructionCodes,
-  CalculateForeignCurrencyRequest,
+  BillingPayment,
+  BillingPaymentToChange,
   CalculatedForeignCurrency,
-  CancelPrepaidCardTransactionRequest,
+  CancelPrepaidCardTransaction,
   CancelPrepaidCardTransactionStatus,
-  CashOutPrepaidCardRequest,
+  CashOutPrepaidCard,
   CashOutPrepaidCardStatus,
+  CashierClosure,
   CashierClosureDetails,
   CashierClosureInformation,
   CashierClosureReportsList,
+  CashierLockCriteriaToExtend,
   CashierReportPostingsInfo,
   CashierTransactionsDetails,
+  CcAuthorizationCriteria,
   CcAuthorizationInstructions,
   CcBatchSettlements,
+  CcBatchSettlementsProcessCriteria,
   CcBatchSettlementsStatus,
+  CcManualAuthorizationCriteria,
+  CcSettlementCriteria,
   CcSurchargeDetails,
-  ChangeBillingPaymentRequest,
-  ChangeRoutingInstructionsRequest,
   ChangedRoutingInstructions,
   CheckDetails,
   CheckedRateCode,
-  CloseReservationFolioRequest,
+  CloseFolioCriteria,
   CompAccountingJournal,
   CompRoutingInstructions,
+  CompTransactionCriteria,
   CompTrxAuthorizers,
+  ConvertFolioCriteria,
   ConvertFolioDetails,
-  ConvertFolioRequest,
   CreatedRoutingInstructions,
+  CreditBillCriteria,
   CreditCardWallet,
+  CreditLimitOveragePayments,
   CreditLimitOveragePaymentsDetails,
   CreditLimitOveragePaymentsInfo,
+  DeferredTaxesProcess,
   DeferredTaxesProcessDetails,
+  DepositFolioCriteria,
   DepositFolioTransactionDetails,
+  DepositFolioValidateCriteria,
   DepositMaturityDetails,
+  DepositPayment,
   DepositRefundEligibleCheck,
+  DepositToGuestFolio,
+  DepositTransferCriteria,
   DepositedFolioValidate,
   DepositedPayment,
-  DetachDepositPolicyFromPaymentRequest,
+  DetachPolicyApplyCriteria,
+  EarlyDeparture,
   EarlyDepartureInfo,
   ExceptionDetailType,
   ExtendedCashierLock,
+  FbaReimbursementCriteria,
+  FinalPostings,
   FinancialPostings,
   FinancialPostingsNetVat,
   FiscalCallStatus,
   FiscalCommandsResponseInfo,
+  FiscalFolioCriteria,
+  FiscalInfoFolioCriteria,
   FiscalInformationFolio,
+  FiscalSupportingDocumentCriteria,
   FiscalSupportingDocumentsResponse,
+  FixedCharges,
   FixedChargesDetails,
+  FlexibleBenefitPostingsCriteria,
   Folio,
   FolioActivityDetailsType,
   FolioActivityResponseDetailType,
+  FolioCriteria,
   FolioHistoryResponse,
   FolioPrinters,
   FolioTaxPaymentReversal,
   FolioTaxPaymentsInfo,
+  FolioToVoid,
+  FolioToWindow,
   FolioTransactionDetails,
   FolioTypeNameInfo,
   FolioTypesInfo,
+  ForeignCurrencyCriteria,
+  ForeignCurrencyExchange,
   ForeignCurrencyExchangeTransaction,
   GamingRequestStatusInfo,
-  GenerateFiscalFolioRequest,
-  GenerateFolioRequest,
   GeneratedFolio,
+  GuestCheckDetails,
   GuestsTransactions,
   HotelRevenueDetails,
-  LinkReservationPackageAllowanceRequest,
+  LinkReservationPackageAllowance,
   MaturedDepositsDetails,
   PasserBySale,
-  PostAdvanceFolioRequest,
-  PostAdvanceRoomChargesRequest,
-  PostArticlesSaleRequest,
-  PostAutoCheckoutReservationsRequest,
-  PostAwardTransactionRequest,
-  PostBatchAutoSettlementRequest,
-  PostBatchCCSettlementsRequest,
-  PostBatchDepositRequest,
-  PostBedTaxInfoRequest,
-  PostBillingChargesInBatchRequest,
-  PostBillingChargesRequest,
-  PostBillingCheckChargesRequest,
-  PostBillingPaymentRequest,
-  PostCCSettlementRequest,
-  PostCheckOutRequest,
-  PostCompRedemptionsRequest,
-  PostCompTransactionRequest,
-  PostCreditBillRequest,
-  PostCreditLimitOveragePaymentsRequest,
-  PostDeferredTaxesProcessRequest,
-  PostDepositFolioRequest,
-  PostDepositPaymentByExtIdRequest,
-  PostFBAReimbursementRequest,
-  PostFiscalCommandInvoiceRequest,
-  PostFiscalInfoRequest,
-  PostForeignCurrencyExchangeRequest,
-  PostGuestCheckDetailsRequest,
-  PostPasserBySaleRequest,
-  PostPrepaidCardsRequest,
-  PostProformaRequest,
-  PostRateCodeRequest,
-  PostReversePaymentRequest,
-  PostRoomAndTaxForDayUseRequest,
-  PostStoredFolioDetailsRequest,
-  PostSupplementalFolioRequest,
+  PasserBySalesCriteria,
+  PayeeTaxNumber,
+  PaymentReversalCriteria,
+  PostCompRedemptions,
+  PostFiscalInfoType,
+  PostRateCodeCriteria,
+  PostRoomAndTaxForDayUse,
+  PostSupplementalFolio,
   PostSupplementalFolioStatus,
-  PostZeroBalanceCheckoutReservationsRequest,
   PostedBillingChargesInBatch,
   PostedBillingPayment,
   PostedCreditBill,
@@ -155,196 +162,241 @@ import type {
   PostingActivityDetail,
   PostingSummaryList,
   PostingsForRefresh,
-  ProcessFiscalRetryRequest,
+  PrepaidCardCriteria,
+  ProcessFiscalRetry,
   ProcessFiscalRetryStatus,
-  ProcessReservationDepositRequest,
-  ProcessRoomRoutingRefreshRequest,
-  PutBillingChargeRequest,
-  PutBillingChargesRequest,
+  PutBillingCharges,
   PutBillingChargesStatus,
-  PutCashierLockRequest,
-  PutCashierRequest,
-  PutForEarlyDepartureRequest,
-  PutPayeeTaxNumberRequest,
-  PutReservationDepositTransferRequest,
-  PutRoutingInstructionsRequest,
   ReceiptHistoryResponse,
-  RedeemPrepaidCardsRequest,
+  RedeemPrepaidCards,
   RedeemPrepaidCardsStatus,
-  RegisterManualAuthorizationRequest,
-  RegisterVaultTransactionRequest,
-  ReinstateCheckOutRequest,
-  ReloadPrepaidCardRequest,
+  ReinstateCheckedOutReservation,
+  ReloadPrepaidCard,
   ReloadPrepaidCardStatus,
-  ResendSupportingDocumentRequest,
+  Reservation,
+  ReservationDepositCriteria,
   ReservationDepositFolios,
+  ReservationFolio,
   ReservationFolioInformation,
   ReservationPackageOptions,
+  ReservationTransaction,
   RevenueBucketTotals,
-  ReverseCertificatePostingsRequest,
-  ReverseCompRedemptionsRequest,
-  ReverseFolioTaxPaymentRequest,
+  ReverseCertificatePostingsCriteria,
+  ReverseCompRedemptions,
   RoomRoutingPostings,
+  RoomRoutingRefresh,
   RoundingDifferenceAmount,
+  RoutingInstructions,
   RoutingInstructionsDetails,
-  SplitAndTransferTransactionRequest,
-  SplitDepositTransactionRequest,
+  RoutingInstructionsToChange,
+  SplitDepositTransaction,
   SplitDepositTransactionStatus,
-  SplitTransactionRequest,
   StagedTransactions,
   Status,
+  StoredFolioDetails,
   StoredFolioDetailsInfo,
   TransactionCodes,
-  TransferCompTransactionsRequest,
-  TransferFolioToWindowRequest,
-  TransferTransactionToReservationRequest,
+  TransactionReversal,
+  TransactionToSplit,
+  TransactionToSplitAndTransfer,
+  TransactionToWindow,
+  TransactionsAdjustment,
+  TransferCompTransactions,
   TransferTransactionToWindow,
-  TransferTransactionToWindowRequest,
-  TransitionDepositToGuestFolioRequest,
-  UpdateFixedChargesRequest,
-  ValidateDepositFolioRequest,
   ValidatedCreditBill,
   ValidatedTransactionCode,
-  VoidFolioRequest,
+  VaultTransaction,
   VoidedFolio,
-} from '../models';
+} from '../models/index';
 import {
     AcquiredCashierLockFromJSON,
     AcquiredCashierLockToJSON,
-    ActivatePrepaidCardRequestFromJSON,
-    ActivatePrepaidCardRequestToJSON,
+    ActivatePrepaidCardFromJSON,
+    ActivatePrepaidCardToJSON,
     ActivatePrepaidCardStatusFromJSON,
     ActivatePrepaidCardStatusToJSON,
     AdditionalTaxesDetailsFromJSON,
     AdditionalTaxesDetailsToJSON,
-    AdjustTransactionsRequestFromJSON,
-    AdjustTransactionsRequestToJSON,
     AdjustedTransactionsFromJSON,
     AdjustedTransactionsToJSON,
     AdvancePaymentBalanceFromJSON,
     AdvancePaymentBalanceToJSON,
+    AdvanceRoomChargesFromJSON,
+    AdvanceRoomChargesToJSON,
     AdvanceRoomChargesReservationInfoFromJSON,
     AdvanceRoomChargesReservationInfoToJSON,
     AlertNoticesFromJSON,
     AlertNoticesToJSON,
     AmountEligibleFromJSON,
     AmountEligibleToJSON,
-    ApplyFinalPostingsRequestFromJSON,
-    ApplyFinalPostingsRequestToJSON,
-    ApplyFlexibleBenefitPostingsRequestFromJSON,
-    ApplyFlexibleBenefitPostingsRequestToJSON,
     ArticlesSaleFromJSON,
     ArticlesSaleToJSON,
-    AttachDepositPolicyToPaymentRequestFromJSON,
-    AttachDepositPolicyToPaymentRequestToJSON,
+    ArticlesSaleCriteriaFromJSON,
+    ArticlesSaleCriteriaToJSON,
+    AttachPolicyApplyCriteriaFromJSON,
+    AttachPolicyApplyCriteriaToJSON,
     AuthorizationHistoryFromJSON,
     AuthorizationHistoryToJSON,
     AuthorizationInfoFromJSON,
     AuthorizationInfoToJSON,
-    AuthorizeCreditCardAmountByProfileRequestFromJSON,
-    AuthorizeCreditCardAmountByProfileRequestToJSON,
     AuthorizersCreditInfoFromJSON,
     AuthorizersCreditInfoToJSON,
-    AutoSettleCompFoliosRequestFromJSON,
-    AutoSettleCompFoliosRequestToJSON,
+    AutoSettleCompFoliosFromJSON,
+    AutoSettleCompFoliosToJSON,
     AutoSettleCompFoliosStatusFromJSON,
     AutoSettleCompFoliosStatusToJSON,
+    AwardPaymentDetailsFromJSON,
+    AwardPaymentDetailsToJSON,
     BalanceInfoCriteriaFromJSON,
     BalanceInfoCriteriaToJSON,
+    BatchAdvanceFolioFromJSON,
+    BatchAdvanceFolioToJSON,
     BatchAutoCheckoutDetailsFromJSON,
     BatchAutoCheckoutDetailsToJSON,
+    BatchAutoCheckoutReservationFromJSON,
+    BatchAutoCheckoutReservationToJSON,
+    BatchAutoSettlementCriteriaFromJSON,
+    BatchAutoSettlementCriteriaToJSON,
+    BatchDepositFromJSON,
+    BatchDepositToJSON,
     BatchZeroBalanceCheckoutDetailsFromJSON,
     BatchZeroBalanceCheckoutDetailsToJSON,
+    BatchZeroBalanceCheckoutReservationFromJSON,
+    BatchZeroBalanceCheckoutReservationToJSON,
+    BedTaxCriteriaFromJSON,
+    BedTaxCriteriaToJSON,
     BedTaxInfoFromJSON,
     BedTaxInfoToJSON,
+    BillingChargeFromJSON,
+    BillingChargeToJSON,
     BillingChargeStatusFromJSON,
     BillingChargeStatusToJSON,
+    BillingChargesFromJSON,
+    BillingChargesToJSON,
     BillingChargesDetailsFromJSON,
     BillingChargesDetailsToJSON,
+    BillingChargesInBatchCriteriaFromJSON,
+    BillingChargesInBatchCriteriaToJSON,
     BillingChargesStatusFromJSON,
     BillingChargesStatusToJSON,
+    BillingCheckChargesCriteriaFromJSON,
+    BillingCheckChargesCriteriaToJSON,
     BillingInstructionCodesFromJSON,
     BillingInstructionCodesToJSON,
-    CalculateForeignCurrencyRequestFromJSON,
-    CalculateForeignCurrencyRequestToJSON,
+    BillingPaymentFromJSON,
+    BillingPaymentToJSON,
+    BillingPaymentToChangeFromJSON,
+    BillingPaymentToChangeToJSON,
     CalculatedForeignCurrencyFromJSON,
     CalculatedForeignCurrencyToJSON,
-    CancelPrepaidCardTransactionRequestFromJSON,
-    CancelPrepaidCardTransactionRequestToJSON,
+    CancelPrepaidCardTransactionFromJSON,
+    CancelPrepaidCardTransactionToJSON,
     CancelPrepaidCardTransactionStatusFromJSON,
     CancelPrepaidCardTransactionStatusToJSON,
-    CashOutPrepaidCardRequestFromJSON,
-    CashOutPrepaidCardRequestToJSON,
+    CashOutPrepaidCardFromJSON,
+    CashOutPrepaidCardToJSON,
     CashOutPrepaidCardStatusFromJSON,
     CashOutPrepaidCardStatusToJSON,
+    CashierClosureFromJSON,
+    CashierClosureToJSON,
     CashierClosureDetailsFromJSON,
     CashierClosureDetailsToJSON,
     CashierClosureInformationFromJSON,
     CashierClosureInformationToJSON,
     CashierClosureReportsListFromJSON,
     CashierClosureReportsListToJSON,
+    CashierLockCriteriaToExtendFromJSON,
+    CashierLockCriteriaToExtendToJSON,
     CashierReportPostingsInfoFromJSON,
     CashierReportPostingsInfoToJSON,
     CashierTransactionsDetailsFromJSON,
     CashierTransactionsDetailsToJSON,
+    CcAuthorizationCriteriaFromJSON,
+    CcAuthorizationCriteriaToJSON,
     CcAuthorizationInstructionsFromJSON,
     CcAuthorizationInstructionsToJSON,
     CcBatchSettlementsFromJSON,
     CcBatchSettlementsToJSON,
+    CcBatchSettlementsProcessCriteriaFromJSON,
+    CcBatchSettlementsProcessCriteriaToJSON,
     CcBatchSettlementsStatusFromJSON,
     CcBatchSettlementsStatusToJSON,
+    CcManualAuthorizationCriteriaFromJSON,
+    CcManualAuthorizationCriteriaToJSON,
+    CcSettlementCriteriaFromJSON,
+    CcSettlementCriteriaToJSON,
     CcSurchargeDetailsFromJSON,
     CcSurchargeDetailsToJSON,
-    ChangeBillingPaymentRequestFromJSON,
-    ChangeBillingPaymentRequestToJSON,
-    ChangeRoutingInstructionsRequestFromJSON,
-    ChangeRoutingInstructionsRequestToJSON,
     ChangedRoutingInstructionsFromJSON,
     ChangedRoutingInstructionsToJSON,
     CheckDetailsFromJSON,
     CheckDetailsToJSON,
     CheckedRateCodeFromJSON,
     CheckedRateCodeToJSON,
-    CloseReservationFolioRequestFromJSON,
-    CloseReservationFolioRequestToJSON,
+    CloseFolioCriteriaFromJSON,
+    CloseFolioCriteriaToJSON,
     CompAccountingJournalFromJSON,
     CompAccountingJournalToJSON,
     CompRoutingInstructionsFromJSON,
     CompRoutingInstructionsToJSON,
+    CompTransactionCriteriaFromJSON,
+    CompTransactionCriteriaToJSON,
     CompTrxAuthorizersFromJSON,
     CompTrxAuthorizersToJSON,
+    ConvertFolioCriteriaFromJSON,
+    ConvertFolioCriteriaToJSON,
     ConvertFolioDetailsFromJSON,
     ConvertFolioDetailsToJSON,
-    ConvertFolioRequestFromJSON,
-    ConvertFolioRequestToJSON,
     CreatedRoutingInstructionsFromJSON,
     CreatedRoutingInstructionsToJSON,
+    CreditBillCriteriaFromJSON,
+    CreditBillCriteriaToJSON,
     CreditCardWalletFromJSON,
     CreditCardWalletToJSON,
+    CreditLimitOveragePaymentsFromJSON,
+    CreditLimitOveragePaymentsToJSON,
     CreditLimitOveragePaymentsDetailsFromJSON,
     CreditLimitOveragePaymentsDetailsToJSON,
     CreditLimitOveragePaymentsInfoFromJSON,
     CreditLimitOveragePaymentsInfoToJSON,
+    DeferredTaxesProcessFromJSON,
+    DeferredTaxesProcessToJSON,
     DeferredTaxesProcessDetailsFromJSON,
     DeferredTaxesProcessDetailsToJSON,
+    DepositFolioCriteriaFromJSON,
+    DepositFolioCriteriaToJSON,
     DepositFolioTransactionDetailsFromJSON,
     DepositFolioTransactionDetailsToJSON,
+    DepositFolioValidateCriteriaFromJSON,
+    DepositFolioValidateCriteriaToJSON,
     DepositMaturityDetailsFromJSON,
     DepositMaturityDetailsToJSON,
+    DepositPaymentFromJSON,
+    DepositPaymentToJSON,
     DepositRefundEligibleCheckFromJSON,
     DepositRefundEligibleCheckToJSON,
+    DepositToGuestFolioFromJSON,
+    DepositToGuestFolioToJSON,
+    DepositTransferCriteriaFromJSON,
+    DepositTransferCriteriaToJSON,
     DepositedFolioValidateFromJSON,
     DepositedFolioValidateToJSON,
     DepositedPaymentFromJSON,
     DepositedPaymentToJSON,
-    DetachDepositPolicyFromPaymentRequestFromJSON,
-    DetachDepositPolicyFromPaymentRequestToJSON,
+    DetachPolicyApplyCriteriaFromJSON,
+    DetachPolicyApplyCriteriaToJSON,
+    EarlyDepartureFromJSON,
+    EarlyDepartureToJSON,
     EarlyDepartureInfoFromJSON,
     EarlyDepartureInfoToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     ExtendedCashierLockFromJSON,
     ExtendedCashierLockToJSON,
+    FbaReimbursementCriteriaFromJSON,
+    FbaReimbursementCriteriaToJSON,
+    FinalPostingsFromJSON,
+    FinalPostingsToJSON,
     FinancialPostingsFromJSON,
     FinancialPostingsToJSON,
     FinancialPostingsNetVatFromJSON,
@@ -353,18 +405,30 @@ import {
     FiscalCallStatusToJSON,
     FiscalCommandsResponseInfoFromJSON,
     FiscalCommandsResponseInfoToJSON,
+    FiscalFolioCriteriaFromJSON,
+    FiscalFolioCriteriaToJSON,
+    FiscalInfoFolioCriteriaFromJSON,
+    FiscalInfoFolioCriteriaToJSON,
     FiscalInformationFolioFromJSON,
     FiscalInformationFolioToJSON,
+    FiscalSupportingDocumentCriteriaFromJSON,
+    FiscalSupportingDocumentCriteriaToJSON,
     FiscalSupportingDocumentsResponseFromJSON,
     FiscalSupportingDocumentsResponseToJSON,
+    FixedChargesFromJSON,
+    FixedChargesToJSON,
     FixedChargesDetailsFromJSON,
     FixedChargesDetailsToJSON,
+    FlexibleBenefitPostingsCriteriaFromJSON,
+    FlexibleBenefitPostingsCriteriaToJSON,
     FolioFromJSON,
     FolioToJSON,
     FolioActivityDetailsTypeFromJSON,
     FolioActivityDetailsTypeToJSON,
     FolioActivityResponseDetailTypeFromJSON,
     FolioActivityResponseDetailTypeToJSON,
+    FolioCriteriaFromJSON,
+    FolioCriteriaToJSON,
     FolioHistoryResponseFromJSON,
     FolioHistoryResponseToJSON,
     FolioPrintersFromJSON,
@@ -373,106 +437,56 @@ import {
     FolioTaxPaymentReversalToJSON,
     FolioTaxPaymentsInfoFromJSON,
     FolioTaxPaymentsInfoToJSON,
+    FolioToVoidFromJSON,
+    FolioToVoidToJSON,
+    FolioToWindowFromJSON,
+    FolioToWindowToJSON,
     FolioTransactionDetailsFromJSON,
     FolioTransactionDetailsToJSON,
     FolioTypeNameInfoFromJSON,
     FolioTypeNameInfoToJSON,
     FolioTypesInfoFromJSON,
     FolioTypesInfoToJSON,
+    ForeignCurrencyCriteriaFromJSON,
+    ForeignCurrencyCriteriaToJSON,
+    ForeignCurrencyExchangeFromJSON,
+    ForeignCurrencyExchangeToJSON,
     ForeignCurrencyExchangeTransactionFromJSON,
     ForeignCurrencyExchangeTransactionToJSON,
     GamingRequestStatusInfoFromJSON,
     GamingRequestStatusInfoToJSON,
-    GenerateFiscalFolioRequestFromJSON,
-    GenerateFiscalFolioRequestToJSON,
-    GenerateFolioRequestFromJSON,
-    GenerateFolioRequestToJSON,
     GeneratedFolioFromJSON,
     GeneratedFolioToJSON,
+    GuestCheckDetailsFromJSON,
+    GuestCheckDetailsToJSON,
     GuestsTransactionsFromJSON,
     GuestsTransactionsToJSON,
     HotelRevenueDetailsFromJSON,
     HotelRevenueDetailsToJSON,
-    LinkReservationPackageAllowanceRequestFromJSON,
-    LinkReservationPackageAllowanceRequestToJSON,
+    LinkReservationPackageAllowanceFromJSON,
+    LinkReservationPackageAllowanceToJSON,
     MaturedDepositsDetailsFromJSON,
     MaturedDepositsDetailsToJSON,
     PasserBySaleFromJSON,
     PasserBySaleToJSON,
-    PostAdvanceFolioRequestFromJSON,
-    PostAdvanceFolioRequestToJSON,
-    PostAdvanceRoomChargesRequestFromJSON,
-    PostAdvanceRoomChargesRequestToJSON,
-    PostArticlesSaleRequestFromJSON,
-    PostArticlesSaleRequestToJSON,
-    PostAutoCheckoutReservationsRequestFromJSON,
-    PostAutoCheckoutReservationsRequestToJSON,
-    PostAwardTransactionRequestFromJSON,
-    PostAwardTransactionRequestToJSON,
-    PostBatchAutoSettlementRequestFromJSON,
-    PostBatchAutoSettlementRequestToJSON,
-    PostBatchCCSettlementsRequestFromJSON,
-    PostBatchCCSettlementsRequestToJSON,
-    PostBatchDepositRequestFromJSON,
-    PostBatchDepositRequestToJSON,
-    PostBedTaxInfoRequestFromJSON,
-    PostBedTaxInfoRequestToJSON,
-    PostBillingChargesInBatchRequestFromJSON,
-    PostBillingChargesInBatchRequestToJSON,
-    PostBillingChargesRequestFromJSON,
-    PostBillingChargesRequestToJSON,
-    PostBillingCheckChargesRequestFromJSON,
-    PostBillingCheckChargesRequestToJSON,
-    PostBillingPaymentRequestFromJSON,
-    PostBillingPaymentRequestToJSON,
-    PostCCSettlementRequestFromJSON,
-    PostCCSettlementRequestToJSON,
-    PostCheckOutRequestFromJSON,
-    PostCheckOutRequestToJSON,
-    PostCompRedemptionsRequestFromJSON,
-    PostCompRedemptionsRequestToJSON,
-    PostCompTransactionRequestFromJSON,
-    PostCompTransactionRequestToJSON,
-    PostCreditBillRequestFromJSON,
-    PostCreditBillRequestToJSON,
-    PostCreditLimitOveragePaymentsRequestFromJSON,
-    PostCreditLimitOveragePaymentsRequestToJSON,
-    PostDeferredTaxesProcessRequestFromJSON,
-    PostDeferredTaxesProcessRequestToJSON,
-    PostDepositFolioRequestFromJSON,
-    PostDepositFolioRequestToJSON,
-    PostDepositPaymentByExtIdRequestFromJSON,
-    PostDepositPaymentByExtIdRequestToJSON,
-    PostFBAReimbursementRequestFromJSON,
-    PostFBAReimbursementRequestToJSON,
-    PostFiscalCommandInvoiceRequestFromJSON,
-    PostFiscalCommandInvoiceRequestToJSON,
-    PostFiscalInfoRequestFromJSON,
-    PostFiscalInfoRequestToJSON,
-    PostForeignCurrencyExchangeRequestFromJSON,
-    PostForeignCurrencyExchangeRequestToJSON,
-    PostGuestCheckDetailsRequestFromJSON,
-    PostGuestCheckDetailsRequestToJSON,
-    PostPasserBySaleRequestFromJSON,
-    PostPasserBySaleRequestToJSON,
-    PostPrepaidCardsRequestFromJSON,
-    PostPrepaidCardsRequestToJSON,
-    PostProformaRequestFromJSON,
-    PostProformaRequestToJSON,
-    PostRateCodeRequestFromJSON,
-    PostRateCodeRequestToJSON,
-    PostReversePaymentRequestFromJSON,
-    PostReversePaymentRequestToJSON,
-    PostRoomAndTaxForDayUseRequestFromJSON,
-    PostRoomAndTaxForDayUseRequestToJSON,
-    PostStoredFolioDetailsRequestFromJSON,
-    PostStoredFolioDetailsRequestToJSON,
-    PostSupplementalFolioRequestFromJSON,
-    PostSupplementalFolioRequestToJSON,
+    PasserBySalesCriteriaFromJSON,
+    PasserBySalesCriteriaToJSON,
+    PayeeTaxNumberFromJSON,
+    PayeeTaxNumberToJSON,
+    PaymentReversalCriteriaFromJSON,
+    PaymentReversalCriteriaToJSON,
+    PostCompRedemptionsFromJSON,
+    PostCompRedemptionsToJSON,
+    PostFiscalInfoTypeFromJSON,
+    PostFiscalInfoTypeToJSON,
+    PostRateCodeCriteriaFromJSON,
+    PostRateCodeCriteriaToJSON,
+    PostRoomAndTaxForDayUseFromJSON,
+    PostRoomAndTaxForDayUseToJSON,
+    PostSupplementalFolioFromJSON,
+    PostSupplementalFolioToJSON,
     PostSupplementalFolioStatusFromJSON,
     PostSupplementalFolioStatusToJSON,
-    PostZeroBalanceCheckoutReservationsRequestFromJSON,
-    PostZeroBalanceCheckoutReservationsRequestToJSON,
     PostedBillingChargesInBatchFromJSON,
     PostedBillingChargesInBatchToJSON,
     PostedBillingPaymentFromJSON,
@@ -489,310 +503,296 @@ import {
     PostingSummaryListToJSON,
     PostingsForRefreshFromJSON,
     PostingsForRefreshToJSON,
-    ProcessFiscalRetryRequestFromJSON,
-    ProcessFiscalRetryRequestToJSON,
+    PrepaidCardCriteriaFromJSON,
+    PrepaidCardCriteriaToJSON,
+    ProcessFiscalRetryFromJSON,
+    ProcessFiscalRetryToJSON,
     ProcessFiscalRetryStatusFromJSON,
     ProcessFiscalRetryStatusToJSON,
-    ProcessReservationDepositRequestFromJSON,
-    ProcessReservationDepositRequestToJSON,
-    ProcessRoomRoutingRefreshRequestFromJSON,
-    ProcessRoomRoutingRefreshRequestToJSON,
-    PutBillingChargeRequestFromJSON,
-    PutBillingChargeRequestToJSON,
-    PutBillingChargesRequestFromJSON,
-    PutBillingChargesRequestToJSON,
+    PutBillingChargesFromJSON,
+    PutBillingChargesToJSON,
     PutBillingChargesStatusFromJSON,
     PutBillingChargesStatusToJSON,
-    PutCashierLockRequestFromJSON,
-    PutCashierLockRequestToJSON,
-    PutCashierRequestFromJSON,
-    PutCashierRequestToJSON,
-    PutForEarlyDepartureRequestFromJSON,
-    PutForEarlyDepartureRequestToJSON,
-    PutPayeeTaxNumberRequestFromJSON,
-    PutPayeeTaxNumberRequestToJSON,
-    PutReservationDepositTransferRequestFromJSON,
-    PutReservationDepositTransferRequestToJSON,
-    PutRoutingInstructionsRequestFromJSON,
-    PutRoutingInstructionsRequestToJSON,
     ReceiptHistoryResponseFromJSON,
     ReceiptHistoryResponseToJSON,
-    RedeemPrepaidCardsRequestFromJSON,
-    RedeemPrepaidCardsRequestToJSON,
+    RedeemPrepaidCardsFromJSON,
+    RedeemPrepaidCardsToJSON,
     RedeemPrepaidCardsStatusFromJSON,
     RedeemPrepaidCardsStatusToJSON,
-    RegisterManualAuthorizationRequestFromJSON,
-    RegisterManualAuthorizationRequestToJSON,
-    RegisterVaultTransactionRequestFromJSON,
-    RegisterVaultTransactionRequestToJSON,
-    ReinstateCheckOutRequestFromJSON,
-    ReinstateCheckOutRequestToJSON,
-    ReloadPrepaidCardRequestFromJSON,
-    ReloadPrepaidCardRequestToJSON,
+    ReinstateCheckedOutReservationFromJSON,
+    ReinstateCheckedOutReservationToJSON,
+    ReloadPrepaidCardFromJSON,
+    ReloadPrepaidCardToJSON,
     ReloadPrepaidCardStatusFromJSON,
     ReloadPrepaidCardStatusToJSON,
-    ResendSupportingDocumentRequestFromJSON,
-    ResendSupportingDocumentRequestToJSON,
+    ReservationFromJSON,
+    ReservationToJSON,
+    ReservationDepositCriteriaFromJSON,
+    ReservationDepositCriteriaToJSON,
     ReservationDepositFoliosFromJSON,
     ReservationDepositFoliosToJSON,
+    ReservationFolioFromJSON,
+    ReservationFolioToJSON,
     ReservationFolioInformationFromJSON,
     ReservationFolioInformationToJSON,
     ReservationPackageOptionsFromJSON,
     ReservationPackageOptionsToJSON,
+    ReservationTransactionFromJSON,
+    ReservationTransactionToJSON,
     RevenueBucketTotalsFromJSON,
     RevenueBucketTotalsToJSON,
-    ReverseCertificatePostingsRequestFromJSON,
-    ReverseCertificatePostingsRequestToJSON,
-    ReverseCompRedemptionsRequestFromJSON,
-    ReverseCompRedemptionsRequestToJSON,
-    ReverseFolioTaxPaymentRequestFromJSON,
-    ReverseFolioTaxPaymentRequestToJSON,
+    ReverseCertificatePostingsCriteriaFromJSON,
+    ReverseCertificatePostingsCriteriaToJSON,
+    ReverseCompRedemptionsFromJSON,
+    ReverseCompRedemptionsToJSON,
     RoomRoutingPostingsFromJSON,
     RoomRoutingPostingsToJSON,
+    RoomRoutingRefreshFromJSON,
+    RoomRoutingRefreshToJSON,
     RoundingDifferenceAmountFromJSON,
     RoundingDifferenceAmountToJSON,
+    RoutingInstructionsFromJSON,
+    RoutingInstructionsToJSON,
     RoutingInstructionsDetailsFromJSON,
     RoutingInstructionsDetailsToJSON,
-    SplitAndTransferTransactionRequestFromJSON,
-    SplitAndTransferTransactionRequestToJSON,
-    SplitDepositTransactionRequestFromJSON,
-    SplitDepositTransactionRequestToJSON,
+    RoutingInstructionsToChangeFromJSON,
+    RoutingInstructionsToChangeToJSON,
+    SplitDepositTransactionFromJSON,
+    SplitDepositTransactionToJSON,
     SplitDepositTransactionStatusFromJSON,
     SplitDepositTransactionStatusToJSON,
-    SplitTransactionRequestFromJSON,
-    SplitTransactionRequestToJSON,
     StagedTransactionsFromJSON,
     StagedTransactionsToJSON,
     StatusFromJSON,
     StatusToJSON,
+    StoredFolioDetailsFromJSON,
+    StoredFolioDetailsToJSON,
     StoredFolioDetailsInfoFromJSON,
     StoredFolioDetailsInfoToJSON,
     TransactionCodesFromJSON,
     TransactionCodesToJSON,
-    TransferCompTransactionsRequestFromJSON,
-    TransferCompTransactionsRequestToJSON,
-    TransferFolioToWindowRequestFromJSON,
-    TransferFolioToWindowRequestToJSON,
-    TransferTransactionToReservationRequestFromJSON,
-    TransferTransactionToReservationRequestToJSON,
+    TransactionReversalFromJSON,
+    TransactionReversalToJSON,
+    TransactionToSplitFromJSON,
+    TransactionToSplitToJSON,
+    TransactionToSplitAndTransferFromJSON,
+    TransactionToSplitAndTransferToJSON,
+    TransactionToWindowFromJSON,
+    TransactionToWindowToJSON,
+    TransactionsAdjustmentFromJSON,
+    TransactionsAdjustmentToJSON,
+    TransferCompTransactionsFromJSON,
+    TransferCompTransactionsToJSON,
     TransferTransactionToWindowFromJSON,
     TransferTransactionToWindowToJSON,
-    TransferTransactionToWindowRequestFromJSON,
-    TransferTransactionToWindowRequestToJSON,
-    TransitionDepositToGuestFolioRequestFromJSON,
-    TransitionDepositToGuestFolioRequestToJSON,
-    UpdateFixedChargesRequestFromJSON,
-    UpdateFixedChargesRequestToJSON,
-    ValidateDepositFolioRequestFromJSON,
-    ValidateDepositFolioRequestToJSON,
     ValidatedCreditBillFromJSON,
     ValidatedCreditBillToJSON,
     ValidatedTransactionCodeFromJSON,
     ValidatedTransactionCodeToJSON,
-    VoidFolioRequestFromJSON,
-    VoidFolioRequestToJSON,
+    VaultTransactionFromJSON,
+    VaultTransactionToJSON,
     VoidedFolioFromJSON,
     VoidedFolioToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ActivatePrepaidCardOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activatePrepaidCard?: ActivatePrepaidCardRequest;
+export interface ActivatePrepaidCardRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activatePrepaidCard: ActivatePrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface AdjustTransactionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionsAdjustment?: AdjustTransactionsRequest;
+export interface AdjustTransactionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionsAdjustment: TransactionsAdjustment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ApplyFinalPostingsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    finalPostings?: ApplyFinalPostingsRequest;
+export interface ApplyFinalPostingsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    finalPostings: FinalPostings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ApplyFlexibleBenefitPostingsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    flexibleBenefitPostingsCriteria?: ApplyFlexibleBenefitPostingsRequest;
+export interface ApplyFlexibleBenefitPostingsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    flexibleBenefitPostingsCriteria: FlexibleBenefitPostingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface AttachDepositPolicyToPaymentOperationRequest {
-    transactionId?: string;
-    policyId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attachPolicyApplyCriteria?: AttachDepositPolicyToPaymentRequest;
+export interface AttachDepositPolicyToPaymentRequest {
+    transactionId: string;
+    policyId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attachPolicyApplyCriteria: AttachPolicyApplyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface AuthorizeCreditCardAmountRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccAuthorizationCriteria?: AuthorizeCreditCardAmountByProfileRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccAuthorizationCriteria: CcAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface AuthorizeCreditCardAmountByProfileOperationRequest {
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccAuthorizationCriteria?: AuthorizeCreditCardAmountByProfileRequest;
+export interface AuthorizeCreditCardAmountByProfileRequest {
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccAuthorizationCriteria: CcAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface AutoSettleCompFoliosOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoSettleCompFolios?: AutoSettleCompFoliosRequest;
+export interface AutoSettleCompFoliosRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoSettleCompFolios: AutoSettleCompFolios;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface BreakCashierLockRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CalculateForeignCurrencyOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    foreignCurrencyCriteria?: CalculateForeignCurrencyRequest;
+export interface CalculateForeignCurrencyRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    foreignCurrencyCriteria: ForeignCurrencyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CancelPrepaidCardTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancelPrepaidCardTransaction?: CancelPrepaidCardTransactionRequest;
+export interface CancelPrepaidCardTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancelPrepaidCardTransaction: CancelPrepaidCardTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CashOutPrepaidCardOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashOutPrepaidCard?: CashOutPrepaidCardRequest;
+export interface CashOutPrepaidCardRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashOutPrepaidCard: CashOutPrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeBillingPaymentOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingPaymentToChange?: ChangeBillingPaymentRequest;
+export interface ChangeBillingPaymentRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingPaymentToChange: BillingPaymentToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeRoutingInstructionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructionsToChange?: ChangeRoutingInstructionsRequest;
+export interface ChangeRoutingInstructionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructionsToChange: RoutingInstructionsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CheckPostRateCodeRequest {
-    rateCode?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postRateCodeCriteria?: PostRateCodeRequest;
+    rateCode: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postRateCodeCriteria: PostRateCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CloseReservationFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    closeFolioCriteria?: CloseReservationFolioRequest;
+export interface CloseReservationFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    closeFolioCriteria: CloseFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ConvertFolioOperationRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    convertFolioCriteria?: ConvertFolioRequest;
+export interface ConvertFolioRequest {
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    convertFolioCriteria: ConvertFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAdvanceRoomChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCompRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     folioWindowNo?: number;
@@ -824,11 +824,11 @@ export interface DeleteCompRoutingInstructionsRequest {
 }
 
 export interface DeleteFolioRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     folioWindowNo?: number;
@@ -855,11 +855,11 @@ export interface DeleteFolioRoutingInstructionsRequest {
 }
 
 export interface DeleteRequestRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     userName?: string;
@@ -879,11 +879,11 @@ export interface DeleteRequestRoutingInstructionsRequest {
 }
 
 export interface DeleteRoomRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     reservationNameId?: string;
@@ -909,53 +909,53 @@ export interface DeleteRoomRoutingInstructionsRequest {
 }
 
 export interface DeleteRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface DetachDepositPolicyFromPaymentOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    detachPolicyApplyCriteria?: DetachDepositPolicyFromPaymentRequest;
+export interface DetachDepositPolicyFromPaymentRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    detachPolicyApplyCriteria: DetachPolicyApplyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface GenerateFiscalFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalInfoFolioCriteria?: GenerateFiscalFolioRequest;
+export interface GenerateFiscalFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalInfoFolioCriteria: FiscalInfoFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface GenerateFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioCriteria?: GenerateFolioRequest;
+export interface GenerateFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioCriteria: FolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAdditionalTaxesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     folioView?: number;
@@ -965,11 +965,11 @@ export interface GetAdditionalTaxesRequest {
 }
 
 export interface GetAdvancePaymentBalanceRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     fromDate?: Date;
@@ -980,22 +980,22 @@ export interface GetAdvancePaymentBalanceRequest {
 }
 
 export interface GetAlertsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     alertArea?: GetAlertsAlertAreaEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAuthorizationHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     includeAuthorizations?: boolean;
@@ -1009,10 +1009,10 @@ export interface GetAuthorizationHistoryRequest {
 }
 
 export interface GetAuthorizersCreditInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -1023,10 +1023,10 @@ export interface GetAuthorizersCreditInfoRequest {
 }
 
 export interface GetBalanceInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: GetBalanceInfoEventEnum;
     id?: string;
     idContext?: string;
@@ -1072,10 +1072,10 @@ export interface GetBalanceInfoRequest {
 }
 
 export interface GetBatchCCSettlementsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     offlineSettlement?: boolean;
     transactionDate?: Date;
     guestName?: string;
@@ -1085,11 +1085,11 @@ export interface GetBatchCCSettlementsRequest {
 }
 
 export interface GetBatchCCSettlementsStatusRequest {
-    batchId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    batchId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idContext?: Array<string>;
     type?: Array<string>;
@@ -1098,20 +1098,20 @@ export interface GetBatchCCSettlementsStatusRequest {
 }
 
 export interface GetBedTaxInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     arrival?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBillingInstructionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTransactionCodes?: boolean;
     includeBillingInstructions?: boolean;
     includeCompInstructions?: boolean;
@@ -1125,11 +1125,11 @@ export interface GetBillingInstructionCodesRequest {
 }
 
 export interface GetCCAuthorizationInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     evaluateApprovalAmount?: boolean;
     sourceOfAuthorization?: GetCCAuthorizationInstructionsSourceOfAuthorizationEnum;
     updateReservation?: boolean;
@@ -1201,11 +1201,11 @@ export interface GetCCAuthorizationInstructionsRequest {
 }
 
 export interface GetCCAuthorizationInstructionsByProfileRequest {
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     evaluateApprovalAmount?: boolean;
     sourceOfAuthorization?: GetCCAuthorizationInstructionsByProfileSourceOfAuthorizationEnum;
     updateReservation?: boolean;
@@ -1276,10 +1276,10 @@ export interface GetCCAuthorizationInstructionsByProfileRequest {
 }
 
 export interface GetCCSurchargeInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     description?: string;
     folioView?: number;
@@ -1338,21 +1338,21 @@ export interface GetCCSurchargeInfoRequest {
 }
 
 export interface GetCashierClosureRequest {
-    cashierId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierLockHandle?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCashierClosureInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     closureNo?: number;
     cashierId?: number;
     shiftDropLocationCode?: string;
@@ -1364,11 +1364,11 @@ export interface GetCashierClosureInfoRequest {
 }
 
 export interface GetCashierClosureReportsListRequest {
-    cashierId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     closureNo?: number;
     shiftDropLocationCode?: string;
     bagNumberForOthers?: string;
@@ -1378,18 +1378,18 @@ export interface GetCashierClosureReportsListRequest {
 }
 
 export interface GetCashierLockRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCashierReportPostingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     startDate?: Date;
     endDate?: Date;
@@ -1405,10 +1405,10 @@ export interface GetCashierReportPostingsRequest {
 }
 
 export interface GetCashierTransactionsRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     closureNo?: number;
     shiftDropLocationCode?: string;
     bagNumberForOthers?: string;
@@ -1418,19 +1418,19 @@ export interface GetCashierTransactionsRequest {
 }
 
 export interface GetCheckDetailsRequest {
-    checkNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    checkNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCompAccountingJournalRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     startDate?: Date;
@@ -1452,10 +1452,10 @@ export interface GetCompAccountingJournalRequest {
 }
 
 export interface GetCompPostingJournalRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     startDate?: Date;
@@ -1476,10 +1476,10 @@ export interface GetCompPostingJournalRequest {
 }
 
 export interface GetCompRoutingInstructionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     end?: Date;
     start?: Date;
     nameWildcard?: string;
@@ -1497,10 +1497,10 @@ export interface GetCompRoutingInstructionsRequest {
 }
 
 export interface GetCompTrxAuthorizersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     id?: Array<string>;
     idContext?: Array<string>;
@@ -1518,10 +1518,10 @@ export interface GetCompTrxAuthorizersRequest {
 }
 
 export interface GetCreditLimitOveragePaymentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     guestNameWildCard?: string;
     roomNumberWildCard?: string;
     code?: Array<string>;
@@ -1530,10 +1530,10 @@ export interface GetCreditLimitOveragePaymentsRequest {
 }
 
 export interface GetDepositFolioRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetDepositFolioFetchInstructionsEnum>;
     id?: string;
     policyIdId?: string;
@@ -1543,10 +1543,10 @@ export interface GetDepositFolioRequest {
 }
 
 export interface GetDepositFolioTransactionDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     transactionNo?: Array<number>;
     includeExchangeInformation?: boolean;
@@ -1555,11 +1555,11 @@ export interface GetDepositFolioTransactionDetailsRequest {
 }
 
 export interface GetDepositMaturityInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     idContext?: string;
     type?: string;
@@ -1568,21 +1568,21 @@ export interface GetDepositMaturityInfoRequest {
 }
 
 export interface GetEligibleBillAmountRequest {
-    hotelId?: string;
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioView?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetFinancialPostingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     startDate?: Date;
@@ -1624,12 +1624,12 @@ export interface GetFinancialPostingsRequest {
 }
 
 export interface GetFinancialPostingsNetVatRequest {
-    hotelId?: string;
-    reservationId?: string;
-    folioWindowNo?: number;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationId: string;
+    folioWindowNo: number;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     limit?: number;
@@ -1639,32 +1639,32 @@ export interface GetFinancialPostingsNetVatRequest {
 }
 
 export interface GetFiscalFolioActivityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioSeqNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetFiscalFolioActivityDetailsRequest {
-    folioSeqNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    folioSeqNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     responseAttemptNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetFiscalPrintingDetailsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioView?: number;
     folioType?: string;
     id?: string;
@@ -1676,10 +1676,10 @@ export interface GetFiscalPrintingDetailsRequest {
 }
 
 export interface GetFiscalSupportingDocumentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     surname?: string;
     givenName?: string;
     confirmationNo?: string;
@@ -1701,11 +1701,11 @@ export interface GetFiscalSupportingDocumentsRequest {
 }
 
 export interface GetFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
@@ -1713,11 +1713,11 @@ export interface GetFixedChargesRequest {
 }
 
 export interface GetFolioRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     guestPayOnly?: boolean;
     includeFolioHistory?: boolean;
     reservationBalanceOnly?: boolean;
@@ -1739,10 +1739,10 @@ export interface GetFolioRequest {
 }
 
 export interface GetFolioHistoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idContext?: string;
     type?: string;
@@ -1775,10 +1775,10 @@ export interface GetFolioHistoryRequest {
 }
 
 export interface GetFolioPrintersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     allFolioWindow?: boolean;
     correction?: boolean;
     debitFolio?: boolean;
@@ -1809,11 +1809,11 @@ export interface GetFolioPrintersRequest {
 }
 
 export interface GetFolioTaxPaymentsInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioWindowNo?: number;
     cashierId?: number;
     description?: string;
@@ -1922,10 +1922,10 @@ export interface GetFolioTaxPaymentsInfoRequest {
 }
 
 export interface GetFolioTransactionDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     transactionNo?: Array<number>;
     includeExchangeInformation?: boolean;
@@ -1934,10 +1934,10 @@ export interface GetFolioTransactionDetailsRequest {
 }
 
 export interface GetFolioTypeNameRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     internalFolioWindowId?: string;
     languageCode?: string;
     folioTypeName?: string;
@@ -1947,10 +1947,10 @@ export interface GetFolioTypeNameRequest {
 }
 
 export interface GetFolioTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeCompress?: boolean;
     includeCredit?: boolean;
     folioType?: string;
@@ -1959,21 +1959,21 @@ export interface GetFolioTypesRequest {
 }
 
 export interface GetGamingRequestStatusInfoRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetGuestsTransactionsRequest {
-    hotelId?: string;
-    reservationList?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationList: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     includeTransactionsWithARInvoiceNo?: boolean;
     includeTransactionsWithFolioNo?: boolean;
@@ -2006,41 +2006,41 @@ export interface GetGuestsTransactionsRequest {
 }
 
 export interface GetHotelCreditCardWalletRequest {
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHotelRevenueRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     businessDate?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetMaturedDepositsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetPostBillingChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     folioWindowNo?: Array<number>;
     chargeCashierId?: Array<number>;
@@ -2067,11 +2067,11 @@ export interface GetPostBillingChargesRequest {
 }
 
 export interface GetPostingActivityDetailRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     module?: string;
@@ -2089,10 +2089,10 @@ export interface GetPostingActivityDetailRequest {
 }
 
 export interface GetPostingSummaryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     postingDate?: Date;
     checkPostings?: boolean;
@@ -2105,12 +2105,12 @@ export interface GetPostingSummaryRequest {
 }
 
 export interface GetPostingsForRefreshRequest {
-    targetReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    targetReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     targetResvNameIdContext?: string;
@@ -2160,10 +2160,10 @@ export interface GetPostingsForRefreshRequest {
 }
 
 export interface GetReceiptHistoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fromDate?: Date;
     toDate?: Date;
     name?: string;
@@ -2176,21 +2176,21 @@ export interface GetReceiptHistoryRequest {
 }
 
 export interface GetReservationPackageOptionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetReservationRevenueBucketTotalsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     revenueBucketType?: string;
@@ -2200,9 +2200,9 @@ export interface GetReservationRevenueBucketTotalsRequest {
 }
 
 export interface GetRoundingDifferenceRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: GetRoundingDifferenceEventEnum;
     folioWindowNo?: number;
     internalFolioWindowID?: string;
@@ -2256,11 +2256,11 @@ export interface GetRoundingDifferenceRequest {
 }
 
 export interface GetRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     includeWindowRouting?: boolean;
     includeRoomRouting?: boolean;
@@ -2272,11 +2272,11 @@ export interface GetRoutingInstructionsRequest {
 }
 
 export interface GetStoredFolioDetailsRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fiscalBillNo?: string;
     folioDate?: Date;
     folioStatus?: GetStoredFolioDetailsFolioStatusEnum;
@@ -2288,10 +2288,10 @@ export interface GetStoredFolioDetailsRequest {
 }
 
 export interface GetTransactionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: GetTransactionCodesEventEnum;
     includeArticles?: boolean;
     userRoleTransactions?: boolean;
@@ -2312,10 +2312,10 @@ export interface GetTransactionCodesRequest {
 }
 
 export interface GetValidateFiscalPrintingDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioView?: number;
     folioType?: string;
     id?: string;
@@ -2328,11 +2328,11 @@ export interface GetValidateFiscalPrintingDetailsRequest {
 }
 
 export interface GetfetchStagedTransactionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId2?: string;
     folioWindowNo?: number;
     xExternalsystem?: string;
@@ -2340,680 +2340,680 @@ export interface GetfetchStagedTransactionsRequest {
 }
 
 export interface IsDepositRefundEligibleRequest {
-    transactionId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface LinkReservationPackageAllowanceOperationRequest {
-    destinationReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    linkReservationPackageAllowance?: LinkReservationPackageAllowanceRequest;
+export interface LinkReservationPackageAllowanceRequest {
+    destinationReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    linkReservationPackageAllowance: LinkReservationPackageAllowance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAdvanceFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchAdvanceFolio?: PostAdvanceFolioRequest;
+export interface PostAdvanceFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchAdvanceFolio: BatchAdvanceFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAdvanceRoomChargesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    advanceRoomCharges?: PostAdvanceRoomChargesRequest;
+export interface PostAdvanceRoomChargesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    advanceRoomCharges: AdvanceRoomCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostArticlesSaleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    articlesSaleCriteria?: PostArticlesSaleRequest;
+export interface PostArticlesSaleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    articlesSaleCriteria: ArticlesSaleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAutoCheckoutReservationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchAutoCheckoutReservation?: PostAutoCheckoutReservationsRequest;
+export interface PostAutoCheckoutReservationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchAutoCheckoutReservation: BatchAutoCheckoutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAwardTransactionOperationRequest {
-    hotelId?: string;
-    reservationId?: number;
-    membershipId?: number;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    awardDetails?: PostAwardTransactionRequest;
+export interface PostAwardTransactionRequest {
+    hotelId: string;
+    reservationId: number;
+    membershipId: number;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    awardDetails: AwardPaymentDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBatchAutoSettlementOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchAutoSettlementCriteria?: PostBatchAutoSettlementRequest;
+export interface PostBatchAutoSettlementRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchAutoSettlementCriteria: BatchAutoSettlementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBatchCCSettlementsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccBatchSettlementsProcessCriteria?: PostBatchCCSettlementsRequest;
+export interface PostBatchCCSettlementsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccBatchSettlementsProcessCriteria: CcBatchSettlementsProcessCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBatchDepositOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchDeposit?: PostBatchDepositRequest;
+export interface PostBatchDepositRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchDeposit: BatchDeposit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBedTaxInfoOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTaxCriteria?: PostBedTaxInfoRequest;
+export interface PostBedTaxInfoRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTaxCriteria: BedTaxCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBillingChargesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingCharges?: PostBillingChargesRequest;
+export interface PostBillingChargesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingCharges: BillingCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBillingChargesInBatchOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingChargesInBatchCriteria?: PostBillingChargesInBatchRequest;
+export interface PostBillingChargesInBatchRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingChargesInBatchCriteria: BillingChargesInBatchCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBillingCheckChargesOperationRequest {
-    checkNumber?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingCheckChargesCriteria?: PostBillingCheckChargesRequest;
+export interface PostBillingCheckChargesRequest {
+    checkNumber: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingCheckChargesCriteria: BillingCheckChargesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBillingPaymentOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingPayment?: PostBillingPaymentRequest;
+export interface PostBillingPaymentRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingPayment: BillingPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCCSettlementOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccSettlementCriteria?: PostCCSettlementRequest;
+export interface PostCCSettlementRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccSettlementCriteria: CcSettlementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCheckOutOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservation?: PostCheckOutRequest;
+export interface PostCheckOutRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservation: Reservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCompRedemptionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postCompRedemptions?: PostCompRedemptionsRequest;
+export interface PostCompRedemptionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postCompRedemptions: PostCompRedemptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCompTransactionOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    compTransactionCriteria?: PostCompTransactionRequest;
+export interface PostCompTransactionRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    compTransactionCriteria: CompTransactionCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCreditBillOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditBillCriteria?: PostCreditBillRequest;
+export interface PostCreditBillRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditBillCriteria: CreditBillCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCreditLimitOveragePaymentsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditLimitOveragePayments?: PostCreditLimitOveragePaymentsRequest;
+export interface PostCreditLimitOveragePaymentsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditLimitOveragePayments: CreditLimitOveragePayments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostDeferredTaxesProcessOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    deferredTaxesProcess?: PostDeferredTaxesProcessRequest;
+export interface PostDeferredTaxesProcessRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    deferredTaxesProcess: DeferredTaxesProcess;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostDepositFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositFolioCriteria?: PostDepositFolioRequest;
+export interface PostDepositFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositFolioCriteria: DepositFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostDepositPaymentRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPayment?: PostDepositPaymentByExtIdRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPayment: DepositPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostDepositPaymentByExtIdOperationRequest {
-    reservationId?: string;
-    externalSysCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPayment?: PostDepositPaymentByExtIdRequest;
+export interface PostDepositPaymentByExtIdRequest {
+    reservationId: string;
+    externalSysCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPayment: DepositPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostFBAReimbursementOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fbaReimbursementCriteria?: PostFBAReimbursementRequest;
+export interface PostFBAReimbursementRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fbaReimbursementCriteria: FbaReimbursementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostFBASettlementRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fbaReimbursementCriteria?: PostFBAReimbursementRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fbaReimbursementCriteria: FbaReimbursementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostFiscalCommandInvoiceOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalFolioCriteria?: PostFiscalCommandInvoiceRequest;
+export interface PostFiscalCommandInvoiceRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalFolioCriteria: FiscalFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostFiscalInfoOperationRequest {
-    hotelId?: string;
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postFiscalInfoType?: PostFiscalInfoRequest;
+export interface PostFiscalInfoRequest {
+    hotelId: string;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postFiscalInfoType: PostFiscalInfoType;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostFiscalInvoiceRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalFolioCriteria?: PostFiscalCommandInvoiceRequest;
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalFolioCriteria: FiscalFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fixedCharges?: UpdateFixedChargesRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fixedCharges: FixedCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostForeignCurrencyExchangeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    foreignCurrencyExchange?: PostForeignCurrencyExchangeRequest;
+export interface PostForeignCurrencyExchangeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    foreignCurrencyExchange: ForeignCurrencyExchange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostGuestCheckDetailsOperationRequest {
-    checkNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestCheckDetails?: PostGuestCheckDetailsRequest;
+export interface PostGuestCheckDetailsRequest {
+    checkNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestCheckDetails: GuestCheckDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostPasserBySaleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    passerBySalesCriteria?: PostPasserBySaleRequest;
+export interface PostPasserBySaleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    passerBySalesCriteria: PasserBySalesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostPrepaidCardsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    prepaidCardCriteria?: PostPrepaidCardsRequest;
+export interface PostPrepaidCardsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    prepaidCardCriteria: PrepaidCardCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostProformaOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationFolio?: PostProformaRequest;
+export interface PostProformaRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationFolio: ReservationFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRateCodeOperationRequest {
-    rateCode?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postRateCodeCriteria?: PostRateCodeRequest;
+export interface PostRateCodeRequest {
+    rateCode: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postRateCodeCriteria: PostRateCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostReversePaymentOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    paymentReversalCriteria?: PostReversePaymentRequest;
+export interface PostReversePaymentRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    paymentReversalCriteria: PaymentReversalCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomAndTaxForDayUseOperationRequest {
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postRoomAndTaxForDayUse?: PostRoomAndTaxForDayUseRequest;
+export interface PostRoomAndTaxForDayUseRequest {
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postRoomAndTaxForDayUse: PostRoomAndTaxForDayUse;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostStoredFolioDetailsOperationRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    storedFolioDetails?: PostStoredFolioDetailsRequest;
+export interface PostStoredFolioDetailsRequest {
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    storedFolioDetails: StoredFolioDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostSupplementalFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postSupplementalFolio?: PostSupplementalFolioRequest;
+export interface PostSupplementalFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postSupplementalFolio: PostSupplementalFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostZeroBalanceCheckoutReservationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchZeroBalanceCheckoutReservation?: PostZeroBalanceCheckoutReservationsRequest;
+export interface PostZeroBalanceCheckoutReservationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchZeroBalanceCheckoutReservation: BatchZeroBalanceCheckoutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ProcessFiscalRetryOperationRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    processFiscalRetry?: ProcessFiscalRetryRequest;
+export interface ProcessFiscalRetryRequest {
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    processFiscalRetry: ProcessFiscalRetry;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ProcessReservationDepositOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationDepositCriteria?: ProcessReservationDepositRequest;
+export interface ProcessReservationDepositRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationDepositCriteria: ReservationDepositCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ProcessRoomRoutingRefreshOperationRequest {
-    targetReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRoutingRefresh?: ProcessRoomRoutingRefreshRequest;
+export interface ProcessRoomRoutingRefreshRequest {
+    targetReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRoutingRefresh: RoomRoutingRefresh;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBedTaxInfoRequest {
-    taxRegistraitionNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTaxCriteria?: PostBedTaxInfoRequest;
+    taxRegistraitionNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTaxCriteria: BedTaxCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBillingChargeOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingCharge?: PutBillingChargeRequest;
+export interface PutBillingChargeRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingCharge: BillingCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBillingChargesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    putBillingCharges?: PutBillingChargesRequest;
+export interface PutBillingChargesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    putBillingCharges: PutBillingCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutCashierOperationRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierClosure?: PutCashierRequest;
+export interface PutCashierRequest {
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierClosure: CashierClosure;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutCashierLockOperationRequest {
-    lockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierLockCriteriaToExtend?: PutCashierLockRequest;
+export interface PutCashierLockRequest {
+    lockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierLockCriteriaToExtend: CashierLockCriteriaToExtend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutForEarlyDepartureOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    earlyDeparture?: PutForEarlyDepartureRequest;
+export interface PutForEarlyDepartureRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    earlyDeparture: EarlyDeparture;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutPayeeTaxNumberOperationRequest {
-    payeeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    payeeTaxNumber?: PutPayeeTaxNumberRequest;
+export interface PutPayeeTaxNumberRequest {
+    payeeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    payeeTaxNumber: PayeeTaxNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutReservationDepositTransferOperationRequest {
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositTransferCriteria?: PutReservationDepositTransferRequest;
+export interface PutReservationDepositTransferRequest {
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositTransferCriteria: DepositTransferCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoutingInstructionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructions?: PutRoutingInstructionsRequest;
+export interface PutRoutingInstructionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface RedeemPrepaidCardsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    redeemPrepaidCards?: RedeemPrepaidCardsRequest;
+export interface RedeemPrepaidCardsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    redeemPrepaidCards: RedeemPrepaidCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface RegisterManualAuthorizationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccManualAuthorizationCriteria?: RegisterManualAuthorizationRequest;
+export interface RegisterManualAuthorizationRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccManualAuthorizationCriteria: CcManualAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface RegisterVaultTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    vaultTransaction?: RegisterVaultTransactionRequest;
+export interface RegisterVaultTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    vaultTransaction: VaultTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ReinstateCheckOutOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reinstateCheckedOutReservation?: ReinstateCheckOutRequest;
+export interface ReinstateCheckOutRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reinstateCheckedOutReservation: ReinstateCheckedOutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ReleaseCashierLockRequest {
-    lockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    lockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ReloadPrepaidCardOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reloadPrepaidCard?: ReloadPrepaidCardRequest;
+export interface ReloadPrepaidCardRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reloadPrepaidCard: ReloadPrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveBedTaxInfoRequest {
-    taxRegistraitionNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxRegistraitionNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fixedChargeID?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ResendSupportingDocumentOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalSupportingDocumentCriteria?: ResendSupportingDocumentRequest;
+export interface ResendSupportingDocumentRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalSupportingDocumentCriteria: FiscalSupportingDocumentCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ReverseARInvoiceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reasonCode?: string;
     cashierId?: number;
     transactionCodes?: Array<number>;
@@ -3021,182 +3021,182 @@ export interface ReverseARInvoiceRequest {
     acceptLanguage?: string;
 }
 
-export interface ReverseCertificatePostingsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reverseCertificatePostingsCriteria?: ReverseCertificatePostingsRequest;
+export interface ReverseCertificatePostingsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reverseCertificatePostingsCriteria: ReverseCertificatePostingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ReverseCompRedemptionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reverseCompRedemptions?: ReverseCompRedemptionsRequest;
+export interface ReverseCompRedemptionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reverseCompRedemptions: ReverseCompRedemptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ReverseFlexibleBenefitPostingRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ReverseFolioTaxPaymentOperationRequest {
-    cashierId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionReversal?: ReverseFolioTaxPaymentRequest;
+export interface ReverseFolioTaxPaymentRequest {
+    cashierId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionReversal: TransactionReversal;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SplitAndTransferTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionToSplitAndTransfer?: SplitAndTransferTransactionRequest;
+export interface SplitAndTransferTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionToSplitAndTransfer: TransactionToSplitAndTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SplitDepositTransactionOperationRequest {
-    transactionId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    splitDepositTransaction?: SplitDepositTransactionRequest;
+export interface SplitDepositTransactionRequest {
+    transactionId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    splitDepositTransaction: SplitDepositTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SplitTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionToSplit?: SplitTransactionRequest;
+export interface SplitTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionToSplit: TransactionToSplit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferCompTransactionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transferCompTransactions?: TransferCompTransactionsRequest;
+export interface TransferCompTransactionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transferCompTransactions: TransferCompTransactions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferFolioToWindowOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioToWindow?: TransferFolioToWindowRequest;
+export interface TransferFolioToWindowRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioToWindow: FolioToWindow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferTransactionToReservationOperationRequest {
-    toReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationTransaction?: TransferTransactionToReservationRequest;
+export interface TransferTransactionToReservationRequest {
+    toReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationTransaction: ReservationTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferTransactionToWindowOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionToWindow?: TransferTransactionToWindowRequest;
+export interface TransferTransactionToWindowRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionToWindow: TransactionToWindow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransitionDepositToGuestFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositToGuestFolio?: TransitionDepositToGuestFolioRequest;
+export interface TransitionDepositToGuestFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositToGuestFolio: DepositToGuestFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface UnlinkReservationPackageAllowanceRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface UpdateFixedChargesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fixedCharges?: UpdateFixedChargesRequest;
+export interface UpdateFixedChargesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fixedCharges: FixedCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ValidateCreditBillRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditBillCriteria?: PostCreditBillRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditBillCriteria: CreditBillCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ValidateDepositFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositFolioValidateCriteria?: ValidateDepositFolioRequest;
+export interface ValidateDepositFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositFolioValidateCriteria: DepositFolioValidateCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ValidateTransactionCodesRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: ValidateTransactionCodesEventEnum;
     fiscalBillNo?: string;
     folioDate?: Date;
@@ -3210,11 +3210,11 @@ export interface ValidateTransactionCodesRequest {
 }
 
 export interface VerifyForEarlyDepartureRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ignoreCheckOnTieredRate?: boolean;
     ignoreRateRestriction?: boolean;
     postConsumedAllowanceToGuest?: boolean;
@@ -3227,11 +3227,11 @@ export interface VerifyForEarlyDepartureRequest {
 }
 
 export interface VoidBillingCheckChargesRequest {
-    checkNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    checkNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     revenueDate?: Date;
     amount?: number;
     currencyCode?: string;
@@ -3247,14 +3247,14 @@ export interface VoidBillingCheckChargesRequest {
     acceptLanguage?: string;
 }
 
-export interface VoidFolioOperationRequest {
-    folioId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioToVoid?: VoidFolioRequest;
+export interface VoidFolioRequest {
+    folioId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioToVoid: FolioToVoid;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -3268,7 +3268,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to activate Prepaid Card. <p><strong>OperationId:</strong>activatePrepaidCard</p>
      * Operation to activate prepaid card.
      */
-    async activatePrepaidCardRaw(requestParameters: ActivatePrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivatePrepaidCardStatus>> {
+    async activatePrepaidCardRaw(requestParameters: ActivatePrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivatePrepaidCardStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling activatePrepaidCard.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling activatePrepaidCard.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling activatePrepaidCard.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling activatePrepaidCard.');
+        }
+
+        if (requestParameters.activatePrepaidCard === null || requestParameters.activatePrepaidCard === undefined) {
+            throw new runtime.RequiredError('activatePrepaidCard','Required parameter requestParameters.activatePrepaidCard was null or undefined when calling activatePrepaidCard.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3300,7 +3320,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ActivatePrepaidCardRequestToJSON(requestParameters.activatePrepaidCard),
+            body: ActivatePrepaidCardToJSON(requestParameters.activatePrepaidCard),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ActivatePrepaidCardStatusFromJSON(jsonValue));
@@ -3310,7 +3330,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to activate Prepaid Card. <p><strong>OperationId:</strong>activatePrepaidCard</p>
      * Operation to activate prepaid card.
      */
-    async activatePrepaidCard(requestParameters: ActivatePrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ActivatePrepaidCardStatus> {
+    async activatePrepaidCard(requestParameters: ActivatePrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ActivatePrepaidCardStatus> {
         const response = await this.activatePrepaidCardRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3319,7 +3339,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Adjust Transactions. <p><strong>OperationId:</strong>adjustTransactions</p>
      * Adjust Transactions
      */
-    async adjustTransactionsRaw(requestParameters: AdjustTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustedTransactions>> {
+    async adjustTransactionsRaw(requestParameters: AdjustTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustedTransactions>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling adjustTransactions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling adjustTransactions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling adjustTransactions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling adjustTransactions.');
+        }
+
+        if (requestParameters.transactionsAdjustment === null || requestParameters.transactionsAdjustment === undefined) {
+            throw new runtime.RequiredError('transactionsAdjustment','Required parameter requestParameters.transactionsAdjustment was null or undefined when calling adjustTransactions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3351,7 +3391,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AdjustTransactionsRequestToJSON(requestParameters.transactionsAdjustment),
+            body: TransactionsAdjustmentToJSON(requestParameters.transactionsAdjustment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AdjustedTransactionsFromJSON(jsonValue));
@@ -3361,7 +3401,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Adjust Transactions. <p><strong>OperationId:</strong>adjustTransactions</p>
      * Adjust Transactions
      */
-    async adjustTransactions(requestParameters: AdjustTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustedTransactions> {
+    async adjustTransactions(requestParameters: AdjustTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustedTransactions> {
         const response = await this.adjustTransactionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3370,7 +3410,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to apply final postings on a reservation. <p><strong>OperationId:</strong>applyFinalPostings</p>
      * Apply final Postings
      */
-    async applyFinalPostingsRaw(requestParameters: ApplyFinalPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async applyFinalPostingsRaw(requestParameters: ApplyFinalPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling applyFinalPostings.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling applyFinalPostings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling applyFinalPostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling applyFinalPostings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling applyFinalPostings.');
+        }
+
+        if (requestParameters.finalPostings === null || requestParameters.finalPostings === undefined) {
+            throw new runtime.RequiredError('finalPostings','Required parameter requestParameters.finalPostings was null or undefined when calling applyFinalPostings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3402,7 +3466,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApplyFinalPostingsRequestToJSON(requestParameters.finalPostings),
+            body: FinalPostingsToJSON(requestParameters.finalPostings),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3412,7 +3476,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to apply final postings on a reservation. <p><strong>OperationId:</strong>applyFinalPostings</p>
      * Apply final Postings
      */
-    async applyFinalPostings(requestParameters: ApplyFinalPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async applyFinalPostings(requestParameters: ApplyFinalPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.applyFinalPostingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3421,7 +3485,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to apply flexible benefit postings. <p><strong>OperationId:</strong>applyFlexibleBenefitPostings</p>
      * Apply flexible benefit postings
      */
-    async applyFlexibleBenefitPostingsRaw(requestParameters: ApplyFlexibleBenefitPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async applyFlexibleBenefitPostingsRaw(requestParameters: ApplyFlexibleBenefitPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling applyFlexibleBenefitPostings.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling applyFlexibleBenefitPostings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling applyFlexibleBenefitPostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling applyFlexibleBenefitPostings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling applyFlexibleBenefitPostings.');
+        }
+
+        if (requestParameters.flexibleBenefitPostingsCriteria === null || requestParameters.flexibleBenefitPostingsCriteria === undefined) {
+            throw new runtime.RequiredError('flexibleBenefitPostingsCriteria','Required parameter requestParameters.flexibleBenefitPostingsCriteria was null or undefined when calling applyFlexibleBenefitPostings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3453,7 +3541,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ApplyFlexibleBenefitPostingsRequestToJSON(requestParameters.flexibleBenefitPostingsCriteria),
+            body: FlexibleBenefitPostingsCriteriaToJSON(requestParameters.flexibleBenefitPostingsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3463,7 +3551,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to apply flexible benefit postings. <p><strong>OperationId:</strong>applyFlexibleBenefitPostings</p>
      * Apply flexible benefit postings
      */
-    async applyFlexibleBenefitPostings(requestParameters: ApplyFlexibleBenefitPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async applyFlexibleBenefitPostings(requestParameters: ApplyFlexibleBenefitPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.applyFlexibleBenefitPostingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3472,7 +3560,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to attach Deposit Policy to Payment. <p><strong>OperationId:</strong>attachDepositPolicyToPayment</p>
      * Attach Deposit Policy to Payment
      */
-    async attachDepositPolicyToPaymentRaw(requestParameters: AttachDepositPolicyToPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async attachDepositPolicyToPaymentRaw(requestParameters: AttachDepositPolicyToPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling attachDepositPolicyToPayment.');
+        }
+
+        if (requestParameters.policyId === null || requestParameters.policyId === undefined) {
+            throw new runtime.RequiredError('policyId','Required parameter requestParameters.policyId was null or undefined when calling attachDepositPolicyToPayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling attachDepositPolicyToPayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling attachDepositPolicyToPayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling attachDepositPolicyToPayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling attachDepositPolicyToPayment.');
+        }
+
+        if (requestParameters.attachPolicyApplyCriteria === null || requestParameters.attachPolicyApplyCriteria === undefined) {
+            throw new runtime.RequiredError('attachPolicyApplyCriteria','Required parameter requestParameters.attachPolicyApplyCriteria was null or undefined when calling attachDepositPolicyToPayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3504,7 +3620,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AttachDepositPolicyToPaymentRequestToJSON(requestParameters.attachPolicyApplyCriteria),
+            body: AttachPolicyApplyCriteriaToJSON(requestParameters.attachPolicyApplyCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3514,7 +3630,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to attach Deposit Policy to Payment. <p><strong>OperationId:</strong>attachDepositPolicyToPayment</p>
      * Attach Deposit Policy to Payment
      */
-    async attachDepositPolicyToPayment(requestParameters: AttachDepositPolicyToPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async attachDepositPolicyToPayment(requestParameters: AttachDepositPolicyToPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.attachDepositPolicyToPaymentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3524,6 +3640,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Authorize Credit Card Amount
      */
     async authorizeCreditCardAmountRaw(requestParameters: AuthorizeCreditCardAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationInfo>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling authorizeCreditCardAmount.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling authorizeCreditCardAmount.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling authorizeCreditCardAmount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling authorizeCreditCardAmount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling authorizeCreditCardAmount.');
+        }
+
+        if (requestParameters.ccAuthorizationCriteria === null || requestParameters.ccAuthorizationCriteria === undefined) {
+            throw new runtime.RequiredError('ccAuthorizationCriteria','Required parameter requestParameters.ccAuthorizationCriteria was null or undefined when calling authorizeCreditCardAmount.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3555,7 +3695,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AuthorizeCreditCardAmountByProfileRequestToJSON(requestParameters.ccAuthorizationCriteria),
+            body: CcAuthorizationCriteriaToJSON(requestParameters.ccAuthorizationCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AuthorizationInfoFromJSON(jsonValue));
@@ -3574,7 +3714,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to authorize Credit Card Amount by Profile. <p><strong>OperationId:</strong>authorizeCreditCardAmountByProfile</p>
      * Authorize Credit Card Amount by Profile
      */
-    async authorizeCreditCardAmountByProfileRaw(requestParameters: AuthorizeCreditCardAmountByProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationInfo>> {
+    async authorizeCreditCardAmountByProfileRaw(requestParameters: AuthorizeCreditCardAmountByProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationInfo>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling authorizeCreditCardAmountByProfile.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling authorizeCreditCardAmountByProfile.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling authorizeCreditCardAmountByProfile.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling authorizeCreditCardAmountByProfile.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling authorizeCreditCardAmountByProfile.');
+        }
+
+        if (requestParameters.ccAuthorizationCriteria === null || requestParameters.ccAuthorizationCriteria === undefined) {
+            throw new runtime.RequiredError('ccAuthorizationCriteria','Required parameter requestParameters.ccAuthorizationCriteria was null or undefined when calling authorizeCreditCardAmountByProfile.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3606,7 +3770,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AuthorizeCreditCardAmountByProfileRequestToJSON(requestParameters.ccAuthorizationCriteria),
+            body: CcAuthorizationCriteriaToJSON(requestParameters.ccAuthorizationCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AuthorizationInfoFromJSON(jsonValue));
@@ -3616,7 +3780,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to authorize Credit Card Amount by Profile. <p><strong>OperationId:</strong>authorizeCreditCardAmountByProfile</p>
      * Authorize Credit Card Amount by Profile
      */
-    async authorizeCreditCardAmountByProfile(requestParameters: AuthorizeCreditCardAmountByProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizationInfo> {
+    async authorizeCreditCardAmountByProfile(requestParameters: AuthorizeCreditCardAmountByProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizationInfo> {
         const response = await this.authorizeCreditCardAmountByProfileRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3625,7 +3789,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to auto Settle CompFolios <p><strong>OperationId:</strong>autoSettleCompFolios</p>
      * Operation to auto settle comp folios.
      */
-    async autoSettleCompFoliosRaw(requestParameters: AutoSettleCompFoliosOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoSettleCompFoliosStatus>> {
+    async autoSettleCompFoliosRaw(requestParameters: AutoSettleCompFoliosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoSettleCompFoliosStatus>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling autoSettleCompFolios.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling autoSettleCompFolios.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling autoSettleCompFolios.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling autoSettleCompFolios.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling autoSettleCompFolios.');
+        }
+
+        if (requestParameters.autoSettleCompFolios === null || requestParameters.autoSettleCompFolios === undefined) {
+            throw new runtime.RequiredError('autoSettleCompFolios','Required parameter requestParameters.autoSettleCompFolios was null or undefined when calling autoSettleCompFolios.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3657,7 +3845,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AutoSettleCompFoliosRequestToJSON(requestParameters.autoSettleCompFolios),
+            body: AutoSettleCompFoliosToJSON(requestParameters.autoSettleCompFolios),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AutoSettleCompFoliosStatusFromJSON(jsonValue));
@@ -3667,7 +3855,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to auto Settle CompFolios <p><strong>OperationId:</strong>autoSettleCompFolios</p>
      * Operation to auto settle comp folios.
      */
-    async autoSettleCompFolios(requestParameters: AutoSettleCompFoliosOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoSettleCompFoliosStatus> {
+    async autoSettleCompFolios(requestParameters: AutoSettleCompFoliosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoSettleCompFoliosStatus> {
         const response = await this.autoSettleCompFoliosRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3677,6 +3865,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Break Cashier Lock
      */
     async breakCashierLockRaw(requestParameters: BreakCashierLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
+            throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling breakCashierLock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling breakCashierLock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling breakCashierLock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling breakCashierLock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3724,7 +3928,23 @@ export class CashieringApi extends runtime.BaseAPI {
      * This API will allow you to Calculate Foreign Currency exchange. <p><strong>OperationId:</strong>calculateForeignCurrency</p>
      * Calculate Foreign Currency
      */
-    async calculateForeignCurrencyRaw(requestParameters: CalculateForeignCurrencyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculatedForeignCurrency>> {
+    async calculateForeignCurrencyRaw(requestParameters: CalculateForeignCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculatedForeignCurrency>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling calculateForeignCurrency.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling calculateForeignCurrency.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling calculateForeignCurrency.');
+        }
+
+        if (requestParameters.foreignCurrencyCriteria === null || requestParameters.foreignCurrencyCriteria === undefined) {
+            throw new runtime.RequiredError('foreignCurrencyCriteria','Required parameter requestParameters.foreignCurrencyCriteria was null or undefined when calling calculateForeignCurrency.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3756,7 +3976,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CalculateForeignCurrencyRequestToJSON(requestParameters.foreignCurrencyCriteria),
+            body: ForeignCurrencyCriteriaToJSON(requestParameters.foreignCurrencyCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CalculatedForeignCurrencyFromJSON(jsonValue));
@@ -3766,7 +3986,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * This API will allow you to Calculate Foreign Currency exchange. <p><strong>OperationId:</strong>calculateForeignCurrency</p>
      * Calculate Foreign Currency
      */
-    async calculateForeignCurrency(requestParameters: CalculateForeignCurrencyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculatedForeignCurrency> {
+    async calculateForeignCurrency(requestParameters: CalculateForeignCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculatedForeignCurrency> {
         const response = await this.calculateForeignCurrencyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3775,7 +3995,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to cancel PrepaidCard Transaction. <p><strong>OperationId:</strong>cancelPrepaidCardTransaction</p>
      * Operation to cancel prepaid card transaction.
      */
-    async cancelPrepaidCardTransactionRaw(requestParameters: CancelPrepaidCardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancelPrepaidCardTransactionStatus>> {
+    async cancelPrepaidCardTransactionRaw(requestParameters: CancelPrepaidCardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancelPrepaidCardTransactionStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling cancelPrepaidCardTransaction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling cancelPrepaidCardTransaction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling cancelPrepaidCardTransaction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling cancelPrepaidCardTransaction.');
+        }
+
+        if (requestParameters.cancelPrepaidCardTransaction === null || requestParameters.cancelPrepaidCardTransaction === undefined) {
+            throw new runtime.RequiredError('cancelPrepaidCardTransaction','Required parameter requestParameters.cancelPrepaidCardTransaction was null or undefined when calling cancelPrepaidCardTransaction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3807,7 +4047,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CancelPrepaidCardTransactionRequestToJSON(requestParameters.cancelPrepaidCardTransaction),
+            body: CancelPrepaidCardTransactionToJSON(requestParameters.cancelPrepaidCardTransaction),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CancelPrepaidCardTransactionStatusFromJSON(jsonValue));
@@ -3817,7 +4057,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to cancel PrepaidCard Transaction. <p><strong>OperationId:</strong>cancelPrepaidCardTransaction</p>
      * Operation to cancel prepaid card transaction.
      */
-    async cancelPrepaidCardTransaction(requestParameters: CancelPrepaidCardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CancelPrepaidCardTransactionStatus> {
+    async cancelPrepaidCardTransaction(requestParameters: CancelPrepaidCardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CancelPrepaidCardTransactionStatus> {
         const response = await this.cancelPrepaidCardTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3826,7 +4066,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to cashOut Prepaid Card. <p><strong>OperationId:</strong>cashOutPrepaidCard</p>
      * Operation to cash out prepaid card.
      */
-    async cashOutPrepaidCardRaw(requestParameters: CashOutPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashOutPrepaidCardStatus>> {
+    async cashOutPrepaidCardRaw(requestParameters: CashOutPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashOutPrepaidCardStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling cashOutPrepaidCard.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling cashOutPrepaidCard.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling cashOutPrepaidCard.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling cashOutPrepaidCard.');
+        }
+
+        if (requestParameters.cashOutPrepaidCard === null || requestParameters.cashOutPrepaidCard === undefined) {
+            throw new runtime.RequiredError('cashOutPrepaidCard','Required parameter requestParameters.cashOutPrepaidCard was null or undefined when calling cashOutPrepaidCard.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3858,7 +4118,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CashOutPrepaidCardRequestToJSON(requestParameters.cashOutPrepaidCard),
+            body: CashOutPrepaidCardToJSON(requestParameters.cashOutPrepaidCard),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CashOutPrepaidCardStatusFromJSON(jsonValue));
@@ -3868,7 +4128,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to cashOut Prepaid Card. <p><strong>OperationId:</strong>cashOutPrepaidCard</p>
      * Operation to cash out prepaid card.
      */
-    async cashOutPrepaidCard(requestParameters: CashOutPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashOutPrepaidCardStatus> {
+    async cashOutPrepaidCard(requestParameters: CashOutPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashOutPrepaidCardStatus> {
         const response = await this.cashOutPrepaidCardRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3877,7 +4137,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Billing Payment. <p><strong>OperationId:</strong>changeBillingPayment</p>
      * Change Billing Payment
      */
-    async changeBillingPaymentRaw(requestParameters: ChangeBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeBillingPaymentRaw(requestParameters: ChangeBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling changeBillingPayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeBillingPayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeBillingPayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeBillingPayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeBillingPayment.');
+        }
+
+        if (requestParameters.billingPaymentToChange === null || requestParameters.billingPaymentToChange === undefined) {
+            throw new runtime.RequiredError('billingPaymentToChange','Required parameter requestParameters.billingPaymentToChange was null or undefined when calling changeBillingPayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3909,7 +4193,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeBillingPaymentRequestToJSON(requestParameters.billingPaymentToChange),
+            body: BillingPaymentToChangeToJSON(requestParameters.billingPaymentToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3919,7 +4203,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Billing Payment. <p><strong>OperationId:</strong>changeBillingPayment</p>
      * Change Billing Payment
      */
-    async changeBillingPayment(requestParameters: ChangeBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeBillingPayment(requestParameters: ChangeBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeBillingPaymentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3928,7 +4212,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to update routing instructions for a specified reservation. <p><strong>OperationId:</strong>changeRoutingInstructions</p>
      * Change routing instructions
      */
-    async changeRoutingInstructionsRaw(requestParameters: ChangeRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedRoutingInstructions>> {
+    async changeRoutingInstructionsRaw(requestParameters: ChangeRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedRoutingInstructions>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling changeRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeRoutingInstructions.');
+        }
+
+        if (requestParameters.routingInstructionsToChange === null || requestParameters.routingInstructionsToChange === undefined) {
+            throw new runtime.RequiredError('routingInstructionsToChange','Required parameter requestParameters.routingInstructionsToChange was null or undefined when calling changeRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3960,7 +4268,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeRoutingInstructionsRequestToJSON(requestParameters.routingInstructionsToChange),
+            body: RoutingInstructionsToChangeToJSON(requestParameters.routingInstructionsToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedRoutingInstructionsFromJSON(jsonValue));
@@ -3970,7 +4278,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to update routing instructions for a specified reservation. <p><strong>OperationId:</strong>changeRoutingInstructions</p>
      * Change routing instructions
      */
-    async changeRoutingInstructions(requestParameters: ChangeRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedRoutingInstructions> {
+    async changeRoutingInstructions(requestParameters: ChangeRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedRoutingInstructions> {
         const response = await this.changeRoutingInstructionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3980,6 +4288,34 @@ export class CashieringApi extends runtime.BaseAPI {
      * Change posted rate codes
      */
     async checkPostRateCodeRaw(requestParameters: CheckPostRateCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckedRateCode>> {
+        if (requestParameters.rateCode === null || requestParameters.rateCode === undefined) {
+            throw new runtime.RequiredError('rateCode','Required parameter requestParameters.rateCode was null or undefined when calling checkPostRateCode.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling checkPostRateCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling checkPostRateCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling checkPostRateCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling checkPostRateCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling checkPostRateCode.');
+        }
+
+        if (requestParameters.postRateCodeCriteria === null || requestParameters.postRateCodeCriteria === undefined) {
+            throw new runtime.RequiredError('postRateCodeCriteria','Required parameter requestParameters.postRateCodeCriteria was null or undefined when calling checkPostRateCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4011,7 +4347,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRateCodeRequestToJSON(requestParameters.postRateCodeCriteria),
+            body: PostRateCodeCriteriaToJSON(requestParameters.postRateCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CheckedRateCodeFromJSON(jsonValue));
@@ -4030,7 +4366,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to close the Reservation Folio on a reservation. <p><strong>OperationId:</strong>closeReservationFolio</p>
      * Close Reservation Folio
      */
-    async closeReservationFolioRaw(requestParameters: CloseReservationFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async closeReservationFolioRaw(requestParameters: CloseReservationFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling closeReservationFolio.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling closeReservationFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling closeReservationFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling closeReservationFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling closeReservationFolio.');
+        }
+
+        if (requestParameters.closeFolioCriteria === null || requestParameters.closeFolioCriteria === undefined) {
+            throw new runtime.RequiredError('closeFolioCriteria','Required parameter requestParameters.closeFolioCriteria was null or undefined when calling closeReservationFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4062,7 +4422,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CloseReservationFolioRequestToJSON(requestParameters.closeFolioCriteria),
+            body: CloseFolioCriteriaToJSON(requestParameters.closeFolioCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4072,7 +4432,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to close the Reservation Folio on a reservation. <p><strong>OperationId:</strong>closeReservationFolio</p>
      * Close Reservation Folio
      */
-    async closeReservationFolio(requestParameters: CloseReservationFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async closeReservationFolio(requestParameters: CloseReservationFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.closeReservationFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4081,7 +4441,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Convert folio. <p><strong>OperationId:</strong>convertFolio</p>
      * Convert Folio
      */
-    async convertFolioRaw(requestParameters: ConvertFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConvertFolioDetails>> {
+    async convertFolioRaw(requestParameters: ConvertFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConvertFolioDetails>> {
+        if (requestParameters.folioId === null || requestParameters.folioId === undefined) {
+            throw new runtime.RequiredError('folioId','Required parameter requestParameters.folioId was null or undefined when calling convertFolio.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling convertFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling convertFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling convertFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling convertFolio.');
+        }
+
+        if (requestParameters.convertFolioCriteria === null || requestParameters.convertFolioCriteria === undefined) {
+            throw new runtime.RequiredError('convertFolioCriteria','Required parameter requestParameters.convertFolioCriteria was null or undefined when calling convertFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4113,7 +4497,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ConvertFolioRequestToJSON(requestParameters.convertFolioCriteria),
+            body: ConvertFolioCriteriaToJSON(requestParameters.convertFolioCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ConvertFolioDetailsFromJSON(jsonValue));
@@ -4123,7 +4507,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Convert folio. <p><strong>OperationId:</strong>convertFolio</p>
      * Convert Folio
      */
-    async convertFolio(requestParameters: ConvertFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConvertFolioDetails> {
+    async convertFolio(requestParameters: ConvertFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConvertFolioDetails> {
         const response = await this.convertFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4133,6 +4517,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete Advance Folio Transactions
      */
     async deleteAdvanceRoomChargesRaw(requestParameters: DeleteAdvanceRoomChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAdvanceRoomCharges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cashierId !== undefined) {
@@ -4185,6 +4589,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete comp routing instructions
      */
     async deleteCompRoutingInstructionsRaw(requestParameters: DeleteCompRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomRoutingPostings>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteCompRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCompRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCompRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCompRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCompRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.refreshFolio !== undefined) {
@@ -4256,11 +4680,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.creditLimit) {
@@ -4337,6 +4761,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete Folio routing instructions
      */
     async deleteFolioRoutingInstructionsRaw(requestParameters: DeleteFolioRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomRoutingPostings>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteFolioRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteFolioRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFolioRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFolioRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFolioRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.refreshFolio !== undefined) {
@@ -4388,11 +4832,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.creditLimit) {
@@ -4469,6 +4913,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete request routing instructions
      */
     async deleteRequestRoutingInstructionsRaw(requestParameters: DeleteRequestRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomRoutingPostings>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteRequestRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRequestRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRequestRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRequestRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRequestRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.refreshFolio !== undefined) {
@@ -4520,11 +4984,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4573,6 +5037,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete Room routing instructions
      */
     async deleteRoomRoutingInstructionsRaw(requestParameters: DeleteRoomRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomRoutingPostings>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteRoomRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRoomRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.refreshFolio !== undefined) {
@@ -4620,11 +5104,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.creditLimit) {
@@ -4699,8 +5183,29 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to delete routing instructions for a specified reservation.<br><p><strong><mark>This API is deprecated. Please use deleteFolioRoutingInstructions or  deleteRoomRoutingInstructions or deleteCompRoutingInstructions or deleteRequestRoutingInstructions instead</mark></strong></p> <p><strong>OperationId:</strong>deleteRoutingInstructions</p>
      * Delete routing instructions
+     * @deprecated
      */
     async deleteRoutingInstructionsRaw(requestParameters: DeleteRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4738,6 +5243,7 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to delete routing instructions for a specified reservation.<br><p><strong><mark>This API is deprecated. Please use deleteFolioRoutingInstructions or  deleteRoomRoutingInstructions or deleteCompRoutingInstructions or deleteRequestRoutingInstructions instead</mark></strong></p> <p><strong>OperationId:</strong>deleteRoutingInstructions</p>
      * Delete routing instructions
+     * @deprecated
      */
     async deleteRoutingInstructions(requestParameters: DeleteRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.deleteRoutingInstructionsRaw(requestParameters, initOverrides);
@@ -4748,7 +5254,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to detach Deposit Policy from Payment. <p><strong>OperationId:</strong>detachDepositPolicyFromPayment</p>
      * Detach Deposit Policy from Payment
      */
-    async detachDepositPolicyFromPaymentRaw(requestParameters: DetachDepositPolicyFromPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async detachDepositPolicyFromPaymentRaw(requestParameters: DetachDepositPolicyFromPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling detachDepositPolicyFromPayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling detachDepositPolicyFromPayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling detachDepositPolicyFromPayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling detachDepositPolicyFromPayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling detachDepositPolicyFromPayment.');
+        }
+
+        if (requestParameters.detachPolicyApplyCriteria === null || requestParameters.detachPolicyApplyCriteria === undefined) {
+            throw new runtime.RequiredError('detachPolicyApplyCriteria','Required parameter requestParameters.detachPolicyApplyCriteria was null or undefined when calling detachDepositPolicyFromPayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4780,7 +5310,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: DetachDepositPolicyFromPaymentRequestToJSON(requestParameters.detachPolicyApplyCriteria),
+            body: DetachPolicyApplyCriteriaToJSON(requestParameters.detachPolicyApplyCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4790,7 +5320,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to detach Deposit Policy from Payment. <p><strong>OperationId:</strong>detachDepositPolicyFromPayment</p>
      * Detach Deposit Policy from Payment
      */
-    async detachDepositPolicyFromPayment(requestParameters: DetachDepositPolicyFromPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async detachDepositPolicyFromPayment(requestParameters: DetachDepositPolicyFromPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.detachDepositPolicyFromPaymentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4799,7 +5329,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Fiscal Information Folio. <p><strong>OperationId:</strong>generateFiscalFolio</p>
      * Create Fiscal Information Folio
      */
-    async generateFiscalFolioRaw(requestParameters: GenerateFiscalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalInformationFolio>> {
+    async generateFiscalFolioRaw(requestParameters: GenerateFiscalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalInformationFolio>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling generateFiscalFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling generateFiscalFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling generateFiscalFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling generateFiscalFolio.');
+        }
+
+        if (requestParameters.fiscalInfoFolioCriteria === null || requestParameters.fiscalInfoFolioCriteria === undefined) {
+            throw new runtime.RequiredError('fiscalInfoFolioCriteria','Required parameter requestParameters.fiscalInfoFolioCriteria was null or undefined when calling generateFiscalFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4831,7 +5381,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: GenerateFiscalFolioRequestToJSON(requestParameters.fiscalInfoFolioCriteria),
+            body: FiscalInfoFolioCriteriaToJSON(requestParameters.fiscalInfoFolioCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FiscalInformationFolioFromJSON(jsonValue));
@@ -4841,7 +5391,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Fiscal Information Folio. <p><strong>OperationId:</strong>generateFiscalFolio</p>
      * Create Fiscal Information Folio
      */
-    async generateFiscalFolio(requestParameters: GenerateFiscalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalInformationFolio> {
+    async generateFiscalFolio(requestParameters: GenerateFiscalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalInformationFolio> {
         const response = await this.generateFiscalFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4850,7 +5400,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to generate folios for a reservation. <p><strong>OperationId:</strong>generateFolio</p>
      * Generate Folios
      */
-    async generateFolioRaw(requestParameters: GenerateFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeneratedFolio>> {
+    async generateFolioRaw(requestParameters: GenerateFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeneratedFolio>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling generateFolio.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling generateFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling generateFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling generateFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling generateFolio.');
+        }
+
+        if (requestParameters.folioCriteria === null || requestParameters.folioCriteria === undefined) {
+            throw new runtime.RequiredError('folioCriteria','Required parameter requestParameters.folioCriteria was null or undefined when calling generateFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4882,7 +5456,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: GenerateFolioRequestToJSON(requestParameters.folioCriteria),
+            body: FolioCriteriaToJSON(requestParameters.folioCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GeneratedFolioFromJSON(jsonValue));
@@ -4892,7 +5466,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to generate folios for a reservation. <p><strong>OperationId:</strong>generateFolio</p>
      * Generate Folios
      */
-    async generateFolio(requestParameters: GenerateFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeneratedFolio> {
+    async generateFolio(requestParameters: GenerateFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeneratedFolio> {
         const response = await this.generateFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4902,6 +5476,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get additional Taxes
      */
     async getAdditionalTaxesRaw(requestParameters: GetAdditionalTaxesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdditionalTaxesDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getAdditionalTaxes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAdditionalTaxes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAdditionalTaxes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAdditionalTaxes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAdditionalTaxes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -4966,6 +5560,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get advance payment balance
      */
     async getAdvancePaymentBalanceRaw(requestParameters: GetAdvancePaymentBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvancePaymentBalance>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getAdvancePaymentBalance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAdvancePaymentBalance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAdvancePaymentBalance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAdvancePaymentBalance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAdvancePaymentBalance.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -4977,7 +5591,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substr(0,10);
+            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.numberOfNights !== undefined) {
@@ -5032,8 +5646,29 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Alert Notices.<br><p><strong><mark>This API is deprecated.</mark></strong></p> <p><strong>OperationId:</strong>getAlerts</p>
      * Get Alert Notices
+     * @deprecated
      */
     async getAlertsRaw(requestParameters: GetAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AlertNotices>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getAlerts.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAlerts.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAlerts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAlerts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAlerts.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.alertArea !== undefined) {
@@ -5075,6 +5710,7 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Alert Notices.<br><p><strong><mark>This API is deprecated.</mark></strong></p> <p><strong>OperationId:</strong>getAlerts</p>
      * Get Alert Notices
+     * @deprecated
      */
     async getAlerts(requestParameters: GetAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AlertNotices> {
         const response = await this.getAlertsRaw(requestParameters, initOverrides);
@@ -5086,6 +5722,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get authorization history
      */
     async getAuthorizationHistoryRaw(requestParameters: GetAuthorizationHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationHistory>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getAuthorizationHistory.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAuthorizationHistory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAuthorizationHistory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAuthorizationHistory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAuthorizationHistory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -5166,14 +5822,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Authorizers Credit Info
      */
     async getAuthorizersCreditInfoRaw(requestParameters: GetAuthorizersCreditInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizersCreditInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAuthorizersCreditInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAuthorizersCreditInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAuthorizersCreditInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAuthorizersCreditInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -5234,6 +5906,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Balance Information
      */
     async getBalanceInfoRaw(requestParameters: GetBalanceInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BalanceInfoCriteria>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBalanceInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBalanceInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBalanceInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBalanceInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.event !== undefined) {
@@ -5373,7 +6061,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substr(0,10);
+            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -5442,6 +6130,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get batch CC Settlements
      */
     async getBatchCCSettlementsRaw(requestParameters: GetBatchCCSettlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CcBatchSettlements>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBatchCCSettlements.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBatchCCSettlements.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBatchCCSettlements.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBatchCCSettlements.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.offlineSettlement !== undefined) {
@@ -5449,7 +6153,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transactionDate !== undefined) {
-            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substr(0,10);
+            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.guestName !== undefined) {
@@ -5506,6 +6210,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Batch CC Settlements Status
      */
     async getBatchCCSettlementsStatusRaw(requestParameters: GetBatchCCSettlementsStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CcBatchSettlementsStatus>> {
+        if (requestParameters.batchId === null || requestParameters.batchId === undefined) {
+            throw new runtime.RequiredError('batchId','Required parameter requestParameters.batchId was null or undefined when calling getBatchCCSettlementsStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBatchCCSettlementsStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBatchCCSettlementsStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBatchCCSettlementsStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBatchCCSettlementsStatus.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.id) {
@@ -5566,10 +6290,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get bed tax information
      */
     async getBedTaxInfoRaw(requestParameters: GetBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BedTaxInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBedTaxInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBedTaxInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBedTaxInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBedTaxInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.arrival !== undefined) {
-            queryParameters['arrival'] = (requestParameters.arrival as any).toISOString().substr(0,10);
+            queryParameters['arrival'] = (requestParameters.arrival as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5618,6 +6358,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Billing (routing) Instruction Codes
      */
     async getBillingInstructionCodesRaw(requestParameters: GetBillingInstructionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingInstructionCodes>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBillingInstructionCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBillingInstructionCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBillingInstructionCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBillingInstructionCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeTransactionCodes !== undefined) {
@@ -5698,6 +6454,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get CC Authorization Instructions
      */
     async getCCAuthorizationInstructionsRaw(requestParameters: GetCCAuthorizationInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CcAuthorizationInstructions>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getCCAuthorizationInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCCAuthorizationInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCCAuthorizationInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCCAuthorizationInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCCAuthorizationInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.evaluateApprovalAmount !== undefined) {
@@ -5789,7 +6565,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -5921,7 +6697,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substr(0,10);
+            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -6010,6 +6786,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get CC Authorization Instructions by Profile
      */
     async getCCAuthorizationInstructionsByProfileRaw(requestParameters: GetCCAuthorizationInstructionsByProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CcAuthorizationInstructions>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getCCAuthorizationInstructionsByProfile.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCCAuthorizationInstructionsByProfile.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCCAuthorizationInstructionsByProfile.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCCAuthorizationInstructionsByProfile.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCCAuthorizationInstructionsByProfile.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.evaluateApprovalAmount !== undefined) {
@@ -6097,7 +6893,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -6229,7 +7025,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substr(0,10);
+            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -6318,6 +7114,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get CC Surcharge Information
      */
     async getCCSurchargeInfoRaw(requestParameters: GetCCSurchargeInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CcSurchargeDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCCSurchargeInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCCSurchargeInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCCSurchargeInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCCSurchargeInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cashierId !== undefined) {
@@ -6369,7 +7181,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -6493,7 +7305,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substr(0,10);
+            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -6578,6 +7390,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Cashier Closure
      */
     async getCashierClosureRaw(requestParameters: GetCashierClosureRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashierClosureDetails>> {
+        if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
+            throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling getCashierClosure.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCashierClosure.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierClosure.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierClosure.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierClosure.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cashierLockHandle !== undefined) {
@@ -6630,6 +7462,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Cashier Closure Information
      */
     async getCashierClosureInfoRaw(requestParameters: GetCashierClosureInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashierClosureInformation>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCashierClosureInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierClosureInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierClosureInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierClosureInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.closureNo !== undefined) {
@@ -6653,7 +7501,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.closureBusinessDate !== undefined) {
-            queryParameters['closureBusinessDate'] = (requestParameters.closureBusinessDate as any).toISOString().substr(0,10);
+            queryParameters['closureBusinessDate'] = (requestParameters.closureBusinessDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6702,6 +7550,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Cashier Closure Reports List
      */
     async getCashierClosureReportsListRaw(requestParameters: GetCashierClosureReportsListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashierClosureReportsList>> {
+        if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
+            throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling getCashierClosureReportsList.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCashierClosureReportsList.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierClosureReportsList.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierClosureReportsList.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierClosureReportsList.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.closureNo !== undefined) {
@@ -6766,6 +7634,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Acquire Cashier Locks
      */
     async getCashierLockRaw(requestParameters: GetCashierLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AcquiredCashierLock>> {
+        if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
+            throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling getCashierLock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierLock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierLock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierLock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6814,6 +7698,18 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Cashier Report Postings
      */
     async getCashierReportPostingsRaw(requestParameters: GetCashierReportPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashierReportPostingsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierReportPostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierReportPostings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierReportPostings.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -6821,11 +7717,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -6902,6 +7798,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Cashier Transactions
      */
     async getCashierTransactionsRaw(requestParameters: GetCashierTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashierTransactionsDetails>> {
+        if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
+            throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling getCashierTransactions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierTransactions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierTransactions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierTransactions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.closureNo !== undefined) {
@@ -6966,6 +7878,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get check details
      */
     async getCheckDetailsRaw(requestParameters: GetCheckDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckDetails>> {
+        if (requestParameters.checkNumber === null || requestParameters.checkNumber === undefined) {
+            throw new runtime.RequiredError('checkNumber','Required parameter requestParameters.checkNumber was null or undefined when calling getCheckDetails.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCheckDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCheckDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCheckDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCheckDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7012,8 +7944,21 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Comp Accounting Journal. <br><p><strong><mark>This API is deprecated. Please use getCompPostingJournal instead</mark></strong></p> <p><strong>OperationId:</strong>getCompAccountingJournal</p>
      * Get Comp Accounting Journal
+     * @deprecated
      */
     async getCompAccountingJournalRaw(requestParameters: GetCompAccountingJournalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompAccountingJournal>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompAccountingJournal.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompAccountingJournal.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompAccountingJournal.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -7025,11 +7970,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -7115,6 +8060,7 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Comp Accounting Journal. <br><p><strong><mark>This API is deprecated. Please use getCompPostingJournal instead</mark></strong></p> <p><strong>OperationId:</strong>getCompAccountingJournal</p>
      * Get Comp Accounting Journal
+     * @deprecated
      */
     async getCompAccountingJournal(requestParameters: GetCompAccountingJournalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompAccountingJournal> {
         const response = await this.getCompAccountingJournalRaw(requestParameters, initOverrides);
@@ -7126,6 +8072,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Comp Accounting Journal
      */
     async getCompPostingJournalRaw(requestParameters: GetCompPostingJournalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompAccountingJournal>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompPostingJournal.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompPostingJournal.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompPostingJournal.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompPostingJournal.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -7137,11 +8099,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -7234,14 +8196,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Comp Routing Instructions
      */
     async getCompRoutingInstructionsRaw(requestParameters: GetCompRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompRoutingInstructions>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.nameWildcard !== undefined) {
@@ -7330,6 +8308,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Comp Trx Authorizers
      */
     async getCompTrxAuthorizersRaw(requestParameters: GetCompTrxAuthorizersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompTrxAuthorizers>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompTrxAuthorizers.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompTrxAuthorizers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompTrxAuthorizers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCompTrxAuthorizers.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cashierId !== undefined) {
@@ -7426,6 +8420,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Credit Limits Overage Payments
      */
     async getCreditLimitOveragePaymentsRaw(requestParameters: GetCreditLimitOveragePaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditLimitOveragePaymentsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCreditLimitOveragePayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCreditLimitOveragePayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCreditLimitOveragePayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCreditLimitOveragePayments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.guestNameWildCard !== undefined) {
@@ -7486,6 +8496,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Deposit Folio
      */
     async getDepositFolioRaw(requestParameters: GetDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationDepositFolios>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDepositFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDepositFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDepositFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDepositFolio.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -7550,6 +8576,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Deposit Folio Transaction Details
      */
     async getDepositFolioTransactionDetailsRaw(requestParameters: GetDepositFolioTransactionDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositFolioTransactionDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDepositFolioTransactionDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDepositFolioTransactionDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDepositFolioTransactionDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDepositFolioTransactionDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeGenerates !== undefined) {
@@ -7610,6 +8652,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Deposit Maturity Information
      */
     async getDepositMaturityInfoRaw(requestParameters: GetDepositMaturityInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositMaturityDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getDepositMaturityInfo.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDepositMaturityInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDepositMaturityInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDepositMaturityInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDepositMaturityInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cashierId !== undefined) {
@@ -7670,6 +8732,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Eligible Bill Amount
      */
     async getEligibleBillAmountRaw(requestParameters: GetEligibleBillAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AmountEligible>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEligibleBillAmount.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getEligibleBillAmount.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEligibleBillAmount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEligibleBillAmount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEligibleBillAmount.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.folioView !== undefined) {
@@ -7722,6 +8804,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Financial Postings
      */
     async getFinancialPostingsRaw(requestParameters: GetFinancialPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialPostings>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFinancialPostings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFinancialPostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFinancialPostings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFinancialPostings.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -7733,11 +8831,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -7813,7 +8911,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -7914,6 +9012,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Financial Postings with breakdown
      */
     async getFinancialPostingsNetVatRaw(requestParameters: GetFinancialPostingsNetVatRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialPostingsNetVat>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFinancialPostingsNetVat.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getFinancialPostingsNetVat.');
+        }
+
+        if (requestParameters.folioWindowNo === null || requestParameters.folioWindowNo === undefined) {
+            throw new runtime.RequiredError('folioWindowNo','Required parameter requestParameters.folioWindowNo was null or undefined when calling getFinancialPostingsNetVat.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFinancialPostingsNetVat.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFinancialPostingsNetVat.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFinancialPostingsNetVat.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationId !== undefined) {
@@ -7925,11 +9047,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.limit !== undefined) {
@@ -7986,6 +9108,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get the Fiscal Folio Activity for a folio
      */
     async getFiscalFolioActivityRaw(requestParameters: GetFiscalFolioActivityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioActivityDetailsType>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalFolioActivity.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalFolioActivity.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalFolioActivity.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalFolioActivity.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.folioSeqNo !== undefined) {
@@ -8038,6 +9176,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get the Fiscal Folio Activity Response details for a folio
      */
     async getFiscalFolioActivityDetailsRaw(requestParameters: GetFiscalFolioActivityDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioActivityResponseDetailType>> {
+        if (requestParameters.folioSeqNo === null || requestParameters.folioSeqNo === undefined) {
+            throw new runtime.RequiredError('folioSeqNo','Required parameter requestParameters.folioSeqNo was null or undefined when calling getFiscalFolioActivityDetails.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalFolioActivityDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalFolioActivityDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalFolioActivityDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalFolioActivityDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.responseAttemptNo !== undefined) {
@@ -8088,8 +9246,29 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Fiscal Printing Details.<br><p><strong><mark>This API is deprecated. Please use getValidateFiscalPrintingDetails instead</mark></strong></p> <p><strong>OperationId:</strong>getFiscalPrintingDetails</p>
      * Get Fiscal Printing Details
+     * @deprecated
      */
     async getFiscalPrintingDetailsRaw(requestParameters: GetFiscalPrintingDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalCallStatus>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getFiscalPrintingDetails.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalPrintingDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalPrintingDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalPrintingDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalPrintingDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.folioView !== undefined) {
@@ -8151,6 +9330,7 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Fiscal Printing Details.<br><p><strong><mark>This API is deprecated. Please use getValidateFiscalPrintingDetails instead</mark></strong></p> <p><strong>OperationId:</strong>getFiscalPrintingDetails</p>
      * Get Fiscal Printing Details
+     * @deprecated
      */
     async getFiscalPrintingDetails(requestParameters: GetFiscalPrintingDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalCallStatus> {
         const response = await this.getFiscalPrintingDetailsRaw(requestParameters, initOverrides);
@@ -8162,6 +9342,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get supporting documents details.
      */
     async getFiscalSupportingDocumentsRaw(requestParameters: GetFiscalSupportingDocumentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalSupportingDocumentsResponse>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFiscalSupportingDocuments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalSupportingDocuments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalSupportingDocuments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalSupportingDocuments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.surname !== undefined) {
@@ -8177,19 +9373,19 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrivalStartDate !== undefined) {
-            queryParameters['arrivalStartDate'] = (requestParameters.arrivalStartDate as any).toISOString().substr(0,10);
+            queryParameters['arrivalStartDate'] = (requestParameters.arrivalStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.arrivalEndDate !== undefined) {
-            queryParameters['arrivalEndDate'] = (requestParameters.arrivalEndDate as any).toISOString().substr(0,10);
+            queryParameters['arrivalEndDate'] = (requestParameters.arrivalEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.departureStartDate !== undefined) {
-            queryParameters['departureStartDate'] = (requestParameters.departureStartDate as any).toISOString().substr(0,10);
+            queryParameters['departureStartDate'] = (requestParameters.departureStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.departureEndDate !== undefined) {
-            queryParameters['departureEndDate'] = (requestParameters.departureEndDate as any).toISOString().substr(0,10);
+            queryParameters['departureEndDate'] = (requestParameters.departureEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomId !== undefined) {
@@ -8274,6 +9470,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Fixed Charges
      */
     async getFixedChargesRaw(requestParameters: GetFixedChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FixedChargesDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getFixedCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFixedCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFixedCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFixedCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFixedCharges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -8330,6 +9546,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get folios
      */
     async getFolioRaw(requestParameters: GetFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Folio>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getFolio.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolio.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.guestPayOnly !== undefined) {
@@ -8442,6 +9678,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get folio history
      */
     async getFolioHistoryRaw(requestParameters: GetFolioHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioHistoryResponse>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioHistory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioHistory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioHistory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioHistory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {
@@ -8497,7 +9749,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substr(0,10);
+            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.reservationIdId !== undefined) {
@@ -8598,6 +9850,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get folio printers
      */
     async getFolioPrintersRaw(requestParameters: GetFolioPrintersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioPrinters>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioPrinters.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioPrinters.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioPrinters.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioPrinters.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.allFolioWindow !== undefined) {
@@ -8665,7 +9933,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.associatedBillGenerationDate !== undefined) {
-            queryParameters['associatedBillGenerationDate'] = (requestParameters.associatedBillGenerationDate as any).toISOString().substr(0,10);
+            queryParameters['associatedBillGenerationDate'] = (requestParameters.associatedBillGenerationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.folioType !== undefined) {
@@ -8746,6 +10014,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get folio tax payments information
      */
     async getFolioTaxPaymentsInfoRaw(requestParameters: GetFolioTaxPaymentsInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTaxPaymentsInfo>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getFolioTaxPaymentsInfo.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioTaxPaymentsInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioTaxPaymentsInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioTaxPaymentsInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioTaxPaymentsInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.folioWindowNo !== undefined) {
@@ -8801,7 +10089,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -8925,7 +10213,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substr(0,10);
+            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -8989,7 +10277,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transactionDate !== undefined) {
-            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substr(0,10);
+            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.transactionDescription !== undefined) {
@@ -9041,7 +10329,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.paymentDate !== undefined) {
-            queryParameters['paymentDate'] = (requestParameters.paymentDate as any).toISOString().substr(0,10);
+            queryParameters['paymentDate'] = (requestParameters.paymentDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.taxFolioWindowNo) {
@@ -9206,6 +10494,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Folio Transaction Details
      */
     async getFolioTransactionDetailsRaw(requestParameters: GetFolioTransactionDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTransactionDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioTransactionDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioTransactionDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioTransactionDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioTransactionDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeGenerates !== undefined) {
@@ -9266,6 +10570,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Folio Type Name
      */
     async getFolioTypeNameRaw(requestParameters: GetFolioTypeNameRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTypeNameInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioTypeName.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioTypeName.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioTypeName.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioTypeName.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.internalFolioWindowId !== undefined) {
@@ -9330,6 +10650,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Folio Types
      */
     async getFolioTypesRaw(requestParameters: GetFolioTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTypesInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFolioTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFolioTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFolioTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFolioTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeCompress !== undefined) {
@@ -9390,6 +10726,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Gaming Request Status 
      */
     async getGamingRequestStatusInfoRaw(requestParameters: GetGamingRequestStatusInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamingRequestStatusInfo>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling getGamingRequestStatusInfo.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGamingRequestStatusInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGamingRequestStatusInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGamingRequestStatusInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGamingRequestStatusInfo.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9438,6 +10794,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Guests Transactions
      */
     async getGuestsTransactionsRaw(requestParameters: GetGuestsTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestsTransactions>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGuestsTransactions.');
+        }
+
+        if (requestParameters.reservationList === null || requestParameters.reservationList === undefined) {
+            throw new runtime.RequiredError('reservationList','Required parameter requestParameters.reservationList was null or undefined when calling getGuestsTransactions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuestsTransactions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuestsTransactions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuestsTransactions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationList) {
@@ -9525,11 +10901,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.cashierId !== undefined) {
@@ -9598,6 +10974,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * credit card wallet
      */
     async getHotelCreditCardWalletRaw(requestParameters: GetHotelCreditCardWalletRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardWallet>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelCreditCardWallet.');
+        }
+
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getHotelCreditCardWallet.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelCreditCardWallet.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelCreditCardWallet.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelCreditCardWallet.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9646,10 +11042,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Hotel Revenue
      */
     async getHotelRevenueRaw(requestParameters: GetHotelRevenueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelRevenueDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelRevenue.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelRevenue.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelRevenue.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelRevenue.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.businessDate !== undefined) {
-            queryParameters['businessDate'] = (requestParameters.businessDate as any).toISOString().substr(0,10);
+            queryParameters['businessDate'] = (requestParameters.businessDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9698,6 +11110,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get matured deposits
      */
     async getMaturedDepositsRaw(requestParameters: GetMaturedDepositsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MaturedDepositsDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getMaturedDeposits.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMaturedDeposits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMaturedDeposits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMaturedDeposits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMaturedDeposits.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9746,6 +11178,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Billing Charges
      */
     async getPostBillingChargesRaw(requestParameters: GetPostBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargesStatus>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getPostBillingCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPostBillingCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPostBillingCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPostBillingCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPostBillingCharges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cashierId !== undefined) {
@@ -9878,6 +11330,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get posting activity details
      */
     async getPostingActivityDetailRaw(requestParameters: GetPostingActivityDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostingActivityDetail>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getPostingActivityDetail.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPostingActivityDetail.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPostingActivityDetail.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPostingActivityDetail.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPostingActivityDetail.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -9974,6 +11446,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Posting Summary
      */
     async getPostingSummaryRaw(requestParameters: GetPostingSummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostingSummaryList>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPostingSummary.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPostingSummary.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPostingSummary.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPostingSummary.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeGenerates !== undefined) {
@@ -9981,7 +11469,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.postingDate !== undefined) {
-            queryParameters['postingDate'] = (requestParameters.postingDate as any).toISOString().substr(0,10);
+            queryParameters['postingDate'] = (requestParameters.postingDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.checkPostings !== undefined) {
@@ -10050,6 +11538,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Postings For Refresh
      */
     async getPostingsForRefreshRaw(requestParameters: GetPostingsForRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostingsForRefresh>> {
+        if (requestParameters.targetReservationId === null || requestParameters.targetReservationId === undefined) {
+            throw new runtime.RequiredError('targetReservationId','Required parameter requestParameters.targetReservationId was null or undefined when calling getPostingsForRefresh.');
+        }
+
+        if (requestParameters.sourceReservationId === null || requestParameters.sourceReservationId === undefined) {
+            throw new runtime.RequiredError('sourceReservationId','Required parameter requestParameters.sourceReservationId was null or undefined when calling getPostingsForRefresh.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPostingsForRefresh.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPostingsForRefresh.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPostingsForRefresh.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPostingsForRefresh.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -10101,11 +11613,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.transactionHotelId) {
@@ -10274,14 +11786,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Receipt History
      */
     async getReceiptHistoryRaw(requestParameters: GetReceiptHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReceiptHistoryResponse>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReceiptHistory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReceiptHistory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReceiptHistory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReceiptHistory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substr(0,10);
+            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substr(0,10);
+            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.name !== undefined) {
@@ -10350,6 +11878,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Reservation Package Options
      */
     async getReservationPackageOptionsRaw(requestParameters: GetReservationPackageOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationPackageOptions>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getReservationPackageOptions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationPackageOptions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationPackageOptions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationPackageOptions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationPackageOptions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10398,6 +11946,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Reservations Revenue Bucket Totals
      */
     async getReservationRevenueBucketTotalsRaw(requestParameters: GetReservationRevenueBucketTotalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RevenueBucketTotals>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getReservationRevenueBucketTotals.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationRevenueBucketTotals.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationRevenueBucketTotals.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationRevenueBucketTotals.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationRevenueBucketTotals.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -10462,6 +12030,18 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Rounding Difference
      */
     async getRoundingDifferenceRaw(requestParameters: GetRoundingDifferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoundingDifferenceAmount>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoundingDifference.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoundingDifference.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoundingDifference.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.event !== undefined) {
@@ -10537,7 +12117,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -10645,7 +12225,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substr(0,10);
+            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -10702,6 +12282,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get routing instructions
      */
     async getRoutingInstructionsRaw(requestParameters: GetRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoutingInstructionsDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -10725,7 +12325,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.effectiveOn !== undefined) {
-            queryParameters['effectiveOn'] = (requestParameters.effectiveOn as any).toISOString().substr(0,10);
+            queryParameters['effectiveOn'] = (requestParameters.effectiveOn as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10774,6 +12374,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Stored Folio Details
      */
     async getStoredFolioDetailsRaw(requestParameters: GetStoredFolioDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StoredFolioDetailsInfo>> {
+        if (requestParameters.folioId === null || requestParameters.folioId === undefined) {
+            throw new runtime.RequiredError('folioId','Required parameter requestParameters.folioId was null or undefined when calling getStoredFolioDetails.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getStoredFolioDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStoredFolioDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStoredFolioDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStoredFolioDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fiscalBillNo !== undefined) {
@@ -10781,7 +12401,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substr(0,10);
+            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.folioStatus !== undefined) {
@@ -10846,6 +12466,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Transaction Codes
      */
     async getTransactionCodesRaw(requestParameters: GetTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransactionCodes>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTransactionCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTransactionCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTransactionCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTransactionCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.event !== undefined) {
@@ -10881,7 +12517,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substr(0,10);
+            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -10954,6 +12590,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get Fiscal Printing Details
      */
     async getValidateFiscalPrintingDetailsRaw(requestParameters: GetValidateFiscalPrintingDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalCallStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getValidateFiscalPrintingDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getValidateFiscalPrintingDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getValidateFiscalPrintingDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getValidateFiscalPrintingDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.folioView !== undefined) {
@@ -11030,6 +12682,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get fetchStagedTransactions
      */
     async getfetchStagedTransactionsRaw(requestParameters: GetfetchStagedTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StagedTransactions>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getfetchStagedTransactions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getfetchStagedTransactions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getfetchStagedTransactions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getfetchStagedTransactions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getfetchStagedTransactions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId2 !== undefined) {
@@ -11086,6 +12758,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Get eligibility of Deposit Refund
      */
     async isDepositRefundEligibleRaw(requestParameters: IsDepositRefundEligibleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositRefundEligibleCheck>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling isDepositRefundEligible.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling isDepositRefundEligible.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling isDepositRefundEligible.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling isDepositRefundEligible.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling isDepositRefundEligible.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling isDepositRefundEligible.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -11141,7 +12837,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to link reservation package allowance. <p><strong>OperationId:</strong>linkReservationPackageAllowance</p>
      * Link Reservation package allowance
      */
-    async linkReservationPackageAllowanceRaw(requestParameters: LinkReservationPackageAllowanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async linkReservationPackageAllowanceRaw(requestParameters: LinkReservationPackageAllowanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.destinationReservationId === null || requestParameters.destinationReservationId === undefined) {
+            throw new runtime.RequiredError('destinationReservationId','Required parameter requestParameters.destinationReservationId was null or undefined when calling linkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.sourceReservationId === null || requestParameters.sourceReservationId === undefined) {
+            throw new runtime.RequiredError('sourceReservationId','Required parameter requestParameters.sourceReservationId was null or undefined when calling linkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling linkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling linkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling linkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling linkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.linkReservationPackageAllowance === null || requestParameters.linkReservationPackageAllowance === undefined) {
+            throw new runtime.RequiredError('linkReservationPackageAllowance','Required parameter requestParameters.linkReservationPackageAllowance was null or undefined when calling linkReservationPackageAllowance.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11173,7 +12897,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: LinkReservationPackageAllowanceRequestToJSON(requestParameters.linkReservationPackageAllowance),
+            body: LinkReservationPackageAllowanceToJSON(requestParameters.linkReservationPackageAllowance),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11183,7 +12907,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to link reservation package allowance. <p><strong>OperationId:</strong>linkReservationPackageAllowance</p>
      * Link Reservation package allowance
      */
-    async linkReservationPackageAllowance(requestParameters: LinkReservationPackageAllowanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async linkReservationPackageAllowance(requestParameters: LinkReservationPackageAllowanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.linkReservationPackageAllowanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11192,7 +12916,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Batch Advance Folio. <p><strong>OperationId:</strong>postAdvanceFolio</p>
      * Create Batch Advance Folio
      */
-    async postAdvanceFolioRaw(requestParameters: PostAdvanceFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAdvanceFolioRaw(requestParameters: PostAdvanceFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAdvanceFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAdvanceFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAdvanceFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAdvanceFolio.');
+        }
+
+        if (requestParameters.batchAdvanceFolio === null || requestParameters.batchAdvanceFolio === undefined) {
+            throw new runtime.RequiredError('batchAdvanceFolio','Required parameter requestParameters.batchAdvanceFolio was null or undefined when calling postAdvanceFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11224,7 +12968,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAdvanceFolioRequestToJSON(requestParameters.batchAdvanceFolio),
+            body: BatchAdvanceFolioToJSON(requestParameters.batchAdvanceFolio),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11234,7 +12978,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Batch Advance Folio. <p><strong>OperationId:</strong>postAdvanceFolio</p>
      * Create Batch Advance Folio
      */
-    async postAdvanceFolio(requestParameters: PostAdvanceFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAdvanceFolio(requestParameters: PostAdvanceFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAdvanceFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11243,7 +12987,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create advance Room Charges. <p><strong>OperationId:</strong>postAdvanceRoomCharges</p>
      * Create advance Room Charges
      */
-    async postAdvanceRoomChargesRaw(requestParameters: PostAdvanceRoomChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvanceRoomChargesReservationInfo>> {
+    async postAdvanceRoomChargesRaw(requestParameters: PostAdvanceRoomChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvanceRoomChargesReservationInfo>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAdvanceRoomCharges.');
+        }
+
+        if (requestParameters.advanceRoomCharges === null || requestParameters.advanceRoomCharges === undefined) {
+            throw new runtime.RequiredError('advanceRoomCharges','Required parameter requestParameters.advanceRoomCharges was null or undefined when calling postAdvanceRoomCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11275,7 +13043,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAdvanceRoomChargesRequestToJSON(requestParameters.advanceRoomCharges),
+            body: AdvanceRoomChargesToJSON(requestParameters.advanceRoomCharges),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AdvanceRoomChargesReservationInfoFromJSON(jsonValue));
@@ -11285,7 +13053,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create advance Room Charges. <p><strong>OperationId:</strong>postAdvanceRoomCharges</p>
      * Create advance Room Charges
      */
-    async postAdvanceRoomCharges(requestParameters: PostAdvanceRoomChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvanceRoomChargesReservationInfo> {
+    async postAdvanceRoomCharges(requestParameters: PostAdvanceRoomChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvanceRoomChargesReservationInfo> {
         const response = await this.postAdvanceRoomChargesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11294,7 +13062,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Articles Sale. <p><strong>OperationId:</strong>postArticlesSale</p>
      * Create Articles Sale
      */
-    async postArticlesSaleRaw(requestParameters: PostArticlesSaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArticlesSale>> {
+    async postArticlesSaleRaw(requestParameters: PostArticlesSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArticlesSale>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postArticlesSale.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postArticlesSale.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postArticlesSale.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postArticlesSale.');
+        }
+
+        if (requestParameters.articlesSaleCriteria === null || requestParameters.articlesSaleCriteria === undefined) {
+            throw new runtime.RequiredError('articlesSaleCriteria','Required parameter requestParameters.articlesSaleCriteria was null or undefined when calling postArticlesSale.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11326,7 +13114,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostArticlesSaleRequestToJSON(requestParameters.articlesSaleCriteria),
+            body: ArticlesSaleCriteriaToJSON(requestParameters.articlesSaleCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ArticlesSaleFromJSON(jsonValue));
@@ -11336,7 +13124,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Articles Sale. <p><strong>OperationId:</strong>postArticlesSale</p>
      * Create Articles Sale
      */
-    async postArticlesSale(requestParameters: PostArticlesSaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArticlesSale> {
+    async postArticlesSale(requestParameters: PostArticlesSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArticlesSale> {
         const response = await this.postArticlesSaleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11345,7 +13133,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Auto Checkout Reservation Batch. <p><strong>OperationId:</strong>postAutoCheckoutReservations</p>
      * Create Auto Checkout Reservation Batch 
      */
-    async postAutoCheckoutReservationsRaw(requestParameters: PostAutoCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchAutoCheckoutDetails>> {
+    async postAutoCheckoutReservationsRaw(requestParameters: PostAutoCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchAutoCheckoutDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAutoCheckoutReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoCheckoutReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoCheckoutReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoCheckoutReservations.');
+        }
+
+        if (requestParameters.batchAutoCheckoutReservation === null || requestParameters.batchAutoCheckoutReservation === undefined) {
+            throw new runtime.RequiredError('batchAutoCheckoutReservation','Required parameter requestParameters.batchAutoCheckoutReservation was null or undefined when calling postAutoCheckoutReservations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11377,7 +13185,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoCheckoutReservationsRequestToJSON(requestParameters.batchAutoCheckoutReservation),
+            body: BatchAutoCheckoutReservationToJSON(requestParameters.batchAutoCheckoutReservation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BatchAutoCheckoutDetailsFromJSON(jsonValue));
@@ -11387,7 +13195,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Auto Checkout Reservation Batch. <p><strong>OperationId:</strong>postAutoCheckoutReservations</p>
      * Create Auto Checkout Reservation Batch 
      */
-    async postAutoCheckoutReservations(requestParameters: PostAutoCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchAutoCheckoutDetails> {
+    async postAutoCheckoutReservations(requestParameters: PostAutoCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchAutoCheckoutDetails> {
         const response = await this.postAutoCheckoutReservationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11396,7 +13204,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * Creates a new membership award payment transaction. <p><strong>OperationId:</strong>postAwardTransaction</p>
      * Post a membership award payment transaction.
      */
-    async postAwardTransactionRaw(requestParameters: PostAwardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAwardTransactionRaw(requestParameters: PostAwardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAwardTransaction.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postAwardTransaction.');
+        }
+
+        if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
+            throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling postAwardTransaction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAwardTransaction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAwardTransaction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAwardTransaction.');
+        }
+
+        if (requestParameters.awardDetails === null || requestParameters.awardDetails === undefined) {
+            throw new runtime.RequiredError('awardDetails','Required parameter requestParameters.awardDetails was null or undefined when calling postAwardTransaction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11428,7 +13264,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAwardTransactionRequestToJSON(requestParameters.awardDetails),
+            body: AwardPaymentDetailsToJSON(requestParameters.awardDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11438,7 +13274,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * Creates a new membership award payment transaction. <p><strong>OperationId:</strong>postAwardTransaction</p>
      * Post a membership award payment transaction.
      */
-    async postAwardTransaction(requestParameters: PostAwardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAwardTransaction(requestParameters: PostAwardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAwardTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11447,7 +13283,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Batch Auto Settlement. <p><strong>OperationId:</strong>postBatchAutoSettlement</p>
      * Create Batch Auto Settlement
      */
-    async postBatchAutoSettlementRaw(requestParameters: PostBatchAutoSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBatchAutoSettlementRaw(requestParameters: PostBatchAutoSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBatchAutoSettlement.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBatchAutoSettlement.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBatchAutoSettlement.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBatchAutoSettlement.');
+        }
+
+        if (requestParameters.batchAutoSettlementCriteria === null || requestParameters.batchAutoSettlementCriteria === undefined) {
+            throw new runtime.RequiredError('batchAutoSettlementCriteria','Required parameter requestParameters.batchAutoSettlementCriteria was null or undefined when calling postBatchAutoSettlement.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11479,7 +13335,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBatchAutoSettlementRequestToJSON(requestParameters.batchAutoSettlementCriteria),
+            body: BatchAutoSettlementCriteriaToJSON(requestParameters.batchAutoSettlementCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11489,7 +13345,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Batch Auto Settlement. <p><strong>OperationId:</strong>postBatchAutoSettlement</p>
      * Create Batch Auto Settlement
      */
-    async postBatchAutoSettlement(requestParameters: PostBatchAutoSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBatchAutoSettlement(requestParameters: PostBatchAutoSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBatchAutoSettlementRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11498,7 +13354,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Batch CC Settlements. <p><strong>OperationId:</strong>postBatchCCSettlements</p>
      * Create Batch CC Settlements
      */
-    async postBatchCCSettlementsRaw(requestParameters: PostBatchCCSettlementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBatchCCSettlementsRaw(requestParameters: PostBatchCCSettlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBatchCCSettlements.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBatchCCSettlements.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBatchCCSettlements.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBatchCCSettlements.');
+        }
+
+        if (requestParameters.ccBatchSettlementsProcessCriteria === null || requestParameters.ccBatchSettlementsProcessCriteria === undefined) {
+            throw new runtime.RequiredError('ccBatchSettlementsProcessCriteria','Required parameter requestParameters.ccBatchSettlementsProcessCriteria was null or undefined when calling postBatchCCSettlements.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11530,7 +13406,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBatchCCSettlementsRequestToJSON(requestParameters.ccBatchSettlementsProcessCriteria),
+            body: CcBatchSettlementsProcessCriteriaToJSON(requestParameters.ccBatchSettlementsProcessCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11540,7 +13416,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Batch CC Settlements. <p><strong>OperationId:</strong>postBatchCCSettlements</p>
      * Create Batch CC Settlements
      */
-    async postBatchCCSettlements(requestParameters: PostBatchCCSettlementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBatchCCSettlements(requestParameters: PostBatchCCSettlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBatchCCSettlementsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11549,7 +13425,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create batch deposits. <p><strong>OperationId:</strong>postBatchDeposit</p>
      * Create batch deposits
      */
-    async postBatchDepositRaw(requestParameters: PostBatchDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBatchDepositRaw(requestParameters: PostBatchDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBatchDeposit.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBatchDeposit.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBatchDeposit.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBatchDeposit.');
+        }
+
+        if (requestParameters.batchDeposit === null || requestParameters.batchDeposit === undefined) {
+            throw new runtime.RequiredError('batchDeposit','Required parameter requestParameters.batchDeposit was null or undefined when calling postBatchDeposit.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11581,7 +13477,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBatchDepositRequestToJSON(requestParameters.batchDeposit),
+            body: BatchDepositToJSON(requestParameters.batchDeposit),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11591,7 +13487,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create batch deposits. <p><strong>OperationId:</strong>postBatchDeposit</p>
      * Create batch deposits
      */
-    async postBatchDeposit(requestParameters: PostBatchDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBatchDeposit(requestParameters: PostBatchDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBatchDepositRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11600,7 +13496,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create new bed tax information for a property. <p><strong>OperationId:</strong>postBedTaxInfo</p>
      * Create bed tax information
      */
-    async postBedTaxInfoRaw(requestParameters: PostBedTaxInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBedTaxInfoRaw(requestParameters: PostBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBedTaxInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBedTaxInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBedTaxInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBedTaxInfo.');
+        }
+
+        if (requestParameters.bedTaxCriteria === null || requestParameters.bedTaxCriteria === undefined) {
+            throw new runtime.RequiredError('bedTaxCriteria','Required parameter requestParameters.bedTaxCriteria was null or undefined when calling postBedTaxInfo.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11632,7 +13548,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBedTaxInfoRequestToJSON(requestParameters.bedTaxCriteria),
+            body: BedTaxCriteriaToJSON(requestParameters.bedTaxCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11642,7 +13558,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create new bed tax information for a property. <p><strong>OperationId:</strong>postBedTaxInfo</p>
      * Create bed tax information
      */
-    async postBedTaxInfo(requestParameters: PostBedTaxInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBedTaxInfo(requestParameters: PostBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBedTaxInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11651,7 +13567,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post a charge to a folio window. <p><strong>OperationId:</strong>postBillingCharges</p>
      * Post Charge to a folio
      */
-    async postBillingChargesRaw(requestParameters: PostBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargesDetails>> {
+    async postBillingChargesRaw(requestParameters: PostBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargesDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postBillingCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBillingCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBillingCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBillingCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBillingCharges.');
+        }
+
+        if (requestParameters.billingCharges === null || requestParameters.billingCharges === undefined) {
+            throw new runtime.RequiredError('billingCharges','Required parameter requestParameters.billingCharges was null or undefined when calling postBillingCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11683,7 +13623,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBillingChargesRequestToJSON(requestParameters.billingCharges),
+            body: BillingChargesToJSON(requestParameters.billingCharges),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BillingChargesDetailsFromJSON(jsonValue));
@@ -11693,7 +13633,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post a charge to a folio window. <p><strong>OperationId:</strong>postBillingCharges</p>
      * Post Charge to a folio
      */
-    async postBillingCharges(requestParameters: PostBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargesDetails> {
+    async postBillingCharges(requestParameters: PostBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargesDetails> {
         const response = await this.postBillingChargesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11702,7 +13642,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Billing Charges in Batch. <p><strong>OperationId:</strong>postBillingChargesInBatch</p>
      * Create Billing Charges in Batch
      */
-    async postBillingChargesInBatchRaw(requestParameters: PostBillingChargesInBatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingChargesInBatch>> {
+    async postBillingChargesInBatchRaw(requestParameters: PostBillingChargesInBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingChargesInBatch>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBillingChargesInBatch.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBillingChargesInBatch.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBillingChargesInBatch.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBillingChargesInBatch.');
+        }
+
+        if (requestParameters.billingChargesInBatchCriteria === null || requestParameters.billingChargesInBatchCriteria === undefined) {
+            throw new runtime.RequiredError('billingChargesInBatchCriteria','Required parameter requestParameters.billingChargesInBatchCriteria was null or undefined when calling postBillingChargesInBatch.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11734,7 +13694,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBillingChargesInBatchRequestToJSON(requestParameters.billingChargesInBatchCriteria),
+            body: BillingChargesInBatchCriteriaToJSON(requestParameters.billingChargesInBatchCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostedBillingChargesInBatchFromJSON(jsonValue));
@@ -11744,7 +13704,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Billing Charges in Batch. <p><strong>OperationId:</strong>postBillingChargesInBatch</p>
      * Create Billing Charges in Batch
      */
-    async postBillingChargesInBatch(requestParameters: PostBillingChargesInBatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingChargesInBatch> {
+    async postBillingChargesInBatch(requestParameters: PostBillingChargesInBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingChargesInBatch> {
         const response = await this.postBillingChargesInBatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11753,7 +13713,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to validate the posting prior to posting the charge to the folio <p><strong>OperationId:</strong>postBillingCheckCharges</p>
      * Pre-validate the Billing Charge
      */
-    async postBillingCheckChargesRaw(requestParameters: PostBillingCheckChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBillingCheckChargesRaw(requestParameters: PostBillingCheckChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.checkNumber === null || requestParameters.checkNumber === undefined) {
+            throw new runtime.RequiredError('checkNumber','Required parameter requestParameters.checkNumber was null or undefined when calling postBillingCheckCharges.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postBillingCheckCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBillingCheckCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBillingCheckCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBillingCheckCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBillingCheckCharges.');
+        }
+
+        if (requestParameters.billingCheckChargesCriteria === null || requestParameters.billingCheckChargesCriteria === undefined) {
+            throw new runtime.RequiredError('billingCheckChargesCriteria','Required parameter requestParameters.billingCheckChargesCriteria was null or undefined when calling postBillingCheckCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11785,7 +13773,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBillingCheckChargesRequestToJSON(requestParameters.billingCheckChargesCriteria),
+            body: BillingCheckChargesCriteriaToJSON(requestParameters.billingCheckChargesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11795,7 +13783,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to validate the posting prior to posting the charge to the folio <p><strong>OperationId:</strong>postBillingCheckCharges</p>
      * Pre-validate the Billing Charge
      */
-    async postBillingCheckCharges(requestParameters: PostBillingCheckChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBillingCheckCharges(requestParameters: PostBillingCheckChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBillingCheckChargesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11804,7 +13792,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Billing Payment on the folio of a Reservation. <p><strong>OperationId:</strong>postBillingPayment</p>
      * Create Billing Payment
      */
-    async postBillingPaymentRaw(requestParameters: PostBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingPayment>> {
+    async postBillingPaymentRaw(requestParameters: PostBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingPayment>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postBillingPayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBillingPayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBillingPayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBillingPayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBillingPayment.');
+        }
+
+        if (requestParameters.billingPayment === null || requestParameters.billingPayment === undefined) {
+            throw new runtime.RequiredError('billingPayment','Required parameter requestParameters.billingPayment was null or undefined when calling postBillingPayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11836,7 +13848,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBillingPaymentRequestToJSON(requestParameters.billingPayment),
+            body: BillingPaymentToJSON(requestParameters.billingPayment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostedBillingPaymentFromJSON(jsonValue));
@@ -11846,7 +13858,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Billing Payment on the folio of a Reservation. <p><strong>OperationId:</strong>postBillingPayment</p>
      * Create Billing Payment
      */
-    async postBillingPayment(requestParameters: PostBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingPayment> {
+    async postBillingPayment(requestParameters: PostBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingPayment> {
         const response = await this.postBillingPaymentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11855,7 +13867,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create cc Settlement. <p><strong>OperationId:</strong>postCCSettlement</p>
      * Create CreditCard Settlement
      */
-    async postCCSettlementRaw(requestParameters: PostCCSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCCSettlementRaw(requestParameters: PostCCSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCCSettlement.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCCSettlement.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCCSettlement.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCCSettlement.');
+        }
+
+        if (requestParameters.ccSettlementCriteria === null || requestParameters.ccSettlementCriteria === undefined) {
+            throw new runtime.RequiredError('ccSettlementCriteria','Required parameter requestParameters.ccSettlementCriteria was null or undefined when calling postCCSettlement.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11887,7 +13919,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCCSettlementRequestToJSON(requestParameters.ccSettlementCriteria),
+            body: CcSettlementCriteriaToJSON(requestParameters.ccSettlementCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11897,7 +13929,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create cc Settlement. <p><strong>OperationId:</strong>postCCSettlement</p>
      * Create CreditCard Settlement
      */
-    async postCCSettlement(requestParameters: PostCCSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCCSettlement(requestParameters: PostCCSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCCSettlementRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11906,7 +13938,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * This API enables you to check out a guest reservation which is in due out status, with options to update the room\'s housekeeping status and set a flag to email the guests folio. <p><strong>OperationId:</strong>postCheckOut</p>
      * Check out a guest
      */
-    async postCheckOutRaw(requestParameters: PostCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCheckOutRaw(requestParameters: PostCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postCheckOut.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCheckOut.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCheckOut.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCheckOut.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCheckOut.');
+        }
+
+        if (requestParameters.reservation === null || requestParameters.reservation === undefined) {
+            throw new runtime.RequiredError('reservation','Required parameter requestParameters.reservation was null or undefined when calling postCheckOut.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11938,7 +13994,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCheckOutRequestToJSON(requestParameters.reservation),
+            body: ReservationToJSON(requestParameters.reservation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11948,7 +14004,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * This API enables you to check out a guest reservation which is in due out status, with options to update the room\'s housekeeping status and set a flag to email the guests folio. <p><strong>OperationId:</strong>postCheckOut</p>
      * Check out a guest
      */
-    async postCheckOut(requestParameters: PostCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCheckOut(requestParameters: PostCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCheckOutRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -11957,7 +14013,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    async postCompRedemptionsRaw(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCompRedemptionsRaw(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.postCompRedemptions === null || requestParameters.postCompRedemptions === undefined) {
+            throw new runtime.RequiredError('postCompRedemptions','Required parameter requestParameters.postCompRedemptions was null or undefined when calling postCompRedemptions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11989,7 +14069,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCompRedemptionsRequestToJSON(requestParameters.postCompRedemptions),
+            body: PostCompRedemptionsToJSON(requestParameters.postCompRedemptions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -11999,7 +14079,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    async postCompRedemptions(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCompRedemptions(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCompRedemptionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12008,7 +14088,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>postCompTransaction</p>
      * Submit Comp Transaction
      */
-    async postCompTransactionRaw(requestParameters: PostCompTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCompTransactionRaw(requestParameters: PostCompTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling postCompTransaction.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCompTransaction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCompTransaction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCompTransaction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCompTransaction.');
+        }
+
+        if (requestParameters.compTransactionCriteria === null || requestParameters.compTransactionCriteria === undefined) {
+            throw new runtime.RequiredError('compTransactionCriteria','Required parameter requestParameters.compTransactionCriteria was null or undefined when calling postCompTransaction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12040,7 +14144,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCompTransactionRequestToJSON(requestParameters.compTransactionCriteria),
+            body: CompTransactionCriteriaToJSON(requestParameters.compTransactionCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12050,7 +14154,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>postCompTransaction</p>
      * Submit Comp Transaction
      */
-    async postCompTransaction(requestParameters: PostCompTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCompTransaction(requestParameters: PostCompTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCompTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12059,7 +14163,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Credit Bill. <p><strong>OperationId:</strong>postCreditBill</p>
      * Create Credit Bill
      */
-    async postCreditBillRaw(requestParameters: PostCreditBillOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedCreditBill>> {
+    async postCreditBillRaw(requestParameters: PostCreditBillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedCreditBill>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCreditBill.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCreditBill.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCreditBill.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCreditBill.');
+        }
+
+        if (requestParameters.creditBillCriteria === null || requestParameters.creditBillCriteria === undefined) {
+            throw new runtime.RequiredError('creditBillCriteria','Required parameter requestParameters.creditBillCriteria was null or undefined when calling postCreditBill.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12091,7 +14215,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCreditBillRequestToJSON(requestParameters.creditBillCriteria),
+            body: CreditBillCriteriaToJSON(requestParameters.creditBillCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostedCreditBillFromJSON(jsonValue));
@@ -12101,7 +14225,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Credit Bill. <p><strong>OperationId:</strong>postCreditBill</p>
      * Create Credit Bill
      */
-    async postCreditBill(requestParameters: PostCreditBillOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedCreditBill> {
+    async postCreditBill(requestParameters: PostCreditBillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedCreditBill> {
         const response = await this.postCreditBillRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12110,7 +14234,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Credit Limit Overage Payments. <p><strong>OperationId:</strong>postCreditLimitOveragePayments</p>
      * Create Credit Limit Overage Payments
      */
-    async postCreditLimitOveragePaymentsRaw(requestParameters: PostCreditLimitOveragePaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditLimitOveragePaymentsDetails>> {
+    async postCreditLimitOveragePaymentsRaw(requestParameters: PostCreditLimitOveragePaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditLimitOveragePaymentsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCreditLimitOveragePayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCreditLimitOveragePayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCreditLimitOveragePayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCreditLimitOveragePayments.');
+        }
+
+        if (requestParameters.creditLimitOveragePayments === null || requestParameters.creditLimitOveragePayments === undefined) {
+            throw new runtime.RequiredError('creditLimitOveragePayments','Required parameter requestParameters.creditLimitOveragePayments was null or undefined when calling postCreditLimitOveragePayments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12142,7 +14286,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCreditLimitOveragePaymentsRequestToJSON(requestParameters.creditLimitOveragePayments),
+            body: CreditLimitOveragePaymentsToJSON(requestParameters.creditLimitOveragePayments),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreditLimitOveragePaymentsDetailsFromJSON(jsonValue));
@@ -12152,7 +14296,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Credit Limit Overage Payments. <p><strong>OperationId:</strong>postCreditLimitOveragePayments</p>
      * Create Credit Limit Overage Payments
      */
-    async postCreditLimitOveragePayments(requestParameters: PostCreditLimitOveragePaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditLimitOveragePaymentsDetails> {
+    async postCreditLimitOveragePayments(requestParameters: PostCreditLimitOveragePaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditLimitOveragePaymentsDetails> {
         const response = await this.postCreditLimitOveragePaymentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12161,7 +14305,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * Request to submit a job to post the deferred taxes. <p><strong>OperationId:</strong>postDeferredTaxesProcess</p>
      * Request to submit a job to post the deferred taxes.
      */
-    async postDeferredTaxesProcessRaw(requestParameters: PostDeferredTaxesProcessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeferredTaxesProcessDetails>> {
+    async postDeferredTaxesProcessRaw(requestParameters: PostDeferredTaxesProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeferredTaxesProcessDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postDeferredTaxesProcess.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postDeferredTaxesProcess.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDeferredTaxesProcess.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDeferredTaxesProcess.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDeferredTaxesProcess.');
+        }
+
+        if (requestParameters.deferredTaxesProcess === null || requestParameters.deferredTaxesProcess === undefined) {
+            throw new runtime.RequiredError('deferredTaxesProcess','Required parameter requestParameters.deferredTaxesProcess was null or undefined when calling postDeferredTaxesProcess.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12193,7 +14361,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDeferredTaxesProcessRequestToJSON(requestParameters.deferredTaxesProcess),
+            body: DeferredTaxesProcessToJSON(requestParameters.deferredTaxesProcess),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DeferredTaxesProcessDetailsFromJSON(jsonValue));
@@ -12203,7 +14371,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * Request to submit a job to post the deferred taxes. <p><strong>OperationId:</strong>postDeferredTaxesProcess</p>
      * Request to submit a job to post the deferred taxes.
      */
-    async postDeferredTaxesProcess(requestParameters: PostDeferredTaxesProcessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeferredTaxesProcessDetails> {
+    async postDeferredTaxesProcess(requestParameters: PostDeferredTaxesProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeferredTaxesProcessDetails> {
         const response = await this.postDeferredTaxesProcessRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12212,7 +14380,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Deposit Folio. <p><strong>OperationId:</strong>postDepositFolio</p>
      * Create Deposit Folio
      */
-    async postDepositFolioRaw(requestParameters: PostDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedDepositFolio>> {
+    async postDepositFolioRaw(requestParameters: PostDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedDepositFolio>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postDepositFolio.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postDepositFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDepositFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDepositFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDepositFolio.');
+        }
+
+        if (requestParameters.depositFolioCriteria === null || requestParameters.depositFolioCriteria === undefined) {
+            throw new runtime.RequiredError('depositFolioCriteria','Required parameter requestParameters.depositFolioCriteria was null or undefined when calling postDepositFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12244,7 +14436,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDepositFolioRequestToJSON(requestParameters.depositFolioCriteria),
+            body: DepositFolioCriteriaToJSON(requestParameters.depositFolioCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostedDepositFolioFromJSON(jsonValue));
@@ -12254,7 +14446,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Deposit Folio. <p><strong>OperationId:</strong>postDepositFolio</p>
      * Create Deposit Folio
      */
-    async postDepositFolio(requestParameters: PostDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedDepositFolio> {
+    async postDepositFolio(requestParameters: PostDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedDepositFolio> {
         const response = await this.postDepositFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12264,6 +14456,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Create Deposit Payment
      */
     async postDepositPaymentRaw(requestParameters: PostDepositPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedPayment>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postDepositPayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postDepositPayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDepositPayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDepositPayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDepositPayment.');
+        }
+
+        if (requestParameters.depositPayment === null || requestParameters.depositPayment === undefined) {
+            throw new runtime.RequiredError('depositPayment','Required parameter requestParameters.depositPayment was null or undefined when calling postDepositPayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12295,7 +14511,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDepositPaymentByExtIdRequestToJSON(requestParameters.depositPayment),
+            body: DepositPaymentToJSON(requestParameters.depositPayment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DepositedPaymentFromJSON(jsonValue));
@@ -12314,7 +14530,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Deposit Payment with external reference. <p><strong>OperationId:</strong>postDepositPaymentByExtId</p>
      * Create Deposit Payment using external reference.
      */
-    async postDepositPaymentByExtIdRaw(requestParameters: PostDepositPaymentByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedPayment>> {
+    async postDepositPaymentByExtIdRaw(requestParameters: PostDepositPaymentByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedPayment>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postDepositPaymentByExtId.');
+        }
+
+        if (requestParameters.externalSysCode === null || requestParameters.externalSysCode === undefined) {
+            throw new runtime.RequiredError('externalSysCode','Required parameter requestParameters.externalSysCode was null or undefined when calling postDepositPaymentByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postDepositPaymentByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDepositPaymentByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDepositPaymentByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDepositPaymentByExtId.');
+        }
+
+        if (requestParameters.depositPayment === null || requestParameters.depositPayment === undefined) {
+            throw new runtime.RequiredError('depositPayment','Required parameter requestParameters.depositPayment was null or undefined when calling postDepositPaymentByExtId.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12346,7 +14590,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDepositPaymentByExtIdRequestToJSON(requestParameters.depositPayment),
+            body: DepositPaymentToJSON(requestParameters.depositPayment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DepositedPaymentFromJSON(jsonValue));
@@ -12356,7 +14600,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Deposit Payment with external reference. <p><strong>OperationId:</strong>postDepositPaymentByExtId</p>
      * Create Deposit Payment using external reference.
      */
-    async postDepositPaymentByExtId(requestParameters: PostDepositPaymentByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedPayment> {
+    async postDepositPaymentByExtId(requestParameters: PostDepositPaymentByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedPayment> {
         const response = await this.postDepositPaymentByExtIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12365,7 +14609,23 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create FBA Reimbursement. <p><strong>OperationId:</strong>postFBAReimbursement</p>
      * Create FBA Reimbursement
      */
-    async postFBAReimbursementRaw(requestParameters: PostFBAReimbursementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postFBAReimbursementRaw(requestParameters: PostFBAReimbursementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFBAReimbursement.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFBAReimbursement.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFBAReimbursement.');
+        }
+
+        if (requestParameters.fbaReimbursementCriteria === null || requestParameters.fbaReimbursementCriteria === undefined) {
+            throw new runtime.RequiredError('fbaReimbursementCriteria','Required parameter requestParameters.fbaReimbursementCriteria was null or undefined when calling postFBAReimbursement.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12397,7 +14657,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFBAReimbursementRequestToJSON(requestParameters.fbaReimbursementCriteria),
+            body: FbaReimbursementCriteriaToJSON(requestParameters.fbaReimbursementCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12407,7 +14667,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create FBA Reimbursement. <p><strong>OperationId:</strong>postFBAReimbursement</p>
      * Create FBA Reimbursement
      */
-    async postFBAReimbursement(requestParameters: PostFBAReimbursementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postFBAReimbursement(requestParameters: PostFBAReimbursementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postFBAReimbursementRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12417,6 +14677,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Create FBA Settlement
      */
     async postFBASettlementRaw(requestParameters: PostFBASettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFBASettlement.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFBASettlement.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFBASettlement.');
+        }
+
+        if (requestParameters.fbaReimbursementCriteria === null || requestParameters.fbaReimbursementCriteria === undefined) {
+            throw new runtime.RequiredError('fbaReimbursementCriteria','Required parameter requestParameters.fbaReimbursementCriteria was null or undefined when calling postFBASettlement.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12448,7 +14724,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFBAReimbursementRequestToJSON(requestParameters.fbaReimbursementCriteria),
+            body: FbaReimbursementCriteriaToJSON(requestParameters.fbaReimbursementCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12467,7 +14743,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Fiscal Invoice. <p><strong>OperationId:</strong>postFiscalCommandInvoice</p>
      * Create Fiscal Invoice
      */
-    async postFiscalCommandInvoiceRaw(requestParameters: PostFiscalCommandInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalCommandsResponseInfo>> {
+    async postFiscalCommandInvoiceRaw(requestParameters: PostFiscalCommandInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalCommandsResponseInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postFiscalCommandInvoice.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalCommandInvoice.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalCommandInvoice.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalCommandInvoice.');
+        }
+
+        if (requestParameters.fiscalFolioCriteria === null || requestParameters.fiscalFolioCriteria === undefined) {
+            throw new runtime.RequiredError('fiscalFolioCriteria','Required parameter requestParameters.fiscalFolioCriteria was null or undefined when calling postFiscalCommandInvoice.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12499,7 +14795,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFiscalCommandInvoiceRequestToJSON(requestParameters.fiscalFolioCriteria),
+            body: FiscalFolioCriteriaToJSON(requestParameters.fiscalFolioCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FiscalCommandsResponseInfoFromJSON(jsonValue));
@@ -12509,7 +14805,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Fiscal Invoice. <p><strong>OperationId:</strong>postFiscalCommandInvoice</p>
      * Create Fiscal Invoice
      */
-    async postFiscalCommandInvoice(requestParameters: PostFiscalCommandInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalCommandsResponseInfo> {
+    async postFiscalCommandInvoice(requestParameters: PostFiscalCommandInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalCommandsResponseInfo> {
         const response = await this.postFiscalCommandInvoiceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12518,7 +14814,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * API to generate CHECK OUT payload for a reservation
      * Post fiscal Info
      */
-    async postFiscalInfoRaw(requestParameters: PostFiscalInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postFiscalInfoRaw(requestParameters: PostFiscalInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postFiscalInfo.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postFiscalInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalInfo.');
+        }
+
+        if (requestParameters.postFiscalInfoType === null || requestParameters.postFiscalInfoType === undefined) {
+            throw new runtime.RequiredError('postFiscalInfoType','Required parameter requestParameters.postFiscalInfoType was null or undefined when calling postFiscalInfo.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12550,7 +14870,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFiscalInfoRequestToJSON(requestParameters.postFiscalInfoType),
+            body: PostFiscalInfoTypeToJSON(requestParameters.postFiscalInfoType),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12560,7 +14880,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * API to generate CHECK OUT payload for a reservation
      * Post fiscal Info
      */
-    async postFiscalInfo(requestParameters: PostFiscalInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postFiscalInfo(requestParameters: PostFiscalInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postFiscalInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12568,8 +14888,33 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to create Fiscal Invoice.<br><p><strong><mark>This API is deprecated. Please use postFiscalCommandInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>postFiscalInvoice</p>
      * Create Fiscal Invoice
+     * @deprecated
      */
     async postFiscalInvoiceRaw(requestParameters: PostFiscalInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.folioId === null || requestParameters.folioId === undefined) {
+            throw new runtime.RequiredError('folioId','Required parameter requestParameters.folioId was null or undefined when calling postFiscalInvoice.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postFiscalInvoice.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalInvoice.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalInvoice.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalInvoice.');
+        }
+
+        if (requestParameters.fiscalFolioCriteria === null || requestParameters.fiscalFolioCriteria === undefined) {
+            throw new runtime.RequiredError('fiscalFolioCriteria','Required parameter requestParameters.fiscalFolioCriteria was null or undefined when calling postFiscalInvoice.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12601,7 +14946,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFiscalCommandInvoiceRequestToJSON(requestParameters.fiscalFolioCriteria),
+            body: FiscalFolioCriteriaToJSON(requestParameters.fiscalFolioCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12610,6 +14955,7 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to create Fiscal Invoice.<br><p><strong><mark>This API is deprecated. Please use postFiscalCommandInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>postFiscalInvoice</p>
      * Create Fiscal Invoice
+     * @deprecated
      */
     async postFiscalInvoice(requestParameters: PostFiscalInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postFiscalInvoiceRaw(requestParameters, initOverrides);
@@ -12621,6 +14967,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Create Fixed Charges
      */
     async postFixedChargesRaw(requestParameters: PostFixedChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postFixedCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postFixedCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFixedCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFixedCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFixedCharges.');
+        }
+
+        if (requestParameters.fixedCharges === null || requestParameters.fixedCharges === undefined) {
+            throw new runtime.RequiredError('fixedCharges','Required parameter requestParameters.fixedCharges was null or undefined when calling postFixedCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12652,7 +15022,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateFixedChargesRequestToJSON(requestParameters.fixedCharges),
+            body: FixedChargesToJSON(requestParameters.fixedCharges),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12671,7 +15041,23 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Create Foreign Currency Exchange. <p><strong>OperationId:</strong>postForeignCurrencyExchange</p>
      * Create Foreign Currency Exchange
      */
-    async postForeignCurrencyExchangeRaw(requestParameters: PostForeignCurrencyExchangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ForeignCurrencyExchangeTransaction>> {
+    async postForeignCurrencyExchangeRaw(requestParameters: PostForeignCurrencyExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ForeignCurrencyExchangeTransaction>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postForeignCurrencyExchange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postForeignCurrencyExchange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postForeignCurrencyExchange.');
+        }
+
+        if (requestParameters.foreignCurrencyExchange === null || requestParameters.foreignCurrencyExchange === undefined) {
+            throw new runtime.RequiredError('foreignCurrencyExchange','Required parameter requestParameters.foreignCurrencyExchange was null or undefined when calling postForeignCurrencyExchange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12703,7 +15089,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostForeignCurrencyExchangeRequestToJSON(requestParameters.foreignCurrencyExchange),
+            body: ForeignCurrencyExchangeToJSON(requestParameters.foreignCurrencyExchange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ForeignCurrencyExchangeTransactionFromJSON(jsonValue));
@@ -12713,7 +15099,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Create Foreign Currency Exchange. <p><strong>OperationId:</strong>postForeignCurrencyExchange</p>
      * Create Foreign Currency Exchange
      */
-    async postForeignCurrencyExchange(requestParameters: PostForeignCurrencyExchangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ForeignCurrencyExchangeTransaction> {
+    async postForeignCurrencyExchange(requestParameters: PostForeignCurrencyExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ForeignCurrencyExchangeTransaction> {
         const response = await this.postForeignCurrencyExchangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12722,7 +15108,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * This operation is to add guest check details for posted check transactions. <p><strong>OperationId:</strong>postGuestCheckDetails</p>
      * Post Guest Check Details
      */
-    async postGuestCheckDetailsRaw(requestParameters: PostGuestCheckDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postGuestCheckDetailsRaw(requestParameters: PostGuestCheckDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.checkNumber === null || requestParameters.checkNumber === undefined) {
+            throw new runtime.RequiredError('checkNumber','Required parameter requestParameters.checkNumber was null or undefined when calling postGuestCheckDetails.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postGuestCheckDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postGuestCheckDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postGuestCheckDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postGuestCheckDetails.');
+        }
+
+        if (requestParameters.guestCheckDetails === null || requestParameters.guestCheckDetails === undefined) {
+            throw new runtime.RequiredError('guestCheckDetails','Required parameter requestParameters.guestCheckDetails was null or undefined when calling postGuestCheckDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12754,7 +15164,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostGuestCheckDetailsRequestToJSON(requestParameters.guestCheckDetails),
+            body: GuestCheckDetailsToJSON(requestParameters.guestCheckDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12764,7 +15174,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * This operation is to add guest check details for posted check transactions. <p><strong>OperationId:</strong>postGuestCheckDetails</p>
      * Post Guest Check Details
      */
-    async postGuestCheckDetails(requestParameters: PostGuestCheckDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postGuestCheckDetails(requestParameters: PostGuestCheckDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postGuestCheckDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12773,7 +15183,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create passer by sale. <p><strong>OperationId:</strong>postPasserBySale</p>
      * Create passer by sale
      */
-    async postPasserBySaleRaw(requestParameters: PostPasserBySaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PasserBySale>> {
+    async postPasserBySaleRaw(requestParameters: PostPasserBySaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PasserBySale>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPasserBySale.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPasserBySale.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPasserBySale.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPasserBySale.');
+        }
+
+        if (requestParameters.passerBySalesCriteria === null || requestParameters.passerBySalesCriteria === undefined) {
+            throw new runtime.RequiredError('passerBySalesCriteria','Required parameter requestParameters.passerBySalesCriteria was null or undefined when calling postPasserBySale.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12805,7 +15235,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPasserBySaleRequestToJSON(requestParameters.passerBySalesCriteria),
+            body: PasserBySalesCriteriaToJSON(requestParameters.passerBySalesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PasserBySaleFromJSON(jsonValue));
@@ -12815,7 +15245,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create passer by sale. <p><strong>OperationId:</strong>postPasserBySale</p>
      * Create passer by sale
      */
-    async postPasserBySale(requestParameters: PostPasserBySaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PasserBySale> {
+    async postPasserBySale(requestParameters: PostPasserBySaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PasserBySale> {
         const response = await this.postPasserBySaleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12824,7 +15254,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Prepaid Cards. <p><strong>OperationId:</strong>postPrepaidCards</p>
      * Create Prepaid Cards
      */
-    async postPrepaidCardsRaw(requestParameters: PostPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postPrepaidCardsRaw(requestParameters: PostPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPrepaidCards.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPrepaidCards.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPrepaidCards.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPrepaidCards.');
+        }
+
+        if (requestParameters.prepaidCardCriteria === null || requestParameters.prepaidCardCriteria === undefined) {
+            throw new runtime.RequiredError('prepaidCardCriteria','Required parameter requestParameters.prepaidCardCriteria was null or undefined when calling postPrepaidCards.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12856,7 +15306,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPrepaidCardsRequestToJSON(requestParameters.prepaidCardCriteria),
+            body: PrepaidCardCriteriaToJSON(requestParameters.prepaidCardCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -12866,7 +15316,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Prepaid Cards. <p><strong>OperationId:</strong>postPrepaidCards</p>
      * Create Prepaid Cards
      */
-    async postPrepaidCards(requestParameters: PostPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postPrepaidCards(requestParameters: PostPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postPrepaidCardsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12875,7 +15325,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create proforma for a specific reservation. <p><strong>OperationId:</strong>postProforma</p>
      * Create proforma
      */
-    async postProformaRaw(requestParameters: PostProformaOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationFolioInformation>> {
+    async postProformaRaw(requestParameters: PostProformaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationFolioInformation>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postProforma.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postProforma.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postProforma.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postProforma.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postProforma.');
+        }
+
+        if (requestParameters.reservationFolio === null || requestParameters.reservationFolio === undefined) {
+            throw new runtime.RequiredError('reservationFolio','Required parameter requestParameters.reservationFolio was null or undefined when calling postProforma.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12907,7 +15381,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostProformaRequestToJSON(requestParameters.reservationFolio),
+            body: ReservationFolioToJSON(requestParameters.reservationFolio),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReservationFolioInformationFromJSON(jsonValue));
@@ -12917,7 +15391,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create proforma for a specific reservation. <p><strong>OperationId:</strong>postProforma</p>
      * Create proforma
      */
-    async postProforma(requestParameters: PostProformaOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationFolioInformation> {
+    async postProforma(requestParameters: PostProformaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationFolioInformation> {
         const response = await this.postProformaRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12926,7 +15400,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create rate codes. <p><strong>OperationId:</strong>postRateCode</p>
      * Create rate codes
      */
-    async postRateCodeRaw(requestParameters: PostRateCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedRateCode>> {
+    async postRateCodeRaw(requestParameters: PostRateCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedRateCode>> {
+        if (requestParameters.rateCode === null || requestParameters.rateCode === undefined) {
+            throw new runtime.RequiredError('rateCode','Required parameter requestParameters.rateCode was null or undefined when calling postRateCode.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postRateCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRateCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRateCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRateCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRateCode.');
+        }
+
+        if (requestParameters.postRateCodeCriteria === null || requestParameters.postRateCodeCriteria === undefined) {
+            throw new runtime.RequiredError('postRateCodeCriteria','Required parameter requestParameters.postRateCodeCriteria was null or undefined when calling postRateCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -12958,7 +15460,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRateCodeRequestToJSON(requestParameters.postRateCodeCriteria),
+            body: PostRateCodeCriteriaToJSON(requestParameters.postRateCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostedRateCodeFromJSON(jsonValue));
@@ -12968,7 +15470,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create rate codes. <p><strong>OperationId:</strong>postRateCode</p>
      * Create rate codes
      */
-    async postRateCode(requestParameters: PostRateCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedRateCode> {
+    async postRateCode(requestParameters: PostRateCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedRateCode> {
         const response = await this.postRateCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -12977,7 +15479,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create reverse payments. <p><strong>OperationId:</strong>postReversePayment</p>
      * Create reverse payments
      */
-    async postReversePaymentRaw(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postReversePaymentRaw(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.paymentReversalCriteria === null || requestParameters.paymentReversalCriteria === undefined) {
+            throw new runtime.RequiredError('paymentReversalCriteria','Required parameter requestParameters.paymentReversalCriteria was null or undefined when calling postReversePayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13009,7 +15535,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostReversePaymentRequestToJSON(requestParameters.paymentReversalCriteria),
+            body: PaymentReversalCriteriaToJSON(requestParameters.paymentReversalCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13019,7 +15545,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create reverse payments. <p><strong>OperationId:</strong>postReversePayment</p>
      * Create reverse payments
      */
-    async postReversePayment(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postReversePayment(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postReversePaymentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13028,7 +15554,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post post Room And Tax For DayUse <p><strong>OperationId:</strong>postRoomAndTaxForDayUse</p>
      * Operation to post room and tax for day use.
      */
-    async postRoomAndTaxForDayUseRaw(requestParameters: PostRoomAndTaxForDayUseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomAndTaxForDayUseRaw(requestParameters: PostRoomAndTaxForDayUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postRoomAndTaxForDayUse.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomAndTaxForDayUse.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomAndTaxForDayUse.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomAndTaxForDayUse.');
+        }
+
+        if (requestParameters.postRoomAndTaxForDayUse === null || requestParameters.postRoomAndTaxForDayUse === undefined) {
+            throw new runtime.RequiredError('postRoomAndTaxForDayUse','Required parameter requestParameters.postRoomAndTaxForDayUse was null or undefined when calling postRoomAndTaxForDayUse.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13060,7 +15606,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomAndTaxForDayUseRequestToJSON(requestParameters.postRoomAndTaxForDayUse),
+            body: PostRoomAndTaxForDayUseToJSON(requestParameters.postRoomAndTaxForDayUse),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13070,7 +15616,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post post Room And Tax For DayUse <p><strong>OperationId:</strong>postRoomAndTaxForDayUse</p>
      * Operation to post room and tax for day use.
      */
-    async postRoomAndTaxForDayUse(requestParameters: PostRoomAndTaxForDayUseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomAndTaxForDayUse(requestParameters: PostRoomAndTaxForDayUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomAndTaxForDayUseRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13079,7 +15625,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Stored Folio Details. <p><strong>OperationId:</strong>postStoredFolioDetails</p>
      * Create Stored Folio Details
      */
-    async postStoredFolioDetailsRaw(requestParameters: PostStoredFolioDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postStoredFolioDetailsRaw(requestParameters: PostStoredFolioDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.folioId === null || requestParameters.folioId === undefined) {
+            throw new runtime.RequiredError('folioId','Required parameter requestParameters.folioId was null or undefined when calling postStoredFolioDetails.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postStoredFolioDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postStoredFolioDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postStoredFolioDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postStoredFolioDetails.');
+        }
+
+        if (requestParameters.storedFolioDetails === null || requestParameters.storedFolioDetails === undefined) {
+            throw new runtime.RequiredError('storedFolioDetails','Required parameter requestParameters.storedFolioDetails was null or undefined when calling postStoredFolioDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13111,7 +15681,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostStoredFolioDetailsRequestToJSON(requestParameters.storedFolioDetails),
+            body: StoredFolioDetailsToJSON(requestParameters.storedFolioDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13121,7 +15691,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Stored Folio Details. <p><strong>OperationId:</strong>postStoredFolioDetails</p>
      * Create Stored Folio Details
      */
-    async postStoredFolioDetails(requestParameters: PostStoredFolioDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postStoredFolioDetails(requestParameters: PostStoredFolioDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postStoredFolioDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13130,7 +15700,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post supplemental folio. <p><strong>OperationId:</strong>postSupplementalFolio</p>
      * Post supplemental folio
      */
-    async postSupplementalFolioRaw(requestParameters: PostSupplementalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSupplementalFolioStatus>> {
+    async postSupplementalFolioRaw(requestParameters: PostSupplementalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSupplementalFolioStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postSupplementalFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSupplementalFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSupplementalFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSupplementalFolio.');
+        }
+
+        if (requestParameters.postSupplementalFolio === null || requestParameters.postSupplementalFolio === undefined) {
+            throw new runtime.RequiredError('postSupplementalFolio','Required parameter requestParameters.postSupplementalFolio was null or undefined when calling postSupplementalFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13162,7 +15752,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSupplementalFolioRequestToJSON(requestParameters.postSupplementalFolio),
+            body: PostSupplementalFolioToJSON(requestParameters.postSupplementalFolio),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostSupplementalFolioStatusFromJSON(jsonValue));
@@ -13172,7 +15762,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post supplemental folio. <p><strong>OperationId:</strong>postSupplementalFolio</p>
      * Post supplemental folio
      */
-    async postSupplementalFolio(requestParameters: PostSupplementalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostSupplementalFolioStatus> {
+    async postSupplementalFolio(requestParameters: PostSupplementalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostSupplementalFolioStatus> {
         const response = await this.postSupplementalFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13181,7 +15771,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Zero Balance Checkout Reservation Batch. <p><strong>OperationId:</strong>postZeroBalanceCheckoutReservations</p>
      * Create Zero Balance Checkout Reservation Batch 
      */
-    async postZeroBalanceCheckoutReservationsRaw(requestParameters: PostZeroBalanceCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchZeroBalanceCheckoutDetails>> {
+    async postZeroBalanceCheckoutReservationsRaw(requestParameters: PostZeroBalanceCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchZeroBalanceCheckoutDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postZeroBalanceCheckoutReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postZeroBalanceCheckoutReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postZeroBalanceCheckoutReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postZeroBalanceCheckoutReservations.');
+        }
+
+        if (requestParameters.batchZeroBalanceCheckoutReservation === null || requestParameters.batchZeroBalanceCheckoutReservation === undefined) {
+            throw new runtime.RequiredError('batchZeroBalanceCheckoutReservation','Required parameter requestParameters.batchZeroBalanceCheckoutReservation was null or undefined when calling postZeroBalanceCheckoutReservations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13213,7 +15823,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostZeroBalanceCheckoutReservationsRequestToJSON(requestParameters.batchZeroBalanceCheckoutReservation),
+            body: BatchZeroBalanceCheckoutReservationToJSON(requestParameters.batchZeroBalanceCheckoutReservation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BatchZeroBalanceCheckoutDetailsFromJSON(jsonValue));
@@ -13223,7 +15833,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Zero Balance Checkout Reservation Batch. <p><strong>OperationId:</strong>postZeroBalanceCheckoutReservations</p>
      * Create Zero Balance Checkout Reservation Batch 
      */
-    async postZeroBalanceCheckoutReservations(requestParameters: PostZeroBalanceCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchZeroBalanceCheckoutDetails> {
+    async postZeroBalanceCheckoutReservations(requestParameters: PostZeroBalanceCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchZeroBalanceCheckoutDetails> {
         const response = await this.postZeroBalanceCheckoutReservationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13232,7 +15842,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to process fiscal retry status. <p><strong>OperationId:</strong>processFiscalRetry</p>
      * Process Fiscal retry
      */
-    async processFiscalRetryRaw(requestParameters: ProcessFiscalRetryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessFiscalRetryStatus>> {
+    async processFiscalRetryRaw(requestParameters: ProcessFiscalRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessFiscalRetryStatus>> {
+        if (requestParameters.folioId === null || requestParameters.folioId === undefined) {
+            throw new runtime.RequiredError('folioId','Required parameter requestParameters.folioId was null or undefined when calling processFiscalRetry.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling processFiscalRetry.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling processFiscalRetry.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling processFiscalRetry.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling processFiscalRetry.');
+        }
+
+        if (requestParameters.processFiscalRetry === null || requestParameters.processFiscalRetry === undefined) {
+            throw new runtime.RequiredError('processFiscalRetry','Required parameter requestParameters.processFiscalRetry was null or undefined when calling processFiscalRetry.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13264,7 +15898,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ProcessFiscalRetryRequestToJSON(requestParameters.processFiscalRetry),
+            body: ProcessFiscalRetryToJSON(requestParameters.processFiscalRetry),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ProcessFiscalRetryStatusFromJSON(jsonValue));
@@ -13274,7 +15908,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to process fiscal retry status. <p><strong>OperationId:</strong>processFiscalRetry</p>
      * Process Fiscal retry
      */
-    async processFiscalRetry(requestParameters: ProcessFiscalRetryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessFiscalRetryStatus> {
+    async processFiscalRetry(requestParameters: ProcessFiscalRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessFiscalRetryStatus> {
         const response = await this.processFiscalRetryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13283,7 +15917,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Process reservations deposit. <p><strong>OperationId:</strong>processReservationDeposit</p>
      * Process Reservations deposit
      */
-    async processReservationDepositRaw(requestParameters: ProcessReservationDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async processReservationDepositRaw(requestParameters: ProcessReservationDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling processReservationDeposit.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling processReservationDeposit.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling processReservationDeposit.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling processReservationDeposit.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling processReservationDeposit.');
+        }
+
+        if (requestParameters.reservationDepositCriteria === null || requestParameters.reservationDepositCriteria === undefined) {
+            throw new runtime.RequiredError('reservationDepositCriteria','Required parameter requestParameters.reservationDepositCriteria was null or undefined when calling processReservationDeposit.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13315,7 +15973,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ProcessReservationDepositRequestToJSON(requestParameters.reservationDepositCriteria),
+            body: ReservationDepositCriteriaToJSON(requestParameters.reservationDepositCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13325,7 +15983,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Process reservations deposit. <p><strong>OperationId:</strong>processReservationDeposit</p>
      * Process Reservations deposit
      */
-    async processReservationDeposit(requestParameters: ProcessReservationDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async processReservationDeposit(requestParameters: ProcessReservationDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.processReservationDepositRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13334,7 +15992,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Room Routing Refresh. <p><strong>OperationId:</strong>processRoomRoutingRefresh</p>
      * Process Room Routing Refresh
      */
-    async processRoomRoutingRefreshRaw(requestParameters: ProcessRoomRoutingRefreshOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async processRoomRoutingRefreshRaw(requestParameters: ProcessRoomRoutingRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.targetReservationId === null || requestParameters.targetReservationId === undefined) {
+            throw new runtime.RequiredError('targetReservationId','Required parameter requestParameters.targetReservationId was null or undefined when calling processRoomRoutingRefresh.');
+        }
+
+        if (requestParameters.sourceReservationId === null || requestParameters.sourceReservationId === undefined) {
+            throw new runtime.RequiredError('sourceReservationId','Required parameter requestParameters.sourceReservationId was null or undefined when calling processRoomRoutingRefresh.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling processRoomRoutingRefresh.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling processRoomRoutingRefresh.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling processRoomRoutingRefresh.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling processRoomRoutingRefresh.');
+        }
+
+        if (requestParameters.roomRoutingRefresh === null || requestParameters.roomRoutingRefresh === undefined) {
+            throw new runtime.RequiredError('roomRoutingRefresh','Required parameter requestParameters.roomRoutingRefresh was null or undefined when calling processRoomRoutingRefresh.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13366,7 +16052,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ProcessRoomRoutingRefreshRequestToJSON(requestParameters.roomRoutingRefresh),
+            body: RoomRoutingRefreshToJSON(requestParameters.roomRoutingRefresh),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13376,7 +16062,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Room Routing Refresh. <p><strong>OperationId:</strong>processRoomRoutingRefresh</p>
      * Process Room Routing Refresh
      */
-    async processRoomRoutingRefresh(requestParameters: ProcessRoomRoutingRefreshOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async processRoomRoutingRefresh(requestParameters: ProcessRoomRoutingRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.processRoomRoutingRefreshRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13384,8 +16070,33 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to Update bed tax information for a property. <p><strong>OperationId:</strong>putBedTaxInfo</p>
      * Change bed tax information
+     * @deprecated
      */
     async putBedTaxInfoRaw(requestParameters: PutBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxRegistraitionNo === null || requestParameters.taxRegistraitionNo === undefined) {
+            throw new runtime.RequiredError('taxRegistraitionNo','Required parameter requestParameters.taxRegistraitionNo was null or undefined when calling putBedTaxInfo.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBedTaxInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBedTaxInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBedTaxInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBedTaxInfo.');
+        }
+
+        if (requestParameters.bedTaxCriteria === null || requestParameters.bedTaxCriteria === undefined) {
+            throw new runtime.RequiredError('bedTaxCriteria','Required parameter requestParameters.bedTaxCriteria was null or undefined when calling putBedTaxInfo.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13417,7 +16128,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBedTaxInfoRequestToJSON(requestParameters.bedTaxCriteria),
+            body: BedTaxCriteriaToJSON(requestParameters.bedTaxCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13426,6 +16137,7 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to Update bed tax information for a property. <p><strong>OperationId:</strong>putBedTaxInfo</p>
      * Change bed tax information
+     * @deprecated
      */
     async putBedTaxInfo(requestParameters: PutBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBedTaxInfoRaw(requestParameters, initOverrides);
@@ -13436,7 +16148,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharge</p>
      * Change Billing Charge
      */
-    async putBillingChargeRaw(requestParameters: PutBillingChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargeStatus>> {
+    async putBillingChargeRaw(requestParameters: PutBillingChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargeStatus>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling putBillingCharge.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBillingCharge.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBillingCharge.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBillingCharge.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBillingCharge.');
+        }
+
+        if (requestParameters.billingCharge === null || requestParameters.billingCharge === undefined) {
+            throw new runtime.RequiredError('billingCharge','Required parameter requestParameters.billingCharge was null or undefined when calling putBillingCharge.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13468,7 +16204,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBillingChargeRequestToJSON(requestParameters.billingCharge),
+            body: BillingChargeToJSON(requestParameters.billingCharge),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BillingChargeStatusFromJSON(jsonValue));
@@ -13478,7 +16214,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharge</p>
      * Change Billing Charge
      */
-    async putBillingCharge(requestParameters: PutBillingChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargeStatus> {
+    async putBillingCharge(requestParameters: PutBillingChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargeStatus> {
         const response = await this.putBillingChargeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13487,7 +16223,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharges</p>
      * Change Billing Charges
      */
-    async putBillingChargesRaw(requestParameters: PutBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PutBillingChargesStatus>> {
+    async putBillingChargesRaw(requestParameters: PutBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PutBillingChargesStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBillingCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBillingCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBillingCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBillingCharges.');
+        }
+
+        if (requestParameters.putBillingCharges === null || requestParameters.putBillingCharges === undefined) {
+            throw new runtime.RequiredError('putBillingCharges','Required parameter requestParameters.putBillingCharges was null or undefined when calling putBillingCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13519,7 +16275,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBillingChargesRequestToJSON(requestParameters.putBillingCharges),
+            body: PutBillingChargesToJSON(requestParameters.putBillingCharges),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PutBillingChargesStatusFromJSON(jsonValue));
@@ -13529,7 +16285,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharges</p>
      * Change Billing Charges
      */
-    async putBillingCharges(requestParameters: PutBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PutBillingChargesStatus> {
+    async putBillingCharges(requestParameters: PutBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PutBillingChargesStatus> {
         const response = await this.putBillingChargesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13538,7 +16294,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Cashier Closure. <p><strong>OperationId:</strong>putCashier</p>
      * Close Cashier
      */
-    async putCashierRaw(requestParameters: PutCashierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putCashierRaw(requestParameters: PutCashierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
+            throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling putCashier.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCashier.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCashier.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCashier.');
+        }
+
+        if (requestParameters.cashierClosure === null || requestParameters.cashierClosure === undefined) {
+            throw new runtime.RequiredError('cashierClosure','Required parameter requestParameters.cashierClosure was null or undefined when calling putCashier.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13570,7 +16346,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutCashierRequestToJSON(requestParameters.cashierClosure),
+            body: CashierClosureToJSON(requestParameters.cashierClosure),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13580,7 +16356,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Cashier Closure. <p><strong>OperationId:</strong>putCashier</p>
      * Close Cashier
      */
-    async putCashier(requestParameters: PutCashierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putCashier(requestParameters: PutCashierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putCashierRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13589,7 +16365,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Extend cashiers lock. <p><strong>OperationId:</strong>putCashierLock</p>
      * Extend Cashier Lock
      */
-    async putCashierLockRaw(requestParameters: PutCashierLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExtendedCashierLock>> {
+    async putCashierLockRaw(requestParameters: PutCashierLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExtendedCashierLock>> {
+        if (requestParameters.lockId === null || requestParameters.lockId === undefined) {
+            throw new runtime.RequiredError('lockId','Required parameter requestParameters.lockId was null or undefined when calling putCashierLock.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCashierLock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCashierLock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCashierLock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCashierLock.');
+        }
+
+        if (requestParameters.cashierLockCriteriaToExtend === null || requestParameters.cashierLockCriteriaToExtend === undefined) {
+            throw new runtime.RequiredError('cashierLockCriteriaToExtend','Required parameter requestParameters.cashierLockCriteriaToExtend was null or undefined when calling putCashierLock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13621,7 +16421,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutCashierLockRequestToJSON(requestParameters.cashierLockCriteriaToExtend),
+            body: CashierLockCriteriaToExtendToJSON(requestParameters.cashierLockCriteriaToExtend),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExtendedCashierLockFromJSON(jsonValue));
@@ -13631,7 +16431,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Extend cashiers lock. <p><strong>OperationId:</strong>putCashierLock</p>
      * Extend Cashier Lock
      */
-    async putCashierLock(requestParameters: PutCashierLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExtendedCashierLock> {
+    async putCashierLock(requestParameters: PutCashierLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExtendedCashierLock> {
         const response = await this.putCashierLockRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13640,7 +16440,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change early Departure. <p><strong>OperationId:</strong>putForEarlyDeparture</p>
      * Change early Departure
      */
-    async putForEarlyDepartureRaw(requestParameters: PutForEarlyDepartureOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putForEarlyDepartureRaw(requestParameters: PutForEarlyDepartureRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling putForEarlyDeparture.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putForEarlyDeparture.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putForEarlyDeparture.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putForEarlyDeparture.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putForEarlyDeparture.');
+        }
+
+        if (requestParameters.earlyDeparture === null || requestParameters.earlyDeparture === undefined) {
+            throw new runtime.RequiredError('earlyDeparture','Required parameter requestParameters.earlyDeparture was null or undefined when calling putForEarlyDeparture.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13672,7 +16496,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutForEarlyDepartureRequestToJSON(requestParameters.earlyDeparture),
+            body: EarlyDepartureToJSON(requestParameters.earlyDeparture),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13682,7 +16506,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change early Departure. <p><strong>OperationId:</strong>putForEarlyDeparture</p>
      * Change early Departure
      */
-    async putForEarlyDeparture(requestParameters: PutForEarlyDepartureOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putForEarlyDeparture(requestParameters: PutForEarlyDepartureRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putForEarlyDepartureRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13691,7 +16515,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Payee Tax Number. <p><strong>OperationId:</strong>putPayeeTaxNumber</p>
      * Change Payee Tax Number
      */
-    async putPayeeTaxNumberRaw(requestParameters: PutPayeeTaxNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putPayeeTaxNumberRaw(requestParameters: PutPayeeTaxNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.payeeId === null || requestParameters.payeeId === undefined) {
+            throw new runtime.RequiredError('payeeId','Required parameter requestParameters.payeeId was null or undefined when calling putPayeeTaxNumber.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putPayeeTaxNumber.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPayeeTaxNumber.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPayeeTaxNumber.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPayeeTaxNumber.');
+        }
+
+        if (requestParameters.payeeTaxNumber === null || requestParameters.payeeTaxNumber === undefined) {
+            throw new runtime.RequiredError('payeeTaxNumber','Required parameter requestParameters.payeeTaxNumber was null or undefined when calling putPayeeTaxNumber.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13723,7 +16571,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPayeeTaxNumberRequestToJSON(requestParameters.payeeTaxNumber),
+            body: PayeeTaxNumberToJSON(requestParameters.payeeTaxNumber),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13733,7 +16581,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Payee Tax Number. <p><strong>OperationId:</strong>putPayeeTaxNumber</p>
      * Change Payee Tax Number
      */
-    async putPayeeTaxNumber(requestParameters: PutPayeeTaxNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putPayeeTaxNumber(requestParameters: PutPayeeTaxNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putPayeeTaxNumberRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13742,7 +16590,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Reservation Deposit Transfer. <p><strong>OperationId:</strong>putReservationDepositTransfer</p>
      * Change Reservation Deposit Transfer.
      */
-    async putReservationDepositTransferRaw(requestParameters: PutReservationDepositTransferOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putReservationDepositTransferRaw(requestParameters: PutReservationDepositTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceReservationId === null || requestParameters.sourceReservationId === undefined) {
+            throw new runtime.RequiredError('sourceReservationId','Required parameter requestParameters.sourceReservationId was null or undefined when calling putReservationDepositTransfer.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putReservationDepositTransfer.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putReservationDepositTransfer.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putReservationDepositTransfer.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putReservationDepositTransfer.');
+        }
+
+        if (requestParameters.depositTransferCriteria === null || requestParameters.depositTransferCriteria === undefined) {
+            throw new runtime.RequiredError('depositTransferCriteria','Required parameter requestParameters.depositTransferCriteria was null or undefined when calling putReservationDepositTransfer.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13774,7 +16646,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutReservationDepositTransferRequestToJSON(requestParameters.depositTransferCriteria),
+            body: DepositTransferCriteriaToJSON(requestParameters.depositTransferCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13784,7 +16656,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change Reservation Deposit Transfer. <p><strong>OperationId:</strong>putReservationDepositTransfer</p>
      * Change Reservation Deposit Transfer.
      */
-    async putReservationDepositTransfer(requestParameters: PutReservationDepositTransferOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putReservationDepositTransfer(requestParameters: PutReservationDepositTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putReservationDepositTransferRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13793,7 +16665,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to add routing instructions to a reservation. <p><strong>OperationId:</strong>putRoutingInstructions</p>
      * Create routing instructions
      */
-    async putRoutingInstructionsRaw(requestParameters: PutRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatedRoutingInstructions>> {
+    async putRoutingInstructionsRaw(requestParameters: PutRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatedRoutingInstructions>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling putRoutingInstructions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRoutingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoutingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoutingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoutingInstructions.');
+        }
+
+        if (requestParameters.routingInstructions === null || requestParameters.routingInstructions === undefined) {
+            throw new runtime.RequiredError('routingInstructions','Required parameter requestParameters.routingInstructions was null or undefined when calling putRoutingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13825,7 +16721,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoutingInstructionsRequestToJSON(requestParameters.routingInstructions),
+            body: RoutingInstructionsToJSON(requestParameters.routingInstructions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreatedRoutingInstructionsFromJSON(jsonValue));
@@ -13835,7 +16731,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to add routing instructions to a reservation. <p><strong>OperationId:</strong>putRoutingInstructions</p>
      * Create routing instructions
      */
-    async putRoutingInstructions(requestParameters: PutRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedRoutingInstructions> {
+    async putRoutingInstructions(requestParameters: PutRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedRoutingInstructions> {
         const response = await this.putRoutingInstructionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13844,7 +16740,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to redeem Prepaid Cards <p><strong>OperationId:</strong>redeemPrepaidCards</p>
      * Operation to redeem prepaid cards.
      */
-    async redeemPrepaidCardsRaw(requestParameters: RedeemPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RedeemPrepaidCardsStatus>> {
+    async redeemPrepaidCardsRaw(requestParameters: RedeemPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RedeemPrepaidCardsStatus>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling redeemPrepaidCards.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling redeemPrepaidCards.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling redeemPrepaidCards.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling redeemPrepaidCards.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling redeemPrepaidCards.');
+        }
+
+        if (requestParameters.redeemPrepaidCards === null || requestParameters.redeemPrepaidCards === undefined) {
+            throw new runtime.RequiredError('redeemPrepaidCards','Required parameter requestParameters.redeemPrepaidCards was null or undefined when calling redeemPrepaidCards.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13876,7 +16796,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: RedeemPrepaidCardsRequestToJSON(requestParameters.redeemPrepaidCards),
+            body: RedeemPrepaidCardsToJSON(requestParameters.redeemPrepaidCards),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RedeemPrepaidCardsStatusFromJSON(jsonValue));
@@ -13886,7 +16806,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to redeem Prepaid Cards <p><strong>OperationId:</strong>redeemPrepaidCards</p>
      * Operation to redeem prepaid cards.
      */
-    async redeemPrepaidCards(requestParameters: RedeemPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemPrepaidCardsStatus> {
+    async redeemPrepaidCards(requestParameters: RedeemPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemPrepaidCardsStatus> {
         const response = await this.redeemPrepaidCardsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13895,7 +16815,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to register Manual Authorization. <p><strong>OperationId:</strong>registerManualAuthorization</p>
      * Register Manual Authorization
      */
-    async registerManualAuthorizationRaw(requestParameters: RegisterManualAuthorizationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async registerManualAuthorizationRaw(requestParameters: RegisterManualAuthorizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling registerManualAuthorization.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling registerManualAuthorization.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling registerManualAuthorization.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling registerManualAuthorization.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling registerManualAuthorization.');
+        }
+
+        if (requestParameters.ccManualAuthorizationCriteria === null || requestParameters.ccManualAuthorizationCriteria === undefined) {
+            throw new runtime.RequiredError('ccManualAuthorizationCriteria','Required parameter requestParameters.ccManualAuthorizationCriteria was null or undefined when calling registerManualAuthorization.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13927,7 +16871,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RegisterManualAuthorizationRequestToJSON(requestParameters.ccManualAuthorizationCriteria),
+            body: CcManualAuthorizationCriteriaToJSON(requestParameters.ccManualAuthorizationCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13937,7 +16881,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to register Manual Authorization. <p><strong>OperationId:</strong>registerManualAuthorization</p>
      * Register Manual Authorization
      */
-    async registerManualAuthorization(requestParameters: RegisterManualAuthorizationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async registerManualAuthorization(requestParameters: RegisterManualAuthorizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.registerManualAuthorizationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13946,7 +16890,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create vault transaction. <p><strong>OperationId:</strong>registerVaultTransaction</p>
      * Register Vault Transaction
      */
-    async registerVaultTransactionRaw(requestParameters: RegisterVaultTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async registerVaultTransactionRaw(requestParameters: RegisterVaultTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling registerVaultTransaction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling registerVaultTransaction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling registerVaultTransaction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling registerVaultTransaction.');
+        }
+
+        if (requestParameters.vaultTransaction === null || requestParameters.vaultTransaction === undefined) {
+            throw new runtime.RequiredError('vaultTransaction','Required parameter requestParameters.vaultTransaction was null or undefined when calling registerVaultTransaction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -13978,7 +16942,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RegisterVaultTransactionRequestToJSON(requestParameters.vaultTransaction),
+            body: VaultTransactionToJSON(requestParameters.vaultTransaction),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -13988,7 +16952,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create vault transaction. <p><strong>OperationId:</strong>registerVaultTransaction</p>
      * Register Vault Transaction
      */
-    async registerVaultTransaction(requestParameters: RegisterVaultTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async registerVaultTransaction(requestParameters: RegisterVaultTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.registerVaultTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -13997,7 +16961,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reinstate Checked Out Reservation. <p><strong>OperationId:</strong>reinstateCheckOut</p>
      * Reinstate Checked Out Reservation
      */
-    async reinstateCheckOutRaw(requestParameters: ReinstateCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async reinstateCheckOutRaw(requestParameters: ReinstateCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling reinstateCheckOut.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reinstateCheckOut.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reinstateCheckOut.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reinstateCheckOut.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reinstateCheckOut.');
+        }
+
+        if (requestParameters.reinstateCheckedOutReservation === null || requestParameters.reinstateCheckedOutReservation === undefined) {
+            throw new runtime.RequiredError('reinstateCheckedOutReservation','Required parameter requestParameters.reinstateCheckedOutReservation was null or undefined when calling reinstateCheckOut.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14029,7 +17017,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ReinstateCheckOutRequestToJSON(requestParameters.reinstateCheckedOutReservation),
+            body: ReinstateCheckedOutReservationToJSON(requestParameters.reinstateCheckedOutReservation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14039,7 +17027,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reinstate Checked Out Reservation. <p><strong>OperationId:</strong>reinstateCheckOut</p>
      * Reinstate Checked Out Reservation
      */
-    async reinstateCheckOut(requestParameters: ReinstateCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async reinstateCheckOut(requestParameters: ReinstateCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.reinstateCheckOutRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14049,6 +17037,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Release Cashier Lock
      */
     async releaseCashierLockRaw(requestParameters: ReleaseCashierLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.lockId === null || requestParameters.lockId === undefined) {
+            throw new runtime.RequiredError('lockId','Required parameter requestParameters.lockId was null or undefined when calling releaseCashierLock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling releaseCashierLock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling releaseCashierLock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling releaseCashierLock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14096,7 +17100,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reload Prepaid Card. <p><strong>OperationId:</strong>reloadPrepaidCard</p>
      * Operation to reload prepaid card.
      */
-    async reloadPrepaidCardRaw(requestParameters: ReloadPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReloadPrepaidCardStatus>> {
+    async reloadPrepaidCardRaw(requestParameters: ReloadPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReloadPrepaidCardStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reloadPrepaidCard.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reloadPrepaidCard.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reloadPrepaidCard.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reloadPrepaidCard.');
+        }
+
+        if (requestParameters.reloadPrepaidCard === null || requestParameters.reloadPrepaidCard === undefined) {
+            throw new runtime.RequiredError('reloadPrepaidCard','Required parameter requestParameters.reloadPrepaidCard was null or undefined when calling reloadPrepaidCard.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14128,7 +17152,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ReloadPrepaidCardRequestToJSON(requestParameters.reloadPrepaidCard),
+            body: ReloadPrepaidCardToJSON(requestParameters.reloadPrepaidCard),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReloadPrepaidCardStatusFromJSON(jsonValue));
@@ -14138,7 +17162,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reload Prepaid Card. <p><strong>OperationId:</strong>reloadPrepaidCard</p>
      * Operation to reload prepaid card.
      */
-    async reloadPrepaidCard(requestParameters: ReloadPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReloadPrepaidCardStatus> {
+    async reloadPrepaidCard(requestParameters: ReloadPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReloadPrepaidCardStatus> {
         const response = await this.reloadPrepaidCardRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14146,8 +17170,29 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to delete bed tax information for a property. <p><strong>OperationId:</strong>removeBedTaxInfo</p>
      * Delete bed tax information
+     * @deprecated
      */
     async removeBedTaxInfoRaw(requestParameters: RemoveBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxRegistraitionNo === null || requestParameters.taxRegistraitionNo === undefined) {
+            throw new runtime.RequiredError('taxRegistraitionNo','Required parameter requestParameters.taxRegistraitionNo was null or undefined when calling removeBedTaxInfo.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeBedTaxInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeBedTaxInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeBedTaxInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeBedTaxInfo.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14185,6 +17230,7 @@ export class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to delete bed tax information for a property. <p><strong>OperationId:</strong>removeBedTaxInfo</p>
      * Delete bed tax information
+     * @deprecated
      */
     async removeBedTaxInfo(requestParameters: RemoveBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.removeBedTaxInfoRaw(requestParameters, initOverrides);
@@ -14196,6 +17242,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete Fixed Charges 
      */
     async removeFixedChargesRaw(requestParameters: RemoveFixedChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling removeFixedCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeFixedCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeFixedCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeFixedCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeFixedCharges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fixedChargeID) {
@@ -14247,7 +17313,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * This API is used to resend the failed supporting documents. <p><strong>OperationId:</strong>resendSupportingDocument</p>
      * Operation to resend the failed supporting documents to fiscal partner.
      */
-    async resendSupportingDocumentRaw(requestParameters: ResendSupportingDocumentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async resendSupportingDocumentRaw(requestParameters: ResendSupportingDocumentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling resendSupportingDocument.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling resendSupportingDocument.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling resendSupportingDocument.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling resendSupportingDocument.');
+        }
+
+        if (requestParameters.fiscalSupportingDocumentCriteria === null || requestParameters.fiscalSupportingDocumentCriteria === undefined) {
+            throw new runtime.RequiredError('fiscalSupportingDocumentCriteria','Required parameter requestParameters.fiscalSupportingDocumentCriteria was null or undefined when calling resendSupportingDocument.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14279,7 +17365,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ResendSupportingDocumentRequestToJSON(requestParameters.fiscalSupportingDocumentCriteria),
+            body: FiscalSupportingDocumentCriteriaToJSON(requestParameters.fiscalSupportingDocumentCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14289,7 +17375,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * This API is used to resend the failed supporting documents. <p><strong>OperationId:</strong>resendSupportingDocument</p>
      * Operation to resend the failed supporting documents to fiscal partner.
      */
-    async resendSupportingDocument(requestParameters: ResendSupportingDocumentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async resendSupportingDocument(requestParameters: ResendSupportingDocumentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.resendSupportingDocumentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14299,6 +17385,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Reverse AR Invoice
      */
     async reverseARInvoiceRaw(requestParameters: ReverseARInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reverseARInvoice.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reverseARInvoice.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reverseARInvoice.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reverseARInvoice.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reasonCode !== undefined) {
@@ -14358,7 +17460,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Reverse certificate postings. <p><strong>OperationId:</strong>reverseCertificatePostings</p>
      * Reverse certificate postings
      */
-    async reverseCertificatePostingsRaw(requestParameters: ReverseCertificatePostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async reverseCertificatePostingsRaw(requestParameters: ReverseCertificatePostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling reverseCertificatePostings.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reverseCertificatePostings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reverseCertificatePostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reverseCertificatePostings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reverseCertificatePostings.');
+        }
+
+        if (requestParameters.reverseCertificatePostingsCriteria === null || requestParameters.reverseCertificatePostingsCriteria === undefined) {
+            throw new runtime.RequiredError('reverseCertificatePostingsCriteria','Required parameter requestParameters.reverseCertificatePostingsCriteria was null or undefined when calling reverseCertificatePostings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14390,7 +17516,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ReverseCertificatePostingsRequestToJSON(requestParameters.reverseCertificatePostingsCriteria),
+            body: ReverseCertificatePostingsCriteriaToJSON(requestParameters.reverseCertificatePostingsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14400,7 +17526,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Reverse certificate postings. <p><strong>OperationId:</strong>reverseCertificatePostings</p>
      * Reverse certificate postings
      */
-    async reverseCertificatePostings(requestParameters: ReverseCertificatePostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async reverseCertificatePostings(requestParameters: ReverseCertificatePostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.reverseCertificatePostingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14409,7 +17535,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reverse complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    async reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.reverseCompRedemptions === null || requestParameters.reverseCompRedemptions === undefined) {
+            throw new runtime.RequiredError('reverseCompRedemptions','Required parameter requestParameters.reverseCompRedemptions was null or undefined when calling reverseCompRedemptions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14441,7 +17591,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ReverseCompRedemptionsRequestToJSON(requestParameters.reverseCompRedemptions),
+            body: ReverseCompRedemptionsToJSON(requestParameters.reverseCompRedemptions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14451,7 +17601,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reverse complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    async reverseCompRedemptions(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async reverseCompRedemptions(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.reverseCompRedemptionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14461,6 +17611,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete flexible benefit postings
      */
     async reverseFlexibleBenefitPostingRaw(requestParameters: ReverseFlexibleBenefitPostingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling reverseFlexibleBenefitPosting.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reverseFlexibleBenefitPosting.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reverseFlexibleBenefitPosting.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reverseFlexibleBenefitPosting.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reverseFlexibleBenefitPosting.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14508,7 +17678,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change folio tax payments. <p><strong>OperationId:</strong>reverseFolioTaxPayment</p>
      * Change folio tax payments
      */
-    async reverseFolioTaxPaymentRaw(requestParameters: ReverseFolioTaxPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTaxPaymentReversal>> {
+    async reverseFolioTaxPaymentRaw(requestParameters: ReverseFolioTaxPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTaxPaymentReversal>> {
+        if (requestParameters.cashierId === null || requestParameters.cashierId === undefined) {
+            throw new runtime.RequiredError('cashierId','Required parameter requestParameters.cashierId was null or undefined when calling reverseFolioTaxPayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reverseFolioTaxPayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reverseFolioTaxPayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reverseFolioTaxPayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reverseFolioTaxPayment.');
+        }
+
+        if (requestParameters.transactionReversal === null || requestParameters.transactionReversal === undefined) {
+            throw new runtime.RequiredError('transactionReversal','Required parameter requestParameters.transactionReversal was null or undefined when calling reverseFolioTaxPayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14540,7 +17734,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ReverseFolioTaxPaymentRequestToJSON(requestParameters.transactionReversal),
+            body: TransactionReversalToJSON(requestParameters.transactionReversal),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FolioTaxPaymentReversalFromJSON(jsonValue));
@@ -14550,7 +17744,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change folio tax payments. <p><strong>OperationId:</strong>reverseFolioTaxPayment</p>
      * Change folio tax payments
      */
-    async reverseFolioTaxPayment(requestParameters: ReverseFolioTaxPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FolioTaxPaymentReversal> {
+    async reverseFolioTaxPayment(requestParameters: ReverseFolioTaxPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FolioTaxPaymentReversal> {
         const response = await this.reverseFolioTaxPaymentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14559,7 +17753,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to split and transfer transactions. <p><strong>OperationId:</strong>splitAndTransferTransaction</p>
      * Split and transfer transactions
      */
-    async splitAndTransferTransactionRaw(requestParameters: SplitAndTransferTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async splitAndTransferTransactionRaw(requestParameters: SplitAndTransferTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling splitAndTransferTransaction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling splitAndTransferTransaction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling splitAndTransferTransaction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling splitAndTransferTransaction.');
+        }
+
+        if (requestParameters.transactionToSplitAndTransfer === null || requestParameters.transactionToSplitAndTransfer === undefined) {
+            throw new runtime.RequiredError('transactionToSplitAndTransfer','Required parameter requestParameters.transactionToSplitAndTransfer was null or undefined when calling splitAndTransferTransaction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14591,7 +17805,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SplitAndTransferTransactionRequestToJSON(requestParameters.transactionToSplitAndTransfer),
+            body: TransactionToSplitAndTransferToJSON(requestParameters.transactionToSplitAndTransfer),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14601,7 +17815,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to split and transfer transactions. <p><strong>OperationId:</strong>splitAndTransferTransaction</p>
      * Split and transfer transactions
      */
-    async splitAndTransferTransaction(requestParameters: SplitAndTransferTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async splitAndTransferTransaction(requestParameters: SplitAndTransferTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.splitAndTransferTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14610,7 +17824,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Split deposit transaction. <p><strong>OperationId:</strong>splitDepositTransaction</p>
      * Split deposit transaction
      */
-    async splitDepositTransactionRaw(requestParameters: SplitDepositTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SplitDepositTransactionStatus>> {
+    async splitDepositTransactionRaw(requestParameters: SplitDepositTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SplitDepositTransactionStatus>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling splitDepositTransaction.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling splitDepositTransaction.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling splitDepositTransaction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling splitDepositTransaction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling splitDepositTransaction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling splitDepositTransaction.');
+        }
+
+        if (requestParameters.splitDepositTransaction === null || requestParameters.splitDepositTransaction === undefined) {
+            throw new runtime.RequiredError('splitDepositTransaction','Required parameter requestParameters.splitDepositTransaction was null or undefined when calling splitDepositTransaction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14642,7 +17884,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SplitDepositTransactionRequestToJSON(requestParameters.splitDepositTransaction),
+            body: SplitDepositTransactionToJSON(requestParameters.splitDepositTransaction),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SplitDepositTransactionStatusFromJSON(jsonValue));
@@ -14652,7 +17894,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Split deposit transaction. <p><strong>OperationId:</strong>splitDepositTransaction</p>
      * Split deposit transaction
      */
-    async splitDepositTransaction(requestParameters: SplitDepositTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SplitDepositTransactionStatus> {
+    async splitDepositTransaction(requestParameters: SplitDepositTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SplitDepositTransactionStatus> {
         const response = await this.splitDepositTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14661,7 +17903,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Split transactions. <p><strong>OperationId:</strong>splitTransaction</p>
      * Split transactions
      */
-    async splitTransactionRaw(requestParameters: SplitTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async splitTransactionRaw(requestParameters: SplitTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling splitTransaction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling splitTransaction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling splitTransaction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling splitTransaction.');
+        }
+
+        if (requestParameters.transactionToSplit === null || requestParameters.transactionToSplit === undefined) {
+            throw new runtime.RequiredError('transactionToSplit','Required parameter requestParameters.transactionToSplit was null or undefined when calling splitTransaction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14693,7 +17955,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SplitTransactionRequestToJSON(requestParameters.transactionToSplit),
+            body: TransactionToSplitToJSON(requestParameters.transactionToSplit),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14703,7 +17965,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Split transactions. <p><strong>OperationId:</strong>splitTransaction</p>
      * Split transactions
      */
-    async splitTransaction(requestParameters: SplitTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async splitTransaction(requestParameters: SplitTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.splitTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14712,7 +17974,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to transfer comp transactions to window <p><strong>OperationId:</strong>transferCompTransactions</p>
      * Transfer comp transactions to window
      */
-    async transferCompTransactionsRaw(requestParameters: TransferCompTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transferCompTransactionsRaw(requestParameters: TransferCompTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling transferCompTransactions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferCompTransactions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferCompTransactions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferCompTransactions.');
+        }
+
+        if (requestParameters.transferCompTransactions === null || requestParameters.transferCompTransactions === undefined) {
+            throw new runtime.RequiredError('transferCompTransactions','Required parameter requestParameters.transferCompTransactions was null or undefined when calling transferCompTransactions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14744,7 +18026,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferCompTransactionsRequestToJSON(requestParameters.transferCompTransactions),
+            body: TransferCompTransactionsToJSON(requestParameters.transferCompTransactions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14754,7 +18036,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to transfer comp transactions to window <p><strong>OperationId:</strong>transferCompTransactions</p>
      * Transfer comp transactions to window
      */
-    async transferCompTransactions(requestParameters: TransferCompTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transferCompTransactions(requestParameters: TransferCompTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transferCompTransactionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14763,7 +18045,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to transfer Folio to Window. <p><strong>OperationId:</strong>transferFolioToWindow</p>
      * Transfer Folio to Window.
      */
-    async transferFolioToWindowRaw(requestParameters: TransferFolioToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transferFolioToWindowRaw(requestParameters: TransferFolioToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling transferFolioToWindow.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling transferFolioToWindow.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferFolioToWindow.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferFolioToWindow.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferFolioToWindow.');
+        }
+
+        if (requestParameters.folioToWindow === null || requestParameters.folioToWindow === undefined) {
+            throw new runtime.RequiredError('folioToWindow','Required parameter requestParameters.folioToWindow was null or undefined when calling transferFolioToWindow.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14795,7 +18101,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferFolioToWindowRequestToJSON(requestParameters.folioToWindow),
+            body: FolioToWindowToJSON(requestParameters.folioToWindow),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14805,7 +18111,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to transfer Folio to Window. <p><strong>OperationId:</strong>transferFolioToWindow</p>
      * Transfer Folio to Window.
      */
-    async transferFolioToWindow(requestParameters: TransferFolioToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transferFolioToWindow(requestParameters: TransferFolioToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transferFolioToWindowRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14814,7 +18120,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Transfer Transaction to Reservation. <p><strong>OperationId:</strong>transferTransactionToReservation</p>
      * Transfer Transaction to Reservation
      */
-    async transferTransactionToReservationRaw(requestParameters: TransferTransactionToReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transferTransactionToReservationRaw(requestParameters: TransferTransactionToReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.toReservationId === null || requestParameters.toReservationId === undefined) {
+            throw new runtime.RequiredError('toReservationId','Required parameter requestParameters.toReservationId was null or undefined when calling transferTransactionToReservation.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling transferTransactionToReservation.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferTransactionToReservation.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferTransactionToReservation.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferTransactionToReservation.');
+        }
+
+        if (requestParameters.reservationTransaction === null || requestParameters.reservationTransaction === undefined) {
+            throw new runtime.RequiredError('reservationTransaction','Required parameter requestParameters.reservationTransaction was null or undefined when calling transferTransactionToReservation.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14846,7 +18176,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferTransactionToReservationRequestToJSON(requestParameters.reservationTransaction),
+            body: ReservationTransactionToJSON(requestParameters.reservationTransaction),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14856,7 +18186,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Transfer Transaction to Reservation. <p><strong>OperationId:</strong>transferTransactionToReservation</p>
      * Transfer Transaction to Reservation
      */
-    async transferTransactionToReservation(requestParameters: TransferTransactionToReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transferTransactionToReservation(requestParameters: TransferTransactionToReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transferTransactionToReservationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14865,7 +18195,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to transfer Transaction to Window. <p><strong>OperationId:</strong>transferTransactionToWindow</p>
      * Transfer Transaction to Window
      */
-    async transferTransactionToWindowRaw(requestParameters: TransferTransactionToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransferTransactionToWindow>> {
+    async transferTransactionToWindowRaw(requestParameters: TransferTransactionToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransferTransactionToWindow>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling transferTransactionToWindow.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling transferTransactionToWindow.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferTransactionToWindow.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferTransactionToWindow.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferTransactionToWindow.');
+        }
+
+        if (requestParameters.transactionToWindow === null || requestParameters.transactionToWindow === undefined) {
+            throw new runtime.RequiredError('transactionToWindow','Required parameter requestParameters.transactionToWindow was null or undefined when calling transferTransactionToWindow.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14897,7 +18251,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferTransactionToWindowRequestToJSON(requestParameters.transactionToWindow),
+            body: TransactionToWindowToJSON(requestParameters.transactionToWindow),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TransferTransactionToWindowFromJSON(jsonValue));
@@ -14907,7 +18261,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to transfer Transaction to Window. <p><strong>OperationId:</strong>transferTransactionToWindow</p>
      * Transfer Transaction to Window
      */
-    async transferTransactionToWindow(requestParameters: TransferTransactionToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransferTransactionToWindow> {
+    async transferTransactionToWindow(requestParameters: TransferTransactionToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransferTransactionToWindow> {
         const response = await this.transferTransactionToWindowRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14916,7 +18270,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Transfer Deposit to Guest Folio. <p><strong>OperationId:</strong>transitionDepositToGuestFolio</p>
      * Transition Deposit to Guest Folio
      */
-    async transitionDepositToGuestFolioRaw(requestParameters: TransitionDepositToGuestFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transitionDepositToGuestFolioRaw(requestParameters: TransitionDepositToGuestFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling transitionDepositToGuestFolio.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling transitionDepositToGuestFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transitionDepositToGuestFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transitionDepositToGuestFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transitionDepositToGuestFolio.');
+        }
+
+        if (requestParameters.depositToGuestFolio === null || requestParameters.depositToGuestFolio === undefined) {
+            throw new runtime.RequiredError('depositToGuestFolio','Required parameter requestParameters.depositToGuestFolio was null or undefined when calling transitionDepositToGuestFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -14948,7 +18326,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: TransitionDepositToGuestFolioRequestToJSON(requestParameters.depositToGuestFolio),
+            body: DepositToGuestFolioToJSON(requestParameters.depositToGuestFolio),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -14958,7 +18336,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Transfer Deposit to Guest Folio. <p><strong>OperationId:</strong>transitionDepositToGuestFolio</p>
      * Transition Deposit to Guest Folio
      */
-    async transitionDepositToGuestFolio(requestParameters: TransitionDepositToGuestFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transitionDepositToGuestFolio(requestParameters: TransitionDepositToGuestFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transitionDepositToGuestFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -14968,6 +18346,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Unlink reservation package allowance
      */
     async unlinkReservationPackageAllowanceRaw(requestParameters: UnlinkReservationPackageAllowanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling unlinkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling unlinkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling unlinkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling unlinkReservationPackageAllowance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling unlinkReservationPackageAllowance.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15015,7 +18413,31 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to update fixed Charges for a reservation. <p><strong>OperationId:</strong>updateFixedCharges</p>
      * Updates Fixed Charges 
      */
-    async updateFixedChargesRaw(requestParameters: UpdateFixedChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async updateFixedChargesRaw(requestParameters: UpdateFixedChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling updateFixedCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling updateFixedCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling updateFixedCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling updateFixedCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling updateFixedCharges.');
+        }
+
+        if (requestParameters.fixedCharges === null || requestParameters.fixedCharges === undefined) {
+            throw new runtime.RequiredError('fixedCharges','Required parameter requestParameters.fixedCharges was null or undefined when calling updateFixedCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15047,7 +18469,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateFixedChargesRequestToJSON(requestParameters.fixedCharges),
+            body: FixedChargesToJSON(requestParameters.fixedCharges),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -15057,7 +18479,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to update fixed Charges for a reservation. <p><strong>OperationId:</strong>updateFixedCharges</p>
      * Updates Fixed Charges 
      */
-    async updateFixedCharges(requestParameters: UpdateFixedChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async updateFixedCharges(requestParameters: UpdateFixedChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.updateFixedChargesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -15067,6 +18489,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Validate Credit Bill
      */
     async validateCreditBillRaw(requestParameters: ValidateCreditBillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatedCreditBill>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling validateCreditBill.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateCreditBill.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateCreditBill.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateCreditBill.');
+        }
+
+        if (requestParameters.creditBillCriteria === null || requestParameters.creditBillCriteria === undefined) {
+            throw new runtime.RequiredError('creditBillCriteria','Required parameter requestParameters.creditBillCriteria was null or undefined when calling validateCreditBill.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15098,7 +18540,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCreditBillRequestToJSON(requestParameters.creditBillCriteria),
+            body: CreditBillCriteriaToJSON(requestParameters.creditBillCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ValidatedCreditBillFromJSON(jsonValue));
@@ -15117,7 +18559,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to validate Deposit Folio. <p><strong>OperationId:</strong>validateDepositFolio</p>
      * Validate Deposit Folio
      */
-    async validateDepositFolioRaw(requestParameters: ValidateDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedFolioValidate>> {
+    async validateDepositFolioRaw(requestParameters: ValidateDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedFolioValidate>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling validateDepositFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateDepositFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateDepositFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateDepositFolio.');
+        }
+
+        if (requestParameters.depositFolioValidateCriteria === null || requestParameters.depositFolioValidateCriteria === undefined) {
+            throw new runtime.RequiredError('depositFolioValidateCriteria','Required parameter requestParameters.depositFolioValidateCriteria was null or undefined when calling validateDepositFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15149,7 +18611,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ValidateDepositFolioRequestToJSON(requestParameters.depositFolioValidateCriteria),
+            body: DepositFolioValidateCriteriaToJSON(requestParameters.depositFolioValidateCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DepositedFolioValidateFromJSON(jsonValue));
@@ -15159,7 +18621,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to validate Deposit Folio. <p><strong>OperationId:</strong>validateDepositFolio</p>
      * Validate Deposit Folio
      */
-    async validateDepositFolio(requestParameters: ValidateDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedFolioValidate> {
+    async validateDepositFolio(requestParameters: ValidateDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedFolioValidate> {
         const response = await this.validateDepositFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -15169,6 +18631,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Validate Transaction Codes
      */
     async validateTransactionCodesRaw(requestParameters: ValidateTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatedTransactionCode>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling validateTransactionCodes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling validateTransactionCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateTransactionCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateTransactionCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateTransactionCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.event !== undefined) {
@@ -15180,7 +18662,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substr(0,10);
+            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -15249,6 +18731,26 @@ export class CashieringApi extends runtime.BaseAPI {
      * Verify for early Departure
      */
     async verifyForEarlyDepartureRaw(requestParameters: VerifyForEarlyDepartureRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EarlyDepartureInfo>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling verifyForEarlyDeparture.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling verifyForEarlyDeparture.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling verifyForEarlyDeparture.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling verifyForEarlyDeparture.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling verifyForEarlyDeparture.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ignoreCheckOnTieredRate !== undefined) {
@@ -15325,10 +18827,30 @@ export class CashieringApi extends runtime.BaseAPI {
      * Delete Billing Check Charges
      */
     async voidBillingCheckChargesRaw(requestParameters: VoidBillingCheckChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.checkNumber === null || requestParameters.checkNumber === undefined) {
+            throw new runtime.RequiredError('checkNumber','Required parameter requestParameters.checkNumber was null or undefined when calling voidBillingCheckCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling voidBillingCheckCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling voidBillingCheckCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling voidBillingCheckCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling voidBillingCheckCharges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.revenueDate !== undefined) {
-            queryParameters['revenueDate'] = (requestParameters.revenueDate as any).toISOString().substr(0,10);
+            queryParameters['revenueDate'] = (requestParameters.revenueDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.amount !== undefined) {
@@ -15416,7 +18938,35 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to void a folio. <p><strong>OperationId:</strong>voidFolio</p>
      * Void folio
      */
-    async voidFolioRaw(requestParameters: VoidFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoidedFolio>> {
+    async voidFolioRaw(requestParameters: VoidFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoidedFolio>> {
+        if (requestParameters.folioId === null || requestParameters.folioId === undefined) {
+            throw new runtime.RequiredError('folioId','Required parameter requestParameters.folioId was null or undefined when calling voidFolio.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling voidFolio.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling voidFolio.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling voidFolio.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling voidFolio.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling voidFolio.');
+        }
+
+        if (requestParameters.folioToVoid === null || requestParameters.folioToVoid === undefined) {
+            throw new runtime.RequiredError('folioToVoid','Required parameter requestParameters.folioToVoid was null or undefined when calling voidFolio.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -15448,7 +18998,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: VoidFolioRequestToJSON(requestParameters.folioToVoid),
+            body: FolioToVoidToJSON(requestParameters.folioToVoid),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => VoidedFolioFromJSON(jsonValue));
@@ -15458,7 +19008,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to void a folio. <p><strong>OperationId:</strong>voidFolio</p>
      * Void folio
      */
-    async voidFolio(requestParameters: VoidFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoidedFolio> {
+    async voidFolio(requestParameters: VoidFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoidedFolio> {
         const response = await this.voidFolioRaw(requestParameters, initOverrides);
         return await response.value();
     }

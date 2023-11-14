@@ -17,30 +17,30 @@ import * as runtime from '../runtime';
 import type {
   BusinessEvents,
   ExceptionDetailType,
-} from '../models';
+} from '../models/index';
 import {
     BusinessEventsFromJSON,
     BusinessEventsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetBusinessEventsRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBusinessEventsByExternalSystemRequest {
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -56,6 +56,26 @@ export class IntegrationProcessorApi extends runtime.BaseAPI {
      * Get Business Events by External System and Hotel ID
      */
     async getBusinessEventsRaw(requestParameters: GetBusinessEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BusinessEvents>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBusinessEvents.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getBusinessEvents.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBusinessEvents.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBusinessEvents.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBusinessEvents.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -108,6 +128,22 @@ export class IntegrationProcessorApi extends runtime.BaseAPI {
      * Get Business Events by External System
      */
     async getBusinessEventsByExternalSystemRaw(requestParameters: GetBusinessEventsByExternalSystemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BusinessEvents>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getBusinessEventsByExternalSystem.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBusinessEventsByExternalSystem.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBusinessEventsByExternalSystem.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBusinessEventsByExternalSystem.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {

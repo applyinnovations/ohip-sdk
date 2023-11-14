@@ -48,7 +48,7 @@ function ARAccountTypeLastStatementInfoToJSON(value) {
         return null;
     }
     return {
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substr(0, 10)),
+        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0, 10)),
         'historyExists': value.historyExists,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,

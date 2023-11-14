@@ -10,45 +10,45 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeFunctionSpaceEventTypesRequest, FunctionSpaceEventTypesDetails, FunctionSpaceTypesDetails, MealTypesDetails, PostFunctionSpaceEventTypesRequest, PostFunctionSpaceTypesRequest, PostMealTypesRequest, PutFunctionSpaceTypesRequest, PutMealTypesRequest, Status } from '../models';
-export interface ChangeFunctionSpaceEventTypesOperationRequest {
-    eventTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceEventTypesToBeChanged?: ChangeFunctionSpaceEventTypesRequest;
+import type { FunctionSpaceEventTypesCriteria, FunctionSpaceEventTypesDetails, FunctionSpaceEventTypesToBeChanged, FunctionSpaceTypesCriteria, FunctionSpaceTypesDetails, FunctionSpaceTypesToBeChanged, MealTypesCriteria, MealTypesDetails, MealTypesToBeChanged, Status } from '../models/index';
+export interface ChangeFunctionSpaceEventTypesRequest {
+    eventTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceEventTypesToBeChanged: FunctionSpaceEventTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteFunctionSpaceTypesRequest {
-    functionSpaceTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    functionSpaceTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMealTypesRequest {
-    mealTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    mealTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceEventTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     description?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -57,9 +57,9 @@ export interface GetFunctionSpaceTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetMealTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -67,53 +67,53 @@ export interface GetMealTypesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFunctionSpaceEventTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceEventTypesCriteria?: PostFunctionSpaceEventTypesRequest;
+export interface PostFunctionSpaceEventTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceEventTypesCriteria: FunctionSpaceEventTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFunctionSpaceTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceTypesCriteria?: PostFunctionSpaceTypesRequest;
+export interface PostFunctionSpaceTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceTypesCriteria: FunctionSpaceTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMealTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    mealTypesCriteria?: PostMealTypesRequest;
+export interface PostMealTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    mealTypesCriteria: MealTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFunctionSpaceTypesOperationRequest {
-    functionSpaceTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceTypesToBeChanged?: PutFunctionSpaceTypesRequest;
+export interface PutFunctionSpaceTypesRequest {
+    functionSpaceTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceTypesToBeChanged: FunctionSpaceTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutMealTypesOperationRequest {
-    mealTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    mealTypesToBeChanged?: PutMealTypesRequest;
+export interface PutMealTypesRequest {
+    mealTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    mealTypesToBeChanged: MealTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFunctionSpaceEventTypesRequest {
-    eventTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -125,12 +125,12 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Function Space Event Types. <p><strong>OperationId:</strong>changeFunctionSpaceEventTypes</p>
      * Change Function Space Event Types
      */
-    changeFunctionSpaceEventTypesRaw(requestParameters: ChangeFunctionSpaceEventTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFunctionSpaceEventTypesRaw(requestParameters: ChangeFunctionSpaceEventTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Function Space Event Types. <p><strong>OperationId:</strong>changeFunctionSpaceEventTypes</p>
      * Change Function Space Event Types
      */
-    changeFunctionSpaceEventTypes(requestParameters: ChangeFunctionSpaceEventTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFunctionSpaceEventTypes(requestParameters: ChangeFunctionSpaceEventTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Function Space Types. <p><strong>OperationId:</strong>deleteFunctionSpaceTypes</p>
      * Delete Function Space Types
@@ -185,52 +185,52 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Function Space Event Types. <p><strong>OperationId:</strong>postFunctionSpaceEventTypes</p>
      * Create Function Space Event Types
      */
-    postFunctionSpaceEventTypesRaw(requestParameters: PostFunctionSpaceEventTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFunctionSpaceEventTypesRaw(requestParameters: PostFunctionSpaceEventTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Function Space Event Types. <p><strong>OperationId:</strong>postFunctionSpaceEventTypes</p>
      * Create Function Space Event Types
      */
-    postFunctionSpaceEventTypes(requestParameters: PostFunctionSpaceEventTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFunctionSpaceEventTypes(requestParameters: PostFunctionSpaceEventTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Function Space Types. <p><strong>OperationId:</strong>postFunctionSpaceTypes</p>
      * Create Function Space Types
      */
-    postFunctionSpaceTypesRaw(requestParameters: PostFunctionSpaceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFunctionSpaceTypesRaw(requestParameters: PostFunctionSpaceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Function Space Types. <p><strong>OperationId:</strong>postFunctionSpaceTypes</p>
      * Create Function Space Types
      */
-    postFunctionSpaceTypes(requestParameters: PostFunctionSpaceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFunctionSpaceTypes(requestParameters: PostFunctionSpaceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Meal Types. <p><strong>OperationId:</strong>postMealTypes</p>
      * Create Meal Types
      */
-    postMealTypesRaw(requestParameters: PostMealTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMealTypesRaw(requestParameters: PostMealTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Meal Types. <p><strong>OperationId:</strong>postMealTypes</p>
      * Create Meal Types
      */
-    postMealTypes(requestParameters: PostMealTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMealTypes(requestParameters: PostMealTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Function Space Types. <p><strong>OperationId:</strong>putFunctionSpaceTypes</p>
      * Change Function Space Types
      */
-    putFunctionSpaceTypesRaw(requestParameters: PutFunctionSpaceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFunctionSpaceTypesRaw(requestParameters: PutFunctionSpaceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Function Space Types. <p><strong>OperationId:</strong>putFunctionSpaceTypes</p>
      * Change Function Space Types
      */
-    putFunctionSpaceTypes(requestParameters: PutFunctionSpaceTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFunctionSpaceTypes(requestParameters: PutFunctionSpaceTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Meal Types. <p><strong>OperationId:</strong>putMealTypes</p>
      * Change Meal Types
      */
-    putMealTypesRaw(requestParameters: PutMealTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putMealTypesRaw(requestParameters: PutMealTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Meal Types. <p><strong>OperationId:</strong>putMealTypes</p>
      * Change Meal Types
      */
-    putMealTypes(requestParameters: PutMealTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putMealTypes(requestParameters: PutMealTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Function Space Event Types. <p><strong>OperationId:</strong>removeFunctionSpaceEventTypes</p>
      * Delete Function Space Event Types

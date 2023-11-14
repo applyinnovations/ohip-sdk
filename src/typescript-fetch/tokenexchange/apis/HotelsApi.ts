@@ -21,7 +21,7 @@ import type {
   OpenPaymentTokenExchange500Response,
   OpenPaymentTokenExchange504Response,
   OpenPaymentTokenExchangeRequest,
-} from '../models';
+} from '../models/index';
 import {
     OpenPaymentTokenExchange200ResponseFromJSON,
     OpenPaymentTokenExchange200ResponseToJSON,
@@ -35,13 +35,13 @@ import {
     OpenPaymentTokenExchange504ResponseToJSON,
     OpenPaymentTokenExchangeRequestFromJSON,
     OpenPaymentTokenExchangeRequestToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface OpenPaymentTokenExchangeOperationRequest {
-    hotelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    body?: OpenPaymentTokenExchangeRequest;
+    hotelCode: string;
+    authorization: string;
+    xAppKey: string;
+    body: OpenPaymentTokenExchangeRequest;
 }
 
 /**
@@ -54,6 +54,22 @@ export class HotelsApi extends runtime.BaseAPI {
      * Card Tokenization
      */
     async openPaymentTokenExchangeRaw(requestParameters: OpenPaymentTokenExchangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OpenPaymentTokenExchange200Response>> {
+        if (requestParameters.hotelCode === null || requestParameters.hotelCode === undefined) {
+            throw new runtime.RequiredError('hotelCode','Required parameter requestParameters.hotelCode was null or undefined when calling openPaymentTokenExchange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling openPaymentTokenExchange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling openPaymentTokenExchange.');
+        }
+
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling openPaymentTokenExchange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -137,7 +137,7 @@ export function CateringPackageEventNoteTypeToJSON(value?: CateringPackageEventN
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'noteCode': value.noteCode,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'title': value.title,
     };
 }

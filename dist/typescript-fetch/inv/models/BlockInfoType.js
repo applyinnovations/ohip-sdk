@@ -84,15 +84,15 @@ function BlockInfoTypeToJSON(value) {
         'contactName': value.contactName,
         'conversionCode': value.conversionCode,
         'currencyCode': value.currencyCode,
-        'cutOffDate': value.cutOffDate === undefined ? undefined : (value.cutOffDate.toISOString().substr(0, 10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'cutOffDate': value.cutOffDate === undefined ? undefined : (value.cutOffDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
         'nonCompeteDetails': (0, BlockNonCompeteType_1.BlockNonCompeteTypeToJSON)(value.nonCompeteDetails),
         'rankingCode': value.rankingCode,
         'rateProtectionDetails': (0, BlockRateProtectionType_1.BlockRateProtectionTypeToJSON)(value.rateProtectionDetails),
         'roomSalesManager': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.roomSalesManager),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockInfoTypeToJSON = BlockInfoTypeToJSON;

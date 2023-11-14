@@ -16,54 +16,75 @@
 import * as runtime from '../runtime';
 import type {
   ExceptionDetailType,
+  MembershipAwards,
   MembershipAwardsInfo,
+  MembershipBenefitPrograms,
   MembershipBenefitProgramsInfo,
+  MembershipClasses,
   MembershipClassesInfo,
+  MembershipEnrollmentGroups,
   MembershipEnrollmentGroupsInfo,
+  MembershipFolioTexts,
+  MembershipLevels,
   MembershipLevelsInfo,
+  MembershipMarketGroups,
   MembershipMarketGroupsInfo,
+  MembershipPropertyGroups,
   MembershipPropertyGroupsInfo,
+  MembershipRateGroups,
   MembershipRateGroupsInfo,
+  MembershipTypeChangeInstructions,
   MembershipTypeRule,
+  MembershipTypeRules,
   MembershipTypeRulesDetails,
   MembershipTypeRulesInfo,
   MembershipTypes,
   MembershipTypesDetails,
-  PostMembershipAwardsRequest,
-  PostMembershipBenefitProgramsRequest,
-  PostMembershipClassesRequest,
-  PostMembershipEnrollmentGroupsRequest,
-  PostMembershipFolioTextsRequest,
-  PostMembershipLevelsRequest,
-  PostMembershipMarketGroupsRequest,
-  PostMembershipPropertyGroupsRequest,
-  PostMembershipRateGroupsRequest,
-  PostMembershipTypeRulesRequest,
-  PostMembershipTypesRequest,
-  PutMembershipTypeRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    MembershipAwardsFromJSON,
+    MembershipAwardsToJSON,
     MembershipAwardsInfoFromJSON,
     MembershipAwardsInfoToJSON,
+    MembershipBenefitProgramsFromJSON,
+    MembershipBenefitProgramsToJSON,
     MembershipBenefitProgramsInfoFromJSON,
     MembershipBenefitProgramsInfoToJSON,
+    MembershipClassesFromJSON,
+    MembershipClassesToJSON,
     MembershipClassesInfoFromJSON,
     MembershipClassesInfoToJSON,
+    MembershipEnrollmentGroupsFromJSON,
+    MembershipEnrollmentGroupsToJSON,
     MembershipEnrollmentGroupsInfoFromJSON,
     MembershipEnrollmentGroupsInfoToJSON,
+    MembershipFolioTextsFromJSON,
+    MembershipFolioTextsToJSON,
+    MembershipLevelsFromJSON,
+    MembershipLevelsToJSON,
     MembershipLevelsInfoFromJSON,
     MembershipLevelsInfoToJSON,
+    MembershipMarketGroupsFromJSON,
+    MembershipMarketGroupsToJSON,
     MembershipMarketGroupsInfoFromJSON,
     MembershipMarketGroupsInfoToJSON,
+    MembershipPropertyGroupsFromJSON,
+    MembershipPropertyGroupsToJSON,
     MembershipPropertyGroupsInfoFromJSON,
     MembershipPropertyGroupsInfoToJSON,
+    MembershipRateGroupsFromJSON,
+    MembershipRateGroupsToJSON,
     MembershipRateGroupsInfoFromJSON,
     MembershipRateGroupsInfoToJSON,
+    MembershipTypeChangeInstructionsFromJSON,
+    MembershipTypeChangeInstructionsToJSON,
     MembershipTypeRuleFromJSON,
     MembershipTypeRuleToJSON,
+    MembershipTypeRulesFromJSON,
+    MembershipTypeRulesToJSON,
     MembershipTypeRulesDetailsFromJSON,
     MembershipTypeRulesDetailsToJSON,
     MembershipTypeRulesInfoFromJSON,
@@ -72,132 +93,108 @@ import {
     MembershipTypesToJSON,
     MembershipTypesDetailsFromJSON,
     MembershipTypesDetailsToJSON,
-    PostMembershipAwardsRequestFromJSON,
-    PostMembershipAwardsRequestToJSON,
-    PostMembershipBenefitProgramsRequestFromJSON,
-    PostMembershipBenefitProgramsRequestToJSON,
-    PostMembershipClassesRequestFromJSON,
-    PostMembershipClassesRequestToJSON,
-    PostMembershipEnrollmentGroupsRequestFromJSON,
-    PostMembershipEnrollmentGroupsRequestToJSON,
-    PostMembershipFolioTextsRequestFromJSON,
-    PostMembershipFolioTextsRequestToJSON,
-    PostMembershipLevelsRequestFromJSON,
-    PostMembershipLevelsRequestToJSON,
-    PostMembershipMarketGroupsRequestFromJSON,
-    PostMembershipMarketGroupsRequestToJSON,
-    PostMembershipPropertyGroupsRequestFromJSON,
-    PostMembershipPropertyGroupsRequestToJSON,
-    PostMembershipRateGroupsRequestFromJSON,
-    PostMembershipRateGroupsRequestToJSON,
-    PostMembershipTypeRulesRequestFromJSON,
-    PostMembershipTypeRulesRequestToJSON,
-    PostMembershipTypesRequestFromJSON,
-    PostMembershipTypesRequestToJSON,
-    PutMembershipTypeRequestFromJSON,
-    PutMembershipTypeRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteMembershipAwardsRequest {
-    membershipAwardsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipAwardsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipBenefitProgramsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipClassesRequest {
-    membershipClassId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipClassId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipEnrollmentGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipLevelsRequest {
-    membershipLevelsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipLevelsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     type?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipMarketGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipPropertyGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipRateGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeRulesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipPointsSequence?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMembershipTypesRequest {
-    membershipTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetMembershipAwardsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: string;
     awardCodes?: Array<string>;
     wildCard?: string;
@@ -210,9 +207,9 @@ export interface GetMembershipAwardsRequest {
 }
 
 export interface GetMembershipBenefitProgramsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: string;
     code?: string;
     end?: Date;
@@ -224,9 +221,9 @@ export interface GetMembershipBenefitProgramsRequest {
 }
 
 export interface GetMembershipClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -236,9 +233,9 @@ export interface GetMembershipClassesRequest {
 }
 
 export interface GetMembershipEnrollmentGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     enrollmentCodes?: Array<string>;
@@ -249,10 +246,10 @@ export interface GetMembershipEnrollmentGroupsRequest {
 }
 
 export interface GetMembershipLevelsRequest {
-    membershipTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     includeFolioTexts?: boolean;
     hotelIds?: Array<string>;
@@ -261,9 +258,9 @@ export interface GetMembershipLevelsRequest {
 }
 
 export interface GetMembershipMarketGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -273,9 +270,9 @@ export interface GetMembershipMarketGroupsRequest {
 }
 
 export interface GetMembershipPropertyGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -285,9 +282,9 @@ export interface GetMembershipPropertyGroupsRequest {
 }
 
 export interface GetMembershipRateGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -297,10 +294,10 @@ export interface GetMembershipRateGroupsRequest {
 }
 
 export interface GetMembershipTypeRequest {
-    membershipTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipTypeCode?: string;
     fetchInstructions?: Set<GetMembershipTypeFetchInstructionsEnum>;
     xExternalsystem?: string;
@@ -308,10 +305,10 @@ export interface GetMembershipTypeRequest {
 }
 
 export interface GetMembershipTypeRuleRequest {
-    membershipTypeRulesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeRulesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: string;
     membershipPointsSequence?: number;
     fetchInstructions?: Set<GetMembershipTypeRuleFetchInstructionsEnum>;
@@ -320,9 +317,9 @@ export interface GetMembershipTypeRuleRequest {
 }
 
 export interface GetMembershipTypeRulesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipTypesCodes?: Array<string>;
     programType?: GetMembershipTypeRulesProgramTypeEnum;
     ruleCode?: string;
@@ -333,9 +330,9 @@ export interface GetMembershipTypeRulesRequest {
 }
 
 export interface GetMembershipTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     membershipTypesCodes?: Array<string>;
     membershipTypesWildCard?: string;
@@ -345,201 +342,201 @@ export interface GetMembershipTypesRequest {
     acceptLanguage?: string;
 }
 
-export interface PostMembershipAwardsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipAwards?: PostMembershipAwardsRequest;
+export interface PostMembershipAwardsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipBenefitProgramsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipBenefitPrograms?: PostMembershipBenefitProgramsRequest;
+export interface PostMembershipBenefitProgramsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClasses?: PostMembershipClassesRequest;
+export interface PostMembershipClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipEnrollmentGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipEnrollmentGroups?: PostMembershipEnrollmentGroupsRequest;
+export interface PostMembershipEnrollmentGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipFolioTextsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipFolioTexts?: PostMembershipFolioTextsRequest;
+export interface PostMembershipFolioTextsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipFolioTexts: MembershipFolioTexts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipLevelsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipLevels?: PostMembershipLevelsRequest;
+export interface PostMembershipLevelsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipMarketGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipMarketGroups?: PostMembershipMarketGroupsRequest;
+export interface PostMembershipMarketGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipPropertyGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipPropertyGroups?: PostMembershipPropertyGroupsRequest;
+export interface PostMembershipPropertyGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipRateGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipRateGroups?: PostMembershipRateGroupsRequest;
+export interface PostMembershipRateGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipTypeRulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypeRules?: PostMembershipTypeRulesRequest;
+export interface PostMembershipTypeRulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMembershipTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypes?: PostMembershipTypesRequest;
+export interface PostMembershipTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypes: MembershipTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipAwardsRequest {
-    membershipAwardsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipAwards?: PostMembershipAwardsRequest;
+    membershipAwardsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipBenefitPrograms?: PostMembershipBenefitProgramsRequest;
+    membershipBenefitProgramsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipClassesRequest {
-    membershipClassId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClasses?: PostMembershipClassesRequest;
+    membershipClassId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipEnrollmentGroups?: PostMembershipEnrollmentGroupsRequest;
+    membershipEnrollmentGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipLevelsRequest {
-    membershipLevelsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipLevels?: PostMembershipLevelsRequest;
+    membershipLevelsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipMarketGroups?: PostMembershipMarketGroupsRequest;
+    membershipMarketGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipPropertyGroups?: PostMembershipPropertyGroupsRequest;
+    membershipPropertyGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipRateGroups?: PostMembershipRateGroupsRequest;
+    membershipRateGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutMembershipTypeOperationRequest {
-    membershipTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypeChangeInstructions?: PutMembershipTypeRequest;
+export interface PutMembershipTypeRequest {
+    membershipTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypeChangeInstructions: MembershipTypeChangeInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypeRules?: PostMembershipTypeRulesRequest;
+    membershipTypeRulesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -554,6 +551,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership Awards
      */
     async deleteMembershipAwardsRaw(requestParameters: DeleteMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipAwardsId === null || requestParameters.membershipAwardsId === undefined) {
+            throw new runtime.RequiredError('membershipAwardsId','Required parameter requestParameters.membershipAwardsId was null or undefined when calling deleteMembershipAwards.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipAwards.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipAwards.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipAwards.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipType) {
@@ -606,6 +619,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership Benedict Program
      */
     async deleteMembershipBenefitProgramsRaw(requestParameters: DeleteMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipBenefitProgramsId === null || requestParameters.membershipBenefitProgramsId === undefined) {
+            throw new runtime.RequiredError('membershipBenefitProgramsId','Required parameter requestParameters.membershipBenefitProgramsId was null or undefined when calling deleteMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipBenefitPrograms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipType) {
@@ -658,6 +687,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership classes
      */
     async deleteMembershipClassesRaw(requestParameters: DeleteMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipClassId === null || requestParameters.membershipClassId === undefined) {
+            throw new runtime.RequiredError('membershipClassId','Required parameter requestParameters.membershipClassId was null or undefined when calling deleteMembershipClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -706,6 +751,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Remove Membership enrollment groups
      */
     async deleteMembershipEnrollmentGroupsRaw(requestParameters: DeleteMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipEnrollmentGroupsId === null || requestParameters.membershipEnrollmentGroupsId === undefined) {
+            throw new runtime.RequiredError('membershipEnrollmentGroupsId','Required parameter requestParameters.membershipEnrollmentGroupsId was null or undefined when calling deleteMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipEnrollmentGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -754,6 +815,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership levels
      */
     async deleteMembershipLevelsRaw(requestParameters: DeleteMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipLevelsId === null || requestParameters.membershipLevelsId === undefined) {
+            throw new runtime.RequiredError('membershipLevelsId','Required parameter requestParameters.membershipLevelsId was null or undefined when calling deleteMembershipLevels.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipLevels.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipLevels.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipLevels.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.type) {
@@ -806,6 +883,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership market groups
      */
     async deleteMembershipMarketGroupsRaw(requestParameters: DeleteMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipMarketGroupId === null || requestParameters.membershipMarketGroupId === undefined) {
+            throw new runtime.RequiredError('membershipMarketGroupId','Required parameter requestParameters.membershipMarketGroupId was null or undefined when calling deleteMembershipMarketGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipMarketGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -854,6 +947,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership property groups
      */
     async deleteMembershipPropertyGroupsRaw(requestParameters: DeleteMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipPropertyGroupsId === null || requestParameters.membershipPropertyGroupsId === undefined) {
+            throw new runtime.RequiredError('membershipPropertyGroupsId','Required parameter requestParameters.membershipPropertyGroupsId was null or undefined when calling deleteMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipPropertyGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -902,6 +1011,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership rate groups
      */
     async deleteMembershipRateGroupsRaw(requestParameters: DeleteMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipRateGroupId === null || requestParameters.membershipRateGroupId === undefined) {
+            throw new runtime.RequiredError('membershipRateGroupId','Required parameter requestParameters.membershipRateGroupId was null or undefined when calling deleteMembershipRateGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -950,6 +1075,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership type rules
      */
     async deleteMembershipTypeRulesRaw(requestParameters: DeleteMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipTypeRulesId === null || requestParameters.membershipTypeRulesId === undefined) {
+            throw new runtime.RequiredError('membershipTypeRulesId','Required parameter requestParameters.membershipTypeRulesId was null or undefined when calling deleteMembershipTypeRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipTypeRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipTypeRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipTypeRules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipPointsSequence) {
@@ -1002,6 +1143,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Delete Membership type
      */
     async deleteMembershipTypesRaw(requestParameters: DeleteMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipTypeId === null || requestParameters.membershipTypeId === undefined) {
+            throw new runtime.RequiredError('membershipTypeId','Required parameter requestParameters.membershipTypeId was null or undefined when calling deleteMembershipTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMembershipTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMembershipTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMembershipTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1050,6 +1207,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership Awards
      */
     async getMembershipAwardsRaw(requestParameters: GetMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipAwardsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipAwards.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipAwards.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipAwards.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipType !== undefined) {
@@ -1069,7 +1238,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.validForDate !== undefined) {
-            queryParameters['validForDate'] = (requestParameters.validForDate as any).toISOString().substr(0,10);
+            queryParameters['validForDate'] = (requestParameters.validForDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.includeInactive !== undefined) {
@@ -1126,6 +1295,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Retrieve a Membership Benefit Program
      */
     async getMembershipBenefitProgramsRaw(requestParameters: GetMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipBenefitProgramsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipBenefitPrograms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipType !== undefined) {
@@ -1137,11 +1318,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.minimumLevel !== undefined) {
@@ -1198,6 +1379,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership classes
      */
     async getMembershipClassesRaw(requestParameters: GetMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipClassesInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipClasses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1262,6 +1455,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership enrollment groups
      */
     async getMembershipEnrollmentGroupsRaw(requestParameters: GetMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipEnrollmentGroupsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipEnrollmentGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1330,6 +1535,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership levels
      */
     async getMembershipLevelsRaw(requestParameters: GetMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipLevelsInfo>> {
+        if (requestParameters.membershipTypeCode === null || requestParameters.membershipTypeCode === undefined) {
+            throw new runtime.RequiredError('membershipTypeCode','Required parameter requestParameters.membershipTypeCode was null or undefined when calling getMembershipLevels.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipLevels.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipLevels.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipLevels.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipTypeCode !== undefined) {
@@ -1394,6 +1615,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership market groups
      */
     async getMembershipMarketGroupsRaw(requestParameters: GetMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipMarketGroupsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipMarketGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1458,6 +1691,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership property groups
      */
     async getMembershipPropertyGroupsRaw(requestParameters: GetMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipPropertyGroupsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipPropertyGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1522,6 +1767,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership rate groups
      */
     async getMembershipRateGroupsRaw(requestParameters: GetMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipRateGroupsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1586,6 +1843,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get a Membership type
      */
     async getMembershipTypeRaw(requestParameters: GetMembershipTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypesDetails>> {
+        if (requestParameters.membershipTypeId === null || requestParameters.membershipTypeId === undefined) {
+            throw new runtime.RequiredError('membershipTypeId','Required parameter requestParameters.membershipTypeId was null or undefined when calling getMembershipType.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipType.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipType.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipType.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipTypeCode !== undefined) {
@@ -1642,6 +1915,22 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership type rule details
      */
     async getMembershipTypeRuleRaw(requestParameters: GetMembershipTypeRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRule>> {
+        if (requestParameters.membershipTypeRulesId === null || requestParameters.membershipTypeRulesId === undefined) {
+            throw new runtime.RequiredError('membershipTypeRulesId','Required parameter requestParameters.membershipTypeRulesId was null or undefined when calling getMembershipTypeRule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTypeRule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTypeRule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTypeRule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipType !== undefined) {
@@ -1702,6 +1991,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get Membership type rules
      */
     async getMembershipTypeRulesRaw(requestParameters: GetMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRulesInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTypeRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTypeRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTypeRules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipTypesCodes) {
@@ -1770,6 +2071,18 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Get membership types
      */
     async getMembershipTypesRaw(requestParameters: GetMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypes>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMembershipTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -1837,7 +2150,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership Awards. <p><strong>OperationId:</strong>postMembershipAwards</p>
      * Create Membership Awards
      */
-    async postMembershipAwardsRaw(requestParameters: PostMembershipAwardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipAwardsRaw(requestParameters: PostMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipAwards.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipAwards.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipAwards.');
+        }
+
+        if (requestParameters.membershipAwards === null || requestParameters.membershipAwards === undefined) {
+            throw new runtime.RequiredError('membershipAwards','Required parameter requestParameters.membershipAwards was null or undefined when calling postMembershipAwards.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1869,7 +2198,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipAwardsRequestToJSON(requestParameters.membershipAwards),
+            body: MembershipAwardsToJSON(requestParameters.membershipAwards),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1879,7 +2208,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership Awards. <p><strong>OperationId:</strong>postMembershipAwards</p>
      * Create Membership Awards
      */
-    async postMembershipAwards(requestParameters: PostMembershipAwardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipAwards(requestParameters: PostMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipAwardsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1888,7 +2217,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * This API is used to create Membership Benefit Programs of a Membership Type. A Benefit Program is configurable for a Membership Type when OCIS or ORS license is active and Membership Type meets following criteria  - primary  central setup,  not externally controlled and point calculation method is Manual Batch. <p><strong>OperationId:</strong>postMembershipBenefitPrograms</p>
      * Create Membership Benefit Program
      */
-    async postMembershipBenefitProgramsRaw(requestParameters: PostMembershipBenefitProgramsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipBenefitProgramsRaw(requestParameters: PostMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.membershipBenefitPrograms === null || requestParameters.membershipBenefitPrograms === undefined) {
+            throw new runtime.RequiredError('membershipBenefitPrograms','Required parameter requestParameters.membershipBenefitPrograms was null or undefined when calling postMembershipBenefitPrograms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1920,7 +2265,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipBenefitProgramsRequestToJSON(requestParameters.membershipBenefitPrograms),
+            body: MembershipBenefitProgramsToJSON(requestParameters.membershipBenefitPrograms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1930,7 +2275,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * This API is used to create Membership Benefit Programs of a Membership Type. A Benefit Program is configurable for a Membership Type when OCIS or ORS license is active and Membership Type meets following criteria  - primary  central setup,  not externally controlled and point calculation method is Manual Batch. <p><strong>OperationId:</strong>postMembershipBenefitPrograms</p>
      * Create Membership Benefit Program
      */
-    async postMembershipBenefitPrograms(requestParameters: PostMembershipBenefitProgramsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipBenefitPrograms(requestParameters: PostMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipBenefitProgramsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1939,7 +2284,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create a new membership class. <p><strong>OperationId:</strong>postMembershipClasses</p>
      * Create Membership classes
      */
-    async postMembershipClassesRaw(requestParameters: PostMembershipClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipClassesRaw(requestParameters: PostMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipClasses.');
+        }
+
+        if (requestParameters.membershipClasses === null || requestParameters.membershipClasses === undefined) {
+            throw new runtime.RequiredError('membershipClasses','Required parameter requestParameters.membershipClasses was null or undefined when calling postMembershipClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1971,7 +2332,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipClassesRequestToJSON(requestParameters.membershipClasses),
+            body: MembershipClassesToJSON(requestParameters.membershipClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1981,7 +2342,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create a new membership class. <p><strong>OperationId:</strong>postMembershipClasses</p>
      * Create Membership classes
      */
-    async postMembershipClasses(requestParameters: PostMembershipClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipClasses(requestParameters: PostMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipClassesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1990,7 +2351,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create a new membership enrollment group. <p><strong>OperationId:</strong>postMembershipEnrollmentGroups</p>
      * Create Membership enrollment groups
      */
-    async postMembershipEnrollmentGroupsRaw(requestParameters: PostMembershipEnrollmentGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipEnrollmentGroupsRaw(requestParameters: PostMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.membershipEnrollmentGroups === null || requestParameters.membershipEnrollmentGroups === undefined) {
+            throw new runtime.RequiredError('membershipEnrollmentGroups','Required parameter requestParameters.membershipEnrollmentGroups was null or undefined when calling postMembershipEnrollmentGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2022,7 +2399,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipEnrollmentGroupsRequestToJSON(requestParameters.membershipEnrollmentGroups),
+            body: MembershipEnrollmentGroupsToJSON(requestParameters.membershipEnrollmentGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2032,7 +2409,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Create a new membership enrollment group. <p><strong>OperationId:</strong>postMembershipEnrollmentGroups</p>
      * Create Membership enrollment groups
      */
-    async postMembershipEnrollmentGroups(requestParameters: PostMembershipEnrollmentGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipEnrollmentGroups(requestParameters: PostMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipEnrollmentGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2041,7 +2418,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to Set Membership folio texts. <p><strong>OperationId:</strong>postMembershipFolioTexts</p>
      * Set Membership folio texts
      */
-    async postMembershipFolioTextsRaw(requestParameters: PostMembershipFolioTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipFolioTextsRaw(requestParameters: PostMembershipFolioTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipFolioTexts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipFolioTexts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipFolioTexts.');
+        }
+
+        if (requestParameters.membershipFolioTexts === null || requestParameters.membershipFolioTexts === undefined) {
+            throw new runtime.RequiredError('membershipFolioTexts','Required parameter requestParameters.membershipFolioTexts was null or undefined when calling postMembershipFolioTexts.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2073,7 +2466,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipFolioTextsRequestToJSON(requestParameters.membershipFolioTexts),
+            body: MembershipFolioTextsToJSON(requestParameters.membershipFolioTexts),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2083,7 +2476,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to Set Membership folio texts. <p><strong>OperationId:</strong>postMembershipFolioTexts</p>
      * Set Membership folio texts
      */
-    async postMembershipFolioTexts(requestParameters: PostMembershipFolioTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipFolioTexts(requestParameters: PostMembershipFolioTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipFolioTextsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2092,7 +2485,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership levels. <p><strong>OperationId:</strong>postMembershipLevels</p>
      * Create Membership levels
      */
-    async postMembershipLevelsRaw(requestParameters: PostMembershipLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipLevelsRaw(requestParameters: PostMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipLevels.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipLevels.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipLevels.');
+        }
+
+        if (requestParameters.membershipLevels === null || requestParameters.membershipLevels === undefined) {
+            throw new runtime.RequiredError('membershipLevels','Required parameter requestParameters.membershipLevels was null or undefined when calling postMembershipLevels.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2124,7 +2533,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipLevelsRequestToJSON(requestParameters.membershipLevels),
+            body: MembershipLevelsToJSON(requestParameters.membershipLevels),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2134,7 +2543,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership levels. <p><strong>OperationId:</strong>postMembershipLevels</p>
      * Create Membership levels
      */
-    async postMembershipLevels(requestParameters: PostMembershipLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipLevels(requestParameters: PostMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipLevelsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2143,7 +2552,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership market groups. <p><strong>OperationId:</strong>postMembershipMarketGroups</p>
      * Create Membership market groups
      */
-    async postMembershipMarketGroupsRaw(requestParameters: PostMembershipMarketGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipMarketGroupsRaw(requestParameters: PostMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipMarketGroups.');
+        }
+
+        if (requestParameters.membershipMarketGroups === null || requestParameters.membershipMarketGroups === undefined) {
+            throw new runtime.RequiredError('membershipMarketGroups','Required parameter requestParameters.membershipMarketGroups was null or undefined when calling postMembershipMarketGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2175,7 +2600,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipMarketGroupsRequestToJSON(requestParameters.membershipMarketGroups),
+            body: MembershipMarketGroupsToJSON(requestParameters.membershipMarketGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2185,7 +2610,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership market groups. <p><strong>OperationId:</strong>postMembershipMarketGroups</p>
      * Create Membership market groups
      */
-    async postMembershipMarketGroups(requestParameters: PostMembershipMarketGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipMarketGroups(requestParameters: PostMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipMarketGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2194,7 +2619,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership property groups. <p><strong>OperationId:</strong>postMembershipPropertyGroups</p>
      * Create Membership property groups
      */
-    async postMembershipPropertyGroupsRaw(requestParameters: PostMembershipPropertyGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipPropertyGroupsRaw(requestParameters: PostMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.membershipPropertyGroups === null || requestParameters.membershipPropertyGroups === undefined) {
+            throw new runtime.RequiredError('membershipPropertyGroups','Required parameter requestParameters.membershipPropertyGroups was null or undefined when calling postMembershipPropertyGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2226,7 +2667,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipPropertyGroupsRequestToJSON(requestParameters.membershipPropertyGroups),
+            body: MembershipPropertyGroupsToJSON(requestParameters.membershipPropertyGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2236,7 +2677,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership property groups. <p><strong>OperationId:</strong>postMembershipPropertyGroups</p>
      * Create Membership property groups
      */
-    async postMembershipPropertyGroups(requestParameters: PostMembershipPropertyGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipPropertyGroups(requestParameters: PostMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipPropertyGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2245,7 +2686,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership rate groups. <p><strong>OperationId:</strong>postMembershipRateGroups</p>
      * Create Membership rate groups
      */
-    async postMembershipRateGroupsRaw(requestParameters: PostMembershipRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipRateGroupsRaw(requestParameters: PostMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipRateGroups.');
+        }
+
+        if (requestParameters.membershipRateGroups === null || requestParameters.membershipRateGroups === undefined) {
+            throw new runtime.RequiredError('membershipRateGroups','Required parameter requestParameters.membershipRateGroups was null or undefined when calling postMembershipRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2277,7 +2734,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipRateGroupsRequestToJSON(requestParameters.membershipRateGroups),
+            body: MembershipRateGroupsToJSON(requestParameters.membershipRateGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2287,7 +2744,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership rate groups. <p><strong>OperationId:</strong>postMembershipRateGroups</p>
      * Create Membership rate groups
      */
-    async postMembershipRateGroups(requestParameters: PostMembershipRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipRateGroups(requestParameters: PostMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipRateGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2296,7 +2753,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership type rules. <p><strong>OperationId:</strong>postMembershipTypeRules</p>
      * Create Membership type rules
      */
-    async postMembershipTypeRulesRaw(requestParameters: PostMembershipTypeRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRulesDetails>> {
+    async postMembershipTypeRulesRaw(requestParameters: PostMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRulesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipTypeRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipTypeRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipTypeRules.');
+        }
+
+        if (requestParameters.membershipTypeRules === null || requestParameters.membershipTypeRules === undefined) {
+            throw new runtime.RequiredError('membershipTypeRules','Required parameter requestParameters.membershipTypeRules was null or undefined when calling postMembershipTypeRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2328,7 +2801,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipTypeRulesRequestToJSON(requestParameters.membershipTypeRules),
+            body: MembershipTypeRulesToJSON(requestParameters.membershipTypeRules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MembershipTypeRulesDetailsFromJSON(jsonValue));
@@ -2338,7 +2811,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership type rules. <p><strong>OperationId:</strong>postMembershipTypeRules</p>
      * Create Membership type rules
      */
-    async postMembershipTypeRules(requestParameters: PostMembershipTypeRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypeRulesDetails> {
+    async postMembershipTypeRules(requestParameters: PostMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypeRulesDetails> {
         const response = await this.postMembershipTypeRulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2347,7 +2820,23 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Membership types enable you to identify, organize, and manage the membership programs on a profile. For example, your property might have a guest loyalty program that awards guests based on the amount of revenue generated or the number of stays per year. You would create a specific membership type for this program. <p><strong>OperationId:</strong>postMembershipTypes</p>
      * Create Membership types
      */
-    async postMembershipTypesRaw(requestParameters: PostMembershipTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipTypesRaw(requestParameters: PostMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMembershipTypes.');
+        }
+
+        if (requestParameters.membershipTypes === null || requestParameters.membershipTypes === undefined) {
+            throw new runtime.RequiredError('membershipTypes','Required parameter requestParameters.membershipTypes was null or undefined when calling postMembershipTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2379,7 +2868,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipTypesRequestToJSON(requestParameters.membershipTypes),
+            body: MembershipTypesToJSON(requestParameters.membershipTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2389,7 +2878,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Membership types enable you to identify, organize, and manage the membership programs on a profile. For example, your property might have a guest loyalty program that awards guests based on the amount of revenue generated or the number of stays per year. You would create a specific membership type for this program. <p><strong>OperationId:</strong>postMembershipTypes</p>
      * Create Membership types
      */
-    async postMembershipTypes(requestParameters: PostMembershipTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipTypes(requestParameters: PostMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2399,6 +2888,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership Awards
      */
     async putMembershipAwardsRaw(requestParameters: PutMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipAwardsId === null || requestParameters.membershipAwardsId === undefined) {
+            throw new runtime.RequiredError('membershipAwardsId','Required parameter requestParameters.membershipAwardsId was null or undefined when calling putMembershipAwards.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipAwards.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipAwards.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipAwards.');
+        }
+
+        if (requestParameters.membershipAwards === null || requestParameters.membershipAwards === undefined) {
+            throw new runtime.RequiredError('membershipAwards','Required parameter requestParameters.membershipAwards was null or undefined when calling putMembershipAwards.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2430,7 +2939,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipAwardsRequestToJSON(requestParameters.membershipAwards),
+            body: MembershipAwardsToJSON(requestParameters.membershipAwards),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2450,6 +2959,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership Benefit Program
      */
     async putMembershipBenefitProgramsRaw(requestParameters: PutMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipBenefitProgramsId === null || requestParameters.membershipBenefitProgramsId === undefined) {
+            throw new runtime.RequiredError('membershipBenefitProgramsId','Required parameter requestParameters.membershipBenefitProgramsId was null or undefined when calling putMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipBenefitPrograms.');
+        }
+
+        if (requestParameters.membershipBenefitPrograms === null || requestParameters.membershipBenefitPrograms === undefined) {
+            throw new runtime.RequiredError('membershipBenefitPrograms','Required parameter requestParameters.membershipBenefitPrograms was null or undefined when calling putMembershipBenefitPrograms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2481,7 +3010,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipBenefitProgramsRequestToJSON(requestParameters.membershipBenefitPrograms),
+            body: MembershipBenefitProgramsToJSON(requestParameters.membershipBenefitPrograms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2501,6 +3030,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership classes
      */
     async putMembershipClassesRaw(requestParameters: PutMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipClassesInfo>> {
+        if (requestParameters.membershipClassId === null || requestParameters.membershipClassId === undefined) {
+            throw new runtime.RequiredError('membershipClassId','Required parameter requestParameters.membershipClassId was null or undefined when calling putMembershipClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipClasses.');
+        }
+
+        if (requestParameters.membershipClasses === null || requestParameters.membershipClasses === undefined) {
+            throw new runtime.RequiredError('membershipClasses','Required parameter requestParameters.membershipClasses was null or undefined when calling putMembershipClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2532,7 +3081,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipClassesRequestToJSON(requestParameters.membershipClasses),
+            body: MembershipClassesToJSON(requestParameters.membershipClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MembershipClassesInfoFromJSON(jsonValue));
@@ -2552,6 +3101,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership enrollment groups
      */
     async putMembershipEnrollmentGroupsRaw(requestParameters: PutMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipEnrollmentGroupsId === null || requestParameters.membershipEnrollmentGroupsId === undefined) {
+            throw new runtime.RequiredError('membershipEnrollmentGroupsId','Required parameter requestParameters.membershipEnrollmentGroupsId was null or undefined when calling putMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipEnrollmentGroups.');
+        }
+
+        if (requestParameters.membershipEnrollmentGroups === null || requestParameters.membershipEnrollmentGroups === undefined) {
+            throw new runtime.RequiredError('membershipEnrollmentGroups','Required parameter requestParameters.membershipEnrollmentGroups was null or undefined when calling putMembershipEnrollmentGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2583,7 +3152,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipEnrollmentGroupsRequestToJSON(requestParameters.membershipEnrollmentGroups),
+            body: MembershipEnrollmentGroupsToJSON(requestParameters.membershipEnrollmentGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2603,6 +3172,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership levels
      */
     async putMembershipLevelsRaw(requestParameters: PutMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipLevelsId === null || requestParameters.membershipLevelsId === undefined) {
+            throw new runtime.RequiredError('membershipLevelsId','Required parameter requestParameters.membershipLevelsId was null or undefined when calling putMembershipLevels.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipLevels.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipLevels.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipLevels.');
+        }
+
+        if (requestParameters.membershipLevels === null || requestParameters.membershipLevels === undefined) {
+            throw new runtime.RequiredError('membershipLevels','Required parameter requestParameters.membershipLevels was null or undefined when calling putMembershipLevels.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2634,7 +3223,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipLevelsRequestToJSON(requestParameters.membershipLevels),
+            body: MembershipLevelsToJSON(requestParameters.membershipLevels),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2654,6 +3243,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership market groups
      */
     async putMembershipMarketGroupsRaw(requestParameters: PutMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipMarketGroupId === null || requestParameters.membershipMarketGroupId === undefined) {
+            throw new runtime.RequiredError('membershipMarketGroupId','Required parameter requestParameters.membershipMarketGroupId was null or undefined when calling putMembershipMarketGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipMarketGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipMarketGroups.');
+        }
+
+        if (requestParameters.membershipMarketGroups === null || requestParameters.membershipMarketGroups === undefined) {
+            throw new runtime.RequiredError('membershipMarketGroups','Required parameter requestParameters.membershipMarketGroups was null or undefined when calling putMembershipMarketGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2685,7 +3294,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipMarketGroupsRequestToJSON(requestParameters.membershipMarketGroups),
+            body: MembershipMarketGroupsToJSON(requestParameters.membershipMarketGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2705,6 +3314,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership property groups
      */
     async putMembershipPropertyGroupsRaw(requestParameters: PutMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipPropertyGroupsId === null || requestParameters.membershipPropertyGroupsId === undefined) {
+            throw new runtime.RequiredError('membershipPropertyGroupsId','Required parameter requestParameters.membershipPropertyGroupsId was null or undefined when calling putMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipPropertyGroups.');
+        }
+
+        if (requestParameters.membershipPropertyGroups === null || requestParameters.membershipPropertyGroups === undefined) {
+            throw new runtime.RequiredError('membershipPropertyGroups','Required parameter requestParameters.membershipPropertyGroups was null or undefined when calling putMembershipPropertyGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2736,7 +3365,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipPropertyGroupsRequestToJSON(requestParameters.membershipPropertyGroups),
+            body: MembershipPropertyGroupsToJSON(requestParameters.membershipPropertyGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2756,6 +3385,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership rate groups
      */
     async putMembershipRateGroupsRaw(requestParameters: PutMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipRateGroupId === null || requestParameters.membershipRateGroupId === undefined) {
+            throw new runtime.RequiredError('membershipRateGroupId','Required parameter requestParameters.membershipRateGroupId was null or undefined when calling putMembershipRateGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipRateGroups.');
+        }
+
+        if (requestParameters.membershipRateGroups === null || requestParameters.membershipRateGroups === undefined) {
+            throw new runtime.RequiredError('membershipRateGroups','Required parameter requestParameters.membershipRateGroups was null or undefined when calling putMembershipRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2787,7 +3436,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipRateGroupsRequestToJSON(requestParameters.membershipRateGroups),
+            body: MembershipRateGroupsToJSON(requestParameters.membershipRateGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2806,7 +3455,27 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Use this API to update an existing Membership Type <p><strong>OperationId:</strong>putMembershipType</p>
      * Change Membership type
      */
-    async putMembershipTypeRaw(requestParameters: PutMembershipTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypes>> {
+    async putMembershipTypeRaw(requestParameters: PutMembershipTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypes>> {
+        if (requestParameters.membershipTypeId === null || requestParameters.membershipTypeId === undefined) {
+            throw new runtime.RequiredError('membershipTypeId','Required parameter requestParameters.membershipTypeId was null or undefined when calling putMembershipType.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipType.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipType.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipType.');
+        }
+
+        if (requestParameters.membershipTypeChangeInstructions === null || requestParameters.membershipTypeChangeInstructions === undefined) {
+            throw new runtime.RequiredError('membershipTypeChangeInstructions','Required parameter requestParameters.membershipTypeChangeInstructions was null or undefined when calling putMembershipType.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2838,7 +3507,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutMembershipTypeRequestToJSON(requestParameters.membershipTypeChangeInstructions),
+            body: MembershipTypeChangeInstructionsToJSON(requestParameters.membershipTypeChangeInstructions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MembershipTypesFromJSON(jsonValue));
@@ -2848,7 +3517,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Use this API to update an existing Membership Type <p><strong>OperationId:</strong>putMembershipType</p>
      * Change Membership type
      */
-    async putMembershipType(requestParameters: PutMembershipTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypes> {
+    async putMembershipType(requestParameters: PutMembershipTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypes> {
         const response = await this.putMembershipTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2858,6 +3527,26 @@ export class MembershipConfigApi extends runtime.BaseAPI {
      * Change Membership type rules
      */
     async putMembershipTypeRulesRaw(requestParameters: PutMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipTypeRulesId === null || requestParameters.membershipTypeRulesId === undefined) {
+            throw new runtime.RequiredError('membershipTypeRulesId','Required parameter requestParameters.membershipTypeRulesId was null or undefined when calling putMembershipTypeRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMembershipTypeRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMembershipTypeRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMembershipTypeRules.');
+        }
+
+        if (requestParameters.membershipTypeRules === null || requestParameters.membershipTypeRules === undefined) {
+            throw new runtime.RequiredError('membershipTypeRules','Required parameter requestParameters.membershipTypeRules was null or undefined when calling putMembershipTypeRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2889,7 +3578,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipTypeRulesRequestToJSON(requestParameters.membershipTypeRules),
+            body: MembershipTypeRulesToJSON(requestParameters.membershipTypeRules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));

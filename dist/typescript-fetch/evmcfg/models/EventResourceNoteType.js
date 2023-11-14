@@ -64,7 +64,7 @@ function EventResourceNoteTypeToJSON(value) {
         'noteCode': value.noteCode,
         'noteId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.noteId),
         'noteTitle': value.noteTitle,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'sequence': value.sequence,
     };
 }

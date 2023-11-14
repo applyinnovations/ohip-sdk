@@ -15,39 +15,39 @@
 
 import * as runtime from '../runtime';
 import type {
-  ChangeTemplateDeviceLocationsRequest,
   ExceptionDetailType,
-  PostTemplateDeviceLocationsRequest,
   Status,
+  TemplateDeviceLocationsCriteria,
   TemplateDeviceLocationsDetails,
-} from '../models';
+  TemplateDeviceLocationsToBeChanged,
+} from '../models/index';
 import {
-    ChangeTemplateDeviceLocationsRequestFromJSON,
-    ChangeTemplateDeviceLocationsRequestToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostTemplateDeviceLocationsRequestFromJSON,
-    PostTemplateDeviceLocationsRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
+    TemplateDeviceLocationsCriteriaFromJSON,
+    TemplateDeviceLocationsCriteriaToJSON,
     TemplateDeviceLocationsDetailsFromJSON,
     TemplateDeviceLocationsDetailsToJSON,
-} from '../models';
+    TemplateDeviceLocationsToBeChangedFromJSON,
+    TemplateDeviceLocationsToBeChangedToJSON,
+} from '../models/index';
 
-export interface ChangeTemplateDeviceLocationsOperationRequest {
-    deviceLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDeviceLocationsToBeChanged?: ChangeTemplateDeviceLocationsRequest;
+export interface ChangeTemplateDeviceLocationsRequest {
+    deviceLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDeviceLocationsToBeChanged: TemplateDeviceLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetTemplateDeviceLocationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -56,20 +56,20 @@ export interface GetTemplateDeviceLocationsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostTemplateDeviceLocationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDeviceLocationsCriteria?: PostTemplateDeviceLocationsRequest;
+export interface PostTemplateDeviceLocationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDeviceLocationsCriteria: TemplateDeviceLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateDeviceLocationsRequest {
-    deviceLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    deviceLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -83,7 +83,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update the template device locations. <p><strong>OperationId:</strong>changeTemplateDeviceLocations</p>
      * Change the template device locations
      */
-    async changeTemplateDeviceLocationsRaw(requestParameters: ChangeTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateDeviceLocationsRaw(requestParameters: ChangeTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.deviceLocationId === null || requestParameters.deviceLocationId === undefined) {
+            throw new runtime.RequiredError('deviceLocationId','Required parameter requestParameters.deviceLocationId was null or undefined when calling changeTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.templateDeviceLocationsToBeChanged === null || requestParameters.templateDeviceLocationsToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateDeviceLocationsToBeChanged','Required parameter requestParameters.templateDeviceLocationsToBeChanged was null or undefined when calling changeTemplateDeviceLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -115,7 +135,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateDeviceLocationsRequestToJSON(requestParameters.templateDeviceLocationsToBeChanged),
+            body: TemplateDeviceLocationsToBeChangedToJSON(requestParameters.templateDeviceLocationsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -125,7 +145,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update the template device locations. <p><strong>OperationId:</strong>changeTemplateDeviceLocations</p>
      * Change the template device locations
      */
-    async changeTemplateDeviceLocations(requestParameters: ChangeTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateDeviceLocations(requestParameters: ChangeTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateDeviceLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -135,6 +155,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get the template device locations
      */
     async getTemplateDeviceLocationsRaw(requestParameters: GetTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateDeviceLocationsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateDeviceLocations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -198,7 +230,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create the template device locations. <p><strong>OperationId:</strong>postTemplateDeviceLocations</p>
      * Create the template device locations
      */
-    async postTemplateDeviceLocationsRaw(requestParameters: PostTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateDeviceLocationsRaw(requestParameters: PostTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.templateDeviceLocationsCriteria === null || requestParameters.templateDeviceLocationsCriteria === undefined) {
+            throw new runtime.RequiredError('templateDeviceLocationsCriteria','Required parameter requestParameters.templateDeviceLocationsCriteria was null or undefined when calling postTemplateDeviceLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -230,7 +278,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateDeviceLocationsRequestToJSON(requestParameters.templateDeviceLocationsCriteria),
+            body: TemplateDeviceLocationsCriteriaToJSON(requestParameters.templateDeviceLocationsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -240,7 +288,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create the template device locations. <p><strong>OperationId:</strong>postTemplateDeviceLocations</p>
      * Create the template device locations
      */
-    async postTemplateDeviceLocations(requestParameters: PostTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateDeviceLocations(requestParameters: PostTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateDeviceLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -250,6 +298,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete the template device locations
      */
     async removeTemplateDeviceLocationsRaw(requestParameters: RemoveTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.deviceLocationId === null || requestParameters.deviceLocationId === undefined) {
+            throw new runtime.RequiredError('deviceLocationId','Required parameter requestParameters.deviceLocationId was null or undefined when calling removeTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateDeviceLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateDeviceLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

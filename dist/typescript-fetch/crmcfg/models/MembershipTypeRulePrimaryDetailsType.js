@@ -56,12 +56,12 @@ function MembershipTypeRulePrimaryDetailsTypeToJSON(value) {
     }
     return {
         'description': value.description,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'membershipTypeRuleId': (0, MembershipTypeRuleIDType_1.MembershipTypeRuleIDTypeToJSON)(value.membershipTypeRuleId),
         'pointsType': (0, RulePointsTypeType_1.RulePointsTypeTypeToJSON)(value.pointsType),
         'ruleBasedOn': (0, MembershipTypeRuleBasedOnType_1.MembershipTypeRuleBasedOnTypeToJSON)(value.ruleBasedOn),
-        'ruleEndDate': value.ruleEndDate === undefined ? undefined : (value.ruleEndDate.toISOString().substr(0, 10)),
-        'ruleStartDate': value.ruleStartDate === undefined ? undefined : (value.ruleStartDate.toISOString().substr(0, 10)),
+        'ruleEndDate': value.ruleEndDate === undefined ? undefined : (value.ruleEndDate.toISOString().substring(0, 10)),
+        'ruleStartDate': value.ruleStartDate === undefined ? undefined : (value.ruleStartDate.toISOString().substring(0, 10)),
         'transactionCode': (0, MembershipTypeRuleTransactionCodeType_1.MembershipTypeRuleTransactionCodeTypeToJSON)(value.transactionCode),
     };
 }

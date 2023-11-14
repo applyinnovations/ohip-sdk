@@ -57,13 +57,13 @@ function MarketingTextTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0, 10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
         'bookingChannelCode': value.bookingChannelCode,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'globalTextYN': value.globalTextYN,
         'hotelId': value.hotelId,
         'marketingText': value.marketingText,
-        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substr(0, 10)),
+        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substring(0, 10)),
         'newHotelCode': value.newHotelCode,
         'newPolicyDetail': value.newPolicyDetail,
         'newPolicyType': value.newPolicyType,

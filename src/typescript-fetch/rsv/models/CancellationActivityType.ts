@@ -101,7 +101,7 @@ export function CancellationActivityTypeToJSON(value?: CancellationActivityType 
     return {
         
         'cancellationIdList': UniqueIDListTypeToJSON(value.cancellationIdList),
-        'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substr(0,10)),
+        'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substring(0,10)),
         'reason': CancellationReasonTypeToJSON(value.reason),
         'userId': value.userId,
         'userName': value.userName,

@@ -190,10 +190,10 @@ export function FolioTypeToJSON(value?: FolioType | null): any {
     return {
         
         'allowConvertFolioYn': value.allowConvertFolioYn,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'fiscalBillNo': value.fiscalBillNo,
         'folioAmount': CurrencyAmountTypeToJSON(value.folioAmount),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substr(0,10)),
+        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,
@@ -204,7 +204,7 @@ export function FolioTypeToJSON(value?: FolioType | null): any {
         'payeeInfo': PayeeInfoTypeToJSON(value.payeeInfo),
         'postings': SummaryPostingsTypeToJSON(value.postings),
         'revisionNo': value.revisionNo,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }
 

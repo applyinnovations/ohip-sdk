@@ -77,7 +77,7 @@ function AddressTypeToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'postalCode': value.postalCode,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'state': value.state,
         'type': value.type,
         'typeDescription': value.typeDescription,

@@ -48,7 +48,7 @@ function MemberPointToExpireTypeToJSON(value) {
         return null;
     }
     return {
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substr(0, 10)),
+        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0, 10)),
         'pointsToExpire': value.pointsToExpire,
         'previousPointsToExpire': value.previousPointsToExpire,
         'extend': value.extend,

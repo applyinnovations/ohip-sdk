@@ -55,10 +55,10 @@ function ChannelStatementAccountTypeToJSON(value) {
     }
     return {
         'accountCode': value.accountCode,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0, 10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
         'channelAccountStatementDetails': (0, ChannelStatementDetailsType_1.ChannelStatementDetailsTypeToJSON)(value.channelAccountStatementDetails),
         'contractId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.contractId),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'note': value.note,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'totalDetailsAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalDetailsAmount),

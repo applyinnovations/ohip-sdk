@@ -52,7 +52,7 @@ function ChannelSnapshotTypeToJSON(value) {
     }
     return {
         'availableRooms': value.availableRooms,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'inventoryRooms': value.inventoryRooms,
         'restrictionsInfo': (0, RestrictionsInfoType_1.RestrictionsInfoTypeToJSON)(value.restrictionsInfo),
         'roomsSold': value.roomsSold,

@@ -118,7 +118,7 @@ export function ResHousekeepingTypeToJSON(value?: ResHousekeepingType | null): a
         'facilityTaskInfo': FacilityTaskTypeToJSON(value.facilityTaskInfo),
         'linenChange': value.linenChange,
         'turndownRequested': value.turndownRequested,
-        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substr(0,10)),
+        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substring(0,10)),
         'expectedServiceTime': value.expectedServiceTime,
         'roomStatus': HousekeepingRoomStatusTypeToJSON(value.roomStatus),
     };

@@ -50,7 +50,7 @@ function RecentlyAccessedProfileTypeToJSON(value) {
         return null;
     }
     return {
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substr(0, 10)),
+        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'profileIdList': (0, ProfileIdList_1.ProfileIdListToJSON)(value.profileIdList),

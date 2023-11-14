@@ -10,12 +10,7 @@
  * Do not edit the class manually.
  */
 export declare const BASE_PATH: string;
-interface OhipCredential {
-    username: string;
-    password: string;
-}
 export interface ConfigurationParameters {
-    host?: string;
     basePath?: string;
     fetchApi?: FetchAPI;
     middleware?: Middleware[];
@@ -26,18 +21,12 @@ export interface ConfigurationParameters {
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string | Promise<string>);
     headers?: HTTPHeaders;
     credentials?: RequestCredentials;
-    hotelId?: string;
-    appKey?: string;
-    ohipCredentials?: OhipCredential[];
 }
 export declare class Configuration {
     private configuration;
     constructor(configuration?: ConfigurationParameters);
     set config(configuration: Configuration);
-    get host(): string;
     get basePath(): string;
-    get hotelId(): string;
-    get ohipCredentials(): OhipCredential[];
     get fetchApi(): FetchAPI | undefined;
     get middleware(): Middleware[];
     get queryParamsStringify(): (params: HTTPQuery) => string;
@@ -47,7 +36,6 @@ export declare class Configuration {
     get accessToken(): ((name?: string, scopes?: string[]) => string | Promise<string>) | undefined;
     get headers(): HTTPHeaders | undefined;
     get credentials(): RequestCredentials | undefined;
-    get appKey(): string;
 }
 export declare const DefaultConfig: Configuration;
 /**
@@ -57,16 +45,6 @@ export declare class BaseAPI {
     protected configuration: Configuration;
     private static readonly jsonRegex;
     private middleware;
-    private token;
-    private refreshToken;
-    private tokenExpiration;
-    private activeCredentialIndex;
-    private requestingNewAuthToken;
-    private backoffTimeout;
-    private authTries;
-    private maxBackOffTimeoutToWait;
-    private baseBackOffTimeout;
-    private maxBackOffTimeout;
     constructor(configuration?: Configuration);
     withMiddleware<T extends BaseAPI>(this: T, ...middlewares: Middleware[]): T;
     withPreMiddleware<T extends BaseAPI>(this: T, ...preMiddlewares: Array<Middleware['pre']>): T;
@@ -85,17 +63,6 @@ export declare class BaseAPI {
     protected request(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction): Promise<Response>;
     private createFetchParams;
     private fetchApi;
-    private getAuthApi;
-    private handleClientRequest;
-    private handleClientRequestError;
-    private requestNewAuthToken;
-    private renewAuthToken;
-    private setTokenHeaders;
-    private clearTokens;
-    private isAuthTokenExpired;
-    private shouldBackOff;
-    private setBackoffTimeout;
-    private incrementActiveCrendentialIndex;
     /**
      * Create a shallow clone of `this` by constructing a new instance
      * and then shallow cloning data members.
@@ -213,4 +180,3 @@ export declare class TextApiResponse {
     constructor(raw: Response);
     value(): Promise<string>;
 }
-export {};

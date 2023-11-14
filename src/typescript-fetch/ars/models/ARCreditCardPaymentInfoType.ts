@@ -139,11 +139,11 @@ export function ARCreditCardPaymentInfoTypeToJSON(value?: ARCreditCardPaymentInf
         'fiscalFolioNo': value.fiscalFolioNo,
         'folioNo': value.folioNo,
         'guestName': value.guestName,
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substr(0,10)),
+        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
         'profileId': ProfileIdToJSON(value.profileId),
         'reference': value.reference,
         'remark': value.remark,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0,10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
         'transactionNo': value.transactionNo,
     };
 }

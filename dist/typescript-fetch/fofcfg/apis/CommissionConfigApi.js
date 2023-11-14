@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommissionConfigApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,21 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     deleteCommissionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+                throw new runtime.RequiredError('hotelIds', 'Required parameter requestParameters.hotelIds was null or undefined when calling deleteCommissionCodes.');
+            }
+            if (requestParameters.commissionCodes === null || requestParameters.commissionCodes === undefined) {
+                throw new runtime.RequiredError('commissionCodes', 'Required parameter requestParameters.commissionCodes was null or undefined when calling deleteCommissionCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCommissionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCommissionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCommissionCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -87,7 +102,7 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -106,6 +121,21 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     deleteConfigBankAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteConfigBankAccounts.');
+            }
+            if (requestParameters.bankAccountID === null || requestParameters.bankAccountID === undefined) {
+                throw new runtime.RequiredError('bankAccountID', 'Required parameter requestParameters.bankAccountID was null or undefined when calling deleteConfigBankAccounts.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteConfigBankAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteConfigBankAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteConfigBankAccounts.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -135,7 +165,7 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -154,6 +184,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     deleteStopProcessingReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.codes === null || requestParameters.codes === undefined) {
+                throw new runtime.RequiredError('codes', 'Required parameter requestParameters.codes was null or undefined when calling deleteStopProcessingReasons.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteStopProcessingReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteStopProcessingReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteStopProcessingReasons.');
+            }
             const queryParameters = {};
             if (requestParameters.codes) {
                 queryParameters['codes'] = requestParameters.codes;
@@ -180,7 +222,7 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -199,6 +241,21 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     getCommissionCodeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.commissionCode === null || requestParameters.commissionCode === undefined) {
+                throw new runtime.RequiredError('commissionCode', 'Required parameter requestParameters.commissionCode was null or undefined when calling getCommissionCode.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getCommissionCode.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCommissionCode.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionCode.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionCode.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -222,7 +279,7 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CommissionCodeDetailFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CommissionCodeDetailFromJSON)(jsonValue));
         });
     }
     /**
@@ -241,6 +298,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     getCommissionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+                throw new runtime.RequiredError('hotelIds', 'Required parameter requestParameters.hotelIds was null or undefined when calling getCommissionCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCommissionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -270,7 +339,7 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CommissionCodesSummaryFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CommissionCodesSummaryFromJSON)(jsonValue));
         });
     }
     /**
@@ -289,6 +358,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     getConfigBankAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotels === null || requestParameters.hotels === undefined) {
+                throw new runtime.RequiredError('hotels', 'Required parameter requestParameters.hotels was null or undefined when calling getConfigBankAccounts.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getConfigBankAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getConfigBankAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getConfigBankAccounts.');
+            }
             const queryParameters = {};
             if (requestParameters.hotels) {
                 queryParameters['hotels'] = requestParameters.hotels;
@@ -321,7 +402,7 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.BankAccountsInfoFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BankAccountsInfoFromJSON)(jsonValue));
         });
     }
     /**
@@ -340,6 +421,15 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     getStopProcessingReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getStopProcessingReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getStopProcessingReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getStopProcessingReasons.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchInactive !== undefined) {
                 queryParameters['fetchInactive'] = requestParameters.fetchInactive;
@@ -375,7 +465,7 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StopProcessingReasonsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StopProcessingReasonsFromJSON)(jsonValue));
         });
     }
     /**
@@ -394,6 +484,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     postCommissionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCommissionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCommissionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCommissionCodes.');
+            }
+            if (requestParameters.commissionCodes === null || requestParameters.commissionCodes === undefined) {
+                throw new runtime.RequiredError('commissionCodes', 'Required parameter requestParameters.commissionCodes was null or undefined when calling postCommissionCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -417,9 +519,9 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutCommissionCodesRequestToJSON)(requestParameters.commissionCodes),
+                body: (0, index_1.CommissionCodesToJSON)(requestParameters.commissionCodes),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -438,6 +540,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     postConfigBankAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postConfigBankAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postConfigBankAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postConfigBankAccounts.');
+            }
+            if (requestParameters.bankAccounts === null || requestParameters.bankAccounts === undefined) {
+                throw new runtime.RequiredError('bankAccounts', 'Required parameter requestParameters.bankAccounts was null or undefined when calling postConfigBankAccounts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -461,9 +575,9 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutConfigBankAccountsRequestToJSON)(requestParameters.bankAccounts),
+                body: (0, index_1.BankAccountsToJSON)(requestParameters.bankAccounts),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -482,6 +596,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     postStopProcessingReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postStopProcessingReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postStopProcessingReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postStopProcessingReasons.');
+            }
+            if (requestParameters.stopProcessingReasons === null || requestParameters.stopProcessingReasons === undefined) {
+                throw new runtime.RequiredError('stopProcessingReasons', 'Required parameter requestParameters.stopProcessingReasons was null or undefined when calling postStopProcessingReasons.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -505,9 +631,9 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutStopProcessingReasonsRequestToJSON)(requestParameters.stopProcessingReasons),
+                body: (0, index_1.StopProcessingReasonsToJSON)(requestParameters.stopProcessingReasons),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -526,6 +652,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     putCommissionCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putCommissionCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putCommissionCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putCommissionCodes.');
+            }
+            if (requestParameters.commissionCodes === null || requestParameters.commissionCodes === undefined) {
+                throw new runtime.RequiredError('commissionCodes', 'Required parameter requestParameters.commissionCodes was null or undefined when calling putCommissionCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -549,9 +687,9 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutCommissionCodesRequestToJSON)(requestParameters.commissionCodes),
+                body: (0, index_1.CommissionCodesToJSON)(requestParameters.commissionCodes),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -570,6 +708,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     putConfigBankAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putConfigBankAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putConfigBankAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putConfigBankAccounts.');
+            }
+            if (requestParameters.bankAccounts === null || requestParameters.bankAccounts === undefined) {
+                throw new runtime.RequiredError('bankAccounts', 'Required parameter requestParameters.bankAccounts was null or undefined when calling putConfigBankAccounts.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -593,9 +743,9 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutConfigBankAccountsRequestToJSON)(requestParameters.bankAccounts),
+                body: (0, index_1.BankAccountsToJSON)(requestParameters.bankAccounts),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -614,6 +764,18 @@ class CommissionConfigApi extends runtime.BaseAPI {
      */
     putStopProcessingReasonsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putStopProcessingReasons.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putStopProcessingReasons.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putStopProcessingReasons.');
+            }
+            if (requestParameters.stopProcessingReasons === null || requestParameters.stopProcessingReasons === undefined) {
+                throw new runtime.RequiredError('stopProcessingReasons', 'Required parameter requestParameters.stopProcessingReasons was null or undefined when calling putStopProcessingReasons.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -637,9 +799,9 @@ class CommissionConfigApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutStopProcessingReasonsRequestToJSON)(requestParameters.stopProcessingReasons),
+                body: (0, index_1.StopProcessingReasonsToJSON)(requestParameters.stopProcessingReasons),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StopProcessingReasonsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StopProcessingReasonsFromJSON)(jsonValue));
         });
     }
     /**

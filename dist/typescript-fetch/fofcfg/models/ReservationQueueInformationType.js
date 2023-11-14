@@ -55,7 +55,7 @@ function ReservationQueueInformationTypeToJSON(value) {
         'averageQueueTimeToCheckIn': value.averageQueueTimeToCheckIn,
         'guestTextInfo': (0, QueueTextInfoType_1.QueueTextInfoTypeToJSON)(value.guestTextInfo),
         'priority': value.priority,
-        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substr(0, 10)),
+        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substring(0, 10)),
         'timeSpan': (0, ReservationQueueInformationTypeTimeSpan_1.ReservationQueueInformationTypeTimeSpanToJSON)(value.timeSpan),
     };
 }

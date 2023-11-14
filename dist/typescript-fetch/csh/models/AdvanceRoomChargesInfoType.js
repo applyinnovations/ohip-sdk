@@ -51,7 +51,7 @@ function AdvanceRoomChargesInfoTypeToJSON(value) {
     return {
         'availablePostingDates': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.availablePostingDates),
         'generatedForEntireStay': value.generatedForEntireStay,
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substr(0, 10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0, 10)),
         'reservation': (0, ReservationInfoType_1.ReservationInfoTypeToJSON)(value.reservation),
     };
 }

@@ -15,9 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
+  ChangeDeliveryMethods,
+  ChangeInterfaceRight,
+  ChangeUDFMapping,
   ChangedDeliveryMethods,
   ChangedInterfaceRight,
   ChangedUDFMapping,
+  CreateDeliveryMethods,
+  CreatePublishers,
   ExceptionDetailType,
   FetchedDeliveryMethods,
   FetchedExternalDatabaseAvailableProperties,
@@ -29,20 +34,25 @@ import type {
   FetchedInterfaceRights,
   FetchedPublishers,
   FetchedUDFMappings,
-  PostDeliveryMethodsRequest,
-  PostPublishersRequest,
-  PutDeliveryMethodsRequest,
-  PutInterfaceRightRequest,
-  PutUDFMappingRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
+    ChangeDeliveryMethodsFromJSON,
+    ChangeDeliveryMethodsToJSON,
+    ChangeInterfaceRightFromJSON,
+    ChangeInterfaceRightToJSON,
+    ChangeUDFMappingFromJSON,
+    ChangeUDFMappingToJSON,
     ChangedDeliveryMethodsFromJSON,
     ChangedDeliveryMethodsToJSON,
     ChangedInterfaceRightFromJSON,
     ChangedInterfaceRightToJSON,
     ChangedUDFMappingFromJSON,
     ChangedUDFMappingToJSON,
+    CreateDeliveryMethodsFromJSON,
+    CreateDeliveryMethodsToJSON,
+    CreatePublishersFromJSON,
+    CreatePublishersToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     FetchedDeliveryMethodsFromJSON,
@@ -65,24 +75,14 @@ import {
     FetchedPublishersToJSON,
     FetchedUDFMappingsFromJSON,
     FetchedUDFMappingsToJSON,
-    PostDeliveryMethodsRequestFromJSON,
-    PostDeliveryMethodsRequestToJSON,
-    PostPublishersRequestFromJSON,
-    PostPublishersRequestToJSON,
-    PutDeliveryMethodsRequestFromJSON,
-    PutDeliveryMethodsRequestToJSON,
-    PutInterfaceRightRequestFromJSON,
-    PutInterfaceRightRequestToJSON,
-    PutUDFMappingRequestFromJSON,
-    PutUDFMappingRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteDeliveryMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     type?: DeleteDeliveryMethodsTypeEnum;
     options?: Set<DeleteDeliveryMethodsOptionsEnum>;
@@ -92,19 +92,19 @@ export interface DeleteDeliveryMethodsRequest {
 }
 
 export interface DeleteHotelInterfaceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     logo?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteInterfaceRightRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     id?: string;
     idExtension?: number;
@@ -119,11 +119,11 @@ export interface DeleteInterfaceRightRequest {
 }
 
 export interface DeletePublisherRequest {
-    hotelId?: string;
-    externalSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    externalSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     subscriberHotelId?: string;
     code?: string;
     xExternalsystem?: string;
@@ -131,9 +131,9 @@ export interface DeletePublisherRequest {
 }
 
 export interface GetDeliveryMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     croCode?: string;
     usages?: Set<GetDeliveryMethodsUsagesEnum>;
@@ -143,11 +143,11 @@ export interface GetDeliveryMethodsRequest {
 }
 
 export interface GetExternalDatabaseAvailablePropertiesRequest {
-    databaseId?: string;
-    interfaceId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    databaseId: string;
+    interfaceId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     interfaceCodes?: Array<string>;
     hotelIds?: Array<string>;
@@ -156,18 +156,18 @@ export interface GetExternalDatabaseAvailablePropertiesRequest {
 }
 
 export interface GetHotelInterfaceControllerRegistryRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     machine?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHotelInterfaceErrorsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -179,9 +179,9 @@ export interface GetHotelInterfaceErrorsRequest {
 }
 
 export interface GetHotelInterfaceFailedMessagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -193,9 +193,9 @@ export interface GetHotelInterfaceFailedMessagesRequest {
 }
 
 export interface GetHotelInterfaceSchemasRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -207,9 +207,9 @@ export interface GetHotelInterfaceSchemasRequest {
 }
 
 export interface GetHotelInterfacesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     interfaceTypes?: Set<GetHotelInterfacesInterfaceTypesEnum>;
     logosCodes?: Array<string>;
@@ -219,9 +219,9 @@ export interface GetHotelInterfacesRequest {
 }
 
 export interface GetInterfaceRightsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     id?: string;
     idExtension?: number;
@@ -232,68 +232,68 @@ export interface GetInterfaceRightsRequest {
 }
 
 export interface GetPublishersRequest {
-    externalSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    externalSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetUDFMappingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     type?: string;
     uDFName?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostDeliveryMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createDeliveryMethods?: PostDeliveryMethodsRequest;
+export interface PostDeliveryMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createDeliveryMethods: CreateDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostPublishersOperationRequest {
-    hotelId?: string;
-    externalSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createPublishers?: PostPublishersRequest;
+export interface PostPublishersRequest {
+    hotelId: string;
+    externalSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createPublishers: CreatePublishers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutDeliveryMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeDeliveryMethods?: PutDeliveryMethodsRequest;
+export interface PutDeliveryMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeDeliveryMethods: ChangeDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutInterfaceRightOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeInterfaceRight?: PutInterfaceRightRequest;
+export interface PutInterfaceRightRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeInterfaceRight: ChangeInterfaceRight;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutUDFMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeUDFMapping?: PutUDFMappingRequest;
+export interface PutUDFMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeUDFMapping: ChangeUDFMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -308,6 +308,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to remove delivery methods.
      */
     async deleteDeliveryMethodsRaw(requestParameters: DeleteDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDeliveryMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDeliveryMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDeliveryMethods.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -372,6 +384,22 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to remove hotel interface.
      */
     async deleteHotelInterfaceRaw(requestParameters: DeleteHotelInterfaceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteHotelInterface.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteHotelInterface.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteHotelInterface.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteHotelInterface.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.logo !== undefined) {
@@ -424,6 +452,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to remove interface right.
      */
     async deleteInterfaceRightRaw(requestParameters: DeleteInterfaceRightRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteInterfaceRight.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteInterfaceRight.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteInterfaceRight.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -508,6 +548,26 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to remove publisher.
      */
     async deletePublisherRaw(requestParameters: DeletePublisherRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePublisher.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling deletePublisher.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePublisher.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePublisher.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePublisher.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.subscriberHotelId !== undefined) {
@@ -564,6 +624,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch delivery methods.
      */
     async getDeliveryMethodsRaw(requestParameters: GetDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedDeliveryMethods>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDeliveryMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDeliveryMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDeliveryMethods.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -628,6 +700,26 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch external database available properties.
      */
     async getExternalDatabaseAvailablePropertiesRaw(requestParameters: GetExternalDatabaseAvailablePropertiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedExternalDatabaseAvailableProperties>> {
+        if (requestParameters.databaseId === null || requestParameters.databaseId === undefined) {
+            throw new runtime.RequiredError('databaseId','Required parameter requestParameters.databaseId was null or undefined when calling getExternalDatabaseAvailableProperties.');
+        }
+
+        if (requestParameters.interfaceId === null || requestParameters.interfaceId === undefined) {
+            throw new runtime.RequiredError('interfaceId','Required parameter requestParameters.interfaceId was null or undefined when calling getExternalDatabaseAvailableProperties.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExternalDatabaseAvailableProperties.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExternalDatabaseAvailableProperties.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExternalDatabaseAvailableProperties.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -688,6 +780,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch hotel interface controller registry.
      */
     async getHotelInterfaceControllerRegistryRaw(requestParameters: GetHotelInterfaceControllerRegistryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedHotelInterfaceControllerRegistry>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaceControllerRegistry.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaceControllerRegistry.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaceControllerRegistry.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.machine !== undefined) {
@@ -740,6 +844,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch hotel interface errors.
      */
     async getHotelInterfaceErrorsRaw(requestParameters: GetHotelInterfaceErrorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedHotelInterfaceErrors>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaceErrors.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaceErrors.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaceErrors.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -812,6 +928,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch hotel interface failed messages.
      */
     async getHotelInterfaceFailedMessagesRaw(requestParameters: GetHotelInterfaceFailedMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedHotelInterfaceFailedMessages>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaceFailedMessages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaceFailedMessages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaceFailedMessages.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -884,6 +1012,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch hotel interface schemas.
      */
     async getHotelInterfaceSchemasRaw(requestParameters: GetHotelInterfaceSchemasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedHotelInterfaceSchemas>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaceSchemas.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaceSchemas.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaceSchemas.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -956,6 +1096,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch hotel interfaces.
      */
     async getHotelInterfacesRaw(requestParameters: GetHotelInterfacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedHotelInterfaces>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaces.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaces.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaces.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -1020,6 +1172,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch interface rights.
      */
     async getInterfaceRightsRaw(requestParameters: GetInterfaceRightsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedInterfaceRights>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInterfaceRights.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInterfaceRights.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInterfaceRights.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -1088,6 +1252,22 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to fetch publishers.
      */
     async getPublishersRaw(requestParameters: GetPublishersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedPublishers>> {
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling getPublishers.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPublishers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPublishers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPublishers.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -1140,6 +1320,18 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to send a response to the Look up of UDFs.
      */
     async getUDFMappingsRaw(requestParameters: GetUDFMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchedUDFMappings>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUDFMappings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUDFMappings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUDFMappings.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.type !== undefined) {
@@ -1195,7 +1387,23 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>postDeliveryMethods</p>
      * Operation to create delivery methods.
      */
-    async postDeliveryMethodsRaw(requestParameters: PostDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postDeliveryMethodsRaw(requestParameters: PostDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDeliveryMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDeliveryMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDeliveryMethods.');
+        }
+
+        if (requestParameters.createDeliveryMethods === null || requestParameters.createDeliveryMethods === undefined) {
+            throw new runtime.RequiredError('createDeliveryMethods','Required parameter requestParameters.createDeliveryMethods was null or undefined when calling postDeliveryMethods.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1227,7 +1435,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDeliveryMethodsRequestToJSON(requestParameters.createDeliveryMethods),
+            body: CreateDeliveryMethodsToJSON(requestParameters.createDeliveryMethods),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1237,7 +1445,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>postDeliveryMethods</p>
      * Operation to create delivery methods.
      */
-    async postDeliveryMethods(requestParameters: PostDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postDeliveryMethods(requestParameters: PostDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postDeliveryMethodsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1246,7 +1454,31 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>postPublishers</p>
      * Operation to create publishers.
      */
-    async postPublishersRaw(requestParameters: PostPublishersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postPublishersRaw(requestParameters: PostPublishersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPublishers.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling postPublishers.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPublishers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPublishers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPublishers.');
+        }
+
+        if (requestParameters.createPublishers === null || requestParameters.createPublishers === undefined) {
+            throw new runtime.RequiredError('createPublishers','Required parameter requestParameters.createPublishers was null or undefined when calling postPublishers.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1278,7 +1510,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPublishersRequestToJSON(requestParameters.createPublishers),
+            body: CreatePublishersToJSON(requestParameters.createPublishers),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1288,7 +1520,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>postPublishers</p>
      * Operation to create publishers.
      */
-    async postPublishers(requestParameters: PostPublishersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postPublishers(requestParameters: PostPublishersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postPublishersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1297,7 +1529,23 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putDeliveryMethods</p>
      * Operation to change delivery methods.
      */
-    async putDeliveryMethodsRaw(requestParameters: PutDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedDeliveryMethods>> {
+    async putDeliveryMethodsRaw(requestParameters: PutDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedDeliveryMethods>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putDeliveryMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putDeliveryMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putDeliveryMethods.');
+        }
+
+        if (requestParameters.changeDeliveryMethods === null || requestParameters.changeDeliveryMethods === undefined) {
+            throw new runtime.RequiredError('changeDeliveryMethods','Required parameter requestParameters.changeDeliveryMethods was null or undefined when calling putDeliveryMethods.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1329,7 +1577,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutDeliveryMethodsRequestToJSON(requestParameters.changeDeliveryMethods),
+            body: ChangeDeliveryMethodsToJSON(requestParameters.changeDeliveryMethods),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedDeliveryMethodsFromJSON(jsonValue));
@@ -1339,7 +1587,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putDeliveryMethods</p>
      * Operation to change delivery methods.
      */
-    async putDeliveryMethods(requestParameters: PutDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedDeliveryMethods> {
+    async putDeliveryMethods(requestParameters: PutDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedDeliveryMethods> {
         const response = await this.putDeliveryMethodsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1348,7 +1596,23 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putInterfaceRight</p>
      * Operation to change interface right.
      */
-    async putInterfaceRightRaw(requestParameters: PutInterfaceRightOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedInterfaceRight>> {
+    async putInterfaceRightRaw(requestParameters: PutInterfaceRightRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedInterfaceRight>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putInterfaceRight.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putInterfaceRight.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putInterfaceRight.');
+        }
+
+        if (requestParameters.changeInterfaceRight === null || requestParameters.changeInterfaceRight === undefined) {
+            throw new runtime.RequiredError('changeInterfaceRight','Required parameter requestParameters.changeInterfaceRight was null or undefined when calling putInterfaceRight.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1380,7 +1644,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutInterfaceRightRequestToJSON(requestParameters.changeInterfaceRight),
+            body: ChangeInterfaceRightToJSON(requestParameters.changeInterfaceRight),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedInterfaceRightFromJSON(jsonValue));
@@ -1390,7 +1654,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putInterfaceRight</p>
      * Operation to change interface right.
      */
-    async putInterfaceRight(requestParameters: PutInterfaceRightOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedInterfaceRight> {
+    async putInterfaceRight(requestParameters: PutInterfaceRightRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedInterfaceRight> {
         const response = await this.putInterfaceRightRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1399,7 +1663,23 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to send a response to the Change in UDF. <p><strong>OperationId:</strong>putUDFMapping</p>
      * Operation to send a response to the Change in UDF.
      */
-    async putUDFMappingRaw(requestParameters: PutUDFMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedUDFMapping>> {
+    async putUDFMappingRaw(requestParameters: PutUDFMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedUDFMapping>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putUDFMapping.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putUDFMapping.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putUDFMapping.');
+        }
+
+        if (requestParameters.changeUDFMapping === null || requestParameters.changeUDFMapping === undefined) {
+            throw new runtime.RequiredError('changeUDFMapping','Required parameter requestParameters.changeUDFMapping was null or undefined when calling putUDFMapping.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1431,7 +1711,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutUDFMappingRequestToJSON(requestParameters.changeUDFMapping),
+            body: ChangeUDFMappingToJSON(requestParameters.changeUDFMapping),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedUDFMappingFromJSON(jsonValue));
@@ -1441,7 +1721,7 @@ export class ExternalSystemsConfigApi extends runtime.BaseAPI {
      * Operation to send a response to the Change in UDF. <p><strong>OperationId:</strong>putUDFMapping</p>
      * Operation to send a response to the Change in UDF.
      */
-    async putUDFMapping(requestParameters: PutUDFMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedUDFMapping> {
+    async putUDFMapping(requestParameters: PutUDFMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedUDFMapping> {
         const response = await this.putUDFMappingRaw(requestParameters, initOverrides);
         return await response.value();
     }

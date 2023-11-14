@@ -54,7 +54,7 @@ function ChannelGuaranteeCodeMappingTypeToJSON(value) {
         'channelGuaranteeCode': value.channelGuaranteeCode,
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'newChannelGuaranteeCode': value.newChannelGuaranteeCode,
         'paymentType': value.paymentType,
     };

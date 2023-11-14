@@ -49,7 +49,7 @@ function BorrowInventoryTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substr(0, 10)),
+        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0, 10)),
         'borrowRooms': value.borrowRooms === undefined ? undefined : (value.borrowRooms.map(BorrowRoomType_1.BorrowRoomTypeToJSON)),
     };
 }

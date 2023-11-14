@@ -10,39 +10,39 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArAccountTypes, ArFlaggedReasons, PutARAccountTypesRequest, PutARFlaggedReasonsRequest, Status } from '../models';
+import type { ArAccountTypes, ArFlaggedReasons, Status } from '../models/index';
 export interface DeleteARAccountTypesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountTypes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteARFlaggedReasonsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetARAccountTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountType?: string;
     description?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetARFlaggedReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reasonCodes?: Array<string>;
     reasonWildCard?: string;
     description?: string;
@@ -52,34 +52,34 @@ export interface GetARFlaggedReasonsRequest {
     acceptLanguage?: string;
 }
 export interface PostARAccountTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arAccountTypes?: PutARAccountTypesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arAccountTypes: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostARFlaggedReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arFlaggedReasons?: PutARFlaggedReasonsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arFlaggedReasons: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutARAccountTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arAccountTypes?: PutARAccountTypesRequest;
+export interface PutARAccountTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arAccountTypes: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutARFlaggedReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arFlaggedReasons?: PutARFlaggedReasonsRequest;
+export interface PutARFlaggedReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arFlaggedReasons: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -151,20 +151,20 @@ export declare class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to change account types. <p><strong>OperationId:</strong>putARAccountTypes</p>
      * Operation to modify AR Account Types.
      */
-    putARAccountTypesRaw(requestParameters: PutARAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putARAccountTypesRaw(requestParameters: PutARAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to change account types. <p><strong>OperationId:</strong>putARAccountTypes</p>
      * Operation to modify AR Account Types.
      */
-    putARAccountTypes(requestParameters: PutARAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putARAccountTypes(requestParameters: PutARAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putARFlaggedReasons</p>
      * Operation to change AR flagged reasons.
      */
-    putARFlaggedReasonsRaw(requestParameters: PutARFlaggedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putARFlaggedReasonsRaw(requestParameters: PutARFlaggedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putARFlaggedReasons</p>
      * Operation to change AR flagged reasons.
      */
-    putARFlaggedReasons(requestParameters: PutARFlaggedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putARFlaggedReasons(requestParameters: PutARFlaggedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }

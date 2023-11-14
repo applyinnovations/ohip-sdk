@@ -192,7 +192,7 @@ export function CommentTypeToJSON(value?: CommentType | null): any {
     }
     return {
         
-        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substr(0,10)),
+        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substring(0,10)),
         'actionType': value.actionType,
         'commentTitle': value.commentTitle,
         'confidential': value.confidential,
@@ -206,7 +206,7 @@ export function CommentTypeToJSON(value?: CommentType | null): any {
         'notificationLocation': value.notificationLocation,
         'overrideInternal': value.overrideInternal,
         'protectDescription': value.protectDescription,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'text': FormattedTextTextTypeToJSON(value.text),
         'type': value.type,
         'typeDescription': value.typeDescription,

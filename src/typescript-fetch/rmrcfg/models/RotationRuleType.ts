@@ -176,7 +176,7 @@ export function RotationRuleTypeToJSON(value?: RotationRuleType | null): any {
         
         'calculationRule': RotationRuleCalculationRuleTypeToJSON(value.calculationRule),
         'daysOfWeek': DaysOfWeekAttrTypeToJSON(value.daysOfWeek),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'multiplier': value.multiplier,
         'points': value.points,
         'rateCodes': CodeListTypeToJSON(value.rateCodes),
@@ -185,7 +185,7 @@ export function RotationRuleTypeToJSON(value?: RotationRuleType | null): any {
         'roomTypes': CodeListTypeToJSON(value.roomTypes),
         'ruleId': value.ruleId,
         'setupType': RotationRuleSetupTypeToJSON(value.setupType),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
         'status': RotationRuleStatusTypeToJSON(value.status),
     };
 }

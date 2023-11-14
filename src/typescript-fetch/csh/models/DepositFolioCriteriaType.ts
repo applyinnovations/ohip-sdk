@@ -228,7 +228,7 @@ export function DepositFolioCriteriaTypeToJSON(value?: DepositFolioCriteriaType 
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0,10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
         'manualFolioNo': value.manualFolioNo,
         'overrideInventoryCheck': value.overrideInventoryCheck,
         'paymentMethod': ReservationPaymentMethodTypeToJSON(value.paymentMethod),

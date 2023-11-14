@@ -78,7 +78,7 @@ function HotelBrochureTypeAddressToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'postalCode': value.postalCode,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'regionCode': value.regionCode,
         'state': value.state,
         'type': value.type,

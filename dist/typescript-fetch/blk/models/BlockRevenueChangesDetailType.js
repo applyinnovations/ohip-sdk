@@ -54,11 +54,11 @@ function BlockRevenueChangesDetailTypeToJSON(value) {
     }
     return {
         'blockOwner': value.blockOwner === undefined ? undefined : (value.blockOwner.map(BlockOwnersType_1.BlockOwnersTypeToJSON)),
-        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substr(0, 10)),
+        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substring(0, 10)),
         'nights': value.nights,
         'roomRevenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.roomRevenue),
         'roomStatus': value.roomStatus,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0, 10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
         'userDetails': (0, LogUserInfoType_1.LogUserInfoTypeToJSON)(value.userDetails),
     };
 }

@@ -10,37 +10,37 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CustomizedLetter, CustomizedLetterStatus, EmailFile, EmailFolioReportRequest, FolioReport, Image, RegistrationCard, SetCustomizedLetterRequest, Status, UploadFileAttachmentRequest, UploadImageRequest } from '../models';
-export interface EmailFolioReportOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioReportToEmail?: EmailFolioReportRequest;
+import type { CustomizedLetter, CustomizedLetterStatus, EmailFile, FileToUpload, FolioReport, FolioReportToEmail, Image, ImageToUpload, RegistrationCard, Status } from '../models/index';
+export interface EmailFolioReportRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioReportToEmail: FolioReportToEmail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCustomizedLetterRequest {
-    letterId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    letterId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     letterIdContext?: string;
     letterIdtype?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetEmailFileRequest {
-    emailId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    emailId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFileAttachmentRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idContext?: string;
     idType?: string;
@@ -48,11 +48,11 @@ export interface GetFileAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioReportRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     folioWindowNo?: number;
@@ -64,9 +64,9 @@ export interface GetFolioReportRequest {
     acceptLanguage?: string;
 }
 export interface GetImageRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     linkId?: string;
     linkIdContext?: string;
     linkIdType?: string;
@@ -83,11 +83,11 @@ export interface GetImageRequest {
     acceptLanguage?: string;
 }
 export interface GetRegistrationCardRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     regenerate?: boolean;
@@ -98,9 +98,9 @@ export interface GetRegistrationCardRequest {
     acceptLanguage?: string;
 }
 export interface RemoveImageRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     imageCode?: RemoveImageImageCodeEnum;
     imageSet?: string;
     imageId?: string;
@@ -109,29 +109,29 @@ export interface RemoveImageRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetCustomizedLetterOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customizedLetter?: SetCustomizedLetterRequest;
+export interface SetCustomizedLetterRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customizedLetter: CustomizedLetter;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface UploadFileAttachmentOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fileToUpload?: UploadFileAttachmentRequest;
+export interface UploadFileAttachmentRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fileToUpload: FileToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface UploadImageOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    imageToUpload?: UploadImageRequest;
+export interface UploadImageRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    imageToUpload: ImageToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -143,12 +143,12 @@ export declare class OperaContentApi extends runtime.BaseAPI {
      * Use this APU to email folio report. <p><strong>OperationId:</strong>emailFolioReport</p>
      * Email folio report
      */
-    emailFolioReportRaw(requestParameters: EmailFolioReportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    emailFolioReportRaw(requestParameters: EmailFolioReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this APU to email folio report. <p><strong>OperationId:</strong>emailFolioReport</p>
      * Email folio report
      */
-    emailFolioReport(requestParameters: EmailFolioReportOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    emailFolioReport(requestParameters: EmailFolioReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to return a customized letter based on search criteria such as letterId, letterIdContext, letterIdtype. <p><strong>OperationId:</strong>getCustomizedLetter</p>
      * Get customized letter
@@ -223,32 +223,32 @@ export declare class OperaContentApi extends runtime.BaseAPI {
      * Use this API to set a customized letter for a specific reservation based on the hotelId, reservationId, customizedLetter. <p><strong>OperationId:</strong>setCustomizedLetter</p>
      * Set customized letter
      */
-    setCustomizedLetterRaw(requestParameters: SetCustomizedLetterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomizedLetterStatus>>;
+    setCustomizedLetterRaw(requestParameters: SetCustomizedLetterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomizedLetterStatus>>;
     /**
      * Use this API to set a customized letter for a specific reservation based on the hotelId, reservationId, customizedLetter. <p><strong>OperationId:</strong>setCustomizedLetter</p>
      * Set customized letter
      */
-    setCustomizedLetter(requestParameters: SetCustomizedLetterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomizedLetterStatus>;
+    setCustomizedLetter(requestParameters: SetCustomizedLetterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomizedLetterStatus>;
     /**
      * Use this API to create a file attachment. <p><strong>OperationId:</strong>uploadFileAttachment</p>
      * Upload a file attachment
      */
-    uploadFileAttachmentRaw(requestParameters: UploadFileAttachmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    uploadFileAttachmentRaw(requestParameters: UploadFileAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a file attachment. <p><strong>OperationId:</strong>uploadFileAttachment</p>
      * Upload a file attachment
      */
-    uploadFileAttachment(requestParameters: UploadFileAttachmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    uploadFileAttachment(requestParameters: UploadFileAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to upload an image. <p><strong>OperationId:</strong>uploadImage</p>
      * Use this API to Upload an image
      */
-    uploadImageRaw(requestParameters: UploadImageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    uploadImageRaw(requestParameters: UploadImageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to upload an image. <p><strong>OperationId:</strong>uploadImage</p>
      * Use this API to Upload an image
      */
-    uploadImage(requestParameters: UploadImageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    uploadImage(requestParameters: UploadImageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

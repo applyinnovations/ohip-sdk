@@ -10,49 +10,49 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AvailablePreferencesDetails, ChangeCommunicationTypeRequest, CommunicationTypesDetails, PostCommunicationTypeRequest, Status } from '../models';
-export interface ChangeCommunicationTypeOperationRequest {
-    communicationTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    communicationTypeToBeChanged?: ChangeCommunicationTypeRequest;
+import type { AvailablePreferencesDetails, CommunicationTypeCriteria, CommunicationTypeToBeChanged, CommunicationTypesDetails, Status } from '../models/index';
+export interface ChangeCommunicationTypeRequest {
+    communicationTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    communicationTypeToBeChanged: CommunicationTypeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAvailablePreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     isOnlyForReservation?: boolean;
     preferenceType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCommunicationTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     roles?: Set<GetCommunicationTypesRolesEnum>;
     description?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCommunicationTypeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    communicationTypeCriteria?: PostCommunicationTypeRequest;
+export interface PostCommunicationTypeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    communicationTypeCriteria: CommunicationTypeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCommunicationTypeRequest {
-    communicationTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    communicationTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -64,12 +64,12 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update a  communication type. <p><strong>OperationId:</strong>changeCommunicationType</p>
      * Change a  communication type
      */
-    changeCommunicationTypeRaw(requestParameters: ChangeCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCommunicationTypeRaw(requestParameters: ChangeCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update a  communication type. <p><strong>OperationId:</strong>changeCommunicationType</p>
      * Change a  communication type
      */
-    changeCommunicationType(requestParameters: ChangeCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCommunicationType(requestParameters: ChangeCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to Fetch Available Preferences for a Property. The request can be filtered to search only for preferences marked for reservation. <p><strong>OperationId:</strong>getAvailablePreferences</p>
      * Get available Preferences
@@ -94,12 +94,12 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a  communication type. <p><strong>OperationId:</strong>postCommunicationType</p>
      * Create a  communication type
      */
-    postCommunicationTypeRaw(requestParameters: PostCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCommunicationTypeRaw(requestParameters: PostCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a  communication type. <p><strong>OperationId:</strong>postCommunicationType</p>
      * Create a  communication type
      */
-    postCommunicationType(requestParameters: PostCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCommunicationType(requestParameters: PostCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete a communication type. <p><strong>OperationId:</strong>removeCommunicationType</p>
      * Delete a communication type

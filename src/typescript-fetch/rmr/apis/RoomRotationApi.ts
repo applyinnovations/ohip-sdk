@@ -24,7 +24,7 @@ import type {
   RoomOwnersListDetails,
   RoomRotationPointsAdjustment,
   Status,
-} from '../models';
+} from '../models/index';
 import {
     AssociatedRoomOwnershipListDetailsFromJSON,
     AssociatedRoomOwnershipListDetailsToJSON,
@@ -44,16 +44,16 @@ import {
     RoomRotationPointsAdjustmentToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetReservationRotationPointsRequest {
-    hotelId?: string;
-    departureStartDate?: Date;
-    departureEndDate?: Date;
-    roomIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    departureStartDate: Date;
+    departureEndDate: Date;
+    roomIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     confirmationNumber?: string;
     surname?: string;
     givenName?: string;
@@ -64,22 +64,22 @@ export interface GetReservationRotationPointsRequest {
 }
 
 export interface GetReservationRotationPointsDetailsRequest {
-    hotelId?: string;
-    reservationId?: string;
-    roomId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationId: string;
+    roomId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeAdjustmentLog?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRoomOwnersRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     surname?: string;
     givenName?: string;
     startDateFrom?: Date;
@@ -98,10 +98,10 @@ export interface GetRoomOwnersRequest {
 }
 
 export interface GetRoomOwnershipsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     startDate?: Date;
     endDate?: Date;
@@ -112,11 +112,11 @@ export interface GetRoomOwnershipsRequest {
 }
 
 export interface GetRoomRotationPointsRequest {
-    hotelId?: string;
-    roomRotationPointsDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    roomRotationPointsDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     roomClasses?: Array<string>;
@@ -127,23 +127,23 @@ export interface GetRoomRotationPointsRequest {
 }
 
 export interface PutReservationRotationPointsDetailsRequest {
-    hotelId?: string;
-    reservationId?: string;
-    roomId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationRotationPoints?: PutReservationRotationPointsDetails;
+    hotelId: string;
+    reservationId: string;
+    roomId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationRotationPoints: PutReservationRotationPointsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomRotationPointsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRotationPointsAdjustment?: RoomRotationPointsAdjustment;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRotationPointsAdjustment: RoomRotationPointsAdjustment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -158,6 +158,34 @@ export class RoomRotationApi extends runtime.BaseAPI {
      * Get list of reservations and the associated rotations points
      */
     async getReservationRotationPointsRaw(requestParameters: GetReservationRotationPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetReservationRotationPoints>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationRotationPoints.');
+        }
+
+        if (requestParameters.departureStartDate === null || requestParameters.departureStartDate === undefined) {
+            throw new runtime.RequiredError('departureStartDate','Required parameter requestParameters.departureStartDate was null or undefined when calling getReservationRotationPoints.');
+        }
+
+        if (requestParameters.departureEndDate === null || requestParameters.departureEndDate === undefined) {
+            throw new runtime.RequiredError('departureEndDate','Required parameter requestParameters.departureEndDate was null or undefined when calling getReservationRotationPoints.');
+        }
+
+        if (requestParameters.roomIds === null || requestParameters.roomIds === undefined) {
+            throw new runtime.RequiredError('roomIds','Required parameter requestParameters.roomIds was null or undefined when calling getReservationRotationPoints.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationRotationPoints.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationRotationPoints.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationRotationPoints.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomIds) {
@@ -230,6 +258,30 @@ export class RoomRotationApi extends runtime.BaseAPI {
      * Get list of rotation points details associated with a reservation with adjustment log.
      */
     async getReservationRotationPointsDetailsRaw(requestParameters: GetReservationRotationPointsDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetReservationRotationPointsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling getReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationRotationPointsDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeAdjustmentLog !== undefined) {
@@ -282,6 +334,22 @@ export class RoomRotationApi extends runtime.BaseAPI {
      * Get Room Owners Details
      */
     async getRoomOwnersRaw(requestParameters: GetRoomOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnersListDetails>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getRoomOwners.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomOwners.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomOwners.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomOwners.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -297,19 +365,19 @@ export class RoomRotationApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDateFrom !== undefined) {
-            queryParameters['startDateFrom'] = (requestParameters.startDateFrom as any).toISOString().substr(0,10);
+            queryParameters['startDateFrom'] = (requestParameters.startDateFrom as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDateTo !== undefined) {
-            queryParameters['startDateTo'] = (requestParameters.startDateTo as any).toISOString().substr(0,10);
+            queryParameters['startDateTo'] = (requestParameters.startDateTo as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDateFrom !== undefined) {
-            queryParameters['endDateFrom'] = (requestParameters.endDateFrom as any).toISOString().substr(0,10);
+            queryParameters['endDateFrom'] = (requestParameters.endDateFrom as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDateTo !== undefined) {
-            queryParameters['endDateTo'] = (requestParameters.endDateTo as any).toISOString().substr(0,10);
+            queryParameters['endDateTo'] = (requestParameters.endDateTo as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomClasses) {
@@ -386,6 +454,22 @@ export class RoomRotationApi extends runtime.BaseAPI {
      * Get Profile Room Owners Details
      */
     async getRoomOwnershipsRaw(requestParameters: GetRoomOwnershipsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssociatedRoomOwnershipListDetails>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getRoomOwnerships.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomOwnerships.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomOwnerships.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomOwnerships.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -393,11 +477,11 @@ export class RoomRotationApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.includeReferral !== undefined) {
@@ -454,10 +538,30 @@ export class RoomRotationApi extends runtime.BaseAPI {
      * Get Room Rotation Points
      */
     async getRoomRotationPointsRaw(requestParameters: GetRoomRotationPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetRoomRotationPoints>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomRotationPoints.');
+        }
+
+        if (requestParameters.roomRotationPointsDate === null || requestParameters.roomRotationPointsDate === undefined) {
+            throw new runtime.RequiredError('roomRotationPointsDate','Required parameter requestParameters.roomRotationPointsDate was null or undefined when calling getRoomRotationPoints.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomRotationPoints.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomRotationPoints.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomRotationPoints.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomRotationPointsDate !== undefined) {
-            queryParameters['roomRotationPointsDate'] = (requestParameters.roomRotationPointsDate as any).toISOString().substr(0,10);
+            queryParameters['roomRotationPointsDate'] = (requestParameters.roomRotationPointsDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.limit !== undefined) {
@@ -526,6 +630,34 @@ export class RoomRotationApi extends runtime.BaseAPI {
      * Update Rotation Points Details associated with a reservation.
      */
     async putReservationRotationPointsDetailsRaw(requestParameters: PutReservationRotationPointsDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling putReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling putReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putReservationRotationPointsDetails.');
+        }
+
+        if (requestParameters.reservationRotationPoints === null || requestParameters.reservationRotationPoints === undefined) {
+            throw new runtime.RequiredError('reservationRotationPoints','Required parameter requestParameters.reservationRotationPoints was null or undefined when calling putReservationRotationPointsDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -577,6 +709,26 @@ export class RoomRotationApi extends runtime.BaseAPI {
      * Update Rotation Points by Room Numbers
      */
     async putRoomRotationPointsRaw(requestParameters: PutRoomRotationPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRoomRotationPoints.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomRotationPoints.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomRotationPoints.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomRotationPoints.');
+        }
+
+        if (requestParameters.roomRotationPointsAdjustment === null || requestParameters.roomRotationPointsAdjustment === undefined) {
+            throw new runtime.RequiredError('roomRotationPointsAdjustment','Required parameter requestParameters.roomRotationPointsAdjustment was null or undefined when calling putRoomRotationPoints.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -57,7 +57,7 @@ function EventCodeDetailTypeToJSON(value) {
         'blockName': value.blockName,
         'blockStatus': value.blockStatus,
         'color': (0, StatusColorType_1.StatusColorTypeToJSON)(value.color),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'event': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.event),
         'eventCodeType': (0, EventCodeTypeType_1.EventCodeTypeTypeToJSON)(value.eventCodeType),
         'hotelId': value.hotelId,

@@ -59,12 +59,12 @@ function RatePlanPrimaryDetailsTypeToJSON(value) {
         'approvalStatus': (0, RatePlanApprovalStatusType_1.RatePlanApprovalStatusTypeToJSON)(value.approvalStatus),
         'baseType': (0, BaseType_1.BaseTypeToJSON)(value.baseType),
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substr(0, 10)),
+        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
         'lockStatus': (0, RateCodeLockStatusType_1.RateCodeLockStatusTypeToJSON)(value.lockStatus),
         'privilegedRate': value.privilegedRate,
         'privilegedRateRestriction': value.privilegedRateRestriction,
         'sellSequence': value.sellSequence,
-        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substr(0, 10)),
+        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substring(0, 10)),
     };
 }
 exports.RatePlanPrimaryDetailsTypeToJSON = RatePlanPrimaryDetailsTypeToJSON;

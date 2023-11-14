@@ -23,7 +23,6 @@ models/RatePlanDistributionType.ts
 models/RatePlanType.ts
 models/RatePlans.ts
 models/ScheduleRateAmountsType.ts
-models/StartSetRatePlansHeadersProcessRequest.ts
 models/WarningType.ts
 models/WarningsType.ts
 models/index.ts

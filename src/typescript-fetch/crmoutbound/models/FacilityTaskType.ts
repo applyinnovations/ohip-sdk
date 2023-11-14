@@ -88,7 +88,7 @@ export function FacilityTaskTypeToJSON(value?: FacilityTaskType | null): any {
         
         'task': HousekeepingTaskCodeTypeToJSON(value.task),
         'supplies': FacilityCodesTypeToJSON(value.supplies),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
     };
 }
 

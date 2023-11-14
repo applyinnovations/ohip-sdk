@@ -95,7 +95,7 @@ export function BlockSummaryStatisticTypeToJSON(value?: BlockSummaryStatisticTyp
         
         'bookingSummaryStatistic': StatisticUnitsTypeToJSON(value.bookingSummaryStatistic),
         'dailyTargetsSummaryStatistic': StatisticUnitsTypeToJSON(value.dailyTargetsSummaryStatistic),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substr(0,10)),
+        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
         'statusSummaryStatistic': StatusSummaryStatisticTypeToJSON(value.statusSummaryStatistic),
     };
 }

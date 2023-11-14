@@ -130,7 +130,7 @@ export function EventCodeDetailTypeToJSON(value?: EventCodeDetailType | null): a
         'blockName': value.blockName,
         'blockStatus': value.blockStatus,
         'color': StatusColorTypeToJSON(value.color),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'event': CodeDescriptionTypeToJSON(value.event),
         'eventCodeType': EventCodeTypeTypeToJSON(value.eventCodeType),
         'hotelId': value.hotelId,

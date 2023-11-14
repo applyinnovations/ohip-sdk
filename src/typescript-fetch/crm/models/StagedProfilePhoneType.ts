@@ -104,7 +104,7 @@ export function StagedProfilePhoneTypeToJSON(value?: StagedProfilePhoneType | nu
         'defaultConfirmation': value.defaultConfirmation,
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'telephone': TelephoneTypeToJSON(value.telephone),
         'type': value.type,
     };

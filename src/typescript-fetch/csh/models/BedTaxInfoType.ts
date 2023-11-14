@@ -213,10 +213,10 @@ export function BedTaxInfoTypeToJSON(value?: BedTaxInfoType | null): any {
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substr(0,10)),
+        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
         'arrivalCarrierCode': value.arrivalCarrierCode,
         'country': value.country,
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substr(0,10)),
+        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
         'departureCarrierCode': value.departureCarrierCode,
         'guestAge': value.guestAge,
         'guestName': value.guestName,
@@ -228,12 +228,12 @@ export function BedTaxInfoTypeToJSON(value?: BedTaxInfoType | null): any {
         'profession': value.profession,
         'remark': value.remark,
         'reservationNameId': UniqueIDTypeToJSON(value.reservationNameId),
-        'taxArrivaldate': value.taxArrivaldate === undefined ? undefined : (value.taxArrivaldate.toISOString().substr(0,10)),
-        'taxDepartureDate': value.taxDepartureDate === undefined ? undefined : (value.taxDepartureDate.toISOString().substr(0,10)),
+        'taxArrivaldate': value.taxArrivaldate === undefined ? undefined : (value.taxArrivaldate.toISOString().substring(0,10)),
+        'taxDepartureDate': value.taxDepartureDate === undefined ? undefined : (value.taxDepartureDate.toISOString().substring(0,10)),
         'taxNoOfStays': value.taxNoOfStays,
         'taxRegistrationNo': value.taxRegistrationNo,
-        'visaExpirationDate': value.visaExpirationDate === undefined ? undefined : (value.visaExpirationDate.toISOString().substr(0,10)),
-        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substr(0,10)),
+        'visaExpirationDate': value.visaExpirationDate === undefined ? undefined : (value.visaExpirationDate.toISOString().substring(0,10)),
+        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substring(0,10)),
         'visaNumber': value.visaNumber,
     };
 }

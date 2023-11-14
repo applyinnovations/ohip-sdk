@@ -48,11 +48,11 @@ function HotelSummaryTypeToJSON(value) {
         return null;
     }
     return {
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substr(0, 10)),
+        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0, 10)),
         'chainCode': value.chainCode,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
     };
 }
 exports.HotelSummaryTypeToJSON = HotelSummaryTypeToJSON;

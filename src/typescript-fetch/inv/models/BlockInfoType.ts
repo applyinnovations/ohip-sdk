@@ -256,15 +256,15 @@ export function BlockInfoTypeToJSON(value?: BlockInfoType | null): any {
         'contactName': value.contactName,
         'conversionCode': value.conversionCode,
         'currencyCode': value.currencyCode,
-        'cutOffDate': value.cutOffDate === undefined ? undefined : (value.cutOffDate.toISOString().substr(0,10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'cutOffDate': value.cutOffDate === undefined ? undefined : (value.cutOffDate.toISOString().substring(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
         'nonCompeteDetails': BlockNonCompeteTypeToJSON(value.nonCompeteDetails),
         'rankingCode': value.rankingCode,
         'rateProtectionDetails': BlockRateProtectionTypeToJSON(value.rateProtectionDetails),
         'roomSalesManager': CodeDescriptionTypeToJSON(value.roomSalesManager),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

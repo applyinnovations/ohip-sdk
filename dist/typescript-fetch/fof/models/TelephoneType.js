@@ -66,7 +66,7 @@ function TelephoneTypeToJSON(value) {
         'phoneUseType': value.phoneUseType,
         'phoneUseTypeDescription': value.phoneUseTypeDescription,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
     };
 }
 exports.TelephoneTypeToJSON = TelephoneTypeToJSON;

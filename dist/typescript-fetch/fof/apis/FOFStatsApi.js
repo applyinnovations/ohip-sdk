@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetRoomsByRoomStatusFrontOfficeStatusEnum = exports.GetReservationStatusStatisticsReservationStatusEnum = exports.GetFrontOfficeStatisticsWithDateRangeMetricEnum = exports.GetFrontOfficeStatisticsWithDateRangeStatisticsCodeEnum = exports.GetFrontOfficeStatisticsMetricEnum = exports.GetFrontOfficeStatisticsStatisticsCodeEnum = exports.FOFStatsApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,9 +58,24 @@ class FOFStatsApi extends runtime.BaseAPI {
      */
     getFrontOfficeStatisticsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.statisticsCode === null || requestParameters.statisticsCode === undefined) {
+                throw new runtime.RequiredError('statisticsCode', 'Required parameter requestParameters.statisticsCode was null or undefined when calling getFrontOfficeStatistics.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getFrontOfficeStatistics.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getFrontOfficeStatistics.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getFrontOfficeStatistics.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getFrontOfficeStatistics.');
+            }
             const queryParameters = {};
             if (requestParameters.date !== undefined) {
-                queryParameters['date'] = requestParameters.date.toISOString().substr(0, 10);
+                queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
             }
             if (requestParameters.metric) {
                 queryParameters['metric'] = requestParameters.metric;
@@ -96,7 +111,7 @@ class FOFStatsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatisticsFromJSON)(jsonValue));
         });
     }
     /**
@@ -115,12 +130,27 @@ class FOFStatsApi extends runtime.BaseAPI {
      */
     getFrontOfficeStatisticsWithDateRangeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.statisticsCode === null || requestParameters.statisticsCode === undefined) {
+                throw new runtime.RequiredError('statisticsCode', 'Required parameter requestParameters.statisticsCode was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getFrontOfficeStatisticsWithDateRange.');
+            }
             const queryParameters = {};
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.date !== undefined) {
-                queryParameters['date'] = requestParameters.date.toISOString().substr(0, 10);
+                queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
             }
             if (requestParameters.metric) {
                 queryParameters['metric'] = requestParameters.metric;
@@ -156,7 +186,7 @@ class FOFStatsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatisticsFromJSON)(jsonValue));
         });
     }
     /**
@@ -175,6 +205,18 @@ class FOFStatsApi extends runtime.BaseAPI {
      */
     getReservationQueueStatisticsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getReservationQueueStatistics.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReservationQueueStatistics.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReservationQueueStatistics.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReservationQueueStatistics.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -198,7 +240,7 @@ class FOFStatsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ReservationQueueStatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ReservationQueueStatisticsFromJSON)(jsonValue));
         });
     }
     /**
@@ -217,6 +259,21 @@ class FOFStatsApi extends runtime.BaseAPI {
      */
     getReservationStatusStatisticsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getReservationStatusStatistics.');
+            }
+            if (requestParameters.reservationStatus === null || requestParameters.reservationStatus === undefined) {
+                throw new runtime.RequiredError('reservationStatus', 'Required parameter requestParameters.reservationStatus was null or undefined when calling getReservationStatusStatistics.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReservationStatusStatistics.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReservationStatusStatistics.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReservationStatusStatistics.');
+            }
             const queryParameters = {};
             if (requestParameters.reservationStatus) {
                 queryParameters['reservationStatus'] = requestParameters.reservationStatus;
@@ -243,7 +300,7 @@ class FOFStatsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ReservationStatusStatisticsResponseTypeFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ReservationStatusStatisticsResponseTypeFromJSON)(jsonValue));
         });
     }
     /**
@@ -262,6 +319,9 @@ class FOFStatsApi extends runtime.BaseAPI {
      */
     getRoomsByRoomStatusRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getRoomsByRoomStatus.');
+            }
             const queryParameters = {};
             if (requestParameters.frontOfficeStatus !== undefined) {
                 queryParameters['frontOfficeStatus'] = requestParameters.frontOfficeStatus;
@@ -273,7 +333,7 @@ class FOFStatsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.RoomStatusStatisticsListTypeFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.RoomStatusStatisticsListTypeFromJSON)(jsonValue));
         });
     }
     /**
@@ -292,6 +352,18 @@ class FOFStatsApi extends runtime.BaseAPI {
      */
     getTaskSheetStatisticsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getTaskSheetStatistics.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTaskSheetStatistics.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTaskSheetStatistics.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTaskSheetStatistics.');
+            }
             const queryParameters = {};
             if (requestParameters.includeAllAssignedTasks !== undefined) {
                 queryParameters['includeAllAssignedTasks'] = requestParameters.includeAllAssignedTasks;
@@ -324,7 +396,7 @@ class FOFStatsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.TaskSheetStatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TaskSheetStatisticsFromJSON)(jsonValue));
         });
     }
     /**

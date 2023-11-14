@@ -59,8 +59,8 @@ function ProductAvailabilityTypeToJSON(value) {
     return {
         'awardNumber': value.awardNumber,
         'awardType': value.awardType,
-        'awardValidFrom': value.awardValidFrom === undefined ? undefined : (value.awardValidFrom.toISOString().substr(0, 10)),
-        'awardValidTo': value.awardValidTo === undefined ? undefined : (value.awardValidTo.toISOString().substr(0, 10)),
+        'awardValidFrom': value.awardValidFrom === undefined ? undefined : (value.awardValidFrom.toISOString().substring(0, 10)),
+        'awardValidTo': value.awardValidTo === undefined ? undefined : (value.awardValidTo.toISOString().substring(0, 10)),
         'cancelPenaltyCharge': value.cancelPenaltyCharge,
         'cancelPenaltyDays': value.cancelPenaltyDays,
         'cancelPenaltyPoints': value.cancelPenaltyPoints,

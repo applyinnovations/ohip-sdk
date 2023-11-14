@@ -58,7 +58,7 @@ function RoomOwnershipTypeToJSON(value) {
     }
     return {
         'contractNumber': value.contractNumber,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
         'ownerExclusive': value.ownerExclusive,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
@@ -67,7 +67,7 @@ function RoomOwnershipTypeToJSON(value) {
         'roomId': value.roomId,
         'roomOwnershipId': value.roomOwnershipId,
         'roomType': value.roomType,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'status': value.status,
     };
 }

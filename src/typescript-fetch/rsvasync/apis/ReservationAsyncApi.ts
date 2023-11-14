@@ -18,7 +18,7 @@ import type {
   Criteria,
   ExceptionDetailType,
   ReservationsDailySummaryDetails,
-} from '../models';
+} from '../models/index';
 import {
     CriteriaFromJSON,
     CriteriaToJSON,
@@ -26,35 +26,35 @@ import {
     ExceptionDetailTypeToJSON,
     ReservationsDailySummaryDetailsFromJSON,
     ReservationsDailySummaryDetailsToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetReservationsDailySummaryRequest {
-    summaryId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    summaryId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface GetReservationsProcessStatusRequest {
-    summaryId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    summaryId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface StartReservationsDailySummaryProcessRequest {
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    criteria?: Criteria;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    criteria: Criteria;
     acceptLanguage?: string;
 }
 
@@ -68,6 +68,30 @@ export class ReservationAsyncApi extends runtime.BaseAPI {
      * Get results of Reservations Daily Summary
      */
     async getReservationsDailySummaryRaw(requestParameters: GetReservationsDailySummaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationsDailySummaryDetails>> {
+        if (requestParameters.summaryId === null || requestParameters.summaryId === undefined) {
+            throw new runtime.RequiredError('summaryId','Required parameter requestParameters.summaryId was null or undefined when calling getReservationsDailySummary.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getReservationsDailySummary.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationsDailySummary.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationsDailySummary.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsDailySummary.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsDailySummary.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -112,6 +136,30 @@ export class ReservationAsyncApi extends runtime.BaseAPI {
      * Check status of Reservation Daily Summary process
      */
     async getReservationsProcessStatusRaw(requestParameters: GetReservationsProcessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.summaryId === null || requestParameters.summaryId === undefined) {
+            throw new runtime.RequiredError('summaryId','Required parameter requestParameters.summaryId was null or undefined when calling getReservationsProcessStatus.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getReservationsProcessStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationsProcessStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationsProcessStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsProcessStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsProcessStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -155,6 +203,30 @@ export class ReservationAsyncApi extends runtime.BaseAPI {
      * Fetch past, present and future Reservations Daily Summary
      */
     async startReservationsDailySummaryProcessRaw(requestParameters: StartReservationsDailySummaryProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling startReservationsDailySummaryProcess.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling startReservationsDailySummaryProcess.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling startReservationsDailySummaryProcess.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling startReservationsDailySummaryProcess.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling startReservationsDailySummaryProcess.');
+        }
+
+        if (requestParameters.criteria === null || requestParameters.criteria === undefined) {
+            throw new runtime.RequiredError('criteria','Required parameter requestParameters.criteria was null or undefined when calling startReservationsDailySummaryProcess.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

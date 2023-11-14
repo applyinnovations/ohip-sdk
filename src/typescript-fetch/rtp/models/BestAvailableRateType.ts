@@ -80,7 +80,7 @@ export function BestAvailableRateTypeToJSON(value?: BestAvailableRateType | null
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'lengthOfStay': value.lengthOfStay,
         'rateCode': CodeListTypeToJSON(value.rateCode),
     };

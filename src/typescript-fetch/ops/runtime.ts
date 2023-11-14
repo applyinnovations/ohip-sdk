@@ -12,22 +12,10 @@
  * Do not edit the class manually.
  */
 
-import {
-  AuthenticationApi,
-  BASE_PATH as AUTH_BASE_PATH,
-  Configuration as AuthConfiguration,
-  OAuth2TokenResponse,
-} from '../oauth/index';
 
 export const BASE_PATH = "/ops/v1".replace(/\/+$/, "");
 
-interface OhipCredential {
-  username: string;
-  password: string;
-}
-
 export interface ConfigurationParameters {
-    host?: string; // override host
     basePath?: string; // override base path
     fetchApi?: FetchAPI; // override for fetch implementation
     middleware?: Middleware[]; // middleware to apply before/after fetch requests
@@ -38,9 +26,6 @@ export interface ConfigurationParameters {
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string | Promise<string>); // parameter for oauth2 security
     headers?: HTTPHeaders; //header params we want to use on every request
     credentials?: RequestCredentials; //value for the credentials param we want to use on each request
-    hotelId?: string;
-    appKey?: string;
-    ohipCredentials?: OhipCredential[];
 }
 
 export class Configuration {
@@ -50,20 +35,8 @@ export class Configuration {
         this.configuration = configuration;
     }
 
-    get host(): string {
-        return this.configuration.host;
-    }
-
     get basePath(): string {
         return this.configuration.basePath != null ? this.configuration.basePath : BASE_PATH;
-    }
-
-    get hotelId(): string {
-        return this.configuration.hotelId;
-    }
-
-    get ohipCredentials(): OhipCredential[] {
-        return this.configuration.ohipCredentials;
     }
 
     get fetchApi(): FetchAPI | undefined {
@@ -109,10 +82,6 @@ export class Configuration {
     get credentials(): RequestCredentials | undefined {
         return this.configuration.credentials;
     }
-      
-    get appKey(): string {
-        return this.configuration.appKey;
-    }
 }
 
 export const DefaultConfig = new Configuration();
@@ -122,33 +91,13 @@ export const DefaultConfig = new Configuration();
  */
 export class BaseAPI {
 
-	private static readonly jsonRegex = new RegExp('^(:?application\/json|[^;/ \t]+\/[^;/ \t]+[+]json)[ \t]*(:?;.*)?$', 'i');
+	 private static readonly jsonRegex = new RegExp('^(:?application\/json|[^;/ \t]+\/[^;/ \t]+[+]json)[ \t]*(:?;.*)?$', 'i');
     private middleware: Middleware[];
-    private token: string;
-    private refreshToken: string;
-    private tokenExpiration: number;
-    private activeCredentialIndex: number;
-    private requestingNewAuthToken: Promise<void>;
-    private backoffTimeout = 0;
-    private authTries = 0;
-    private maxBackOffTimeoutToWait = 1000;
-    private baseBackOffTimeout = 1;
-    private maxBackOffTimeout = 60 * 60 * 1000;
 
     constructor(protected configuration = DefaultConfig) {
-        let authenticationMiddleware: Middleware[] = [];
-        authenticationMiddleware = [
-            {
-                pre: this.handleClientRequest,
-                onError: this.handleClientRequestError,
-                post: async (context) => {
-                    return context.response;
-                },
-            },
-        ];
-        this.middleware = [...authenticationMiddleware, ...configuration.middleware];
+        this.middleware = configuration.middleware;
     }
-    
+
     withMiddleware<T extends BaseAPI>(this: T, ...middlewares: Middleware[]) {
         const next = this.clone<T>();
         next.middleware = next.middleware.concat(...middlewares);
@@ -192,7 +141,7 @@ export class BaseAPI {
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
-        let url = this.configuration.host + BASE_PATH + context.path;
+        let url = this.configuration.basePath + context.path;
         if (context.query !== undefined && Object.keys(context.query).length !== 0) {
             // only add the querystring to the URL if there are query parameters.
             // this is done to avoid urls ending with a "?" character which buggy webservers
@@ -223,14 +172,20 @@ export class BaseAPI {
             }))
         };
 
+        let body: any;
+        if (isFormData(overriddenInit.body)
+            || (overriddenInit.body instanceof URLSearchParams)
+            || isBlob(overriddenInit.body)) {
+          body = overriddenInit.body;
+        } else if (this.isJsonMime(headers['Content-Type'])) {
+          body = JSON.stringify(overriddenInit.body);
+        } else {
+          body = overriddenInit.body;
+        }
+
         const init: RequestInit = {
             ...overriddenInit,
-            body:
-                isFormData(overriddenInit.body) ||
-                overriddenInit.body instanceof URLSearchParams ||
-                isBlob(overriddenInit.body)
-                    ? overriddenInit.body
-                    : JSON.stringify(overriddenInit.body),
+            body
         };
 
         return { url, init };
@@ -281,164 +236,6 @@ export class BaseAPI {
         }
         return response;
     }
-
-    private getAuthApi = () => {
-        const authConfig = new AuthConfiguration({
-            basePath: this.configuration.host + AUTH_BASE_PATH,
-        });
-        return new AuthenticationApi(authConfig);
-    };
-
-    private handleClientRequest = async (context: RequestContext) => {
-        if (!this.token) {
-            await this.requestNewAuthToken();
-        } else if (this.isAuthTokenExpired()) {
-            await this.renewAuthToken();
-        }
-        if (!this.token)
-            throw new Error('Failed to get authentication token');
-        context.init.headers['authorization'] = `Bearer ${this.token}`;
-        context.init.headers['x-app-key'] = this.configuration.appKey;
-        context.init.headers['x-hotel-id'] = this.configuration.hotelId;
-        return context;
-    };
-
-    private handleClientRequestError = async (error: ErrorContext) => {
-        if (error && ![401, 403].includes(error?.response.status))
-            return Promise.reject(error);
-        await this.requestNewAuthToken();
-        if (!this.token) return Promise.reject(error);
-        error.init.headers['authorization'] = `Bearer ${this.token}`;
-        return error.fetch(error.url, error.init);
-    };
-
-    private async requestNewAuthToken() {
-        // a request for a new token is already in progress
-        // just wait for it to finish instead of trying to request a new one
-        if (this.requestingNewAuthToken) {
-        await this.requestingNewAuthToken;
-            return;
-        }
-        if (this.shouldBackOff()) {
-            const backOffMsRemaining = this.backoffTimeout - new Date().getTime();
-            if (backOffMsRemaining > this.maxBackOffTimeoutToWait) {
-                console.log(`Max backoff timeout to wait reached`);
-            } else {
-                console.log(`Backing off for ${backOffMsRemaining} ms`);
-                await delay(backOffMsRemaining);
-                await this.requestNewAuthToken();
-            }
-            return;
-        }
-        this.requestingNewAuthToken = new Promise<void>(async (resolve) => {
-            this.authTries++;
-            this.incrementActiveCrendentialIndex();
-            this.clearTokens();
-            try {
-                console.log(
-                    `Requesting authentication token using credentials[${this.activeCredentialIndex}]`,
-                );
-                const authApi = this.getAuthApi();
-                const data = await authApi.getToken({
-                    xAppKey: this.configuration.appKey,
-                    grantType: 'password',
-                    username:
-                        this.configuration.ohipCredentials[this.activeCredentialIndex]
-                        .username,
-                    password:
-                        this.configuration.ohipCredentials[this.activeCredentialIndex]
-                        .password,
-                });
-                this.setTokenHeaders(data);
-                this.authTries = 0;
-            } catch (error) {
-                console.error('Failed to get authentication token');
-                console.error(error);
-                this.setBackoffTimeout();
-            }
-            resolve();
-            this.requestingNewAuthToken = undefined;
-        });
-        return this.requestingNewAuthToken;
-    }
-
-    private async renewAuthToken() {
-        try {
-            const authApi = this.getAuthApi();
-            const data = await authApi.getToken({
-                grantType: 'password',
-                xAppKey: this.configuration.appKey,
-                username:
-                    this.configuration.ohipCredentials[this.activeCredentialIndex]
-                    .username,
-                password:
-                    this.configuration.ohipCredentials[this.activeCredentialIndex]
-                    .password,
-            });
-            this.setTokenHeaders(data);
-        } catch (error) {
-            console.error(`Failed to renew authentication token`);
-            console.error(error);
-            await this.requestNewAuthToken();
-        }
-    }
-
-    private setTokenHeaders(response: OAuth2TokenResponse) {
-        this.token = response.accessToken;
-        // response.expires_in is in number of seconds. Multiply it by 90% of 1000ms
-        this.tokenExpiration = Date.now() + (response.expiresIn ?? 0) * 900;
-    }
-
-    private clearTokens() {
-        this.refreshToken = undefined;
-        this.token = undefined;
-        this.tokenExpiration = undefined;
-    }
-
-    private isAuthTokenExpired() {
-        return Date.now() > this.tokenExpiration;
-    }
-
-    private shouldBackOff() {
-        if (this.authTries === 0) return false;
-        return new Date().getTime() < this.backoffTimeout;
-    }
-
-    private setBackoffTimeout() {
-        if (
-            this.activeCredentialIndex !==
-            this.configuration.ohipCredentials.length - 1
-        )
-        return;
-        const delay = Math.min(
-            this.baseBackOffTimeout *
-                Math.pow(
-                    10,
-                    Math.floor(
-                        this.authTries / this.configuration.ohipCredentials.length,
-                    ),
-                ),
-            this.maxBackOffTimeout,
-        );
-        if (delay === this.maxBackOffTimeout) {
-            // if this happens we probably have the wrong password set in the config
-            console.error(`Max backoff timeout reached`);
-        }
-        this.backoffTimeout = new Date().getTime() + delay;
-    }
-
-    private async incrementActiveCrendentialIndex() {
-        if (
-            this.activeCredentialIndex === undefined ||
-            this.activeCredentialIndex + 1 >=
-                this.configuration.ohipCredentials.length
-        ) {
-            this.activeCredentialIndex = 0;
-        } else {
-            this.activeCredentialIndex += 1;
-        }
-    }
-
 
     /**
      * Create a shallow clone of `this` by constructing a new instance
@@ -631,8 +428,4 @@ export class TextApiResponse {
     async value(): Promise<string> {
         return await this.raw.text();
     };
-}
-
-async function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }

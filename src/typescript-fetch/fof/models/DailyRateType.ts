@@ -178,10 +178,10 @@ export function DailyRateTypeToJSON(value?: DailyRateType | null): any {
         'decimalPlaces': value.decimalPlaces,
         'description': value.description,
         'discount': DiscountTypeToJSON(value.discount),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'fees': FeesTypeToJSON(value.fees),
         'rateOverride': value.rateOverride,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'taxes': TaxesTypeToJSON(value.taxes),
     };
 }

@@ -73,7 +73,7 @@ export function StayRoominfoToJSON(value?: StayRoominfo | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'roomId': value.roomId,
         'roomType': value.roomType,
     };

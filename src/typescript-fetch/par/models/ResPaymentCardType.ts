@@ -213,7 +213,7 @@ export function ResPaymentCardTypeToJSON(value?: ResPaymentCardType | null): any
         'cardPresent': value.cardPresent,
         'cardType': CardTypeTypeToJSON(value.cardType),
         'currentAuthorizedAmount': CurrencyAmountTypeToJSON(value.currentAuthorizedAmount),
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substr(0,10)),
+        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
         'expirationDateExpired': value.expirationDateExpired,
         'expirationDateMasked': value.expirationDateMasked,
         'processing': CardProcessingTypeToJSON(value.processing),

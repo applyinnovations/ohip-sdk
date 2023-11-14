@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetMembershipDetailsModeEnum = exports.ProfileMembershipApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,18 @@ class ProfileMembershipApi extends runtime.BaseAPI {
      */
     getMembershipDetailsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getMembershipDetails.');
+            }
+            if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
+                throw new runtime.RequiredError('externalProfileId', 'Required parameter requestParameters.externalProfileId was null or undefined when calling getMembershipDetails.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getMembershipDetails.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipDetails.');
+            }
             const queryParameters = {};
             if (requestParameters.operaProfileId) {
                 queryParameters['operaProfileId'] = requestParameters.operaProfileId;
@@ -72,10 +84,10 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['hotelId'] = requestParameters.hotelId;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.mode !== undefined) {
                 queryParameters['mode'] = requestParameters.mode;
@@ -99,7 +111,7 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.MemberInformationFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MemberInformationFromJSON)(jsonValue));
         });
     }
     /**
@@ -118,6 +130,21 @@ class ProfileMembershipApi extends runtime.BaseAPI {
      */
     postEnrollmentRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling postEnrollment.');
+            }
+            if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
+                throw new runtime.RequiredError('chainCode', 'Required parameter requestParameters.chainCode was null or undefined when calling postEnrollment.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postEnrollment.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postEnrollment.');
+            }
+            if (requestParameters.enrollment === null || requestParameters.enrollment === undefined) {
+                throw new runtime.RequiredError('enrollment', 'Required parameter requestParameters.enrollment was null or undefined when calling postEnrollment.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -138,9 +165,9 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostEnrollmentRequestToJSON)(requestParameters.enrollment),
+                body: (0, index_1.EnrollmentToJSON)(requestParameters.enrollment),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.EnrollmentFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.EnrollmentFromJSON)(jsonValue));
         });
     }
     /**
@@ -159,6 +186,21 @@ class ProfileMembershipApi extends runtime.BaseAPI {
      */
     redeemAwardRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling redeemAward.');
+            }
+            if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
+                throw new runtime.RequiredError('externalProfileId', 'Required parameter requestParameters.externalProfileId was null or undefined when calling redeemAward.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling redeemAward.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling redeemAward.');
+            }
+            if (requestParameters.award === null || requestParameters.award === undefined) {
+                throw new runtime.RequiredError('award', 'Required parameter requestParameters.award was null or undefined when calling redeemAward.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -179,9 +221,9 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.RedeemAwardRequestToJSON)(requestParameters.award),
+                body: (0, index_1.AwardToJSON)(requestParameters.award),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.AwardFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AwardFromJSON)(jsonValue));
         });
     }
     /**

@@ -75,7 +75,7 @@ export function RoomRatePriceInfoTypeToJSON(value?: RoomRatePriceInfoType | null
         
         'amountAfterTax': value.amountAfterTax,
         'amountBeforeTax': value.amountBeforeTax,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0,10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
     };
 }
 

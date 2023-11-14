@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangedDeliveryMethods, ChangedInterfaceRight, ChangedUDFMapping, FetchedDeliveryMethods, FetchedExternalDatabaseAvailableProperties, FetchedHotelInterfaceControllerRegistry, FetchedHotelInterfaceErrors, FetchedHotelInterfaceFailedMessages, FetchedHotelInterfaceSchemas, FetchedHotelInterfaces, FetchedInterfaceRights, FetchedPublishers, FetchedUDFMappings, PostDeliveryMethodsRequest, PostPublishersRequest, PutDeliveryMethodsRequest, PutInterfaceRightRequest, PutUDFMappingRequest, Status } from '../models';
+import type { ChangeDeliveryMethods, ChangeInterfaceRight, ChangeUDFMapping, ChangedDeliveryMethods, ChangedInterfaceRight, ChangedUDFMapping, CreateDeliveryMethods, CreatePublishers, FetchedDeliveryMethods, FetchedExternalDatabaseAvailableProperties, FetchedHotelInterfaceControllerRegistry, FetchedHotelInterfaceErrors, FetchedHotelInterfaceFailedMessages, FetchedHotelInterfaceSchemas, FetchedHotelInterfaces, FetchedInterfaceRights, FetchedPublishers, FetchedUDFMappings, Status } from '../models/index';
 export interface DeleteDeliveryMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     type?: DeleteDeliveryMethodsTypeEnum;
     options?: Set<DeleteDeliveryMethodsOptionsEnum>;
@@ -23,18 +23,18 @@ export interface DeleteDeliveryMethodsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteHotelInterfaceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     logo?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteInterfaceRightRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     id?: string;
     idExtension?: number;
@@ -48,20 +48,20 @@ export interface DeleteInterfaceRightRequest {
     acceptLanguage?: string;
 }
 export interface DeletePublisherRequest {
-    hotelId?: string;
-    externalSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    externalSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     subscriberHotelId?: string;
     code?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetDeliveryMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     croCode?: string;
     usages?: Set<GetDeliveryMethodsUsagesEnum>;
@@ -70,11 +70,11 @@ export interface GetDeliveryMethodsRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalDatabaseAvailablePropertiesRequest {
-    databaseId?: string;
-    interfaceId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    databaseId: string;
+    interfaceId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     interfaceCodes?: Array<string>;
     hotelIds?: Array<string>;
@@ -82,17 +82,17 @@ export interface GetExternalDatabaseAvailablePropertiesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceControllerRegistryRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     machine?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceErrorsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -103,9 +103,9 @@ export interface GetHotelInterfaceErrorsRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceFailedMessagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -116,9 +116,9 @@ export interface GetHotelInterfaceFailedMessagesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceSchemasRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -129,9 +129,9 @@ export interface GetHotelInterfaceSchemasRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfacesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     interfaceTypes?: Set<GetHotelInterfacesInterfaceTypesEnum>;
     logosCodes?: Array<string>;
@@ -140,9 +140,9 @@ export interface GetHotelInterfacesRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceRightsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     id?: string;
     idExtension?: number;
@@ -152,62 +152,62 @@ export interface GetInterfaceRightsRequest {
     acceptLanguage?: string;
 }
 export interface GetPublishersRequest {
-    externalSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    externalSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetUDFMappingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     type?: string;
     uDFName?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDeliveryMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createDeliveryMethods?: PostDeliveryMethodsRequest;
+export interface PostDeliveryMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createDeliveryMethods: CreateDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostPublishersOperationRequest {
-    hotelId?: string;
-    externalSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createPublishers?: PostPublishersRequest;
+export interface PostPublishersRequest {
+    hotelId: string;
+    externalSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createPublishers: CreatePublishers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDeliveryMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeDeliveryMethods?: PutDeliveryMethodsRequest;
+export interface PutDeliveryMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeDeliveryMethods: ChangeDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutInterfaceRightOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeInterfaceRight?: PutInterfaceRightRequest;
+export interface PutInterfaceRightRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeInterfaceRight: ChangeInterfaceRight;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutUDFMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeUDFMapping?: PutUDFMappingRequest;
+export interface PutUDFMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeUDFMapping: ChangeUDFMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -359,52 +359,52 @@ export declare class ExternalSystemsConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>postDeliveryMethods</p>
      * Operation to create delivery methods.
      */
-    postDeliveryMethodsRaw(requestParameters: PostDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDeliveryMethodsRaw(requestParameters: PostDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>postDeliveryMethods</p>
      * Operation to create delivery methods.
      */
-    postDeliveryMethods(requestParameters: PostDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDeliveryMethods(requestParameters: PostDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>postPublishers</p>
      * Operation to create publishers.
      */
-    postPublishersRaw(requestParameters: PostPublishersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postPublishersRaw(requestParameters: PostPublishersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>postPublishers</p>
      * Operation to create publishers.
      */
-    postPublishers(requestParameters: PostPublishersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postPublishers(requestParameters: PostPublishersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putDeliveryMethods</p>
      * Operation to change delivery methods.
      */
-    putDeliveryMethodsRaw(requestParameters: PutDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedDeliveryMethods>>;
+    putDeliveryMethodsRaw(requestParameters: PutDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedDeliveryMethods>>;
     /**
      *  <p><strong>OperationId:</strong>putDeliveryMethods</p>
      * Operation to change delivery methods.
      */
-    putDeliveryMethods(requestParameters: PutDeliveryMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedDeliveryMethods>;
+    putDeliveryMethods(requestParameters: PutDeliveryMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedDeliveryMethods>;
     /**
      *  <p><strong>OperationId:</strong>putInterfaceRight</p>
      * Operation to change interface right.
      */
-    putInterfaceRightRaw(requestParameters: PutInterfaceRightOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedInterfaceRight>>;
+    putInterfaceRightRaw(requestParameters: PutInterfaceRightRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedInterfaceRight>>;
     /**
      *  <p><strong>OperationId:</strong>putInterfaceRight</p>
      * Operation to change interface right.
      */
-    putInterfaceRight(requestParameters: PutInterfaceRightOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedInterfaceRight>;
+    putInterfaceRight(requestParameters: PutInterfaceRightRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedInterfaceRight>;
     /**
      * Operation to send a response to the Change in UDF. <p><strong>OperationId:</strong>putUDFMapping</p>
      * Operation to send a response to the Change in UDF.
      */
-    putUDFMappingRaw(requestParameters: PutUDFMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedUDFMapping>>;
+    putUDFMappingRaw(requestParameters: PutUDFMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedUDFMapping>>;
     /**
      * Operation to send a response to the Change in UDF. <p><strong>OperationId:</strong>putUDFMapping</p>
      * Operation to send a response to the Change in UDF.
      */
-    putUDFMapping(requestParameters: PutUDFMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedUDFMapping>;
+    putUDFMapping(requestParameters: PutUDFMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedUDFMapping>;
 }
 /**
  * @export

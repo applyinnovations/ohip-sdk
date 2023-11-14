@@ -80,7 +80,7 @@ export function HotelStayTypeToJSON(value?: HotelStayType | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'hotelName': value.hotelName,
         'pointsMiles': value.pointsMiles,
         'pointsMilesEarned': value.pointsMilesEarned,

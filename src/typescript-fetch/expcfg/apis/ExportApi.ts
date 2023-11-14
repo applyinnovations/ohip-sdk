@@ -15,50 +15,58 @@
 
 import * as runtime from '../runtime';
 import type {
-  ChangeExportSchedulesByChainRequest,
   ExceptionDetailType,
   ExportActivityLog,
   ExportColumnsAndFunctionsDetails,
+  ExportMappingCodes,
   ExportMappingCodesDetails,
   ExportMappingCodesToLink,
   ExportMappingLinkedCodes,
+  ExportMappingLinkedTypes,
   ExportMappingLinkedTypesDetails,
+  ExportMappings,
   ExportMappingsDetails,
+  ExportSchedulesCriteria,
   ExportSchedulesDetails,
   ExportSchedulesStatus,
+  ExportSchedulesToBeChanged,
   ExportsAvailable,
   FetchExportMappingCodes,
   FetchExportMappings,
   GeneratedExports,
-  PostExportSchedulesRequest,
-  PutExportMappingCodesRequest,
-  PutExportMappingLinkedTypesRequest,
-  PutExportMappingsRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
-    ChangeExportSchedulesByChainRequestFromJSON,
-    ChangeExportSchedulesByChainRequestToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     ExportActivityLogFromJSON,
     ExportActivityLogToJSON,
     ExportColumnsAndFunctionsDetailsFromJSON,
     ExportColumnsAndFunctionsDetailsToJSON,
+    ExportMappingCodesFromJSON,
+    ExportMappingCodesToJSON,
     ExportMappingCodesDetailsFromJSON,
     ExportMappingCodesDetailsToJSON,
     ExportMappingCodesToLinkFromJSON,
     ExportMappingCodesToLinkToJSON,
     ExportMappingLinkedCodesFromJSON,
     ExportMappingLinkedCodesToJSON,
+    ExportMappingLinkedTypesFromJSON,
+    ExportMappingLinkedTypesToJSON,
     ExportMappingLinkedTypesDetailsFromJSON,
     ExportMappingLinkedTypesDetailsToJSON,
+    ExportMappingsFromJSON,
+    ExportMappingsToJSON,
     ExportMappingsDetailsFromJSON,
     ExportMappingsDetailsToJSON,
+    ExportSchedulesCriteriaFromJSON,
+    ExportSchedulesCriteriaToJSON,
     ExportSchedulesDetailsFromJSON,
     ExportSchedulesDetailsToJSON,
     ExportSchedulesStatusFromJSON,
     ExportSchedulesStatusToJSON,
+    ExportSchedulesToBeChangedFromJSON,
+    ExportSchedulesToBeChangedToJSON,
     ExportsAvailableFromJSON,
     ExportsAvailableToJSON,
     FetchExportMappingCodesFromJSON,
@@ -67,68 +75,60 @@ import {
     FetchExportMappingsToJSON,
     GeneratedExportsFromJSON,
     GeneratedExportsToJSON,
-    PostExportSchedulesRequestFromJSON,
-    PostExportSchedulesRequestToJSON,
-    PutExportMappingCodesRequestFromJSON,
-    PutExportMappingCodesRequestToJSON,
-    PutExportMappingLinkedTypesRequestFromJSON,
-    PutExportMappingLinkedTypesRequestToJSON,
-    PutExportMappingsRequestFromJSON,
-    PutExportMappingsRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface ChangeExportSchedulesRequest {
-    hotelId?: string;
-    exportFileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportSchedulesToBeChanged?: ChangeExportSchedulesByChainRequest;
+    hotelId: string;
+    exportFileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportSchedulesToBeChanged: ExportSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeExportSchedulesByChainOperationRequest {
-    exportFileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportSchedulesToBeChanged?: ChangeExportSchedulesByChainRequest;
+export interface ChangeExportSchedulesByChainRequest {
+    exportFileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportSchedulesToBeChanged: ExportSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteExistingExportMappingsRequest {
-    exportMappingId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exportMappingId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteExportMappingCodesRequest {
-    mappingTypeCode?: string;
-    exportMappingId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    mappingTypeCode: string;
+    exportMappingId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetExportActivityLogRequest {
-    hotelId?: string;
-    activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    activityType: string;
+    fromDate: Date;
+    toDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     module?: GetExportActivityLogModuleEnum;
@@ -143,9 +143,9 @@ export interface GetExportActivityLogRequest {
 }
 
 export interface GetExportColumnsAndFunctionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchDbColumns?: boolean;
     fetchOperaApis?: boolean;
     fetchPrePostProcedures?: boolean;
@@ -157,21 +157,21 @@ export interface GetExportColumnsAndFunctionsRequest {
 }
 
 export interface GetExportMappingCodesRequest {
-    exportMappingTypeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exportMappingTypeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetExportMappingCodesToLinkRequest {
-    configType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: string;
     description?: string;
     xExternalsystem?: string;
@@ -179,10 +179,10 @@ export interface GetExportMappingCodesToLinkRequest {
 }
 
 export interface GetExportMappingLinkedCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idExtension?: number;
     idContext?: string;
@@ -194,19 +194,19 @@ export interface GetExportMappingLinkedCodesRequest {
 }
 
 export interface GetExportMappingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exportMappingConfigs?: Set<GetExportMappingsExportMappingConfigsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetExportMappingsByChainRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     exportMappingConfigs?: Set<GetExportMappingsByChainExportMappingConfigsEnum>;
     xExternalsystem?: string;
@@ -214,10 +214,10 @@ export interface GetExportMappingsByChainRequest {
 }
 
 export interface GetExportSchedulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     timeZone?: string;
     exportFileId?: string;
     idExtension?: number;
@@ -234,9 +234,9 @@ export interface GetExportSchedulesRequest {
 }
 
 export interface GetExportsAvailableRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchColumns?: boolean;
     fetchDataSetup?: boolean;
     fetchDestinationSetup?: boolean;
@@ -256,75 +256,75 @@ export interface GetExportsAvailableRequest {
 }
 
 export interface GetExportsGeneratedRequest {
-    exportFileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exportFileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exportDataId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostExportMappingCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappingCodes?: PutExportMappingCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappingCodes: ExportMappingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostExportMappingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappings?: PutExportMappingsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappings: ExportMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostExportSchedulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportSchedulesCriteria?: PostExportSchedulesRequest;
+export interface PostExportSchedulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportSchedulesCriteria: ExportSchedulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutExportMappingCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappingCodes?: PutExportMappingCodesRequest;
+export interface PutExportMappingCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappingCodes: ExportMappingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutExportMappingLinkedTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappingLinkedTypes?: PutExportMappingLinkedTypesRequest;
+export interface PutExportMappingLinkedTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappingLinkedTypes: ExportMappingLinkedTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutExportMappingsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappings?: PutExportMappingsRequest;
+export interface PutExportMappingsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappings: ExportMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveExportSchedulesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     jobNames?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -340,6 +340,30 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to change export schedules.
      */
     async changeExportSchedulesRaw(requestParameters: ChangeExportSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSchedulesStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeExportSchedules.');
+        }
+
+        if (requestParameters.exportFileId === null || requestParameters.exportFileId === undefined) {
+            throw new runtime.RequiredError('exportFileId','Required parameter requestParameters.exportFileId was null or undefined when calling changeExportSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeExportSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeExportSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeExportSchedules.');
+        }
+
+        if (requestParameters.exportSchedulesToBeChanged === null || requestParameters.exportSchedulesToBeChanged === undefined) {
+            throw new runtime.RequiredError('exportSchedulesToBeChanged','Required parameter requestParameters.exportSchedulesToBeChanged was null or undefined when calling changeExportSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -371,7 +395,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeExportSchedulesByChainRequestToJSON(requestParameters.exportSchedulesToBeChanged),
+            body: ExportSchedulesToBeChangedToJSON(requestParameters.exportSchedulesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportSchedulesStatusFromJSON(jsonValue));
@@ -390,7 +414,27 @@ export class ExportApi extends runtime.BaseAPI {
      * Use this API to update export schedules for all hotels in a chain based on the exportFileIdId and exportSchedulesToBeChanged. <p><strong>OperationId:</strong>changeExportSchedulesByChain</p>
      * Operation to change export schedules.
      */
-    async changeExportSchedulesByChainRaw(requestParameters: ChangeExportSchedulesByChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSchedulesStatus>> {
+    async changeExportSchedulesByChainRaw(requestParameters: ChangeExportSchedulesByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSchedulesStatus>> {
+        if (requestParameters.exportFileId === null || requestParameters.exportFileId === undefined) {
+            throw new runtime.RequiredError('exportFileId','Required parameter requestParameters.exportFileId was null or undefined when calling changeExportSchedulesByChain.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeExportSchedulesByChain.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeExportSchedulesByChain.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeExportSchedulesByChain.');
+        }
+
+        if (requestParameters.exportSchedulesToBeChanged === null || requestParameters.exportSchedulesToBeChanged === undefined) {
+            throw new runtime.RequiredError('exportSchedulesToBeChanged','Required parameter requestParameters.exportSchedulesToBeChanged was null or undefined when calling changeExportSchedulesByChain.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -422,7 +466,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeExportSchedulesByChainRequestToJSON(requestParameters.exportSchedulesToBeChanged),
+            body: ExportSchedulesToBeChangedToJSON(requestParameters.exportSchedulesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportSchedulesStatusFromJSON(jsonValue));
@@ -432,7 +476,7 @@ export class ExportApi extends runtime.BaseAPI {
      * Use this API to update export schedules for all hotels in a chain based on the exportFileIdId and exportSchedulesToBeChanged. <p><strong>OperationId:</strong>changeExportSchedulesByChain</p>
      * Operation to change export schedules.
      */
-    async changeExportSchedulesByChain(requestParameters: ChangeExportSchedulesByChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportSchedulesStatus> {
+    async changeExportSchedulesByChain(requestParameters: ChangeExportSchedulesByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportSchedulesStatus> {
         const response = await this.changeExportSchedulesByChainRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -442,6 +486,26 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to remove export mappings.
      */
     async deleteExistingExportMappingsRaw(requestParameters: DeleteExistingExportMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.exportMappingId === null || requestParameters.exportMappingId === undefined) {
+            throw new runtime.RequiredError('exportMappingId','Required parameter requestParameters.exportMappingId was null or undefined when calling deleteExistingExportMappings.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteExistingExportMappings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteExistingExportMappings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteExistingExportMappings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteExistingExportMappings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -490,6 +554,30 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to remove export mapping codes.
      */
     async deleteExportMappingCodesRaw(requestParameters: DeleteExportMappingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.mappingTypeCode === null || requestParameters.mappingTypeCode === undefined) {
+            throw new runtime.RequiredError('mappingTypeCode','Required parameter requestParameters.mappingTypeCode was null or undefined when calling deleteExportMappingCodes.');
+        }
+
+        if (requestParameters.exportMappingId === null || requestParameters.exportMappingId === undefined) {
+            throw new runtime.RequiredError('exportMappingId','Required parameter requestParameters.exportMappingId was null or undefined when calling deleteExportMappingCodes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteExportMappingCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteExportMappingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteExportMappingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteExportMappingCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -538,6 +626,34 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch activity logs for Export Data.
      */
     async getExportActivityLogRaw(requestParameters: GetExportActivityLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportActivityLog>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportActivityLog.');
+        }
+
+        if (requestParameters.activityType === null || requestParameters.activityType === undefined) {
+            throw new runtime.RequiredError('activityType','Required parameter requestParameters.activityType was null or undefined when calling getExportActivityLog.');
+        }
+
+        if (requestParameters.fromDate === null || requestParameters.fromDate === undefined) {
+            throw new runtime.RequiredError('fromDate','Required parameter requestParameters.fromDate was null or undefined when calling getExportActivityLog.');
+        }
+
+        if (requestParameters.toDate === null || requestParameters.toDate === undefined) {
+            throw new runtime.RequiredError('toDate','Required parameter requestParameters.toDate was null or undefined when calling getExportActivityLog.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportActivityLog.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportActivityLog.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportActivityLog.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.activityType !== undefined) {
@@ -545,11 +661,11 @@ export class ExportApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substr(0,10);
+            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substr(0,10);
+            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.limit !== undefined) {
@@ -634,6 +750,18 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch export columns and functions.
      */
     async getExportColumnsAndFunctionsRaw(requestParameters: GetExportColumnsAndFunctionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportColumnsAndFunctionsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportColumnsAndFunctions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportColumnsAndFunctions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportColumnsAndFunctions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchDbColumns !== undefined) {
@@ -706,6 +834,26 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch export mapping codes.
      */
     async getExportMappingCodesRaw(requestParameters: GetExportMappingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchExportMappingCodes>> {
+        if (requestParameters.exportMappingTypeId === null || requestParameters.exportMappingTypeId === undefined) {
+            throw new runtime.RequiredError('exportMappingTypeId','Required parameter requestParameters.exportMappingTypeId was null or undefined when calling getExportMappingCodes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportMappingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -754,6 +902,26 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch export mapping codes to link.
      */
     async getExportMappingCodesToLinkRaw(requestParameters: GetExportMappingCodesToLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingCodesToLink>> {
+        if (requestParameters.configType === null || requestParameters.configType === undefined) {
+            throw new runtime.RequiredError('configType','Required parameter requestParameters.configType was null or undefined when calling getExportMappingCodesToLink.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingCodesToLink.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportMappingCodesToLink.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingCodesToLink.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingCodesToLink.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.code !== undefined) {
@@ -810,6 +978,22 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch export mapping linked codes.
      */
     async getExportMappingLinkedCodesRaw(requestParameters: GetExportMappingLinkedCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingLinkedCodes>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingLinkedCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportMappingLinkedCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingLinkedCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingLinkedCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {
@@ -882,6 +1066,22 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch export mappings.
      */
     async getExportMappingsRaw(requestParameters: GetExportMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchExportMappings>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportMappings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportMappings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappings.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.exportMappingConfigs) {
@@ -934,6 +1134,18 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch export mappings by chain.
      */
     async getExportMappingsByChainRaw(requestParameters: GetExportMappingsByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchExportMappings>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportMappingsByChain.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingsByChain.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingsByChain.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -990,6 +1202,22 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch export schedules.
      */
     async getExportSchedulesRaw(requestParameters: GetExportSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSchedulesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getExportSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportSchedules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.timeZone !== undefined) {
@@ -1021,11 +1249,11 @@ export class ExportApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.frequency !== undefined) {
@@ -1082,6 +1310,18 @@ export class ExportApi extends runtime.BaseAPI {
      * Return available exports
      */
     async getExportsAvailableRaw(requestParameters: GetExportsAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportsAvailable>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportsAvailable.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportsAvailable.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportsAvailable.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchColumns !== undefined) {
@@ -1186,6 +1426,22 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to fetch exports generated.
      */
     async getExportsGeneratedRaw(requestParameters: GetExportsGeneratedRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeneratedExports>> {
+        if (requestParameters.exportFileId === null || requestParameters.exportFileId === undefined) {
+            throw new runtime.RequiredError('exportFileId','Required parameter requestParameters.exportFileId was null or undefined when calling getExportsGenerated.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExportsGenerated.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExportsGenerated.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getExportsGenerated.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.exportDataId !== undefined) {
@@ -1238,6 +1494,22 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to create export mapping codes.
      */
     async postExportMappingCodesRaw(requestParameters: PostExportMappingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postExportMappingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postExportMappingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postExportMappingCodes.');
+        }
+
+        if (requestParameters.exportMappingCodes === null || requestParameters.exportMappingCodes === undefined) {
+            throw new runtime.RequiredError('exportMappingCodes','Required parameter requestParameters.exportMappingCodes was null or undefined when calling postExportMappingCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1269,7 +1541,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutExportMappingCodesRequestToJSON(requestParameters.exportMappingCodes),
+            body: ExportMappingCodesToJSON(requestParameters.exportMappingCodes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1289,6 +1561,26 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to create export mappings.
      */
     async postExportMappingsRaw(requestParameters: PostExportMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postExportMappings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postExportMappings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postExportMappings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postExportMappings.');
+        }
+
+        if (requestParameters.exportMappings === null || requestParameters.exportMappings === undefined) {
+            throw new runtime.RequiredError('exportMappings','Required parameter requestParameters.exportMappings was null or undefined when calling postExportMappings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1320,7 +1612,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutExportMappingsRequestToJSON(requestParameters.exportMappings),
+            body: ExportMappingsToJSON(requestParameters.exportMappings),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1339,7 +1631,23 @@ export class ExportApi extends runtime.BaseAPI {
      * Use this API to create export schedules. <p><strong>OperationId:</strong>postExportSchedules</p>
      * Operation to create export schedules.
      */
-    async postExportSchedulesRaw(requestParameters: PostExportSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postExportSchedulesRaw(requestParameters: PostExportSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postExportSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postExportSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postExportSchedules.');
+        }
+
+        if (requestParameters.exportSchedulesCriteria === null || requestParameters.exportSchedulesCriteria === undefined) {
+            throw new runtime.RequiredError('exportSchedulesCriteria','Required parameter requestParameters.exportSchedulesCriteria was null or undefined when calling postExportSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1371,7 +1679,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostExportSchedulesRequestToJSON(requestParameters.exportSchedulesCriteria),
+            body: ExportSchedulesCriteriaToJSON(requestParameters.exportSchedulesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1381,7 +1689,7 @@ export class ExportApi extends runtime.BaseAPI {
      * Use this API to create export schedules. <p><strong>OperationId:</strong>postExportSchedules</p>
      * Operation to create export schedules.
      */
-    async postExportSchedules(requestParameters: PostExportSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postExportSchedules(requestParameters: PostExportSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postExportSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1390,7 +1698,23 @@ export class ExportApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putExportMappingCodes</p>
      * Operation to update export mapping codes.
      */
-    async putExportMappingCodesRaw(requestParameters: PutExportMappingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingCodesDetails>> {
+    async putExportMappingCodesRaw(requestParameters: PutExportMappingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putExportMappingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putExportMappingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putExportMappingCodes.');
+        }
+
+        if (requestParameters.exportMappingCodes === null || requestParameters.exportMappingCodes === undefined) {
+            throw new runtime.RequiredError('exportMappingCodes','Required parameter requestParameters.exportMappingCodes was null or undefined when calling putExportMappingCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1422,7 +1746,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutExportMappingCodesRequestToJSON(requestParameters.exportMappingCodes),
+            body: ExportMappingCodesToJSON(requestParameters.exportMappingCodes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportMappingCodesDetailsFromJSON(jsonValue));
@@ -1432,7 +1756,7 @@ export class ExportApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putExportMappingCodes</p>
      * Operation to update export mapping codes.
      */
-    async putExportMappingCodes(requestParameters: PutExportMappingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingCodesDetails> {
+    async putExportMappingCodes(requestParameters: PutExportMappingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingCodesDetails> {
         const response = await this.putExportMappingCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1441,7 +1765,23 @@ export class ExportApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putExportMappingLinkedTypes</p>
      * Operation to update export mapping linked types.
      */
-    async putExportMappingLinkedTypesRaw(requestParameters: PutExportMappingLinkedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingLinkedTypesDetails>> {
+    async putExportMappingLinkedTypesRaw(requestParameters: PutExportMappingLinkedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingLinkedTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putExportMappingLinkedTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putExportMappingLinkedTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putExportMappingLinkedTypes.');
+        }
+
+        if (requestParameters.exportMappingLinkedTypes === null || requestParameters.exportMappingLinkedTypes === undefined) {
+            throw new runtime.RequiredError('exportMappingLinkedTypes','Required parameter requestParameters.exportMappingLinkedTypes was null or undefined when calling putExportMappingLinkedTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1473,7 +1813,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutExportMappingLinkedTypesRequestToJSON(requestParameters.exportMappingLinkedTypes),
+            body: ExportMappingLinkedTypesToJSON(requestParameters.exportMappingLinkedTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportMappingLinkedTypesDetailsFromJSON(jsonValue));
@@ -1483,7 +1823,7 @@ export class ExportApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putExportMappingLinkedTypes</p>
      * Operation to update export mapping linked types.
      */
-    async putExportMappingLinkedTypes(requestParameters: PutExportMappingLinkedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingLinkedTypesDetails> {
+    async putExportMappingLinkedTypes(requestParameters: PutExportMappingLinkedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingLinkedTypesDetails> {
         const response = await this.putExportMappingLinkedTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1492,7 +1832,27 @@ export class ExportApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putExportMappings</p>
      * Operation to update export mappings.
      */
-    async putExportMappingsRaw(requestParameters: PutExportMappingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingsDetails>> {
+    async putExportMappingsRaw(requestParameters: PutExportMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putExportMappings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putExportMappings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putExportMappings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putExportMappings.');
+        }
+
+        if (requestParameters.exportMappings === null || requestParameters.exportMappings === undefined) {
+            throw new runtime.RequiredError('exportMappings','Required parameter requestParameters.exportMappings was null or undefined when calling putExportMappings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1524,7 +1884,7 @@ export class ExportApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutExportMappingsRequestToJSON(requestParameters.exportMappings),
+            body: ExportMappingsToJSON(requestParameters.exportMappings),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportMappingsDetailsFromJSON(jsonValue));
@@ -1534,7 +1894,7 @@ export class ExportApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putExportMappings</p>
      * Operation to update export mappings.
      */
-    async putExportMappings(requestParameters: PutExportMappingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingsDetails> {
+    async putExportMappings(requestParameters: PutExportMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingsDetails> {
         const response = await this.putExportMappingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1544,6 +1904,18 @@ export class ExportApi extends runtime.BaseAPI {
      * Operation to remove export schedules.
      */
     async removeExportSchedulesRaw(requestParameters: RemoveExportSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeExportSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeExportSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeExportSchedules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.jobNames) {

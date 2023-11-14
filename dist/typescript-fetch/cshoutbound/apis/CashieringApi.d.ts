@@ -10,50 +10,50 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ApproveCompPostingsRequest, AuthorizeCompRedemptionsRS, AuthorizeCompRedemptionsRequest, FetchCompRedemptionsRS, PostCompRedemptionsRS, PostCompRedemptionsRequest, ReverseCompRedemptionsRequest, SendCompTransactionsStatus, Status } from '../models';
-export interface ApproveCompPostingsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    postings?: ApproveCompPostingsRequest;
+import type { AuthorizeCompRedemptionsRQ, AuthorizeCompRedemptionsRS, CompTransactionsCriteriaType, FetchCompRedemptionsRS, PostCompRedemptionsRQ, PostCompRedemptionsRS, ReverseCompRedemptionsRQ, SendCompTransactionsStatus, Status } from '../models/index';
+export interface ApproveCompPostingsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    postings: CompTransactionsCriteriaType;
     acceptLanguage?: string;
 }
-export interface AuthorizeCompRedemptionsOperationRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    authorizeCompRedemptions?: AuthorizeCompRedemptionsRequest;
+export interface AuthorizeCompRedemptionsRequest {
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    authorizeCompRedemptions: AuthorizeCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 export interface GetCompRedemptionsRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
     acceptLanguage?: string;
 }
-export interface PostCompRedemptionsOperationRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    postCompRedemptions?: PostCompRedemptionsRequest;
+export interface PostCompRedemptionsRequest {
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    postCompRedemptions: PostCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 export interface ReverseCompPostingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    postings?: ApproveCompPostingsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    postings: CompTransactionsCriteriaType;
     acceptLanguage?: string;
 }
-export interface ReverseCompRedemptionsOperationRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    reverseCompRedemptions?: ReverseCompRedemptionsRequest;
+export interface ReverseCompRedemptionsRequest {
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    reverseCompRedemptions: ReverseCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 /**
@@ -64,22 +64,22 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>approveCompPostings</p>
      * Operation to request for comp postings approval.
      */
-    approveCompPostingsRaw(requestParameters: ApproveCompPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendCompTransactionsStatus>>;
+    approveCompPostingsRaw(requestParameters: ApproveCompPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendCompTransactionsStatus>>;
     /**
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>approveCompPostings</p>
      * Operation to request for comp postings approval.
      */
-    approveCompPostings(requestParameters: ApproveCompPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendCompTransactionsStatus>;
+    approveCompPostings(requestParameters: ApproveCompPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendCompTransactionsStatus>;
     /**
      * You can use this API to authorize complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>authorizeCompRedemptions</p>
      * Operation to authorize complimentary redemptions for a guest having PTS Membership Type
      */
-    authorizeCompRedemptionsRaw(requestParameters: AuthorizeCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizeCompRedemptionsRS>>;
+    authorizeCompRedemptionsRaw(requestParameters: AuthorizeCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizeCompRedemptionsRS>>;
     /**
      * You can use this API to authorize complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>authorizeCompRedemptions</p>
      * Operation to authorize complimentary redemptions for a guest having PTS Membership Type
      */
-    authorizeCompRedemptions(requestParameters: AuthorizeCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizeCompRedemptionsRS>;
+    authorizeCompRedemptions(requestParameters: AuthorizeCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizeCompRedemptionsRS>;
     /**
      * You can use this API to get complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>getCompRedemptions</p>
      * Operation to get complimentary redemptions for a guest having PTS Membership Type
@@ -94,12 +94,12 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary redemptions for a guest having PTS Membership Type
      */
-    postCompRedemptionsRaw(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostCompRedemptionsRS>>;
+    postCompRedemptionsRaw(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostCompRedemptionsRS>>;
     /**
      * You can use this API to post complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary redemptions for a guest having PTS Membership Type
      */
-    postCompRedemptions(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostCompRedemptionsRS>;
+    postCompRedemptions(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostCompRedemptionsRS>;
     /**
      * You can use this API to reverse Comp Transactions. <p><strong>OperationId:</strong>reverseCompPostings</p>
      * Operation to request for comp postings reversal.
@@ -114,10 +114,10 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reverse complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary redemptions for a guest having PTS Membership Type
      */
-    reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to reverse complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary redemptions for a guest having PTS Membership Type
      */
-    reverseCompRedemptions(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    reverseCompRedemptions(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }

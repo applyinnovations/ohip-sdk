@@ -19,6 +19,5 @@ export * from './RatePlanDistributionType';
 export * from './RatePlanType';
 export * from './RatePlans';
 export * from './ScheduleRateAmountsType';
-export * from './StartSetRatePlansHeadersProcessRequest';
 export * from './WarningType';
 export * from './WarningsType';

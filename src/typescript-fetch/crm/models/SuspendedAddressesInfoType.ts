@@ -144,7 +144,7 @@ export function SuspendedAddressesInfoTypeToJSON(value?: SuspendedAddressesInfoT
         'name': value.name,
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'profileType': value.profileType,
-        'validateDate': value.validateDate === undefined ? undefined : (value.validateDate.toISOString().substr(0,10)),
+        'validateDate': value.validateDate === undefined ? undefined : (value.validateDate.toISOString().substring(0,10)),
     };
 }
 

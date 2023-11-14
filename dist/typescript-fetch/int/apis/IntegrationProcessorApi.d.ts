@@ -10,22 +10,22 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BusinessEvents } from '../models';
+import type { BusinessEvents } from '../models/index';
 export interface GetBusinessEventsRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBusinessEventsByExternalSystemRequest {
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;

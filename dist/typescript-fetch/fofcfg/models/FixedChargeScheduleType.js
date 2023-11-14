@@ -49,11 +49,11 @@ function FixedChargeScheduleTypeToJSON(value) {
         return null;
     }
     return {
-        'dateToExecute': value.dateToExecute === undefined ? undefined : (value.dateToExecute.toISOString().substr(0, 10)),
+        'dateToExecute': value.dateToExecute === undefined ? undefined : (value.dateToExecute.toISOString().substring(0, 10)),
         'dayToExecute': value.dayToExecute,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'frequency': (0, FixedChargeFrequencyType_1.FixedChargeFrequencyTypeToJSON)(value.frequency),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.FixedChargeScheduleTypeToJSON = FixedChargeScheduleTypeToJSON;

@@ -292,12 +292,12 @@ export function RoomStayTypeToJSON(value?: RoomStayType | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'availableUpsellOfferCount': value.availableUpsellOfferCount,
         'bookingMedium': value.bookingMedium,
         'bookingMediumDescription': value.bookingMediumDescription,
         'currentRoomInfo': CurrentRoomInfoTypeToJSON(value.currentRoomInfo),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0,10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
         'expectedTimes': ResExpectedTimesTypeToJSON(value.expectedTimes),
         'guarantee': ResGuaranteeTypeToJSON(value.guarantee),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),

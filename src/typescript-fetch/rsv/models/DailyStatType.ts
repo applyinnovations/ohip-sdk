@@ -74,7 +74,7 @@ export function DailyStatTypeToJSON(value?: DailyStatType | null): any {
     return {
         
         'blockStats': BlockStatsTypeToJSON(value.blockStats),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substr(0,10)),
+        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
     };
 }
 

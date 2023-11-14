@@ -47,7 +47,7 @@ function ReservationPaceRSTypeToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0, 10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
         'dailyPaceStats': (0, DailyPaceStatsType_1.DailyPaceStatsTypeToJSON)(value.dailyPaceStats),
         'hotelId': value.hotelId,
     };

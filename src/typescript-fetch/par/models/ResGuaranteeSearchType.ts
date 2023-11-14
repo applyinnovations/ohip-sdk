@@ -179,7 +179,7 @@ export function ResGuaranteeSearchTypeToJSON(value?: ResGuaranteeSearchType | nu
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'blockId': BlockIdToJSON(value.blockId),
         'fetchInstruction': ResGuaranteeFetchInstructionsTypeToJSON(value.fetchInstruction),
         'guaranteeCode': value.guaranteeCode,

@@ -57,7 +57,7 @@ function BlockInstructionTypeRoomAllocationsToJSON(value) {
         'masterInfo': (0, RoomAllocationMasterInfoType_1.RoomAllocationMasterInfoTypeToJSON)(value.masterInfo),
         'numberOfDays': value.numberOfDays,
         'roomAllocationType': value.roomAllocationType === undefined ? undefined : (value.roomAllocationType.map(RoomAllocationTypeType_1.RoomAllocationTypeTypeToJSON)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'totalResults': value.totalResults,
     };
 }

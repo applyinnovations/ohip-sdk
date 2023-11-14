@@ -21,7 +21,6 @@ models/ParametersNameType.ts
 models/ParametersType.ts
 models/ValidateListOfValues.ts
 models/ValidateListOfValuesDetails.ts
-models/ValidateListOfValuesRequest.ts
 models/WarningType.ts
 models/WarningsType.ts
 models/index.ts

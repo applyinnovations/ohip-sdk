@@ -91,7 +91,7 @@ function MembershipTransactionDetailsTypeToJSON(value) {
         'notes': value.notes,
         'pointsCalculated': value.pointsCalculated,
         'pointsCost': value.pointsCost,
-        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substr(0, 10)),
+        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0, 10)),
         'processingMessages': value.processingMessages,
         'profilePromotions': (0, CodeListType_1.CodeListTypeToJSON)(value.profilePromotions),
         'ratePromotion': value.ratePromotion,
@@ -100,7 +100,7 @@ function MembershipTransactionDetailsTypeToJSON(value) {
         'statementId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.statementId),
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),
         'tierPoints': (0, MembershipTransactionTierPointsType_1.MembershipTransactionTierPointsTypeToJSON)(value.tierPoints),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0, 10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
         'transactionType': value.transactionType,
     };
 }

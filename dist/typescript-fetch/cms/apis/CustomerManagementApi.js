@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetTrackItItemsAssignedStatusesEnum = exports.GetTrackItItemsActionStatusesEnum = exports.GetTrackItItemsTrackItGroupsEnum = exports.GetCalendarTasksClassCodesEnum = exports.GetCalendarTasksCompletionStatusEnum = exports.CustomerManagementApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,21 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     deleteCalendarTaskRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
+                throw new runtime.RequiredError('activityId', 'Required parameter requestParameters.activityId was null or undefined when calling deleteCalendarTask.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteCalendarTask.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCalendarTask.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCalendarTask.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCalendarTask.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -81,7 +96,7 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -100,6 +115,21 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     deleteCalendarTaskAttachmentRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.linkedToId === null || requestParameters.linkedToId === undefined) {
+                throw new runtime.RequiredError('linkedToId', 'Required parameter requestParameters.linkedToId was null or undefined when calling deleteCalendarTaskAttachment.');
+            }
+            if (requestParameters.attachId === null || requestParameters.attachId === undefined) {
+                throw new runtime.RequiredError('attachId', 'Required parameter requestParameters.attachId was null or undefined when calling deleteCalendarTaskAttachment.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteCalendarTaskAttachment.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteCalendarTaskAttachment.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteCalendarTaskAttachment.');
+            }
             const queryParameters = {};
             if (requestParameters.linkedToId !== undefined) {
                 queryParameters['linkedToId'] = requestParameters.linkedToId;
@@ -129,7 +159,7 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -148,6 +178,18 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     deleteTrackItItemsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteTrackItItems.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteTrackItItems.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteTrackItItems.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteTrackItItems.');
+            }
             const queryParameters = {};
             if (requestParameters.trackItId) {
                 queryParameters['trackItId'] = requestParameters.trackItId;
@@ -180,7 +222,7 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -199,6 +241,18 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     getCalendarTaskRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
+                throw new runtime.RequiredError('activityId', 'Required parameter requestParameters.activityId was null or undefined when calling getCalendarTask.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCalendarTask.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTask.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTask.');
+            }
             const queryParameters = {};
             if (requestParameters.idContext !== undefined) {
                 queryParameters['idContext'] = requestParameters.idContext;
@@ -228,7 +282,7 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CalendarTaskFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CalendarTaskFromJSON)(jsonValue));
         });
     }
     /**
@@ -247,6 +301,21 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     getCalendarTaskAttachmentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.taskId === null || requestParameters.taskId === undefined) {
+                throw new runtime.RequiredError('taskId', 'Required parameter requestParameters.taskId was null or undefined when calling getCalendarTaskAttachments.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getCalendarTaskAttachments.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCalendarTaskAttachments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTaskAttachments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTaskAttachments.');
+            }
             const queryParameters = {};
             if (requestParameters.idContext !== undefined) {
                 queryParameters['idContext'] = requestParameters.idContext;
@@ -276,7 +345,7 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CalendarTaskAttachmentsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CalendarTaskAttachmentsFromJSON)(jsonValue));
         });
     }
     /**
@@ -295,6 +364,15 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     getCalendarTasksRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getCalendarTasks.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTasks.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTasks.');
+            }
             const queryParameters = {};
             if (requestParameters.countSummary !== undefined) {
                 queryParameters['countSummary'] = requestParameters.countSummary;
@@ -306,10 +384,10 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -384,7 +462,7 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CalendarTasksFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CalendarTasksFromJSON)(jsonValue));
         });
     }
     /**
@@ -403,6 +481,18 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     getTrackItItemsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getTrackItItems.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getTrackItItems.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItItems.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItItems.');
+            }
             const queryParameters = {};
             if (requestParameters.ticketId !== undefined) {
                 queryParameters['ticketId'] = requestParameters.ticketId;
@@ -453,10 +543,10 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 queryParameters['room'] = requestParameters.room;
             }
             if (requestParameters.followUpDate !== undefined) {
-                queryParameters['followUpDate'] = requestParameters.followUpDate.toISOString().substr(0, 10);
+                queryParameters['followUpDate'] = requestParameters.followUpDate.toISOString().substring(0, 10);
             }
             if (requestParameters.createdOn !== undefined) {
-                queryParameters['createdOn'] = requestParameters.createdOn.toISOString().substr(0, 10);
+                queryParameters['createdOn'] = requestParameters.createdOn.toISOString().substring(0, 10);
             }
             if (requestParameters.createdByUserId !== undefined) {
                 queryParameters['createdByUserId'] = requestParameters.createdByUserId;
@@ -492,7 +582,7 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.TrackItItemsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TrackItItemsFromJSON)(jsonValue));
         });
     }
     /**
@@ -511,6 +601,21 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     postCalendarTaskRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postCalendarTask.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCalendarTask.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCalendarTask.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCalendarTask.');
+            }
+            if (requestParameters.calendarTask === null || requestParameters.calendarTask === undefined) {
+                throw new runtime.RequiredError('calendarTask', 'Required parameter requestParameters.calendarTask was null or undefined when calling postCalendarTask.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -534,9 +639,9 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostCalendarTaskRequestToJSON)(requestParameters.calendarTask),
+                body: (0, index_1.CalendarTaskToJSON)(requestParameters.calendarTask),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -555,6 +660,21 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     postTrackItItemsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postTrackItItems.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postTrackItItems.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItItems.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItItems.');
+            }
+            if (requestParameters.trackItItems === null || requestParameters.trackItItems === undefined) {
+                throw new runtime.RequiredError('trackItItems', 'Required parameter requestParameters.trackItItems was null or undefined when calling postTrackItItems.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -578,9 +698,9 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutTrackItItemsRequestToJSON)(requestParameters.trackItItems),
+                body: (0, index_1.TrackItItemsToJSON)(requestParameters.trackItItems),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -599,6 +719,24 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     putCalendarTaskRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
+                throw new runtime.RequiredError('activityId', 'Required parameter requestParameters.activityId was null or undefined when calling putCalendarTask.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putCalendarTask.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putCalendarTask.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putCalendarTask.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putCalendarTask.');
+            }
+            if (requestParameters.calendarTask === null || requestParameters.calendarTask === undefined) {
+                throw new runtime.RequiredError('calendarTask', 'Required parameter requestParameters.calendarTask was null or undefined when calling putCalendarTask.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -622,9 +760,9 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostCalendarTaskRequestToJSON)(requestParameters.calendarTask),
+                body: (0, index_1.CalendarTaskToJSON)(requestParameters.calendarTask),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CalendarTaskFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CalendarTaskFromJSON)(jsonValue));
         });
     }
     /**
@@ -643,6 +781,21 @@ class CustomerManagementApi extends runtime.BaseAPI {
      */
     putTrackItItemsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putTrackItItems.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putTrackItItems.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putTrackItItems.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putTrackItItems.');
+            }
+            if (requestParameters.trackItItems === null || requestParameters.trackItItems === undefined) {
+                throw new runtime.RequiredError('trackItItems', 'Required parameter requestParameters.trackItItems was null or undefined when calling putTrackItItems.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -666,9 +819,9 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutTrackItItemsRequestToJSON)(requestParameters.trackItItems),
+                body: (0, index_1.TrackItItemsToJSON)(requestParameters.trackItItems),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.TrackItItemsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TrackItItemsFromJSON)(jsonValue));
         });
     }
     /**

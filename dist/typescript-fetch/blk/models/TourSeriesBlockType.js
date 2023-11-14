@@ -52,7 +52,7 @@ function TourSeriesBlockTypeToJSON(value) {
         'blockName': value.blockName,
         'blockStatus': value.blockStatus,
         'hotelId': value.hotelId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.TourSeriesBlockTypeToJSON = TourSeriesBlockTypeToJSON;

@@ -51,12 +51,12 @@ function MasterAccountSummaryTypeToJSON(value) {
         return null;
     }
     return {
-        'createBusinessDate': value.createBusinessDate === undefined ? undefined : (value.createBusinessDate.toISOString().substr(0, 10)),
+        'createBusinessDate': value.createBusinessDate === undefined ? undefined : (value.createBusinessDate.toISOString().substring(0, 10)),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
     };
 }

@@ -503,7 +503,7 @@ export function BlockInstructionTypeToJSON(value?: BlockInstructionType | null):
         'lastModifyDateTime': value.lastModifyDateTime,
         'markAsRecentlyAccessed': value.markAsRecentlyAccessed,
         'masterBlockInfo': MasterBlockInfoTypeToJSON(value.masterBlockInfo),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'ratePrograms': value.ratePrograms === undefined ? undefined : ((value.ratePrograms as Array<any>).map(RateProgramTypeToJSON)),
         'reservationDetails': BlockReservationDetailsTypeToJSON(value.reservationDetails),
         'reservationPolicies': value.reservationPolicies === undefined ? undefined : ((value.reservationPolicies as Array<any>).map(ReservationPoliciesTypeToJSON)),

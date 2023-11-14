@@ -90,7 +90,7 @@ export function StagedProfileURLTypeToJSON(value?: StagedProfileURLType | null):
         'defaultConfirmation': value.defaultConfirmation,
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'type': value.type,
     };
 }

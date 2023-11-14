@@ -75,7 +75,7 @@ export function BlockAllocationRangeTypeOverbookListInnerToJSON(value?: BlockAll
         
         'overbook': value.overbook,
         'roomType': value.roomType,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0,10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
     };
 }
 

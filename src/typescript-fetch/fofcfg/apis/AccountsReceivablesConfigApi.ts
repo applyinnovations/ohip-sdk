@@ -18,10 +18,8 @@ import type {
   ArAccountTypes,
   ArFlaggedReasons,
   ExceptionDetailType,
-  PutARAccountTypesRequest,
-  PutARFlaggedReasonsRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
     ArAccountTypesFromJSON,
     ArAccountTypesToJSON,
@@ -29,39 +27,35 @@ import {
     ArFlaggedReasonsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PutARAccountTypesRequestFromJSON,
-    PutARAccountTypesRequestToJSON,
-    PutARFlaggedReasonsRequestFromJSON,
-    PutARFlaggedReasonsRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteARAccountTypesRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountTypes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteARFlaggedReasonsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetARAccountTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountType?: string;
     description?: string;
     xExternalsystem?: string;
@@ -69,9 +63,9 @@ export interface GetARAccountTypesRequest {
 }
 
 export interface GetARFlaggedReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reasonCodes?: Array<string>;
     reasonWildCard?: string;
     description?: string;
@@ -82,37 +76,37 @@ export interface GetARFlaggedReasonsRequest {
 }
 
 export interface PostARAccountTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arAccountTypes?: PutARAccountTypesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arAccountTypes: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostARFlaggedReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arFlaggedReasons?: PutARFlaggedReasonsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arFlaggedReasons: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutARAccountTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arAccountTypes?: PutARAccountTypesRequest;
+export interface PutARAccountTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arAccountTypes: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutARFlaggedReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arFlaggedReasons?: PutARFlaggedReasonsRequest;
+export interface PutARFlaggedReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arFlaggedReasons: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -127,6 +121,22 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to remove AR Account types.
      */
     async deleteARAccountTypesRaw(requestParameters: DeleteARAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteARAccountTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteARAccountTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteARAccountTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteARAccountTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -183,6 +193,22 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to remove AR flagged reasons.
      */
     async deleteARFlaggedReasonsRaw(requestParameters: DeleteARFlaggedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling deleteARFlaggedReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteARFlaggedReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteARFlaggedReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteARFlaggedReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -239,6 +265,22 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to fetch AR account types.
      */
     async getARAccountTypesRaw(requestParameters: GetARAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArAccountTypes>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getARAccountTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARAccountTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARAccountTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARAccountTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.accountType !== undefined) {
@@ -295,6 +337,18 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to fetch AR flagged reasons.
      */
     async getARFlaggedReasonsRaw(requestParameters: GetARFlaggedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArFlaggedReasons>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARFlaggedReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARFlaggedReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARFlaggedReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reasonCodes) {
@@ -363,6 +417,22 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to create AR Account Types.
      */
     async postARAccountTypesRaw(requestParameters: PostARAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postARAccountTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postARAccountTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postARAccountTypes.');
+        }
+
+        if (requestParameters.arAccountTypes === null || requestParameters.arAccountTypes === undefined) {
+            throw new runtime.RequiredError('arAccountTypes','Required parameter requestParameters.arAccountTypes was null or undefined when calling postARAccountTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -394,7 +464,7 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutARAccountTypesRequestToJSON(requestParameters.arAccountTypes),
+            body: ArAccountTypesToJSON(requestParameters.arAccountTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -414,6 +484,22 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to create AR flagged reasons.
      */
     async postARFlaggedReasonsRaw(requestParameters: PostARFlaggedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postARFlaggedReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postARFlaggedReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postARFlaggedReasons.');
+        }
+
+        if (requestParameters.arFlaggedReasons === null || requestParameters.arFlaggedReasons === undefined) {
+            throw new runtime.RequiredError('arFlaggedReasons','Required parameter requestParameters.arFlaggedReasons was null or undefined when calling postARFlaggedReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -445,7 +531,7 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutARFlaggedReasonsRequestToJSON(requestParameters.arFlaggedReasons),
+            body: ArFlaggedReasonsToJSON(requestParameters.arFlaggedReasons),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -464,7 +550,23 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to change account types. <p><strong>OperationId:</strong>putARAccountTypes</p>
      * Operation to modify AR Account Types.
      */
-    async putARAccountTypesRaw(requestParameters: PutARAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putARAccountTypesRaw(requestParameters: PutARAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putARAccountTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putARAccountTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putARAccountTypes.');
+        }
+
+        if (requestParameters.arAccountTypes === null || requestParameters.arAccountTypes === undefined) {
+            throw new runtime.RequiredError('arAccountTypes','Required parameter requestParameters.arAccountTypes was null or undefined when calling putARAccountTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -496,7 +598,7 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutARAccountTypesRequestToJSON(requestParameters.arAccountTypes),
+            body: ArAccountTypesToJSON(requestParameters.arAccountTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -506,7 +608,7 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      * Operation to change account types. <p><strong>OperationId:</strong>putARAccountTypes</p>
      * Operation to modify AR Account Types.
      */
-    async putARAccountTypes(requestParameters: PutARAccountTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putARAccountTypes(requestParameters: PutARAccountTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putARAccountTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -515,7 +617,23 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putARFlaggedReasons</p>
      * Operation to change AR flagged reasons.
      */
-    async putARFlaggedReasonsRaw(requestParameters: PutARFlaggedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putARFlaggedReasonsRaw(requestParameters: PutARFlaggedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putARFlaggedReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putARFlaggedReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putARFlaggedReasons.');
+        }
+
+        if (requestParameters.arFlaggedReasons === null || requestParameters.arFlaggedReasons === undefined) {
+            throw new runtime.RequiredError('arFlaggedReasons','Required parameter requestParameters.arFlaggedReasons was null or undefined when calling putARFlaggedReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -547,7 +665,7 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutARFlaggedReasonsRequestToJSON(requestParameters.arFlaggedReasons),
+            body: ArFlaggedReasonsToJSON(requestParameters.arFlaggedReasons),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -557,7 +675,7 @@ export class AccountsReceivablesConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putARFlaggedReasons</p>
      * Operation to change AR flagged reasons.
      */
-    async putARFlaggedReasons(requestParameters: PutARFlaggedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putARFlaggedReasons(requestParameters: PutARFlaggedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putARFlaggedReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }

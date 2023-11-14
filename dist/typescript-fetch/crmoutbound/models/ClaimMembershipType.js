@@ -58,8 +58,8 @@ function ClaimMembershipTypeToJSON(value) {
         'membershipIdNo': value.membershipIdNo,
         'membershipType': value.membershipType,
         'membershipLevel': value.membershipLevel,
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substr(0, 10)),
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substr(0, 10)),
+        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0, 10)),
+        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0, 10)),
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
     };
 }

@@ -65,7 +65,7 @@ function ServiceTaskRoomTypeToJSON(value) {
         'roomTaskCode': value.roomTaskCode,
         'sheetNumber': value.sheetNumber,
         'taskCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.taskCodes),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0, 10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
     };
 }
 exports.ServiceTaskRoomTypeToJSON = ServiceTaskRoomTypeToJSON;

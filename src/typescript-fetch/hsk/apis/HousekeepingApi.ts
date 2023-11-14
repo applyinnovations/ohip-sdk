@@ -16,8 +16,6 @@
 import * as runtime from '../runtime';
 import type {
   AttendantSchedule,
-  AutoGenerateTaskSheetsRequest,
-  CancelServicingTaskRoomRequest,
   CanceledServicingTaskRoom,
   ChangedRoomMaintenance,
   ChangedTaskSheet,
@@ -27,60 +25,55 @@ import type {
   CompleteOutOfServiceRoomsRequest,
   CompleteRoomRepairStatus,
   CompletedServicingTaskRoom,
-  EditReservationHousekeepingTasksRequest,
   EndedServiceBreak,
   ExceptionDetailType,
   FacilityForecast,
   GuestHousekeepingInstructions,
   GuestHousekeepingService,
+  GuestHousekeepingServiceRequest,
+  GuestHousekeepingServiceRequestCriteria,
   GuestHousekeepingServiceRequestStatus,
   HousekeepingBoard,
   HousekeepingRoomStatus,
-  LockTaskSheetRequest,
   LockedTaskSheet,
-  MergeTaskSheetRequest,
-  MoveTaskRoomsRequest,
+  MoveTaskRooms,
   MovedTaskRoomsRS,
-  PostHousekeepingAttendantScheduleRequest,
   PostOutOfOrderRoomsRequest,
   PostOutOfServiceRoomsRequest,
-  PostRoomMaintenanceRequest,
   PutRoomRelatedStatusRequest,
-  PutTaskSheetRequest,
-  PutTaskSheetTemplateRequest,
-  ResetReservationHousekeepingScheduleRequest,
-  ResolveRoomMaintenanceRequest,
   ResolvedRoomMaintenance,
+  RoomCleaningPriority,
   RoomCleaningPriorityRequestStatus,
+  RoomCondition,
   RoomConditionRequestStatus,
+  RoomMaintenance,
   RoomMaintenanceDetails,
+  RoomMaintenanceRequest,
   Rooms,
   Schedule,
+  ScheduleSearch,
+  ScheduleShiftRequest,
   ScheduledSearch,
   ScheduledShiftRequest,
   ServiceTime,
-  SetGuestHousekeepingNotesRequest,
-  SetGuestHousekeepingServiceRequestRequest,
-  SetRoomCleaningPriorityRequest,
-  SetRoomConditionRequest,
-  ShiftReservationHousekeepingScheduleRequest,
   SkipedServicingTaskRoom,
   StartedServiceBreak,
   Status,
   TaskAssignment,
   TaskCompanion,
+  TaskRoom,
+  TaskSheet,
   TaskSheetTemplate,
-  UnlockTaskSheetRequest,
+  TaskSheetToLock,
+  TaskSheetToMerge,
+  TaskSheetToUnlock,
+  TaskSheets,
   UnlockedTaskSheet,
   UnresolvedRoomMaintenance,
-} from '../models';
+} from '../models/index';
 import {
     AttendantScheduleFromJSON,
     AttendantScheduleToJSON,
-    AutoGenerateTaskSheetsRequestFromJSON,
-    AutoGenerateTaskSheetsRequestToJSON,
-    CancelServicingTaskRoomRequestFromJSON,
-    CancelServicingTaskRoomRequestToJSON,
     CanceledServicingTaskRoomFromJSON,
     CanceledServicingTaskRoomToJSON,
     ChangedRoomMaintenanceFromJSON,
@@ -99,8 +92,6 @@ import {
     CompleteRoomRepairStatusToJSON,
     CompletedServicingTaskRoomFromJSON,
     CompletedServicingTaskRoomToJSON,
-    EditReservationHousekeepingTasksRequestFromJSON,
-    EditReservationHousekeepingTasksRequestToJSON,
     EndedServiceBreakFromJSON,
     EndedServiceBreakToJSON,
     ExceptionDetailTypeFromJSON,
@@ -111,68 +102,58 @@ import {
     GuestHousekeepingInstructionsToJSON,
     GuestHousekeepingServiceFromJSON,
     GuestHousekeepingServiceToJSON,
+    GuestHousekeepingServiceRequestFromJSON,
+    GuestHousekeepingServiceRequestToJSON,
+    GuestHousekeepingServiceRequestCriteriaFromJSON,
+    GuestHousekeepingServiceRequestCriteriaToJSON,
     GuestHousekeepingServiceRequestStatusFromJSON,
     GuestHousekeepingServiceRequestStatusToJSON,
     HousekeepingBoardFromJSON,
     HousekeepingBoardToJSON,
     HousekeepingRoomStatusFromJSON,
     HousekeepingRoomStatusToJSON,
-    LockTaskSheetRequestFromJSON,
-    LockTaskSheetRequestToJSON,
     LockedTaskSheetFromJSON,
     LockedTaskSheetToJSON,
-    MergeTaskSheetRequestFromJSON,
-    MergeTaskSheetRequestToJSON,
-    MoveTaskRoomsRequestFromJSON,
-    MoveTaskRoomsRequestToJSON,
+    MoveTaskRoomsFromJSON,
+    MoveTaskRoomsToJSON,
     MovedTaskRoomsRSFromJSON,
     MovedTaskRoomsRSToJSON,
-    PostHousekeepingAttendantScheduleRequestFromJSON,
-    PostHousekeepingAttendantScheduleRequestToJSON,
     PostOutOfOrderRoomsRequestFromJSON,
     PostOutOfOrderRoomsRequestToJSON,
     PostOutOfServiceRoomsRequestFromJSON,
     PostOutOfServiceRoomsRequestToJSON,
-    PostRoomMaintenanceRequestFromJSON,
-    PostRoomMaintenanceRequestToJSON,
     PutRoomRelatedStatusRequestFromJSON,
     PutRoomRelatedStatusRequestToJSON,
-    PutTaskSheetRequestFromJSON,
-    PutTaskSheetRequestToJSON,
-    PutTaskSheetTemplateRequestFromJSON,
-    PutTaskSheetTemplateRequestToJSON,
-    ResetReservationHousekeepingScheduleRequestFromJSON,
-    ResetReservationHousekeepingScheduleRequestToJSON,
-    ResolveRoomMaintenanceRequestFromJSON,
-    ResolveRoomMaintenanceRequestToJSON,
     ResolvedRoomMaintenanceFromJSON,
     ResolvedRoomMaintenanceToJSON,
+    RoomCleaningPriorityFromJSON,
+    RoomCleaningPriorityToJSON,
     RoomCleaningPriorityRequestStatusFromJSON,
     RoomCleaningPriorityRequestStatusToJSON,
+    RoomConditionFromJSON,
+    RoomConditionToJSON,
     RoomConditionRequestStatusFromJSON,
     RoomConditionRequestStatusToJSON,
+    RoomMaintenanceFromJSON,
+    RoomMaintenanceToJSON,
     RoomMaintenanceDetailsFromJSON,
     RoomMaintenanceDetailsToJSON,
+    RoomMaintenanceRequestFromJSON,
+    RoomMaintenanceRequestToJSON,
     RoomsFromJSON,
     RoomsToJSON,
     ScheduleFromJSON,
     ScheduleToJSON,
+    ScheduleSearchFromJSON,
+    ScheduleSearchToJSON,
+    ScheduleShiftRequestFromJSON,
+    ScheduleShiftRequestToJSON,
     ScheduledSearchFromJSON,
     ScheduledSearchToJSON,
     ScheduledShiftRequestFromJSON,
     ScheduledShiftRequestToJSON,
     ServiceTimeFromJSON,
     ServiceTimeToJSON,
-    SetGuestHousekeepingNotesRequestFromJSON,
-    SetGuestHousekeepingNotesRequestToJSON,
-    SetGuestHousekeepingServiceRequestRequestFromJSON,
-    SetGuestHousekeepingServiceRequestRequestToJSON,
-    SetRoomCleaningPriorityRequestFromJSON,
-    SetRoomCleaningPriorityRequestToJSON,
-    SetRoomConditionRequestFromJSON,
-    SetRoomConditionRequestToJSON,
-    ShiftReservationHousekeepingScheduleRequestFromJSON,
-    ShiftReservationHousekeepingScheduleRequestToJSON,
     SkipedServicingTaskRoomFromJSON,
     SkipedServicingTaskRoomToJSON,
     StartedServiceBreakFromJSON,
@@ -183,97 +164,107 @@ import {
     TaskAssignmentToJSON,
     TaskCompanionFromJSON,
     TaskCompanionToJSON,
+    TaskRoomFromJSON,
+    TaskRoomToJSON,
+    TaskSheetFromJSON,
+    TaskSheetToJSON,
     TaskSheetTemplateFromJSON,
     TaskSheetTemplateToJSON,
-    UnlockTaskSheetRequestFromJSON,
-    UnlockTaskSheetRequestToJSON,
+    TaskSheetToLockFromJSON,
+    TaskSheetToLockToJSON,
+    TaskSheetToMergeFromJSON,
+    TaskSheetToMergeToJSON,
+    TaskSheetToUnlockFromJSON,
+    TaskSheetToUnlockToJSON,
+    TaskSheetsFromJSON,
+    TaskSheetsToJSON,
     UnlockedTaskSheetFromJSON,
     UnlockedTaskSheetToJSON,
     UnresolvedRoomMaintenanceFromJSON,
     UnresolvedRoomMaintenanceToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface AutoGenerateTaskSheetsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheets?: AutoGenerateTaskSheetsRequest;
+export interface AutoGenerateTaskSheetsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheets: TaskSheets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CancelServicingTaskRoomOperationRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+export interface CancelServicingTaskRoomRequest {
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CompleteOutOfOrderRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    completeRoomRepair?: CompleteOutOfOrderRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    completeRoomRepair: CompleteOutOfOrderRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CompleteOutOfServiceRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    completeRoomRepair?: CompleteOutOfServiceRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    completeRoomRepair: CompleteOutOfServiceRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CompleteServicingTaskRoomRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteHouseKeepingTaskSheetsRequest {
-    hotelId?: string;
-    taskCodesBreakOutId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    taskCodesBreakOutId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteHousekeepingAttendantScheduleRequest {
-    hotelId?: string;
-    scheduleDate?: Date;
-    attendantId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    scheduleDate: Date;
+    attendantId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteReservationHousekeepingTasksRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     customized?: boolean;
     cycleStartDay?: number;
     endDate?: Date;
@@ -297,34 +288,34 @@ export interface DeleteReservationHousekeepingTasksRequest {
 }
 
 export interface DeleteRoomMaintenanceRequest {
-    mainteananceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    mainteananceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTaskSheetRequest {
-    hotelId?: string;
-    sheetNumber?: number;
-    taskCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    sheetNumber: number;
+    taskCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     date?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTaskSheetRoomsRequest {
-    hotelId?: string;
-    sheetNumber?: number;
-    taskCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    sheetNumber: number;
+    taskCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     date?: Date;
     roomId?: Array<string>;
     xExternalsystem?: string;
@@ -332,42 +323,42 @@ export interface DeleteTaskSheetRoomsRequest {
 }
 
 export interface DeleteTaskSheetTemplateRequest {
-    taskSheetTemplateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taskSheetTemplateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface EditReservationHousekeepingTasksOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    schedule?: EditReservationHousekeepingTasksRequest;
+export interface EditReservationHousekeepingTasksRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    schedule: Schedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface EndServiceBreakRequest {
-    taskSheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    taskSheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetFacilityForecastRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -378,11 +369,11 @@ export interface GetFacilityForecastRequest {
 }
 
 export interface GetGuestHousekeepingNotesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     room?: string;
@@ -392,11 +383,11 @@ export interface GetGuestHousekeepingNotesRequest {
 }
 
 export interface GetHouseKeepingTasksRequest {
-    hotelId?: string;
-    taskDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    taskDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     attendantInRoomOnly?: boolean;
     generateCleaningSequence?: boolean;
     includeReservationInfo?: boolean;
@@ -423,21 +414,21 @@ export interface GetHouseKeepingTasksRequest {
 }
 
 export interface GetHousekeepingAttendantsScheduleRequest {
-    hotelId?: string;
-    scheduleStartDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    scheduleStartDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     scheduleEndDate?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHousekeepingDiscrepanciesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomDiscrepancyStatus?: Set<GetHousekeepingDiscrepanciesRoomDiscrepancyStatusEnum>;
     fromRoomNumber?: string;
     toRoomNumber?: string;
@@ -451,10 +442,10 @@ export interface GetHousekeepingDiscrepanciesRequest {
 }
 
 export interface GetHousekeepingOverviewRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     housekeepingRoomStatus?: Set<GetHousekeepingOverviewHousekeepingRoomStatusEnum>;
@@ -483,11 +474,11 @@ export interface GetHousekeepingOverviewRequest {
 }
 
 export interface GetOutOfOrderRoomsRequest {
-    hotelId?: string;
-    startDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    startDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomId?: string;
     endDate?: Date;
     roomTypes?: Array<string>;
@@ -497,11 +488,11 @@ export interface GetOutOfOrderRoomsRequest {
 }
 
 export interface GetOutOfServiceRoomsRequest {
-    hotelId?: string;
-    startDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    startDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomId?: string;
     endDate?: Date;
     roomTypes?: Array<string>;
@@ -511,11 +502,11 @@ export interface GetOutOfServiceRoomsRequest {
 }
 
 export interface GetReservationHousekeepingScheduleRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     beginDate?: Date;
@@ -526,10 +517,10 @@ export interface GetReservationHousekeepingScheduleRequest {
 }
 
 export interface GetRoomConditionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomConditionsOnly?: boolean;
     roomWithoutConditionsOnly?: boolean;
     room?: string;
@@ -553,10 +544,10 @@ export interface GetRoomConditionsRequest {
 }
 
 export interface GetRoomMaintenanceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomIdText?: string;
     roomId?: string;
     roomClasses?: Array<string>;
@@ -577,12 +568,12 @@ export interface GetRoomMaintenanceRequest {
 }
 
 export interface GetTaskCompanionRequest {
-    sheetNumber?: string;
-    hotelId?: string;
-    taskCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sheetNumber: string;
+    hotelId: string;
+    taskCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taskDate?: Date;
     roomId?: string;
     skipRoomNumbers?: Array<string>;
@@ -592,310 +583,310 @@ export interface GetTaskCompanionRequest {
 }
 
 export interface GetTaskSheetTemplateRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface LockTaskSheetOperationRequest {
-    sheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetToLock?: LockTaskSheetRequest;
+export interface LockTaskSheetRequest {
+    sheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetToLock: TaskSheetToLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface MergeTaskSheetOperationRequest {
-    toTaskSequenceNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetToMerge?: MergeTaskSheetRequest;
+export interface MergeTaskSheetRequest {
+    toTaskSequenceNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetToMerge: TaskSheetToMerge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface MoveTaskRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    moveTaskRooms?: MoveTaskRoomsRequest;
+export interface MoveTaskRoomsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    moveTaskRooms: MoveTaskRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostHousekeepingAttendantScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attendantSchedule?: PostHousekeepingAttendantScheduleRequest;
+export interface PostHousekeepingAttendantScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attendantSchedule: AttendantSchedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostOutOfOrderRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRepairOutOfOrder?: PostOutOfOrderRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRepairOutOfOrder: PostOutOfOrderRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostOutOfServiceRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRepairOutOfService?: PostOutOfServiceRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRepairOutOfService: PostOutOfServiceRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostReservationHousekeepingTasksRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    schedule?: EditReservationHousekeepingTasksRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    schedule: Schedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomMaintenanceOperationRequest {
-    maintenanceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenanceRequest?: PostRoomMaintenanceRequest;
+export interface PostRoomMaintenanceRequest {
+    maintenanceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenanceRequest: RoomMaintenanceRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTaskSheetRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTaskSheetRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomCleaningPriorityRequest {
-    hotelId?: string;
-    roomId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    roomId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomMaintenanceRequest {
-    maintenanceId?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenance?: ResolveRoomMaintenanceRequest;
+    maintenanceId: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenance: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomRelatedStatusOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingRoomStatusCriteria?: PutRoomRelatedStatusRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingRoomStatusCriteria: PutRoomRelatedStatusRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutTaskSheetOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+export interface PutTaskSheetRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutTaskSheetRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutTaskSheetTemplateOperationRequest {
-    taskSheetTemplateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetTemplate?: PutTaskSheetTemplateRequest;
+export interface PutTaskSheetTemplateRequest {
+    taskSheetTemplateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetTemplate: TaskSheetTemplate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ResetReservationHousekeepingScheduleOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    scheduleSearch?: ResetReservationHousekeepingScheduleRequest;
+export interface ResetReservationHousekeepingScheduleRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    scheduleSearch: ScheduleSearch;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ResolveRoomMaintenanceOperationRequest {
-    mainteananceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenance?: ResolveRoomMaintenanceRequest;
+export interface ResolveRoomMaintenanceRequest {
+    mainteananceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenance: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetGuestHousekeepingNotesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestHousekeepingServiceRequest?: SetGuestHousekeepingNotesRequest;
+export interface SetGuestHousekeepingNotesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestHousekeepingServiceRequest: GuestHousekeepingServiceRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetGuestHousekeepingServiceRequestOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestHousekeepingServiceRequestCriteria?: SetGuestHousekeepingServiceRequestRequest;
+export interface SetGuestHousekeepingServiceRequestRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestHousekeepingServiceRequestCriteria: GuestHousekeepingServiceRequestCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetRoomCleaningPriorityOperationRequest {
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomCleaningPriority?: SetRoomCleaningPriorityRequest;
+export interface SetRoomCleaningPriorityRequest {
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomCleaningPriority: RoomCleaningPriority;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetRoomConditionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomCondition?: SetRoomConditionRequest;
+export interface SetRoomConditionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomCondition: RoomCondition;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ShiftReservationHousekeepingScheduleOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    scheduleShiftRequest?: ShiftReservationHousekeepingScheduleRequest;
+export interface ShiftReservationHousekeepingScheduleRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    scheduleShiftRequest: ScheduleShiftRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SkipServicingTaskRoomRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface StartServiceBreakRequest {
-    taskSheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    taskSheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface StartServicingTaskRoomRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface UnResolveRoomMaintenanceRequest {
-    mainteananceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenance?: ResolveRoomMaintenanceRequest;
+    mainteananceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenance: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface UnlockTaskSheetOperationRequest {
-    sheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetToUnlock?: UnlockTaskSheetRequest;
+export interface UnlockTaskSheetRequest {
+    sheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetToUnlock: TaskSheetToUnlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -909,7 +900,27 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to Auto generate the task sheets. <p><strong>OperationId:</strong>autoGenerateTaskSheets</p>
      * Auto generate the task sheets
      */
-    async autoGenerateTaskSheetsRaw(requestParameters: AutoGenerateTaskSheetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async autoGenerateTaskSheetsRaw(requestParameters: AutoGenerateTaskSheetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling autoGenerateTaskSheets.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling autoGenerateTaskSheets.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling autoGenerateTaskSheets.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling autoGenerateTaskSheets.');
+        }
+
+        if (requestParameters.taskSheets === null || requestParameters.taskSheets === undefined) {
+            throw new runtime.RequiredError('taskSheets','Required parameter requestParameters.taskSheets was null or undefined when calling autoGenerateTaskSheets.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -941,7 +952,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AutoGenerateTaskSheetsRequestToJSON(requestParameters.taskSheets),
+            body: TaskSheetsToJSON(requestParameters.taskSheets),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -951,7 +962,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to Auto generate the task sheets. <p><strong>OperationId:</strong>autoGenerateTaskSheets</p>
      * Auto generate the task sheets
      */
-    async autoGenerateTaskSheets(requestParameters: AutoGenerateTaskSheetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async autoGenerateTaskSheets(requestParameters: AutoGenerateTaskSheetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.autoGenerateTaskSheetsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -960,7 +971,35 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to cancel servicing task room. <p><strong>OperationId:</strong>cancelServicingTaskRoom</p>
      * Cancel servicing task room
      */
-    async cancelServicingTaskRoomRaw(requestParameters: CancelServicingTaskRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CanceledServicingTaskRoom>> {
+    async cancelServicingTaskRoomRaw(requestParameters: CancelServicingTaskRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CanceledServicingTaskRoom>> {
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling cancelServicingTaskRoom.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling cancelServicingTaskRoom.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling cancelServicingTaskRoom.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling cancelServicingTaskRoom.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling cancelServicingTaskRoom.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling cancelServicingTaskRoom.');
+        }
+
+        if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
+            throw new runtime.RequiredError('taskRoom','Required parameter requestParameters.taskRoom was null or undefined when calling cancelServicingTaskRoom.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -992,7 +1031,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CancelServicingTaskRoomRequestToJSON(requestParameters.taskRoom),
+            body: TaskRoomToJSON(requestParameters.taskRoom),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CanceledServicingTaskRoomFromJSON(jsonValue));
@@ -1002,7 +1041,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to cancel servicing task room. <p><strong>OperationId:</strong>cancelServicingTaskRoom</p>
      * Cancel servicing task room
      */
-    async cancelServicingTaskRoom(requestParameters: CancelServicingTaskRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CanceledServicingTaskRoom> {
+    async cancelServicingTaskRoom(requestParameters: CancelServicingTaskRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CanceledServicingTaskRoom> {
         const response = await this.cancelServicingTaskRoomRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1012,6 +1051,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Complete rooms Out Of Order
      */
     async completeOutOfOrderRoomsRaw(requestParameters: CompleteOutOfOrderRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteRoomRepairStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling completeOutOfOrderRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling completeOutOfOrderRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling completeOutOfOrderRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling completeOutOfOrderRooms.');
+        }
+
+        if (requestParameters.completeRoomRepair === null || requestParameters.completeRoomRepair === undefined) {
+            throw new runtime.RequiredError('completeRoomRepair','Required parameter requestParameters.completeRoomRepair was null or undefined when calling completeOutOfOrderRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1063,6 +1122,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Complete Rooms Out of Service
      */
     async completeOutOfServiceRoomsRaw(requestParameters: CompleteOutOfServiceRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompleteRoomRepairStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling completeOutOfServiceRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling completeOutOfServiceRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling completeOutOfServiceRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling completeOutOfServiceRooms.');
+        }
+
+        if (requestParameters.completeRoomRepair === null || requestParameters.completeRoomRepair === undefined) {
+            throw new runtime.RequiredError('completeRoomRepair','Required parameter requestParameters.completeRoomRepair was null or undefined when calling completeOutOfServiceRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1114,6 +1193,34 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Complete servicing task room
      */
     async completeServicingTaskRoomRaw(requestParameters: CompleteServicingTaskRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompletedServicingTaskRoom>> {
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling completeServicingTaskRoom.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling completeServicingTaskRoom.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling completeServicingTaskRoom.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling completeServicingTaskRoom.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling completeServicingTaskRoom.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling completeServicingTaskRoom.');
+        }
+
+        if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
+            throw new runtime.RequiredError('taskRoom','Required parameter requestParameters.taskRoom was null or undefined when calling completeServicingTaskRoom.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1145,7 +1252,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CancelServicingTaskRoomRequestToJSON(requestParameters.taskRoom),
+            body: TaskRoomToJSON(requestParameters.taskRoom),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CompletedServicingTaskRoomFromJSON(jsonValue));
@@ -1165,6 +1272,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete all the hotel task sheets for an existing Task Sheet Set.
      */
     async deleteHouseKeepingTaskSheetsRaw(requestParameters: DeleteHouseKeepingTaskSheetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteHouseKeepingTaskSheets.');
+        }
+
+        if (requestParameters.taskCodesBreakOutId === null || requestParameters.taskCodesBreakOutId === undefined) {
+            throw new runtime.RequiredError('taskCodesBreakOutId','Required parameter requestParameters.taskCodesBreakOutId was null or undefined when calling deleteHouseKeepingTaskSheets.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteHouseKeepingTaskSheets.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteHouseKeepingTaskSheets.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteHouseKeepingTaskSheets.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1213,10 +1340,34 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete housekeeping attendant schedule
      */
     async deleteHousekeepingAttendantScheduleRaw(requestParameters: DeleteHousekeepingAttendantScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.scheduleDate === null || requestParameters.scheduleDate === undefined) {
+            throw new runtime.RequiredError('scheduleDate','Required parameter requestParameters.scheduleDate was null or undefined when calling deleteHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.attendantId === null || requestParameters.attendantId === undefined) {
+            throw new runtime.RequiredError('attendantId','Required parameter requestParameters.attendantId was null or undefined when calling deleteHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteHousekeepingAttendantSchedule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.scheduleDate !== undefined) {
-            queryParameters['scheduleDate'] = (requestParameters.scheduleDate as any).toISOString().substr(0,10);
+            queryParameters['scheduleDate'] = (requestParameters.scheduleDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.attendantId) {
@@ -1269,6 +1420,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete reservation housekeeping task
      */
     async deleteReservationHousekeepingTasksRaw(requestParameters: DeleteReservationHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling deleteReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteReservationHousekeepingTasks.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.customized !== undefined) {
@@ -1280,11 +1451,11 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.facilityTaskCode !== undefined) {
@@ -1389,6 +1560,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete the maintenances for rooms
      */
     async deleteRoomMaintenanceRaw(requestParameters: DeleteRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.mainteananceId === null || requestParameters.mainteananceId === undefined) {
+            throw new runtime.RequiredError('mainteananceId','Required parameter requestParameters.mainteananceId was null or undefined when calling deleteRoomMaintenance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRoomMaintenance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomMaintenance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomMaintenance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomMaintenance.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1437,6 +1628,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete the task sheet
      */
     async deleteTaskSheetRaw(requestParameters: DeleteTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTaskSheet.');
+        }
+
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling deleteTaskSheet.');
+        }
+
+        if (requestParameters.taskCodes === null || requestParameters.taskCodes === undefined) {
+            throw new runtime.RequiredError('taskCodes','Required parameter requestParameters.taskCodes was null or undefined when calling deleteTaskSheet.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTaskSheet.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaskSheet.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaskSheet.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.sheetNumber !== undefined) {
@@ -1448,7 +1663,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.date !== undefined) {
-            queryParameters['date'] = (requestParameters.date as any).toISOString().substr(0,10);
+            queryParameters['date'] = (requestParameters.date as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1497,6 +1712,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete task sheet rooms
      */
     async deleteTaskSheetRoomsRaw(requestParameters: DeleteTaskSheetRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTaskSheetRooms.');
+        }
+
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling deleteTaskSheetRooms.');
+        }
+
+        if (requestParameters.taskCodes === null || requestParameters.taskCodes === undefined) {
+            throw new runtime.RequiredError('taskCodes','Required parameter requestParameters.taskCodes was null or undefined when calling deleteTaskSheetRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTaskSheetRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaskSheetRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaskSheetRooms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.sheetNumber !== undefined) {
@@ -1508,7 +1747,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.date !== undefined) {
-            queryParameters['date'] = (requestParameters.date as any).toISOString().substr(0,10);
+            queryParameters['date'] = (requestParameters.date as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomId) {
@@ -1561,6 +1800,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete task sheet templates
      */
     async deleteTaskSheetTemplateRaw(requestParameters: DeleteTaskSheetTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taskSheetTemplateCode === null || requestParameters.taskSheetTemplateCode === undefined) {
+            throw new runtime.RequiredError('taskSheetTemplateCode','Required parameter requestParameters.taskSheetTemplateCode was null or undefined when calling deleteTaskSheetTemplate.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTaskSheetTemplate.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTaskSheetTemplate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaskSheetTemplate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaskSheetTemplate.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1608,7 +1867,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to update reservation housekeeping tasks. <p><strong>OperationId:</strong>editReservationHousekeepingTasks</p>
      * Update reservation housekeeping tasks
      */
-    async editReservationHousekeepingTasksRaw(requestParameters: EditReservationHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Schedule>> {
+    async editReservationHousekeepingTasksRaw(requestParameters: EditReservationHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Schedule>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling editReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling editReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling editReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling editReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling editReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.schedule === null || requestParameters.schedule === undefined) {
+            throw new runtime.RequiredError('schedule','Required parameter requestParameters.schedule was null or undefined when calling editReservationHousekeepingTasks.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1640,7 +1923,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: EditReservationHousekeepingTasksRequestToJSON(requestParameters.schedule),
+            body: ScheduleToJSON(requestParameters.schedule),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ScheduleFromJSON(jsonValue));
@@ -1650,7 +1933,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to update reservation housekeeping tasks. <p><strong>OperationId:</strong>editReservationHousekeepingTasks</p>
      * Update reservation housekeeping tasks
      */
-    async editReservationHousekeepingTasks(requestParameters: EditReservationHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Schedule> {
+    async editReservationHousekeepingTasks(requestParameters: EditReservationHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Schedule> {
         const response = await this.editReservationHousekeepingTasksRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1660,6 +1943,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * End the service break
      */
     async endServiceBreakRaw(requestParameters: EndServiceBreakRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EndedServiceBreak>> {
+        if (requestParameters.taskSheetNumber === null || requestParameters.taskSheetNumber === undefined) {
+            throw new runtime.RequiredError('taskSheetNumber','Required parameter requestParameters.taskSheetNumber was null or undefined when calling endServiceBreak.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling endServiceBreak.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling endServiceBreak.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling endServiceBreak.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling endServiceBreak.');
+        }
+
+        if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
+            throw new runtime.RequiredError('taskRoom','Required parameter requestParameters.taskRoom was null or undefined when calling endServiceBreak.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1691,7 +1998,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CancelServicingTaskRoomRequestToJSON(requestParameters.taskRoom),
+            body: TaskRoomToJSON(requestParameters.taskRoom),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EndedServiceBreakFromJSON(jsonValue));
@@ -1711,14 +2018,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get facility forecast
      */
     async getFacilityForecastRaw(requestParameters: GetFacilityForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FacilityForecast>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getFacilityForecast.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFacilityForecast.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFacilityForecast.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFacilityForecast.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -1779,6 +2102,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get the guest housekeeping instructions
      */
     async getGuestHousekeepingNotesRaw(requestParameters: GetGuestHousekeepingNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingInstructions>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuestHousekeepingNotes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationIdContext !== undefined) {
@@ -1843,10 +2186,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get the existing task sheets
      */
     async getHouseKeepingTasksRaw(requestParameters: GetHouseKeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskAssignment>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHouseKeepingTasks.');
+        }
+
+        if (requestParameters.taskDate === null || requestParameters.taskDate === undefined) {
+            throw new runtime.RequiredError('taskDate','Required parameter requestParameters.taskDate was null or undefined when calling getHouseKeepingTasks.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHouseKeepingTasks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHouseKeepingTasks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHouseKeepingTasks.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.taskDate !== undefined) {
-            queryParameters['taskDate'] = (requestParameters.taskDate as any).toISOString().substr(0,10);
+            queryParameters['taskDate'] = (requestParameters.taskDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.attendantInRoomOnly !== undefined) {
@@ -1979,14 +2342,34 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get the housekeeping attendants schedule
      */
     async getHousekeepingAttendantsScheduleRaw(requestParameters: GetHousekeepingAttendantsScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttendantSchedule>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHousekeepingAttendantsSchedule.');
+        }
+
+        if (requestParameters.scheduleStartDate === null || requestParameters.scheduleStartDate === undefined) {
+            throw new runtime.RequiredError('scheduleStartDate','Required parameter requestParameters.scheduleStartDate was null or undefined when calling getHousekeepingAttendantsSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHousekeepingAttendantsSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHousekeepingAttendantsSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHousekeepingAttendantsSchedule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.scheduleStartDate !== undefined) {
-            queryParameters['scheduleStartDate'] = (requestParameters.scheduleStartDate as any).toISOString().substr(0,10);
+            queryParameters['scheduleStartDate'] = (requestParameters.scheduleStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.scheduleEndDate !== undefined) {
-            queryParameters['scheduleEndDate'] = (requestParameters.scheduleEndDate as any).toISOString().substr(0,10);
+            queryParameters['scheduleEndDate'] = (requestParameters.scheduleEndDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2035,6 +2418,22 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get hotel housekeeping discrepant rooms
      */
     async getHousekeepingDiscrepanciesRaw(requestParameters: GetHousekeepingDiscrepanciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rooms>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHousekeepingDiscrepancies.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHousekeepingDiscrepancies.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHousekeepingDiscrepancies.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHousekeepingDiscrepancies.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomDiscrepancyStatus) {
@@ -2054,11 +2453,11 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.housekeepingEndDate !== undefined) {
-            queryParameters['housekeepingEndDate'] = (requestParameters.housekeepingEndDate as any).toISOString().substr(0,10);
+            queryParameters['housekeepingEndDate'] = (requestParameters.housekeepingEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.housekeepingStartDate !== undefined) {
-            queryParameters['housekeepingStartDate'] = (requestParameters.housekeepingStartDate as any).toISOString().substr(0,10);
+            queryParameters['housekeepingStartDate'] = (requestParameters.housekeepingStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.floor) {
@@ -2115,6 +2514,22 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get housekeeping rooms overview
      */
     async getHousekeepingOverviewRaw(requestParameters: GetHousekeepingOverviewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HousekeepingBoard>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHousekeepingOverview.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHousekeepingOverview.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHousekeepingOverview.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHousekeepingOverview.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2255,10 +2670,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get Out of Order Rooms
      */
     async getOutOfOrderRoomsRaw(requestParameters: GetOutOfOrderRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rooms>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getOutOfOrderRooms.');
+        }
+
+        if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
+            throw new runtime.RequiredError('startDate','Required parameter requestParameters.startDate was null or undefined when calling getOutOfOrderRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOutOfOrderRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOutOfOrderRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOutOfOrderRooms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomId !== undefined) {
@@ -2266,7 +2701,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomTypes) {
@@ -2323,10 +2758,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get Out of Service Rooms
      */
     async getOutOfServiceRoomsRaw(requestParameters: GetOutOfServiceRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rooms>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getOutOfServiceRooms.');
+        }
+
+        if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
+            throw new runtime.RequiredError('startDate','Required parameter requestParameters.startDate was null or undefined when calling getOutOfServiceRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOutOfServiceRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOutOfServiceRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOutOfServiceRooms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomId !== undefined) {
@@ -2334,7 +2789,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomTypes) {
@@ -2391,6 +2846,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get reservation housekeeping schedule
      */
     async getReservationHousekeepingScheduleRaw(requestParameters: GetReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Schedule>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationHousekeepingSchedule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationIdContext !== undefined) {
@@ -2402,11 +2877,11 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substr(0,10);
+            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fetchInstructions) {
@@ -2459,6 +2934,22 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get rooms condition
      */
     async getRoomConditionsRaw(requestParameters: GetRoomConditionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Rooms>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomConditions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomConditions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomConditions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomConditions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomConditionsOnly !== undefined) {
@@ -2579,6 +3070,22 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get the maintenance rooms
      */
     async getRoomMaintenanceRaw(requestParameters: GetRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomMaintenanceDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRoomMaintenance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomMaintenance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomMaintenance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomMaintenance.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomIdText !== undefined) {
@@ -2630,11 +3137,11 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.resolvedEndDate !== undefined) {
-            queryParameters['resolvedEndDate'] = (requestParameters.resolvedEndDate as any).toISOString().substr(0,10);
+            queryParameters['resolvedEndDate'] = (requestParameters.resolvedEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.resolvedStartDate !== undefined) {
-            queryParameters['resolvedStartDate'] = (requestParameters.resolvedStartDate as any).toISOString().substr(0,10);
+            queryParameters['resolvedStartDate'] = (requestParameters.resolvedStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.includeImages !== undefined) {
@@ -2687,6 +3194,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get task companion
      */
     async getTaskCompanionRaw(requestParameters: GetTaskCompanionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskCompanion>> {
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling getTaskCompanion.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTaskCompanion.');
+        }
+
+        if (requestParameters.taskCodes === null || requestParameters.taskCodes === undefined) {
+            throw new runtime.RequiredError('taskCodes','Required parameter requestParameters.taskCodes was null or undefined when calling getTaskCompanion.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaskCompanion.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaskCompanion.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaskCompanion.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.taskCodes) {
@@ -2694,7 +3225,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.taskDate !== undefined) {
-            queryParameters['taskDate'] = (requestParameters.taskDate as any).toISOString().substr(0,10);
+            queryParameters['taskDate'] = (requestParameters.taskDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomId !== undefined) {
@@ -2755,6 +3286,22 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Get the task sheet templates
      */
     async getTaskSheetTemplateRaw(requestParameters: GetTaskSheetTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaskSheetTemplate>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTaskSheetTemplate.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaskSheetTemplate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaskSheetTemplate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaskSheetTemplate.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.templateCode !== undefined) {
@@ -2806,7 +3353,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Lock the task sheet. <p><strong>OperationId:</strong>lockTaskSheet</p>
      * Lock the task sheet
      */
-    async lockTaskSheetRaw(requestParameters: LockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LockedTaskSheet>> {
+    async lockTaskSheetRaw(requestParameters: LockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LockedTaskSheet>> {
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling lockTaskSheet.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling lockTaskSheet.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling lockTaskSheet.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling lockTaskSheet.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling lockTaskSheet.');
+        }
+
+        if (requestParameters.taskSheetToLock === null || requestParameters.taskSheetToLock === undefined) {
+            throw new runtime.RequiredError('taskSheetToLock','Required parameter requestParameters.taskSheetToLock was null or undefined when calling lockTaskSheet.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2838,7 +3409,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: LockTaskSheetRequestToJSON(requestParameters.taskSheetToLock),
+            body: TaskSheetToLockToJSON(requestParameters.taskSheetToLock),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LockedTaskSheetFromJSON(jsonValue));
@@ -2848,7 +3419,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Lock the task sheet. <p><strong>OperationId:</strong>lockTaskSheet</p>
      * Lock the task sheet
      */
-    async lockTaskSheet(requestParameters: LockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LockedTaskSheet> {
+    async lockTaskSheet(requestParameters: LockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LockedTaskSheet> {
         const response = await this.lockTaskSheetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2857,7 +3428,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to merge task sheet. <p><strong>OperationId:</strong>mergeTaskSheet</p>
      * Merge task sheet
      */
-    async mergeTaskSheetRaw(requestParameters: MergeTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async mergeTaskSheetRaw(requestParameters: MergeTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.toTaskSequenceNo === null || requestParameters.toTaskSequenceNo === undefined) {
+            throw new runtime.RequiredError('toTaskSequenceNo','Required parameter requestParameters.toTaskSequenceNo was null or undefined when calling mergeTaskSheet.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling mergeTaskSheet.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling mergeTaskSheet.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling mergeTaskSheet.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling mergeTaskSheet.');
+        }
+
+        if (requestParameters.taskSheetToMerge === null || requestParameters.taskSheetToMerge === undefined) {
+            throw new runtime.RequiredError('taskSheetToMerge','Required parameter requestParameters.taskSheetToMerge was null or undefined when calling mergeTaskSheet.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2889,7 +3484,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: MergeTaskSheetRequestToJSON(requestParameters.taskSheetToMerge),
+            body: TaskSheetToMergeToJSON(requestParameters.taskSheetToMerge),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2899,7 +3494,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to merge task sheet. <p><strong>OperationId:</strong>mergeTaskSheet</p>
      * Merge task sheet
      */
-    async mergeTaskSheet(requestParameters: MergeTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async mergeTaskSheet(requestParameters: MergeTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.mergeTaskSheetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2908,7 +3503,27 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to Move the tasksheet rooms. <p><strong>OperationId:</strong>moveTaskRooms</p>
      * Move the task rooms
      */
-    async moveTaskRoomsRaw(requestParameters: MoveTaskRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedTaskRoomsRS>> {
+    async moveTaskRoomsRaw(requestParameters: MoveTaskRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedTaskRoomsRS>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling moveTaskRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling moveTaskRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling moveTaskRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling moveTaskRooms.');
+        }
+
+        if (requestParameters.moveTaskRooms === null || requestParameters.moveTaskRooms === undefined) {
+            throw new runtime.RequiredError('moveTaskRooms','Required parameter requestParameters.moveTaskRooms was null or undefined when calling moveTaskRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2940,7 +3555,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: MoveTaskRoomsRequestToJSON(requestParameters.moveTaskRooms),
+            body: MoveTaskRoomsToJSON(requestParameters.moveTaskRooms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MovedTaskRoomsRSFromJSON(jsonValue));
@@ -2950,7 +3565,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to Move the tasksheet rooms. <p><strong>OperationId:</strong>moveTaskRooms</p>
      * Move the task rooms
      */
-    async moveTaskRooms(requestParameters: MoveTaskRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedTaskRoomsRS> {
+    async moveTaskRooms(requestParameters: MoveTaskRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedTaskRoomsRS> {
         const response = await this.moveTaskRoomsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2959,7 +3574,27 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to create housekeeping attendant schedule. <p><strong>OperationId:</strong>postHousekeepingAttendantSchedule</p>
      * Create housekeeping attendant schedule
      */
-    async postHousekeepingAttendantScheduleRaw(requestParameters: PostHousekeepingAttendantScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postHousekeepingAttendantScheduleRaw(requestParameters: PostHousekeepingAttendantScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postHousekeepingAttendantSchedule.');
+        }
+
+        if (requestParameters.attendantSchedule === null || requestParameters.attendantSchedule === undefined) {
+            throw new runtime.RequiredError('attendantSchedule','Required parameter requestParameters.attendantSchedule was null or undefined when calling postHousekeepingAttendantSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2991,7 +3626,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostHousekeepingAttendantScheduleRequestToJSON(requestParameters.attendantSchedule),
+            body: AttendantScheduleToJSON(requestParameters.attendantSchedule),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3001,7 +3636,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to create housekeeping attendant schedule. <p><strong>OperationId:</strong>postHousekeepingAttendantSchedule</p>
      * Create housekeeping attendant schedule
      */
-    async postHousekeepingAttendantSchedule(requestParameters: PostHousekeepingAttendantScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postHousekeepingAttendantSchedule(requestParameters: PostHousekeepingAttendantScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postHousekeepingAttendantScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3011,6 +3646,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Set multiple rooms to Out Of Order
      */
     async postOutOfOrderRoomsRaw(requestParameters: PostOutOfOrderRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postOutOfOrderRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postOutOfOrderRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postOutOfOrderRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postOutOfOrderRooms.');
+        }
+
+        if (requestParameters.roomRepairOutOfOrder === null || requestParameters.roomRepairOutOfOrder === undefined) {
+            throw new runtime.RequiredError('roomRepairOutOfOrder','Required parameter requestParameters.roomRepairOutOfOrder was null or undefined when calling postOutOfOrderRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3062,6 +3717,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Set multiple rooms to Out Of Service
      */
     async postOutOfServiceRoomsRaw(requestParameters: PostOutOfServiceRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postOutOfServiceRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postOutOfServiceRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postOutOfServiceRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postOutOfServiceRooms.');
+        }
+
+        if (requestParameters.roomRepairOutOfService === null || requestParameters.roomRepairOutOfService === undefined) {
+            throw new runtime.RequiredError('roomRepairOutOfService','Required parameter requestParameters.roomRepairOutOfService was null or undefined when calling postOutOfServiceRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3113,6 +3788,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Create reservation housekeeping tasks
      */
     async postReservationHousekeepingTasksRaw(requestParameters: PostReservationHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling postReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postReservationHousekeepingTasks.');
+        }
+
+        if (requestParameters.schedule === null || requestParameters.schedule === undefined) {
+            throw new runtime.RequiredError('schedule','Required parameter requestParameters.schedule was null or undefined when calling postReservationHousekeepingTasks.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3144,7 +3843,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: EditReservationHousekeepingTasksRequestToJSON(requestParameters.schedule),
+            body: ScheduleToJSON(requestParameters.schedule),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3163,7 +3862,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Use this API to create maintenances for rooms. <p><strong>OperationId:</strong>postRoomMaintenance</p>
      * Create maintenances for rooms
      */
-    async postRoomMaintenanceRaw(requestParameters: PostRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomMaintenanceRaw(requestParameters: PostRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.maintenanceCode === null || requestParameters.maintenanceCode === undefined) {
+            throw new runtime.RequiredError('maintenanceCode','Required parameter requestParameters.maintenanceCode was null or undefined when calling postRoomMaintenance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRoomMaintenance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomMaintenance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomMaintenance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomMaintenance.');
+        }
+
+        if (requestParameters.roomMaintenanceRequest === null || requestParameters.roomMaintenanceRequest === undefined) {
+            throw new runtime.RequiredError('roomMaintenanceRequest','Required parameter requestParameters.roomMaintenanceRequest was null or undefined when calling postRoomMaintenance.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3195,7 +3918,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomMaintenanceRequestToJSON(requestParameters.roomMaintenanceRequest),
+            body: RoomMaintenanceRequestToJSON(requestParameters.roomMaintenanceRequest),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3205,7 +3928,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Use this API to create maintenances for rooms. <p><strong>OperationId:</strong>postRoomMaintenance</p>
      * Create maintenances for rooms
      */
-    async postRoomMaintenance(requestParameters: PostRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomMaintenance(requestParameters: PostRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomMaintenanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3215,6 +3938,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Create the task sheet
      */
     async postTaskSheetRaw(requestParameters: PostTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTaskSheet.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTaskSheet.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTaskSheet.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTaskSheet.');
+        }
+
+        if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
+            throw new runtime.RequiredError('taskSheet','Required parameter requestParameters.taskSheet was null or undefined when calling postTaskSheet.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3246,7 +3989,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTaskSheetRequestToJSON(requestParameters.taskSheet),
+            body: TaskSheetToJSON(requestParameters.taskSheet),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3266,6 +4009,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Create the task sheet rooms
      */
     async postTaskSheetRoomsRaw(requestParameters: PostTaskSheetRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTaskSheetRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTaskSheetRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTaskSheetRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTaskSheetRooms.');
+        }
+
+        if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
+            throw new runtime.RequiredError('taskSheet','Required parameter requestParameters.taskSheet was null or undefined when calling postTaskSheetRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3297,7 +4060,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTaskSheetRequestToJSON(requestParameters.taskSheet),
+            body: TaskSheetToJSON(requestParameters.taskSheet),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3317,6 +4080,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Delete room cleaning priority
      */
     async putRoomCleaningPriorityRaw(requestParameters: PutRoomCleaningPriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRoomCleaningPriority.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling putRoomCleaningPriority.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomCleaningPriority.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomCleaningPriority.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomCleaningPriority.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomId) {
@@ -3369,6 +4152,34 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Change maintenances for rooms
      */
     async putRoomMaintenanceRaw(requestParameters: PutRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedRoomMaintenance>> {
+        if (requestParameters.maintenanceId === null || requestParameters.maintenanceId === undefined) {
+            throw new runtime.RequiredError('maintenanceId','Required parameter requestParameters.maintenanceId was null or undefined when calling putRoomMaintenance.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling putRoomMaintenance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRoomMaintenance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomMaintenance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomMaintenance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomMaintenance.');
+        }
+
+        if (requestParameters.roomMaintenance === null || requestParameters.roomMaintenance === undefined) {
+            throw new runtime.RequiredError('roomMaintenance','Required parameter requestParameters.roomMaintenance was null or undefined when calling putRoomMaintenance.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3400,7 +4211,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ResolveRoomMaintenanceRequestToJSON(requestParameters.roomMaintenance),
+            body: RoomMaintenanceToJSON(requestParameters.roomMaintenance),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedRoomMaintenanceFromJSON(jsonValue));
@@ -3420,6 +4231,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Update Housekeeping Room Status
      */
     async putRoomRelatedStatusRaw(requestParameters: PutRoomRelatedStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HousekeepingRoomStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRoomRelatedStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomRelatedStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomRelatedStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomRelatedStatus.');
+        }
+
+        if (requestParameters.housekeepingRoomStatusCriteria === null || requestParameters.housekeepingRoomStatusCriteria === undefined) {
+            throw new runtime.RequiredError('housekeepingRoomStatusCriteria','Required parameter requestParameters.housekeepingRoomStatusCriteria was null or undefined when calling putRoomRelatedStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3470,7 +4301,27 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to change the task sheet. <p><strong>OperationId:</strong>putTaskSheet</p>
      * Change the task sheet
      */
-    async putTaskSheetRaw(requestParameters: PutTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheet>> {
+    async putTaskSheetRaw(requestParameters: PutTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheet>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putTaskSheet.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTaskSheet.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTaskSheet.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTaskSheet.');
+        }
+
+        if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
+            throw new runtime.RequiredError('taskSheet','Required parameter requestParameters.taskSheet was null or undefined when calling putTaskSheet.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3502,7 +4353,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTaskSheetRequestToJSON(requestParameters.taskSheet),
+            body: TaskSheetToJSON(requestParameters.taskSheet),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedTaskSheetFromJSON(jsonValue));
@@ -3512,7 +4363,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to change the task sheet. <p><strong>OperationId:</strong>putTaskSheet</p>
      * Change the task sheet
      */
-    async putTaskSheet(requestParameters: PutTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheet> {
+    async putTaskSheet(requestParameters: PutTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheet> {
         const response = await this.putTaskSheetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3522,6 +4373,26 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Change the task sheet rooms
      */
     async putTaskSheetRoomsRaw(requestParameters: PutTaskSheetRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheetRooms>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putTaskSheetRooms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTaskSheetRooms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTaskSheetRooms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTaskSheetRooms.');
+        }
+
+        if (requestParameters.taskSheet === null || requestParameters.taskSheet === undefined) {
+            throw new runtime.RequiredError('taskSheet','Required parameter requestParameters.taskSheet was null or undefined when calling putTaskSheetRooms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3553,7 +4424,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTaskSheetRequestToJSON(requestParameters.taskSheet),
+            body: TaskSheetToJSON(requestParameters.taskSheet),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedTaskSheetRoomsFromJSON(jsonValue));
@@ -3572,7 +4443,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to change the task sheet templates. <p><strong>OperationId:</strong>putTaskSheetTemplate</p>
      * Change the task sheet templates
      */
-    async putTaskSheetTemplateRaw(requestParameters: PutTaskSheetTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheetTemplate>> {
+    async putTaskSheetTemplateRaw(requestParameters: PutTaskSheetTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheetTemplate>> {
+        if (requestParameters.taskSheetTemplateCode === null || requestParameters.taskSheetTemplateCode === undefined) {
+            throw new runtime.RequiredError('taskSheetTemplateCode','Required parameter requestParameters.taskSheetTemplateCode was null or undefined when calling putTaskSheetTemplate.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putTaskSheetTemplate.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTaskSheetTemplate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTaskSheetTemplate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTaskSheetTemplate.');
+        }
+
+        if (requestParameters.taskSheetTemplate === null || requestParameters.taskSheetTemplate === undefined) {
+            throw new runtime.RequiredError('taskSheetTemplate','Required parameter requestParameters.taskSheetTemplate was null or undefined when calling putTaskSheetTemplate.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3604,7 +4499,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTaskSheetTemplateRequestToJSON(requestParameters.taskSheetTemplate),
+            body: TaskSheetTemplateToJSON(requestParameters.taskSheetTemplate),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedTaskSheetTemplateFromJSON(jsonValue));
@@ -3614,7 +4509,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to change the task sheet templates. <p><strong>OperationId:</strong>putTaskSheetTemplate</p>
      * Change the task sheet templates
      */
-    async putTaskSheetTemplate(requestParameters: PutTaskSheetTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheetTemplate> {
+    async putTaskSheetTemplate(requestParameters: PutTaskSheetTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheetTemplate> {
         const response = await this.putTaskSheetTemplateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3623,7 +4518,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to reset reservation housekeeping schedule. <p><strong>OperationId:</strong>resetReservationHousekeepingSchedule</p>
      * Reset reservation housekeeping schedule
      */
-    async resetReservationHousekeepingScheduleRaw(requestParameters: ResetReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledSearch>> {
+    async resetReservationHousekeepingScheduleRaw(requestParameters: ResetReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledSearch>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling resetReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling resetReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling resetReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling resetReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling resetReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.scheduleSearch === null || requestParameters.scheduleSearch === undefined) {
+            throw new runtime.RequiredError('scheduleSearch','Required parameter requestParameters.scheduleSearch was null or undefined when calling resetReservationHousekeepingSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3655,7 +4574,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ResetReservationHousekeepingScheduleRequestToJSON(requestParameters.scheduleSearch),
+            body: ScheduleSearchToJSON(requestParameters.scheduleSearch),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ScheduledSearchFromJSON(jsonValue));
@@ -3665,7 +4584,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to reset reservation housekeeping schedule. <p><strong>OperationId:</strong>resetReservationHousekeepingSchedule</p>
      * Reset reservation housekeeping schedule
      */
-    async resetReservationHousekeepingSchedule(requestParameters: ResetReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledSearch> {
+    async resetReservationHousekeepingSchedule(requestParameters: ResetReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledSearch> {
         const response = await this.resetReservationHousekeepingScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3674,7 +4593,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Use this API to Resolve maintenances for rooms. <p><strong>OperationId:</strong>resolveRoomMaintenance</p>
      * Resolve maintenances for rooms
      */
-    async resolveRoomMaintenanceRaw(requestParameters: ResolveRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolvedRoomMaintenance>> {
+    async resolveRoomMaintenanceRaw(requestParameters: ResolveRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolvedRoomMaintenance>> {
+        if (requestParameters.mainteananceId === null || requestParameters.mainteananceId === undefined) {
+            throw new runtime.RequiredError('mainteananceId','Required parameter requestParameters.mainteananceId was null or undefined when calling resolveRoomMaintenance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling resolveRoomMaintenance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling resolveRoomMaintenance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling resolveRoomMaintenance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling resolveRoomMaintenance.');
+        }
+
+        if (requestParameters.roomMaintenance === null || requestParameters.roomMaintenance === undefined) {
+            throw new runtime.RequiredError('roomMaintenance','Required parameter requestParameters.roomMaintenance was null or undefined when calling resolveRoomMaintenance.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3706,7 +4649,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ResolveRoomMaintenanceRequestToJSON(requestParameters.roomMaintenance),
+            body: RoomMaintenanceToJSON(requestParameters.roomMaintenance),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ResolvedRoomMaintenanceFromJSON(jsonValue));
@@ -3716,7 +4659,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Use this API to Resolve maintenances for rooms. <p><strong>OperationId:</strong>resolveRoomMaintenance</p>
      * Resolve maintenances for rooms
      */
-    async resolveRoomMaintenance(requestParameters: ResolveRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolvedRoomMaintenance> {
+    async resolveRoomMaintenance(requestParameters: ResolveRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolvedRoomMaintenance> {
         const response = await this.resolveRoomMaintenanceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3725,7 +4668,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to Set guest housekeeping instructions. <p><strong>OperationId:</strong>setGuestHousekeepingNotes</p>
      * Set guest housekeeping instructions
      */
-    async setGuestHousekeepingNotesRaw(requestParameters: SetGuestHousekeepingNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingService>> {
+    async setGuestHousekeepingNotesRaw(requestParameters: SetGuestHousekeepingNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingService>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling setGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setGuestHousekeepingNotes.');
+        }
+
+        if (requestParameters.guestHousekeepingServiceRequest === null || requestParameters.guestHousekeepingServiceRequest === undefined) {
+            throw new runtime.RequiredError('guestHousekeepingServiceRequest','Required parameter requestParameters.guestHousekeepingServiceRequest was null or undefined when calling setGuestHousekeepingNotes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3757,7 +4724,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetGuestHousekeepingNotesRequestToJSON(requestParameters.guestHousekeepingServiceRequest),
+            body: GuestHousekeepingServiceRequestToJSON(requestParameters.guestHousekeepingServiceRequest),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GuestHousekeepingServiceFromJSON(jsonValue));
@@ -3767,7 +4734,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to Set guest housekeeping instructions. <p><strong>OperationId:</strong>setGuestHousekeepingNotes</p>
      * Set guest housekeeping instructions
      */
-    async setGuestHousekeepingNotes(requestParameters: SetGuestHousekeepingNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingService> {
+    async setGuestHousekeepingNotes(requestParameters: SetGuestHousekeepingNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingService> {
         const response = await this.setGuestHousekeepingNotesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3776,7 +4743,27 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Set the guest housekeeping service requests <p><strong>OperationId:</strong>setGuestHousekeepingServiceRequest</p>
      * Set the Guest housekeeping service requests
      */
-    async setGuestHousekeepingServiceRequestRaw(requestParameters: SetGuestHousekeepingServiceRequestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingServiceRequestStatus>> {
+    async setGuestHousekeepingServiceRequestRaw(requestParameters: SetGuestHousekeepingServiceRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingServiceRequestStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setGuestHousekeepingServiceRequest.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setGuestHousekeepingServiceRequest.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setGuestHousekeepingServiceRequest.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setGuestHousekeepingServiceRequest.');
+        }
+
+        if (requestParameters.guestHousekeepingServiceRequestCriteria === null || requestParameters.guestHousekeepingServiceRequestCriteria === undefined) {
+            throw new runtime.RequiredError('guestHousekeepingServiceRequestCriteria','Required parameter requestParameters.guestHousekeepingServiceRequestCriteria was null or undefined when calling setGuestHousekeepingServiceRequest.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3808,7 +4795,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetGuestHousekeepingServiceRequestRequestToJSON(requestParameters.guestHousekeepingServiceRequestCriteria),
+            body: GuestHousekeepingServiceRequestCriteriaToJSON(requestParameters.guestHousekeepingServiceRequestCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => GuestHousekeepingServiceRequestStatusFromJSON(jsonValue));
@@ -3818,7 +4805,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Set the guest housekeeping service requests <p><strong>OperationId:</strong>setGuestHousekeepingServiceRequest</p>
      * Set the Guest housekeeping service requests
      */
-    async setGuestHousekeepingServiceRequest(requestParameters: SetGuestHousekeepingServiceRequestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingServiceRequestStatus> {
+    async setGuestHousekeepingServiceRequest(requestParameters: SetGuestHousekeepingServiceRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingServiceRequestStatus> {
         const response = await this.setGuestHousekeepingServiceRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3827,7 +4814,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to set the room cleaning priority. <p><strong>OperationId:</strong>setRoomCleaningPriority</p>
      * Set the room cleaning priority
      */
-    async setRoomCleaningPriorityRaw(requestParameters: SetRoomCleaningPriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomCleaningPriorityRequestStatus>> {
+    async setRoomCleaningPriorityRaw(requestParameters: SetRoomCleaningPriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomCleaningPriorityRequestStatus>> {
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling setRoomCleaningPriority.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setRoomCleaningPriority.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setRoomCleaningPriority.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setRoomCleaningPriority.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setRoomCleaningPriority.');
+        }
+
+        if (requestParameters.roomCleaningPriority === null || requestParameters.roomCleaningPriority === undefined) {
+            throw new runtime.RequiredError('roomCleaningPriority','Required parameter requestParameters.roomCleaningPriority was null or undefined when calling setRoomCleaningPriority.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3859,7 +4870,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetRoomCleaningPriorityRequestToJSON(requestParameters.roomCleaningPriority),
+            body: RoomCleaningPriorityToJSON(requestParameters.roomCleaningPriority),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoomCleaningPriorityRequestStatusFromJSON(jsonValue));
@@ -3869,7 +4880,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to set the room cleaning priority. <p><strong>OperationId:</strong>setRoomCleaningPriority</p>
      * Set the room cleaning priority
      */
-    async setRoomCleaningPriority(requestParameters: SetRoomCleaningPriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomCleaningPriorityRequestStatus> {
+    async setRoomCleaningPriority(requestParameters: SetRoomCleaningPriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomCleaningPriorityRequestStatus> {
         const response = await this.setRoomCleaningPriorityRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3878,7 +4889,27 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to set, change, or delete a condition on rooms. A condition is used to designate rooms that are available for show, set aside for special housekeeping attention, or are to be treated differently for any other reason. <p><strong>OperationId:</strong>setRoomCondition</p>
      * Set rooms condition
      */
-    async setRoomConditionRaw(requestParameters: SetRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomConditionRequestStatus>> {
+    async setRoomConditionRaw(requestParameters: SetRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomConditionRequestStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setRoomCondition.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setRoomCondition.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setRoomCondition.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setRoomCondition.');
+        }
+
+        if (requestParameters.roomCondition === null || requestParameters.roomCondition === undefined) {
+            throw new runtime.RequiredError('roomCondition','Required parameter requestParameters.roomCondition was null or undefined when calling setRoomCondition.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3910,7 +4941,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetRoomConditionRequestToJSON(requestParameters.roomCondition),
+            body: RoomConditionToJSON(requestParameters.roomCondition),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoomConditionRequestStatusFromJSON(jsonValue));
@@ -3920,7 +4951,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to set, change, or delete a condition on rooms. A condition is used to designate rooms that are available for show, set aside for special housekeeping attention, or are to be treated differently for any other reason. <p><strong>OperationId:</strong>setRoomCondition</p>
      * Set rooms condition
      */
-    async setRoomCondition(requestParameters: SetRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomConditionRequestStatus> {
+    async setRoomCondition(requestParameters: SetRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomConditionRequestStatus> {
         const response = await this.setRoomConditionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3929,7 +4960,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to shift reservation housekeeping schedule. <p><strong>OperationId:</strong>shiftReservationHousekeepingSchedule</p>
      * Shift reservation housekeeping schedule
      */
-    async shiftReservationHousekeepingScheduleRaw(requestParameters: ShiftReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledShiftRequest>> {
+    async shiftReservationHousekeepingScheduleRaw(requestParameters: ShiftReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledShiftRequest>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling shiftReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling shiftReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling shiftReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling shiftReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling shiftReservationHousekeepingSchedule.');
+        }
+
+        if (requestParameters.scheduleShiftRequest === null || requestParameters.scheduleShiftRequest === undefined) {
+            throw new runtime.RequiredError('scheduleShiftRequest','Required parameter requestParameters.scheduleShiftRequest was null or undefined when calling shiftReservationHousekeepingSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3961,7 +5016,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ShiftReservationHousekeepingScheduleRequestToJSON(requestParameters.scheduleShiftRequest),
+            body: ScheduleShiftRequestToJSON(requestParameters.scheduleShiftRequest),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ScheduledShiftRequestFromJSON(jsonValue));
@@ -3971,7 +5026,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to shift reservation housekeeping schedule. <p><strong>OperationId:</strong>shiftReservationHousekeepingSchedule</p>
      * Shift reservation housekeeping schedule
      */
-    async shiftReservationHousekeepingSchedule(requestParameters: ShiftReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledShiftRequest> {
+    async shiftReservationHousekeepingSchedule(requestParameters: ShiftReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledShiftRequest> {
         const response = await this.shiftReservationHousekeepingScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3981,6 +5036,34 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Skip servicing task room
      */
     async skipServicingTaskRoomRaw(requestParameters: SkipServicingTaskRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SkipedServicingTaskRoom>> {
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling skipServicingTaskRoom.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling skipServicingTaskRoom.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling skipServicingTaskRoom.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling skipServicingTaskRoom.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling skipServicingTaskRoom.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling skipServicingTaskRoom.');
+        }
+
+        if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
+            throw new runtime.RequiredError('taskRoom','Required parameter requestParameters.taskRoom was null or undefined when calling skipServicingTaskRoom.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4012,7 +5095,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CancelServicingTaskRoomRequestToJSON(requestParameters.taskRoom),
+            body: TaskRoomToJSON(requestParameters.taskRoom),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SkipedServicingTaskRoomFromJSON(jsonValue));
@@ -4032,6 +5115,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Start the service break
      */
     async startServiceBreakRaw(requestParameters: StartServiceBreakRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StartedServiceBreak>> {
+        if (requestParameters.taskSheetNumber === null || requestParameters.taskSheetNumber === undefined) {
+            throw new runtime.RequiredError('taskSheetNumber','Required parameter requestParameters.taskSheetNumber was null or undefined when calling startServiceBreak.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling startServiceBreak.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling startServiceBreak.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling startServiceBreak.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling startServiceBreak.');
+        }
+
+        if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
+            throw new runtime.RequiredError('taskRoom','Required parameter requestParameters.taskRoom was null or undefined when calling startServiceBreak.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4063,7 +5170,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CancelServicingTaskRoomRequestToJSON(requestParameters.taskRoom),
+            body: TaskRoomToJSON(requestParameters.taskRoom),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StartedServiceBreakFromJSON(jsonValue));
@@ -4083,6 +5190,34 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * Start servicing task room
      */
     async startServicingTaskRoomRaw(requestParameters: StartServicingTaskRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceTime>> {
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling startServicingTaskRoom.');
+        }
+
+        if (requestParameters.roomId === null || requestParameters.roomId === undefined) {
+            throw new runtime.RequiredError('roomId','Required parameter requestParameters.roomId was null or undefined when calling startServicingTaskRoom.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling startServicingTaskRoom.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling startServicingTaskRoom.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling startServicingTaskRoom.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling startServicingTaskRoom.');
+        }
+
+        if (requestParameters.taskRoom === null || requestParameters.taskRoom === undefined) {
+            throw new runtime.RequiredError('taskRoom','Required parameter requestParameters.taskRoom was null or undefined when calling startServicingTaskRoom.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4114,7 +5249,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CancelServicingTaskRoomRequestToJSON(requestParameters.taskRoom),
+            body: TaskRoomToJSON(requestParameters.taskRoom),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ServiceTimeFromJSON(jsonValue));
@@ -4134,6 +5269,30 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * unResolve the maintenances for rooms
      */
     async unResolveRoomMaintenanceRaw(requestParameters: UnResolveRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnresolvedRoomMaintenance>> {
+        if (requestParameters.mainteananceId === null || requestParameters.mainteananceId === undefined) {
+            throw new runtime.RequiredError('mainteananceId','Required parameter requestParameters.mainteananceId was null or undefined when calling unResolveRoomMaintenance.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling unResolveRoomMaintenance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling unResolveRoomMaintenance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling unResolveRoomMaintenance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling unResolveRoomMaintenance.');
+        }
+
+        if (requestParameters.roomMaintenance === null || requestParameters.roomMaintenance === undefined) {
+            throw new runtime.RequiredError('roomMaintenance','Required parameter requestParameters.roomMaintenance was null or undefined when calling unResolveRoomMaintenance.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4165,7 +5324,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ResolveRoomMaintenanceRequestToJSON(requestParameters.roomMaintenance),
+            body: RoomMaintenanceToJSON(requestParameters.roomMaintenance),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UnresolvedRoomMaintenanceFromJSON(jsonValue));
@@ -4184,7 +5343,31 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Unlock the task sheet. <p><strong>OperationId:</strong>unlockTaskSheet</p>
      * Unlock the task sheet
      */
-    async unlockTaskSheetRaw(requestParameters: UnlockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnlockedTaskSheet>> {
+    async unlockTaskSheetRaw(requestParameters: UnlockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnlockedTaskSheet>> {
+        if (requestParameters.sheetNumber === null || requestParameters.sheetNumber === undefined) {
+            throw new runtime.RequiredError('sheetNumber','Required parameter requestParameters.sheetNumber was null or undefined when calling unlockTaskSheet.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling unlockTaskSheet.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling unlockTaskSheet.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling unlockTaskSheet.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling unlockTaskSheet.');
+        }
+
+        if (requestParameters.taskSheetToUnlock === null || requestParameters.taskSheetToUnlock === undefined) {
+            throw new runtime.RequiredError('taskSheetToUnlock','Required parameter requestParameters.taskSheetToUnlock was null or undefined when calling unlockTaskSheet.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4216,7 +5399,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UnlockTaskSheetRequestToJSON(requestParameters.taskSheetToUnlock),
+            body: TaskSheetToUnlockToJSON(requestParameters.taskSheetToUnlock),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UnlockedTaskSheetFromJSON(jsonValue));
@@ -4226,7 +5409,7 @@ export class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Unlock the task sheet. <p><strong>OperationId:</strong>unlockTaskSheet</p>
      * Unlock the task sheet
      */
-    async unlockTaskSheet(requestParameters: UnlockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnlockedTaskSheet> {
+    async unlockTaskSheet(requestParameters: UnlockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnlockedTaskSheet> {
         const response = await this.unlockTaskSheetRaw(requestParameters, initOverrides);
         return await response.value();
     }

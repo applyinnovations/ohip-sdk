@@ -45,7 +45,7 @@ function ForeignExchangeTypeToJSON(value) {
         return null;
     }
     return {
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substr(0, 10)),
+        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0, 10)),
         'type': value.type,
     };
 }

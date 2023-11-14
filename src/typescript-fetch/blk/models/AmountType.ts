@@ -157,11 +157,11 @@ export function AmountTypeToJSON(value?: AmountType | null): any {
         'base': TotalTypeToJSON(value.base),
         'discount': DiscountTypeToJSON(value.discount),
         'effectiveRate': TotalTypeToJSON(value.effectiveRate),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'requiredPoints': PointsTypeToJSON(value.requiredPoints),
         'shareDistributionInstruction': ShareDistributionInstructionTypeToJSON(value.shareDistributionInstruction),
         'shareRatePercentage': value.shareRatePercentage,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'total': TotalTypeToJSON(value.total),
     };
 }

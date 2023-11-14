@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HotelsApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,18 @@ class HotelsApi extends runtime.BaseAPI {
      */
     openPaymentTokenExchangeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelCode === null || requestParameters.hotelCode === undefined) {
+                throw new runtime.RequiredError('hotelCode', 'Required parameter requestParameters.hotelCode was null or undefined when calling openPaymentTokenExchange.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling openPaymentTokenExchange.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling openPaymentTokenExchange.');
+            }
+            if (requestParameters.body === null || requestParameters.body === undefined) {
+                throw new runtime.RequiredError('body', 'Required parameter requestParameters.body was null or undefined when calling openPaymentTokenExchange.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json';
@@ -75,9 +87,9 @@ class HotelsApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.OpenPaymentTokenExchangeRequestToJSON)(requestParameters.body),
+                body: (0, index_1.OpenPaymentTokenExchangeRequestToJSON)(requestParameters.body),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.OpenPaymentTokenExchange200ResponseFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.OpenPaymentTokenExchange200ResponseFromJSON)(jsonValue));
         });
     }
     /**

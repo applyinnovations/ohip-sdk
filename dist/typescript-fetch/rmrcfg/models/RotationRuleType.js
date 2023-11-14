@@ -63,7 +63,7 @@ function RotationRuleTypeToJSON(value) {
     return {
         'calculationRule': (0, RotationRuleCalculationRuleType_1.RotationRuleCalculationRuleTypeToJSON)(value.calculationRule),
         'daysOfWeek': (0, DaysOfWeekAttrType_1.DaysOfWeekAttrTypeToJSON)(value.daysOfWeek),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'multiplier': value.multiplier,
         'points': value.points,
         'rateCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCodes),
@@ -72,7 +72,7 @@ function RotationRuleTypeToJSON(value) {
         'roomTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.roomTypes),
         'ruleId': value.ruleId,
         'setupType': (0, RotationRuleSetupType_1.RotationRuleSetupTypeToJSON)(value.setupType),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'status': (0, RotationRuleStatusType_1.RotationRuleStatusTypeToJSON)(value.status),
     };
 }

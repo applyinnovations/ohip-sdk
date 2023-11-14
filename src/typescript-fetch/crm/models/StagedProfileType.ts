@@ -309,7 +309,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
         'emails': value.emails === undefined ? undefined : ((value.emails as Array<any>).map(StagedProfileEmailTypeToJSON)),
         'hotelId': value.hotelId,
         'identifications': value.identifications === undefined ? undefined : ((value.identifications as Array<any>).map(StagedProfileIdentificationsTypeToJSON)),
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substr(0,10)),
+        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
         'keywords': value.keywords === undefined ? undefined : ((value.keywords as Array<any>).map(StagedProfileKeywordTypeToJSON)),
         'mailingActions': MailingActionsTypeToJSON(value.mailingActions),
         'memberships': value.memberships === undefined ? undefined : ((value.memberships as Array<any>).map(StagedProfileMembershipTypeToJSON)),

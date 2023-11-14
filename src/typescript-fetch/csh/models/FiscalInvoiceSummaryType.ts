@@ -152,7 +152,7 @@ export function FiscalInvoiceSummaryTypeToJSON(value?: FiscalInvoiceSummaryType 
         
         'fiscalBillNo': value.fiscalBillNo,
         'fiscalTerminalId': value.fiscalTerminalId,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substr(0,10)),
+        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,

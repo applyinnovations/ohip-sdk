@@ -111,7 +111,7 @@ export function MoveTaskRoomsCriteriaTypeToJSON(value?: MoveTaskRoomsCriteriaTyp
         'hotelId': value.hotelId,
         'rooms': value.rooms === undefined ? undefined : ((value.rooms as Array<any>).map(RoomTypeToJSON)),
         'taskCode': value.taskCode === undefined ? undefined : ((value.taskCode as Array<any>).map(HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0,10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
         'toTaskSheetNumber': value.toTaskSheetNumber,
     };
 }

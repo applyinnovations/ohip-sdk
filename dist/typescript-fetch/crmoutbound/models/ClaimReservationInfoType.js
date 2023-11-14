@@ -50,8 +50,8 @@ function ClaimReservationInfoTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'confirmationNo': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.confirmationNo),
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substr(0, 10)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substr(0, 10)),
+        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
+        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
     };
 }
 exports.ClaimReservationInfoTypeToJSON = ClaimReservationInfoTypeToJSON;

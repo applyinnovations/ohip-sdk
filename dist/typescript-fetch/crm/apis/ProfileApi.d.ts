@@ -10,49 +10,49 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AccountForecasts, AwardDetails, ChangeAccountForecastsRS, ChangeMembershipRequest, ChangeProfileCashieringDetailsRequest, ChangeProfileOwnersRequest, ChangeStagedProfileRequest, ChangedMembership, CheckedProfiles, CityState, Company, ConsumeECertificateRequest, CopyProfileCommissionAccountRequest, DistributePreferenceRequest, DuplicateExternalSubscriptions, DuplicateOPERASubscriptions, ECertificates, ExtendECertificateRequest, FulfillmentExportedLogs, FuturePastBookings, Guest, LinkedProfiles, MatchedProfiles, MembershipTierProjections, MergeProfilesRequest, MergedProfilesSnapshotDetails, MergedStageProfileSnapshot, PostAccountForecastRequest, PostCompanyProfileRequest, PostECertificateRequest, PostGuestProfileRequest, PostMembershipNumberRequest, PostProfileOwnersRequest, PostProfileRelationshipRequest, PostProfileRequest, Preference, Profile, ProfileAccounts, ProfileActivityLog, ProfileAttachments, ProfileCashieringDetailsInfo, ProfileCommissionAccountInfo, ProfileDetails, ProfileOwnersDetail, ProfileRelationships, ProfileStayHistory, ProfileSummaries, PutProfileRelationshipRequest, PutProfileRequest, RecentlyAccessedProfiles, SetProfileCommissionAccountRequest, StagedProfileDetails, StagedProfiles, Status, StoreEmailRequest, SuspendedAddresses, SuspendedProfileErrorSummaryInfo, SynchronizeProfileSubscriptionsRequest, ValidateForgetProfilesRequest, ValidateReservationsForProfileRequest, ValidatedForgetProfiles, VerifiedECertificate, VerifyECertificateRequest } from '../models';
-export interface ChangeMembershipOperationRequest {
-    membershipId?: string;
-    membershipType?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membership?: ChangeMembershipRequest;
+import type { AccountForecasts, AwardDetails, ChangeAccountForecastsRS, ChangeProfileOwnersRequest, ChangedMembership, CheckedProfiles, CityState, Company, DuplicateExternalSubscriptions, DuplicateOPERASubscriptions, ECertificateGeneration, ECertificateToConsume, ECertificateToExtend, ECertificateToVerify, ECertificates, ForecastsInformation, ForgetProfilesCriteria, FulfillmentExportedLogs, FuturePastBookings, FuturePastBookingsCriteria, Guest, LinkedProfiles, MatchedProfiles, Membership, MembershipNumber, MembershipTierProjections, MergeProfilesRequest, MergedProfilesSnapshotDetails, MergedStageProfileSnapshot, PostProfileRelationshipRequest, PostProfileRequest, Preference, Profile, ProfileAccounts, ProfileActivityLog, ProfileAttachments, ProfileCashieringDetails, ProfileCashieringDetailsInfo, ProfileCommissionAccount, ProfileCommissionAccountCopy, ProfileCommissionAccountInfo, ProfileDetails, ProfileOwners, ProfileOwnersDetail, ProfileRelationships, ProfileStayHistory, ProfileSubscriptionsToSynchronize, ProfileSummaries, PutProfileRelationshipRequest, PutProfileRequest, RecentlyAccessedProfiles, StagedProfile, StagedProfileDetails, StagedProfiles, Status, StoreEmailRequest, SuspendedAddresses, SuspendedProfileErrorSummaryInfo, ValidatedForgetProfiles, VerifiedECertificate } from '../models/index';
+export interface ChangeMembershipRequest {
+    membershipId: string;
+    membershipType: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membership: Membership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeProfileCashieringDetailsOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileCashieringDetails?: ChangeProfileCashieringDetailsRequest;
+export interface ChangeProfileCashieringDetailsRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileCashieringDetails: ProfileCashieringDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeProfileOwnersOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileOwners?: ChangeProfileOwnersRequest;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileOwners: ChangeProfileOwnersRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeStagedProfileOperationRequest {
-    id?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    stagedProfile?: ChangeStagedProfileRequest;
+export interface ChangeStagedProfileRequest {
+    id: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    stagedProfile: StagedProfile;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CheckProfileTypeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idContext?: string;
     idType?: string;
@@ -60,108 +60,108 @@ export interface CheckProfileTypeRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ConsumeECertificateOperationRequest {
-    certificateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCertificateToConsume?: ConsumeECertificateRequest;
+export interface ConsumeECertificateRequest {
+    certificateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCertificateToConsume: ECertificateToConsume;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyProfileCommissionAccountOperationRequest {
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileCommissionAccountCopy?: CopyProfileCommissionAccountRequest;
+export interface CopyProfileCommissionAccountRequest {
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileCommissionAccountCopy: ProfileCommissionAccountCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAccountForecastRequest {
-    periodCode?: string;
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    periodCode: string;
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     periodCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCertificateRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteECertificateRequest {
-    certificateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    certificateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGlobalPreferenceRequest {
-    preferenceCode?: string;
-    preferenceType?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceCode: string;
+    preferenceType: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     registeredProperty?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipRequest {
-    membershipId?: string;
-    membershipType?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    membershipType: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMultipleAccountForecastsRequest {
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     periodCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePreferenceRequest {
-    preferenceCode?: string;
-    preferenceType?: string;
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceCode: string;
+    preferenceType: string;
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     registeredProperty?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileAttachmentRequest {
-    attachmentId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attachmentId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: Array<number>;
     idContext?: Array<string>;
     type?: Array<string>;
@@ -172,10 +172,10 @@ export interface DeleteProfileAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfileCommissionAccountRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     validatePending?: boolean;
     hotelId?: string;
     profileIdExtension?: number;
@@ -191,37 +191,37 @@ export interface DeleteProfileCommissionAccountRequest {
     acceptLanguage?: string;
 }
 export interface DeleteProfilePermanentlyRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DistributePreferenceOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preference?: DistributePreferenceRequest;
+export interface DistributePreferenceRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preference: Preference;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ExtendECertificateOperationRequest {
-    certificateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCertificateToExtend?: ExtendECertificateRequest;
+export interface ExtendECertificateRequest {
+    certificateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCertificateToExtend: ECertificateToExtend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAccountForecastsRequest {
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fromPeriodCode?: string;
     limit?: number;
     offset?: number;
@@ -229,9 +229,9 @@ export interface GetAccountForecastsRequest {
     acceptLanguage?: string;
 }
 export interface GetAddressRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     excludeNoCity?: boolean;
     cityName?: string;
     postalCode?: string;
@@ -242,10 +242,10 @@ export interface GetAddressRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileContext?: string;
     profileType?: string;
     hotelId?: string;
@@ -253,10 +253,10 @@ export interface GetAwardsRequest {
     acceptLanguage?: string;
 }
 export interface GetCashieringDetailsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchPaymentMethod?: boolean;
     fetchRoutingInstruction?: boolean;
     idContext?: string;
@@ -266,18 +266,18 @@ export interface GetCashieringDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetCompanyProfileRequest {
-    corporateID?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    corporateID: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetCompanyProfileFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetDuplicateExternalSubscriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     databaseId?: string;
@@ -288,9 +288,9 @@ export interface GetDuplicateExternalSubscriptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetDuplicateOPERASubscriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     databaseId?: string;
@@ -301,9 +301,9 @@ export interface GetDuplicateOPERASubscriptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetECertificatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileId?: string;
     profileContext?: string;
     profileType?: string;
@@ -319,10 +319,10 @@ export interface GetECertificatesRequest {
     acceptLanguage?: string;
 }
 export interface GetFulfillmentExportLogsRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idContext?: string;
     idType?: string;
@@ -331,20 +331,20 @@ export interface GetFulfillmentExportLogsRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestProfileRequest {
-    guestId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     fetchInstructions?: Set<GetGuestProfileFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetLinkedProfilesRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     idType?: string;
     profileTypes?: Set<GetLinkedProfilesProfileTypesEnum>;
@@ -373,10 +373,10 @@ export interface GetLinkedProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetMatchProfilesRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     idContext?: string;
     idType?: string;
@@ -384,9 +384,9 @@ export interface GetMatchProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTierProjectionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipId?: string;
     membershipType?: string;
     id?: string;
@@ -398,10 +398,10 @@ export interface GetMembershipTierProjectionsRequest {
     acceptLanguage?: string;
 }
 export interface GetMergeProfilesSnapshotRequest {
-    survivorProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    survivorProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     originalId?: string;
     originalIdContext?: string;
     originalIdType?: string;
@@ -412,10 +412,10 @@ export interface GetMergeProfilesSnapshotRequest {
     acceptLanguage?: string;
 }
 export interface GetMergeStageProfileSnapshotRequest {
-    survivorProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    survivorProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     resortProfileId?: string;
     resortProfileIdContext?: string;
@@ -426,10 +426,10 @@ export interface GetMergeStageProfileSnapshotRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferenceForProfileRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idContext?: Array<string>;
     type?: Array<string>;
@@ -439,10 +439,10 @@ export interface GetPreferenceForProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     logViewProfile?: boolean;
     showInactiveRoomOwners?: boolean;
@@ -455,10 +455,10 @@ export interface GetProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileAccountsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: Array<string>;
     type?: Array<string>;
     hotelIds?: Array<string>;
@@ -466,9 +466,9 @@ export interface GetProfileAccountsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileActivityLogRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     activityParamsHotelId?: string;
@@ -486,21 +486,21 @@ export interface GetProfileActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileAttachmentsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetProfileByExtIdRequest {
-    profileExternalId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileExternalId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     logViewProfile?: boolean;
     showInactiveRoomOwners?: boolean;
@@ -512,19 +512,19 @@ export interface GetProfileByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileCommissionAccountRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetProfileOwnersRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idContext?: Array<string>;
     type?: Array<string>;
@@ -532,18 +532,18 @@ export interface GetProfileOwnersRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRelationshipsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     relationshipPrimaryProfile?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetProfilesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     excludeInactive?: boolean;
     hotelId?: string;
     includeHasHierarchyOnly?: boolean;
@@ -603,9 +603,9 @@ export interface GetProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetProfilesByIdsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileIds?: Array<string>;
     corporateIds?: Array<string>;
     externalReferenceIds?: Array<string>;
@@ -619,17 +619,17 @@ export interface GetProfilesByIdsRequest {
     acceptLanguage?: string;
 }
 export interface GetRecentlyAccessedProfilesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetStagedProfileRequest {
-    id?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    id: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     idContext?: Array<string>;
     type?: Array<string>;
@@ -638,9 +638,9 @@ export interface GetStagedProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetStagedProfilesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -660,10 +660,10 @@ export interface GetStagedProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetStayHistoryRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     includePurgeProfiles?: boolean;
     markAsRecentlyAccessed?: boolean;
@@ -673,9 +673,9 @@ export interface GetStayHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetSuspendedAddressesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     name?: string;
     hotelId?: string;
     firstName?: string;
@@ -687,212 +687,212 @@ export interface GetSuspendedAddressesRequest {
     acceptLanguage?: string;
 }
 export interface GetSuspendedProfileErrorSummaryRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface MergeProfilesOperationRequest {
-    survivorProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileToBeMerged?: MergeProfilesRequest;
+    survivorProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileToBeMerged: MergeProfilesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAccountForecastOperationRequest {
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    forecastsInformation?: PostAccountForecastRequest;
+export interface PostAccountForecastRequest {
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    forecastsInformation: ForecastsInformation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCompanyProfileOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    company?: PostCompanyProfileRequest;
+export interface PostCompanyProfileRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    company: Company;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostECertificateOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCertificateGeneration?: PostECertificateRequest;
+export interface PostECertificateRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCertificateGeneration: ECertificateGeneration;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuestProfileOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guest?: PostGuestProfileRequest;
+export interface PostGuestProfileRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guest: Guest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMembershipRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membership?: ChangeMembershipRequest;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membership: Membership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipNumberOperationRequest {
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipNumber?: PostMembershipNumberRequest;
+export interface PostMembershipNumberRequest {
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipNumber: MembershipNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreferenceRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preference?: DistributePreferenceRequest;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preference: Preference;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profile?: PostProfileRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profile: PostProfileRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileCommissionAccountRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileCommissionAccount?: SetProfileCommissionAccountRequest;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileCommissionAccount: ProfileCommissionAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostProfileOwnersOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileOwners?: PostProfileOwnersRequest;
+export interface PostProfileOwnersRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileOwners: ProfileOwners;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileRelationshipOperationRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileRelationship?: PostProfileRelationshipRequest;
+    targetProfileId: string;
+    sourceProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileRelationship: PostProfileRelationshipRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAccountForecastRequest {
-    periodCode?: string;
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    forecastsInformation?: PostAccountForecastRequest;
+    periodCode: string;
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    forecastsInformation: ForecastsInformation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profile?: PutProfileRequest;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profile: PutProfileRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileRelationshipOperationRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileRelationshipToBeChanged?: PutProfileRelationshipRequest;
+    targetProfileId: string;
+    sourceProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileRelationshipToBeChanged: PutProfileRelationshipRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveProfileRelationshipRequest {
-    targetProfileId?: string;
-    sourceProfileId?: string;
-    sourceRelation?: string;
-    targetRelation?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    targetProfileId: string;
+    sourceProfileId: string;
+    sourceRelation: string;
+    targetRelation: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     primary?: boolean;
     sourceRelationDescription?: string;
     targetRelationDescription?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetProfileCommissionAccountOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileCommissionAccount?: SetProfileCommissionAccountRequest;
+export interface SetProfileCommissionAccountRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileCommissionAccount: ProfileCommissionAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface StoreEmailOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    emailMessageType?: StoreEmailRequest;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    emailMessageType: StoreEmailRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SynchronizeProfileSubscriptionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileSubscriptionsToSynchronize?: SynchronizeProfileSubscriptionsRequest;
+export interface SynchronizeProfileSubscriptionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileSubscriptionsToSynchronize: ProfileSubscriptionsToSynchronize;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ValidateForgetProfilesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    forgetProfilesCriteria?: ValidateForgetProfilesRequest;
+export interface ValidateForgetProfilesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    forgetProfilesCriteria: ForgetProfilesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ValidateReservationsForProfileOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    futurePastBookingsCriteria?: ValidateReservationsForProfileRequest;
+export interface ValidateReservationsForProfileRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    futurePastBookingsCriteria: FuturePastBookingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface VerifyECertificateOperationRequest {
-    certificateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCertificateToVerify?: VerifyECertificateRequest;
+export interface VerifyECertificateRequest {
+    certificateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCertificateToVerify: ECertificateToVerify;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -904,22 +904,22 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * Use this API to update membership details on a profile. <p><strong>OperationId:</strong>changeMembership</p>
      * Change membership information on a profile
      */
-    changeMembershipRaw(requestParameters: ChangeMembershipOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedMembership>>;
+    changeMembershipRaw(requestParameters: ChangeMembershipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedMembership>>;
     /**
      * Use this API to update membership details on a profile. <p><strong>OperationId:</strong>changeMembership</p>
      * Change membership information on a profile
      */
-    changeMembership(requestParameters: ChangeMembershipOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedMembership>;
+    changeMembership(requestParameters: ChangeMembershipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedMembership>;
     /**
      * Update a profiles Financial details, such as billing, routing instructions. <p><strong>OperationId:</strong>changeProfileCashieringDetails</p>
      * Change cashiering details for a profile
      */
-    changeProfileCashieringDetailsRaw(requestParameters: ChangeProfileCashieringDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeProfileCashieringDetailsRaw(requestParameters: ChangeProfileCashieringDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update a profiles Financial details, such as billing, routing instructions. <p><strong>OperationId:</strong>changeProfileCashieringDetails</p>
      * Change cashiering details for a profile
      */
-    changeProfileCashieringDetails(requestParameters: ChangeProfileCashieringDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeProfileCashieringDetails(requestParameters: ChangeProfileCashieringDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Update an Owner on a profile  <p><strong>OperationId:</strong>changeProfileOwners</p>
      * Change profile owners
@@ -934,12 +934,12 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * This API can be used to update the staged Profile. <p><strong>OperationId:</strong>changeStagedProfile</p>
      * Change a staged profile
      */
-    changeStagedProfileRaw(requestParameters: ChangeStagedProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeStagedProfileRaw(requestParameters: ChangeStagedProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API can be used to update the staged Profile. <p><strong>OperationId:</strong>changeStagedProfile</p>
      * Change a staged profile
      */
-    changeStagedProfile(requestParameters: ChangeStagedProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeStagedProfile(requestParameters: ChangeStagedProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API validates/checks allowed actions, the existence of attached records and/or indicators of a profile. <p><strong>OperationId:</strong>checkProfileType</p>
      * Validate and check profiles
@@ -954,22 +954,22 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * Use this API to consume (use) an E-Certificate.  <p><strong>OperationId:</strong>consumeECertificate</p>
      * Consume an E-Certificate
      */
-    consumeECertificateRaw(requestParameters: ConsumeECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    consumeECertificateRaw(requestParameters: ConsumeECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to consume (use) an E-Certificate.  <p><strong>OperationId:</strong>consumeECertificate</p>
      * Consume an E-Certificate
      */
-    consumeECertificate(requestParameters: ConsumeECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    consumeECertificate(requestParameters: ConsumeECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to copy the commission account on a profile <p><strong>OperationId:</strong>copyProfileCommissionAccount</p>
      * Copy profile commission account
      */
-    copyProfileCommissionAccountRaw(requestParameters: CopyProfileCommissionAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyProfileCommissionAccountRaw(requestParameters: CopyProfileCommissionAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to copy the commission account on a profile <p><strong>OperationId:</strong>copyProfileCommissionAccount</p>
      * Copy profile commission account
      */
-    copyProfileCommissionAccount(requestParameters: CopyProfileCommissionAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyProfileCommissionAccount(requestParameters: CopyProfileCommissionAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this to delete an existing account Forecast for a hotel.  You must know the period code for this API. <p><strong>OperationId:</strong>deleteAccountForecast</p>
      * Delete account forecast in a hotel by period code
@@ -1084,22 +1084,22 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * With this API you can distribute preferences on a profile. <p><strong>OperationId:</strong>distributePreference</p>
      * Distribute preferences on a profile
      */
-    distributePreferenceRaw(requestParameters: DistributePreferenceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    distributePreferenceRaw(requestParameters: DistributePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * With this API you can distribute preferences on a profile. <p><strong>OperationId:</strong>distributePreference</p>
      * Distribute preferences on a profile
      */
-    distributePreference(requestParameters: DistributePreferenceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    distributePreference(requestParameters: DistributePreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to extend the date of an existing E-Certificate. <p><strong>OperationId:</strong>extendECertificate</p>
      * Extend E-Certificate Expiry date
      */
-    extendECertificateRaw(requestParameters: ExtendECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    extendECertificateRaw(requestParameters: ExtendECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to extend the date of an existing E-Certificate. <p><strong>OperationId:</strong>extendECertificate</p>
      * Extend E-Certificate Expiry date
      */
-    extendECertificate(requestParameters: ExtendECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    extendECertificate(requestParameters: ExtendECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to retrieve account forecasts for a hotel <p><strong>OperationId:</strong>getAccountForecasts</p>
      * Fetch Account Forecasts by hotel
@@ -1434,42 +1434,42 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * Use postAccountForecast to create a new account forecast for a hotel.  <p><strong>OperationId:</strong>postAccountForecast</p>
      * Create account forecast in a hotel
      */
-    postAccountForecastRaw(requestParameters: PostAccountForecastOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAccountForecastRaw(requestParameters: PostAccountForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use postAccountForecast to create a new account forecast for a hotel.  <p><strong>OperationId:</strong>postAccountForecast</p>
      * Create account forecast in a hotel
      */
-    postAccountForecast(requestParameters: PostAccountForecastOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAccountForecast(requestParameters: PostAccountForecastRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * When a profile doesn\'t already exist for a guest, use this to create a new profile.  The response will provide the newly created profile\'s OPERA ID. There are many fields in postProfile defined by ListOfValues; ensure you have reviewed ListOfValues APIs in order successfully to use postProfile. <p><strong>OperationId:</strong>postCompanyProfile</p>
      * This API facilitates creation of a company/agent/group/source profile in OPERA.
      */
-    postCompanyProfileRaw(requestParameters: PostCompanyProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCompanyProfileRaw(requestParameters: PostCompanyProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * When a profile doesn\'t already exist for a guest, use this to create a new profile.  The response will provide the newly created profile\'s OPERA ID. There are many fields in postProfile defined by ListOfValues; ensure you have reviewed ListOfValues APIs in order successfully to use postProfile. <p><strong>OperationId:</strong>postCompanyProfile</p>
      * This API facilitates creation of a company/agent/group/source profile in OPERA.
      */
-    postCompanyProfile(requestParameters: PostCompanyProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCompanyProfile(requestParameters: PostCompanyProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create a new eCertificates onto a profile in OPERA Cloud. <p><strong>OperationId:</strong>postECertificate</p>
      * Create e-certificate
      */
-    postECertificateRaw(requestParameters: PostECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postECertificateRaw(requestParameters: PostECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to create a new eCertificates onto a profile in OPERA Cloud. <p><strong>OperationId:</strong>postECertificate</p>
      * Create e-certificate
      */
-    postECertificate(requestParameters: PostECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postECertificate(requestParameters: PostECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * When a profile doesn\'t already exist for a guest, use this to create a new profile.  The response will provide the newly created profile\'s OPERA ID. There are many fields in postProfile defined by ListOfValues; ensure you have reviewed ListOfValues APIs in order successfully to use postProfile. <p><strong>OperationId:</strong>postGuestProfile</p>
      * Create a guest, contact or employee profile in OPERA
      */
-    postGuestProfileRaw(requestParameters: PostGuestProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGuestProfileRaw(requestParameters: PostGuestProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * When a profile doesn\'t already exist for a guest, use this to create a new profile.  The response will provide the newly created profile\'s OPERA ID. There are many fields in postProfile defined by ListOfValues; ensure you have reviewed ListOfValues APIs in order successfully to use postProfile. <p><strong>OperationId:</strong>postGuestProfile</p>
      * Create a guest, contact or employee profile in OPERA
      */
-    postGuestProfile(requestParameters: PostGuestProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGuestProfile(requestParameters: PostGuestProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * A guest might be a member of your hotel loyalty program and/or a member of multiple airline frequent flier programs. Use this API to add membership details onto a guests profile. <p><strong>OperationId:</strong>postMembership</p>
      * Create membership on a profile
@@ -1484,12 +1484,12 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * This API will generate a new membership number. <p><strong>OperationId:</strong>postMembershipNumber</p>
      * Generate membership number
      */
-    postMembershipNumberRaw(requestParameters: PostMembershipNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipNumberRaw(requestParameters: PostMembershipNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will generate a new membership number. <p><strong>OperationId:</strong>postMembershipNumber</p>
      * Generate membership number
      */
-    postMembershipNumber(requestParameters: PostMembershipNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipNumber(requestParameters: PostMembershipNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can add new preferences to a profile to personalize or enhance your guest services.  You will need to know the profile ID, and the properties pre-configured preference codes. <p><strong>OperationId:</strong>postPreference</p>
      * Add preferences to a profile
@@ -1524,12 +1524,12 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * Assign an Owner to a profile. <p><strong>OperationId:</strong>postProfileOwners</p>
      * Assign profile owners
      */
-    postProfileOwnersRaw(requestParameters: PostProfileOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postProfileOwnersRaw(requestParameters: PostProfileOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Assign an Owner to a profile. <p><strong>OperationId:</strong>postProfileOwners</p>
      * Assign profile owners
      */
-    postProfileOwners(requestParameters: PostProfileOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postProfileOwners(requestParameters: PostProfileOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>postProfileRelationship</p>
      * CreateProfileRelationship method provides the ability to create profile relationship based on the request criteria of SourceProfileID,TargetProfileID and SourceRelationType specified.
@@ -1584,12 +1584,12 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * Apply a commission account to an existing profile. You can add commission accounts to Travel Agent profile types. <p><strong>OperationId:</strong>setProfileCommissionAccount</p>
      * Set profile commission account
      */
-    setProfileCommissionAccountRaw(requestParameters: SetProfileCommissionAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setProfileCommissionAccountRaw(requestParameters: SetProfileCommissionAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Apply a commission account to an existing profile. You can add commission accounts to Travel Agent profile types. <p><strong>OperationId:</strong>setProfileCommissionAccount</p>
      * Set profile commission account
      */
-    setProfileCommissionAccount(requestParameters: SetProfileCommissionAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setProfileCommissionAccount(requestParameters: SetProfileCommissionAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Email in OPERA.  You would need to know the Profile Id such as Contact or Account. <p><strong>OperationId:</strong>storeEmail</p>
      * Create an Email.
@@ -1604,42 +1604,42 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * Synchronize profile subscriptions <p><strong>OperationId:</strong>synchronizeProfileSubscriptions</p>
      * Synchronize profile subscriptions
      */
-    synchronizeProfileSubscriptionsRaw(requestParameters: SynchronizeProfileSubscriptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    synchronizeProfileSubscriptionsRaw(requestParameters: SynchronizeProfileSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Synchronize profile subscriptions <p><strong>OperationId:</strong>synchronizeProfileSubscriptions</p>
      * Synchronize profile subscriptions
      */
-    synchronizeProfileSubscriptions(requestParameters: SynchronizeProfileSubscriptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    synchronizeProfileSubscriptions(requestParameters: SynchronizeProfileSubscriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Validate forget profiles. <p><strong>OperationId:</strong>validateForgetProfiles</p>
      * Validate forget profiles
      */
-    validateForgetProfilesRaw(requestParameters: ValidateForgetProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatedForgetProfiles>>;
+    validateForgetProfilesRaw(requestParameters: ValidateForgetProfilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatedForgetProfiles>>;
     /**
      * Validate forget profiles. <p><strong>OperationId:</strong>validateForgetProfiles</p>
      * Validate forget profiles
      */
-    validateForgetProfiles(requestParameters: ValidateForgetProfilesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidatedForgetProfiles>;
+    validateForgetProfiles(requestParameters: ValidateForgetProfilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidatedForgetProfiles>;
     /**
      * Validate if a profile has future and past bookings on a specific profile. <p><strong>OperationId:</strong>validateReservationsForProfile</p>
      * Check future past bookings
      */
-    validateReservationsForProfileRaw(requestParameters: ValidateReservationsForProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FuturePastBookings>>;
+    validateReservationsForProfileRaw(requestParameters: ValidateReservationsForProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FuturePastBookings>>;
     /**
      * Validate if a profile has future and past bookings on a specific profile. <p><strong>OperationId:</strong>validateReservationsForProfile</p>
      * Check future past bookings
      */
-    validateReservationsForProfile(requestParameters: ValidateReservationsForProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FuturePastBookings>;
+    validateReservationsForProfile(requestParameters: ValidateReservationsForProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FuturePastBookings>;
     /**
      * Use this API to verify an ng E-Certificate Number. <p><strong>OperationId:</strong>verifyECertificate</p>
      * Verify E-Certificate Number
      */
-    verifyECertificateRaw(requestParameters: VerifyECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifiedECertificate>>;
+    verifyECertificateRaw(requestParameters: VerifyECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VerifiedECertificate>>;
     /**
      * Use this API to verify an ng E-Certificate Number. <p><strong>OperationId:</strong>verifyECertificate</p>
      * Verify E-Certificate Number
      */
-    verifyECertificate(requestParameters: VerifyECertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifiedECertificate>;
+    verifyECertificate(requestParameters: VerifyECertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VerifiedECertificate>;
 }
 /**
  * @export

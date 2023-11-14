@@ -114,11 +114,11 @@ export function ChannelAccountContractInformationTypeToJSON(value?: ChannelAccou
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'channelAccountContractElements': ChannelAccountContractElementsTypeToJSON(value.channelAccountContractElements),
         'contractId': UniqueIDTypeToJSON(value.contractId),
         'contractNo': value.contractNo,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'markStatementsToRegenerate': value.markStatementsToRegenerate,
         'note': value.note,
     };

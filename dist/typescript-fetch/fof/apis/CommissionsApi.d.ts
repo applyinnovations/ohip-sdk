@@ -10,61 +10,61 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AssociateCommissionAgentToReservationsRequest, AssociateCommissionAgentToReservationsStatus, BankAccountsDetails, CalculateCommissionsRequest, CalculateCommissionsStatus, ChangeCommissionCheckRequest, ChangeCommissionPaymentActivityByRangeRequest, ChangeCommissionRequest, CommissionCheckStatus, CommissionDetails, CommissionNotesDetails, CommissionPaymentActivityByRangeStatus, CommissionPaymentDetails, CommissionPaymentsActivityDetails, CommissionStatus, CommissionsDetails, ProcessCommissionPaymentsRequest, ProcessCommissionPaymentsStatus, RecalculateCommissionOnCodeChangeRequest, RecalculateCommissionOnCodeChangeStatus, ReprintCommissionCheckByRangeRequest, ReprintCommissionCheckByRangeStatus, SetProcessingInstructionsRequest, Status } from '../models';
-export interface AssociateCommissionAgentToReservationsOperationRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    associateCommissionAgentToReservations?: AssociateCommissionAgentToReservationsRequest;
+import type { AssociateCommissionAgentToReservations, AssociateCommissionAgentToReservationsStatus, BankAccountsDetails, CalculateCommissions, CalculateCommissionsStatus, CommissionCheckStatus, CommissionCheckToBeChanged, CommissionDetails, CommissionNotesDetails, CommissionPaymentActivityByRangeStatus, CommissionPaymentActivityByRangeToBeChanged, CommissionPaymentDetails, CommissionPaymentsActivityDetails, CommissionStatus, CommissionToBeChanged, CommissionsDetails, ProcessCommissionPayments, ProcessCommissionPaymentsStatus, RecalculateCommissionOnCodeChange, RecalculateCommissionOnCodeChangeStatus, ReprintCommissionCheckByRange, ReprintCommissionCheckByRangeStatus, SetProcessingInstructions, Status } from '../models/index';
+export interface AssociateCommissionAgentToReservationsRequest {
+    commissionAgentId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    associateCommissionAgentToReservations: AssociateCommissionAgentToReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CalculateCommissionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    calculateCommissions?: CalculateCommissionsRequest;
+export interface CalculateCommissionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    calculateCommissions: CalculateCommissions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCommissionOperationRequest {
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionToBeChanged?: ChangeCommissionRequest;
+export interface ChangeCommissionRequest {
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionToBeChanged: CommissionToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCommissionCheckOperationRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionCheckToBeChanged?: ChangeCommissionCheckRequest;
+export interface ChangeCommissionCheckRequest {
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionCheckToBeChanged: CommissionCheckToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCommissionPaymentActivityByRangeOperationRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionPaymentActivityByRangeToBeChanged?: ChangeCommissionPaymentActivityByRangeRequest;
+export interface ChangeCommissionPaymentActivityByRangeRequest {
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionPaymentActivityByRangeToBeChanged: CommissionPaymentActivityByRangeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DiscardCommissionChecksRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bankAccountId?: string;
     idExtension?: number;
     idContext?: string;
@@ -78,10 +78,10 @@ export interface DiscardCommissionChecksRequest {
     acceptLanguage?: string;
 }
 export interface GetBankAccountsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bankName?: string;
     bankAccountNo?: string;
     currency?: string;
@@ -89,11 +89,11 @@ export interface GetBankAccountsRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -101,11 +101,11 @@ export interface GetCommissionRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionNotesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -113,20 +113,20 @@ export interface GetCommissionNotesRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionPaymentDetailsRequest {
-    hotelId?: string;
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCommissionPaymentsActivityRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -142,10 +142,10 @@ export interface GetCommissionPaymentsActivityRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bankAccountId?: string;
     idExtension?: number;
     idContext?: string;
@@ -170,12 +170,12 @@ export interface GetCommissionsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
-    agentId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    bankAccountId: string;
+    agentId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     guestName?: string;
@@ -187,40 +187,40 @@ export interface GetReservationsForCommissionsRequest {
     acceptLanguage?: string;
 }
 export interface GetTravelAgentsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    bankAccountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ProcessCommissionPaymentsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    processCommissionPayments?: ProcessCommissionPaymentsRequest;
+export interface ProcessCommissionPaymentsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    processCommissionPayments: ProcessCommissionPayments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface RecalculateCommissionOnCodeChangeOperationRequest {
-    commissionCode?: string;
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    recalculateCommissionOnCodeChange?: RecalculateCommissionOnCodeChangeRequest;
+export interface RecalculateCommissionOnCodeChangeRequest {
+    commissionCode: string;
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    recalculateCommissionOnCodeChange: RecalculateCommissionOnCodeChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -229,11 +229,11 @@ export interface RemoveCommissionRequest {
     acceptLanguage?: string;
 }
 export interface RemoveCommissionAgentFromReservationsRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    commissionAgentId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     commissionAgentType?: RemoveCommissionAgentFromReservationsCommissionAgentTypeEnum;
     idExtension?: number;
     idContext?: string;
@@ -245,22 +245,22 @@ export interface RemoveCommissionAgentFromReservationsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ReprintCommissionCheckByRangeOperationRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reprintCommissionCheckByRange?: ReprintCommissionCheckByRangeRequest;
+export interface ReprintCommissionCheckByRangeRequest {
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reprintCommissionCheckByRange: ReprintCommissionCheckByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetProcessingInstructionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    setProcessingInstructions?: SetProcessingInstructionsRequest;
+export interface SetProcessingInstructionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    setProcessingInstructions: SetProcessingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -272,52 +272,52 @@ export declare class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>associateCommissionAgentToReservations</p>
      * Operation to associate commission agent to reservations.
      */
-    associateCommissionAgentToReservationsRaw(requestParameters: AssociateCommissionAgentToReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssociateCommissionAgentToReservationsStatus>>;
+    associateCommissionAgentToReservationsRaw(requestParameters: AssociateCommissionAgentToReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssociateCommissionAgentToReservationsStatus>>;
     /**
      *  <p><strong>OperationId:</strong>associateCommissionAgentToReservations</p>
      * Operation to associate commission agent to reservations.
      */
-    associateCommissionAgentToReservations(requestParameters: AssociateCommissionAgentToReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssociateCommissionAgentToReservationsStatus>;
+    associateCommissionAgentToReservations(requestParameters: AssociateCommissionAgentToReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssociateCommissionAgentToReservationsStatus>;
     /**
      *  <p><strong>OperationId:</strong>calculateCommissions</p>
      * Operation to calculate commissions.
      */
-    calculateCommissionsRaw(requestParameters: CalculateCommissionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculateCommissionsStatus>>;
+    calculateCommissionsRaw(requestParameters: CalculateCommissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculateCommissionsStatus>>;
     /**
      *  <p><strong>OperationId:</strong>calculateCommissions</p>
      * Operation to calculate commissions.
      */
-    calculateCommissions(requestParameters: CalculateCommissionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculateCommissionsStatus>;
+    calculateCommissions(requestParameters: CalculateCommissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculateCommissionsStatus>;
     /**
      *  <p><strong>OperationId:</strong>changeCommission</p>
      * Operation to change commission.
      */
-    changeCommissionRaw(requestParameters: ChangeCommissionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionStatus>>;
+    changeCommissionRaw(requestParameters: ChangeCommissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionStatus>>;
     /**
      *  <p><strong>OperationId:</strong>changeCommission</p>
      * Operation to change commission.
      */
-    changeCommission(requestParameters: ChangeCommissionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionStatus>;
+    changeCommission(requestParameters: ChangeCommissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionStatus>;
     /**
      *  <p><strong>OperationId:</strong>changeCommissionCheck</p>
      * Operation to change commission check.
      */
-    changeCommissionCheckRaw(requestParameters: ChangeCommissionCheckOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionCheckStatus>>;
+    changeCommissionCheckRaw(requestParameters: ChangeCommissionCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionCheckStatus>>;
     /**
      *  <p><strong>OperationId:</strong>changeCommissionCheck</p>
      * Operation to change commission check.
      */
-    changeCommissionCheck(requestParameters: ChangeCommissionCheckOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionCheckStatus>;
+    changeCommissionCheck(requestParameters: ChangeCommissionCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionCheckStatus>;
     /**
      *  <p><strong>OperationId:</strong>changeCommissionPaymentActivityByRange</p>
      * Operation to change commission payment activity by range.
      */
-    changeCommissionPaymentActivityByRangeRaw(requestParameters: ChangeCommissionPaymentActivityByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionPaymentActivityByRangeStatus>>;
+    changeCommissionPaymentActivityByRangeRaw(requestParameters: ChangeCommissionPaymentActivityByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionPaymentActivityByRangeStatus>>;
     /**
      *  <p><strong>OperationId:</strong>changeCommissionPaymentActivityByRange</p>
      * Operation to change commission payment activity by range.
      */
-    changeCommissionPaymentActivityByRange(requestParameters: ChangeCommissionPaymentActivityByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionPaymentActivityByRangeStatus>;
+    changeCommissionPaymentActivityByRange(requestParameters: ChangeCommissionPaymentActivityByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionPaymentActivityByRangeStatus>;
     /**
      *  <p><strong>OperationId:</strong>discardCommissionChecks</p>
      * Operation to discard commission checks.
@@ -412,22 +412,22 @@ export declare class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>processCommissionPayments</p>
      * Operation to process commission payments.
      */
-    processCommissionPaymentsRaw(requestParameters: ProcessCommissionPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessCommissionPaymentsStatus>>;
+    processCommissionPaymentsRaw(requestParameters: ProcessCommissionPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessCommissionPaymentsStatus>>;
     /**
      *  <p><strong>OperationId:</strong>processCommissionPayments</p>
      * Operation to process commission payments.
      */
-    processCommissionPayments(requestParameters: ProcessCommissionPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessCommissionPaymentsStatus>;
+    processCommissionPayments(requestParameters: ProcessCommissionPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessCommissionPaymentsStatus>;
     /**
      *  <p><strong>OperationId:</strong>recalculateCommissionOnCodeChange</p>
      * Operation to recalculate commission on code change.
      */
-    recalculateCommissionOnCodeChangeRaw(requestParameters: RecalculateCommissionOnCodeChangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecalculateCommissionOnCodeChangeStatus>>;
+    recalculateCommissionOnCodeChangeRaw(requestParameters: RecalculateCommissionOnCodeChangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecalculateCommissionOnCodeChangeStatus>>;
     /**
      *  <p><strong>OperationId:</strong>recalculateCommissionOnCodeChange</p>
      * Operation to recalculate commission on code change.
      */
-    recalculateCommissionOnCodeChange(requestParameters: RecalculateCommissionOnCodeChangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecalculateCommissionOnCodeChangeStatus>;
+    recalculateCommissionOnCodeChange(requestParameters: RecalculateCommissionOnCodeChangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecalculateCommissionOnCodeChangeStatus>;
     /**
      *  <p><strong>OperationId:</strong>removeCommission</p>
      * Operation to remove commission.
@@ -452,22 +452,22 @@ export declare class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>reprintCommissionCheckByRange</p>
      * Operation to reprint commission check by range.
      */
-    reprintCommissionCheckByRangeRaw(requestParameters: ReprintCommissionCheckByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReprintCommissionCheckByRangeStatus>>;
+    reprintCommissionCheckByRangeRaw(requestParameters: ReprintCommissionCheckByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReprintCommissionCheckByRangeStatus>>;
     /**
      *  <p><strong>OperationId:</strong>reprintCommissionCheckByRange</p>
      * Operation to reprint commission check by range.
      */
-    reprintCommissionCheckByRange(requestParameters: ReprintCommissionCheckByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReprintCommissionCheckByRangeStatus>;
+    reprintCommissionCheckByRange(requestParameters: ReprintCommissionCheckByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReprintCommissionCheckByRangeStatus>;
     /**
      *  <p><strong>OperationId:</strong>setProcessingInstructions</p>
      * Operation to set processing instructions.
      */
-    setProcessingInstructionsRaw(requestParameters: SetProcessingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setProcessingInstructionsRaw(requestParameters: SetProcessingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>setProcessingInstructions</p>
      * Operation to set processing instructions.
      */
-    setProcessingInstructions(requestParameters: SetProcessingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setProcessingInstructions(requestParameters: SetProcessingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

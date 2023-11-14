@@ -164,7 +164,7 @@ export function StagedProfileCommentInfoTypeToJSON(value?: StagedProfileCommentI
         'errorDescription': value.errorDescription,
         'hasMore': value.hasMore,
         'id': value.id,
-        'inActiveDate': value.inActiveDate === undefined ? undefined : (value.inActiveDate.toISOString().substr(0,10)),
+        'inActiveDate': value.inActiveDate === undefined ? undefined : (value.inActiveDate.toISOString().substring(0,10)),
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'lineNo': value.lineNo,

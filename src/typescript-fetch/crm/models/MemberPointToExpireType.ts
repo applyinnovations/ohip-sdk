@@ -89,7 +89,7 @@ export function MemberPointToExpireTypeToJSON(value?: MemberPointToExpireType | 
         
         'awardGenerationMethod': value.awardGenerationMethod,
         'extend': value.extend,
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substr(0,10)),
+        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0,10)),
         'pointsToExpire': value.pointsToExpire,
         'previousPointsToExpire': value.previousPointsToExpire,
     };

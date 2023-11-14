@@ -47,7 +47,7 @@ function DailyItemInventoryCountsTypeToJSON(value) {
     }
     return {
         'available': value.available,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'total': value.total,
     };
 }

@@ -64,11 +64,11 @@ function GeneratedExportTypeToJSON(value) {
     }
     return {
         'checksumEnabled': value.checksumEnabled,
-        'dataFromDate': value.dataFromDate === undefined ? undefined : (value.dataFromDate.toISOString().substr(0, 10)),
+        'dataFromDate': value.dataFromDate === undefined ? undefined : (value.dataFromDate.toISOString().substring(0, 10)),
         'dataHeader': (0, ExportHeaderSummaryType_1.ExportHeaderSummaryTypeToJSON)(value.dataHeader),
-        'dataToDate': value.dataToDate === undefined ? undefined : (value.dataToDate.toISOString().substr(0, 10)),
+        'dataToDate': value.dataToDate === undefined ? undefined : (value.dataToDate.toISOString().substring(0, 10)),
         'exportDataId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.exportDataId),
-        'generatedDate': value.generatedDate === undefined ? undefined : (value.generatedDate.toISOString().substr(0, 10)),
+        'generatedDate': value.generatedDate === undefined ? undefined : (value.generatedDate.toISOString().substring(0, 10)),
         'generatedErrors': value.generatedErrors,
         'generatedFileExtension': value.generatedFileExtension,
         'generatedFileLocation': value.generatedFileLocation,

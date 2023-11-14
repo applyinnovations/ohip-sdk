@@ -58,7 +58,7 @@ function StagedProfileDateUDFTypeToJSON(value) {
         'tableName': value.tableName,
         'type': value.type,
         'valid': value.valid,
-        'value': value.value === undefined ? undefined : (value.value.toISOString().substr(0, 10)),
+        'value': value.value === undefined ? undefined : (value.value.toISOString().substring(0, 10)),
     };
 }
 exports.StagedProfileDateUDFTypeToJSON = StagedProfileDateUDFTypeToJSON;

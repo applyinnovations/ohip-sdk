@@ -65,7 +65,7 @@ function PromotionCodeDetailsTypeToJSON(value) {
         'categoryDesc': value.categoryDesc,
         'checkInOutTime': (0, DateTimeSpanType_1.DateTimeSpanTypeToJSON)(value.checkInOutTime),
         'description': value.description,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'promoInformation': value.promoInformation,
         'promoInstructions': value.promoInstructions,
         'promotionGroup': value.promotionGroup,

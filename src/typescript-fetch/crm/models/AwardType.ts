@@ -335,7 +335,7 @@ export function AwardTypeToJSON(value?: AwardType | null): any {
         'description': value.description,
         'detailedCertificate': value.detailedCertificate,
         'displaySequence': value.displaySequence,
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substr(0,10)),
+        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
         'externalConfirmationNo': value.externalConfirmationNo,
         'externalHotelCode': value.externalHotelCode,
         'fBAInfo': FBAInfoTypeToJSON(value.fBAInfo),

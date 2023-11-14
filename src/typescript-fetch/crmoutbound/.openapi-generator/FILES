@@ -188,8 +188,6 @@ models/PersonNameType.ts
 models/PersonNameTypeType.ts
 models/PlayerStatisticsType.ts
 models/PointsType.ts
-models/PostEnrollmentRequest.ts
-models/PostMembershipNumberRequest.ts
 models/Preference.ts
 models/PreferenceType.ts
 models/PreferenceTypeType.ts
@@ -240,7 +238,6 @@ models/ProfileTypeType.ts
 models/Profiles.ts
 models/PromotionType.ts
 models/QueueTextInfoType.ts
-models/RedeemAwardRequest.ts
 models/ResAccessRestrictionType.ts
 models/ResAccompanyGuestInfoType.ts
 models/ResAccompanyGuestListType.ts

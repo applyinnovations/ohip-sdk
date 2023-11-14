@@ -68,7 +68,7 @@ function ARReminderTypeToJSON(value) {
         'invoices': (0, ARInvoicesType_1.ARInvoicesTypeToJSON)(value.invoices),
         'isHistoryExists': value.isHistoryExists,
         'lastCycle': value.lastCycle,
-        'lastReminderSent': value.lastReminderSent === undefined ? undefined : (value.lastReminderSent.toISOString().substr(0, 10)),
+        'lastReminderSent': value.lastReminderSent === undefined ? undefined : (value.lastReminderSent.toISOString().substring(0, 10)),
         'letterName': value.letterName,
         'maxAge': value.maxAge,
         'reportFileName': value.reportFileName,

@@ -273,7 +273,7 @@ export function AlertTypeToJSON(value?: AlertType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'printerName': value.printerName,
         'printerNotification': value.printerNotification,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'reportDescription': value.reportDescription,
         'reportId': UniqueIDTypeToJSON(value.reportId),
         'reportName': value.reportName,

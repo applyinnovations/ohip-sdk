@@ -135,16 +135,16 @@ export function PrepaidCardDetailsTypeToJSON(value?: PrepaidCardDetailsType | nu
     }
     return {
         
-        'activateDate': value.activateDate === undefined ? undefined : (value.activateDate.toISOString().substr(0,10)),
+        'activateDate': value.activateDate === undefined ? undefined : (value.activateDate.toISOString().substring(0,10)),
         'balanceTotal': CurrencyAmountTypeToJSON(value.balanceTotal),
         'creditTotal': CurrencyAmountTypeToJSON(value.creditTotal),
         'debitTotal': CurrencyAmountTypeToJSON(value.debitTotal),
-        'expiredDate': value.expiredDate === undefined ? undefined : (value.expiredDate.toISOString().substr(0,10)),
+        'expiredDate': value.expiredDate === undefined ? undefined : (value.expiredDate.toISOString().substring(0,10)),
         'initialCreditTotal': CurrencyAmountTypeToJSON(value.initialCreditTotal),
-        'initialLoadDate': value.initialLoadDate === undefined ? undefined : (value.initialLoadDate.toISOString().substr(0,10)),
+        'initialLoadDate': value.initialLoadDate === undefined ? undefined : (value.initialLoadDate.toISOString().substring(0,10)),
         'reservedTotal': CurrencyAmountTypeToJSON(value.reservedTotal),
         'transactions': value.transactions === undefined ? undefined : ((value.transactions as Array<any>).map(PrepaidCardTransactionTypeToJSON)),
-        'validUntilDate': value.validUntilDate === undefined ? undefined : (value.validUntilDate.toISOString().substr(0,10)),
+        'validUntilDate': value.validUntilDate === undefined ? undefined : (value.validUntilDate.toISOString().substring(0,10)),
     };
 }
 

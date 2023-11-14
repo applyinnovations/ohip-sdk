@@ -61,7 +61,7 @@ function TrxAdjustCriteriaTypeToJSON(value) {
         'customChargeExemptionDetails': (0, CustomChargeExemptionsType_1.CustomChargeExemptionsTypeToJSON)(value.customChargeExemptionDetails),
         'details': (0, AdjustmentDetailsType_1.AdjustmentDetailsTypeToJSON)(value.details),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0, 10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0, 10)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'transactionList': value.transactionList,
     };

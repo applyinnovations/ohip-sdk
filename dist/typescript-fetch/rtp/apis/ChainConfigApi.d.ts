@@ -10,19 +10,19 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { DisplaySetsDetails, PostDisplaySetsRequest, PutDisplaySetsRequest, Status } from '../models';
+import type { DisplaySetsCriteria, DisplaySetsDetails, DisplaySetsToBeChanged, Status } from '../models/index';
 export interface DeleteDisplaySetsRequest {
-    displaySetsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    displaySetsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetDisplaySetsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -30,20 +30,20 @@ export interface GetDisplaySetsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDisplaySetsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    displaySetsCriteria?: PostDisplaySetsRequest;
+export interface PostDisplaySetsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    displaySetsCriteria: DisplaySetsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDisplaySetsOperationRequest {
-    displaySetsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    displaySetsToBeChanged?: PutDisplaySetsRequest;
+export interface PutDisplaySetsRequest {
+    displaySetsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    displaySetsToBeChanged: DisplaySetsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -75,20 +75,20 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Display Sets. <p><strong>OperationId:</strong>postDisplaySets</p>
      * Create Display Sets
      */
-    postDisplaySetsRaw(requestParameters: PostDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDisplaySetsRaw(requestParameters: PostDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Display Sets. <p><strong>OperationId:</strong>postDisplaySets</p>
      * Create Display Sets
      */
-    postDisplaySets(requestParameters: PostDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDisplaySets(requestParameters: PostDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Display Sets. <p><strong>OperationId:</strong>putDisplaySets</p>
      * Change Display Sets
      */
-    putDisplaySetsRaw(requestParameters: PutDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDisplaySetsRaw(requestParameters: PutDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Display Sets. <p><strong>OperationId:</strong>putDisplaySets</p>
      * Change Display Sets
      */
-    putDisplaySets(requestParameters: PutDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDisplaySets(requestParameters: PutDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }

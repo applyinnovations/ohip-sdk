@@ -52,12 +52,12 @@ function OverlappingStayInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'excludedReservations': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.excludedReservations),
         'hotelId': value.hotelId,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.OverlappingStayInfoTypeToJSON = OverlappingStayInfoTypeToJSON;

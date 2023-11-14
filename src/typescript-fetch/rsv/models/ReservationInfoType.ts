@@ -627,7 +627,7 @@ export function ReservationInfoTypeToJSON(value?: ReservationInfoType | null): a
         'optedForCommunication': value.optedForCommunication,
         'paymentMethod': value.paymentMethod,
         'preRegistered': value.preRegistered,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'queue': ReservationQueueInformationTypeToJSON(value.queue),
         'reservationCommunication': ResCommunicationTypeToJSON(value.reservationCommunication),
         'reservationFolioWindows': ReservationFolioWindowsTypeToJSON(value.reservationFolioWindows),

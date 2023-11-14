@@ -53,11 +53,11 @@ function MembershipTransactionRateTypeToJSON(value) {
     return {
         'centralRateAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.centralRateAmount),
         'currency': value.currency,
-        'fromDate': value.fromDate === undefined ? undefined : (value.fromDate.toISOString().substr(0, 10)),
+        'fromDate': value.fromDate === undefined ? undefined : (value.fromDate.toISOString().substring(0, 10)),
         'marketCode': value.marketCode,
         'pMSRateAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.pMSRateAmount),
         'rateCode': value.rateCode,
-        'toDate': value.toDate === undefined ? undefined : (value.toDate.toISOString().substr(0, 10)),
+        'toDate': value.toDate === undefined ? undefined : (value.toDate.toISOString().substring(0, 10)),
     };
 }
 exports.MembershipTransactionRateTypeToJSON = MembershipTransactionRateTypeToJSON;

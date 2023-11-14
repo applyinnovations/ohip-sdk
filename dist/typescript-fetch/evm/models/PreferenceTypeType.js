@@ -67,7 +67,7 @@ function PreferenceTypeTypeToJSON(value) {
         'preference': value.preference === undefined ? undefined : (value.preference.map(PreferenceType_1.PreferenceTypeToJSON)),
         'preferenceType': value.preferenceType,
         'preferenceTypeDescription': value.preferenceTypeDescription,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'reservationPreference': value.reservationPreference,
         'sequence': value.sequence,
     };

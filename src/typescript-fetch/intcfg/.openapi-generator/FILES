@@ -7,7 +7,6 @@ models/ArDeliveryMethodType.ts
 models/BillingFolioDeliveryMethodType.ts
 models/ChangeDeliveryMethods.ts
 models/ChangeInterfaceRight.ts
-models/ChangeTemplateDeviceLocationsRequest.ts
 models/ChangeUDFMapping.ts
 models/ChangedDeliveryMethods.ts
 models/ChangedInterfaceRight.ts
@@ -60,13 +59,7 @@ models/InterfaceRightType.ts
 models/Links.ts
 models/LogicalOperatorType.ts
 models/OtherFolioDeliveryMethodType.ts
-models/PostDeliveryMethodsRequest.ts
-models/PostPublishersRequest.ts
-models/PostTemplateDeviceLocationsRequest.ts
 models/PublishersType.ts
-models/PutDeliveryMethodsRequest.ts
-models/PutInterfaceRightRequest.ts
-models/PutUDFMappingRequest.ts
 models/QueueReservationDeliveryMethodType.ts
 models/QueueRushDeliveryMethodType.ts
 models/SftpConfigurationType.ts

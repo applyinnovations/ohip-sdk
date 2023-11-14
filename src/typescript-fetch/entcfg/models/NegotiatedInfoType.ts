@@ -96,10 +96,10 @@ export function NegotiatedInfoTypeToJSON(value?: NegotiatedInfoType | null): any
         
         'comissionCode': value.comissionCode,
         'corporateAgreementId': value.corporateAgreementId,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'inactive': value.inactive,
         'order': value.order,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }
 

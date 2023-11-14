@@ -10,66 +10,66 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdjustmentReasonsDetailsUpdated, ChangeRevenueTransactionCodesDetails, ChangeRotationPeriodDetails, FetchAdjustmentReasonsDetails, FetchRevenueTransactionCodesDetails, FetchRotationPeriod, FetchRotationRules, FetchUnitGradesDetails, OverrideReasonsDetails, PostAdjustmentReasonsRequest, PostOverrideReasonsRequest, PostRoomOwnerReferralsRequest, PostRoomOwnerRequest, PostRoomRotationRulesRequest, PostRotationRulesRequest, PostUnitGradesRequest, PutAdjustmentReasonsRequest, PutOverrideReasonsRequest, PutRevenueTransactionCodesRequest, PutRoomOwnerReferralRequest, PutRoomOwnerRequest, PutRotationPeriodRequest, PutUnitGradesRequest, RoomOwnerReferralDetails, RoomOwnershipDetails, Status, UnitGradesDetailsUpdated } from '../models';
+import type { AdjustmentReasonsDetailsUpdated, ChangeAdjustmentReasonsDetails, ChangeRevenueTransactionCodesCriteria, ChangeRevenueTransactionCodesDetails, ChangeRoomOwnerDetails, ChangeRoomOwnerReferralDetails, ChangeRotationPeriodDetails, ChangeUnitGradesDetails, CreateAdjustmentReasonsDetails, CreateRoomOwnerDetails, CreateRoomOwnerReferralDetails, CreateUnitGradesDetails, FetchAdjustmentReasonsDetails, FetchRevenueTransactionCodesDetails, FetchRotationPeriod, FetchRotationRules, FetchUnitGradesDetails, OverrideReasonsCriteria, OverrideReasonsDetails, OverrideReasonsToBeChanged, RoomOwnerReferralDetails, RoomOwnershipDetails, RoomRotationRules, RotationPeriod, RotationRules, Status, UnitGradesDetailsUpdated } from '../models/index';
 export interface DeleteAdjustmentReasonsRequest {
-    adjustmentReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    adjustmentReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteOverrideReasonsRequest {
-    overrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    overrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomOwnerRequest {
-    roomOwnershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomOwnershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     overrideReferralCheck?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomOwnerReferralRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    roomOwnerReferralId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ruleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteUnitGradesRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    unitGradeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAdjustmentReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     code?: Array<string>;
     wildCard?: string;
@@ -78,9 +78,9 @@ export interface GetAdjustmentReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetOverrideReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     code?: Array<string>;
     wildCard?: string;
@@ -89,45 +89,45 @@ export interface GetOverrideReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRoomOwnersRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     showInactiveRoomOwners?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRevenueTransactionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rotationRevenue?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomOwnerReferralsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRotationPeriodRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRotationRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     setupType?: GetRotationRulesSetupTypeEnum;
@@ -136,10 +136,10 @@ export interface GetRotationRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetUnitGradesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     fetchInactive?: boolean;
     code?: Array<string>;
@@ -148,137 +148,137 @@ export interface GetUnitGradesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAdjustmentReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createAdjustmentReasonsDetails?: PostAdjustmentReasonsRequest;
+export interface PostAdjustmentReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createAdjustmentReasonsDetails: CreateAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostOverrideReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    overrideReasonsCriteria?: PostOverrideReasonsRequest;
+export interface PostOverrideReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    overrideReasonsCriteria: OverrideReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomOwnerOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createRoomOwnerDetails?: PostRoomOwnerRequest;
+export interface PostRoomOwnerRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createRoomOwnerDetails: CreateRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomOwnerReferralsOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createRoomOwnerReferralDetails?: PostRoomOwnerReferralsRequest;
+export interface PostRoomOwnerReferralsRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createRoomOwnerReferralDetails: CreateRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomRotationRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationRules?: PostRoomRotationRulesRequest;
+export interface PostRoomRotationRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationRules: RoomRotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRotationRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationRules?: PostRotationRulesRequest;
+export interface PostRotationRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostUnitGradesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createUnitGradesDetails?: PostUnitGradesRequest;
+export interface PostUnitGradesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createUnitGradesDetails: CreateUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAdjustmentReasonsOperationRequest {
-    adjustmentReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeAdjustmentReasonsDetails?: PutAdjustmentReasonsRequest;
+export interface PutAdjustmentReasonsRequest {
+    adjustmentReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeAdjustmentReasonsDetails: ChangeAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutOverrideReasonsOperationRequest {
-    overrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    overrideReasonsToBeChanged?: PutOverrideReasonsRequest;
+export interface PutOverrideReasonsRequest {
+    overrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    overrideReasonsToBeChanged: OverrideReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRevenueTransactionCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeRevenueTransactionCodesCriteria?: PutRevenueTransactionCodesRequest;
+export interface PutRevenueTransactionCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeRevenueTransactionCodesCriteria: ChangeRevenueTransactionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomOwnerOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeRoomOwnerDetails?: PutRoomOwnerRequest;
+export interface PutRoomOwnerRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeRoomOwnerDetails: ChangeRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomOwnerReferralOperationRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeRoomOwnerReferralDetails?: PutRoomOwnerReferralRequest;
+export interface PutRoomOwnerReferralRequest {
+    profileId: string;
+    roomOwnerReferralId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeRoomOwnerReferralDetails: ChangeRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRotationPeriodOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationPeriod?: PutRotationPeriodRequest;
+export interface PutRotationPeriodRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationPeriod: RotationPeriod;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationRules?: PostRotationRulesRequest;
+    ruleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutUnitGradesOperationRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeUnitGradesDetails?: PutUnitGradesRequest;
+export interface PutUnitGradesRequest {
+    unitGradeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeUnitGradesDetails: ChangeUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -329,11 +329,13 @@ export declare class RoomRotationConfigApi extends runtime.BaseAPI {
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Delete an existing Room Rotation Rule
+     * @deprecated
      */
     deleteRotationRulesRaw(requestParameters: DeleteRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Delete an existing Room Rotation Rule
+     * @deprecated
      */
     deleteRotationRules(requestParameters: DeleteRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -430,152 +432,156 @@ export declare class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to post Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>postAdjustmentReasons</p>
      * Post Room Rotation Adjustment Reasons
      */
-    postAdjustmentReasonsRaw(requestParameters: PostAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAdjustmentReasonsRaw(requestParameters: PostAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to post Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>postAdjustmentReasons</p>
      * Post Room Rotation Adjustment Reasons
      */
-    postAdjustmentReasons(requestParameters: PostAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAdjustmentReasons(requestParameters: PostAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Room Rotation Override Reason. <p><strong>OperationId:</strong>postOverrideReasons</p>
      * Create a new Room Rotation Override Reason
      */
-    postOverrideReasonsRaw(requestParameters: PostOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postOverrideReasonsRaw(requestParameters: PostOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Room Rotation Override Reason. <p><strong>OperationId:</strong>postOverrideReasons</p>
      * Create a new Room Rotation Override Reason
      */
-    postOverrideReasons(requestParameters: PostOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postOverrideReasons(requestParameters: PostOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Create Room Ownership Record. <p><strong>OperationId:</strong>postRoomOwner</p>
      * Create Room Ownership Record
      */
-    postRoomOwnerRaw(requestParameters: PostRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>>;
+    postRoomOwnerRaw(requestParameters: PostRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>>;
     /**
      * Use this API to create Create Room Ownership Record. <p><strong>OperationId:</strong>postRoomOwner</p>
      * Create Room Ownership Record
      */
-    postRoomOwner(requestParameters: PostRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails>;
+    postRoomOwner(requestParameters: PostRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails>;
     /**
      * Use this API to create multiple Room Owner Referral Records. <p><strong>OperationId:</strong>postRoomOwnerReferrals</p>
      * Create Room Owner Referrals
      */
-    postRoomOwnerReferralsRaw(requestParameters: PostRoomOwnerReferralsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomOwnerReferralsRaw(requestParameters: PostRoomOwnerReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create multiple Room Owner Referral Records. <p><strong>OperationId:</strong>postRoomOwnerReferrals</p>
      * Create Room Owner Referrals
      */
-    postRoomOwnerReferrals(requestParameters: PostRoomOwnerReferralsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomOwnerReferrals(requestParameters: PostRoomOwnerReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This operation will create/update/delete Rotation Setup Rules sent in the request and then recalculate rotation points.  <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Save changes to Rotation Setup Rules and recalculate Rotation Points
      */
-    postRoomRotationRulesRaw(requestParameters: PostRoomRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomRotationRulesRaw(requestParameters: PostRoomRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This operation will create/update/delete Rotation Setup Rules sent in the request and then recalculate rotation points.  <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Save changes to Rotation Setup Rules and recalculate Rotation Points
      */
-    postRoomRotationRules(requestParameters: PostRoomRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomRotationRules(requestParameters: PostRoomRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Create Room Rotation Rules
+     * @deprecated
      */
-    postRotationRulesRaw(requestParameters: PostRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRotationRulesRaw(requestParameters: PostRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Create Room Rotation Rules
+     * @deprecated
      */
-    postRotationRules(requestParameters: PostRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRotationRules(requestParameters: PostRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Room Rotation Owner Room Grade Code. <p><strong>OperationId:</strong>postUnitGrades</p>
      * Create a new Room Rotation Owner Room Grade Code
      */
-    postUnitGradesRaw(requestParameters: PostUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postUnitGradesRaw(requestParameters: PostUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Room Rotation Owner Room Grade Code. <p><strong>OperationId:</strong>postUnitGrades</p>
      * Create a new Room Rotation Owner Room Grade Code
      */
-    postUnitGrades(requestParameters: PostUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postUnitGrades(requestParameters: PostUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>putAdjustmentReasons</p>
      * Update Room Rotation Adjustment Reasons
      */
-    putAdjustmentReasonsRaw(requestParameters: PutAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustmentReasonsDetailsUpdated>>;
+    putAdjustmentReasonsRaw(requestParameters: PutAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustmentReasonsDetailsUpdated>>;
     /**
      * Use this API to update Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>putAdjustmentReasons</p>
      * Update Room Rotation Adjustment Reasons
      */
-    putAdjustmentReasons(requestParameters: PutAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustmentReasonsDetailsUpdated>;
+    putAdjustmentReasons(requestParameters: PutAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustmentReasonsDetailsUpdated>;
     /**
      * Use this API to update an existing Room Rotation Override Reason. <p><strong>OperationId:</strong>putOverrideReasons</p>
      * Change an existing Room Rotation Override Reason
      */
-    putOverrideReasonsRaw(requestParameters: PutOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putOverrideReasonsRaw(requestParameters: PutOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update an existing Room Rotation Override Reason. <p><strong>OperationId:</strong>putOverrideReasons</p>
      * Change an existing Room Rotation Override Reason
      */
-    putOverrideReasons(requestParameters: PutOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putOverrideReasons(requestParameters: PutOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update the room rotation revenue status of a set of transaction codes. <p><strong>OperationId:</strong>putRevenueTransactionCodes</p>
      * Update the room rotation revenue status of a set of transaction codes
      */
-    putRevenueTransactionCodesRaw(requestParameters: PutRevenueTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRevenueTransactionCodesDetails>>;
+    putRevenueTransactionCodesRaw(requestParameters: PutRevenueTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRevenueTransactionCodesDetails>>;
     /**
      * Use this API to update the room rotation revenue status of a set of transaction codes. <p><strong>OperationId:</strong>putRevenueTransactionCodes</p>
      * Update the room rotation revenue status of a set of transaction codes
      */
-    putRevenueTransactionCodes(requestParameters: PutRevenueTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRevenueTransactionCodesDetails>;
+    putRevenueTransactionCodes(requestParameters: PutRevenueTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRevenueTransactionCodesDetails>;
     /**
      * Use this API to update Multiple Room Ownership Records across properties. <p><strong>OperationId:</strong>putRoomOwner</p>
      * Change Room Ownership Records
      */
-    putRoomOwnerRaw(requestParameters: PutRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>>;
+    putRoomOwnerRaw(requestParameters: PutRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>>;
     /**
      * Use this API to update Multiple Room Ownership Records across properties. <p><strong>OperationId:</strong>putRoomOwner</p>
      * Change Room Ownership Records
      */
-    putRoomOwner(requestParameters: PutRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails>;
+    putRoomOwner(requestParameters: PutRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails>;
     /**
      * Use this API to update Room Owner Referral Record. <p><strong>OperationId:</strong>putRoomOwnerReferral</p>
      * Change Room Owner Referral Record
      */
-    putRoomOwnerReferralRaw(requestParameters: PutRoomOwnerReferralOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomOwnerReferralRaw(requestParameters: PutRoomOwnerReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Room Owner Referral Record. <p><strong>OperationId:</strong>putRoomOwnerReferral</p>
      * Change Room Owner Referral Record
      */
-    putRoomOwnerReferral(requestParameters: PutRoomOwnerReferralOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomOwnerReferral(requestParameters: PutRoomOwnerReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to change Room Rotation Period. <p><strong>OperationId:</strong>putRotationPeriod</p>
      * Change Room Rotation Period
      */
-    putRotationPeriodRaw(requestParameters: PutRotationPeriodOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRotationPeriodDetails>>;
+    putRotationPeriodRaw(requestParameters: PutRotationPeriodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRotationPeriodDetails>>;
     /**
      * Use this API to change Room Rotation Period. <p><strong>OperationId:</strong>putRotationPeriod</p>
      * Change Room Rotation Period
      */
-    putRotationPeriod(requestParameters: PutRotationPeriodOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRotationPeriodDetails>;
+    putRotationPeriod(requestParameters: PutRotationPeriodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRotationPeriodDetails>;
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Change Room Rotation Rules
+     * @deprecated
      */
     putRotationRulesRaw(requestParameters: PutRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Change Room Rotation Rules
+     * @deprecated
      */
     putRotationRules(requestParameters: PutRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Room Rotation Owner Room Unit Grades. <p><strong>OperationId:</strong>putUnitGrades</p>
      * Change an existing Room Rotation Owner Room Unit Grade
      */
-    putUnitGradesRaw(requestParameters: PutUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnitGradesDetailsUpdated>>;
+    putUnitGradesRaw(requestParameters: PutUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnitGradesDetailsUpdated>>;
     /**
      * Use this API to update Room Rotation Owner Room Unit Grades. <p><strong>OperationId:</strong>putUnitGrades</p>
      * Change an existing Room Rotation Owner Room Unit Grade
      */
-    putUnitGrades(requestParameters: PutUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnitGradesDetailsUpdated>;
+    putUnitGrades(requestParameters: PutUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnitGradesDetailsUpdated>;
 }
 /**
  * @export

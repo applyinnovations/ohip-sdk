@@ -80,7 +80,6 @@ __exportStar(require("./PMSResStatusType"), exports);
 __exportStar(require("./PersonNameType"), exports);
 __exportStar(require("./PointsType"), exports);
 __exportStar(require("./PostActivitiesRequest"), exports);
-__exportStar(require("./PostLinkedActivitiesRequest"), exports);
 __exportStar(require("./PostMultipleActivitiesCompletionRequest"), exports);
 __exportStar(require("./PostSingleActivityCompletionRequest"), exports);
 __exportStar(require("./ProfileDeliveryMethod"), exports);

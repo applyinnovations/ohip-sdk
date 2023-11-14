@@ -57,7 +57,7 @@ function PrepaidCardTransactionInfoTypeToJSON(value) {
     return {
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
         'cancellable': value.cancellable,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'source': (0, PrepaidCardTransactionSourceType_1.PrepaidCardTransactionSourceTypeToJSON)(value.source),
         'transactionNo': value.transactionNo,

@@ -10,39 +10,39 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AirlineTransactionsStatus, AvailableAwardsBasedOnType, Award, AwardsToGrant, CalculateMembershipPointsRequest, CalculatedPoints, EnrollmentMatchProfiles, ExtendMemberPointsToExpireRequest, MemberInformation, MemberPointsToExpire, MembershipAwardExportInfo, MembershipAwardPointsByHotel, MembershipClaim, MembershipClaims, MembershipIssueAwards, MembershipTransaction, MembershipTransactionExceptions, MembershipTransactionsSummary, PointsRejectionReasons, PostEnrollmentRequest, PostMembershipClaimRequest, PostMembershipTransactionRequest, Rates, RedeemAwardRequest, Revenues, Status } from '../models';
-export interface CalculateMembershipPointsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipPointsToCalculate?: CalculateMembershipPointsRequest;
+import type { AirlineTransactionsStatus, AvailableAwardsBasedOnType, Award, AwardsToGrant, CalculatedPoints, Enrollment, EnrollmentMatchProfiles, ExtendMemberPointsToExpire, MemberInformation, MemberPointsToExpire, MembershipAwardExportInfo, MembershipAwardPointsByHotel, MembershipClaim, MembershipClaims, MembershipIssueAwards, MembershipPointsToCalculate, MembershipTransaction, MembershipTransactionExceptions, MembershipTransactionsSummary, PointsRejectionReasons, Rates, Revenues, Status } from '../models/index';
+export interface CalculateMembershipPointsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipPointsToCalculate: MembershipPointsToCalculate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeMembershipClaimRequest {
-    claimId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClaim?: PostMembershipClaimRequest;
+    claimId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClaim: MembershipClaim;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAwardsRequest {
-    awardNumber?: number;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    awardNumber: number;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationCancellationNumber?: string;
     actualCancelPoints?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ExportMembershipAwardRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateInfoHotelId?: string;
     totalAvailablePoints?: number;
     pointsRequired?: number;
@@ -148,19 +148,19 @@ export interface ExportMembershipAwardRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ExtendMemberPointsToExpireOperationRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    extendMemberPointsToExpire?: ExtendMemberPointsToExpireRequest;
+export interface ExtendMemberPointsToExpireRequest {
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    extendMemberPointsToExpire: ExtendMemberPointsToExpire;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAirlineTransactionsStatusRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     batchId?: string;
@@ -170,9 +170,9 @@ export interface GetAirlineTransactionsStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetAllMembershipClaimsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipId?: string;
     profileId?: string;
     profileIdContext?: string;
@@ -205,9 +205,9 @@ export interface GetAllMembershipClaimsRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableAwardsBasedOnTypeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     awardBasedOn?: GetAvailableAwardsBasedOnTypeAwardBasedOnEnum;
     membershipType?: string;
     rateCriteriaHotelId?: string;
@@ -256,9 +256,9 @@ export interface GetAvailableAwardsBasedOnTypeRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardsToGrantRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     awardBasedOn?: GetAwardsToGrantAwardBasedOnEnum;
     totalPointsRequired?: number;
     rooms?: string;
@@ -274,9 +274,9 @@ export interface GetAwardsToGrantRequest {
     acceptLanguage?: string;
 }
 export interface GetEnrollmentMatchProfilesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     externalDatabaseID?: string;
     matchedProfileType?: GetEnrollmentMatchProfilesMatchedProfileTypeEnum;
     language?: string;
@@ -335,36 +335,36 @@ export interface GetEnrollmentMatchProfilesRequest {
     acceptLanguage?: string;
 }
 export interface GetMemberPointsToExpireRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardExportInfoRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     awardNumber?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardPointsByHotelRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipClaimRequest {
-    claimId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    claimId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idContext?: string;
     type?: string;
@@ -373,10 +373,10 @@ export interface GetMembershipClaimRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClaimsRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileId?: string;
     profileIdContext?: string;
     profileIdType?: string;
@@ -408,10 +408,10 @@ export interface GetMembershipClaimsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipDetailsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idContext?: Array<string>;
     idType?: Array<string>;
@@ -426,10 +426,10 @@ export interface GetMembershipDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipIssueAwardsListRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: string;
     limit?: number;
     offset?: number;
@@ -437,10 +437,10 @@ export interface GetMembershipIssueAwardsListRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionRequest {
-    membershipTransactionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTransactionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idContext?: string;
     type?: string;
@@ -448,20 +448,20 @@ export interface GetMembershipTransactionRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionAwardPointsRequest {
-    membershipTransactionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTransactionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionExceptionsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     end?: Date;
     start?: Date;
@@ -477,84 +477,84 @@ export interface GetMembershipTransactionExceptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionPointsRejectionReasonsRequest {
-    membershipTransactionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTransactionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionRatesRequest {
-    membershipTransactionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTransactionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionRevenueRequest {
-    membershipTransactionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTransactionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionTierPointsRequest {
-    membershipTransactionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTransactionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipTransactionsSummaryRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostEnrollmentOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    enrollment?: PostEnrollmentRequest;
+export interface PostEnrollmentRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    enrollment: Enrollment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipClaimOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClaim?: PostMembershipClaimRequest;
+export interface PostMembershipClaimRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClaim: MembershipClaim;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipTransactionOperationRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTransaction?: PostMembershipTransactionRequest;
+export interface PostMembershipTransactionRequest {
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTransaction: MembershipTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface RedeemAwardOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    award?: RedeemAwardRequest;
+export interface RedeemAwardRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    award: Award;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -566,12 +566,12 @@ export declare class ProfileMembershipApi extends runtime.BaseAPI {
      * Start Membership Points Calculation process <p><strong>OperationId:</strong>calculateMembershipPoints</p>
      * Calculate Membership Points
      */
-    calculateMembershipPointsRaw(requestParameters: CalculateMembershipPointsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    calculateMembershipPointsRaw(requestParameters: CalculateMembershipPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Start Membership Points Calculation process <p><strong>OperationId:</strong>calculateMembershipPoints</p>
      * Calculate Membership Points
      */
-    calculateMembershipPoints(requestParameters: CalculateMembershipPointsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    calculateMembershipPoints(requestParameters: CalculateMembershipPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Change membership claim details based on the claim number and instructions provided in the request. <p><strong>OperationId:</strong>changeMembershipClaim</p>
      * Change membership Claim
@@ -606,12 +606,12 @@ export declare class ProfileMembershipApi extends runtime.BaseAPI {
      * This will allow you to extend the expiration date based on the rule defined in the Grace Period in months. <p><strong>OperationId:</strong>extendMemberPointsToExpire</p>
      * Extend Member Points set to Expire
      */
-    extendMemberPointsToExpireRaw(requestParameters: ExtendMemberPointsToExpireOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    extendMemberPointsToExpireRaw(requestParameters: ExtendMemberPointsToExpireRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This will allow you to extend the expiration date based on the rule defined in the Grace Period in months. <p><strong>OperationId:</strong>extendMemberPointsToExpire</p>
      * Extend Member Points set to Expire
      */
-    extendMemberPointsToExpire(requestParameters: ExtendMemberPointsToExpireOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    extendMemberPointsToExpire(requestParameters: ExtendMemberPointsToExpireRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Request for fetching membership transactions processed by the airline. <p><strong>OperationId:</strong>getAirlineTransactionsStatus</p>
      * Get airline transactions status
@@ -816,42 +816,42 @@ export declare class ProfileMembershipApi extends runtime.BaseAPI {
      * Use this API when you have a guest profile and you want to enroll that guest profile into a membership program in an external system. <p><strong>OperationId:</strong>postEnrollment</p>
      * Create an Enrollment
      */
-    postEnrollmentRaw(requestParameters: PostEnrollmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postEnrollmentRaw(requestParameters: PostEnrollmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API when you have a guest profile and you want to enroll that guest profile into a membership program in an external system. <p><strong>OperationId:</strong>postEnrollment</p>
      * Create an Enrollment
      */
-    postEnrollment(requestParameters: PostEnrollmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postEnrollment(requestParameters: PostEnrollmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This will create membership claim details based on the claim number and instructions provided in the request. <p><strong>OperationId:</strong>postMembershipClaim</p>
      * Create membership Claim
      */
-    postMembershipClaimRaw(requestParameters: PostMembershipClaimOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipClaimRaw(requestParameters: PostMembershipClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This will create membership claim details based on the claim number and instructions provided in the request. <p><strong>OperationId:</strong>postMembershipClaim</p>
      * Create membership Claim
      */
-    postMembershipClaim(requestParameters: PostMembershipClaimOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipClaim(requestParameters: PostMembershipClaimRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a new membership transaction . <p><strong>OperationId:</strong>postMembershipTransaction</p>
      * Post a membership transaction
      */
-    postMembershipTransactionRaw(requestParameters: PostMembershipTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipTransactionRaw(requestParameters: PostMembershipTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a new membership transaction . <p><strong>OperationId:</strong>postMembershipTransaction</p>
      * Post a membership transaction
      */
-    postMembershipTransaction(requestParameters: PostMembershipTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipTransaction(requestParameters: PostMembershipTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Redeem an award that exists on a profile. <p><strong>OperationId:</strong>redeemAward</p>
      * Redeem an award
      */
-    redeemAwardRaw(requestParameters: RedeemAwardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Award>>;
+    redeemAwardRaw(requestParameters: RedeemAwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Award>>;
     /**
      * Redeem an award that exists on a profile. <p><strong>OperationId:</strong>redeemAward</p>
      * Redeem an award
      */
-    redeemAward(requestParameters: RedeemAwardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Award>;
+    redeemAward(requestParameters: RedeemAwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Award>;
 }
 /**
  * @export

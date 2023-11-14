@@ -94,7 +94,7 @@ export function BlockGridInvTypeToJSON(value?: BlockGridInvType | null): any {
     }
     return {
         
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substr(0,10)),
+        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
         'fourPerson': value.fourPerson,
         'onePerson': value.onePerson,
         'sellLimit': value.sellLimit,

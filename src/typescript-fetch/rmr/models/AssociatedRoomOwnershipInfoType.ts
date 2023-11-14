@@ -116,13 +116,13 @@ export function AssociatedRoomOwnershipInfoTypeToJSON(value?: AssociatedRoomOwne
     return {
         
         'associatedRoomOwnershipType': AssociatedRoomOwnershipTypeToJSON(value.associatedRoomOwnershipType),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
         'ownerExclusive': value.ownerExclusive,
         'roomId': value.roomId,
         'roomOwnershipId': value.roomOwnershipId,
         'roomType': value.roomType,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

@@ -81,7 +81,7 @@ export function AirlineTransactionImportInfoTypeToJSON(value?: AirlineTransactio
     return {
         
         'description': value.description,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substr(0,10)),
+        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
         'status': AirlineImportStatusTypeToJSON(value.status),
     };
 }

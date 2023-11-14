@@ -155,7 +155,7 @@ function ReservationInfoTypeToJSON(value) {
         'optedForCommunication': value.optedForCommunication,
         'paymentMethod': value.paymentMethod,
         'preRegistered': value.preRegistered,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'queue': (0, ReservationQueueInformationType_1.ReservationQueueInformationTypeToJSON)(value.queue),
         'reservationCommunication': (0, ResCommunicationType_1.ResCommunicationTypeToJSON)(value.reservationCommunication),
         'reservationFolioWindows': (0, ReservationFolioWindowsType_1.ReservationFolioWindowsTypeToJSON)(value.reservationFolioWindows),

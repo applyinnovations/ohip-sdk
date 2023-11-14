@@ -10,345 +10,345 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AirportsDetails, AmenitiesDetails, AttractionTemplatesDetails, AttractionsDetails, ChangeAirportsRequest, ChangeAlternateHotelsRequest, ChangeAmenitiesRequest, ChangeAttractionTemplatesRequest, ChangeAttractionsRequest, ChangeCountriesRequest, ChangeCreditCardTypesRequest, ChangeDepartmentsRequest, ChangeHotelContactsRequest, ChangeHotelDayTypeCodesRequest, ChangeHotelNotesRequest, ChangeHotelRateRangesRequest, ChangeHotelRestaurantsRequest, ChangeJobTitlesRequest, ChangeLanguagesRequest, ChangeMarketingCitiesRequest, ChangeTelephoneBookCategoriesRequest, ChangeTelephoneBookEntriesRequest, ChangeTemplateAirportsRequest, ChangeTemplateAmenitiesRequest, ChangeTemplateCountriesRequest, ChangeTemplateDayTypeCodesRequest, ChangeTemplateHotelDetailsRequest, ChangeTemplateJobTitlesRequest, ChangeTemplateMarketingCitiesRequest, ChangeTransportationRequest, ChangeTransportationTemplatesRequest, ChangeYieldAdjustmentCodesRequest, ChangeYieldCategoriesRequest, ChangeYieldMarketTypesRequest, ConfigActivityLogDetails, CopyDepartmentsRequest, CopyHotelDetailsRequest, CopyMarketingCitiesRequest, CopyTemplateCodesRequest, CopyYieldAdjustmentCodesRequest, CopyYieldCategoriesRequest, CountriesDetails, CreditCardTypesDetails, CurrencyExchangeRatesDetails, DepartmentsDetails, HotelBrochureDetails, HotelCalendarDetails, HotelDayTypeCodesDetails, HotelDetails, HotelDetailsDetails, HotelsDetails, JobTitlesDetails, LanguagesDetails, MarketingCitiesDetails, OperaHotelContextDetails, OperaParametersDetails, OperaSettingsDetails, PostAirportsRequest, PostAlternateHotelsRequest, PostAmenitiesRequest, PostAttractionTemplatesRequest, PostAttractionsRequest, PostConfigActivityLogRequest, PostCreditCardTypesRequest, PostDepartmentsRequest, PostHotelContactsRequest, PostHotelDayTypeCodesRequest, PostHotelNotesRequest, PostHotelRateRangesRequest, PostHotelRestaurantsRequest, PostJobTitlesRequest, PostLanguagesRequest, PostMarketingCitiesRequest, PostTelephoneBookCategoriesRequest, PostTelephoneBookEntriesRequest, PostTemplateAirportsRequest, PostTemplateAmenitiesRequest, PostTemplateCountriesRequest, PostTemplateDayTypeCodesRequest, PostTemplateHotelDetailsRequest, PostTemplateJobTitlesRequest, PostTemplateMarketingCitiesRequest, PostTransportationRequest, PostTransportationTemplatesRequest, PostYieldAdjustmentCodesRequest, PostYieldCategoriesRequest, PostYieldMarketTypesRequest, SetDayTypesRequest, SetHotelEventsRequest, Status, TelephoneBookCategoriesDetails, TelephoneBookEntriesDetails, TemplateAirportsDetails, TemplateAmenitiesDetails, TemplateCountriesDetails, TemplateDayTypeCodesDetails, TemplateHotelDetailsDetails, TemplateJobTitlesDetails, TemplateMarketingCitiesDetails, TransportationDetails, TransportationTemplatesDetails, YieldAdjustmentCodesDetails, YieldCategoriesDetails, YieldMarketTypesDetails } from '../models';
-export interface ChangeAirportsOperationRequest {
-    airportCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    airportsToBeChanged?: ChangeAirportsRequest;
+import type { AirportsCriteria, AirportsDetails, AirportsToBeChanged, AlternateHotelsCriteria, AlternateHotelsToBeChanged, AmenitiesCriteria, AmenitiesDetails, AmenitiesToBeChanged, AttractionTemplatesCriteria, AttractionTemplatesDetails, AttractionTemplatesToBeChanged, AttractionsCriteria, AttractionsDetails, AttractionsToBeChanged, ConfigActivityLogDetails, CopyDepartments, CopyHotelDetails, CopyMarketingCities, CopyTemplateCodes, CopyYieldAdjustmentCodes, CopyYieldCategories, CountriesDetails, CountriesToBeChanged, CreateConfigActivityLogCriteria, CreditCardTypesCriteria, CreditCardTypesDetails, CreditCardTypesToBeChanged, CurrencyExchangeRatesDetails, DepartmentsCriteria, DepartmentsDetails, DepartmentsToBeChanged, HotelBrochureDetails, HotelCalendarDetails, HotelContactsCriteria, HotelContactsToBeChanged, HotelDayTypeCodesCriteria, HotelDayTypeCodesDetails, HotelDayTypeCodesToBeChanged, HotelDetails, HotelDetailsDetails, HotelNotesCriteria, HotelNotesToBeChanged, HotelRateRangesCriteria, HotelRateRangesToBeChanged, HotelRestaurantsCriteria, HotelRestaurantsToBeChanged, HotelsDetails, JobTitlesCriteria, JobTitlesDetails, JobTitlesToBeChanged, LanguagesCriteria, LanguagesDetails, LanguagesToBeChanged, MarketingCitiesCriteria, MarketingCitiesDetails, MarketingCitiesToBeChanged, OperaHotelContextDetails, OperaParametersDetails, OperaSettingsDetails, SetDayTypes, SetHotelEvents, Status, TelephoneBookCategoriesCriteria, TelephoneBookCategoriesDetails, TelephoneBookCategoriesToBeChanged, TelephoneBookEntriesCriteria, TelephoneBookEntriesDetails, TelephoneBookEntriesToBeChanged, TemplateAirportsCriteria, TemplateAirportsDetails, TemplateAirportsToBeChanged, TemplateAmenitiesCriteria, TemplateAmenitiesDetails, TemplateAmenitiesToBeChanged, TemplateCountriesCriteria, TemplateCountriesDetails, TemplateCountriesToBeChanged, TemplateDayTypeCodesCriteria, TemplateDayTypeCodesDetails, TemplateDayTypeCodesToBeChanged, TemplateHotelDetailsCriteria, TemplateHotelDetailsDetails, TemplateHotelDetailsToBeChanged, TemplateJobTitlesCriteria, TemplateJobTitlesDetails, TemplateJobTitlesToBeChanged, TemplateMarketingCitiesCriteria, TemplateMarketingCitiesDetails, TemplateMarketingCitiesToBeChanged, TransportationCriteria, TransportationDetails, TransportationTemplatesCriteria, TransportationTemplatesDetails, TransportationTemplatesToBeChanged, TransportationToBeChanged, YieldAdjustmentCodesCriteria, YieldAdjustmentCodesDetails, YieldAdjustmentCodesToBeChanged, YieldCategoriesCriteria, YieldCategoriesDetails, YieldCategoriesToBeChanged, YieldMarketTypesCriteria, YieldMarketTypesDetails, YieldMarketTypesToBeChanged } from '../models/index';
+export interface ChangeAirportsRequest {
+    airportCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    airportsToBeChanged: AirportsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeAlternateHotelsOperationRequest {
-    alternateHotelId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alternateHotelsToBeChanged?: ChangeAlternateHotelsRequest;
+export interface ChangeAlternateHotelsRequest {
+    alternateHotelId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alternateHotelsToBeChanged: AlternateHotelsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeAmenitiesOperationRequest {
-    featureCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    amenitiesToBeChanged?: ChangeAmenitiesRequest;
+export interface ChangeAmenitiesRequest {
+    featureCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    amenitiesToBeChanged: AmenitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeAttractionTemplatesOperationRequest {
-    attractionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attractionTemplatesToBeChanged?: ChangeAttractionTemplatesRequest;
+export interface ChangeAttractionTemplatesRequest {
+    attractionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attractionTemplatesToBeChanged: AttractionTemplatesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeAttractionsOperationRequest {
-    attractionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attractionsToBeChanged?: ChangeAttractionsRequest;
+export interface ChangeAttractionsRequest {
+    attractionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attractionsToBeChanged: AttractionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCountriesOperationRequest {
-    countryCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    countriesToBeChanged?: ChangeCountriesRequest;
+export interface ChangeCountriesRequest {
+    countryCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    countriesToBeChanged: CountriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCreditCardTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditCardTypesToBeChanged?: ChangeCreditCardTypesRequest;
+export interface ChangeCreditCardTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditCardTypesToBeChanged: CreditCardTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeDepartmentsOperationRequest {
-    departmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    departmentsToBeChanged?: ChangeDepartmentsRequest;
+export interface ChangeDepartmentsRequest {
+    departmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    departmentsToBeChanged: DepartmentsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHotelContactsOperationRequest {
-    contactId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelContactsToBeChanged?: ChangeHotelContactsRequest;
+export interface ChangeHotelContactsRequest {
+    contactId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelContactsToBeChanged: HotelContactsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHotelDayTypeCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelDayTypeCodesToBeChanged?: ChangeHotelDayTypeCodesRequest;
+export interface ChangeHotelDayTypeCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelDayTypeCodesToBeChanged: HotelDayTypeCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHotelNotesOperationRequest {
-    noteCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelNotesToBeChanged?: ChangeHotelNotesRequest;
+export interface ChangeHotelNotesRequest {
+    noteCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelNotesToBeChanged: HotelNotesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHotelRateRangesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelRateRangesToBeChanged?: ChangeHotelRateRangesRequest;
+export interface ChangeHotelRateRangesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelRateRangesToBeChanged: HotelRateRangesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHotelRestaurantsOperationRequest {
-    restaurantCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelRestaurantsToBeChanged?: ChangeHotelRestaurantsRequest;
+export interface ChangeHotelRestaurantsRequest {
+    restaurantCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelRestaurantsToBeChanged: HotelRestaurantsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeJobTitlesOperationRequest {
-    jobTitleCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    jobTitlesToBeChanged?: ChangeJobTitlesRequest;
+export interface ChangeJobTitlesRequest {
+    jobTitleCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    jobTitlesToBeChanged: JobTitlesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeLanguagesOperationRequest {
-    languageCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    languagesToBeChanged?: ChangeLanguagesRequest;
+export interface ChangeLanguagesRequest {
+    languageCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    languagesToBeChanged: LanguagesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMarketingCitiesOperationRequest {
-    cityCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketingCitiesToBeChanged?: ChangeMarketingCitiesRequest;
+export interface ChangeMarketingCitiesRequest {
+    cityCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketingCitiesToBeChanged: MarketingCitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTelephoneBookCategoriesOperationRequest {
-    categoryCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    telephoneBookCategoriesToBeChanged?: ChangeTelephoneBookCategoriesRequest;
+export interface ChangeTelephoneBookCategoriesRequest {
+    categoryCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    telephoneBookCategoriesToBeChanged: TelephoneBookCategoriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTelephoneBookEntriesOperationRequest {
-    entryId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    telephoneBookEntriesToBeChanged?: ChangeTelephoneBookEntriesRequest;
+export interface ChangeTelephoneBookEntriesRequest {
+    entryId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    telephoneBookEntriesToBeChanged: TelephoneBookEntriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateAirportsOperationRequest {
-    airportCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateAirportsToBeChanged?: ChangeTemplateAirportsRequest;
+export interface ChangeTemplateAirportsRequest {
+    airportCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateAirportsToBeChanged: TemplateAirportsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateAmenitiesOperationRequest {
-    featureCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateAmenitiesToBeChanged?: ChangeTemplateAmenitiesRequest;
+export interface ChangeTemplateAmenitiesRequest {
+    featureCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateAmenitiesToBeChanged: TemplateAmenitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateCountriesOperationRequest {
-    countryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCountriesToBeChanged?: ChangeTemplateCountriesRequest;
+export interface ChangeTemplateCountriesRequest {
+    countryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCountriesToBeChanged: TemplateCountriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateDayTypeCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDayTypeCodesToBeChanged?: ChangeTemplateDayTypeCodesRequest;
+export interface ChangeTemplateDayTypeCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDayTypeCodesToBeChanged: TemplateDayTypeCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateHotelDetailsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateHotelDetailsToBeChanged?: ChangeTemplateHotelDetailsRequest;
+export interface ChangeTemplateHotelDetailsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateHotelDetailsToBeChanged: TemplateHotelDetailsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateJobTitlesOperationRequest {
-    jobTitleCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateJobTitlesToBeChanged?: ChangeTemplateJobTitlesRequest;
+export interface ChangeTemplateJobTitlesRequest {
+    jobTitleCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateJobTitlesToBeChanged: TemplateJobTitlesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateMarketingCitiesOperationRequest {
-    cityCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketingCitiesToBeChanged?: ChangeTemplateMarketingCitiesRequest;
+export interface ChangeTemplateMarketingCitiesRequest {
+    cityCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketingCitiesToBeChanged: TemplateMarketingCitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTransportationOperationRequest {
-    transportationCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transportationToBeChanged?: ChangeTransportationRequest;
+export interface ChangeTransportationRequest {
+    transportationCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transportationToBeChanged: TransportationToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTransportationTemplatesOperationRequest {
-    transportationCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transportationTemplatesToBeChanged?: ChangeTransportationTemplatesRequest;
+export interface ChangeTransportationTemplatesRequest {
+    transportationCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transportationTemplatesToBeChanged: TransportationTemplatesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeYieldAdjustmentCodesOperationRequest {
-    yieldAdjustmentCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    yieldAdjustmentCodesToBeChanged?: ChangeYieldAdjustmentCodesRequest;
+export interface ChangeYieldAdjustmentCodesRequest {
+    yieldAdjustmentCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    yieldAdjustmentCodesToBeChanged: YieldAdjustmentCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeYieldCategoriesOperationRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    yieldCategoriesToBeChanged?: ChangeYieldCategoriesRequest;
+export interface ChangeYieldCategoriesRequest {
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    yieldCategoriesToBeChanged: YieldCategoriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeYieldMarketTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    yieldMarketTypesToBeChanged?: ChangeYieldMarketTypesRequest;
+export interface ChangeYieldMarketTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    yieldMarketTypesToBeChanged: YieldMarketTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyDepartmentsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyDepartments?: CopyDepartmentsRequest;
+export interface CopyDepartmentsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyDepartments: CopyDepartments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyHotelDetailsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyHotelDetails?: CopyHotelDetailsRequest;
+export interface CopyHotelDetailsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyHotelDetails: CopyHotelDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyMarketingCitiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyMarketingCities?: CopyMarketingCitiesRequest;
+export interface CopyMarketingCitiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyMarketingCities: CopyMarketingCities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTemplateCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyTemplateCodes?: CopyTemplateCodesRequest;
+export interface CopyTemplateCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyTemplateCodes: CopyTemplateCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyYieldAdjustmentCodesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyYieldAdjustmentCodes?: CopyYieldAdjustmentCodesRequest;
+export interface CopyYieldAdjustmentCodesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyYieldAdjustmentCodes: CopyYieldAdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyYieldCategoriesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyYieldCategories?: CopyYieldCategoriesRequest;
+export interface CopyYieldCategoriesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyYieldCategories: CopyYieldCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAirportsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -357,10 +357,10 @@ export interface GetAirportsRequest {
     acceptLanguage?: string;
 }
 export interface GetAmenitiesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     general?: boolean;
     meeting?: boolean;
@@ -369,9 +369,9 @@ export interface GetAmenitiesRequest {
     acceptLanguage?: string;
 }
 export interface GetAttractionTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     attractionCodes?: Array<string>;
     wildCard?: string;
     classCodes?: Array<string>;
@@ -379,10 +379,10 @@ export interface GetAttractionTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface GetAttractionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     attractionCodes?: Array<string>;
     wildCard?: string;
@@ -391,9 +391,9 @@ export interface GetAttractionsRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigActivityLogRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelId?: string;
@@ -411,10 +411,10 @@ export interface GetConfigActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetCountriesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     countriesCodes?: Array<string>;
@@ -423,10 +423,10 @@ export interface GetCountriesRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditCardTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     fetchInactive?: boolean;
     codes?: Array<string>;
@@ -436,9 +436,9 @@ export interface GetCreditCardTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetCurrencyExchangeRatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exchangeType?: GetCurrencyExchangeRatesExchangeTypeEnum;
     hotelIds?: Array<string>;
     currencyCode?: string;
@@ -447,9 +447,9 @@ export interface GetCurrencyExchangeRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetDepartmentsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     departmentCodes?: Array<string>;
     departmentWildCard?: string;
@@ -457,39 +457,39 @@ export interface GetDepartmentsRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetHotelFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelBrochureRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetHotelBrochureFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelCalendarRequest {
-    hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
-    fetchInstructions?: Set<GetHotelCalendarFetchInstructionsEnum>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    startDate: Date;
+    endDate: Date;
+    fetchInstructions: Set<GetHotelCalendarFetchInstructionsEnum>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelDayTypeCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     dayTypesCodes?: Array<string>;
     wildCard?: string;
@@ -497,10 +497,10 @@ export interface GetHotelDayTypeCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     hotelDetailCodes?: Array<string>;
     hotelDetailCategoriesCodes?: Array<string>;
@@ -508,28 +508,28 @@ export interface GetHotelDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     name?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetJobTitlesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     jobTitleCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetLanguagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     languageCodes?: Array<string>;
     description?: string;
     useAsAlternateLanguage?: boolean;
@@ -537,10 +537,10 @@ export interface GetLanguagesRequest {
     acceptLanguage?: string;
 }
 export interface GetMarketingCitiesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     includeInactive?: boolean;
     limit?: number;
@@ -552,25 +552,25 @@ export interface GetMarketingCitiesRequest {
     acceptLanguage?: string;
 }
 export interface GetOperaHotelContextRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetOperaParametersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     parameterName?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetOperaSettingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     cROCode?: string;
     parameterNameWildCard?: string;
@@ -578,48 +578,48 @@ export interface GetOperaSettingsRequest {
     acceptLanguage?: string;
 }
 export interface GetPropertyCalendarRequest {
-    startDate?: Date;
-    endDate?: Date;
-    fetchInstructions?: Set<GetPropertyCalendarFetchInstructionsEnum>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    startDate: Date;
+    endDate: Date;
+    fetchInstructions: Set<GetPropertyCalendarFetchInstructionsEnum>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTelephoneBookCategoriesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTelephoneBookEntriesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     category?: string;
     name?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateAirportsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     airportCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateAmenitiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     general?: boolean;
     meeting?: boolean;
     amenityCodes?: Array<string>;
@@ -627,44 +627,44 @@ export interface GetTemplateAmenitiesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateCountriesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     countriesCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateDayTypeCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     dayTypesCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateHotelDetailsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelDetailCodes?: Array<string>;
     hotelDetailCategoriesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateJobTitlesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     jobTitleCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateMarketingCitiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     limit?: number;
     pageNumber?: number;
@@ -675,10 +675,10 @@ export interface GetTemplateMarketingCitiesRequest {
     acceptLanguage?: string;
 }
 export interface GetTransportationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     transportationCodes?: Array<string>;
     wildCard?: string;
@@ -686,19 +686,19 @@ export interface GetTransportationRequest {
     acceptLanguage?: string;
 }
 export interface GetTransportationTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transportationCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetYieldAdjustmentCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     yieldAdjustmentCodes?: Array<string>;
     wildCard?: string;
@@ -707,351 +707,351 @@ export interface GetYieldAdjustmentCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetYieldCategoriesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     yieldCategoriesCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetYieldMarketTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     yieldMarketTypesCodes?: Array<string>;
     wildCard?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAirportsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    airportsCriteria?: PostAirportsRequest;
+export interface PostAirportsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    airportsCriteria: AirportsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAlternateHotelsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alternateHotelsCriteria?: PostAlternateHotelsRequest;
+export interface PostAlternateHotelsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alternateHotelsCriteria: AlternateHotelsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAmenitiesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    amenitiesCriteria?: PostAmenitiesRequest;
+export interface PostAmenitiesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    amenitiesCriteria: AmenitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAttractionTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attractionTemplatesCriteria?: PostAttractionTemplatesRequest;
+export interface PostAttractionTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attractionTemplatesCriteria: AttractionTemplatesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAttractionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attractionsCriteria?: PostAttractionsRequest;
+export interface PostAttractionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attractionsCriteria: AttractionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostConfigActivityLogOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createConfigActivityLogCriteria?: PostConfigActivityLogRequest;
+export interface PostConfigActivityLogRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createConfigActivityLogCriteria: CreateConfigActivityLogCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCreditCardTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditCardTypesCriteria?: PostCreditCardTypesRequest;
+export interface PostCreditCardTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditCardTypesCriteria: CreditCardTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDepartmentsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    departmentsCriteria?: PostDepartmentsRequest;
+export interface PostDepartmentsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    departmentsCriteria: DepartmentsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHotelContactsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelContactsCriteria?: PostHotelContactsRequest;
+export interface PostHotelContactsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelContactsCriteria: HotelContactsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHotelDayTypeCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelDayTypeCodesCriteria?: PostHotelDayTypeCodesRequest;
+export interface PostHotelDayTypeCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelDayTypeCodesCriteria: HotelDayTypeCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHotelNotesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelNotesCriteria?: PostHotelNotesRequest;
+export interface PostHotelNotesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelNotesCriteria: HotelNotesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHotelRateRangesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelRateRangesCriteria?: PostHotelRateRangesRequest;
+export interface PostHotelRateRangesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelRateRangesCriteria: HotelRateRangesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHotelRestaurantsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelRestaurantsCriteria?: PostHotelRestaurantsRequest;
+export interface PostHotelRestaurantsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelRestaurantsCriteria: HotelRestaurantsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostJobTitlesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    jobTitlesCriteria?: PostJobTitlesRequest;
+export interface PostJobTitlesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    jobTitlesCriteria: JobTitlesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostLanguagesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    languagesCriteria?: PostLanguagesRequest;
+export interface PostLanguagesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    languagesCriteria: LanguagesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMarketingCitiesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketingCitiesCriteria?: PostMarketingCitiesRequest;
+export interface PostMarketingCitiesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketingCitiesCriteria: MarketingCitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTelephoneBookCategoriesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    telephoneBookCategoriesCriteria?: PostTelephoneBookCategoriesRequest;
+export interface PostTelephoneBookCategoriesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    telephoneBookCategoriesCriteria: TelephoneBookCategoriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTelephoneBookEntriesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    telephoneBookEntriesCriteria?: PostTelephoneBookEntriesRequest;
+export interface PostTelephoneBookEntriesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    telephoneBookEntriesCriteria: TelephoneBookEntriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateAirportsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateAirportsCriteria?: PostTemplateAirportsRequest;
+export interface PostTemplateAirportsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateAirportsCriteria: TemplateAirportsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateAmenitiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateAmenitiesCriteria?: PostTemplateAmenitiesRequest;
+export interface PostTemplateAmenitiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateAmenitiesCriteria: TemplateAmenitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateCountriesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCountriesCriteria?: PostTemplateCountriesRequest;
+export interface PostTemplateCountriesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCountriesCriteria: TemplateCountriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateDayTypeCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDayTypeCodesCriteria?: PostTemplateDayTypeCodesRequest;
+export interface PostTemplateDayTypeCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDayTypeCodesCriteria: TemplateDayTypeCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateHotelDetailsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateHotelDetailsCriteria?: PostTemplateHotelDetailsRequest;
+export interface PostTemplateHotelDetailsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateHotelDetailsCriteria: TemplateHotelDetailsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateJobTitlesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateJobTitlesCriteria?: PostTemplateJobTitlesRequest;
+export interface PostTemplateJobTitlesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateJobTitlesCriteria: TemplateJobTitlesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateMarketingCitiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketingCitiesCriteria?: PostTemplateMarketingCitiesRequest;
+export interface PostTemplateMarketingCitiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketingCitiesCriteria: TemplateMarketingCitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTransportationOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transportationCriteria?: PostTransportationRequest;
+export interface PostTransportationRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transportationCriteria: TransportationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTransportationTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transportationTemplatesCriteria?: PostTransportationTemplatesRequest;
+export interface PostTransportationTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transportationTemplatesCriteria: TransportationTemplatesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostYieldAdjustmentCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    yieldAdjustmentCodesCriteria?: PostYieldAdjustmentCodesRequest;
+export interface PostYieldAdjustmentCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    yieldAdjustmentCodesCriteria: YieldAdjustmentCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostYieldCategoriesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    yieldCategoriesCriteria?: PostYieldCategoriesRequest;
+export interface PostYieldCategoriesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    yieldCategoriesCriteria: YieldCategoriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostYieldMarketTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    yieldMarketTypesCriteria?: PostYieldMarketTypesRequest;
+export interface PostYieldMarketTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    yieldMarketTypesCriteria: YieldMarketTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveAirportsRequest {
-    airportCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    airportCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveAlternateHotelsRequest {
-    alternateHotelId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    alternateHotelId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveAmenitiesRequest {
-    featureCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    featureCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     beginDate?: Array<Date>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveAttractionTemplatesRequest {
-    attractionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attractionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveAttractionsRequest {
-    attractionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attractionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     attractionCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveAttractionsByCodeRequest {
-    attractionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attractionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCreditCardTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     creditCardTypesCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveDayTypesRequest {
-    dayType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    dayType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     friday?: boolean;
     monday?: boolean;
@@ -1067,39 +1067,39 @@ export interface RemoveDayTypesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveDepartmentsRequest {
-    departmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    departmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHotelContactsRequest {
-    contactId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    contactId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHotelDayTypeCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHotelEventsRequest {
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -1114,18 +1114,18 @@ export interface RemoveHotelEventsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHotelNotesRequest {
-    noteCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    noteCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHotelRateRangesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -1133,47 +1133,47 @@ export interface RemoveHotelRateRangesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHotelRestaurantsRequest {
-    restaurantCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    restaurantCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveJobTitlesRequest {
-    jobTitleCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    jobTitleCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveLanguagesRequest {
-    languageCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    languageCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMarketingCitiesRequest {
-    cityCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cityCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     regionCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTelephoneBookCategoriesRequest {
-    categoryCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    categoryCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     description?: Array<string>;
     orderBy?: Array<number>;
     generic?: Array<boolean>;
@@ -1181,88 +1181,88 @@ export interface RemoveTelephoneBookCategoriesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTelephoneBookEntriesRequest {
-    entryId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    entryId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTelephoneBookEntriesWithoutHotelIdRequest {
-    entryId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    entryId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateAirportsRequest {
-    airportCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    airportCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateAmenitiesRequest {
-    featureCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    featureCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateCountriesRequest {
-    countryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    countryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateDayTypeCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateDayTypeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateHotelDetailsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateHotelDetailCode?: Array<string>;
     templateHotelDetailCategory?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateJobTitlesRequest {
-    jobTitleCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    jobTitleCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateMarketingCitiesRequest {
-    cityCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cityCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     regionCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTransportationRequest {
-    transportationCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transportationCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     label?: Array<string>;
     orderBy?: Array<number>;
     createDateTime?: string;
@@ -1292,54 +1292,54 @@ export interface RemoveTransportationRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTransportationTemplatesRequest {
-    transportationCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transportationCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveYieldAdjustmentCodesRequest {
-    yieldAdjustmentCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    yieldAdjustmentCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveYieldCategoriesRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveYieldMarketTypesRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetDayTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    setDayTypes?: SetDayTypesRequest;
+export interface SetDayTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    setDayTypes: SetDayTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetHotelEventsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    setHotelEvents?: SetHotelEventsRequest;
+export interface SetHotelEventsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    setHotelEvents: SetHotelEvents;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1351,362 +1351,362 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update airports for a specific property based on airportCode, hotelId, airportsToBeChanged. <p><strong>OperationId:</strong>changeAirports</p>
      * Change resort airports
      */
-    changeAirportsRaw(requestParameters: ChangeAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeAirportsRaw(requestParameters: ChangeAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update airports for a specific property based on airportCode, hotelId, airportsToBeChanged. <p><strong>OperationId:</strong>changeAirports</p>
      * Change resort airports
      */
-    changeAirports(requestParameters: ChangeAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeAirports(requestParameters: ChangeAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update alternate hotels for a specific property based on  alternateHotelId, hotelId, alternateHotelsToBeChanged. <p><strong>OperationId:</strong>changeAlternateHotels</p>
      * Update Alternate Hotels
      */
-    changeAlternateHotelsRaw(requestParameters: ChangeAlternateHotelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeAlternateHotelsRaw(requestParameters: ChangeAlternateHotelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update alternate hotels for a specific property based on  alternateHotelId, hotelId, alternateHotelsToBeChanged. <p><strong>OperationId:</strong>changeAlternateHotels</p>
      * Update Alternate Hotels
      */
-    changeAlternateHotels(requestParameters: ChangeAlternateHotelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeAlternateHotels(requestParameters: ChangeAlternateHotelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update amenities for a specific property based on featureCode, hotelId, amenitiesToBeChanged. <p><strong>OperationId:</strong>changeAmenities</p>
      * Change amenities
      */
-    changeAmenitiesRaw(requestParameters: ChangeAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeAmenitiesRaw(requestParameters: ChangeAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update amenities for a specific property based on featureCode, hotelId, amenitiesToBeChanged. <p><strong>OperationId:</strong>changeAmenities</p>
      * Change amenities
      */
-    changeAmenities(requestParameters: ChangeAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeAmenities(requestParameters: ChangeAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update attraction templates based on attractionCode, attractionTemplatesToBeChanged. <p><strong>OperationId:</strong>changeAttractionTemplates</p>
      * Change Attraction Template
      */
-    changeAttractionTemplatesRaw(requestParameters: ChangeAttractionTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeAttractionTemplatesRaw(requestParameters: ChangeAttractionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update attraction templates based on attractionCode, attractionTemplatesToBeChanged. <p><strong>OperationId:</strong>changeAttractionTemplates</p>
      * Change Attraction Template
      */
-    changeAttractionTemplates(requestParameters: ChangeAttractionTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeAttractionTemplates(requestParameters: ChangeAttractionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update attractions for a specific property based on attractionCode, hotelId, attractionsToBeChanged. <p><strong>OperationId:</strong>changeAttractions</p>
      * Update an Attraction
      */
-    changeAttractionsRaw(requestParameters: ChangeAttractionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeAttractionsRaw(requestParameters: ChangeAttractionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update attractions for a specific property based on attractionCode, hotelId, attractionsToBeChanged. <p><strong>OperationId:</strong>changeAttractions</p>
      * Update an Attraction
      */
-    changeAttractions(requestParameters: ChangeAttractionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeAttractions(requestParameters: ChangeAttractionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update country codes for a specific property based on countryCode, hotelId, countriesToBeChanged. <p><strong>OperationId:</strong>changeCountries</p>
      * Update a Country Code
      */
-    changeCountriesRaw(requestParameters: ChangeCountriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCountriesRaw(requestParameters: ChangeCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update country codes for a specific property based on countryCode, hotelId, countriesToBeChanged. <p><strong>OperationId:</strong>changeCountries</p>
      * Update a Country Code
      */
-    changeCountries(requestParameters: ChangeCountriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCountries(requestParameters: ChangeCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update credit card types for a specific property based on hotelId, creditCardTypesToBeChanged. <p><strong>OperationId:</strong>changeCreditCardTypes</p>
      * Change Credit Card Types
      */
-    changeCreditCardTypesRaw(requestParameters: ChangeCreditCardTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCreditCardTypesRaw(requestParameters: ChangeCreditCardTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update credit card types for a specific property based on hotelId, creditCardTypesToBeChanged. <p><strong>OperationId:</strong>changeCreditCardTypes</p>
      * Change Credit Card Types
      */
-    changeCreditCardTypes(requestParameters: ChangeCreditCardTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCreditCardTypes(requestParameters: ChangeCreditCardTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update departments based on departmentCode, departmentsToBeChanged. <p><strong>OperationId:</strong>changeDepartments</p>
      * Change Departments
      */
-    changeDepartmentsRaw(requestParameters: ChangeDepartmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeDepartmentsRaw(requestParameters: ChangeDepartmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update departments based on departmentCode, departmentsToBeChanged. <p><strong>OperationId:</strong>changeDepartments</p>
      * Change Departments
      */
-    changeDepartments(requestParameters: ChangeDepartmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeDepartments(requestParameters: ChangeDepartmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update hotel contacts for a specific property based on contactId, hotelId, hotelContactsToBeChanged. <p><strong>OperationId:</strong>changeHotelContacts</p>
      * Change Hotel Contact
      */
-    changeHotelContactsRaw(requestParameters: ChangeHotelContactsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHotelContactsRaw(requestParameters: ChangeHotelContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update hotel contacts for a specific property based on contactId, hotelId, hotelContactsToBeChanged. <p><strong>OperationId:</strong>changeHotelContacts</p>
      * Change Hotel Contact
      */
-    changeHotelContacts(requestParameters: ChangeHotelContactsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHotelContacts(requestParameters: ChangeHotelContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update day type codes for a specific property based on hotelId, hotelDayTypeCodesToBeChanged. <p><strong>OperationId:</strong>changeHotelDayTypeCodes</p>
      * Change Hotel Day Type Codes
      */
-    changeHotelDayTypeCodesRaw(requestParameters: ChangeHotelDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHotelDayTypeCodesRaw(requestParameters: ChangeHotelDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update day type codes for a specific property based on hotelId, hotelDayTypeCodesToBeChanged. <p><strong>OperationId:</strong>changeHotelDayTypeCodes</p>
      * Change Hotel Day Type Codes
      */
-    changeHotelDayTypeCodes(requestParameters: ChangeHotelDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHotelDayTypeCodes(requestParameters: ChangeHotelDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update note information for a specific property based on noteCode, hotelId, hotelNotesToBeChanged. <p><strong>OperationId:</strong>changeHotelNotes</p>
      * Update Note information
      */
-    changeHotelNotesRaw(requestParameters: ChangeHotelNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHotelNotesRaw(requestParameters: ChangeHotelNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update note information for a specific property based on noteCode, hotelId, hotelNotesToBeChanged. <p><strong>OperationId:</strong>changeHotelNotes</p>
      * Update Note information
      */
-    changeHotelNotes(requestParameters: ChangeHotelNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHotelNotes(requestParameters: ChangeHotelNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update rate range information for a specific property based on hotelId, hotelRateRangesToBeChanged. <p><strong>OperationId:</strong>changeHotelRateRanges</p>
      * Update Rate Range information
      */
-    changeHotelRateRangesRaw(requestParameters: ChangeHotelRateRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHotelRateRangesRaw(requestParameters: ChangeHotelRateRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update rate range information for a specific property based on hotelId, hotelRateRangesToBeChanged. <p><strong>OperationId:</strong>changeHotelRateRanges</p>
      * Update Rate Range information
      */
-    changeHotelRateRanges(requestParameters: ChangeHotelRateRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHotelRateRanges(requestParameters: ChangeHotelRateRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update restaurant information for a specific property based on restaurantCode, hotelId, hotelRestaurantsToBeChanged. <p><strong>OperationId:</strong>changeHotelRestaurants</p>
      * Update the restaurant information
      */
-    changeHotelRestaurantsRaw(requestParameters: ChangeHotelRestaurantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHotelRestaurantsRaw(requestParameters: ChangeHotelRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update restaurant information for a specific property based on restaurantCode, hotelId, hotelRestaurantsToBeChanged. <p><strong>OperationId:</strong>changeHotelRestaurants</p>
      * Update the restaurant information
      */
-    changeHotelRestaurants(requestParameters: ChangeHotelRestaurantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHotelRestaurants(requestParameters: ChangeHotelRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update job titles for a specific property based on jobTitleCode, hotelId, jobTitlesToBeChanged. <p><strong>OperationId:</strong>changeJobTitles</p>
      * Change resort job titles
      */
-    changeJobTitlesRaw(requestParameters: ChangeJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeJobTitlesRaw(requestParameters: ChangeJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update job titles for a specific property based on jobTitleCode, hotelId, jobTitlesToBeChanged. <p><strong>OperationId:</strong>changeJobTitles</p>
      * Change resort job titles
      */
-    changeJobTitles(requestParameters: ChangeJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeJobTitles(requestParameters: ChangeJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update languages based on languageCode, languagesToBeChanged. <p><strong>OperationId:</strong>changeLanguages</p>
      * Update a Language
      */
-    changeLanguagesRaw(requestParameters: ChangeLanguagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeLanguagesRaw(requestParameters: ChangeLanguagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update languages based on languageCode, languagesToBeChanged. <p><strong>OperationId:</strong>changeLanguages</p>
      * Update a Language
      */
-    changeLanguages(requestParameters: ChangeLanguagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeLanguages(requestParameters: ChangeLanguagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update marketing cities for a specific property based on cityCode, hotelId, marketingCitiesToBeChanged. <p><strong>OperationId:</strong>changeMarketingCities</p>
      * Change resort marketing cities
      */
-    changeMarketingCitiesRaw(requestParameters: ChangeMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMarketingCitiesRaw(requestParameters: ChangeMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update marketing cities for a specific property based on cityCode, hotelId, marketingCitiesToBeChanged. <p><strong>OperationId:</strong>changeMarketingCities</p>
      * Change resort marketing cities
      */
-    changeMarketingCities(requestParameters: ChangeMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMarketingCities(requestParameters: ChangeMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update telephone book categories for a specific property based on categoryCode, hotelId, telephoneBookCategoriesToBeChanged. <p><strong>OperationId:</strong>changeTelephoneBookCategories</p>
      * Change Telephone Book Category
      */
-    changeTelephoneBookCategoriesRaw(requestParameters: ChangeTelephoneBookCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTelephoneBookCategoriesRaw(requestParameters: ChangeTelephoneBookCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update telephone book categories for a specific property based on categoryCode, hotelId, telephoneBookCategoriesToBeChanged. <p><strong>OperationId:</strong>changeTelephoneBookCategories</p>
      * Change Telephone Book Category
      */
-    changeTelephoneBookCategories(requestParameters: ChangeTelephoneBookCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTelephoneBookCategories(requestParameters: ChangeTelephoneBookCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update telephone book entries for a specific property based on entryId, hotelId, telephoneBookEntriesToBeChanged. <p><strong>OperationId:</strong>changeTelephoneBookEntries</p>
      * Create Telephone Book Entries
      */
-    changeTelephoneBookEntriesRaw(requestParameters: ChangeTelephoneBookEntriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTelephoneBookEntriesRaw(requestParameters: ChangeTelephoneBookEntriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update telephone book entries for a specific property based on entryId, hotelId, telephoneBookEntriesToBeChanged. <p><strong>OperationId:</strong>changeTelephoneBookEntries</p>
      * Create Telephone Book Entries
      */
-    changeTelephoneBookEntries(requestParameters: ChangeTelephoneBookEntriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTelephoneBookEntries(requestParameters: ChangeTelephoneBookEntriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update airport templates based on airportCode, templateAirportsToBeChanged. <p><strong>OperationId:</strong>changeTemplateAirports</p>
      * Change template airports
      */
-    changeTemplateAirportsRaw(requestParameters: ChangeTemplateAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateAirportsRaw(requestParameters: ChangeTemplateAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update airport templates based on airportCode, templateAirportsToBeChanged. <p><strong>OperationId:</strong>changeTemplateAirports</p>
      * Change template airports
      */
-    changeTemplateAirports(requestParameters: ChangeTemplateAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateAirports(requestParameters: ChangeTemplateAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update amenity templates based on featureCode, templateAmenitiesToBeChanged. <p><strong>OperationId:</strong>changeTemplateAmenities</p>
      * Change template amenities
      */
-    changeTemplateAmenitiesRaw(requestParameters: ChangeTemplateAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateAmenitiesRaw(requestParameters: ChangeTemplateAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update amenity templates based on featureCode, templateAmenitiesToBeChanged. <p><strong>OperationId:</strong>changeTemplateAmenities</p>
      * Change template amenities
      */
-    changeTemplateAmenities(requestParameters: ChangeTemplateAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateAmenities(requestParameters: ChangeTemplateAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update country templates based on countryCode, templateCountriesToBeChanged. <p><strong>OperationId:</strong>changeTemplateCountries</p>
      * Change template Countries
      */
-    changeTemplateCountriesRaw(requestParameters: ChangeTemplateCountriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateCountriesRaw(requestParameters: ChangeTemplateCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update country templates based on countryCode, templateCountriesToBeChanged. <p><strong>OperationId:</strong>changeTemplateCountries</p>
      * Change template Countries
      */
-    changeTemplateCountries(requestParameters: ChangeTemplateCountriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateCountries(requestParameters: ChangeTemplateCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update day type code templates based on templateDayTypeCodesToBeChanged. <p><strong>OperationId:</strong>changeTemplateDayTypeCodes</p>
      * Change Template Day Type Codes
      */
-    changeTemplateDayTypeCodesRaw(requestParameters: ChangeTemplateDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateDayTypeCodesRaw(requestParameters: ChangeTemplateDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update day type code templates based on templateDayTypeCodesToBeChanged. <p><strong>OperationId:</strong>changeTemplateDayTypeCodes</p>
      * Change Template Day Type Codes
      */
-    changeTemplateDayTypeCodes(requestParameters: ChangeTemplateDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateDayTypeCodes(requestParameters: ChangeTemplateDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update template hotel details based on templateHotelDetailsToBeChanged. <p><strong>OperationId:</strong>changeTemplateHotelDetails</p>
      * Change hotel details specified at the template level
      */
-    changeTemplateHotelDetailsRaw(requestParameters: ChangeTemplateHotelDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateHotelDetailsRaw(requestParameters: ChangeTemplateHotelDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update template hotel details based on templateHotelDetailsToBeChanged. <p><strong>OperationId:</strong>changeTemplateHotelDetails</p>
      * Change hotel details specified at the template level
      */
-    changeTemplateHotelDetails(requestParameters: ChangeTemplateHotelDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateHotelDetails(requestParameters: ChangeTemplateHotelDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update job title templates based on jobTitleCode, templateJobTitlesToBeChanged. <p><strong>OperationId:</strong>changeTemplateJobTitles</p>
      * Change template job titles
      */
-    changeTemplateJobTitlesRaw(requestParameters: ChangeTemplateJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateJobTitlesRaw(requestParameters: ChangeTemplateJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update job title templates based on jobTitleCode, templateJobTitlesToBeChanged. <p><strong>OperationId:</strong>changeTemplateJobTitles</p>
      * Change template job titles
      */
-    changeTemplateJobTitles(requestParameters: ChangeTemplateJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateJobTitles(requestParameters: ChangeTemplateJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update marketing city templates based on cityCode, templateMarketingCitiesToBeChanged. <p><strong>OperationId:</strong>changeTemplateMarketingCities</p>
      * Change template marketing cities
      */
-    changeTemplateMarketingCitiesRaw(requestParameters: ChangeTemplateMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateMarketingCitiesRaw(requestParameters: ChangeTemplateMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update marketing city templates based on cityCode, templateMarketingCitiesToBeChanged. <p><strong>OperationId:</strong>changeTemplateMarketingCities</p>
      * Change template marketing cities
      */
-    changeTemplateMarketingCities(requestParameters: ChangeTemplateMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateMarketingCities(requestParameters: ChangeTemplateMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update transportation for a specific property based on transportationCode, hotelId, transportationToBeChanged. <p><strong>OperationId:</strong>changeTransportation</p>
      *  modify transportation
      */
-    changeTransportationRaw(requestParameters: ChangeTransportationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTransportationRaw(requestParameters: ChangeTransportationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update transportation for a specific property based on transportationCode, hotelId, transportationToBeChanged. <p><strong>OperationId:</strong>changeTransportation</p>
      *  modify transportation
      */
-    changeTransportation(requestParameters: ChangeTransportationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTransportation(requestParameters: ChangeTransportationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update transportation templates based on transportationCode,  transportationTemplatesToBeChanged. <p><strong>OperationId:</strong>changeTransportationTemplates</p>
      * Change transportation templates
      */
-    changeTransportationTemplatesRaw(requestParameters: ChangeTransportationTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTransportationTemplatesRaw(requestParameters: ChangeTransportationTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update transportation templates based on transportationCode,  transportationTemplatesToBeChanged. <p><strong>OperationId:</strong>changeTransportationTemplates</p>
      * Change transportation templates
      */
-    changeTransportationTemplates(requestParameters: ChangeTransportationTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTransportationTemplates(requestParameters: ChangeTransportationTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update yield adjustment codes for a specific property based on yieldAdjustmentCode, hotelId, yieldAdjustmentCodesToBeChanged. <p><strong>OperationId:</strong>changeYieldAdjustmentCodes</p>
      * Change Yield Adjustment Codes
      */
-    changeYieldAdjustmentCodesRaw(requestParameters: ChangeYieldAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeYieldAdjustmentCodesRaw(requestParameters: ChangeYieldAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update yield adjustment codes for a specific property based on yieldAdjustmentCode, hotelId, yieldAdjustmentCodesToBeChanged. <p><strong>OperationId:</strong>changeYieldAdjustmentCodes</p>
      * Change Yield Adjustment Codes
      */
-    changeYieldAdjustmentCodes(requestParameters: ChangeYieldAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeYieldAdjustmentCodes(requestParameters: ChangeYieldAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update yield categories for a specific property based on code, hotelId, yieldCategoriesToBeChanged. <p><strong>OperationId:</strong>changeYieldCategories</p>
      * Change Yield Category
      */
-    changeYieldCategoriesRaw(requestParameters: ChangeYieldCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeYieldCategoriesRaw(requestParameters: ChangeYieldCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update yield categories for a specific property based on code, hotelId, yieldCategoriesToBeChanged. <p><strong>OperationId:</strong>changeYieldCategories</p>
      * Change Yield Category
      */
-    changeYieldCategories(requestParameters: ChangeYieldCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeYieldCategories(requestParameters: ChangeYieldCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update yield market types based on yieldMarketTypesToBeChanged. <p><strong>OperationId:</strong>changeYieldMarketTypes</p>
      * Change Yield Market Types
      */
-    changeYieldMarketTypesRaw(requestParameters: ChangeYieldMarketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeYieldMarketTypesRaw(requestParameters: ChangeYieldMarketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update yield market types based on yieldMarketTypesToBeChanged. <p><strong>OperationId:</strong>changeYieldMarketTypes</p>
      * Change Yield Market Types
      */
-    changeYieldMarketTypes(requestParameters: ChangeYieldMarketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeYieldMarketTypes(requestParameters: ChangeYieldMarketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Departments. <p><strong>OperationId:</strong>copyDepartments</p>
      *  copy Departments
      */
-    copyDepartmentsRaw(requestParameters: CopyDepartmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyDepartmentsRaw(requestParameters: CopyDepartmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Departments. <p><strong>OperationId:</strong>copyDepartments</p>
      *  copy Departments
      */
-    copyDepartments(requestParameters: CopyDepartmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyDepartments(requestParameters: CopyDepartmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to copy template hotel details to other properties. <p><strong>OperationId:</strong>copyHotelDetails</p>
      * Copy template hotel details to other properties
      */
-    copyHotelDetailsRaw(requestParameters: CopyHotelDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyHotelDetailsRaw(requestParameters: CopyHotelDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to copy template hotel details to other properties. <p><strong>OperationId:</strong>copyHotelDetails</p>
      * Copy template hotel details to other properties
      */
-    copyHotelDetails(requestParameters: CopyHotelDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyHotelDetails(requestParameters: CopyHotelDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy marketing cities to resorts. <p><strong>OperationId:</strong>copyMarketingCities</p>
      * Copy marketing cities to resorts
      */
-    copyMarketingCitiesRaw(requestParameters: CopyMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyMarketingCitiesRaw(requestParameters: CopyMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy marketing cities to resorts. <p><strong>OperationId:</strong>copyMarketingCities</p>
      * Copy marketing cities to resorts
      */
-    copyMarketingCities(requestParameters: CopyMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyMarketingCities(requestParameters: CopyMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to Copy a Template Rate Category in order to create a new Template Rate Category. <p><strong>OperationId:</strong>copyTemplateCodes</p>
      * Copy Template Codes
      */
-    copyTemplateCodesRaw(requestParameters: CopyTemplateCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTemplateCodesRaw(requestParameters: CopyTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to Copy a Template Rate Category in order to create a new Template Rate Category. <p><strong>OperationId:</strong>copyTemplateCodes</p>
      * Copy Template Codes
      */
-    copyTemplateCodes(requestParameters: CopyTemplateCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTemplateCodes(requestParameters: CopyTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Yield Adjustment Codes. <p><strong>OperationId:</strong>copyYieldAdjustmentCodes</p>
      *  copy Yield Adjustment Codes
      */
-    copyYieldAdjustmentCodesRaw(requestParameters: CopyYieldAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyYieldAdjustmentCodesRaw(requestParameters: CopyYieldAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Yield Adjustment Codes. <p><strong>OperationId:</strong>copyYieldAdjustmentCodes</p>
      *  copy Yield Adjustment Codes
      */
-    copyYieldAdjustmentCodes(requestParameters: CopyYieldAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyYieldAdjustmentCodes(requestParameters: CopyYieldAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Yield Category. <p><strong>OperationId:</strong>copyYieldCategories</p>
      *  copy Yield Category
      */
-    copyYieldCategoriesRaw(requestParameters: CopyYieldCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyYieldCategoriesRaw(requestParameters: CopyYieldCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Yield Category. <p><strong>OperationId:</strong>copyYieldCategories</p>
      *  copy Yield Category
      */
-    copyYieldCategories(requestParameters: CopyYieldCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyYieldCategories(requestParameters: CopyYieldCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to get resort airports. <p><strong>OperationId:</strong>getAirports</p>
      * Get resort airports
@@ -2071,302 +2071,302 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create new resort airports. <p><strong>OperationId:</strong>postAirports</p>
      * Create new resort airports
      */
-    postAirportsRaw(requestParameters: PostAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAirportsRaw(requestParameters: PostAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new resort airports. <p><strong>OperationId:</strong>postAirports</p>
      * Create new resort airports
      */
-    postAirports(requestParameters: PostAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAirports(requestParameters: PostAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API Use this API to creates the hotels Alternate Hotel information. <p><strong>OperationId:</strong>postAlternateHotels</p>
      * Create Alternate Hotels
      */
-    postAlternateHotelsRaw(requestParameters: PostAlternateHotelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAlternateHotelsRaw(requestParameters: PostAlternateHotelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API Use this API to creates the hotels Alternate Hotel information. <p><strong>OperationId:</strong>postAlternateHotels</p>
      * Create Alternate Hotels
      */
-    postAlternateHotels(requestParameters: PostAlternateHotelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAlternateHotels(requestParameters: PostAlternateHotelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create amenities. <p><strong>OperationId:</strong>postAmenities</p>
      * Create amenities
      */
-    postAmenitiesRaw(requestParameters: PostAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAmenitiesRaw(requestParameters: PostAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create amenities. <p><strong>OperationId:</strong>postAmenities</p>
      * Create amenities
      */
-    postAmenities(requestParameters: PostAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAmenities(requestParameters: PostAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to create a new attraction template based on the request. . <p><strong>OperationId:</strong>postAttractionTemplates</p>
      * Create Attraction Template
      */
-    postAttractionTemplatesRaw(requestParameters: PostAttractionTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAttractionTemplatesRaw(requestParameters: PostAttractionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to create a new attraction template based on the request. . <p><strong>OperationId:</strong>postAttractionTemplates</p>
      * Create Attraction Template
      */
-    postAttractionTemplates(requestParameters: PostAttractionTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAttractionTemplates(requestParameters: PostAttractionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API can be used to Use this API to create a new attraction for a property. . <p><strong>OperationId:</strong>postAttractions</p>
      * Create Attractions
      */
-    postAttractionsRaw(requestParameters: PostAttractionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAttractionsRaw(requestParameters: PostAttractionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API can be used to Use this API to create a new attraction for a property. . <p><strong>OperationId:</strong>postAttractions</p>
      * Create Attractions
      */
-    postAttractions(requestParameters: PostAttractionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAttractions(requestParameters: PostAttractionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Activity Log. <p><strong>OperationId:</strong>postConfigActivityLog</p>
      * Create a new Config Activity Log
      */
-    postConfigActivityLogRaw(requestParameters: PostConfigActivityLogOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postConfigActivityLogRaw(requestParameters: PostConfigActivityLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Activity Log. <p><strong>OperationId:</strong>postConfigActivityLog</p>
      * Create a new Config Activity Log
      */
-    postConfigActivityLog(requestParameters: PostConfigActivityLogOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postConfigActivityLog(requestParameters: PostConfigActivityLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Credit Card Types. <p><strong>OperationId:</strong>postCreditCardTypes</p>
      * Create Credit Card Types
      */
-    postCreditCardTypesRaw(requestParameters: PostCreditCardTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCreditCardTypesRaw(requestParameters: PostCreditCardTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Credit Card Types. <p><strong>OperationId:</strong>postCreditCardTypes</p>
      * Create Credit Card Types
      */
-    postCreditCardTypes(requestParameters: PostCreditCardTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCreditCardTypes(requestParameters: PostCreditCardTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Departments. <p><strong>OperationId:</strong>postDepartments</p>
      * Create Departments
      */
-    postDepartmentsRaw(requestParameters: PostDepartmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDepartmentsRaw(requestParameters: PostDepartmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Departments. <p><strong>OperationId:</strong>postDepartments</p>
      * Create Departments
      */
-    postDepartments(requestParameters: PostDepartmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDepartments(requestParameters: PostDepartmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Hotel Contacts. <p><strong>OperationId:</strong>postHotelContacts</p>
      * Create Hotel Contacts
      */
-    postHotelContactsRaw(requestParameters: PostHotelContactsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHotelContactsRaw(requestParameters: PostHotelContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Hotel Contacts. <p><strong>OperationId:</strong>postHotelContacts</p>
      * Create Hotel Contacts
      */
-    postHotelContacts(requestParameters: PostHotelContactsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHotelContacts(requestParameters: PostHotelContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Hotel Day Type Codes. <p><strong>OperationId:</strong>postHotelDayTypeCodes</p>
      * Create Hotel Day Type Codes
      */
-    postHotelDayTypeCodesRaw(requestParameters: PostHotelDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHotelDayTypeCodesRaw(requestParameters: PostHotelDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Hotel Day Type Codes. <p><strong>OperationId:</strong>postHotelDayTypeCodes</p>
      * Create Hotel Day Type Codes
      */
-    postHotelDayTypeCodes(requestParameters: PostHotelDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHotelDayTypeCodes(requestParameters: PostHotelDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Note information. <p><strong>OperationId:</strong>postHotelNotes</p>
      * Create Note information
      */
-    postHotelNotesRaw(requestParameters: PostHotelNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHotelNotesRaw(requestParameters: PostHotelNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Note information. <p><strong>OperationId:</strong>postHotelNotes</p>
      * Create Note information
      */
-    postHotelNotes(requestParameters: PostHotelNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHotelNotes(requestParameters: PostHotelNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Rate Range information. <p><strong>OperationId:</strong>postHotelRateRanges</p>
      * Create Rate Range information
      */
-    postHotelRateRangesRaw(requestParameters: PostHotelRateRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHotelRateRangesRaw(requestParameters: PostHotelRateRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Rate Range information. <p><strong>OperationId:</strong>postHotelRateRanges</p>
      * Create Rate Range information
      */
-    postHotelRateRanges(requestParameters: PostHotelRateRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHotelRateRanges(requestParameters: PostHotelRateRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create restaurant information. <p><strong>OperationId:</strong>postHotelRestaurants</p>
      * Create restaurant information
      */
-    postHotelRestaurantsRaw(requestParameters: PostHotelRestaurantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHotelRestaurantsRaw(requestParameters: PostHotelRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create restaurant information. <p><strong>OperationId:</strong>postHotelRestaurants</p>
      * Create restaurant information
      */
-    postHotelRestaurants(requestParameters: PostHotelRestaurantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHotelRestaurants(requestParameters: PostHotelRestaurantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new resort job titles. <p><strong>OperationId:</strong>postJobTitles</p>
      * Create new resort job titles
      */
-    postJobTitlesRaw(requestParameters: PostJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postJobTitlesRaw(requestParameters: PostJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new resort job titles. <p><strong>OperationId:</strong>postJobTitles</p>
      * Create new resort job titles
      */
-    postJobTitles(requestParameters: PostJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postJobTitles(requestParameters: PostJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Languages. <p><strong>OperationId:</strong>postLanguages</p>
      * Create Languages
      */
-    postLanguagesRaw(requestParameters: PostLanguagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postLanguagesRaw(requestParameters: PostLanguagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Languages. <p><strong>OperationId:</strong>postLanguages</p>
      * Create Languages
      */
-    postLanguages(requestParameters: PostLanguagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postLanguages(requestParameters: PostLanguagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new resort marketing cities. <p><strong>OperationId:</strong>postMarketingCities</p>
      * Create new resort marketing cities
      */
-    postMarketingCitiesRaw(requestParameters: PostMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMarketingCitiesRaw(requestParameters: PostMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new resort marketing cities. <p><strong>OperationId:</strong>postMarketingCities</p>
      * Create new resort marketing cities
      */
-    postMarketingCities(requestParameters: PostMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMarketingCities(requestParameters: PostMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Telephone Book Category. <p><strong>OperationId:</strong>postTelephoneBookCategories</p>
      * Create Telephone Book Category
      */
-    postTelephoneBookCategoriesRaw(requestParameters: PostTelephoneBookCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTelephoneBookCategoriesRaw(requestParameters: PostTelephoneBookCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Telephone Book Category. <p><strong>OperationId:</strong>postTelephoneBookCategories</p>
      * Create Telephone Book Category
      */
-    postTelephoneBookCategories(requestParameters: PostTelephoneBookCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTelephoneBookCategories(requestParameters: PostTelephoneBookCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Telephone Book Entries. <p><strong>OperationId:</strong>postTelephoneBookEntries</p>
      * Create Telephone Book Entries
      */
-    postTelephoneBookEntriesRaw(requestParameters: PostTelephoneBookEntriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTelephoneBookEntriesRaw(requestParameters: PostTelephoneBookEntriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Telephone Book Entries. <p><strong>OperationId:</strong>postTelephoneBookEntries</p>
      * Create Telephone Book Entries
      */
-    postTelephoneBookEntries(requestParameters: PostTelephoneBookEntriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTelephoneBookEntries(requestParameters: PostTelephoneBookEntriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new template airports. <p><strong>OperationId:</strong>postTemplateAirports</p>
      * Create new template airports
      */
-    postTemplateAirportsRaw(requestParameters: PostTemplateAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateAirportsRaw(requestParameters: PostTemplateAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new template airports. <p><strong>OperationId:</strong>postTemplateAirports</p>
      * Create new template airports
      */
-    postTemplateAirports(requestParameters: PostTemplateAirportsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateAirports(requestParameters: PostTemplateAirportsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template amenities. <p><strong>OperationId:</strong>postTemplateAmenities</p>
      * Create template amenities
      */
-    postTemplateAmenitiesRaw(requestParameters: PostTemplateAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateAmenitiesRaw(requestParameters: PostTemplateAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template amenities. <p><strong>OperationId:</strong>postTemplateAmenities</p>
      * Create template amenities
      */
-    postTemplateAmenities(requestParameters: PostTemplateAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateAmenities(requestParameters: PostTemplateAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template Countries. <p><strong>OperationId:</strong>postTemplateCountries</p>
      * Create template Countries
      */
-    postTemplateCountriesRaw(requestParameters: PostTemplateCountriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateCountriesRaw(requestParameters: PostTemplateCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template Countries. <p><strong>OperationId:</strong>postTemplateCountries</p>
      * Create template Countries
      */
-    postTemplateCountries(requestParameters: PostTemplateCountriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateCountries(requestParameters: PostTemplateCountriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Template Day Type Codes. <p><strong>OperationId:</strong>postTemplateDayTypeCodes</p>
      * Create Template Day Type Codes
      */
-    postTemplateDayTypeCodesRaw(requestParameters: PostTemplateDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateDayTypeCodesRaw(requestParameters: PostTemplateDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Template Day Type Codes. <p><strong>OperationId:</strong>postTemplateDayTypeCodes</p>
      * Create Template Day Type Codes
      */
-    postTemplateDayTypeCodes(requestParameters: PostTemplateDayTypeCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateDayTypeCodes(requestParameters: PostTemplateDayTypeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create hotel details at the template level. <p><strong>OperationId:</strong>postTemplateHotelDetails</p>
      * Create hotel details at the template level
      */
-    postTemplateHotelDetailsRaw(requestParameters: PostTemplateHotelDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateHotelDetailsRaw(requestParameters: PostTemplateHotelDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create hotel details at the template level. <p><strong>OperationId:</strong>postTemplateHotelDetails</p>
      * Create hotel details at the template level
      */
-    postTemplateHotelDetails(requestParameters: PostTemplateHotelDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateHotelDetails(requestParameters: PostTemplateHotelDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new template job titles. <p><strong>OperationId:</strong>postTemplateJobTitles</p>
      * Create new template job titles
      */
-    postTemplateJobTitlesRaw(requestParameters: PostTemplateJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateJobTitlesRaw(requestParameters: PostTemplateJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new template job titles. <p><strong>OperationId:</strong>postTemplateJobTitles</p>
      * Create new template job titles
      */
-    postTemplateJobTitles(requestParameters: PostTemplateJobTitlesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateJobTitles(requestParameters: PostTemplateJobTitlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new template marketing cities. <p><strong>OperationId:</strong>postTemplateMarketingCities</p>
      * Create new template marketing cities
      */
-    postTemplateMarketingCitiesRaw(requestParameters: PostTemplateMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateMarketingCitiesRaw(requestParameters: PostTemplateMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new template marketing cities. <p><strong>OperationId:</strong>postTemplateMarketingCities</p>
      * Create new template marketing cities
      */
-    postTemplateMarketingCities(requestParameters: PostTemplateMarketingCitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateMarketingCities(requestParameters: PostTemplateMarketingCitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create transportation. <p><strong>OperationId:</strong>postTransportation</p>
      * Create transportation
      */
-    postTransportationRaw(requestParameters: PostTransportationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTransportationRaw(requestParameters: PostTransportationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create transportation. <p><strong>OperationId:</strong>postTransportation</p>
      * Create transportation
      */
-    postTransportation(requestParameters: PostTransportationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTransportation(requestParameters: PostTransportationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create transportation templates. <p><strong>OperationId:</strong>postTransportationTemplates</p>
      * Create transportation templates
      */
-    postTransportationTemplatesRaw(requestParameters: PostTransportationTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTransportationTemplatesRaw(requestParameters: PostTransportationTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create transportation templates. <p><strong>OperationId:</strong>postTransportationTemplates</p>
      * Create transportation templates
      */
-    postTransportationTemplates(requestParameters: PostTransportationTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTransportationTemplates(requestParameters: PostTransportationTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Yield Adjustment Codes. <p><strong>OperationId:</strong>postYieldAdjustmentCodes</p>
      * Create Yield Adjustment Codes
      */
-    postYieldAdjustmentCodesRaw(requestParameters: PostYieldAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postYieldAdjustmentCodesRaw(requestParameters: PostYieldAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Yield Adjustment Codes. <p><strong>OperationId:</strong>postYieldAdjustmentCodes</p>
      * Create Yield Adjustment Codes
      */
-    postYieldAdjustmentCodes(requestParameters: PostYieldAdjustmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postYieldAdjustmentCodes(requestParameters: PostYieldAdjustmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Yield Category. <p><strong>OperationId:</strong>postYieldCategories</p>
      * Create Yield Category
      */
-    postYieldCategoriesRaw(requestParameters: PostYieldCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postYieldCategoriesRaw(requestParameters: PostYieldCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Yield Category. <p><strong>OperationId:</strong>postYieldCategories</p>
      * Create Yield Category
      */
-    postYieldCategories(requestParameters: PostYieldCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postYieldCategories(requestParameters: PostYieldCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Yield Market Types. <p><strong>OperationId:</strong>postYieldMarketTypes</p>
      * Create Yield Market Types
      */
-    postYieldMarketTypesRaw(requestParameters: PostYieldMarketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postYieldMarketTypesRaw(requestParameters: PostYieldMarketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Yield Market Types. <p><strong>OperationId:</strong>postYieldMarketTypes</p>
      * Create Yield Market Types
      */
-    postYieldMarketTypes(requestParameters: PostYieldMarketTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postYieldMarketTypes(requestParameters: PostYieldMarketTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete airports for a specific property based on airportCode, hotelId. <p><strong>OperationId:</strong>removeAirports</p>
      * Delete resort airports
@@ -2701,22 +2701,22 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update day types for a date range based on setDayTypes. <p><strong>OperationId:</strong>setDayTypes</p>
      * Set day type for a date range
      */
-    setDayTypesRaw(requestParameters: SetDayTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setDayTypesRaw(requestParameters: SetDayTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update day types for a date range based on setDayTypes. <p><strong>OperationId:</strong>setDayTypes</p>
      * Set day type for a date range
      */
-    setDayTypes(requestParameters: SetDayTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setDayTypes(requestParameters: SetDayTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update events for a specific property based on hotelId, setHotelEvents. <p><strong>OperationId:</strong>setHotelEvents</p>
      * Set hotel events
      */
-    setHotelEventsRaw(requestParameters: SetHotelEventsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setHotelEventsRaw(requestParameters: SetHotelEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update events for a specific property based on hotelId, setHotelEvents. <p><strong>OperationId:</strong>setHotelEvents</p>
      * Set hotel events
      */
-    setHotelEvents(requestParameters: SetHotelEventsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setHotelEvents(requestParameters: SetHotelEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

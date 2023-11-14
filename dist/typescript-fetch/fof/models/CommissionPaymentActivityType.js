@@ -68,10 +68,10 @@ function CommissionPaymentActivityTypeToJSON(value) {
         'hotelId': value.hotelId,
         'onCommission': value.onCommission,
         'payee': value.payee,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substr(0, 10)),
+        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0, 10)),
         'paymentId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.paymentId),
         'status': (0, CommissionPaymentActivityStatusType_1.CommissionPaymentActivityStatusTypeToJSON)(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substr(0, 10)),
+        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0, 10)),
     };
 }
 exports.CommissionPaymentActivityTypeToJSON = CommissionPaymentActivityTypeToJSON;

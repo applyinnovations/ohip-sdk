@@ -145,7 +145,7 @@ export function MembershipInfoTypeToJSON(value?: MembershipInfoType | null): any
         
         'accountId': value.accountId,
         'bonusCode': value.bonusCode,
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substr(0,10)),
+        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
         'inactive': value.inactive,
         'membershipId': value.membershipId,
         'membershipLevel': value.membershipLevel,

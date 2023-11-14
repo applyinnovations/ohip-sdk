@@ -19,7 +19,7 @@ import type {
   ConvertedValues,
   DefaultValues,
   ExceptionDetailType,
-} from '../models';
+} from '../models/index';
 import {
     ConvertedHotelCodeFromJSON,
     ConvertedHotelCodeToJSON,
@@ -29,14 +29,14 @@ import {
     DefaultValuesToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetConvertedValuesRequest {
-    operaHotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    operaHotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     externalHotelId?: string;
     conversionCode?: Set<GetConvertedValuesConversionCodeEnum>;
     valueToBeConverted?: Array<string>;
@@ -46,21 +46,21 @@ export interface GetConvertedValuesRequest {
 }
 
 export interface GetDefaultValuesRequest {
-    operaHotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    operaHotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetOperaHotelCodeRequest {
-    externalHotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    externalHotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     operaHotelCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -76,6 +76,26 @@ export class DataValueMappingApi extends runtime.BaseAPI {
      * Fetch Converted Values
      */
     async getConvertedValuesRaw(requestParameters: GetConvertedValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConvertedValues>> {
+        if (requestParameters.operaHotelId === null || requestParameters.operaHotelId === undefined) {
+            throw new runtime.RequiredError('operaHotelId','Required parameter requestParameters.operaHotelId was null or undefined when calling getConvertedValues.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getConvertedValues.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getConvertedValues.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getConvertedValues.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getConvertedValues.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.externalHotelId !== undefined) {
@@ -140,6 +160,26 @@ export class DataValueMappingApi extends runtime.BaseAPI {
      * Fetch Default values
      */
     async getDefaultValuesRaw(requestParameters: GetDefaultValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DefaultValues>> {
+        if (requestParameters.operaHotelId === null || requestParameters.operaHotelId === undefined) {
+            throw new runtime.RequiredError('operaHotelId','Required parameter requestParameters.operaHotelId was null or undefined when calling getDefaultValues.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getDefaultValues.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDefaultValues.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDefaultValues.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDefaultValues.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -188,6 +228,26 @@ export class DataValueMappingApi extends runtime.BaseAPI {
      * Fetch Converted Hotel Code
      */
     async getOperaHotelCodeRaw(requestParameters: GetOperaHotelCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConvertedHotelCode>> {
+        if (requestParameters.externalHotelId === null || requestParameters.externalHotelId === undefined) {
+            throw new runtime.RequiredError('externalHotelId','Required parameter requestParameters.externalHotelId was null or undefined when calling getOperaHotelCode.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getOperaHotelCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOperaHotelCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOperaHotelCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOperaHotelCode.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.operaHotelCode !== undefined) {

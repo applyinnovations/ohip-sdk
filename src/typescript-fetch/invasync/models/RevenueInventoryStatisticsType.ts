@@ -168,7 +168,7 @@ export function RevenueInventoryStatisticsTypeToJSON(value?: RevenueInventorySta
         'foodRevenue': value.foodRevenue,
         'marketCode': value.marketCode,
         'noShowRooms': value.noShowRooms,
-        'occupancyDate': value.occupancyDate === undefined ? undefined : (value.occupancyDate.toISOString().substr(0,10)),
+        'occupancyDate': value.occupancyDate === undefined ? undefined : (value.occupancyDate.toISOString().substring(0,10)),
         'ooRooms': value.ooRooms,
         'osRooms': value.osRooms,
         'physicalRooms': value.physicalRooms,

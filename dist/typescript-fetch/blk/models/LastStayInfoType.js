@@ -50,7 +50,7 @@ function LastStayInfoTypeToJSON(value) {
     return {
         'lastRate': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.lastRate),
         'lastRoom': value.lastRoom,
-        'lastVisit': value.lastVisit === undefined ? undefined : (value.lastVisit.toISOString().substr(0, 10)),
+        'lastVisit': value.lastVisit === undefined ? undefined : (value.lastVisit.toISOString().substring(0, 10)),
         'totalStay': value.totalStay,
     };
 }

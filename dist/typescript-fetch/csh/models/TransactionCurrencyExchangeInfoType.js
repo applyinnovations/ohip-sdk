@@ -56,7 +56,7 @@ function TransactionCurrencyExchangeInfoTypeToJSON(value) {
         'commissionPercent': value.commissionPercent,
         'currencyAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.currencyAmount),
         'description': value.description,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substr(0, 10)),
+        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0, 10)),
         'exchangeRate': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.exchangeRate),
     };
 }

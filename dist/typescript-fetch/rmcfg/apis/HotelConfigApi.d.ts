@@ -10,344 +10,344 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BuildingFloorMappingsDetails, BuildingGroupsDetails, BuildingsDetails, ChangeBuildingGroupsRequest, ChangeBuildingsRequest, ChangeFloorsRequest, ChangeHotelRoomMaintenanceReasonsRequest, ChangeHousekeepingAttendantsRequest, ChangeHousekeepingCreditRulesRequest, ChangeHousekeepingRoomSchedulesRequest, ChangeHousekeepingSectionGroupsRequest, ChangeHousekeepingSectionsRequest, ChangeHousekeepingSupplyCodesRequest, ChangeHousekeepingTasksRequest, ChangeOutOfOrderServiceReasonsRequest, ChangeResortRoomConditionRequest, ChangeRoomConditionTemplateRequest, ChangeRoomFeaturesRequest, ChangeRoomGroupsRequest, ChangeRoomHierarchiesRequest, ChangeTemplateFloorsRequest, ChangeTemplateOutOfOrderServiceReasonsRequest, ChangeTemplateRoomFeaturesRequest, ChangeTemplateRoomMaintenanceReasonsRequest, CopyBuildingGroupsRequest, CopyBuildingsRequest, CopyHousekeepingSectionGroupsRequest, CopyHousekeepingSectionsRequest, CopyHousekeepingSupplyCodesRequest, CopyRoomHierarchiesRequest, CopyRoomsRequest, FloorsDetails, GenerateRoomHierarchyRequest, HotelRoomMaintenanceReasonsDetails, HousekeepingAttendantsDetails, HousekeepingCodesDetails, HousekeepingCreditRulesDetails, HousekeepingRoomSchedulesDetails, HousekeepingSectionGroupsDetails, HousekeepingSectionsDetails, HousekeepingTaskSheetRoomsDetails, HousekeepingTasksDetails, OutOfOrderServiceReasonsDetails, PostBuildingGroupsRequest, PostBuildingsRequest, PostFloorsRequest, PostHotelRoomMaintenanceReasonsRequest, PostHousekeepingAttendantsRequest, PostHousekeepingCreditRulesRequest, PostHousekeepingRoomSchedulesRequest, PostHousekeepingSectionGroupsRequest, PostHousekeepingSectionsRequest, PostHousekeepingSupplyCodesRequest, PostHousekeepingTasksRequest, PostOutOfOrderServiceReasonsRequest, PostResortRoomConditionRequest, PostRoomClassRequest, PostRoomClassTemplatesRequest, PostRoomConditionTemplateRequest, PostRoomFeaturesRequest, PostRoomGroupsRequest, PostRoomHierarchiesRequest, PostRoomTypeTemplatesRequest, PostRoomTypesRequest, PostRoomsRequest, PostTemplateFloorsRequest, PostTemplateHousekeepingTasksRequest, PostTemplateOutOfOrderServiceReasonsRequest, PostTemplateRoomFeaturesRequest, PostTemplateRoomMaintenanceReasonsRequest, PutRoomClassRequest, PutRoomClassTemplateRequest, PutRoomTypeTemplatesRequest, PutRoomTypesRequest, PutRoomsRequest, PutTemplateHousekeepingTaskRequest, ResortRoomConditionsDetails, RoomClassTemplatesDetails, RoomClassesDetails, RoomConditionTemplatesDetails, RoomFeaturesDetails, RoomGroupsDetails, RoomHierarchiesDetails, RoomTypeInfoDetails, RoomTypeTemplatesDetails, RoomTypesDetails, RoomsDetails, RoomsSummaryDetails, SetBuildingFloorMappingsRequest, SetHousekeepingTaskSheetRoomsRequest, Status, TemplateFloorsDetails, TemplateHousekeepingTasksDetails, TemplateOutOfOrderServiceReasonsDetails, TemplateRoomFeaturesDetails, TemplateRoomMaintenanceReasonsDetails, ValidateRoomClassInUseRequest } from '../models';
-export interface ChangeBuildingGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    buildingGroupsToBeChanged?: ChangeBuildingGroupsRequest;
+import type { BuildingFloorMappingsDetails, BuildingGroupsCriteria, BuildingGroupsDetails, BuildingGroupsToBeChanged, BuildingsCriteria, BuildingsDetails, BuildingsToBeChanged, CopyBuildingGroups, CopyBuildings, CopyHousekeepingCodes, CopyHousekeepingSectionGroups, CopyHousekeepingSections, CopyRoomHierarchies, CopyRooms, FloorsCriteria, FloorsDetails, FloorsToBeChanged, HotelRoomMaintenanceReasonsCriteria, HotelRoomMaintenanceReasonsDetails, HotelRoomMaintenanceReasonsToBeChanged, HousekeepingAttendantsCriteria, HousekeepingAttendantsDetails, HousekeepingAttendantsToBeChanged, HousekeepingCodesCriteria, HousekeepingCodesDetails, HousekeepingCodesToBeChanged, HousekeepingCreditRulesCriteria, HousekeepingCreditRulesDetails, HousekeepingCreditRulesToBeChanged, HousekeepingRoomSchedulesCriteria, HousekeepingRoomSchedulesDetails, HousekeepingRoomSchedulesToBeChanged, HousekeepingSectionGroupsCriteria, HousekeepingSectionGroupsDetails, HousekeepingSectionGroupsToBeChanged, HousekeepingSectionsCriteria, HousekeepingSectionsDetails, HousekeepingSectionsToBeChanged, HousekeepingTaskSheetRoomsDetails, HousekeepingTasksCriteria, HousekeepingTasksDetails, HousekeepingTasksToBeChanged, OutOfOrderServiceReasonsCriteria, OutOfOrderServiceReasonsDetails, OutOfOrderServiceReasonsToBeChanged, ResortRoomConditionCriteria, ResortRoomConditionToBeChanged, ResortRoomConditionsDetails, RoomClassCriteria, RoomClassTemplateCriteria, RoomClassTemplateToBeChanged, RoomClassTemplatesDetails, RoomClassToBeChanged, RoomClassesDetails, RoomConditionTemplateCriteria, RoomConditionTemplateToBeChanged, RoomConditionTemplatesDetails, RoomCriteria, RoomFeaturesCriteria, RoomFeaturesDetails, RoomFeaturesToBeChanged, RoomGroupsCriteria, RoomGroupsDetails, RoomGroupsToBeChanged, RoomHierarchiesCriteria, RoomHierarchiesDetails, RoomHierarchiesToBeChanged, RoomHierarchiesToGenerate, RoomToBeChanged, RoomTypeInfoDetails, RoomTypeTemplatesCriteria, RoomTypeTemplatesDetails, RoomTypeTemplatesToBeChanged, RoomTypesCriteria, RoomTypesDetails, RoomTypesToBeChanged, RoomsDetails, RoomsSummaryDetails, SetBuildingFloorMappings, SetHousekeepingTaskSheetRooms, Status, TemplateFloorsCriteria, TemplateFloorsDetails, TemplateFloorsToBeChanged, TemplateHousekeepingTaskToBeChanged, TemplateHousekeepingTasksCriteria, TemplateHousekeepingTasksDetails, TemplateOutOfOrderServiceReasonsCriteria, TemplateOutOfOrderServiceReasonsDetails, TemplateOutOfOrderServiceReasonsToBeChanged, TemplateRoomFeaturesCriteria, TemplateRoomFeaturesDetails, TemplateRoomFeaturesToBeChanged, TemplateRoomMaintenanceReasonsCriteria, TemplateRoomMaintenanceReasonsDetails, TemplateRoomMaintenanceReasonsToBeChanged, ValidateRoomClassInUse } from '../models/index';
+export interface ChangeBuildingGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    buildingGroupsToBeChanged: BuildingGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeBuildingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    buildingsToBeChanged?: ChangeBuildingsRequest;
+export interface ChangeBuildingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    buildingsToBeChanged: BuildingsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFloorsOperationRequest {
-    floorsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    floorsToBeChanged?: ChangeFloorsRequest;
+export interface ChangeFloorsRequest {
+    floorsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    floorsToBeChanged: FloorsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHotelRoomMaintenanceReasonsOperationRequest {
-    reasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelRoomMaintenanceReasonsToBeChanged?: ChangeHotelRoomMaintenanceReasonsRequest;
+export interface ChangeHotelRoomMaintenanceReasonsRequest {
+    reasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelRoomMaintenanceReasonsToBeChanged: HotelRoomMaintenanceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHousekeepingAttendantsOperationRequest {
-    attendantId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingAttendantsToBeChanged?: ChangeHousekeepingAttendantsRequest;
+export interface ChangeHousekeepingAttendantsRequest {
+    attendantId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingAttendantsToBeChanged: HousekeepingAttendantsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHousekeepingCreditRulesOperationRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingCreditRulesToBeChanged?: ChangeHousekeepingCreditRulesRequest;
+export interface ChangeHousekeepingCreditRulesRequest {
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingCreditRulesToBeChanged: HousekeepingCreditRulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHousekeepingRoomSchedulesOperationRequest {
-    roomScheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingRoomSchedulesToBeChanged?: ChangeHousekeepingRoomSchedulesRequest;
+export interface ChangeHousekeepingRoomSchedulesRequest {
+    roomScheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingRoomSchedulesToBeChanged: HousekeepingRoomSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHousekeepingSectionGroupsOperationRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingSectionGroupsToBeChanged?: ChangeHousekeepingSectionGroupsRequest;
+export interface ChangeHousekeepingSectionGroupsRequest {
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingSectionGroupsToBeChanged: HousekeepingSectionGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHousekeepingSectionsOperationRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingSectionsToBeChanged?: ChangeHousekeepingSectionsRequest;
+export interface ChangeHousekeepingSectionsRequest {
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingSectionsToBeChanged: HousekeepingSectionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHousekeepingSupplyCodesOperationRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingCodesToBeChanged?: ChangeHousekeepingSupplyCodesRequest;
+export interface ChangeHousekeepingSupplyCodesRequest {
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingCodesToBeChanged: HousekeepingCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeHousekeepingTasksOperationRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingTasksToBeChanged?: ChangeHousekeepingTasksRequest;
+export interface ChangeHousekeepingTasksRequest {
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingTasksToBeChanged: HousekeepingTasksToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeOutOfOrderServiceReasonsOperationRequest {
-    reasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    outOfOrderServiceReasonsToBeChanged?: ChangeOutOfOrderServiceReasonsRequest;
+export interface ChangeOutOfOrderServiceReasonsRequest {
+    reasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    outOfOrderServiceReasonsToBeChanged: OutOfOrderServiceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeResortRoomConditionOperationRequest {
-    roomConditionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    resortRoomConditionToBeChanged?: ChangeResortRoomConditionRequest;
+export interface ChangeResortRoomConditionRequest {
+    roomConditionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    resortRoomConditionToBeChanged: ResortRoomConditionToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRoomConditionTemplateOperationRequest {
-    templateCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomConditionTemplateToBeChanged?: ChangeRoomConditionTemplateRequest;
+export interface ChangeRoomConditionTemplateRequest {
+    templateCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomConditionTemplateToBeChanged: RoomConditionTemplateToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRoomFeaturesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomFeaturesToBeChanged?: ChangeRoomFeaturesRequest;
+export interface ChangeRoomFeaturesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomFeaturesToBeChanged: RoomFeaturesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRoomGroupsOperationRequest {
-    rateGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomGroupsToBeChanged?: ChangeRoomGroupsRequest;
+export interface ChangeRoomGroupsRequest {
+    rateGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomGroupsToBeChanged: RoomGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRoomHierarchiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomHierarchiesToBeChanged?: ChangeRoomHierarchiesRequest;
+export interface ChangeRoomHierarchiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomHierarchiesToBeChanged: RoomHierarchiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateFloorsOperationRequest {
-    templateFloorsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateFloorsToBeChanged?: ChangeTemplateFloorsRequest;
+export interface ChangeTemplateFloorsRequest {
+    templateFloorsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateFloorsToBeChanged: TemplateFloorsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateOutOfOrderServiceReasonsOperationRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateOutOfOrderServiceReasonsToBeChanged?: ChangeTemplateOutOfOrderServiceReasonsRequest;
+export interface ChangeTemplateOutOfOrderServiceReasonsRequest {
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateOutOfOrderServiceReasonsToBeChanged: TemplateOutOfOrderServiceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateRoomFeaturesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRoomFeaturesToBeChanged?: ChangeTemplateRoomFeaturesRequest;
+export interface ChangeTemplateRoomFeaturesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRoomFeaturesToBeChanged: TemplateRoomFeaturesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateRoomMaintenanceReasonsOperationRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRoomMaintenanceReasonsToBeChanged?: ChangeTemplateRoomMaintenanceReasonsRequest;
+export interface ChangeTemplateRoomMaintenanceReasonsRequest {
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRoomMaintenanceReasonsToBeChanged: TemplateRoomMaintenanceReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyBuildingGroupsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyBuildingGroups?: CopyBuildingGroupsRequest;
+export interface CopyBuildingGroupsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyBuildingGroups: CopyBuildingGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyBuildingsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyBuildings?: CopyBuildingsRequest;
+export interface CopyBuildingsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyBuildings: CopyBuildings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyHousekeepingSectionGroupsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyHousekeepingSectionGroups?: CopyHousekeepingSectionGroupsRequest;
+export interface CopyHousekeepingSectionGroupsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyHousekeepingSectionGroups: CopyHousekeepingSectionGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyHousekeepingSectionsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyHousekeepingSections?: CopyHousekeepingSectionsRequest;
+export interface CopyHousekeepingSectionsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyHousekeepingSections: CopyHousekeepingSections;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyHousekeepingSupplyCodesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyHousekeepingCodes?: CopyHousekeepingSupplyCodesRequest;
+export interface CopyHousekeepingSupplyCodesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyHousekeepingCodes: CopyHousekeepingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyRoomHierarchiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyRoomHierarchies?: CopyRoomHierarchiesRequest;
+export interface CopyRoomHierarchiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyRoomHierarchies: CopyRoomHierarchies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyRoomsOperationRequest {
-    roomsId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyRooms?: CopyRoomsRequest;
+export interface CopyRoomsRequest {
+    roomsId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyRooms: CopyRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomClassRequest {
-    roomClassId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomClassId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomClass?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomClassTemplateRequest {
-    roomClassTemplateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomClassTemplateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomClass?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomTypeTemplatesRequest {
-    roomTypeTemplatesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomTypeTemplatesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomTypesRequest {
-    roomTypeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomTypeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomsRequest {
-    roomsId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomsId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     room?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateHousekeepingTaskRequest {
-    templateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    templateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     forceRemove?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface GenerateRoomHierarchyOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomHierarchiesToGenerate?: GenerateRoomHierarchyRequest;
+export interface GenerateRoomHierarchyRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomHierarchiesToGenerate: RoomHierarchiesToGenerate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBuildingFloorMappingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     buildingsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBuildingGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     codes?: Array<string>;
     wildCard?: string;
@@ -356,9 +356,9 @@ export interface GetBuildingGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetBuildingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     codes?: Array<string>;
     wildCard?: string;
@@ -369,19 +369,19 @@ export interface GetBuildingsRequest {
     acceptLanguage?: string;
 }
 export interface GetFloorsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     floorCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelRoomMaintenanceReasonsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -392,20 +392,20 @@ export interface GetHotelRoomMaintenanceReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetHouseKeepingSupplyCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHousekeepingAttendantsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     name?: string;
     attendantsCodes?: Array<string>;
     wildCard?: string;
@@ -414,10 +414,10 @@ export interface GetHousekeepingAttendantsRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingCreditRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ruleCodes?: Array<string>;
     ruleType?: GetHousekeepingCreditRulesRuleTypeEnum;
     includeInactive?: boolean;
@@ -425,30 +425,30 @@ export interface GetHousekeepingCreditRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingRoomSchedulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomTypeCodes?: Array<string>;
     housekeepingRoomScheduleCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHousekeepingSectionGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     housekeepingSectionGroupsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHousekeepingSectionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     includeInactive?: boolean;
     housekeepingSectionsCodes?: Array<string>;
@@ -457,10 +457,10 @@ export interface GetHousekeepingSectionsRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingTaskSheetRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     building?: string;
     floor?: string;
     roomType?: string;
@@ -472,10 +472,10 @@ export interface GetHousekeepingTaskSheetRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingTasksRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taskCodes?: Array<string>;
     wildCard?: string;
     includeInactive?: boolean;
@@ -483,10 +483,10 @@ export interface GetHousekeepingTasksRequest {
     acceptLanguage?: string;
 }
 export interface GetOutOfOrderServiceReasonsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     includeInactive?: boolean;
     limit?: number;
@@ -496,10 +496,10 @@ export interface GetOutOfOrderServiceReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRoomConditionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     roomConditionCodes?: Array<string>;
     wildCard?: string;
@@ -508,27 +508,27 @@ export interface GetResortRoomConditionsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomClassCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomClassesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     roomClassCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomConditionTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomConditionCodes?: Array<string>;
     wildCard?: string;
     inactive?: boolean;
@@ -536,10 +536,10 @@ export interface GetRoomConditionTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomFeaturesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -547,10 +547,10 @@ export interface GetRoomFeaturesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -559,9 +559,9 @@ export interface GetRoomGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomHierarchyType?: GetRoomHierarchiesRoomHierarchyTypeEnum;
     hotelIds?: Array<string>;
     fromCode?: string;
@@ -570,18 +570,18 @@ export interface GetRoomHierarchiesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypeInfoRequest {
-    roomTypeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomTypeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomTypeTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     physical?: boolean;
     pseudo?: boolean;
@@ -592,10 +592,10 @@ export interface GetRoomTypeTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     accessible?: boolean;
     includeInactive?: boolean;
@@ -610,10 +610,10 @@ export interface GetRoomTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     physical?: boolean;
@@ -625,9 +625,9 @@ export interface GetRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsSummaryRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     physical?: boolean;
@@ -643,380 +643,380 @@ export interface GetRoomsSummaryRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateFloorsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     floors?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateHousekeepingTasksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taskCodes?: Array<string>;
     includeInactive?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateOutOfOrderServiceReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     reasonCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateRoomFeaturesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateRoomMaintenanceReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomMaintenanceReasonCodes?: Array<string>;
     wildCard?: string;
     includeInactive?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBuildingGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    buildingGroupsCriteria?: PostBuildingGroupsRequest;
+export interface PostBuildingGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    buildingGroupsCriteria: BuildingGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBuildingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    buildingsCriteria?: PostBuildingsRequest;
+export interface PostBuildingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    buildingsCriteria: BuildingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFloorsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    floorsCriteria?: PostFloorsRequest;
+export interface PostFloorsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    floorsCriteria: FloorsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHotelRoomMaintenanceReasonsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelRoomMaintenanceReasonsCriteria?: PostHotelRoomMaintenanceReasonsRequest;
+export interface PostHotelRoomMaintenanceReasonsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelRoomMaintenanceReasonsCriteria: HotelRoomMaintenanceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingAttendantsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingAttendantsCriteria?: PostHousekeepingAttendantsRequest;
+export interface PostHousekeepingAttendantsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingAttendantsCriteria: HousekeepingAttendantsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingCreditRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingCreditRulesCriteria?: PostHousekeepingCreditRulesRequest;
+export interface PostHousekeepingCreditRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingCreditRulesCriteria: HousekeepingCreditRulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingRoomSchedulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingRoomSchedulesCriteria?: PostHousekeepingRoomSchedulesRequest;
+export interface PostHousekeepingRoomSchedulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingRoomSchedulesCriteria: HousekeepingRoomSchedulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingSectionGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingSectionGroupsCriteria?: PostHousekeepingSectionGroupsRequest;
+export interface PostHousekeepingSectionGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingSectionGroupsCriteria: HousekeepingSectionGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingSectionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingSectionsCriteria?: PostHousekeepingSectionsRequest;
+export interface PostHousekeepingSectionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingSectionsCriteria: HousekeepingSectionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingSupplyCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingCodesCriteria?: PostHousekeepingSupplyCodesRequest;
+export interface PostHousekeepingSupplyCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingCodesCriteria: HousekeepingCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingTasksOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingTasksCriteria?: PostHousekeepingTasksRequest;
+export interface PostHousekeepingTasksRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingTasksCriteria: HousekeepingTasksCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostOutOfOrderServiceReasonsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    outOfOrderServiceReasonsCriteria?: PostOutOfOrderServiceReasonsRequest;
+export interface PostOutOfOrderServiceReasonsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    outOfOrderServiceReasonsCriteria: OutOfOrderServiceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostResortRoomConditionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    resortRoomConditionCriteria?: PostResortRoomConditionRequest;
+export interface PostResortRoomConditionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    resortRoomConditionCriteria: ResortRoomConditionCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomClassOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomClassCriteria?: PostRoomClassRequest;
+export interface PostRoomClassRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomClassCriteria: RoomClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomClassTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomClassTemplateCriteria?: PostRoomClassTemplatesRequest;
+export interface PostRoomClassTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomClassTemplateCriteria: RoomClassTemplateCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomConditionTemplateOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomConditionTemplateCriteria?: PostRoomConditionTemplateRequest;
+export interface PostRoomConditionTemplateRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomConditionTemplateCriteria: RoomConditionTemplateCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomFeaturesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomFeaturesCriteria?: PostRoomFeaturesRequest;
+export interface PostRoomFeaturesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomFeaturesCriteria: RoomFeaturesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomGroupsCriteria?: PostRoomGroupsRequest;
+export interface PostRoomGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomGroupsCriteria: RoomGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomHierarchiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomHierarchiesCriteria?: PostRoomHierarchiesRequest;
+export interface PostRoomHierarchiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomHierarchiesCriteria: RoomHierarchiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomTypeTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypeTemplatesCriteria?: PostRoomTypeTemplatesRequest;
+export interface PostRoomTypeTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypeTemplatesCriteria: RoomTypeTemplatesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypesCriteria?: PostRoomTypesRequest;
+export interface PostRoomTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypesCriteria: RoomTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomCriteria?: PostRoomsRequest;
+export interface PostRoomsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomCriteria: RoomCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateFloorsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateFloorsCriteria?: PostTemplateFloorsRequest;
+export interface PostTemplateFloorsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateFloorsCriteria: TemplateFloorsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateHousekeepingTasksOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateHousekeepingTasksCriteria?: PostTemplateHousekeepingTasksRequest;
+export interface PostTemplateHousekeepingTasksRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateHousekeepingTasksCriteria: TemplateHousekeepingTasksCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateOutOfOrderServiceReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateOutOfOrderServiceReasonsCriteria?: PostTemplateOutOfOrderServiceReasonsRequest;
+export interface PostTemplateOutOfOrderServiceReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateOutOfOrderServiceReasonsCriteria: TemplateOutOfOrderServiceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateRoomFeaturesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRoomFeaturesCriteria?: PostTemplateRoomFeaturesRequest;
+export interface PostTemplateRoomFeaturesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRoomFeaturesCriteria: TemplateRoomFeaturesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateRoomMaintenanceReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRoomMaintenanceReasonsCriteria?: PostTemplateRoomMaintenanceReasonsRequest;
+export interface PostTemplateRoomMaintenanceReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRoomMaintenanceReasonsCriteria: TemplateRoomMaintenanceReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomClassOperationRequest {
-    roomClassId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomClassToBeChanged?: PutRoomClassRequest;
+export interface PutRoomClassRequest {
+    roomClassId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomClassToBeChanged: RoomClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomClassTemplateOperationRequest {
-    roomClassTemplateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomClassTemplateToBeChanged?: PutRoomClassTemplateRequest;
+export interface PutRoomClassTemplateRequest {
+    roomClassTemplateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomClassTemplateToBeChanged: RoomClassTemplateToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomTypeTemplatesOperationRequest {
-    roomTypeTemplatesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypeTemplatesToBeChanged?: PutRoomTypeTemplatesRequest;
+export interface PutRoomTypeTemplatesRequest {
+    roomTypeTemplatesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypeTemplatesToBeChanged: RoomTypeTemplatesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomTypesOperationRequest {
-    roomTypeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypesToBeChanged?: PutRoomTypesRequest;
+export interface PutRoomTypesRequest {
+    roomTypeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypesToBeChanged: RoomTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomsOperationRequest {
-    roomsId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomToBeChanged?: PutRoomsRequest;
+export interface PutRoomsRequest {
+    roomsId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomToBeChanged: RoomToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplateHousekeepingTaskOperationRequest {
-    templateId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateHousekeepingTaskToBeChanged?: PutTemplateHousekeepingTaskRequest;
+export interface PutTemplateHousekeepingTaskRequest {
+    templateId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateHousekeepingTaskToBeChanged: TemplateHousekeepingTaskToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveBuildingGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveBuildingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFloorsRequest {
-    floorsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    floorsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHotelRoomMaintenanceReasonsRequest {
-    reasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingAttendantsRequest {
-    attendantId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attendantId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: Array<boolean>;
     name?: Array<string>;
     phoneNo?: Array<string>;
@@ -1035,115 +1035,115 @@ export interface RemoveHousekeepingAttendantsRequest {
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingCreditRulesRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingRoomSchedulesRequest {
-    roomScheduleId?: string;
-    roomTypeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomScheduleId: string;
+    roomTypeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingSectionGroupsRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     housekeepingSectionGroupsCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingSectionsRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingSupplyCodesRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     housekeepingCodes?: string;
     sequence?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveHousekeepingTasksRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     forceRemove?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveOutOfOrderServiceReasonsRequest {
-    reasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveResortRoomConditionRequest {
-    roomConditionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomConditionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRoomConditionTemplateRequest {
-    templateCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    templateCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomConditionTemplateCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRoomFeaturesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     genericHotelParentCodes?: Array<string>;
     genericHotelParentCodesGroup?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRoomGroupsRequest {
-    rateGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomGroupsCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRoomHierarchiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomHierarchyType?: Set<RemoveRoomHierarchiesRoomHierarchyTypeEnum>;
     hotelId?: Array<string>;
     fromCode?: Array<string>;
@@ -1151,61 +1151,61 @@ export interface RemoveRoomHierarchiesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTemplateFloorsRequest {
-    templateFloorsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    templateFloorsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateOutOfOrderServiceReasonsRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateRoomFeaturesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     genericTemplateParentCodes?: Array<string>;
     genericTemplateParentGroups?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateRoomMaintenanceReasonsRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetBuildingFloorMappingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    setBuildingFloorMappings?: SetBuildingFloorMappingsRequest;
+export interface SetBuildingFloorMappingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    setBuildingFloorMappings: SetBuildingFloorMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetHousekeepingTaskSheetRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    setHousekeepingTaskSheetRooms?: SetHousekeepingTaskSheetRoomsRequest;
+export interface SetHousekeepingTaskSheetRoomsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    setHousekeepingTaskSheetRooms: SetHousekeepingTaskSheetRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ValidateRoomClassInUseOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    validateRoomClassInUse?: ValidateRoomClassInUseRequest;
+export interface ValidateRoomClassInUseRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    validateRoomClassInUse: ValidateRoomClassInUse;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1217,282 +1217,282 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update housekeeping building groups based on buildingGroupsToBeChanged. Building groups are used to group multiple building together for the purpose of housekeeping task assignment; allowing task sheets to be generated per building group. <p><strong>OperationId:</strong>changeBuildingGroups</p>
      * Change Housekeeping Building Group
      */
-    changeBuildingGroupsRaw(requestParameters: ChangeBuildingGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeBuildingGroupsRaw(requestParameters: ChangeBuildingGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping building groups based on buildingGroupsToBeChanged. Building groups are used to group multiple building together for the purpose of housekeeping task assignment; allowing task sheets to be generated per building group. <p><strong>OperationId:</strong>changeBuildingGroups</p>
      * Change Housekeeping Building Group
      */
-    changeBuildingGroups(requestParameters: ChangeBuildingGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeBuildingGroups(requestParameters: ChangeBuildingGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update buildings based on buildingsToBeChanged. Buildings are used for the purpose of housekeeping task assignment; allowing task sheets to be generated per building. <p><strong>OperationId:</strong>changeBuildings</p>
      * Change Buildings
      */
-    changeBuildingsRaw(requestParameters: ChangeBuildingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeBuildingsRaw(requestParameters: ChangeBuildingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update buildings based on buildingsToBeChanged. Buildings are used for the purpose of housekeeping task assignment; allowing task sheets to be generated per building. <p><strong>OperationId:</strong>changeBuildings</p>
      * Change Buildings
      */
-    changeBuildings(requestParameters: ChangeBuildingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeBuildings(requestParameters: ChangeBuildingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update floors based on floorsId, floorsToBeChanged. Floor is referencing the story of a building that hotel rooms are located on. <p><strong>OperationId:</strong>changeFloors</p>
      * Change floors
      */
-    changeFloorsRaw(requestParameters: ChangeFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFloorsRaw(requestParameters: ChangeFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update floors based on floorsId, floorsToBeChanged. Floor is referencing the story of a building that hotel rooms are located on. <p><strong>OperationId:</strong>changeFloors</p>
      * Change floors
      */
-    changeFloors(requestParameters: ChangeFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFloors(requestParameters: ChangeFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update room maintenance reasons for a specific property based on reasonCode, hotelId, hotelRoomMaintenanceReasonsToBeChanged. Room maintenance codes are the various reasons/categories of maintenance tasks created for rooms. <p><strong>OperationId:</strong>changeHotelRoomMaintenanceReasons</p>
      * Change Hotel Room Maintenance Reasons
      */
-    changeHotelRoomMaintenanceReasonsRaw(requestParameters: ChangeHotelRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHotelRoomMaintenanceReasonsRaw(requestParameters: ChangeHotelRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room maintenance reasons for a specific property based on reasonCode, hotelId, hotelRoomMaintenanceReasonsToBeChanged. Room maintenance codes are the various reasons/categories of maintenance tasks created for rooms. <p><strong>OperationId:</strong>changeHotelRoomMaintenanceReasons</p>
      * Change Hotel Room Maintenance Reasons
      */
-    changeHotelRoomMaintenanceReasons(requestParameters: ChangeHotelRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHotelRoomMaintenanceReasons(requestParameters: ChangeHotelRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update housekeeping attendants for a specific property based on attendantId, hotelId, housekeepingAttendantsToBeChanged. OPERA Cloud enables you to store housekeeping attendant information, daily assignments, and tracks credits or number of rooms cleaned by each attendant. <p><strong>OperationId:</strong>changeHousekeepingAttendants</p>
      * Change housekeeping attendants configuration
      */
-    changeHousekeepingAttendantsRaw(requestParameters: ChangeHousekeepingAttendantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHousekeepingAttendantsRaw(requestParameters: ChangeHousekeepingAttendantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping attendants for a specific property based on attendantId, hotelId, housekeepingAttendantsToBeChanged. OPERA Cloud enables you to store housekeeping attendant information, daily assignments, and tracks credits or number of rooms cleaned by each attendant. <p><strong>OperationId:</strong>changeHousekeepingAttendants</p>
      * Change housekeeping attendants configuration
      */
-    changeHousekeepingAttendants(requestParameters: ChangeHousekeepingAttendantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHousekeepingAttendants(requestParameters: ChangeHousekeepingAttendantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update housekeeping credit rules for a specific property based on code, hotelId, housekeepingCreditRulesToBeChanged. Housekeeping credit rules are used to add additional credits to the housekeeping tasks sheets depending on configured values i.e. travel credits between buildings, or floors, or inventory items i.e. cribs, rollaways. <p><strong>OperationId:</strong>changeHousekeepingCreditRules</p>
      * Change Housekeeping Credit Rules
      */
-    changeHousekeepingCreditRulesRaw(requestParameters: ChangeHousekeepingCreditRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHousekeepingCreditRulesRaw(requestParameters: ChangeHousekeepingCreditRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping credit rules for a specific property based on code, hotelId, housekeepingCreditRulesToBeChanged. Housekeeping credit rules are used to add additional credits to the housekeeping tasks sheets depending on configured values i.e. travel credits between buildings, or floors, or inventory items i.e. cribs, rollaways. <p><strong>OperationId:</strong>changeHousekeepingCreditRules</p>
      * Change Housekeeping Credit Rules
      */
-    changeHousekeepingCreditRules(requestParameters: ChangeHousekeepingCreditRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHousekeepingCreditRules(requestParameters: ChangeHousekeepingCreditRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update housekeeping room schedules for a specific property based on the roomScheduleId. Housekeeping room schedules reference housekeeping tasks and housekeeping codes associated to a room type. <p><strong>OperationId:</strong>changeHousekeepingRoomSchedules</p>
      * Change housekeeping room schedules
      */
-    changeHousekeepingRoomSchedulesRaw(requestParameters: ChangeHousekeepingRoomSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHousekeepingRoomSchedulesRaw(requestParameters: ChangeHousekeepingRoomSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping room schedules for a specific property based on the roomScheduleId. Housekeeping room schedules reference housekeeping tasks and housekeeping codes associated to a room type. <p><strong>OperationId:</strong>changeHousekeepingRoomSchedules</p>
      * Change housekeeping room schedules
      */
-    changeHousekeepingRoomSchedules(requestParameters: ChangeHousekeepingRoomSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHousekeepingRoomSchedules(requestParameters: ChangeHousekeepingRoomSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update housekeeping section groups for a specific property based on code, hotelId, housekeepingSectionGroupsToBeChanged. Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening. <p><strong>OperationId:</strong>changeHousekeepingSectionGroups</p>
      * Change Housekeeping Section Groups
      */
-    changeHousekeepingSectionGroupsRaw(requestParameters: ChangeHousekeepingSectionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHousekeepingSectionGroupsRaw(requestParameters: ChangeHousekeepingSectionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping section groups for a specific property based on code, hotelId, housekeepingSectionGroupsToBeChanged. Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening. <p><strong>OperationId:</strong>changeHousekeepingSectionGroups</p>
      * Change Housekeeping Section Groups
      */
-    changeHousekeepingSectionGroups(requestParameters: ChangeHousekeepingSectionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHousekeepingSectionGroups(requestParameters: ChangeHousekeepingSectionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update housekeeping sections for a specific property based on code, hotelId. Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening. <p><strong>OperationId:</strong>changeHousekeepingSections</p>
      * Change Housekeeping Sections
      */
-    changeHousekeepingSectionsRaw(requestParameters: ChangeHousekeepingSectionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHousekeepingSectionsRaw(requestParameters: ChangeHousekeepingSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping sections for a specific property based on code, hotelId. Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening. <p><strong>OperationId:</strong>changeHousekeepingSections</p>
      * Change Housekeeping Sections
      */
-    changeHousekeepingSections(requestParameters: ChangeHousekeepingSectionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHousekeepingSections(requestParameters: ChangeHousekeepingSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update housekeeping supply codes for a specific property based on code, hotelId, housekeepingCodesToBeChanged. Housekeeping supplies such as pillow cases, hand towels, bath towels, shampoo can be used when scheduling housekeeping tasks. <p><strong>OperationId:</strong>changeHousekeepingSupplyCodes</p>
      * Change Housekeeping Codes
      */
-    changeHousekeepingSupplyCodesRaw(requestParameters: ChangeHousekeepingSupplyCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHousekeepingSupplyCodesRaw(requestParameters: ChangeHousekeepingSupplyCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping supply codes for a specific property based on code, hotelId, housekeepingCodesToBeChanged. Housekeeping supplies such as pillow cases, hand towels, bath towels, shampoo can be used when scheduling housekeeping tasks. <p><strong>OperationId:</strong>changeHousekeepingSupplyCodes</p>
      * Change Housekeeping Codes
      */
-    changeHousekeepingSupplyCodes(requestParameters: ChangeHousekeepingSupplyCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHousekeepingSupplyCodes(requestParameters: ChangeHousekeepingSupplyCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update housekeeping tasks for a specific property based on code, hotelId, housekeepingTasksToBeChanged. Task codes enable you to create various housekeeping task sheets (for example, daily cleaning, mattress turning, inspections, turndown, etc.). <p><strong>OperationId:</strong>changeHousekeepingTasks</p>
      * Change Housekeeping Tasks
      */
-    changeHousekeepingTasksRaw(requestParameters: ChangeHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeHousekeepingTasksRaw(requestParameters: ChangeHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update housekeeping tasks for a specific property based on code, hotelId, housekeepingTasksToBeChanged. Task codes enable you to create various housekeeping task sheets (for example, daily cleaning, mattress turning, inspections, turndown, etc.). <p><strong>OperationId:</strong>changeHousekeepingTasks</p>
      * Change Housekeeping Tasks
      */
-    changeHousekeepingTasks(requestParameters: ChangeHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeHousekeepingTasks(requestParameters: ChangeHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update out of order service reasons for a specific property based on reasonCode, hotelId, outOfOrderServiceReasonsToBeChanged. Out of order (OO) and out of service (OS) are two additional housekeeping statuses. These options are used when changing the status for rooms that should not be sold due to damage, maintenance, low occupancy wing, etc. <p><strong>OperationId:</strong>changeOutOfOrderServiceReasons</p>
      * Change Out Of Order Service Reasons
      */
-    changeOutOfOrderServiceReasonsRaw(requestParameters: ChangeOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeOutOfOrderServiceReasonsRaw(requestParameters: ChangeOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update out of order service reasons for a specific property based on reasonCode, hotelId, outOfOrderServiceReasonsToBeChanged. Out of order (OO) and out of service (OS) are two additional housekeeping statuses. These options are used when changing the status for rooms that should not be sold due to damage, maintenance, low occupancy wing, etc. <p><strong>OperationId:</strong>changeOutOfOrderServiceReasons</p>
      * Change Out Of Order Service Reasons
      */
-    changeOutOfOrderServiceReasons(requestParameters: ChangeOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeOutOfOrderServiceReasons(requestParameters: ChangeOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update room conditions for a specific property based on roomConditionCode, hotelId, resortRoomConditionToBeChanged. Room condition codes can be assigned to rooms, for example, to designate rooms that are available for show, rooms that are set aside for special housekeeping attention, or rooms that are to be treated differently for any other reason. <p><strong>OperationId:</strong>changeResortRoomCondition</p>
      * Change room condition configuration
      */
-    changeResortRoomConditionRaw(requestParameters: ChangeResortRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeResortRoomConditionRaw(requestParameters: ChangeResortRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room conditions for a specific property based on roomConditionCode, hotelId, resortRoomConditionToBeChanged. Room condition codes can be assigned to rooms, for example, to designate rooms that are available for show, rooms that are set aside for special housekeeping attention, or rooms that are to be treated differently for any other reason. <p><strong>OperationId:</strong>changeResortRoomCondition</p>
      * Change room condition configuration
      */
-    changeResortRoomCondition(requestParameters: ChangeResortRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeResortRoomCondition(requestParameters: ChangeResortRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update room condition templates based on templateCode, roomConditionTemplateToBeChanged. Room condition codes can be assigned to rooms, for example, to designate rooms that are available for show, rooms that are set aside for special housekeeping attention, or rooms that are to be treated differently for any other reason. <p><strong>OperationId:</strong>changeRoomConditionTemplate</p>
      * Change room condition template
      */
-    changeRoomConditionTemplateRaw(requestParameters: ChangeRoomConditionTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRoomConditionTemplateRaw(requestParameters: ChangeRoomConditionTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room condition templates based on templateCode, roomConditionTemplateToBeChanged. Room condition codes can be assigned to rooms, for example, to designate rooms that are available for show, rooms that are set aside for special housekeeping attention, or rooms that are to be treated differently for any other reason. <p><strong>OperationId:</strong>changeRoomConditionTemplate</p>
      * Change room condition template
      */
-    changeRoomConditionTemplate(requestParameters: ChangeRoomConditionTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRoomConditionTemplate(requestParameters: ChangeRoomConditionTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update room features for a specific property based on hotelId, roomFeaturesToBeChanged. A room feature is a characteristic or attribute of the room such as near or away from an elevator, rooms with accessibility facilities or rooms with a specific view. <p><strong>OperationId:</strong>changeRoomFeatures</p>
      * Change Hotel Room Features
      */
-    changeRoomFeaturesRaw(requestParameters: ChangeRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRoomFeaturesRaw(requestParameters: ChangeRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room features for a specific property based on hotelId, roomFeaturesToBeChanged. A room feature is a characteristic or attribute of the room such as near or away from an elevator, rooms with accessibility facilities or rooms with a specific view. <p><strong>OperationId:</strong>changeRoomFeatures</p>
      * Change Hotel Room Features
      */
-    changeRoomFeatures(requestParameters: ChangeRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRoomFeatures(requestParameters: ChangeRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update room groups for a specific property based on rateGroupCode, hotelId, roomGroupsToBeChanged. <p><strong>OperationId:</strong>changeRoomGroups</p>
      * Change Room Groups
      */
-    changeRoomGroupsRaw(requestParameters: ChangeRoomGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRoomGroupsRaw(requestParameters: ChangeRoomGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room groups for a specific property based on rateGroupCode, hotelId, roomGroupsToBeChanged. <p><strong>OperationId:</strong>changeRoomGroups</p>
      * Change Room Groups
      */
-    changeRoomGroups(requestParameters: ChangeRoomGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRoomGroups(requestParameters: ChangeRoomGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Room Hierarchies. <p><strong>OperationId:</strong>changeRoomHierarchies</p>
      * Change Room Hierarchies
      */
-    changeRoomHierarchiesRaw(requestParameters: ChangeRoomHierarchiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRoomHierarchiesRaw(requestParameters: ChangeRoomHierarchiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Room Hierarchies. <p><strong>OperationId:</strong>changeRoomHierarchies</p>
      * Change Room Hierarchies
      */
-    changeRoomHierarchies(requestParameters: ChangeRoomHierarchiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRoomHierarchies(requestParameters: ChangeRoomHierarchiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update template floors based on templateFloorsId, templateFloorsToBeChanged. Floor is referencing the story of a building that hotel rooms are located on. <p><strong>OperationId:</strong>changeTemplateFloors</p>
      * Change template floors
      */
-    changeTemplateFloorsRaw(requestParameters: ChangeTemplateFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateFloorsRaw(requestParameters: ChangeTemplateFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update template floors based on templateFloorsId, templateFloorsToBeChanged. Floor is referencing the story of a building that hotel rooms are located on. <p><strong>OperationId:</strong>changeTemplateFloors</p>
      * Change template floors
      */
-    changeTemplateFloors(requestParameters: ChangeTemplateFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateFloors(requestParameters: ChangeTemplateFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update out of order service reason templates based on reasonCode, templateOutOfOrderServiceReasonsToBeChanged. Out of order (OO) and out of service (OS) are two additional housekeeping statuses. These options are used when changing the status for rooms that should not be sold due to damage, maintenance, low occupancy wing, etc. <p><strong>OperationId:</strong>changeTemplateOutOfOrderServiceReasons</p>
      * Change a template Out Of Order Service Reason Code
      */
-    changeTemplateOutOfOrderServiceReasonsRaw(requestParameters: ChangeTemplateOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateOutOfOrderServiceReasonsRaw(requestParameters: ChangeTemplateOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update out of order service reason templates based on reasonCode, templateOutOfOrderServiceReasonsToBeChanged. Out of order (OO) and out of service (OS) are two additional housekeeping statuses. These options are used when changing the status for rooms that should not be sold due to damage, maintenance, low occupancy wing, etc. <p><strong>OperationId:</strong>changeTemplateOutOfOrderServiceReasons</p>
      * Change a template Out Of Order Service Reason Code
      */
-    changeTemplateOutOfOrderServiceReasons(requestParameters: ChangeTemplateOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateOutOfOrderServiceReasons(requestParameters: ChangeTemplateOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update room feature templates based on templateRoomFeaturesToBeChanged. A room feature is a characteristic or attribute of the room such as near or away from an elevator, rooms with accessibility facilities or rooms with a specific view. <p><strong>OperationId:</strong>changeTemplateRoomFeatures</p>
      * Change template Room Features
      */
-    changeTemplateRoomFeaturesRaw(requestParameters: ChangeTemplateRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateRoomFeaturesRaw(requestParameters: ChangeTemplateRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room feature templates based on templateRoomFeaturesToBeChanged. A room feature is a characteristic or attribute of the room such as near or away from an elevator, rooms with accessibility facilities or rooms with a specific view. <p><strong>OperationId:</strong>changeTemplateRoomFeatures</p>
      * Change template Room Features
      */
-    changeTemplateRoomFeatures(requestParameters: ChangeTemplateRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateRoomFeatures(requestParameters: ChangeTemplateRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update room maintenance reason templates based on reasonCode, templateRoomMaintenanceReasonsToBeChanged. Room maintenance codes are the various categories of maintenance tasks created for rooms. <p><strong>OperationId:</strong>changeTemplateRoomMaintenanceReasons</p>
      * Change Template Room Maintenance Reasons
      */
-    changeTemplateRoomMaintenanceReasonsRaw(requestParameters: ChangeTemplateRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateRoomMaintenanceReasonsRaw(requestParameters: ChangeTemplateRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room maintenance reason templates based on reasonCode, templateRoomMaintenanceReasonsToBeChanged. Room maintenance codes are the various categories of maintenance tasks created for rooms. <p><strong>OperationId:</strong>changeTemplateRoomMaintenanceReasons</p>
      * Change Template Room Maintenance Reasons
      */
-    changeTemplateRoomMaintenanceReasons(requestParameters: ChangeTemplateRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateRoomMaintenanceReasons(requestParameters: ChangeTemplateRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to copy existing Housekeeping Building Groups from the source property to the target properties. <p><strong>OperationId:</strong>copyBuildingGroups</p>
      * Copy Building Groups
      */
-    copyBuildingGroupsRaw(requestParameters: CopyBuildingGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyBuildingGroupsRaw(requestParameters: CopyBuildingGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to copy existing Housekeeping Building Groups from the source property to the target properties. <p><strong>OperationId:</strong>copyBuildingGroups</p>
      * Copy Building Groups
      */
-    copyBuildingGroups(requestParameters: CopyBuildingGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyBuildingGroups(requestParameters: CopyBuildingGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy existing Building from source property to target properties. <p><strong>OperationId:</strong>copyBuildings</p>
      *  copy existing Building from source property to target properties
      */
-    copyBuildingsRaw(requestParameters: CopyBuildingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyBuildingsRaw(requestParameters: CopyBuildingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy existing Building from source property to target properties. <p><strong>OperationId:</strong>copyBuildings</p>
      *  copy existing Building from source property to target properties
      */
-    copyBuildings(requestParameters: CopyBuildingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyBuildings(requestParameters: CopyBuildingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Housekeeping Section Groups. <p><strong>OperationId:</strong>copyHousekeepingSectionGroups</p>
      *  copy Housekeeping Section Groups
      */
-    copyHousekeepingSectionGroupsRaw(requestParameters: CopyHousekeepingSectionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyHousekeepingSectionGroupsRaw(requestParameters: CopyHousekeepingSectionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Housekeeping Section Groups. <p><strong>OperationId:</strong>copyHousekeepingSectionGroups</p>
      *  copy Housekeeping Section Groups
      */
-    copyHousekeepingSectionGroups(requestParameters: CopyHousekeepingSectionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyHousekeepingSectionGroups(requestParameters: CopyHousekeepingSectionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Housekeeping Sections. <p><strong>OperationId:</strong>copyHousekeepingSections</p>
      *  copy Housekeeping Sections
      */
-    copyHousekeepingSectionsRaw(requestParameters: CopyHousekeepingSectionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyHousekeepingSectionsRaw(requestParameters: CopyHousekeepingSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Housekeeping Sections. <p><strong>OperationId:</strong>copyHousekeepingSections</p>
      *  copy Housekeeping Sections
      */
-    copyHousekeepingSections(requestParameters: CopyHousekeepingSectionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyHousekeepingSections(requestParameters: CopyHousekeepingSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Housekeeping Codes. <p><strong>OperationId:</strong>copyHousekeepingSupplyCodes</p>
      *  copy Housekeeping Codes
      */
-    copyHousekeepingSupplyCodesRaw(requestParameters: CopyHousekeepingSupplyCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyHousekeepingSupplyCodesRaw(requestParameters: CopyHousekeepingSupplyCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Housekeeping Codes. <p><strong>OperationId:</strong>copyHousekeepingSupplyCodes</p>
      *  copy Housekeeping Codes
      */
-    copyHousekeepingSupplyCodes(requestParameters: CopyHousekeepingSupplyCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyHousekeepingSupplyCodes(requestParameters: CopyHousekeepingSupplyCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to copy Room Hierarchies. <p><strong>OperationId:</strong>copyRoomHierarchies</p>
      *  copy Room Hierarchies
      */
-    copyRoomHierarchiesRaw(requestParameters: CopyRoomHierarchiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyRoomHierarchiesRaw(requestParameters: CopyRoomHierarchiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to copy Room Hierarchies. <p><strong>OperationId:</strong>copyRoomHierarchies</p>
      *  copy Room Hierarchies
      */
-    copyRoomHierarchies(requestParameters: CopyRoomHierarchiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyRoomHierarchies(requestParameters: CopyRoomHierarchiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new rooms based on an existing room. Component rooms are not allowed to be copied. <p><strong>OperationId:</strong>copyRooms</p>
      * Copy Rooms
      */
-    copyRoomsRaw(requestParameters: CopyRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyRoomsRaw(requestParameters: CopyRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new rooms based on an existing room. Component rooms are not allowed to be copied. <p><strong>OperationId:</strong>copyRooms</p>
      * Copy Rooms
      */
-    copyRooms(requestParameters: CopyRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyRooms(requestParameters: CopyRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete an existing properties Room Class. <p><strong>OperationId:</strong>deleteRoomClass</p>
      * Delete a Room Class
@@ -1557,12 +1557,12 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Generate the room hierarchies. <p><strong>OperationId:</strong>generateRoomHierarchy</p>
      * generate the room hierarchies
      */
-    generateRoomHierarchyRaw(requestParameters: GenerateRoomHierarchyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomHierarchiesDetails>>;
+    generateRoomHierarchyRaw(requestParameters: GenerateRoomHierarchyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomHierarchiesDetails>>;
     /**
      * Generate the room hierarchies. <p><strong>OperationId:</strong>generateRoomHierarchy</p>
      * generate the room hierarchies
      */
-    generateRoomHierarchy(requestParameters: GenerateRoomHierarchyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomHierarchiesDetails>;
+    generateRoomHierarchy(requestParameters: GenerateRoomHierarchyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomHierarchiesDetails>;
     /**
      * Use this API to get Hotel level floor mappings to buildings. <p><strong>OperationId:</strong>getBuildingFloorMappings</p>
      * Get Hotel level floor mappings to buildings
@@ -1877,332 +1877,332 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create housekeeping building groups. <p>Building groups are used to group multiple building together for the purpose of housekeeping task assignment; allowing task sheets to be generated per building group.</p> <p><strong>OperationId:</strong>postBuildingGroups</p>
      * Create  Housekeeping Building Group
      */
-    postBuildingGroupsRaw(requestParameters: PostBuildingGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBuildingGroupsRaw(requestParameters: PostBuildingGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping building groups. <p>Building groups are used to group multiple building together for the purpose of housekeeping task assignment; allowing task sheets to be generated per building group.</p> <p><strong>OperationId:</strong>postBuildingGroups</p>
      * Create  Housekeeping Building Group
      */
-    postBuildingGroups(requestParameters: PostBuildingGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBuildingGroups(requestParameters: PostBuildingGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new buildings. Buildings are used for the purpose of housekeeping task assignment; allowing task sheets to be generated per building. <p><strong>OperationId:</strong>postBuildings</p>
      * Create new Buildings
      */
-    postBuildingsRaw(requestParameters: PostBuildingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBuildingsRaw(requestParameters: PostBuildingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new buildings. Buildings are used for the purpose of housekeeping task assignment; allowing task sheets to be generated per building. <p><strong>OperationId:</strong>postBuildings</p>
      * Create new Buildings
      */
-    postBuildings(requestParameters: PostBuildingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBuildings(requestParameters: PostBuildingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create floors. Floor is referencing the story of a building that hotel rooms are located on. <p><strong>OperationId:</strong>postFloors</p>
      * Create floors
      */
-    postFloorsRaw(requestParameters: PostFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFloorsRaw(requestParameters: PostFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create floors. Floor is referencing the story of a building that hotel rooms are located on. <p><strong>OperationId:</strong>postFloors</p>
      * Create floors
      */
-    postFloors(requestParameters: PostFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFloors(requestParameters: PostFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Hotel Room Maintenance Reasons. <p><strong>OperationId:</strong>postHotelRoomMaintenanceReasons</p>
      * Create Hotel Room Maintenance Reasons
      */
-    postHotelRoomMaintenanceReasonsRaw(requestParameters: PostHotelRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHotelRoomMaintenanceReasonsRaw(requestParameters: PostHotelRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Hotel Room Maintenance Reasons. <p><strong>OperationId:</strong>postHotelRoomMaintenanceReasons</p>
      * Create Hotel Room Maintenance Reasons
      */
-    postHotelRoomMaintenanceReasons(requestParameters: PostHotelRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHotelRoomMaintenanceReasons(requestParameters: PostHotelRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create housekeeping attendants for a specific hotel. OPERA Cloud enables you to store housekeeping attendant information, daily assignments, and tracks credits or number of rooms cleaned by each attendant. <p><strong>OperationId:</strong>postHousekeepingAttendants</p>
      * Create new housekeeping attendants configuration
      */
-    postHousekeepingAttendantsRaw(requestParameters: PostHousekeepingAttendantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingAttendantsRaw(requestParameters: PostHousekeepingAttendantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping attendants for a specific hotel. OPERA Cloud enables you to store housekeeping attendant information, daily assignments, and tracks credits or number of rooms cleaned by each attendant. <p><strong>OperationId:</strong>postHousekeepingAttendants</p>
      * Create new housekeeping attendants configuration
      */
-    postHousekeepingAttendants(requestParameters: PostHousekeepingAttendantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingAttendants(requestParameters: PostHousekeepingAttendantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create housekeeping credit rules for a specific hotel. <p>Housekeeping credit rules are used to add additional credits to the housekeeping tasks sheets depending on configured values i.e. travel credits between buildings, or floors, or inventory items i.e. cribs, rollaways. </P> <p><strong>OperationId:</strong>postHousekeepingCreditRules</p>
      * Create Housekeeping Credit Rules
      */
-    postHousekeepingCreditRulesRaw(requestParameters: PostHousekeepingCreditRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingCreditRulesRaw(requestParameters: PostHousekeepingCreditRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping credit rules for a specific hotel. <p>Housekeeping credit rules are used to add additional credits to the housekeeping tasks sheets depending on configured values i.e. travel credits between buildings, or floors, or inventory items i.e. cribs, rollaways. </P> <p><strong>OperationId:</strong>postHousekeepingCreditRules</p>
      * Create Housekeeping Credit Rules
      */
-    postHousekeepingCreditRules(requestParameters: PostHousekeepingCreditRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingCreditRules(requestParameters: PostHousekeepingCreditRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create housekeeping room schedules for a specific hotel. Housekeeping room schedules reference housekeeping tasks and housekeeping codes associated to a room type. <p><strong>OperationId:</strong>postHousekeepingRoomSchedules</p>
      * Create housekeeping room schedules
      */
-    postHousekeepingRoomSchedulesRaw(requestParameters: PostHousekeepingRoomSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingRoomSchedulesRaw(requestParameters: PostHousekeepingRoomSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping room schedules for a specific hotel. Housekeeping room schedules reference housekeeping tasks and housekeeping codes associated to a room type. <p><strong>OperationId:</strong>postHousekeepingRoomSchedules</p>
      * Create housekeeping room schedules
      */
-    postHousekeepingRoomSchedules(requestParameters: PostHousekeepingRoomSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingRoomSchedules(requestParameters: PostHousekeepingRoomSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create housekeeping section groups for a specific hotel. <p>Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening.</P> <p><strong>OperationId:</strong>postHousekeepingSectionGroups</p>
      * Create Housekeeping Section Groups
      */
-    postHousekeepingSectionGroupsRaw(requestParameters: PostHousekeepingSectionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingSectionGroupsRaw(requestParameters: PostHousekeepingSectionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping section groups for a specific hotel. <p>Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening.</P> <p><strong>OperationId:</strong>postHousekeepingSectionGroups</p>
      * Create Housekeeping Section Groups
      */
-    postHousekeepingSectionGroups(requestParameters: PostHousekeepingSectionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingSectionGroups(requestParameters: PostHousekeepingSectionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create housekeeping sections for a specific hotel. Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening. <p><strong>OperationId:</strong>postHousekeepingSections</p>
      * Create Housekeeping Sections
      */
-    postHousekeepingSectionsRaw(requestParameters: PostHousekeepingSectionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingSectionsRaw(requestParameters: PostHousekeepingSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping sections for a specific hotel. Housekeeping section groups and sections can be used to group rooms into sections or divisions meaningful to the housekeeping attendants with respect to floor numbers, various buildings, and group of rooms typically cleaned by one attendant during the day or turndowns during the evening. <p><strong>OperationId:</strong>postHousekeepingSections</p>
      * Create Housekeeping Sections
      */
-    postHousekeepingSections(requestParameters: PostHousekeepingSectionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingSections(requestParameters: PostHousekeepingSectionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create housekeeping supply codes for a specific hotel. Housekeeping supplies such as pillow cases, hand towels, bath towels, shampoo can be used when scheduling housekeeping tasks. <p><strong>OperationId:</strong>postHousekeepingSupplyCodes</p>
      * Create Housekeeping Codes
      */
-    postHousekeepingSupplyCodesRaw(requestParameters: PostHousekeepingSupplyCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingSupplyCodesRaw(requestParameters: PostHousekeepingSupplyCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping supply codes for a specific hotel. Housekeeping supplies such as pillow cases, hand towels, bath towels, shampoo can be used when scheduling housekeeping tasks. <p><strong>OperationId:</strong>postHousekeepingSupplyCodes</p>
      * Create Housekeeping Codes
      */
-    postHousekeepingSupplyCodes(requestParameters: PostHousekeepingSupplyCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingSupplyCodes(requestParameters: PostHousekeepingSupplyCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create housekeeping tasks for a specific hotel. Task codes enable you to create various housekeeping task sheets (for example, daily cleaning, mattress turning, inspections, turndown, etc.). <p><strong>OperationId:</strong>postHousekeepingTasks</p>
      * Create Housekeeping Tasks
      */
-    postHousekeepingTasksRaw(requestParameters: PostHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingTasksRaw(requestParameters: PostHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create housekeeping tasks for a specific hotel. Task codes enable you to create various housekeeping task sheets (for example, daily cleaning, mattress turning, inspections, turndown, etc.). <p><strong>OperationId:</strong>postHousekeepingTasks</p>
      * Create Housekeeping Tasks
      */
-    postHousekeepingTasks(requestParameters: PostHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingTasks(requestParameters: PostHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create out of order service reasons for a specific hotel. Out of order (OO) and out of service (OS) are two additional housekeeping statuses. These options are used when changing the status for rooms that should not be sold due to damage, maintenance, low occupancy wing, etc. <p><strong>OperationId:</strong>postOutOfOrderServiceReasons</p>
      * Create Out Of Order Service Reasons
      */
-    postOutOfOrderServiceReasonsRaw(requestParameters: PostOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postOutOfOrderServiceReasonsRaw(requestParameters: PostOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create out of order service reasons for a specific hotel. Out of order (OO) and out of service (OS) are two additional housekeeping statuses. These options are used when changing the status for rooms that should not be sold due to damage, maintenance, low occupancy wing, etc. <p><strong>OperationId:</strong>postOutOfOrderServiceReasons</p>
      * Create Out Of Order Service Reasons
      */
-    postOutOfOrderServiceReasons(requestParameters: PostOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postOutOfOrderServiceReasons(requestParameters: PostOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create room condition configuration . <p><strong>OperationId:</strong>postResortRoomCondition</p>
      * Create room condition configuration
      */
-    postResortRoomConditionRaw(requestParameters: PostResortRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postResortRoomConditionRaw(requestParameters: PostResortRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create room condition configuration . <p><strong>OperationId:</strong>postResortRoomCondition</p>
      * Create room condition configuration
      */
-    postResortRoomCondition(requestParameters: PostResortRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postResortRoomCondition(requestParameters: PostResortRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new hotel level room class. <p><strong>OperationId:</strong>postRoomClass</p>
      * Create Room Class
      */
-    postRoomClassRaw(requestParameters: PostRoomClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomClassRaw(requestParameters: PostRoomClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new hotel level room class. <p><strong>OperationId:</strong>postRoomClass</p>
      * Create Room Class
      */
-    postRoomClass(requestParameters: PostRoomClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomClass(requestParameters: PostRoomClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to create a new room class template. <p><strong>OperationId:</strong>postRoomClassTemplates</p>
      * Create Room Class Template
      */
-    postRoomClassTemplatesRaw(requestParameters: PostRoomClassTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomClassTemplatesRaw(requestParameters: PostRoomClassTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to create a new room class template. <p><strong>OperationId:</strong>postRoomClassTemplates</p>
      * Create Room Class Template
      */
-    postRoomClassTemplates(requestParameters: PostRoomClassTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomClassTemplates(requestParameters: PostRoomClassTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new room condition template. <p><strong>OperationId:</strong>postRoomConditionTemplate</p>
      * Create new room condition template
      */
-    postRoomConditionTemplateRaw(requestParameters: PostRoomConditionTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomConditionTemplateRaw(requestParameters: PostRoomConditionTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new room condition template. <p><strong>OperationId:</strong>postRoomConditionTemplate</p>
      * Create new room condition template
      */
-    postRoomConditionTemplate(requestParameters: PostRoomConditionTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomConditionTemplate(requestParameters: PostRoomConditionTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Hotel Room Features. <p><strong>OperationId:</strong>postRoomFeatures</p>
      * Create Hotel Room Features
      */
-    postRoomFeaturesRaw(requestParameters: PostRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomFeaturesRaw(requestParameters: PostRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Hotel Room Features. <p><strong>OperationId:</strong>postRoomFeatures</p>
      * Create Hotel Room Features
      */
-    postRoomFeatures(requestParameters: PostRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomFeatures(requestParameters: PostRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Room Groups. <p><strong>OperationId:</strong>postRoomGroups</p>
      * Create Room Groups
      */
-    postRoomGroupsRaw(requestParameters: PostRoomGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomGroupsRaw(requestParameters: PostRoomGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Room Groups. <p><strong>OperationId:</strong>postRoomGroups</p>
      * Create Room Groups
      */
-    postRoomGroups(requestParameters: PostRoomGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomGroups(requestParameters: PostRoomGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Room Hierarchies. <p><strong>OperationId:</strong>postRoomHierarchies</p>
      * Create Room Hierarchies
      */
-    postRoomHierarchiesRaw(requestParameters: PostRoomHierarchiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomHierarchiesRaw(requestParameters: PostRoomHierarchiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Room Hierarchies. <p><strong>OperationId:</strong>postRoomHierarchies</p>
      * Create Room Hierarchies
      */
-    postRoomHierarchies(requestParameters: PostRoomHierarchiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomHierarchies(requestParameters: PostRoomHierarchiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to Use this API to create new Room Type templates. <p><strong>OperationId:</strong>postRoomTypeTemplates</p>
      * Create Room Type Templates
      */
-    postRoomTypeTemplatesRaw(requestParameters: PostRoomTypeTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomTypeTemplatesRaw(requestParameters: PostRoomTypeTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to Use this API to create new Room Type templates. <p><strong>OperationId:</strong>postRoomTypeTemplates</p>
      * Create Room Type Templates
      */
-    postRoomTypeTemplates(requestParameters: PostRoomTypeTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomTypeTemplates(requestParameters: PostRoomTypeTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new room types for a property. A list of new room types can be passed as part of the request to Use this API to create multiple rooms in one request. <p><strong>OperationId:</strong>postRoomTypes</p>
      * Create a new room type
      */
-    postRoomTypesRaw(requestParameters: PostRoomTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomTypesRaw(requestParameters: PostRoomTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new room types for a property. A list of new room types can be passed as part of the request to Use this API to create multiple rooms in one request. <p><strong>OperationId:</strong>postRoomTypes</p>
      * Create a new room type
      */
-    postRoomTypes(requestParameters: PostRoomTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomTypes(requestParameters: PostRoomTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new room for a specific property.<p><strong>OperationId:</strong>postRooms</p>
      * Post a new room
      */
-    postRoomsRaw(requestParameters: PostRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomsRaw(requestParameters: PostRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new room for a specific property.<p><strong>OperationId:</strong>postRooms</p>
      * Post a new room
      */
-    postRooms(requestParameters: PostRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRooms(requestParameters: PostRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template floors. <p><strong>OperationId:</strong>postTemplateFloors</p>
      * Create template floors
      */
-    postTemplateFloorsRaw(requestParameters: PostTemplateFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateFloorsRaw(requestParameters: PostTemplateFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template floors. <p><strong>OperationId:</strong>postTemplateFloors</p>
      * Create template floors
      */
-    postTemplateFloors(requestParameters: PostTemplateFloorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateFloors(requestParameters: PostTemplateFloorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template Housekeeping Tasks. <p><strong>OperationId:</strong>postTemplateHousekeepingTasks</p>
      * Create Template Housekeeping Tasks
      */
-    postTemplateHousekeepingTasksRaw(requestParameters: PostTemplateHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateHousekeepingTasksRaw(requestParameters: PostTemplateHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template Housekeeping Tasks. <p><strong>OperationId:</strong>postTemplateHousekeepingTasks</p>
      * Create Template Housekeeping Tasks
      */
-    postTemplateHousekeepingTasks(requestParameters: PostTemplateHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateHousekeepingTasks(requestParameters: PostTemplateHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a template Out Of Order Service Reason Code. <p><strong>OperationId:</strong>postTemplateOutOfOrderServiceReasons</p>
      * Create a template Out Of Order Service Reason Code
      */
-    postTemplateOutOfOrderServiceReasonsRaw(requestParameters: PostTemplateOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateOutOfOrderServiceReasonsRaw(requestParameters: PostTemplateOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a template Out Of Order Service Reason Code. <p><strong>OperationId:</strong>postTemplateOutOfOrderServiceReasons</p>
      * Create a template Out Of Order Service Reason Code
      */
-    postTemplateOutOfOrderServiceReasons(requestParameters: PostTemplateOutOfOrderServiceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateOutOfOrderServiceReasons(requestParameters: PostTemplateOutOfOrderServiceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template Room Features. <p><strong>OperationId:</strong>postTemplateRoomFeatures</p>
      * Create template Room Features
      */
-    postTemplateRoomFeaturesRaw(requestParameters: PostTemplateRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateRoomFeaturesRaw(requestParameters: PostTemplateRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template Room Features. <p><strong>OperationId:</strong>postTemplateRoomFeatures</p>
      * Create template Room Features
      */
-    postTemplateRoomFeatures(requestParameters: PostTemplateRoomFeaturesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateRoomFeatures(requestParameters: PostTemplateRoomFeaturesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Template Room Maintenance Reasons. <p><strong>OperationId:</strong>postTemplateRoomMaintenanceReasons</p>
      * Create Template Room Maintenance Reasons
      */
-    postTemplateRoomMaintenanceReasonsRaw(requestParameters: PostTemplateRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateRoomMaintenanceReasonsRaw(requestParameters: PostTemplateRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Template Room Maintenance Reasons. <p><strong>OperationId:</strong>postTemplateRoomMaintenanceReasons</p>
      * Create Template Room Maintenance Reasons
      */
-    postTemplateRoomMaintenanceReasons(requestParameters: PostTemplateRoomMaintenanceReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateRoomMaintenanceReasons(requestParameters: PostTemplateRoomMaintenanceReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update an existing properties Room Class. <p><strong>OperationId:</strong>putRoomClass</p>
      * Update a Room Class
      */
-    putRoomClassRaw(requestParameters: PutRoomClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomClassRaw(requestParameters: PutRoomClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update an existing properties Room Class. <p><strong>OperationId:</strong>putRoomClass</p>
      * Update a Room Class
      */
-    putRoomClass(requestParameters: PutRoomClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomClass(requestParameters: PutRoomClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to update an existing room class template. <p><strong>OperationId:</strong>putRoomClassTemplate</p>
      * Change Room Class Template
      */
-    putRoomClassTemplateRaw(requestParameters: PutRoomClassTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomClassTemplateRaw(requestParameters: PutRoomClassTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to update an existing room class template. <p><strong>OperationId:</strong>putRoomClassTemplate</p>
      * Change Room Class Template
      */
-    putRoomClassTemplate(requestParameters: PutRoomClassTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomClassTemplate(requestParameters: PutRoomClassTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to update a Room Type template. Use this API to updates can be made concurrently to multiple templates by passing Collection of Room Type templates with the new values. <p><strong>OperationId:</strong>putRoomTypeTemplates</p>
      * Change Room Type Templates
      */
-    putRoomTypeTemplatesRaw(requestParameters: PutRoomTypeTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomTypeTemplatesRaw(requestParameters: PutRoomTypeTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to update a Room Type template. Use this API to updates can be made concurrently to multiple templates by passing Collection of Room Type templates with the new values. <p><strong>OperationId:</strong>putRoomTypeTemplates</p>
      * Change Room Type Templates
      */
-    putRoomTypeTemplates(requestParameters: PutRoomTypeTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomTypeTemplates(requestParameters: PutRoomTypeTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update a Room Type from a property. A list of room types that need to be modified can also passed as part of the request. <p><strong>OperationId:</strong>putRoomTypes</p>
      * Update a Room Type
      */
-    putRoomTypesRaw(requestParameters: PutRoomTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomTypesRaw(requestParameters: PutRoomTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update a Room Type from a property. A list of room types that need to be modified can also passed as part of the request. <p><strong>OperationId:</strong>putRoomTypes</p>
      * Update a Room Type
      */
-    putRoomTypes(requestParameters: PutRoomTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomTypes(requestParameters: PutRoomTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update an existing room. <p><strong>OperationId:</strong>putRooms</p>
      * Change an existing room
      */
-    putRoomsRaw(requestParameters: PutRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomsRaw(requestParameters: PutRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update an existing room. <p><strong>OperationId:</strong>putRooms</p>
      * Change an existing room
      */
-    putRooms(requestParameters: PutRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRooms(requestParameters: PutRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update a template Housekeeping Task. <p><strong>OperationId:</strong>putTemplateHousekeepingTask</p>
      * Change a template Housekeeping Task
      */
-    putTemplateHousekeepingTaskRaw(requestParameters: PutTemplateHousekeepingTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplateHousekeepingTaskRaw(requestParameters: PutTemplateHousekeepingTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update a template Housekeeping Task. <p><strong>OperationId:</strong>putTemplateHousekeepingTask</p>
      * Change a template Housekeeping Task
      */
-    putTemplateHousekeepingTask(requestParameters: PutTemplateHousekeepingTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplateHousekeepingTask(requestParameters: PutTemplateHousekeepingTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete housekeeping building groups based on hotelIds, hotelId. Building groups are used to group multiple building together for the purpose of housekeeping task assignment; allowing task sheets to be generated per building group. <p><strong>OperationId:</strong>removeBuildingGroups</p>
      * Delete  Housekeeping Building Group
@@ -2417,32 +2417,32 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update hotel level floor mappings to buildings based on setBuildingFloorMappings. Floor mapping is used when generating housekeeping task sheets by floor if there is multiple buildings and the same floor exists in each of these buildings; ensuring the housekeeping room attendant doesn\'t have to travel between buildings or floors. <p><strong>OperationId:</strong>setBuildingFloorMappings</p>
      * Set Hotel level floor mappings to buildings
      */
-    setBuildingFloorMappingsRaw(requestParameters: SetBuildingFloorMappingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setBuildingFloorMappingsRaw(requestParameters: SetBuildingFloorMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update hotel level floor mappings to buildings based on setBuildingFloorMappings. Floor mapping is used when generating housekeeping task sheets by floor if there is multiple buildings and the same floor exists in each of these buildings; ensuring the housekeeping room attendant doesn\'t have to travel between buildings or floors. <p><strong>OperationId:</strong>setBuildingFloorMappings</p>
      * Set Hotel level floor mappings to buildings
      */
-    setBuildingFloorMappings(requestParameters: SetBuildingFloorMappingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setBuildingFloorMappings(requestParameters: SetBuildingFloorMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update information related to housekeeping tasksheet rooms for a specific property based on hotelId, setHousekeepingTaskSheetRooms. Task Sheets inform housekeeping room attendants about their daily work assignments; providing a list of rooms assigned to attendants, any special instructions about specific rooms, and related reservations details. <p><strong>OperationId:</strong>setHousekeepingTaskSheetRooms</p>
      *  set information related to housekeeping tasksheet rooms
      */
-    setHousekeepingTaskSheetRoomsRaw(requestParameters: SetHousekeepingTaskSheetRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setHousekeepingTaskSheetRoomsRaw(requestParameters: SetHousekeepingTaskSheetRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update information related to housekeeping tasksheet rooms for a specific property based on hotelId, setHousekeepingTaskSheetRooms. Task Sheets inform housekeeping room attendants about their daily work assignments; providing a list of rooms assigned to attendants, any special instructions about specific rooms, and related reservations details. <p><strong>OperationId:</strong>setHousekeepingTaskSheetRooms</p>
      *  set information related to housekeeping tasksheet rooms
      */
-    setHousekeepingTaskSheetRooms(requestParameters: SetHousekeepingTaskSheetRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setHousekeepingTaskSheetRooms(requestParameters: SetHousekeepingTaskSheetRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to validate room types room class is currently in use for a specific hotel based on search criteria such as hotelId, validateRoomClassInUse. <p><strong>OperationId:</strong>validateRoomClassInUse</p>
      * Validate room types room class is currently in use
      */
-    validateRoomClassInUseRaw(requestParameters: ValidateRoomClassInUseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    validateRoomClassInUseRaw(requestParameters: ValidateRoomClassInUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to validate room types room class is currently in use for a specific hotel based on search criteria such as hotelId, validateRoomClassInUse. <p><strong>OperationId:</strong>validateRoomClassInUse</p>
      * Validate room types room class is currently in use
      */
-    validateRoomClassInUse(requestParameters: ValidateRoomClassInUseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    validateRoomClassInUse(requestParameters: ValidateRoomClassInUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

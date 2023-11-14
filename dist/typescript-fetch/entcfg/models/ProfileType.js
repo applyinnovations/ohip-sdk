@@ -166,7 +166,7 @@ function ProfileTypeToJSON(value) {
         'profileRestrictions': (0, ProfileRestrictions_1.ProfileRestrictionsToJSON)(value.profileRestrictions),
         'profileType': (0, ProfileTypeType_1.ProfileTypeTypeToJSON)(value.profileType),
         'protectedBy': value.protectedBy,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'registeredProperty': value.registeredProperty,
         'relationships': (0, ProfileTypeRelationships_1.ProfileTypeRelationshipsToJSON)(value.relationships),
         'relationshipsSummary': (0, ProfileTypeRelationshipsSummary_1.ProfileTypeRelationshipsSummaryToJSON)(value.relationshipsSummary),

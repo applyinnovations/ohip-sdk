@@ -15,153 +15,153 @@
 
 import * as runtime from '../runtime';
 import type {
+  BedTypeRequestsCriteria,
   BedTypeRequestsDetails,
+  BedTypeRequestsToBeChanged,
+  BedTypesCriteria,
   BedTypesDetails,
-  ChangeRoomMoveReasonsRequest,
+  BedTypesToBeChanged,
   ExceptionDetailType,
+  FloorTypesCriteria,
   FloorTypesDetails,
-  PostBedTypeRequestsRequest,
-  PostBedTypesRequest,
-  PostFloorTypesRequest,
-  PostRoomMoveReasonsRequest,
-  PostRoomPotentialsRequest,
-  PostRoomPreferencePrioritiesRequest,
-  PostSmokingTypesRequest,
-  PutBedTypeRequestsRequest,
-  PutBedTypesRequest,
-  PutFloorTypesRequest,
-  PutRoomPotentialsRequest,
-  PutRoomPreferencePrioritiesRequest,
-  PutSmokingTypesRequest,
+  FloorTypesToBeChanged,
+  RoomMoveReasonsCriteria,
   RoomMoveReasonsDetails,
+  RoomMoveReasonsToBeChanged,
+  RoomPotentialsCriteria,
   RoomPotentialsDetails,
+  RoomPotentialsToBeChanged,
+  RoomPreferencePrioritiesCriteria,
   RoomPreferencePrioritiesDetails,
+  RoomPreferencePrioritiesToBeChanged,
+  SmokingTypesCriteria,
   SmokingTypesDetails,
+  SmokingTypesToBeChanged,
   Status,
-} from '../models';
+} from '../models/index';
 import {
+    BedTypeRequestsCriteriaFromJSON,
+    BedTypeRequestsCriteriaToJSON,
     BedTypeRequestsDetailsFromJSON,
     BedTypeRequestsDetailsToJSON,
+    BedTypeRequestsToBeChangedFromJSON,
+    BedTypeRequestsToBeChangedToJSON,
+    BedTypesCriteriaFromJSON,
+    BedTypesCriteriaToJSON,
     BedTypesDetailsFromJSON,
     BedTypesDetailsToJSON,
-    ChangeRoomMoveReasonsRequestFromJSON,
-    ChangeRoomMoveReasonsRequestToJSON,
+    BedTypesToBeChangedFromJSON,
+    BedTypesToBeChangedToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    FloorTypesCriteriaFromJSON,
+    FloorTypesCriteriaToJSON,
     FloorTypesDetailsFromJSON,
     FloorTypesDetailsToJSON,
-    PostBedTypeRequestsRequestFromJSON,
-    PostBedTypeRequestsRequestToJSON,
-    PostBedTypesRequestFromJSON,
-    PostBedTypesRequestToJSON,
-    PostFloorTypesRequestFromJSON,
-    PostFloorTypesRequestToJSON,
-    PostRoomMoveReasonsRequestFromJSON,
-    PostRoomMoveReasonsRequestToJSON,
-    PostRoomPotentialsRequestFromJSON,
-    PostRoomPotentialsRequestToJSON,
-    PostRoomPreferencePrioritiesRequestFromJSON,
-    PostRoomPreferencePrioritiesRequestToJSON,
-    PostSmokingTypesRequestFromJSON,
-    PostSmokingTypesRequestToJSON,
-    PutBedTypeRequestsRequestFromJSON,
-    PutBedTypeRequestsRequestToJSON,
-    PutBedTypesRequestFromJSON,
-    PutBedTypesRequestToJSON,
-    PutFloorTypesRequestFromJSON,
-    PutFloorTypesRequestToJSON,
-    PutRoomPotentialsRequestFromJSON,
-    PutRoomPotentialsRequestToJSON,
-    PutRoomPreferencePrioritiesRequestFromJSON,
-    PutRoomPreferencePrioritiesRequestToJSON,
-    PutSmokingTypesRequestFromJSON,
-    PutSmokingTypesRequestToJSON,
+    FloorTypesToBeChangedFromJSON,
+    FloorTypesToBeChangedToJSON,
+    RoomMoveReasonsCriteriaFromJSON,
+    RoomMoveReasonsCriteriaToJSON,
     RoomMoveReasonsDetailsFromJSON,
     RoomMoveReasonsDetailsToJSON,
+    RoomMoveReasonsToBeChangedFromJSON,
+    RoomMoveReasonsToBeChangedToJSON,
+    RoomPotentialsCriteriaFromJSON,
+    RoomPotentialsCriteriaToJSON,
     RoomPotentialsDetailsFromJSON,
     RoomPotentialsDetailsToJSON,
+    RoomPotentialsToBeChangedFromJSON,
+    RoomPotentialsToBeChangedToJSON,
+    RoomPreferencePrioritiesCriteriaFromJSON,
+    RoomPreferencePrioritiesCriteriaToJSON,
     RoomPreferencePrioritiesDetailsFromJSON,
     RoomPreferencePrioritiesDetailsToJSON,
+    RoomPreferencePrioritiesToBeChangedFromJSON,
+    RoomPreferencePrioritiesToBeChangedToJSON,
+    SmokingTypesCriteriaFromJSON,
+    SmokingTypesCriteriaToJSON,
     SmokingTypesDetailsFromJSON,
     SmokingTypesDetailsToJSON,
+    SmokingTypesToBeChangedFromJSON,
+    SmokingTypesToBeChangedToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ChangeRoomMoveReasonsOperationRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMoveReasonsToBeChanged?: ChangeRoomMoveReasonsRequest;
+export interface ChangeRoomMoveReasonsRequest {
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMoveReasonsToBeChanged: RoomMoveReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBedTypeRequestsRequest {
-    bedTypeRequestsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bedTypeRequestsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bedTypeRequestsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBedTypesRequest {
-    bedTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bedTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bedTypeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteFloorTypesRequest {
-    floorTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    floorTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     floorTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomPotentialsRequest {
-    roomPotentialsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomPotentialsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomPotentialsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomPreferencePrioritiesRequest {
-    roomPreferencePrioritiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomPreferencePrioritiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomPreferencePrioritiesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteSmokingTypesRequest {
-    smokingTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    smokingTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     smokingTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBedTypeRequestsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -171,9 +171,9 @@ export interface GetBedTypeRequestsRequest {
 }
 
 export interface GetBedTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -183,9 +183,9 @@ export interface GetBedTypesRequest {
 }
 
 export interface GetFloorTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -195,9 +195,9 @@ export interface GetFloorTypesRequest {
 }
 
 export interface GetRoomMoveReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -207,9 +207,9 @@ export interface GetRoomMoveReasonsRequest {
 }
 
 export interface GetRoomPotentialsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -219,9 +219,9 @@ export interface GetRoomPotentialsRequest {
 }
 
 export interface GetRoomPreferencePrioritiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -231,9 +231,9 @@ export interface GetRoomPreferencePrioritiesRequest {
 }
 
 export interface GetSmokingTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -242,134 +242,134 @@ export interface GetSmokingTypesRequest {
     acceptLanguage?: string;
 }
 
-export interface PostBedTypeRequestsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypeRequestsCriteria?: PostBedTypeRequestsRequest;
+export interface PostBedTypeRequestsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypeRequestsCriteria: BedTypeRequestsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBedTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypesCriteria?: PostBedTypesRequest;
+export interface PostBedTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypesCriteria: BedTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostFloorTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    floorTypesCriteria?: PostFloorTypesRequest;
+export interface PostFloorTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    floorTypesCriteria: FloorTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomMoveReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMoveReasonsCriteria?: PostRoomMoveReasonsRequest;
+export interface PostRoomMoveReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMoveReasonsCriteria: RoomMoveReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomPotentialsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPotentialsCriteria?: PostRoomPotentialsRequest;
+export interface PostRoomPotentialsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPotentialsCriteria: RoomPotentialsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomPreferencePrioritiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPreferencePrioritiesCriteria?: PostRoomPreferencePrioritiesRequest;
+export interface PostRoomPreferencePrioritiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPreferencePrioritiesCriteria: RoomPreferencePrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostSmokingTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    smokingTypesCriteria?: PostSmokingTypesRequest;
+export interface PostSmokingTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    smokingTypesCriteria: SmokingTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBedTypeRequestsOperationRequest {
-    bedTypeRequestsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypeRequestsToBeChanged?: PutBedTypeRequestsRequest;
+export interface PutBedTypeRequestsRequest {
+    bedTypeRequestsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypeRequestsToBeChanged: BedTypeRequestsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBedTypesOperationRequest {
-    bedTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypesToBeChanged?: PutBedTypesRequest;
+export interface PutBedTypesRequest {
+    bedTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypesToBeChanged: BedTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutFloorTypesOperationRequest {
-    floorTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    floorTypesToBeChanged?: PutFloorTypesRequest;
+export interface PutFloorTypesRequest {
+    floorTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    floorTypesToBeChanged: FloorTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoomPotentialsOperationRequest {
-    roomPotentialsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPotentialsToBeChanged?: PutRoomPotentialsRequest;
+export interface PutRoomPotentialsRequest {
+    roomPotentialsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPotentialsToBeChanged: RoomPotentialsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoomPreferencePrioritiesOperationRequest {
-    roomPreferencePrioritiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPreferencePrioritiesToBeChanged?: PutRoomPreferencePrioritiesRequest;
+export interface PutRoomPreferencePrioritiesRequest {
+    roomPreferencePrioritiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPreferencePrioritiesToBeChanged: RoomPreferencePrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutSmokingTypesOperationRequest {
-    smokingTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    smokingTypesToBeChanged?: PutSmokingTypesRequest;
+export interface PutSmokingTypesRequest {
+    smokingTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    smokingTypesToBeChanged: SmokingTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveRoomMoveReasonsRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomMoveReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -384,7 +384,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update room move reasons based on reasonCode, roomMoveReasonsToBeChanged. Room move reasons are used when moving a guest from one room in a property to another room in the same property after the reservation has been checked in. <p><strong>OperationId:</strong>changeRoomMoveReasons</p>
      * Change Room Move Reasons
      */
-    async changeRoomMoveReasonsRaw(requestParameters: ChangeRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeRoomMoveReasonsRaw(requestParameters: ChangeRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reasonCode === null || requestParameters.reasonCode === undefined) {
+            throw new runtime.RequiredError('reasonCode','Required parameter requestParameters.reasonCode was null or undefined when calling changeRoomMoveReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeRoomMoveReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeRoomMoveReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeRoomMoveReasons.');
+        }
+
+        if (requestParameters.roomMoveReasonsToBeChanged === null || requestParameters.roomMoveReasonsToBeChanged === undefined) {
+            throw new runtime.RequiredError('roomMoveReasonsToBeChanged','Required parameter requestParameters.roomMoveReasonsToBeChanged was null or undefined when calling changeRoomMoveReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -416,7 +436,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeRoomMoveReasonsRequestToJSON(requestParameters.roomMoveReasonsToBeChanged),
+            body: RoomMoveReasonsToBeChangedToJSON(requestParameters.roomMoveReasonsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -426,7 +446,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update room move reasons based on reasonCode, roomMoveReasonsToBeChanged. Room move reasons are used when moving a guest from one room in a property to another room in the same property after the reservation has been checked in. <p><strong>OperationId:</strong>changeRoomMoveReasons</p>
      * Change Room Move Reasons
      */
-    async changeRoomMoveReasons(requestParameters: ChangeRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeRoomMoveReasons(requestParameters: ChangeRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeRoomMoveReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -436,6 +456,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Bed Type Requests
      */
     async deleteBedTypeRequestsRaw(requestParameters: DeleteBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.bedTypeRequestsId === null || requestParameters.bedTypeRequestsId === undefined) {
+            throw new runtime.RequiredError('bedTypeRequestsId','Required parameter requestParameters.bedTypeRequestsId was null or undefined when calling deleteBedTypeRequests.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBedTypeRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBedTypeRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBedTypeRequests.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.bedTypeRequestsCodes) {
@@ -488,6 +524,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete an existing Bed type
      */
     async deleteBedTypesRaw(requestParameters: DeleteBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.bedTypesId === null || requestParameters.bedTypesId === undefined) {
+            throw new runtime.RequiredError('bedTypesId','Required parameter requestParameters.bedTypesId was null or undefined when calling deleteBedTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBedTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBedTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBedTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.bedTypeCodes) {
@@ -540,6 +592,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Floor Types
      */
     async deleteFloorTypesRaw(requestParameters: DeleteFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.floorTypesId === null || requestParameters.floorTypesId === undefined) {
+            throw new runtime.RequiredError('floorTypesId','Required parameter requestParameters.floorTypesId was null or undefined when calling deleteFloorTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteFloorTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteFloorTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteFloorTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.floorTypesCodes) {
@@ -592,6 +660,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Room Potentials
      */
     async deleteRoomPotentialsRaw(requestParameters: DeleteRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomPotentialsId === null || requestParameters.roomPotentialsId === undefined) {
+            throw new runtime.RequiredError('roomPotentialsId','Required parameter requestParameters.roomPotentialsId was null or undefined when calling deleteRoomPotentials.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomPotentials.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomPotentials.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomPotentials.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomPotentialsCodes) {
@@ -644,6 +728,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Room Preference Priorities
      */
     async deleteRoomPreferencePrioritiesRaw(requestParameters: DeleteRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomPreferencePrioritiesId === null || requestParameters.roomPreferencePrioritiesId === undefined) {
+            throw new runtime.RequiredError('roomPreferencePrioritiesId','Required parameter requestParameters.roomPreferencePrioritiesId was null or undefined when calling deleteRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomPreferencePriorities.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomPreferencePrioritiesCodes) {
@@ -696,6 +796,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Smoking Types
      */
     async deleteSmokingTypesRaw(requestParameters: DeleteSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.smokingTypesId === null || requestParameters.smokingTypesId === undefined) {
+            throw new runtime.RequiredError('smokingTypesId','Required parameter requestParameters.smokingTypesId was null or undefined when calling deleteSmokingTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteSmokingTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteSmokingTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteSmokingTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.smokingTypesCodes) {
@@ -748,6 +864,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Bed Type Requests
      */
     async getBedTypeRequestsRaw(requestParameters: GetBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BedTypeRequestsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBedTypeRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBedTypeRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBedTypeRequests.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -812,6 +940,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get bed types
      */
     async getBedTypesRaw(requestParameters: GetBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BedTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBedTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBedTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBedTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -876,6 +1016,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Floor Types
      */
     async getFloorTypesRaw(requestParameters: GetFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FloorTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFloorTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFloorTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFloorTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -940,6 +1092,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Room Move Reasons
      */
     async getRoomMoveReasonsRaw(requestParameters: GetRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomMoveReasonsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomMoveReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomMoveReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomMoveReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1004,6 +1168,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Room Potentials
      */
     async getRoomPotentialsRaw(requestParameters: GetRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomPotentialsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomPotentials.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomPotentials.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomPotentials.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1068,6 +1244,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Room Preference Priorities
      */
     async getRoomPreferencePrioritiesRaw(requestParameters: GetRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomPreferencePrioritiesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomPreferencePriorities.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1132,6 +1320,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Smoking Types
      */
     async getSmokingTypesRaw(requestParameters: GetSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SmokingTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSmokingTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSmokingTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSmokingTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1195,7 +1395,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create bed type requests. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>postBedTypeRequests</p>
      * Create Bed Type Requests
      */
-    async postBedTypeRequestsRaw(requestParameters: PostBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBedTypeRequestsRaw(requestParameters: PostBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBedTypeRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBedTypeRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBedTypeRequests.');
+        }
+
+        if (requestParameters.bedTypeRequestsCriteria === null || requestParameters.bedTypeRequestsCriteria === undefined) {
+            throw new runtime.RequiredError('bedTypeRequestsCriteria','Required parameter requestParameters.bedTypeRequestsCriteria was null or undefined when calling postBedTypeRequests.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1227,7 +1443,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBedTypeRequestsRequestToJSON(requestParameters.bedTypeRequestsCriteria),
+            body: BedTypeRequestsCriteriaToJSON(requestParameters.bedTypeRequestsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1237,7 +1453,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create bed type requests. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>postBedTypeRequests</p>
      * Create Bed Type Requests
      */
-    async postBedTypeRequests(requestParameters: PostBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBedTypeRequests(requestParameters: PostBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBedTypeRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1246,7 +1462,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Bed type. <p><strong>OperationId:</strong>postBedTypes</p>
      * Create a new Bed type
      */
-    async postBedTypesRaw(requestParameters: PostBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBedTypesRaw(requestParameters: PostBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBedTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBedTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBedTypes.');
+        }
+
+        if (requestParameters.bedTypesCriteria === null || requestParameters.bedTypesCriteria === undefined) {
+            throw new runtime.RequiredError('bedTypesCriteria','Required parameter requestParameters.bedTypesCriteria was null or undefined when calling postBedTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1278,7 +1510,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBedTypesRequestToJSON(requestParameters.bedTypesCriteria),
+            body: BedTypesCriteriaToJSON(requestParameters.bedTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1288,7 +1520,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Bed type. <p><strong>OperationId:</strong>postBedTypes</p>
      * Create a new Bed type
      */
-    async postBedTypes(requestParameters: PostBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBedTypes(requestParameters: PostBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBedTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1297,7 +1529,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create floor types. <p><strong>OperationId:</strong>postFloorTypes</p>
      * Create Floor Types
      */
-    async postFloorTypesRaw(requestParameters: PostFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postFloorTypesRaw(requestParameters: PostFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFloorTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFloorTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFloorTypes.');
+        }
+
+        if (requestParameters.floorTypesCriteria === null || requestParameters.floorTypesCriteria === undefined) {
+            throw new runtime.RequiredError('floorTypesCriteria','Required parameter requestParameters.floorTypesCriteria was null or undefined when calling postFloorTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1329,7 +1577,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFloorTypesRequestToJSON(requestParameters.floorTypesCriteria),
+            body: FloorTypesCriteriaToJSON(requestParameters.floorTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1339,7 +1587,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create floor types. <p><strong>OperationId:</strong>postFloorTypes</p>
      * Create Floor Types
      */
-    async postFloorTypes(requestParameters: PostFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postFloorTypes(requestParameters: PostFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postFloorTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1348,7 +1596,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Move Reasons. <p><strong>OperationId:</strong>postRoomMoveReasons</p>
      * Create Room Move Reasons
      */
-    async postRoomMoveReasonsRaw(requestParameters: PostRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomMoveReasonsRaw(requestParameters: PostRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomMoveReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomMoveReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomMoveReasons.');
+        }
+
+        if (requestParameters.roomMoveReasonsCriteria === null || requestParameters.roomMoveReasonsCriteria === undefined) {
+            throw new runtime.RequiredError('roomMoveReasonsCriteria','Required parameter requestParameters.roomMoveReasonsCriteria was null or undefined when calling postRoomMoveReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1380,7 +1644,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomMoveReasonsRequestToJSON(requestParameters.roomMoveReasonsCriteria),
+            body: RoomMoveReasonsCriteriaToJSON(requestParameters.roomMoveReasonsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1390,7 +1654,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Move Reasons. <p><strong>OperationId:</strong>postRoomMoveReasons</p>
      * Create Room Move Reasons
      */
-    async postRoomMoveReasons(requestParameters: PostRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomMoveReasons(requestParameters: PostRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomMoveReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1399,7 +1663,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Potentials. <p><strong>OperationId:</strong>postRoomPotentials</p>
      * Create Room Potentials
      */
-    async postRoomPotentialsRaw(requestParameters: PostRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomPotentialsRaw(requestParameters: PostRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomPotentials.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomPotentials.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomPotentials.');
+        }
+
+        if (requestParameters.roomPotentialsCriteria === null || requestParameters.roomPotentialsCriteria === undefined) {
+            throw new runtime.RequiredError('roomPotentialsCriteria','Required parameter requestParameters.roomPotentialsCriteria was null or undefined when calling postRoomPotentials.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1431,7 +1711,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomPotentialsRequestToJSON(requestParameters.roomPotentialsCriteria),
+            body: RoomPotentialsCriteriaToJSON(requestParameters.roomPotentialsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1441,7 +1721,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Potentials. <p><strong>OperationId:</strong>postRoomPotentials</p>
      * Create Room Potentials
      */
-    async postRoomPotentials(requestParameters: PostRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomPotentials(requestParameters: PostRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomPotentialsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1450,7 +1730,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Preference Priorities. <p><strong>OperationId:</strong>postRoomPreferencePriorities</p>
      * Create Room Preference Priorities
      */
-    async postRoomPreferencePrioritiesRaw(requestParameters: PostRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomPreferencePrioritiesRaw(requestParameters: PostRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.roomPreferencePrioritiesCriteria === null || requestParameters.roomPreferencePrioritiesCriteria === undefined) {
+            throw new runtime.RequiredError('roomPreferencePrioritiesCriteria','Required parameter requestParameters.roomPreferencePrioritiesCriteria was null or undefined when calling postRoomPreferencePriorities.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1482,7 +1778,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomPreferencePrioritiesRequestToJSON(requestParameters.roomPreferencePrioritiesCriteria),
+            body: RoomPreferencePrioritiesCriteriaToJSON(requestParameters.roomPreferencePrioritiesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1492,7 +1788,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Preference Priorities. <p><strong>OperationId:</strong>postRoomPreferencePriorities</p>
      * Create Room Preference Priorities
      */
-    async postRoomPreferencePriorities(requestParameters: PostRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomPreferencePriorities(requestParameters: PostRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomPreferencePrioritiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1501,7 +1797,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Smoking Types. <p><strong>OperationId:</strong>postSmokingTypes</p>
      * Create Smoking Types
      */
-    async postSmokingTypesRaw(requestParameters: PostSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postSmokingTypesRaw(requestParameters: PostSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSmokingTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSmokingTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSmokingTypes.');
+        }
+
+        if (requestParameters.smokingTypesCriteria === null || requestParameters.smokingTypesCriteria === undefined) {
+            throw new runtime.RequiredError('smokingTypesCriteria','Required parameter requestParameters.smokingTypesCriteria was null or undefined when calling postSmokingTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1533,7 +1845,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSmokingTypesRequestToJSON(requestParameters.smokingTypesCriteria),
+            body: SmokingTypesCriteriaToJSON(requestParameters.smokingTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1543,7 +1855,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Smoking Types. <p><strong>OperationId:</strong>postSmokingTypes</p>
      * Create Smoking Types
      */
-    async postSmokingTypes(requestParameters: PostSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postSmokingTypes(requestParameters: PostSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postSmokingTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1552,7 +1864,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update bed type requests based on the bedTypeRequestsId, bedTypeRequestsToBeChanged. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>putBedTypeRequests</p>
      * Change Bed Type Requests
      */
-    async putBedTypeRequestsRaw(requestParameters: PutBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBedTypeRequestsRaw(requestParameters: PutBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.bedTypeRequestsId === null || requestParameters.bedTypeRequestsId === undefined) {
+            throw new runtime.RequiredError('bedTypeRequestsId','Required parameter requestParameters.bedTypeRequestsId was null or undefined when calling putBedTypeRequests.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBedTypeRequests.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBedTypeRequests.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBedTypeRequests.');
+        }
+
+        if (requestParameters.bedTypeRequestsToBeChanged === null || requestParameters.bedTypeRequestsToBeChanged === undefined) {
+            throw new runtime.RequiredError('bedTypeRequestsToBeChanged','Required parameter requestParameters.bedTypeRequestsToBeChanged was null or undefined when calling putBedTypeRequests.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1584,7 +1916,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBedTypeRequestsRequestToJSON(requestParameters.bedTypeRequestsToBeChanged),
+            body: BedTypeRequestsToBeChangedToJSON(requestParameters.bedTypeRequestsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1594,7 +1926,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update bed type requests based on the bedTypeRequestsId, bedTypeRequestsToBeChanged. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>putBedTypeRequests</p>
      * Change Bed Type Requests
      */
-    async putBedTypeRequests(requestParameters: PutBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBedTypeRequests(requestParameters: PutBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBedTypeRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1603,7 +1935,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update bed type based on the bedTypesId, bedTypesToBeChanged. Bed types are referenced in room type configuration to identify the bed configuration in the room. <p><strong>OperationId:</strong>putBedTypes</p>
      * Change an existing Bed type
      */
-    async putBedTypesRaw(requestParameters: PutBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBedTypesRaw(requestParameters: PutBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.bedTypesId === null || requestParameters.bedTypesId === undefined) {
+            throw new runtime.RequiredError('bedTypesId','Required parameter requestParameters.bedTypesId was null or undefined when calling putBedTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBedTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBedTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBedTypes.');
+        }
+
+        if (requestParameters.bedTypesToBeChanged === null || requestParameters.bedTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('bedTypesToBeChanged','Required parameter requestParameters.bedTypesToBeChanged was null or undefined when calling putBedTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1635,7 +1987,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBedTypesRequestToJSON(requestParameters.bedTypesToBeChanged),
+            body: BedTypesToBeChangedToJSON(requestParameters.bedTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1645,7 +1997,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update bed type based on the bedTypesId, bedTypesToBeChanged. Bed types are referenced in room type configuration to identify the bed configuration in the room. <p><strong>OperationId:</strong>putBedTypes</p>
      * Change an existing Bed type
      */
-    async putBedTypes(requestParameters: PutBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBedTypes(requestParameters: PutBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBedTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1654,7 +2006,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Floor Types. <p><strong>OperationId:</strong>putFloorTypes</p>
      * Change Floor Types
      */
-    async putFloorTypesRaw(requestParameters: PutFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putFloorTypesRaw(requestParameters: PutFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.floorTypesId === null || requestParameters.floorTypesId === undefined) {
+            throw new runtime.RequiredError('floorTypesId','Required parameter requestParameters.floorTypesId was null or undefined when calling putFloorTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putFloorTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putFloorTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putFloorTypes.');
+        }
+
+        if (requestParameters.floorTypesToBeChanged === null || requestParameters.floorTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('floorTypesToBeChanged','Required parameter requestParameters.floorTypesToBeChanged was null or undefined when calling putFloorTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1686,7 +2058,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutFloorTypesRequestToJSON(requestParameters.floorTypesToBeChanged),
+            body: FloorTypesToBeChangedToJSON(requestParameters.floorTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1696,7 +2068,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Floor Types. <p><strong>OperationId:</strong>putFloorTypes</p>
      * Change Floor Types
      */
-    async putFloorTypes(requestParameters: PutFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putFloorTypes(requestParameters: PutFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putFloorTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1705,7 +2077,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Potentials. <p><strong>OperationId:</strong>putRoomPotentials</p>
      * Change Room Potentials
      */
-    async putRoomPotentialsRaw(requestParameters: PutRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRoomPotentialsRaw(requestParameters: PutRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomPotentialsId === null || requestParameters.roomPotentialsId === undefined) {
+            throw new runtime.RequiredError('roomPotentialsId','Required parameter requestParameters.roomPotentialsId was null or undefined when calling putRoomPotentials.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomPotentials.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomPotentials.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomPotentials.');
+        }
+
+        if (requestParameters.roomPotentialsToBeChanged === null || requestParameters.roomPotentialsToBeChanged === undefined) {
+            throw new runtime.RequiredError('roomPotentialsToBeChanged','Required parameter requestParameters.roomPotentialsToBeChanged was null or undefined when calling putRoomPotentials.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1737,7 +2129,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoomPotentialsRequestToJSON(requestParameters.roomPotentialsToBeChanged),
+            body: RoomPotentialsToBeChangedToJSON(requestParameters.roomPotentialsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1747,7 +2139,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Potentials. <p><strong>OperationId:</strong>putRoomPotentials</p>
      * Change Room Potentials
      */
-    async putRoomPotentials(requestParameters: PutRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRoomPotentials(requestParameters: PutRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRoomPotentialsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1756,7 +2148,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Preference Priorities. <p><strong>OperationId:</strong>putRoomPreferencePriorities</p>
      * Change Room Preference Priorities
      */
-    async putRoomPreferencePrioritiesRaw(requestParameters: PutRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRoomPreferencePrioritiesRaw(requestParameters: PutRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomPreferencePrioritiesId === null || requestParameters.roomPreferencePrioritiesId === undefined) {
+            throw new runtime.RequiredError('roomPreferencePrioritiesId','Required parameter requestParameters.roomPreferencePrioritiesId was null or undefined when calling putRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomPreferencePriorities.');
+        }
+
+        if (requestParameters.roomPreferencePrioritiesToBeChanged === null || requestParameters.roomPreferencePrioritiesToBeChanged === undefined) {
+            throw new runtime.RequiredError('roomPreferencePrioritiesToBeChanged','Required parameter requestParameters.roomPreferencePrioritiesToBeChanged was null or undefined when calling putRoomPreferencePriorities.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1788,7 +2200,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoomPreferencePrioritiesRequestToJSON(requestParameters.roomPreferencePrioritiesToBeChanged),
+            body: RoomPreferencePrioritiesToBeChangedToJSON(requestParameters.roomPreferencePrioritiesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1798,7 +2210,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Preference Priorities. <p><strong>OperationId:</strong>putRoomPreferencePriorities</p>
      * Change Room Preference Priorities
      */
-    async putRoomPreferencePriorities(requestParameters: PutRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRoomPreferencePriorities(requestParameters: PutRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRoomPreferencePrioritiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1807,7 +2219,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Smoking Types. <p><strong>OperationId:</strong>putSmokingTypes</p>
      * Change Smoking Types
      */
-    async putSmokingTypesRaw(requestParameters: PutSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putSmokingTypesRaw(requestParameters: PutSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.smokingTypesId === null || requestParameters.smokingTypesId === undefined) {
+            throw new runtime.RequiredError('smokingTypesId','Required parameter requestParameters.smokingTypesId was null or undefined when calling putSmokingTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putSmokingTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putSmokingTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putSmokingTypes.');
+        }
+
+        if (requestParameters.smokingTypesToBeChanged === null || requestParameters.smokingTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('smokingTypesToBeChanged','Required parameter requestParameters.smokingTypesToBeChanged was null or undefined when calling putSmokingTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1839,7 +2271,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutSmokingTypesRequestToJSON(requestParameters.smokingTypesToBeChanged),
+            body: SmokingTypesToBeChangedToJSON(requestParameters.smokingTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1849,7 +2281,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Smoking Types. <p><strong>OperationId:</strong>putSmokingTypes</p>
      * Change Smoking Types
      */
-    async putSmokingTypes(requestParameters: PutSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putSmokingTypes(requestParameters: PutSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putSmokingTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1859,6 +2291,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Room Move Reasons
      */
     async removeRoomMoveReasonsRaw(requestParameters: RemoveRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reasonCode === null || requestParameters.reasonCode === undefined) {
+            throw new runtime.RequiredError('reasonCode','Required parameter requestParameters.reasonCode was null or undefined when calling removeRoomMoveReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeRoomMoveReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeRoomMoveReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeRoomMoveReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomMoveReasonsCodes) {

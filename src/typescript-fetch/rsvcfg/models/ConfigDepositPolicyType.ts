@@ -165,7 +165,7 @@ export function ConfigDepositPolicyTypeToJSON(value?: ConfigDepositPolicyType | 
         'manual': value.manual,
         'policyCode': value.policyCode,
         'sequence': value.sequence,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0,10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
         'typeOfCharges': DepositCancelRevenueTypeToJSON(value.typeOfCharges),
     };
 }

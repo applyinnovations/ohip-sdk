@@ -37,6 +37,5 @@ __exportStar(require("./RatePlanDistributionType"), exports);
 __exportStar(require("./RatePlanType"), exports);
 __exportStar(require("./RatePlans"), exports);
 __exportStar(require("./ScheduleRateAmountsType"), exports);
-__exportStar(require("./StartSetRatePlansHeadersProcessRequest"), exports);
 __exportStar(require("./WarningType"), exports);
 __exportStar(require("./WarningsType"), exports);

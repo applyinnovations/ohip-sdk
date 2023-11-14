@@ -10,93 +10,93 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CateringRentalCodesDetails, ChangeCateringRentalCodesRequest, ChangeEventCodesRequest, ChangeFunctionSpaceLocationsRequest, ChangeFunctionSpaceSetupStylesRequest, ChangeFunctionSpacesRequest, ChangeRoomTypePoolRequest, ChangeTemplateEventCodesRequest, CopyFunctionSpaceLocationsRequest, CopyFunctionSpacesRequest, EventCodesDetails, FunctionSpaceConfigDetails, FunctionSpaceDetails, FunctionSpaceLocationsDetails, FunctionSpaceSetupStylesDetails, FunctionSpacesDetails, PostCateringRentalCodesRequest, PostEventCodesRequest, PostFunctionSpaceLocationsRequest, PostFunctionSpaceSetupStylesRequest, PostFunctionSpacesRequest, PostRoomTypePoolRequest, PostTemplateEventCodesRequest, RoomTypePoolDetails, Status, TemplateEventCodesDetails } from '../models';
-export interface ChangeCateringRentalCodesOperationRequest {
-    cateringRentalId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringRentalCodesToBeChanged?: ChangeCateringRentalCodesRequest;
+import type { CateringRentalCodesCriteria, CateringRentalCodesDetails, CateringRentalCodesToBeChanged, CopyFunctionSpaceLocations, CopyFunctionSpaces, EventCodesCriteria, EventCodesDetails, EventCodesToBeChanged, FunctionSpaceConfigDetails, FunctionSpaceDetails, FunctionSpaceLocationsCriteria, FunctionSpaceLocationsDetails, FunctionSpaceLocationsToBeChanged, FunctionSpaceSetupStylesCriteria, FunctionSpaceSetupStylesDetails, FunctionSpaceSetupStylesToBeChanged, FunctionSpacesCriteria, FunctionSpacesDetails, FunctionSpacesToBeChanged, RoomTypePoolCriteria, RoomTypePoolDetails, RoomTypePoolToBeChanged, Status, TemplateEventCodesCriteria, TemplateEventCodesDetails, TemplateEventCodesToBeChanged } from '../models/index';
+export interface ChangeCateringRentalCodesRequest {
+    cateringRentalId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringRentalCodesToBeChanged: CateringRentalCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeEventCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventCodesToBeChanged?: ChangeEventCodesRequest;
+export interface ChangeEventCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventCodesToBeChanged: EventCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFunctionSpaceLocationsOperationRequest {
-    functionspaceLocationCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceLocationsToBeChanged?: ChangeFunctionSpaceLocationsRequest;
+export interface ChangeFunctionSpaceLocationsRequest {
+    functionspaceLocationCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceLocationsToBeChanged: FunctionSpaceLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFunctionSpaceSetupStylesOperationRequest {
-    functionSpaceSetupStyleId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceSetupStylesToBeChanged?: ChangeFunctionSpaceSetupStylesRequest;
+export interface ChangeFunctionSpaceSetupStylesRequest {
+    functionSpaceSetupStyleId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceSetupStylesToBeChanged: FunctionSpaceSetupStylesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFunctionSpacesOperationRequest {
-    functionSpaceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpacesToBeChanged?: ChangeFunctionSpacesRequest;
+export interface ChangeFunctionSpacesRequest {
+    functionSpaceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpacesToBeChanged: FunctionSpacesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRoomTypePoolOperationRequest {
-    roomPoolCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypePoolToBeChanged?: ChangeRoomTypePoolRequest;
+export interface ChangeRoomTypePoolRequest {
+    roomPoolCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypePoolToBeChanged: RoomTypePoolToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateEventCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateEventCodesToBeChanged?: ChangeTemplateEventCodesRequest;
+export interface ChangeTemplateEventCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateEventCodesToBeChanged: TemplateEventCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyFunctionSpaceLocationsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyFunctionSpaceLocations?: CopyFunctionSpaceLocationsRequest;
+export interface CopyFunctionSpaceLocationsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyFunctionSpaceLocations: CopyFunctionSpaceLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyFunctionSpacesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyFunctionSpaces?: CopyFunctionSpacesRequest;
+export interface CopyFunctionSpacesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyFunctionSpaces: CopyFunctionSpaces;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCateringRentalCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -105,10 +105,10 @@ export interface GetCateringRentalCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetEventCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     eventsCodes?: Array<string>;
     wildCard?: string;
@@ -117,10 +117,10 @@ export interface GetEventCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceRequest {
-    functionSpaceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    functionSpaceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     physical?: boolean;
@@ -132,18 +132,18 @@ export interface GetFunctionSpaceRequest {
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceConfigRequest {
-    functionSpaceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    functionSpaceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceLocationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -151,9 +151,9 @@ export interface GetFunctionSpaceLocationsRequest {
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceSetupStylesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -162,10 +162,10 @@ export interface GetFunctionSpaceSetupStylesRequest {
     acceptLanguage?: string;
 }
 export interface GetFunctionSpacesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     sortingBy?: GetFunctionSpacesSortingByEnum;
@@ -180,10 +180,10 @@ export interface GetFunctionSpacesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypePoolRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     limit?: number;
     pageNumber?: number;
@@ -197,124 +197,124 @@ export interface GetRoomTypePoolRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateEventCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eventsCodes?: Array<string>;
     wildCard?: string;
     includeInactive?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringRentalCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringRentalCodesCriteria?: PostCateringRentalCodesRequest;
+export interface PostCateringRentalCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringRentalCodesCriteria: CateringRentalCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostEventCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventCodesCriteria?: PostEventCodesRequest;
+export interface PostEventCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventCodesCriteria: EventCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFunctionSpaceLocationsOperationRequest {
-    functionspaceLocationCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceLocationsCriteria?: PostFunctionSpaceLocationsRequest;
+export interface PostFunctionSpaceLocationsRequest {
+    functionspaceLocationCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceLocationsCriteria: FunctionSpaceLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFunctionSpaceSetupStylesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpaceSetupStylesCriteria?: PostFunctionSpaceSetupStylesRequest;
+export interface PostFunctionSpaceSetupStylesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpaceSetupStylesCriteria: FunctionSpaceSetupStylesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFunctionSpacesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    functionSpacesCriteria?: PostFunctionSpacesRequest;
+export interface PostFunctionSpacesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    functionSpacesCriteria: FunctionSpacesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomTypePoolOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypePoolCriteria?: PostRoomTypePoolRequest;
+export interface PostRoomTypePoolRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypePoolCriteria: RoomTypePoolCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateEventCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateEventCodesCriteria?: PostTemplateEventCodesRequest;
+export interface PostTemplateEventCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateEventCodesCriteria: TemplateEventCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCateringRentalCodesRequest {
-    cateringRentalId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringRentalId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveEventCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eventCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFunctionSpaceLocationsRequest {
-    functionspaceLocationCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    functionspaceLocationCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFunctionSpaceSetupStylesRequest {
-    functionSpaceSetupStyleId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    functionSpaceSetupStyleId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFunctionSpacesRequest {
-    functionSpaceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    functionSpaceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRoomTypePoolRequest {
-    roomPoolCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomPoolCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     description?: Array<string>;
     defaultText?: string;
     lang?: Array<string>;
@@ -336,9 +336,9 @@ export interface RemoveRoomTypePoolRequest {
     acceptLanguage?: string;
 }
 export interface RemoveTemplateEventCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateEventCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -351,92 +351,92 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Catering s Rental Codes. <p><strong>OperationId:</strong>changeCateringRentalCodes</p>
      * Change Catering s Rental Codes
      */
-    changeCateringRentalCodesRaw(requestParameters: ChangeCateringRentalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCateringRentalCodesRaw(requestParameters: ChangeCateringRentalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Catering s Rental Codes. <p><strong>OperationId:</strong>changeCateringRentalCodes</p>
      * Change Catering s Rental Codes
      */
-    changeCateringRentalCodes(requestParameters: ChangeCateringRentalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCateringRentalCodes(requestParameters: ChangeCateringRentalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Hotel Event Codes. <p><strong>OperationId:</strong>changeEventCodes</p>
      * Change Hotel Event Codes
      */
-    changeEventCodesRaw(requestParameters: ChangeEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeEventCodesRaw(requestParameters: ChangeEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Hotel Event Codes. <p><strong>OperationId:</strong>changeEventCodes</p>
      * Change Hotel Event Codes
      */
-    changeEventCodes(requestParameters: ChangeEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeEventCodes(requestParameters: ChangeEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update function space locations. <p><strong>OperationId:</strong>changeFunctionSpaceLocations</p>
      * Change function space locations
      */
-    changeFunctionSpaceLocationsRaw(requestParameters: ChangeFunctionSpaceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFunctionSpaceLocationsRaw(requestParameters: ChangeFunctionSpaceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update function space locations. <p><strong>OperationId:</strong>changeFunctionSpaceLocations</p>
      * Change function space locations
      */
-    changeFunctionSpaceLocations(requestParameters: ChangeFunctionSpaceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFunctionSpaceLocations(requestParameters: ChangeFunctionSpaceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update function space setup styles. <p><strong>OperationId:</strong>changeFunctionSpaceSetupStyles</p>
      * Change function space setup styles
      */
-    changeFunctionSpaceSetupStylesRaw(requestParameters: ChangeFunctionSpaceSetupStylesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFunctionSpaceSetupStylesRaw(requestParameters: ChangeFunctionSpaceSetupStylesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update function space setup styles. <p><strong>OperationId:</strong>changeFunctionSpaceSetupStyles</p>
      * Change function space setup styles
      */
-    changeFunctionSpaceSetupStyles(requestParameters: ChangeFunctionSpaceSetupStylesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFunctionSpaceSetupStyles(requestParameters: ChangeFunctionSpaceSetupStylesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Function Spaces. <p><strong>OperationId:</strong>changeFunctionSpaces</p>
      * Change Function Spaces
      */
-    changeFunctionSpacesRaw(requestParameters: ChangeFunctionSpacesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFunctionSpacesRaw(requestParameters: ChangeFunctionSpacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Function Spaces. <p><strong>OperationId:</strong>changeFunctionSpaces</p>
      * Change Function Spaces
      */
-    changeFunctionSpaces(requestParameters: ChangeFunctionSpacesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFunctionSpaces(requestParameters: ChangeFunctionSpacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Room Type Pool and Associated Room Types. <p><strong>OperationId:</strong>changeRoomTypePool</p>
      * Change Room Type Pool
      */
-    changeRoomTypePoolRaw(requestParameters: ChangeRoomTypePoolOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRoomTypePoolRaw(requestParameters: ChangeRoomTypePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Room Type Pool and Associated Room Types. <p><strong>OperationId:</strong>changeRoomTypePool</p>
      * Change Room Type Pool
      */
-    changeRoomTypePool(requestParameters: ChangeRoomTypePoolOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRoomTypePool(requestParameters: ChangeRoomTypePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Template Event Codes. <p><strong>OperationId:</strong>changeTemplateEventCodes</p>
      * Change Template Event Codes
      */
-    changeTemplateEventCodesRaw(requestParameters: ChangeTemplateEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateEventCodesRaw(requestParameters: ChangeTemplateEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Template Event Codes. <p><strong>OperationId:</strong>changeTemplateEventCodes</p>
      * Change Template Event Codes
      */
-    changeTemplateEventCodes(requestParameters: ChangeTemplateEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateEventCodes(requestParameters: ChangeTemplateEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to copy function space locations. <p><strong>OperationId:</strong>copyFunctionSpaceLocations</p>
      * Copy function space locations
      */
-    copyFunctionSpaceLocationsRaw(requestParameters: CopyFunctionSpaceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyFunctionSpaceLocationsRaw(requestParameters: CopyFunctionSpaceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to copy function space locations. <p><strong>OperationId:</strong>copyFunctionSpaceLocations</p>
      * Copy function space locations
      */
-    copyFunctionSpaceLocations(requestParameters: CopyFunctionSpaceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyFunctionSpaceLocations(requestParameters: CopyFunctionSpaceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  Use this API to copy Function Space. <p><strong>OperationId:</strong>copyFunctionSpaces</p>
      * Copy Function Spaces
      */
-    copyFunctionSpacesRaw(requestParameters: CopyFunctionSpacesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyFunctionSpacesRaw(requestParameters: CopyFunctionSpacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  Use this API to copy Function Space. <p><strong>OperationId:</strong>copyFunctionSpaces</p>
      * Copy Function Spaces
      */
-    copyFunctionSpaces(requestParameters: CopyFunctionSpacesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyFunctionSpaces(requestParameters: CopyFunctionSpacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to get Catering s Rental Codes. <p><strong>OperationId:</strong>getCateringRentalCodes</p>
      * Get Catering s Rental Codes
@@ -531,72 +531,72 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Catering s Rental Codes. <p><strong>OperationId:</strong>postCateringRentalCodes</p>
      * Create Catering s Rental Codes
      */
-    postCateringRentalCodesRaw(requestParameters: PostCateringRentalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringRentalCodesRaw(requestParameters: PostCateringRentalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Catering s Rental Codes. <p><strong>OperationId:</strong>postCateringRentalCodes</p>
      * Create Catering s Rental Codes
      */
-    postCateringRentalCodes(requestParameters: PostCateringRentalCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringRentalCodes(requestParameters: PostCateringRentalCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Hotel Event Codes. <p><strong>OperationId:</strong>postEventCodes</p>
      * Create Hotel Event Codes
      */
-    postEventCodesRaw(requestParameters: PostEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postEventCodesRaw(requestParameters: PostEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Hotel Event Codes. <p><strong>OperationId:</strong>postEventCodes</p>
      * Create Hotel Event Codes
      */
-    postEventCodes(requestParameters: PostEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postEventCodes(requestParameters: PostEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create function space locations. <p><strong>OperationId:</strong>postFunctionSpaceLocations</p>
      * Create function space locations
      */
-    postFunctionSpaceLocationsRaw(requestParameters: PostFunctionSpaceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFunctionSpaceLocationsRaw(requestParameters: PostFunctionSpaceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create function space locations. <p><strong>OperationId:</strong>postFunctionSpaceLocations</p>
      * Create function space locations
      */
-    postFunctionSpaceLocations(requestParameters: PostFunctionSpaceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFunctionSpaceLocations(requestParameters: PostFunctionSpaceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create function space setup styles. <p><strong>OperationId:</strong>postFunctionSpaceSetupStyles</p>
      * Create function space setup styles
      */
-    postFunctionSpaceSetupStylesRaw(requestParameters: PostFunctionSpaceSetupStylesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFunctionSpaceSetupStylesRaw(requestParameters: PostFunctionSpaceSetupStylesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create function space setup styles. <p><strong>OperationId:</strong>postFunctionSpaceSetupStyles</p>
      * Create function space setup styles
      */
-    postFunctionSpaceSetupStyles(requestParameters: PostFunctionSpaceSetupStylesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFunctionSpaceSetupStyles(requestParameters: PostFunctionSpaceSetupStylesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows the creation of function spaces. Criteria that need to be supplied in the request body include function space code, description, space type, and min / max attendees. Optional details such as short name, shareable, combo, web bookable, and dimensions can also be included. <p><strong>OperationId:</strong>postFunctionSpaces</p>
      * Create Function Spaces
      */
-    postFunctionSpacesRaw(requestParameters: PostFunctionSpacesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFunctionSpacesRaw(requestParameters: PostFunctionSpacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows the creation of function spaces. Criteria that need to be supplied in the request body include function space code, description, space type, and min / max attendees. Optional details such as short name, shareable, combo, web bookable, and dimensions can also be included. <p><strong>OperationId:</strong>postFunctionSpaces</p>
      * Create Function Spaces
      */
-    postFunctionSpaces(requestParameters: PostFunctionSpacesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFunctionSpaces(requestParameters: PostFunctionSpacesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to Use this API to create Room Type Pools. <p><strong>OperationId:</strong>postRoomTypePool</p>
      * Create Room Type Pools
      */
-    postRoomTypePoolRaw(requestParameters: PostRoomTypePoolOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomTypePoolRaw(requestParameters: PostRoomTypePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to Use this API to create Room Type Pools. <p><strong>OperationId:</strong>postRoomTypePool</p>
      * Create Room Type Pools
      */
-    postRoomTypePool(requestParameters: PostRoomTypePoolOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomTypePool(requestParameters: PostRoomTypePoolRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Template Event Codes. <p><strong>OperationId:</strong>postTemplateEventCodes</p>
      * Create Template Event Codes
      */
-    postTemplateEventCodesRaw(requestParameters: PostTemplateEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateEventCodesRaw(requestParameters: PostTemplateEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Template Event Codes. <p><strong>OperationId:</strong>postTemplateEventCodes</p>
      * Create Template Event Codes
      */
-    postTemplateEventCodes(requestParameters: PostTemplateEventCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateEventCodes(requestParameters: PostTemplateEventCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Catering s Rental Codes. <p><strong>OperationId:</strong>removeCateringRentalCodes</p>
      * Delete Catering s Rental Codes

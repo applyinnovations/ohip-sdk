@@ -157,14 +157,14 @@ export function ECertificateConsumptionTypeToJSON(value?: ECertificateConsumptio
     return {
         
         'authorizationCode': value.authorizationCode,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'email': value.email,
         'firstName': value.firstName,
         'hotelId': value.hotelId,
         'locationType': value.locationType,
         'middleName': value.middleName,
         'referenceId': UniqueIDTypeToJSON(value.referenceId),
-        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substr(0,10)),
+        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substring(0,10)),
         'source': ECertificateConsumeSourceTypeToJSON(value.source),
         'surname': value.surname,
         'userName': value.userName,

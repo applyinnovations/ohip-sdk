@@ -15,38 +15,38 @@
 
 import * as runtime from '../runtime';
 import type {
+  DisplaySetsCriteria,
   DisplaySetsDetails,
+  DisplaySetsToBeChanged,
   ExceptionDetailType,
-  PostDisplaySetsRequest,
-  PutDisplaySetsRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
+    DisplaySetsCriteriaFromJSON,
+    DisplaySetsCriteriaToJSON,
     DisplaySetsDetailsFromJSON,
     DisplaySetsDetailsToJSON,
+    DisplaySetsToBeChangedFromJSON,
+    DisplaySetsToBeChangedToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostDisplaySetsRequestFromJSON,
-    PostDisplaySetsRequestToJSON,
-    PutDisplaySetsRequestFromJSON,
-    PutDisplaySetsRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteDisplaySetsRequest {
-    displaySetsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    displaySetsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetDisplaySetsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -55,21 +55,21 @@ export interface GetDisplaySetsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostDisplaySetsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    displaySetsCriteria?: PostDisplaySetsRequest;
+export interface PostDisplaySetsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    displaySetsCriteria: DisplaySetsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutDisplaySetsOperationRequest {
-    displaySetsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    displaySetsToBeChanged?: PutDisplaySetsRequest;
+export interface PutDisplaySetsRequest {
+    displaySetsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    displaySetsToBeChanged: DisplaySetsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -84,6 +84,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Display Sets
      */
     async deleteDisplaySetsRaw(requestParameters: DeleteDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.displaySetsId === null || requestParameters.displaySetsId === undefined) {
+            throw new runtime.RequiredError('displaySetsId','Required parameter requestParameters.displaySetsId was null or undefined when calling deleteDisplaySets.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDisplaySets.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDisplaySets.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDisplaySets.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -132,6 +148,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Display Sets
      */
     async getDisplaySetsRaw(requestParameters: GetDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DisplaySetsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDisplaySets.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDisplaySets.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDisplaySets.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -195,7 +223,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Display Sets. <p><strong>OperationId:</strong>postDisplaySets</p>
      * Create Display Sets
      */
-    async postDisplaySetsRaw(requestParameters: PostDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postDisplaySetsRaw(requestParameters: PostDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDisplaySets.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDisplaySets.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDisplaySets.');
+        }
+
+        if (requestParameters.displaySetsCriteria === null || requestParameters.displaySetsCriteria === undefined) {
+            throw new runtime.RequiredError('displaySetsCriteria','Required parameter requestParameters.displaySetsCriteria was null or undefined when calling postDisplaySets.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -227,7 +271,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDisplaySetsRequestToJSON(requestParameters.displaySetsCriteria),
+            body: DisplaySetsCriteriaToJSON(requestParameters.displaySetsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -237,7 +281,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Display Sets. <p><strong>OperationId:</strong>postDisplaySets</p>
      * Create Display Sets
      */
-    async postDisplaySets(requestParameters: PostDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postDisplaySets(requestParameters: PostDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postDisplaySetsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -246,7 +290,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Display Sets. <p><strong>OperationId:</strong>putDisplaySets</p>
      * Change Display Sets
      */
-    async putDisplaySetsRaw(requestParameters: PutDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putDisplaySetsRaw(requestParameters: PutDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.displaySetsId === null || requestParameters.displaySetsId === undefined) {
+            throw new runtime.RequiredError('displaySetsId','Required parameter requestParameters.displaySetsId was null or undefined when calling putDisplaySets.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putDisplaySets.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putDisplaySets.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putDisplaySets.');
+        }
+
+        if (requestParameters.displaySetsToBeChanged === null || requestParameters.displaySetsToBeChanged === undefined) {
+            throw new runtime.RequiredError('displaySetsToBeChanged','Required parameter requestParameters.displaySetsToBeChanged was null or undefined when calling putDisplaySets.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -278,7 +342,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutDisplaySetsRequestToJSON(requestParameters.displaySetsToBeChanged),
+            body: DisplaySetsToBeChangedToJSON(requestParameters.displaySetsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -288,7 +352,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Display Sets. <p><strong>OperationId:</strong>putDisplaySets</p>
      * Change Display Sets
      */
-    async putDisplaySets(requestParameters: PutDisplaySetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putDisplaySets(requestParameters: PutDisplaySetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putDisplaySetsRaw(requestParameters, initOverrides);
         return await response.value();
     }

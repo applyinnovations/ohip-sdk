@@ -53,7 +53,7 @@ function BorrowCandidateTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substr(0, 10)),
+        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0, 10)),
         'borrowableInventoryList': value.borrowableInventoryList === undefined ? undefined : (value.borrowableInventoryList.map(BorrowableInventoryType_1.BorrowableInventoryTypeToJSON)),
         'existingReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.existingReservationId),
         'hotelId': value.hotelId,

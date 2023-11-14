@@ -10,30 +10,30 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CalendarTask, CalendarTaskAttachments, CalendarTasks, PostCalendarTaskRequest, PutTrackItItemsRequest, Status, TrackItItems } from '../models';
+import type { CalendarTask, CalendarTaskAttachments, CalendarTasks, Status, TrackItItems } from '../models/index';
 export interface DeleteCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCalendarTaskAttachmentRequest {
-    linkedToId?: string;
-    attachId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    linkedToId: string;
+    attachId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTrackItItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     trackItId?: Array<string>;
     trackItIdContext?: Array<string>;
     trackItIdType?: Array<string>;
@@ -41,30 +41,30 @@ export interface DeleteTrackItItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetCalendarTaskRequest {
-    activityId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     idType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCalendarTaskAttachmentsRequest {
-    taskId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taskId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     idType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCalendarTasksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     countSummary?: boolean;
     taskSummary?: boolean;
     hotelIds?: Array<string>;
@@ -91,10 +91,10 @@ export interface GetCalendarTasksRequest {
     acceptLanguage?: string;
 }
 export interface GetTrackItItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ticketId?: string;
     reservationId?: string;
     reservationIdContext?: string;
@@ -120,40 +120,40 @@ export interface GetTrackItItemsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCalendarTaskOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    calendarTask?: PostCalendarTaskRequest;
+export interface PostCalendarTaskRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTrackItItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItItems?: PutTrackItItemsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    calendarTask?: PostCalendarTaskRequest;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTrackItItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItItems?: PutTrackItItemsRequest;
+export interface PutTrackItItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -235,12 +235,12 @@ export declare class CustomerManagementApi extends runtime.BaseAPI {
      * This API will allow you to create a new Calendar Task. <p><strong>OperationId:</strong>postCalendarTask</p>
      * Create Calendar Task
      */
-    postCalendarTaskRaw(requestParameters: PostCalendarTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCalendarTaskRaw(requestParameters: PostCalendarTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to create a new Calendar Task. <p><strong>OperationId:</strong>postCalendarTask</p>
      * Create Calendar Task
      */
-    postCalendarTask(requestParameters: PostCalendarTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCalendarTask(requestParameters: PostCalendarTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a new Track It Item. Track It manages storage and delivery of guest luggage, parcels, vehicles (valet), and lost items.  They can optionally be linked to a reservation if related or an arrival, in-house or departure reservation. <p><strong>OperationId:</strong>postTrackItItems</p>
      * Creates track it items
@@ -265,12 +265,12 @@ export declare class CustomerManagementApi extends runtime.BaseAPI {
      * Update the details of a Track It Item for a property. <p><strong>OperationId:</strong>putTrackItItems</p>
      * Updates track it items
      */
-    putTrackItItemsRaw(requestParameters: PutTrackItItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItItems>>;
+    putTrackItItemsRaw(requestParameters: PutTrackItItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItItems>>;
     /**
      * Update the details of a Track It Item for a property. <p><strong>OperationId:</strong>putTrackItItems</p>
      * Updates track it items
      */
-    putTrackItItems(requestParameters: PutTrackItItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrackItItems>;
+    putTrackItItems(requestParameters: PutTrackItItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrackItItems>;
 }
 /**
  * @export

@@ -115,7 +115,7 @@ export function ResGuestAdditionalInfoTypeToJSON(value?: ResGuestAdditionalInfoT
     }
     return {
         
-        'dateOfEntry': value.dateOfEntry === undefined ? undefined : (value.dateOfEntry.toISOString().substr(0,10)),
+        'dateOfEntry': value.dateOfEntry === undefined ? undefined : (value.dateOfEntry.toISOString().substring(0,10)),
         'guestClassification': value.guestClassification,
         'guestStatus': value.guestStatus,
         'lastStay': GuestLastStayInfoTypeToJSON(value.lastStay),

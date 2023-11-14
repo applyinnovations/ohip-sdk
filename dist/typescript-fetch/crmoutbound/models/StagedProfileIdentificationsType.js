@@ -53,7 +53,7 @@ function StagedProfileIdentificationsTypeToJSON(value) {
         'identification': (0, IdentificationType_1.IdentificationTypeToJSON)(value.identification),
         'errorDescription': value.errorDescription,
         'documentResort': value.documentResort,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'id': value.id,
         'type': value.type,
     };

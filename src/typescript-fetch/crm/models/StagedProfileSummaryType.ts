@@ -135,7 +135,7 @@ export function StagedProfileSummaryTypeToJSON(value?: StagedProfileSummaryType 
         
         'country': CountryNameTypeToJSON(value.country),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substr(0,10)),
+        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
         'profileIdList': UniqueIDListTypeToJSON(value.profileIdList),
         'profileName': ProfileNameTypeToJSON(value.profileName),
         'profileType': value.profileType,

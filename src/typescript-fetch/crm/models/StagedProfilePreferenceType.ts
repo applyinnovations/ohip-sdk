@@ -157,7 +157,7 @@ export function StagedProfilePreferenceTypeToJSON(value?: StagedProfilePreferenc
         'global': value.global,
         'hotels': value.hotels,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'preferenceCode': value.preferenceCode,
         'preferenceValue': value.preferenceValue,
         'resortPrefernce': value.resortPrefernce,

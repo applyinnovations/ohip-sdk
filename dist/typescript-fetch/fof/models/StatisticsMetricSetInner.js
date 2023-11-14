@@ -49,9 +49,9 @@ function StatisticsMetricSetInnerToJSON(value) {
     }
     return {
         'code': value.code,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'metrics': value.metrics === undefined ? undefined : (value.metrics.map(HSKStatType_1.HSKStatTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.StatisticsMetricSetInnerToJSON = StatisticsMetricSetInnerToJSON;

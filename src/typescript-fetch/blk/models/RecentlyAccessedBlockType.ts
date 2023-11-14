@@ -114,7 +114,7 @@ export function RecentlyAccessedBlockTypeToJSON(value?: RecentlyAccessedBlockTyp
     }
     return {
         
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substr(0,10)),
+        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
         'blockCode': value.blockCode,
         'blockIdList': BlockIdListToJSON(value.blockIdList),
         'blockName': value.blockName,

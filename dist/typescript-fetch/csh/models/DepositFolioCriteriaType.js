@@ -76,7 +76,7 @@ function DepositFolioCriteriaTypeToJSON(value) {
         'folioNameValue': value.folioNameValue === undefined ? undefined : (value.folioNameValue.map(NameValueHeaderDetailType_1.NameValueHeaderDetailTypeToJSON)),
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0, 10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0, 10)),
         'manualFolioNo': value.manualFolioNo,
         'overrideInventoryCheck': value.overrideInventoryCheck,
         'paymentMethod': (0, ReservationPaymentMethodType_1.ReservationPaymentMethodTypeToJSON)(value.paymentMethod),

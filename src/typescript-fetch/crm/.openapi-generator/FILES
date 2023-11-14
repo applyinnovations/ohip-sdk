@@ -66,7 +66,6 @@ models/BillingInstructionType.ts
 models/BillingInstructionsType.ts
 models/BillingPrivilegesType.ts
 models/BlockIdList.ts
-models/CalculateMembershipPointsRequest.ts
 models/CalculatedPointType.ts
 models/CalculatedPoints.ts
 models/CalculatedPointsType.ts
@@ -76,13 +75,10 @@ models/CardReIssueType.ts
 models/CardTypeType.ts
 models/CashierInfoType.ts
 models/ChangeAccountForecastsRS.ts
-models/ChangeMembershipRequest.ts
-models/ChangeProfileCashieringDetailsRequest.ts
 models/ChangeProfileOwnersRequest.ts
 models/ChangeRelationsInfoType.ts
 models/ChangeRelationsType.ts
 models/ChangeRelationshipCriteriaType.ts
-models/ChangeStagedProfileRequest.ts
 models/ChangedMembership.ts
 models/CharacterUDFType.ts
 models/CharacterUDFsType.ts
@@ -127,8 +123,6 @@ models/CompanyProfileTypeTelephones.ts
 models/CompanyProfileTypeType.ts
 models/CompanyProfileTypeURLs.ts
 models/CompanyType.ts
-models/ConsumeECertificateRequest.ts
-models/CopyProfileCommissionAccountRequest.ts
 models/CopyProfileCommissionInfoType.ts
 models/CountryNameType.ts
 models/CurrencyAmountType.ts
@@ -141,7 +135,6 @@ models/DateTimeStampGroupType.ts
 models/DateUDFType.ts
 models/DateUDFsType.ts
 models/DirectBillingType.ts
-models/DistributePreferenceRequest.ts
 models/DowngradeType.ts
 models/DuplicateExternalSubscriptions.ts
 models/DuplicateExternalSubscriptionsListType.ts
@@ -181,9 +174,7 @@ models/ErrorType.ts
 models/ErrorsType.ts
 models/ExceptionDetailType.ts
 models/ExportLogsDeliveryStatusType.ts
-models/ExtendECertificateRequest.ts
 models/ExtendMemberPointsToExpire.ts
-models/ExtendMemberPointsToExpireRequest.ts
 models/ExternalReferenceType.ts
 models/ExternalReferencesType.ts
 models/FBAInfoType.ts
@@ -343,15 +334,6 @@ models/PointsRejectionReasonType.ts
 models/PointsRejectionReasons.ts
 models/PointsRejectionReasonsType.ts
 models/PointsType.ts
-models/PostAccountForecastRequest.ts
-models/PostCompanyProfileRequest.ts
-models/PostECertificateRequest.ts
-models/PostEnrollmentRequest.ts
-models/PostGuestProfileRequest.ts
-models/PostMembershipClaimRequest.ts
-models/PostMembershipNumberRequest.ts
-models/PostMembershipTransactionRequest.ts
-models/PostProfileOwnersRequest.ts
 models/PostProfileRelationshipRequest.ts
 models/PostProfileRequest.ts
 models/Preference.ts
@@ -436,7 +418,6 @@ models/RateAvailabilityType.ts
 models/Rates.ts
 models/RecentlyAccessedProfileType.ts
 models/RecentlyAccessedProfiles.ts
-models/RedeemAwardRequest.ts
 models/RelationshipAddressType.ts
 models/RelationshipCriteriaType.ts
 models/RelationshipInfoSummaryType.ts
@@ -501,7 +482,6 @@ models/RulePointsTypeType.ts
 models/SalesInfoType.ts
 models/SearchMatchType.ts
 models/SearchMatchesType.ts
-models/SetProfileCommissionAccountRequest.ts
 models/SetProfileOwnersCriteriaType.ts
 models/SourceCodeInfoType.ts
 models/SourceOfSaleType.ts
@@ -561,7 +541,6 @@ models/SuspendedProfileErrorSummaryInfo.ts
 models/SuspendedProfileErrorSummaryType.ts
 models/SuspendedProfileErrorsSummaryType.ts
 models/SynchronizeProfileSubscriptionsCriteriaType.ts
-models/SynchronizeProfileSubscriptionsRequest.ts
 models/TaxTypeType.ts
 models/TelephoneInfoType.ts
 models/TelephoneType.ts
@@ -582,11 +561,8 @@ models/UpgradeAvailabilityType.ts
 models/UserDefinedFieldsType.ts
 models/VIPStatusType.ts
 models/VIPType.ts
-models/ValidateForgetProfilesRequest.ts
-models/ValidateReservationsForProfileRequest.ts
 models/ValidatedForgetProfiles.ts
 models/VerifiedECertificate.ts
-models/VerifyECertificateRequest.ts
 models/WaitlistResType.ts
 models/WarningType.ts
 models/WarningsType.ts

@@ -16,58 +16,55 @@
 import * as runtime from '../runtime';
 import type {
   BlockSalesAllowance,
+  BlockSalesAllowanceRange,
+  BlockStatusCodeDetails,
+  CreateSalesManagerGoals,
   ExceptionDetailType,
+  NextBlockStatusCode,
   NextBlockStatusCodeDetails,
-  PostBlockStatusCodeRequest,
-  PostSalesManagerGoalsRequest,
-  PostWashScheduleRequest,
-  PutNextBlockStatusCodesRequest,
-  PutSalesManagerGoalsRequest,
   SalesManagerGoalsInfo,
   SalesManagersInfo,
-  SetBlockSalesAllowanceRangeRequest,
   Status,
   StatusCodeDetails,
+  WashScheduleCriteria,
   WashScheduleDetails,
-} from '../models';
+} from '../models/index';
 import {
     BlockSalesAllowanceFromJSON,
     BlockSalesAllowanceToJSON,
+    BlockSalesAllowanceRangeFromJSON,
+    BlockSalesAllowanceRangeToJSON,
+    BlockStatusCodeDetailsFromJSON,
+    BlockStatusCodeDetailsToJSON,
+    CreateSalesManagerGoalsFromJSON,
+    CreateSalesManagerGoalsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    NextBlockStatusCodeFromJSON,
+    NextBlockStatusCodeToJSON,
     NextBlockStatusCodeDetailsFromJSON,
     NextBlockStatusCodeDetailsToJSON,
-    PostBlockStatusCodeRequestFromJSON,
-    PostBlockStatusCodeRequestToJSON,
-    PostSalesManagerGoalsRequestFromJSON,
-    PostSalesManagerGoalsRequestToJSON,
-    PostWashScheduleRequestFromJSON,
-    PostWashScheduleRequestToJSON,
-    PutNextBlockStatusCodesRequestFromJSON,
-    PutNextBlockStatusCodesRequestToJSON,
-    PutSalesManagerGoalsRequestFromJSON,
-    PutSalesManagerGoalsRequestToJSON,
     SalesManagerGoalsInfoFromJSON,
     SalesManagerGoalsInfoToJSON,
     SalesManagersInfoFromJSON,
     SalesManagersInfoToJSON,
-    SetBlockSalesAllowanceRangeRequestFromJSON,
-    SetBlockSalesAllowanceRangeRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
     StatusCodeDetailsFromJSON,
     StatusCodeDetailsToJSON,
+    WashScheduleCriteriaFromJSON,
+    WashScheduleCriteriaToJSON,
     WashScheduleDetailsFromJSON,
     WashScheduleDetailsToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteBlockSalesAllowanceRangeRequest {
-    hotelId?: string;
-    endDate?: Date;
-    startDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    endDate: Date;
+    startDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -80,29 +77,29 @@ export interface DeleteBlockSalesAllowanceRangeRequest {
 }
 
 export interface DeleteBlockStatusCodeRequest {
-    blockStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteWashScheduleRequest {
-    washScheduleCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    washScheduleCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockSalesAllowanceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     endDateRange?: Date;
     startDateRange?: Date;
     includeRestricted?: boolean;
@@ -112,18 +109,18 @@ export interface GetBlockSalesAllowanceRequest {
 }
 
 export interface GetBlockStatusCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockStatusCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetNextBlockStatusCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     configuredOnly?: boolean;
     blockStatusCodes?: Array<string>;
     xExternalsystem?: string;
@@ -131,11 +128,11 @@ export interface GetNextBlockStatusCodesRequest {
 }
 
 export interface GetSalesManagerGoalsRequest {
-    salesManagerId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesManagerId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     future?: boolean;
@@ -145,10 +142,10 @@ export interface GetSalesManagerGoalsRequest {
 }
 
 export interface GetSalesManagerGoalsMultipleHotelIdsRequest {
-    salesManagerId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesManagerId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -159,10 +156,10 @@ export interface GetSalesManagerGoalsMultipleHotelIdsRequest {
 }
 
 export interface GetSalesManagersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     ownerCodes?: Array<string>;
@@ -173,10 +170,10 @@ export interface GetSalesManagersRequest {
 }
 
 export interface GetSalesManagersMultipleHotelIdsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     ownerCodes?: Array<string>;
@@ -187,9 +184,9 @@ export interface GetSalesManagersMultipleHotelIdsRequest {
 }
 
 export interface GetWashScheduleRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     washCodes?: Array<string>;
     wildCard?: string;
@@ -197,105 +194,105 @@ export interface GetWashScheduleRequest {
     acceptLanguage?: string;
 }
 
-export interface PostBlockStatusCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusCodeDetails?: PostBlockStatusCodeRequest;
+export interface PostBlockStatusCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusCodeDetails: BlockStatusCodeDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostSalesManagerGoalsOperationRequest {
-    salesManagerId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createSalesManagerGoals?: PostSalesManagerGoalsRequest;
+export interface PostSalesManagerGoalsRequest {
+    salesManagerId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createSalesManagerGoals: CreateSalesManagerGoals;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostWashScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    washScheduleCriteria?: PostWashScheduleRequest;
+export interface PostWashScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    washScheduleCriteria: WashScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockStatusCodeRequest {
-    blockStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusCodeDetails?: PostBlockStatusCodeRequest;
+    blockStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusCodeDetails: BlockStatusCodeDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutNextBlockStatusCodesOperationRequest {
-    srcBlockStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    nextBlockStatusCode?: PutNextBlockStatusCodesRequest;
+export interface PutNextBlockStatusCodesRequest {
+    srcBlockStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    nextBlockStatusCode: NextBlockStatusCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutSalesManagerGoalsOperationRequest {
-    salesGoalId?: string;
-    salesManagerId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    salesManagerGoalsInfo?: PutSalesManagerGoalsRequest;
+export interface PutSalesManagerGoalsRequest {
+    salesGoalId: string;
+    salesManagerId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    salesManagerGoalsInfo: SalesManagerGoalsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutWashScheduleRequest {
-    washScheduleCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    washScheduleCriteria?: PostWashScheduleRequest;
+    washScheduleCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    washScheduleCriteria: WashScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSalesManagerGoalRequest {
-    salesGoalId?: string;
-    salesManagerId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesGoalId: string;
+    salesManagerId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSalesManagerGoalsRequest {
-    salesManagerId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesManagerId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     salesGoalId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetBlockSalesAllowanceRangeOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockSalesAllowanceRange?: SetBlockSalesAllowanceRangeRequest;
+export interface SetBlockSalesAllowanceRangeRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockSalesAllowanceRange: BlockSalesAllowanceRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -310,14 +307,38 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Delete block sales allowance range
      */
     async deleteBlockSalesAllowanceRangeRaw(requestParameters: DeleteBlockSalesAllowanceRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.endDate === null || requestParameters.endDate === undefined) {
+            throw new runtime.RequiredError('endDate','Required parameter requestParameters.endDate was null or undefined when calling deleteBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
+            throw new runtime.RequiredError('startDate','Required parameter requestParameters.startDate was null or undefined when calling deleteBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockSalesAllowanceRange.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.friday !== undefined) {
@@ -394,6 +415,22 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Delete block status code
      */
     async deleteBlockStatusCodeRaw(requestParameters: DeleteBlockStatusCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockStatusCode === null || requestParameters.blockStatusCode === undefined) {
+            throw new runtime.RequiredError('blockStatusCode','Required parameter requestParameters.blockStatusCode was null or undefined when calling deleteBlockStatusCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockStatusCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockStatusCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockStatusCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -442,6 +479,26 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Delete block wash schedule
      */
     async deleteWashScheduleRaw(requestParameters: DeleteWashScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.washScheduleCode === null || requestParameters.washScheduleCode === undefined) {
+            throw new runtime.RequiredError('washScheduleCode','Required parameter requestParameters.washScheduleCode was null or undefined when calling deleteWashSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteWashSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteWashSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteWashSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteWashSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -490,14 +547,30 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get Block Sales Allowance
      */
     async getBlockSalesAllowanceRaw(requestParameters: GetBlockSalesAllowanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockSalesAllowance>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockSalesAllowance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockSalesAllowance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockSalesAllowance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockSalesAllowance.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.endDateRange !== undefined) {
-            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substr(0,10);
+            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDateRange !== undefined) {
-            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substr(0,10);
+            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.includeRestricted !== undefined) {
@@ -554,6 +627,18 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get block status codes
      */
     async getBlockStatusCodesRaw(requestParameters: GetBlockStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatusCodeDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockStatusCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockStatusCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockStatusCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.blockStatusCodes) {
@@ -606,6 +691,18 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get next block status codes
      */
     async getNextBlockStatusCodesRaw(requestParameters: GetNextBlockStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NextBlockStatusCodeDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNextBlockStatusCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNextBlockStatusCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNextBlockStatusCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.configuredOnly !== undefined) {
@@ -662,6 +759,26 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get Sales Manager Goals by Hotel
      */
     async getSalesManagerGoalsRaw(requestParameters: GetSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesManagerGoalsInfo>> {
+        if (requestParameters.salesManagerId === null || requestParameters.salesManagerId === undefined) {
+            throw new runtime.RequiredError('salesManagerId','Required parameter requestParameters.salesManagerId was null or undefined when calling getSalesManagerGoals.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSalesManagerGoals.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSalesManagerGoals.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSalesManagerGoals.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSalesManagerGoals.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -726,6 +843,22 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get Sales Manager Goals
      */
     async getSalesManagerGoalsMultipleHotelIdsRaw(requestParameters: GetSalesManagerGoalsMultipleHotelIdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesManagerGoalsInfo>> {
+        if (requestParameters.salesManagerId === null || requestParameters.salesManagerId === undefined) {
+            throw new runtime.RequiredError('salesManagerId','Required parameter requestParameters.salesManagerId was null or undefined when calling getSalesManagerGoalsMultipleHotelIds.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSalesManagerGoalsMultipleHotelIds.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSalesManagerGoalsMultipleHotelIds.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSalesManagerGoalsMultipleHotelIds.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -794,6 +927,22 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get Sales Managers by Hotel.
      */
     async getSalesManagersRaw(requestParameters: GetSalesManagersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesManagersInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSalesManagers.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSalesManagers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSalesManagers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSalesManagers.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -862,6 +1011,22 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get Sales Managers.
      */
     async getSalesManagersMultipleHotelIdsRaw(requestParameters: GetSalesManagersMultipleHotelIdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesManagersInfo>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getSalesManagersMultipleHotelIds.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSalesManagersMultipleHotelIds.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSalesManagersMultipleHotelIds.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSalesManagersMultipleHotelIds.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -934,6 +1099,18 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Get block wash schedule
      */
     async getWashScheduleRaw(requestParameters: GetWashScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WashScheduleDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getWashSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getWashSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getWashSchedule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -993,7 +1170,23 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new block status code. <p><strong>OperationId:</strong>postBlockStatusCode</p>
      * Create a block status code
      */
-    async postBlockStatusCodeRaw(requestParameters: PostBlockStatusCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockStatusCodeRaw(requestParameters: PostBlockStatusCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockStatusCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockStatusCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockStatusCode.');
+        }
+
+        if (requestParameters.blockStatusCodeDetails === null || requestParameters.blockStatusCodeDetails === undefined) {
+            throw new runtime.RequiredError('blockStatusCodeDetails','Required parameter requestParameters.blockStatusCodeDetails was null or undefined when calling postBlockStatusCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1025,7 +1218,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockStatusCodeRequestToJSON(requestParameters.blockStatusCodeDetails),
+            body: BlockStatusCodeDetailsToJSON(requestParameters.blockStatusCodeDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1035,7 +1228,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new block status code. <p><strong>OperationId:</strong>postBlockStatusCode</p>
      * Create a block status code
      */
-    async postBlockStatusCode(requestParameters: PostBlockStatusCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockStatusCode(requestParameters: PostBlockStatusCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockStatusCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1044,7 +1237,31 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Use this API to Create Sales Manager Goals for a Sales Manager ID.You must know the OPERA Sales Manager ID for this API. <p><strong>OperationId:</strong>postSalesManagerGoals</p>
      * Create Sales Manager Goals
      */
-    async postSalesManagerGoalsRaw(requestParameters: PostSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postSalesManagerGoalsRaw(requestParameters: PostSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.salesManagerId === null || requestParameters.salesManagerId === undefined) {
+            throw new runtime.RequiredError('salesManagerId','Required parameter requestParameters.salesManagerId was null or undefined when calling postSalesManagerGoals.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postSalesManagerGoals.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSalesManagerGoals.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSalesManagerGoals.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSalesManagerGoals.');
+        }
+
+        if (requestParameters.createSalesManagerGoals === null || requestParameters.createSalesManagerGoals === undefined) {
+            throw new runtime.RequiredError('createSalesManagerGoals','Required parameter requestParameters.createSalesManagerGoals was null or undefined when calling postSalesManagerGoals.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1076,7 +1293,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSalesManagerGoalsRequestToJSON(requestParameters.createSalesManagerGoals),
+            body: CreateSalesManagerGoalsToJSON(requestParameters.createSalesManagerGoals),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1086,7 +1303,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Use this API to Create Sales Manager Goals for a Sales Manager ID.You must know the OPERA Sales Manager ID for this API. <p><strong>OperationId:</strong>postSalesManagerGoals</p>
      * Create Sales Manager Goals
      */
-    async postSalesManagerGoals(requestParameters: PostSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postSalesManagerGoals(requestParameters: PostSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postSalesManagerGoalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1095,7 +1312,27 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Create a block wash schedule. <p><strong>OperationId:</strong>postWashSchedule</p>
      * Create block wash schedule
      */
-    async postWashScheduleRaw(requestParameters: PostWashScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postWashScheduleRaw(requestParameters: PostWashScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postWashSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postWashSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postWashSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postWashSchedule.');
+        }
+
+        if (requestParameters.washScheduleCriteria === null || requestParameters.washScheduleCriteria === undefined) {
+            throw new runtime.RequiredError('washScheduleCriteria','Required parameter requestParameters.washScheduleCriteria was null or undefined when calling postWashSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1127,7 +1364,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostWashScheduleRequestToJSON(requestParameters.washScheduleCriteria),
+            body: WashScheduleCriteriaToJSON(requestParameters.washScheduleCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1137,7 +1374,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Create a block wash schedule. <p><strong>OperationId:</strong>postWashSchedule</p>
      * Create block wash schedule
      */
-    async postWashSchedule(requestParameters: PostWashScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postWashSchedule(requestParameters: PostWashScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postWashScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1147,6 +1384,26 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Change block status code
      */
     async putBlockStatusCodeRaw(requestParameters: PutBlockStatusCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockStatusCode === null || requestParameters.blockStatusCode === undefined) {
+            throw new runtime.RequiredError('blockStatusCode','Required parameter requestParameters.blockStatusCode was null or undefined when calling putBlockStatusCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockStatusCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockStatusCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockStatusCode.');
+        }
+
+        if (requestParameters.blockStatusCodeDetails === null || requestParameters.blockStatusCodeDetails === undefined) {
+            throw new runtime.RequiredError('blockStatusCodeDetails','Required parameter requestParameters.blockStatusCodeDetails was null or undefined when calling putBlockStatusCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1178,7 +1435,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockStatusCodeRequestToJSON(requestParameters.blockStatusCodeDetails),
+            body: BlockStatusCodeDetailsToJSON(requestParameters.blockStatusCodeDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1197,7 +1454,27 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Update the next Block status. <p><strong>OperationId:</strong>putNextBlockStatusCodes</p>
      * Change next block status codes
      */
-    async putNextBlockStatusCodesRaw(requestParameters: PutNextBlockStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putNextBlockStatusCodesRaw(requestParameters: PutNextBlockStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.srcBlockStatusCode === null || requestParameters.srcBlockStatusCode === undefined) {
+            throw new runtime.RequiredError('srcBlockStatusCode','Required parameter requestParameters.srcBlockStatusCode was null or undefined when calling putNextBlockStatusCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putNextBlockStatusCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putNextBlockStatusCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putNextBlockStatusCodes.');
+        }
+
+        if (requestParameters.nextBlockStatusCode === null || requestParameters.nextBlockStatusCode === undefined) {
+            throw new runtime.RequiredError('nextBlockStatusCode','Required parameter requestParameters.nextBlockStatusCode was null or undefined when calling putNextBlockStatusCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1229,7 +1506,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutNextBlockStatusCodesRequestToJSON(requestParameters.nextBlockStatusCode),
+            body: NextBlockStatusCodeToJSON(requestParameters.nextBlockStatusCode),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1239,7 +1516,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Update the next Block status. <p><strong>OperationId:</strong>putNextBlockStatusCodes</p>
      * Change next block status codes
      */
-    async putNextBlockStatusCodes(requestParameters: PutNextBlockStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putNextBlockStatusCodes(requestParameters: PutNextBlockStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putNextBlockStatusCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1248,7 +1525,35 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Use this API to update Sales Manager Goal.You must know the OPERA Sales Manager ID and Goal ID for this API. <p><strong>OperationId:</strong>putSalesManagerGoals</p>
      * Update Sales Manager Goal in a hotel by ID
      */
-    async putSalesManagerGoalsRaw(requestParameters: PutSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putSalesManagerGoalsRaw(requestParameters: PutSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.salesGoalId === null || requestParameters.salesGoalId === undefined) {
+            throw new runtime.RequiredError('salesGoalId','Required parameter requestParameters.salesGoalId was null or undefined when calling putSalesManagerGoals.');
+        }
+
+        if (requestParameters.salesManagerId === null || requestParameters.salesManagerId === undefined) {
+            throw new runtime.RequiredError('salesManagerId','Required parameter requestParameters.salesManagerId was null or undefined when calling putSalesManagerGoals.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putSalesManagerGoals.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putSalesManagerGoals.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putSalesManagerGoals.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putSalesManagerGoals.');
+        }
+
+        if (requestParameters.salesManagerGoalsInfo === null || requestParameters.salesManagerGoalsInfo === undefined) {
+            throw new runtime.RequiredError('salesManagerGoalsInfo','Required parameter requestParameters.salesManagerGoalsInfo was null or undefined when calling putSalesManagerGoals.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1280,7 +1585,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutSalesManagerGoalsRequestToJSON(requestParameters.salesManagerGoalsInfo),
+            body: SalesManagerGoalsInfoToJSON(requestParameters.salesManagerGoalsInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1290,7 +1595,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Use this API to update Sales Manager Goal.You must know the OPERA Sales Manager ID and Goal ID for this API. <p><strong>OperationId:</strong>putSalesManagerGoals</p>
      * Update Sales Manager Goal in a hotel by ID
      */
-    async putSalesManagerGoals(requestParameters: PutSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putSalesManagerGoals(requestParameters: PutSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putSalesManagerGoalsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1300,6 +1605,30 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Change block wash schedule
      */
     async putWashScheduleRaw(requestParameters: PutWashScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.washScheduleCode === null || requestParameters.washScheduleCode === undefined) {
+            throw new runtime.RequiredError('washScheduleCode','Required parameter requestParameters.washScheduleCode was null or undefined when calling putWashSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putWashSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putWashSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putWashSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putWashSchedule.');
+        }
+
+        if (requestParameters.washScheduleCriteria === null || requestParameters.washScheduleCriteria === undefined) {
+            throw new runtime.RequiredError('washScheduleCriteria','Required parameter requestParameters.washScheduleCriteria was null or undefined when calling putWashSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1331,7 +1660,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostWashScheduleRequestToJSON(requestParameters.washScheduleCriteria),
+            body: WashScheduleCriteriaToJSON(requestParameters.washScheduleCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1351,6 +1680,26 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Delete Sale Manager Goal
      */
     async removeSalesManagerGoalRaw(requestParameters: RemoveSalesManagerGoalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.salesGoalId === null || requestParameters.salesGoalId === undefined) {
+            throw new runtime.RequiredError('salesGoalId','Required parameter requestParameters.salesGoalId was null or undefined when calling removeSalesManagerGoal.');
+        }
+
+        if (requestParameters.salesManagerId === null || requestParameters.salesManagerId === undefined) {
+            throw new runtime.RequiredError('salesManagerId','Required parameter requestParameters.salesManagerId was null or undefined when calling removeSalesManagerGoal.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeSalesManagerGoal.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeSalesManagerGoal.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeSalesManagerGoal.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1399,6 +1748,22 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * Delete Sale Manager Goals
      */
     async removeSalesManagerGoalsRaw(requestParameters: RemoveSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.salesManagerId === null || requestParameters.salesManagerId === undefined) {
+            throw new runtime.RequiredError('salesManagerId','Required parameter requestParameters.salesManagerId was null or undefined when calling removeSalesManagerGoals.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeSalesManagerGoals.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeSalesManagerGoals.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeSalesManagerGoals.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.salesGoalId) {
@@ -1450,7 +1815,27 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * You can use this API to set block sales allowance range. <p><strong>OperationId:</strong>setBlockSalesAllowanceRange</p>
      * Set block sales allowance range
      */
-    async setBlockSalesAllowanceRangeRaw(requestParameters: SetBlockSalesAllowanceRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async setBlockSalesAllowanceRangeRaw(requestParameters: SetBlockSalesAllowanceRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setBlockSalesAllowanceRange.');
+        }
+
+        if (requestParameters.blockSalesAllowanceRange === null || requestParameters.blockSalesAllowanceRange === undefined) {
+            throw new runtime.RequiredError('blockSalesAllowanceRange','Required parameter requestParameters.blockSalesAllowanceRange was null or undefined when calling setBlockSalesAllowanceRange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1482,7 +1867,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetBlockSalesAllowanceRangeRequestToJSON(requestParameters.blockSalesAllowanceRange),
+            body: BlockSalesAllowanceRangeToJSON(requestParameters.blockSalesAllowanceRange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1492,7 +1877,7 @@ export class BlockConfigApi extends runtime.BaseAPI {
      * You can use this API to set block sales allowance range. <p><strong>OperationId:</strong>setBlockSalesAllowanceRange</p>
      * Set block sales allowance range
      */
-    async setBlockSalesAllowanceRange(requestParameters: SetBlockSalesAllowanceRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async setBlockSalesAllowanceRange(requestParameters: SetBlockSalesAllowanceRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.setBlockSalesAllowanceRangeRaw(requestParameters, initOverrides);
         return await response.value();
     }

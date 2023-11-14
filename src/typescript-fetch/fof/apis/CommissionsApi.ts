@@ -15,144 +15,144 @@
 
 import * as runtime from '../runtime';
 import type {
-  AssociateCommissionAgentToReservationsRequest,
+  AssociateCommissionAgentToReservations,
   AssociateCommissionAgentToReservationsStatus,
   BankAccountsDetails,
-  CalculateCommissionsRequest,
+  CalculateCommissions,
   CalculateCommissionsStatus,
-  ChangeCommissionCheckRequest,
-  ChangeCommissionPaymentActivityByRangeRequest,
-  ChangeCommissionRequest,
   CommissionCheckStatus,
+  CommissionCheckToBeChanged,
   CommissionDetails,
   CommissionNotesDetails,
   CommissionPaymentActivityByRangeStatus,
+  CommissionPaymentActivityByRangeToBeChanged,
   CommissionPaymentDetails,
   CommissionPaymentsActivityDetails,
   CommissionStatus,
+  CommissionToBeChanged,
   CommissionsDetails,
   ExceptionDetailType,
-  ProcessCommissionPaymentsRequest,
+  ProcessCommissionPayments,
   ProcessCommissionPaymentsStatus,
-  RecalculateCommissionOnCodeChangeRequest,
+  RecalculateCommissionOnCodeChange,
   RecalculateCommissionOnCodeChangeStatus,
-  ReprintCommissionCheckByRangeRequest,
+  ReprintCommissionCheckByRange,
   ReprintCommissionCheckByRangeStatus,
-  SetProcessingInstructionsRequest,
+  SetProcessingInstructions,
   Status,
-} from '../models';
+} from '../models/index';
 import {
-    AssociateCommissionAgentToReservationsRequestFromJSON,
-    AssociateCommissionAgentToReservationsRequestToJSON,
+    AssociateCommissionAgentToReservationsFromJSON,
+    AssociateCommissionAgentToReservationsToJSON,
     AssociateCommissionAgentToReservationsStatusFromJSON,
     AssociateCommissionAgentToReservationsStatusToJSON,
     BankAccountsDetailsFromJSON,
     BankAccountsDetailsToJSON,
-    CalculateCommissionsRequestFromJSON,
-    CalculateCommissionsRequestToJSON,
+    CalculateCommissionsFromJSON,
+    CalculateCommissionsToJSON,
     CalculateCommissionsStatusFromJSON,
     CalculateCommissionsStatusToJSON,
-    ChangeCommissionCheckRequestFromJSON,
-    ChangeCommissionCheckRequestToJSON,
-    ChangeCommissionPaymentActivityByRangeRequestFromJSON,
-    ChangeCommissionPaymentActivityByRangeRequestToJSON,
-    ChangeCommissionRequestFromJSON,
-    ChangeCommissionRequestToJSON,
     CommissionCheckStatusFromJSON,
     CommissionCheckStatusToJSON,
+    CommissionCheckToBeChangedFromJSON,
+    CommissionCheckToBeChangedToJSON,
     CommissionDetailsFromJSON,
     CommissionDetailsToJSON,
     CommissionNotesDetailsFromJSON,
     CommissionNotesDetailsToJSON,
     CommissionPaymentActivityByRangeStatusFromJSON,
     CommissionPaymentActivityByRangeStatusToJSON,
+    CommissionPaymentActivityByRangeToBeChangedFromJSON,
+    CommissionPaymentActivityByRangeToBeChangedToJSON,
     CommissionPaymentDetailsFromJSON,
     CommissionPaymentDetailsToJSON,
     CommissionPaymentsActivityDetailsFromJSON,
     CommissionPaymentsActivityDetailsToJSON,
     CommissionStatusFromJSON,
     CommissionStatusToJSON,
+    CommissionToBeChangedFromJSON,
+    CommissionToBeChangedToJSON,
     CommissionsDetailsFromJSON,
     CommissionsDetailsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    ProcessCommissionPaymentsRequestFromJSON,
-    ProcessCommissionPaymentsRequestToJSON,
+    ProcessCommissionPaymentsFromJSON,
+    ProcessCommissionPaymentsToJSON,
     ProcessCommissionPaymentsStatusFromJSON,
     ProcessCommissionPaymentsStatusToJSON,
-    RecalculateCommissionOnCodeChangeRequestFromJSON,
-    RecalculateCommissionOnCodeChangeRequestToJSON,
+    RecalculateCommissionOnCodeChangeFromJSON,
+    RecalculateCommissionOnCodeChangeToJSON,
     RecalculateCommissionOnCodeChangeStatusFromJSON,
     RecalculateCommissionOnCodeChangeStatusToJSON,
-    ReprintCommissionCheckByRangeRequestFromJSON,
-    ReprintCommissionCheckByRangeRequestToJSON,
+    ReprintCommissionCheckByRangeFromJSON,
+    ReprintCommissionCheckByRangeToJSON,
     ReprintCommissionCheckByRangeStatusFromJSON,
     ReprintCommissionCheckByRangeStatusToJSON,
-    SetProcessingInstructionsRequestFromJSON,
-    SetProcessingInstructionsRequestToJSON,
+    SetProcessingInstructionsFromJSON,
+    SetProcessingInstructionsToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface AssociateCommissionAgentToReservationsOperationRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    associateCommissionAgentToReservations?: AssociateCommissionAgentToReservationsRequest;
+export interface AssociateCommissionAgentToReservationsRequest {
+    commissionAgentId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    associateCommissionAgentToReservations: AssociateCommissionAgentToReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CalculateCommissionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    calculateCommissions?: CalculateCommissionsRequest;
+export interface CalculateCommissionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    calculateCommissions: CalculateCommissions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCommissionOperationRequest {
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionToBeChanged?: ChangeCommissionRequest;
+export interface ChangeCommissionRequest {
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionToBeChanged: CommissionToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCommissionCheckOperationRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionCheckToBeChanged?: ChangeCommissionCheckRequest;
+export interface ChangeCommissionCheckRequest {
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionCheckToBeChanged: CommissionCheckToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCommissionPaymentActivityByRangeOperationRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionPaymentActivityByRangeToBeChanged?: ChangeCommissionPaymentActivityByRangeRequest;
+export interface ChangeCommissionPaymentActivityByRangeRequest {
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionPaymentActivityByRangeToBeChanged: CommissionPaymentActivityByRangeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DiscardCommissionChecksRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bankAccountId?: string;
     idExtension?: number;
     idContext?: string;
@@ -167,10 +167,10 @@ export interface DiscardCommissionChecksRequest {
 }
 
 export interface GetBankAccountsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bankName?: string;
     bankAccountNo?: string;
     currency?: string;
@@ -179,11 +179,11 @@ export interface GetBankAccountsRequest {
 }
 
 export interface GetCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -192,11 +192,11 @@ export interface GetCommissionRequest {
 }
 
 export interface GetCommissionNotesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -205,21 +205,21 @@ export interface GetCommissionNotesRequest {
 }
 
 export interface GetCommissionPaymentDetailsRequest {
-    hotelId?: string;
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCommissionPaymentsActivityRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -236,10 +236,10 @@ export interface GetCommissionPaymentsActivityRequest {
 }
 
 export interface GetCommissionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bankAccountId?: string;
     idExtension?: number;
     idContext?: string;
@@ -265,12 +265,12 @@ export interface GetCommissionsRequest {
 }
 
 export interface GetReservationsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
-    agentId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    bankAccountId: string;
+    agentId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     guestName?: string;
@@ -283,43 +283,43 @@ export interface GetReservationsForCommissionsRequest {
 }
 
 export interface GetTravelAgentsForCommissionsRequest {
-    hotelId?: string;
-    bankAccountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    bankAccountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ProcessCommissionPaymentsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    processCommissionPayments?: ProcessCommissionPaymentsRequest;
+export interface ProcessCommissionPaymentsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    processCommissionPayments: ProcessCommissionPayments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface RecalculateCommissionOnCodeChangeOperationRequest {
-    commissionCode?: string;
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    recalculateCommissionOnCodeChange?: RecalculateCommissionOnCodeChangeRequest;
+export interface RecalculateCommissionOnCodeChangeRequest {
+    commissionCode: string;
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    recalculateCommissionOnCodeChange: RecalculateCommissionOnCodeChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCommissionRequest {
-    commissionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    commissionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     type?: string;
@@ -329,11 +329,11 @@ export interface RemoveCommissionRequest {
 }
 
 export interface RemoveCommissionAgentFromReservationsRequest {
-    commissionAgentId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    commissionAgentId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     commissionAgentType?: RemoveCommissionAgentFromReservationsCommissionAgentTypeEnum;
     idExtension?: number;
     idContext?: string;
@@ -346,23 +346,23 @@ export interface RemoveCommissionAgentFromReservationsRequest {
     acceptLanguage?: string;
 }
 
-export interface ReprintCommissionCheckByRangeOperationRequest {
-    bankAccountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reprintCommissionCheckByRange?: ReprintCommissionCheckByRangeRequest;
+export interface ReprintCommissionCheckByRangeRequest {
+    bankAccountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reprintCommissionCheckByRange: ReprintCommissionCheckByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetProcessingInstructionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    setProcessingInstructions?: SetProcessingInstructionsRequest;
+export interface SetProcessingInstructionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    setProcessingInstructions: SetProcessingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -376,7 +376,31 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>associateCommissionAgentToReservations</p>
      * Operation to associate commission agent to reservations.
      */
-    async associateCommissionAgentToReservationsRaw(requestParameters: AssociateCommissionAgentToReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssociateCommissionAgentToReservationsStatus>> {
+    async associateCommissionAgentToReservationsRaw(requestParameters: AssociateCommissionAgentToReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssociateCommissionAgentToReservationsStatus>> {
+        if (requestParameters.commissionAgentId === null || requestParameters.commissionAgentId === undefined) {
+            throw new runtime.RequiredError('commissionAgentId','Required parameter requestParameters.commissionAgentId was null or undefined when calling associateCommissionAgentToReservations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling associateCommissionAgentToReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling associateCommissionAgentToReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling associateCommissionAgentToReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling associateCommissionAgentToReservations.');
+        }
+
+        if (requestParameters.associateCommissionAgentToReservations === null || requestParameters.associateCommissionAgentToReservations === undefined) {
+            throw new runtime.RequiredError('associateCommissionAgentToReservations','Required parameter requestParameters.associateCommissionAgentToReservations was null or undefined when calling associateCommissionAgentToReservations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -408,7 +432,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AssociateCommissionAgentToReservationsRequestToJSON(requestParameters.associateCommissionAgentToReservations),
+            body: AssociateCommissionAgentToReservationsToJSON(requestParameters.associateCommissionAgentToReservations),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AssociateCommissionAgentToReservationsStatusFromJSON(jsonValue));
@@ -418,7 +442,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>associateCommissionAgentToReservations</p>
      * Operation to associate commission agent to reservations.
      */
-    async associateCommissionAgentToReservations(requestParameters: AssociateCommissionAgentToReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssociateCommissionAgentToReservationsStatus> {
+    async associateCommissionAgentToReservations(requestParameters: AssociateCommissionAgentToReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssociateCommissionAgentToReservationsStatus> {
         const response = await this.associateCommissionAgentToReservationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -427,7 +451,27 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>calculateCommissions</p>
      * Operation to calculate commissions.
      */
-    async calculateCommissionsRaw(requestParameters: CalculateCommissionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculateCommissionsStatus>> {
+    async calculateCommissionsRaw(requestParameters: CalculateCommissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculateCommissionsStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling calculateCommissions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling calculateCommissions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling calculateCommissions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling calculateCommissions.');
+        }
+
+        if (requestParameters.calculateCommissions === null || requestParameters.calculateCommissions === undefined) {
+            throw new runtime.RequiredError('calculateCommissions','Required parameter requestParameters.calculateCommissions was null or undefined when calling calculateCommissions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -459,7 +503,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CalculateCommissionsRequestToJSON(requestParameters.calculateCommissions),
+            body: CalculateCommissionsToJSON(requestParameters.calculateCommissions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CalculateCommissionsStatusFromJSON(jsonValue));
@@ -469,7 +513,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>calculateCommissions</p>
      * Operation to calculate commissions.
      */
-    async calculateCommissions(requestParameters: CalculateCommissionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculateCommissionsStatus> {
+    async calculateCommissions(requestParameters: CalculateCommissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculateCommissionsStatus> {
         const response = await this.calculateCommissionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -478,7 +522,31 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>changeCommission</p>
      * Operation to change commission.
      */
-    async changeCommissionRaw(requestParameters: ChangeCommissionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionStatus>> {
+    async changeCommissionRaw(requestParameters: ChangeCommissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionStatus>> {
+        if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
+            throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling changeCommission.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeCommission.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCommission.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCommission.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCommission.');
+        }
+
+        if (requestParameters.commissionToBeChanged === null || requestParameters.commissionToBeChanged === undefined) {
+            throw new runtime.RequiredError('commissionToBeChanged','Required parameter requestParameters.commissionToBeChanged was null or undefined when calling changeCommission.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -510,7 +578,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCommissionRequestToJSON(requestParameters.commissionToBeChanged),
+            body: CommissionToBeChangedToJSON(requestParameters.commissionToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CommissionStatusFromJSON(jsonValue));
@@ -520,7 +588,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>changeCommission</p>
      * Operation to change commission.
      */
-    async changeCommission(requestParameters: ChangeCommissionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionStatus> {
+    async changeCommission(requestParameters: ChangeCommissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionStatus> {
         const response = await this.changeCommissionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -529,7 +597,31 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>changeCommissionCheck</p>
      * Operation to change commission check.
      */
-    async changeCommissionCheckRaw(requestParameters: ChangeCommissionCheckOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionCheckStatus>> {
+    async changeCommissionCheckRaw(requestParameters: ChangeCommissionCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionCheckStatus>> {
+        if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
+            throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling changeCommissionCheck.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeCommissionCheck.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCommissionCheck.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCommissionCheck.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCommissionCheck.');
+        }
+
+        if (requestParameters.commissionCheckToBeChanged === null || requestParameters.commissionCheckToBeChanged === undefined) {
+            throw new runtime.RequiredError('commissionCheckToBeChanged','Required parameter requestParameters.commissionCheckToBeChanged was null or undefined when calling changeCommissionCheck.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -561,7 +653,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCommissionCheckRequestToJSON(requestParameters.commissionCheckToBeChanged),
+            body: CommissionCheckToBeChangedToJSON(requestParameters.commissionCheckToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CommissionCheckStatusFromJSON(jsonValue));
@@ -571,7 +663,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>changeCommissionCheck</p>
      * Operation to change commission check.
      */
-    async changeCommissionCheck(requestParameters: ChangeCommissionCheckOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionCheckStatus> {
+    async changeCommissionCheck(requestParameters: ChangeCommissionCheckRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionCheckStatus> {
         const response = await this.changeCommissionCheckRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -580,7 +672,31 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>changeCommissionPaymentActivityByRange</p>
      * Operation to change commission payment activity by range.
      */
-    async changeCommissionPaymentActivityByRangeRaw(requestParameters: ChangeCommissionPaymentActivityByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionPaymentActivityByRangeStatus>> {
+    async changeCommissionPaymentActivityByRangeRaw(requestParameters: ChangeCommissionPaymentActivityByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionPaymentActivityByRangeStatus>> {
+        if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
+            throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling changeCommissionPaymentActivityByRange.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeCommissionPaymentActivityByRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCommissionPaymentActivityByRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCommissionPaymentActivityByRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCommissionPaymentActivityByRange.');
+        }
+
+        if (requestParameters.commissionPaymentActivityByRangeToBeChanged === null || requestParameters.commissionPaymentActivityByRangeToBeChanged === undefined) {
+            throw new runtime.RequiredError('commissionPaymentActivityByRangeToBeChanged','Required parameter requestParameters.commissionPaymentActivityByRangeToBeChanged was null or undefined when calling changeCommissionPaymentActivityByRange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -612,7 +728,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCommissionPaymentActivityByRangeRequestToJSON(requestParameters.commissionPaymentActivityByRangeToBeChanged),
+            body: CommissionPaymentActivityByRangeToBeChangedToJSON(requestParameters.commissionPaymentActivityByRangeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CommissionPaymentActivityByRangeStatusFromJSON(jsonValue));
@@ -622,7 +738,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>changeCommissionPaymentActivityByRange</p>
      * Operation to change commission payment activity by range.
      */
-    async changeCommissionPaymentActivityByRange(requestParameters: ChangeCommissionPaymentActivityByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionPaymentActivityByRangeStatus> {
+    async changeCommissionPaymentActivityByRange(requestParameters: ChangeCommissionPaymentActivityByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CommissionPaymentActivityByRangeStatus> {
         const response = await this.changeCommissionPaymentActivityByRangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -632,6 +748,22 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to discard commission checks.
      */
     async discardCommissionChecksRaw(requestParameters: DiscardCommissionChecksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling discardCommissionChecks.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling discardCommissionChecks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling discardCommissionChecks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling discardCommissionChecks.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.bankAccountId !== undefined) {
@@ -716,6 +848,22 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to fetch bank accounts.
      */
     async getBankAccountsRaw(requestParameters: GetBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBankAccounts.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBankAccounts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBankAccounts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBankAccounts.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.bankName !== undefined) {
@@ -776,6 +924,26 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to fetch commission.
      */
     async getCommissionRaw(requestParameters: GetCommissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionDetails>> {
+        if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
+            throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling getCommission.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommission.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommission.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommission.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommission.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -836,6 +1004,26 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to fetch commission notes.
      */
     async getCommissionNotesRaw(requestParameters: GetCommissionNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionNotesDetails>> {
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getCommissionNotes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionNotes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionNotes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionNotes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionNotes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -896,6 +1084,26 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Fetch Commission Payment Details
      */
     async getCommissionPaymentDetailsRaw(requestParameters: GetCommissionPaymentDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionPaymentDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionPaymentDetails.');
+        }
+
+        if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+            throw new runtime.RequiredError('reservationId','Required parameter requestParameters.reservationId was null or undefined when calling getCommissionPaymentDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionPaymentDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionPaymentDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionPaymentDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -944,6 +1152,26 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to fetch commission payments activity.
      */
     async getCommissionPaymentsActivityRaw(requestParameters: GetCommissionPaymentsActivityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionPaymentsActivityDetails>> {
+        if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
+            throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling getCommissionPaymentsActivity.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissionPaymentsActivity.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissionPaymentsActivity.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissionPaymentsActivity.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissionPaymentsActivity.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -1036,6 +1264,22 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to fetch commissions.
      */
     async getCommissionsRaw(requestParameters: GetCommissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCommissions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommissions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommissions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommissions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.bankAccountId !== undefined) {
@@ -1164,6 +1408,30 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to fetch Reservations for Commissions associated to a Travel Agent
      */
     async getReservationsForCommissionsRaw(requestParameters: GetReservationsForCommissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationsForCommissions.');
+        }
+
+        if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
+            throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling getReservationsForCommissions.');
+        }
+
+        if (requestParameters.agentId === null || requestParameters.agentId === undefined) {
+            throw new runtime.RequiredError('agentId','Required parameter requestParameters.agentId was null or undefined when calling getReservationsForCommissions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationsForCommissions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsForCommissions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsForCommissions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1240,6 +1508,26 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to fetch Travel Agents associated with commissions for the given bank Account.
      */
     async getTravelAgentsForCommissionsRaw(requestParameters: GetTravelAgentsForCommissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommissionsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTravelAgentsForCommissions.');
+        }
+
+        if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
+            throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling getTravelAgentsForCommissions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTravelAgentsForCommissions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTravelAgentsForCommissions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTravelAgentsForCommissions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1287,7 +1575,27 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>processCommissionPayments</p>
      * Operation to process commission payments.
      */
-    async processCommissionPaymentsRaw(requestParameters: ProcessCommissionPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessCommissionPaymentsStatus>> {
+    async processCommissionPaymentsRaw(requestParameters: ProcessCommissionPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessCommissionPaymentsStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling processCommissionPayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling processCommissionPayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling processCommissionPayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling processCommissionPayments.');
+        }
+
+        if (requestParameters.processCommissionPayments === null || requestParameters.processCommissionPayments === undefined) {
+            throw new runtime.RequiredError('processCommissionPayments','Required parameter requestParameters.processCommissionPayments was null or undefined when calling processCommissionPayments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1319,7 +1627,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ProcessCommissionPaymentsRequestToJSON(requestParameters.processCommissionPayments),
+            body: ProcessCommissionPaymentsToJSON(requestParameters.processCommissionPayments),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ProcessCommissionPaymentsStatusFromJSON(jsonValue));
@@ -1329,7 +1637,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>processCommissionPayments</p>
      * Operation to process commission payments.
      */
-    async processCommissionPayments(requestParameters: ProcessCommissionPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessCommissionPaymentsStatus> {
+    async processCommissionPayments(requestParameters: ProcessCommissionPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessCommissionPaymentsStatus> {
         const response = await this.processCommissionPaymentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1338,7 +1646,35 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>recalculateCommissionOnCodeChange</p>
      * Operation to recalculate commission on code change.
      */
-    async recalculateCommissionOnCodeChangeRaw(requestParameters: RecalculateCommissionOnCodeChangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecalculateCommissionOnCodeChangeStatus>> {
+    async recalculateCommissionOnCodeChangeRaw(requestParameters: RecalculateCommissionOnCodeChangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecalculateCommissionOnCodeChangeStatus>> {
+        if (requestParameters.commissionCode === null || requestParameters.commissionCode === undefined) {
+            throw new runtime.RequiredError('commissionCode','Required parameter requestParameters.commissionCode was null or undefined when calling recalculateCommissionOnCodeChange.');
+        }
+
+        if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
+            throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling recalculateCommissionOnCodeChange.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling recalculateCommissionOnCodeChange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling recalculateCommissionOnCodeChange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling recalculateCommissionOnCodeChange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling recalculateCommissionOnCodeChange.');
+        }
+
+        if (requestParameters.recalculateCommissionOnCodeChange === null || requestParameters.recalculateCommissionOnCodeChange === undefined) {
+            throw new runtime.RequiredError('recalculateCommissionOnCodeChange','Required parameter requestParameters.recalculateCommissionOnCodeChange was null or undefined when calling recalculateCommissionOnCodeChange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1370,7 +1706,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: RecalculateCommissionOnCodeChangeRequestToJSON(requestParameters.recalculateCommissionOnCodeChange),
+            body: RecalculateCommissionOnCodeChangeToJSON(requestParameters.recalculateCommissionOnCodeChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RecalculateCommissionOnCodeChangeStatusFromJSON(jsonValue));
@@ -1380,7 +1716,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>recalculateCommissionOnCodeChange</p>
      * Operation to recalculate commission on code change.
      */
-    async recalculateCommissionOnCodeChange(requestParameters: RecalculateCommissionOnCodeChangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecalculateCommissionOnCodeChangeStatus> {
+    async recalculateCommissionOnCodeChange(requestParameters: RecalculateCommissionOnCodeChangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecalculateCommissionOnCodeChangeStatus> {
         const response = await this.recalculateCommissionOnCodeChangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1390,6 +1726,26 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to remove commission.
      */
     async removeCommissionRaw(requestParameters: RemoveCommissionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.commissionId === null || requestParameters.commissionId === undefined) {
+            throw new runtime.RequiredError('commissionId','Required parameter requestParameters.commissionId was null or undefined when calling removeCommission.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeCommission.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCommission.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCommission.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCommission.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -1454,6 +1810,26 @@ export class CommissionsApi extends runtime.BaseAPI {
      * Operation to remove commission agent from reservations.
      */
     async removeCommissionAgentFromReservationsRaw(requestParameters: RemoveCommissionAgentFromReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.commissionAgentId === null || requestParameters.commissionAgentId === undefined) {
+            throw new runtime.RequiredError('commissionAgentId','Required parameter requestParameters.commissionAgentId was null or undefined when calling removeCommissionAgentFromReservations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeCommissionAgentFromReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCommissionAgentFromReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCommissionAgentFromReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCommissionAgentFromReservations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.commissionAgentType !== undefined) {
@@ -1533,7 +1909,31 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>reprintCommissionCheckByRange</p>
      * Operation to reprint commission check by range.
      */
-    async reprintCommissionCheckByRangeRaw(requestParameters: ReprintCommissionCheckByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReprintCommissionCheckByRangeStatus>> {
+    async reprintCommissionCheckByRangeRaw(requestParameters: ReprintCommissionCheckByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReprintCommissionCheckByRangeStatus>> {
+        if (requestParameters.bankAccountId === null || requestParameters.bankAccountId === undefined) {
+            throw new runtime.RequiredError('bankAccountId','Required parameter requestParameters.bankAccountId was null or undefined when calling reprintCommissionCheckByRange.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reprintCommissionCheckByRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reprintCommissionCheckByRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reprintCommissionCheckByRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reprintCommissionCheckByRange.');
+        }
+
+        if (requestParameters.reprintCommissionCheckByRange === null || requestParameters.reprintCommissionCheckByRange === undefined) {
+            throw new runtime.RequiredError('reprintCommissionCheckByRange','Required parameter requestParameters.reprintCommissionCheckByRange was null or undefined when calling reprintCommissionCheckByRange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1565,7 +1965,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ReprintCommissionCheckByRangeRequestToJSON(requestParameters.reprintCommissionCheckByRange),
+            body: ReprintCommissionCheckByRangeToJSON(requestParameters.reprintCommissionCheckByRange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReprintCommissionCheckByRangeStatusFromJSON(jsonValue));
@@ -1575,7 +1975,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>reprintCommissionCheckByRange</p>
      * Operation to reprint commission check by range.
      */
-    async reprintCommissionCheckByRange(requestParameters: ReprintCommissionCheckByRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReprintCommissionCheckByRangeStatus> {
+    async reprintCommissionCheckByRange(requestParameters: ReprintCommissionCheckByRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReprintCommissionCheckByRangeStatus> {
         const response = await this.reprintCommissionCheckByRangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1584,7 +1984,27 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>setProcessingInstructions</p>
      * Operation to set processing instructions.
      */
-    async setProcessingInstructionsRaw(requestParameters: SetProcessingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async setProcessingInstructionsRaw(requestParameters: SetProcessingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setProcessingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setProcessingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setProcessingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setProcessingInstructions.');
+        }
+
+        if (requestParameters.setProcessingInstructions === null || requestParameters.setProcessingInstructions === undefined) {
+            throw new runtime.RequiredError('setProcessingInstructions','Required parameter requestParameters.setProcessingInstructions was null or undefined when calling setProcessingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1616,7 +2036,7 @@ export class CommissionsApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SetProcessingInstructionsRequestToJSON(requestParameters.setProcessingInstructions),
+            body: SetProcessingInstructionsToJSON(requestParameters.setProcessingInstructions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1626,7 +2046,7 @@ export class CommissionsApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>setProcessingInstructions</p>
      * Operation to set processing instructions.
      */
-    async setProcessingInstructions(requestParameters: SetProcessingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async setProcessingInstructions(requestParameters: SetProcessingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.setProcessingInstructionsRaw(requestParameters, initOverrides);
         return await response.value();
     }

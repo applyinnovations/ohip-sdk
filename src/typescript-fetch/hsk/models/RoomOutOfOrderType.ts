@@ -121,14 +121,14 @@ export function RoomOutOfOrderTypeToJSON(value?: RoomOutOfOrderType | null): any
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'housekeepingRoomStatus': HousekeepingRoomStatusTypeToJSON(value.housekeepingRoomStatus),
         'newDateRange': DateRangeTypeToJSON(value.newDateRange),
         'reasonCode': value.reasonCode,
         'reasonDescription': value.reasonDescription,
         'repairRemarks': value.repairRemarks,
         'returnStatus': HousekeepingRoomStatusTypeToJSON(value.returnStatus),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }
 

@@ -62,7 +62,7 @@ function HSKTaskSheetInfoTypeToJSON(value) {
         'attendant': value.attendant,
         'averageActualTimeInSecs': value.averageActualTimeInSecs,
         'roomSummary': value.roomSummary === undefined ? undefined : (value.roomSummary.map(HSKTaskSheetInfoTypeRoomSummaryInner_1.HSKTaskSheetInfoTypeRoomSummaryInnerToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0, 10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
         'taskSeqNo': value.taskSeqNo,
         'taskSheetDetails': (0, HSKTaskSheetDetailsInfoType_1.HSKTaskSheetDetailsInfoTypeToJSON)(value.taskSheetDetails),
         'taskSheetNo': value.taskSheetNo,

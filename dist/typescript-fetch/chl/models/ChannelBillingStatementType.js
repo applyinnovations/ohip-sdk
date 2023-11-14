@@ -59,14 +59,14 @@ function ChannelBillingStatementTypeToJSON(value) {
     }
     return {
         'accountCodeList': (0, CodeListType_1.CodeListTypeToJSON)(value.accountCodeList),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0, 10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
         'channelAccountStatements': (0, ChannelStatementAccountsType_1.ChannelStatementAccountsTypeToJSON)(value.channelAccountStatements),
         'dirty': value.dirty,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'generated': value.generated,
-        'lockDate': value.lockDate === undefined ? undefined : (value.lockDate.toISOString().substr(0, 10)),
+        'lockDate': value.lockDate === undefined ? undefined : (value.lockDate.toISOString().substring(0, 10)),
         'note': value.note,
-        'statementDate': value.statementDate === undefined ? undefined : (value.statementDate.toISOString().substr(0, 10)),
+        'statementDate': value.statementDate === undefined ? undefined : (value.statementDate.toISOString().substring(0, 10)),
         'statementId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.statementId),
         'totalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalAmount),
     };

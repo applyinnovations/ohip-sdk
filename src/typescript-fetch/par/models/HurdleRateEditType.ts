@@ -116,7 +116,7 @@ export function HurdleRateEditTypeToJSON(value?: HurdleRateEditType | null): any
     return {
         
         'hotelId': value.hotelId,
-        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substr(0,10)),
+        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substring(0,10)),
         'lengthOfStay': value.lengthOfStay,
         'newHurdleRate': HurdleRateTypeToJSON(value.newHurdleRate),
         'roomCategory': value.roomCategory,

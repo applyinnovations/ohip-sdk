@@ -129,12 +129,12 @@ export function ChannelRateRoomTypeToJSON(value?: ChannelRateRoomType | null): a
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'bookingChannelCode': value.bookingChannelCode,
         'channelRatePlanCode': value.channelRatePlanCode,
         'channelRateRoomDetail': ChannelRateRoomDetailTypeToJSON(value.channelRateRoomDetail),
         'channelRoomType': value.channelRoomType,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'ratePlanCode': value.ratePlanCode,

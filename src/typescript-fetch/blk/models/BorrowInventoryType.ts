@@ -87,7 +87,7 @@ export function BorrowInventoryTypeToJSON(value?: BorrowInventoryType | null): a
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substr(0,10)),
+        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0,10)),
         'borrowRooms': value.borrowRooms === undefined ? undefined : ((value.borrowRooms as Array<any>).map(BorrowRoomTypeToJSON)),
     };
 }

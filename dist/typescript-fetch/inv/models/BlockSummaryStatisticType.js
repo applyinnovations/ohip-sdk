@@ -51,7 +51,7 @@ function BlockSummaryStatisticTypeToJSON(value) {
     return {
         'bookingSummaryStatistic': (0, StatisticUnitsType_1.StatisticUnitsTypeToJSON)(value.bookingSummaryStatistic),
         'dailyTargetsSummaryStatistic': (0, StatisticUnitsType_1.StatisticUnitsTypeToJSON)(value.dailyTargetsSummaryStatistic),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substr(0, 10)),
+        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
         'statusSummaryStatistic': (0, StatusSummaryStatisticType_1.StatusSummaryStatisticTypeToJSON)(value.statusSummaryStatistic),
     };
 }

@@ -7,7 +7,6 @@ models/CustomizedLetterStatus.ts
 models/CustomizedLetterType.ts
 models/EmailFile.ts
 models/EmailFileType.ts
-models/EmailFolioReportRequest.ts
 models/EmailRecipientType.ts
 models/EmailRecipientsType.ts
 models/ErrorInstance.ts
@@ -33,11 +32,8 @@ models/Links.ts
 models/ModelFile.ts
 models/RegistrationCard.ts
 models/RegistrationCardType.ts
-models/SetCustomizedLetterRequest.ts
 models/Status.ts
 models/UniqueIDType.ts
-models/UploadFileAttachmentRequest.ts
-models/UploadImageRequest.ts
 models/WarningType.ts
 models/WarningsType.ts
 models/index.ts

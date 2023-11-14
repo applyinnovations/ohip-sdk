@@ -46,7 +46,7 @@ function UpsellDailyRateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'requiredAmount': (0, AmountPointsType_1.AmountPointsTypeToJSON)(value.requiredAmount),
     };
 }

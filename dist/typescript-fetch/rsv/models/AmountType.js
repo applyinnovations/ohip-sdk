@@ -59,11 +59,11 @@ function AmountTypeToJSON(value) {
         'base': (0, TotalType_1.TotalTypeToJSON)(value.base),
         'discount': (0, DiscountType_1.DiscountTypeToJSON)(value.discount),
         'effectiveRate': (0, TotalType_1.TotalTypeToJSON)(value.effectiveRate),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'requiredPoints': (0, PointsType_1.PointsTypeToJSON)(value.requiredPoints),
         'shareDistributionInstruction': (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeToJSON)(value.shareDistributionInstruction),
         'shareRatePercentage': value.shareRatePercentage,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
         'total': (0, TotalType_1.TotalTypeToJSON)(value.total),
     };
 }

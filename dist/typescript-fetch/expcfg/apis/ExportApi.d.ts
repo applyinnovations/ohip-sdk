@@ -10,53 +10,53 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeExportSchedulesByChainRequest, ExportActivityLog, ExportColumnsAndFunctionsDetails, ExportMappingCodesDetails, ExportMappingCodesToLink, ExportMappingLinkedCodes, ExportMappingLinkedTypesDetails, ExportMappingsDetails, ExportSchedulesDetails, ExportSchedulesStatus, ExportsAvailable, FetchExportMappingCodes, FetchExportMappings, GeneratedExports, PostExportSchedulesRequest, PutExportMappingCodesRequest, PutExportMappingLinkedTypesRequest, PutExportMappingsRequest, Status } from '../models';
+import type { ExportActivityLog, ExportColumnsAndFunctionsDetails, ExportMappingCodes, ExportMappingCodesDetails, ExportMappingCodesToLink, ExportMappingLinkedCodes, ExportMappingLinkedTypes, ExportMappingLinkedTypesDetails, ExportMappings, ExportMappingsDetails, ExportSchedulesCriteria, ExportSchedulesDetails, ExportSchedulesStatus, ExportSchedulesToBeChanged, ExportsAvailable, FetchExportMappingCodes, FetchExportMappings, GeneratedExports, Status } from '../models/index';
 export interface ChangeExportSchedulesRequest {
-    hotelId?: string;
-    exportFileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportSchedulesToBeChanged?: ChangeExportSchedulesByChainRequest;
+    hotelId: string;
+    exportFileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportSchedulesToBeChanged: ExportSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeExportSchedulesByChainOperationRequest {
-    exportFileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportSchedulesToBeChanged?: ChangeExportSchedulesByChainRequest;
+export interface ChangeExportSchedulesByChainRequest {
+    exportFileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportSchedulesToBeChanged: ExportSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExistingExportMappingsRequest {
-    exportMappingId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exportMappingId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExportMappingCodesRequest {
-    mappingTypeCode?: string;
-    exportMappingId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    mappingTypeCode: string;
+    exportMappingId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportActivityLogRequest {
-    hotelId?: string;
-    activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    activityType: string;
+    fromDate: Date;
+    toDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     module?: GetExportActivityLogModuleEnum;
@@ -70,9 +70,9 @@ export interface GetExportActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetExportColumnsAndFunctionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchDbColumns?: boolean;
     fetchOperaApis?: boolean;
     fetchPrePostProcedures?: boolean;
@@ -83,30 +83,30 @@ export interface GetExportColumnsAndFunctionsRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingCodesRequest {
-    exportMappingTypeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exportMappingTypeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportMappingCodesToLinkRequest {
-    configType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: string;
     description?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportMappingLinkedCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idExtension?: number;
     idContext?: string;
@@ -117,28 +117,28 @@ export interface GetExportMappingLinkedCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exportMappingConfigs?: Set<GetExportMappingsExportMappingConfigsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportMappingsByChainRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     exportMappingConfigs?: Set<GetExportMappingsByChainExportMappingConfigsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportSchedulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     timeZone?: string;
     exportFileId?: string;
     idExtension?: number;
@@ -154,9 +154,9 @@ export interface GetExportSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetExportsAvailableRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchColumns?: boolean;
     fetchDataSetup?: boolean;
     fetchDestinationSetup?: boolean;
@@ -175,68 +175,68 @@ export interface GetExportsAvailableRequest {
     acceptLanguage?: string;
 }
 export interface GetExportsGeneratedRequest {
-    exportFileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exportFileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exportDataId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExportMappingCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappingCodes?: PutExportMappingCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappingCodes: ExportMappingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExportMappingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappings?: PutExportMappingsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappings: ExportMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostExportSchedulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportSchedulesCriteria?: PostExportSchedulesRequest;
+export interface PostExportSchedulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportSchedulesCriteria: ExportSchedulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutExportMappingCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappingCodes?: PutExportMappingCodesRequest;
+export interface PutExportMappingCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappingCodes: ExportMappingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutExportMappingLinkedTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappingLinkedTypes?: PutExportMappingLinkedTypesRequest;
+export interface PutExportMappingLinkedTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappingLinkedTypes: ExportMappingLinkedTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutExportMappingsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exportMappings?: PutExportMappingsRequest;
+export interface PutExportMappingsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exportMappings: ExportMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveExportSchedulesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     jobNames?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -259,12 +259,12 @@ export declare class ExportApi extends runtime.BaseAPI {
      * Use this API to update export schedules for all hotels in a chain based on the exportFileIdId and exportSchedulesToBeChanged. <p><strong>OperationId:</strong>changeExportSchedulesByChain</p>
      * Operation to change export schedules.
      */
-    changeExportSchedulesByChainRaw(requestParameters: ChangeExportSchedulesByChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSchedulesStatus>>;
+    changeExportSchedulesByChainRaw(requestParameters: ChangeExportSchedulesByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSchedulesStatus>>;
     /**
      * Use this API to update export schedules for all hotels in a chain based on the exportFileIdId and exportSchedulesToBeChanged. <p><strong>OperationId:</strong>changeExportSchedulesByChain</p>
      * Operation to change export schedules.
      */
-    changeExportSchedulesByChain(requestParameters: ChangeExportSchedulesByChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportSchedulesStatus>;
+    changeExportSchedulesByChain(requestParameters: ChangeExportSchedulesByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportSchedulesStatus>;
     /**
      * Use this API to delete export mappings for a specific property based on the exportMappingId and the hotelId. <p><strong>OperationId:</strong>deleteExistingExportMappings</p>
      * Operation to remove export mappings.
@@ -409,42 +409,42 @@ export declare class ExportApi extends runtime.BaseAPI {
      * Use this API to create export schedules. <p><strong>OperationId:</strong>postExportSchedules</p>
      * Operation to create export schedules.
      */
-    postExportSchedulesRaw(requestParameters: PostExportSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postExportSchedulesRaw(requestParameters: PostExportSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create export schedules. <p><strong>OperationId:</strong>postExportSchedules</p>
      * Operation to create export schedules.
      */
-    postExportSchedules(requestParameters: PostExportSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postExportSchedules(requestParameters: PostExportSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putExportMappingCodes</p>
      * Operation to update export mapping codes.
      */
-    putExportMappingCodesRaw(requestParameters: PutExportMappingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingCodesDetails>>;
+    putExportMappingCodesRaw(requestParameters: PutExportMappingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingCodesDetails>>;
     /**
      *  <p><strong>OperationId:</strong>putExportMappingCodes</p>
      * Operation to update export mapping codes.
      */
-    putExportMappingCodes(requestParameters: PutExportMappingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingCodesDetails>;
+    putExportMappingCodes(requestParameters: PutExportMappingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingCodesDetails>;
     /**
      *  <p><strong>OperationId:</strong>putExportMappingLinkedTypes</p>
      * Operation to update export mapping linked types.
      */
-    putExportMappingLinkedTypesRaw(requestParameters: PutExportMappingLinkedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingLinkedTypesDetails>>;
+    putExportMappingLinkedTypesRaw(requestParameters: PutExportMappingLinkedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingLinkedTypesDetails>>;
     /**
      *  <p><strong>OperationId:</strong>putExportMappingLinkedTypes</p>
      * Operation to update export mapping linked types.
      */
-    putExportMappingLinkedTypes(requestParameters: PutExportMappingLinkedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingLinkedTypesDetails>;
+    putExportMappingLinkedTypes(requestParameters: PutExportMappingLinkedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingLinkedTypesDetails>;
     /**
      *  <p><strong>OperationId:</strong>putExportMappings</p>
      * Operation to update export mappings.
      */
-    putExportMappingsRaw(requestParameters: PutExportMappingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingsDetails>>;
+    putExportMappingsRaw(requestParameters: PutExportMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportMappingsDetails>>;
     /**
      *  <p><strong>OperationId:</strong>putExportMappings</p>
      * Operation to update export mappings.
      */
-    putExportMappings(requestParameters: PutExportMappingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingsDetails>;
+    putExportMappings(requestParameters: PutExportMappingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportMappingsDetails>;
     /**
      * Use this API to delete export schedules based on the jobNames. <p><strong>OperationId:</strong>removeExportSchedules</p>
      * Operation to remove export schedules.

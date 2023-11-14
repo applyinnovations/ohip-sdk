@@ -51,7 +51,7 @@ function RecentlyAccessedActivityTypeToJSON(value) {
         return null;
     }
     return {
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substr(0, 10)),
+        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
         'activityIdList': (0, ActivityIdListType_1.ActivityIdListTypeToJSON)(value.activityIdList),
         'activityOwnerCode': value.activityOwnerCode,
         'activityTypeDescription': value.activityTypeDescription,

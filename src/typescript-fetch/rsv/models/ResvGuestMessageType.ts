@@ -166,7 +166,7 @@ export function ResvGuestMessageTypeToJSON(value?: ResvGuestMessageType | null):
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'message': ResvMessageTypeToJSON(value.message),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'type': value.type,
         'url': value.url,
     };

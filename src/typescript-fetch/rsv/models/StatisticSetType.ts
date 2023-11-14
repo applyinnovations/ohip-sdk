@@ -95,7 +95,7 @@ export function StatisticSetTypeToJSON(value?: StatisticSetType | null): any {
         
         'numericCategorySummariesType': value.numericCategorySummariesType === undefined ? undefined : ((value.numericCategorySummariesType as Array<any>).map(NumericCategorySummaryTypeToJSON)),
         'revenueCategorySummariesType': value.revenueCategorySummariesType === undefined ? undefined : ((value.revenueCategorySummariesType as Array<any>).map(RevenueCategorySummaryTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substr(0,10)),
+        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
         'weekendDate': value.weekendDate,
     };
 }

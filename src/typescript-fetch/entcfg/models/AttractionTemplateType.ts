@@ -187,7 +187,7 @@ export function AttractionTemplateTypeToJSON(value?: AttractionTemplateType | nu
         'code': value.code,
         'displaySeq': value.displaySeq,
         'generalDirections': value.generalDirections,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'latitude': value.latitude,
         'longitude': value.longitude,
         'name': TranslationTextType2000ToJSON(value.name),

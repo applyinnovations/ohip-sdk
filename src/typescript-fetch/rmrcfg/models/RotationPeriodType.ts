@@ -90,7 +90,7 @@ export function RotationPeriodTypeToJSON(value?: RotationPeriodType | null): any
         'forceRecalculate': value.forceRecalculate,
         'hotelId': value.hotelId,
         'periodFrequency': RotationPeriodFrequencyTypeToJSON(value.periodFrequency),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

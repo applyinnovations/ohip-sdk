@@ -10,20 +10,20 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeTemplateDeviceLocationsRequest, PostTemplateDeviceLocationsRequest, Status, TemplateDeviceLocationsDetails } from '../models';
-export interface ChangeTemplateDeviceLocationsOperationRequest {
-    deviceLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDeviceLocationsToBeChanged?: ChangeTemplateDeviceLocationsRequest;
+import type { Status, TemplateDeviceLocationsCriteria, TemplateDeviceLocationsDetails, TemplateDeviceLocationsToBeChanged } from '../models/index';
+export interface ChangeTemplateDeviceLocationsRequest {
+    deviceLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDeviceLocationsToBeChanged: TemplateDeviceLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateDeviceLocationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -31,19 +31,19 @@ export interface GetTemplateDeviceLocationsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateDeviceLocationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDeviceLocationsCriteria?: PostTemplateDeviceLocationsRequest;
+export interface PostTemplateDeviceLocationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDeviceLocationsCriteria: TemplateDeviceLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateDeviceLocationsRequest {
-    deviceLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    deviceLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -55,12 +55,12 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update the template device locations. <p><strong>OperationId:</strong>changeTemplateDeviceLocations</p>
      * Change the template device locations
      */
-    changeTemplateDeviceLocationsRaw(requestParameters: ChangeTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateDeviceLocationsRaw(requestParameters: ChangeTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update the template device locations. <p><strong>OperationId:</strong>changeTemplateDeviceLocations</p>
      * Change the template device locations
      */
-    changeTemplateDeviceLocations(requestParameters: ChangeTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateDeviceLocations(requestParameters: ChangeTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to get the template device locations. <p><strong>OperationId:</strong>getTemplateDeviceLocations</p>
      * Get the template device locations
@@ -75,12 +75,12 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create the template device locations. <p><strong>OperationId:</strong>postTemplateDeviceLocations</p>
      * Create the template device locations
      */
-    postTemplateDeviceLocationsRaw(requestParameters: PostTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateDeviceLocationsRaw(requestParameters: PostTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create the template device locations. <p><strong>OperationId:</strong>postTemplateDeviceLocations</p>
      * Create the template device locations
      */
-    postTemplateDeviceLocations(requestParameters: PostTemplateDeviceLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateDeviceLocations(requestParameters: PostTemplateDeviceLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete the template device locations. <p><strong>OperationId:</strong>removeTemplateDeviceLocations</p>
      * Delete the template device locations

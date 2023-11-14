@@ -88,7 +88,7 @@ export function ConvertFolioTypeToJSON(value?: ConvertFolioType | null): any {
     return {
         
         'cashierId': value.cashierId,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substr(0,10)),
+        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
         'folioNo': value.folioNo,
         'folioTypeName': value.folioTypeName,
         'hotelId': value.hotelId,

@@ -48,7 +48,7 @@ function StayDetailTypeCancellationInfoToJSON(value) {
     return {
         'description': value.description,
         'code': value.code,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
     };
 }
 exports.StayDetailTypeCancellationInfoToJSON = StayDetailTypeCancellationInfoToJSON;

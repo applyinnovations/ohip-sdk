@@ -100,7 +100,7 @@ export function RecentlyAccessedProfileTypeToJSON(value?: RecentlyAccessedProfil
     }
     return {
         
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substr(0,10)),
+        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'profileIdList': ProfileIdListToJSON(value.profileIdList),

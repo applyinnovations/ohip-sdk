@@ -47,7 +47,7 @@ function HouseSellLimitTypeToJSON(value) {
     }
     return {
         'amount': value.amount,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'flatOrPercentage': value.flatOrPercentage,
     };
 }

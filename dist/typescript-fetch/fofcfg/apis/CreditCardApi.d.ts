@@ -10,20 +10,20 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AuthorizationRule, CardReaderDelimiters, CreditCardInfo, CreditCardReaderDevices, CreditCardTypeValidationStatus, CreditCardUniqueId, DecodedCard, GetCreditCardUniqueIdRequest, HotelInterfaceDetail, PrepaidCardBalanceDetails, PrepaidCardDetails, PrepaidCards, PutSecureApplicationSettingsRequest, Status, UpdateInterfaceCustomDataRequest } from '../models';
+import type { ApplicationSecureSetting, AuthorizationRule, CardReaderDelimiters, CreditCardInfo, CreditCardReaderDevices, CreditCardTypeValidationStatus, CreditCardUniqueId, CreditCardUniqueIdRQ, DecodedCard, HotelInterfaceDetail, PrepaidCardBalanceDetails, PrepaidCardDetails, PrepaidCards, Status } from '../models/index';
 export interface DecodeCardRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     trackData?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAuthorizationRuleRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     reservationId?: string;
     idExtension?: number;
@@ -37,18 +37,18 @@ export interface GetAuthorizationRuleRequest {
     acceptLanguage?: string;
 }
 export interface GetCardReaderDelimitersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     deviceID?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCreditCardInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     idExtension?: number;
     idContext?: string;
@@ -62,36 +62,36 @@ export interface GetCreditCardInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditCardReaderDevicesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface GetCreditCardUniqueIdOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditCardUniqueIdRQ?: GetCreditCardUniqueIdRequest;
+export interface GetCreditCardUniqueIdRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditCardUniqueIdRQ: CreditCardUniqueIdRQ;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceCustomDataRequest {
-    interfaceLogoId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    interfaceLogoId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: GetHotelInterfaceCustomDataFetchInstructionsEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardRequest {
-    hotelId?: string;
-    cardNumber?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    cardNumber: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     interfaceId?: string;
     interfaceIdType?: string;
     reservationId?: string;
@@ -101,11 +101,11 @@ export interface GetPrepaidCardRequest {
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardBalanceRequest {
-    hotelId?: string;
-    cardNumber?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    cardNumber: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     interfaceId?: string;
     interfaceIdType?: string;
     reservationId?: string;
@@ -115,10 +115,10 @@ export interface GetPrepaidCardBalanceRequest {
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeCardDetails?: boolean;
     reservationId?: string;
     idExtension?: number;
@@ -131,28 +131,28 @@ export interface GetPrepaidCardsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutSecureApplicationSettingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    applicationSecureSetting?: PutSecureApplicationSettingsRequest;
+export interface PutSecureApplicationSettingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    applicationSecureSetting: ApplicationSecureSetting;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface UpdateInterfaceCustomDataOperationRequest {
-    interfaceLogoId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelInterfaceDetail?: UpdateInterfaceCustomDataRequest;
+export interface UpdateInterfaceCustomDataRequest {
+    interfaceLogoId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelInterfaceDetail: HotelInterfaceDetail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateCreditCardTypeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationID?: string;
     reservationIDIdExtension?: number;
     reservationIDIdContext?: string;
@@ -264,12 +264,12 @@ export declare class CreditCardApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>getCreditCardUniqueId</p>
      * Operation to fetch CreditCardUniqueId.
      */
-    getCreditCardUniqueIdRaw(requestParameters: GetCreditCardUniqueIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardUniqueId>>;
+    getCreditCardUniqueIdRaw(requestParameters: GetCreditCardUniqueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardUniqueId>>;
     /**
      *  <p><strong>OperationId:</strong>getCreditCardUniqueId</p>
      * Operation to fetch CreditCardUniqueId.
      */
-    getCreditCardUniqueId(requestParameters: GetCreditCardUniqueIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditCardUniqueId>;
+    getCreditCardUniqueId(requestParameters: GetCreditCardUniqueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditCardUniqueId>;
     /**
      * Operation to fetch hotel interface custom data. <p><strong>OperationId:</strong>getHotelInterfaceCustomData</p>
      * Operation to fetch hotel interface custom data.
@@ -314,22 +314,22 @@ export declare class CreditCardApi extends runtime.BaseAPI {
      * Operation to update one or more secure application settings. <p><strong>OperationId:</strong>putSecureApplicationSettings</p>
      * Operation to change AR SecureApplicationSettings.
      */
-    putSecureApplicationSettingsRaw(requestParameters: PutSecureApplicationSettingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putSecureApplicationSettingsRaw(requestParameters: PutSecureApplicationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to update one or more secure application settings. <p><strong>OperationId:</strong>putSecureApplicationSettings</p>
      * Operation to change AR SecureApplicationSettings.
      */
-    putSecureApplicationSettings(requestParameters: PutSecureApplicationSettingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putSecureApplicationSettings(requestParameters: PutSecureApplicationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Operation to update hotel interface custom data. <p><strong>OperationId:</strong>updateInterfaceCustomData</p>
      * Operation to update hotel interface custom data.
      */
-    updateInterfaceCustomDataRaw(requestParameters: UpdateInterfaceCustomDataOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    updateInterfaceCustomDataRaw(requestParameters: UpdateInterfaceCustomDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Operation to update hotel interface custom data. <p><strong>OperationId:</strong>updateInterfaceCustomData</p>
      * Operation to update hotel interface custom data.
      */
-    updateInterfaceCustomData(requestParameters: UpdateInterfaceCustomDataOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    updateInterfaceCustomData(requestParameters: UpdateInterfaceCustomDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>validateCreditCardType</p>
      * Operation to validate CreditCardType.

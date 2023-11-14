@@ -63,9 +63,9 @@ function FacilityHousekeepingTaskTypeToJSON(value) {
         'roomId': value.roomId,
         'roomType': value.roomType,
         'stayPeriod': (0, HousekeepingTaskStayPeriodType_1.HousekeepingTaskStayPeriodTypeToJSON)(value.stayPeriod),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0, 10)),
-        'taskEndDate': value.taskEndDate === undefined ? undefined : (value.taskEndDate.toISOString().substr(0, 10)),
-        'taskStartDate': value.taskStartDate === undefined ? undefined : (value.taskStartDate.toISOString().substr(0, 10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
+        'taskEndDate': value.taskEndDate === undefined ? undefined : (value.taskEndDate.toISOString().substring(0, 10)),
+        'taskStartDate': value.taskStartDate === undefined ? undefined : (value.taskStartDate.toISOString().substring(0, 10)),
     };
 }
 exports.FacilityHousekeepingTaskTypeToJSON = FacilityHousekeepingTaskTypeToJSON;

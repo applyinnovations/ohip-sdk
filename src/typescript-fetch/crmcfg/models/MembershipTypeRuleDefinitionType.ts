@@ -111,7 +111,7 @@ export function MembershipTypeRuleDefinitionTypeToJSON(value?: MembershipTypeRul
         'programType': MembershipTypeRuleTypeToJSON(value.programType),
         'ruleAppliesOn': RuleAppliesOnTypeToJSON(value.ruleAppliesOn),
         'ruleCode': value.ruleCode,
-        'ruleExpirationDate': value.ruleExpirationDate === undefined ? undefined : (value.ruleExpirationDate.toISOString().substr(0,10)),
+        'ruleExpirationDate': value.ruleExpirationDate === undefined ? undefined : (value.ruleExpirationDate.toISOString().substring(0,10)),
         'ruleExportLabel': value.ruleExportLabel,
     };
 }

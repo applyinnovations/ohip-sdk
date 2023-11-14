@@ -607,7 +607,7 @@ export function ReservationInfoTypeToJSON(value?: ReservationInfoType | null): a
         'keyCount': value.keyCount,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substr(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
         'mobileNotifications': ResMobileNotificationsTypeToJSON(value.mobileNotifications),
         'openFolio': value.openFolio,
         'optedForCommunication': value.optedForCommunication,

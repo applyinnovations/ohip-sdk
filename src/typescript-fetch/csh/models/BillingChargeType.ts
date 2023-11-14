@@ -151,7 +151,7 @@ export function BillingChargeTypeToJSON(value?: BillingChargeType | null): any {
     return {
         
         'approvalCode': value.approvalCode,
-        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substr(0,10)),
+        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substring(0,10)),
         'approvalStatus': value.approvalStatus,
         'arrangementCode': value.arrangementCode,
         'cashierId': value.cashierId,
@@ -161,7 +161,7 @@ export function BillingChargeTypeToJSON(value?: BillingChargeType | null): any {
         'quantity': value.quantity,
         'reference': value.reference,
         'remark': value.remark,
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substr(0,10)),
+        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
         'transactionNo': value.transactionNo,
     };
 }

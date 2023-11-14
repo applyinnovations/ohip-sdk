@@ -87,7 +87,7 @@ export function GuestLastStayInfoTypeToJSON(value?: GuestLastStayInfoType | null
     }
     return {
         
-        'lastStayDate': value.lastStayDate === undefined ? undefined : (value.lastStayDate.toISOString().substr(0,10)),
+        'lastStayDate': value.lastStayDate === undefined ? undefined : (value.lastStayDate.toISOString().substring(0,10)),
         'lastStayRoom': value.lastStayRoom,
         'lastStayRate': CurrencyAmountTypeToJSON(value.lastStayRate),
         'totalStay': value.totalStay,

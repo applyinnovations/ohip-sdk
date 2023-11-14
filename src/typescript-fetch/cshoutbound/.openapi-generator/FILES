@@ -2,14 +2,12 @@
 apis/CashieringApi.ts
 apis/index.ts
 index.ts
-models/ApproveCompPostingsRequest.ts
 models/AuthorizeCompRedemptionsRQ.ts
 models/AuthorizeCompRedemptionsRQCompRedemptionType.ts
 models/AuthorizeCompRedemptionsRQCompRedemptionsType.ts
 models/AuthorizeCompRedemptionsRS.ts
 models/AuthorizeCompRedemptionsRSCompRedemptionType.ts
 models/AuthorizeCompRedemptionsRSCompRedemptionsType.ts
-models/AuthorizeCompRedemptionsRequest.ts
 models/CompTransactionInfoType.ts
 models/CompTransactionType.ts
 models/CompTransactionsCriteriaType.ts
@@ -28,12 +26,10 @@ models/PostCompRedemptionsRQCompRedemptionsType.ts
 models/PostCompRedemptionsRS.ts
 models/PostCompRedemptionsRSCompRedemptionType.ts
 models/PostCompRedemptionsRSCompRedemptionsType.ts
-models/PostCompRedemptionsRequest.ts
 models/ReverseCompRedemptionsRQ.ts
 models/ReverseCompRedemptionsRQCompRedemptionType.ts
 models/ReverseCompRedemptionsRQCompRedemptionsType.ts
 models/ReverseCompRedemptionsRS.ts
-models/ReverseCompRedemptionsRequest.ts
 models/SendCompTransactionsStatus.ts
 models/Status.ts
 models/UniqueIDType.ts

@@ -10,40 +10,40 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ActivityLog, AddReservationToQueueRequest, AiraLastRunStatusInfo, AssignRoomsAIRequest, AssignedRoom, AutoAssignRoomRequest, AutoAssignedRoom, BatchCCAuthToProcess, ChangedWakeUpCalls, CheckedinReservation, DailyDocket, DeleteAssignRoomRequest, DeliverQueueRoomsTextMessageRequest, FloorPlans, HotelRooms, LinkedReservations, MoveInHouseGuestRequest, MovedInHouseGuest, PlaceRoomsOnHoldRequest, PostAdvanceCheckInRequest, PostCheckInRequest, PostMassAdvanceCheckInRequest, PostMassCheckInRequest, PostRoomAssignmentRequest, PostRoomKeyRequest, ProcessBatchCCAuthRequest, PutDailyDocketRequest, PutReservationQueuePriorityRequest, PutRoomInterfaceStatusRequest, PutServiceRequestsRequest, PutWakeUpCallRequest, QueueRoomsTextMessage, QueuedRoomsTextMessage, ReservationQueuePriority, ReservationsInQueue, ReservationsInfo, ResvForBatchCCAut, RoomInterfaceStatus, RoomKeyDetails, RoomKeyInfo, RoomKeyInterfaceDetails, RoomKeyMultipleGuests, RoomKeyStatus, RoomMoveHistory, ServiceRequestsInfo, ShiftRoomsRequest, ShortReservation, Status, SuggestedRooms, SwapRoomsRequest, UnAssignedRoom, UpdateRoomKeys, VerifiedCheckinReservation, WakeUpCalls } from '../models';
-export interface AddReservationToQueueOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    queueReservation?: AddReservationToQueueRequest;
+import type { ActivityLog, AdvanceCheckInReservation, AiraLastRunStatusInfo, AssignedRoom, AutoAssignRoom, AutoAssignedRoom, BatchCCAuth, BatchCCAuthToProcess, ChangedWakeUpCalls, CheckedinReservation, DailyDocket, DeliverQueueRoomsTextMessage, FloorPlans, HoldRooms, HotelRooms, LinkedReservations, MassAdvanceCheckInReservations, MassCheckInReservations, MoveInHouseGuest, MovedInHouseGuest, PostCheckInRequest, QueueReservation, QueueRoomsTextMessage, QueuedRoomsTextMessage, ReservationInterface, ReservationQueuePriority, ReservationQueuePriorityNumber, ReservationsInQueue, ReservationsInfo, ResvForBatchCCAut, Room, RoomInterfaceStatus, RoomKey, RoomKeyDetails, RoomKeyInfo, RoomKeyInterfaceDetails, RoomKeyMultipleGuests, RoomKeyStatus, RoomMoveHistory, RoomsAI, ServiceRequestsInfo, ShiftRooms, ShortReservation, Status, SuggestedRooms, SwapRooms, UnAssignRoomCriteria, UnAssignedRoom, UpdateRoomKeys, VerifiedCheckinReservation, WakeUpCalls } from '../models/index';
+export interface AddReservationToQueueRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    queueReservation: QueueReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface AssignRoomsAIOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomsAI?: AssignRoomsAIRequest;
+export interface AssignRoomsAIRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomsAI: RoomsAI;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface AutoAssignRoomOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoAssignRoom?: AutoAssignRoomRequest;
+export interface AutoAssignRoomRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoAssignRoom: AutoAssignRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AutoUnAssignRoomRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idExtension?: Array<number>;
     type?: Array<string>;
@@ -85,77 +85,77 @@ export interface AutoUnAssignRoomRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAdvanceCheckInRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DeleteAssignRoomOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    unAssignRoomCriteria?: DeleteAssignRoomRequest;
+export interface DeleteAssignRoomRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    unAssignRoomCriteria: UnAssignRoomCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCheckinRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomStatus?: DeleteCheckinRoomStatusEnum;
     unassignRoom?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteDailyDocketRequest {
-    docketId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    docketId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationFromQueueRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomKeyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteServiceRequestsRequest {
-    serviceRequestId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    serviceRequestId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     callTime?: Array<string>;
     followUpCallTime?: Array<string>;
     startDate?: Date;
@@ -164,49 +164,49 @@ export interface DeleteWakeUpCallRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DeliverQueueRoomsTextMessageOperationRequest {
-    messageType?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    deliverQueueRoomsTextMessage?: DeliverQueueRoomsTextMessageRequest;
+export interface DeliverQueueRoomsTextMessageRequest {
+    messageType: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    deliverQueueRoomsTextMessage: DeliverQueueRoomsTextMessage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface FetchAiraLastRunStatusRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetDailyDocketRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     docketDate?: Date;
     department?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFloorPlansRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     room?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFulfillmentActivityLogRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     module?: GetFulfillmentActivityLogModuleEnum;
@@ -223,10 +223,10 @@ export interface GetFulfillmentActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     roomNumberWildcard?: string;
@@ -270,11 +270,11 @@ export interface GetHotelRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetLinkedReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     additionalReservationId?: Array<string>;
     additionalReservationIdContext?: Array<string>;
     additionalReservationIdType?: Array<string>;
@@ -282,11 +282,11 @@ export interface GetLinkedReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetQueueRoomsTextMessageRequest {
-    messageType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    messageType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     reservationIdContext?: string;
     reservationIdType?: string;
@@ -295,10 +295,10 @@ export interface GetQueueRoomsTextMessageRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationSummariesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     searchType?: GetReservationSummariesSearchTypeEnum;
     reservationId?: Array<string>;
     reservationIdContext?: Array<string>;
@@ -348,10 +348,10 @@ export interface GetReservationSummariesRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsForBillingRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     searchType?: GetReservationsForBillingSearchTypeEnum;
@@ -407,10 +407,10 @@ export interface GetReservationsForBillingRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsInQueueRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomClassCodes?: Array<string>;
     roomTypeCodes?: Array<string>;
     roomNumberWildCard?: string;
@@ -419,10 +419,10 @@ export interface GetReservationsInQueueRequest {
     acceptLanguage?: string;
 }
 export interface GetResvForBatchCCAuthRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     guestName?: string;
     room?: string;
     cardType?: Set<GetResvForBatchCCAuthCardTypeEnum>;
@@ -431,11 +431,11 @@ export interface GetResvForBatchCCAuthRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomInterfaceStatusRequest {
-    interfaceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    interfaceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     interfaceName?: string;
     interfaceType?: GetRoomInterfaceStatusInterfaceTypeEnum;
     logo?: string;
@@ -474,39 +474,39 @@ export interface GetRoomInterfaceStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomKeyInterfaceDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomNumbersCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomKeysRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomMoveHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetServiceRequestsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     code?: Array<string>;
     status?: Set<GetServiceRequestsStatusEnum>;
@@ -527,11 +527,11 @@ export interface GetServiceRequestsRequest {
     acceptLanguage?: string;
 }
 export interface GetSuggestedRoomsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomType?: string;
     startDate?: Date;
     nights?: number;
@@ -540,11 +540,11 @@ export interface GetSuggestedRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchCancelled?: boolean;
     fetchCompleted?: boolean;
     fetchNoAnswer?: boolean;
@@ -562,184 +562,184 @@ export interface GetWakeUpCallRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface MoveInHouseGuestOperationRequest {
-    roomId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    moveInHouseGuest?: MoveInHouseGuestRequest;
+export interface MoveInHouseGuestRequest {
+    roomId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    moveInHouseGuest: MoveInHouseGuest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PlaceRoomsOnHoldOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdRooms?: PlaceRoomsOnHoldRequest;
+export interface PlaceRoomsOnHoldRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdRooms: HoldRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAdvanceCheckInOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    advanceCheckInReservation?: PostAdvanceCheckInRequest;
+export interface PostAdvanceCheckInRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    advanceCheckInReservation: AdvanceCheckInReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCheckInOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservation?: PostCheckInRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservation: PostCheckInRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDailyDocketRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyDocket?: PutDailyDocketRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyDocket: DailyDocket;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMassAdvanceCheckInOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    massAdvanceCheckInReservations?: PostMassAdvanceCheckInRequest;
+export interface PostMassAdvanceCheckInRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    massAdvanceCheckInReservations: MassAdvanceCheckInReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMassCheckInOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    massCheckInReservations?: PostMassCheckInRequest;
+export interface PostMassCheckInRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    massCheckInReservations: MassCheckInReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomAssignmentOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    room?: PostRoomAssignmentRequest;
+export interface PostRoomAssignmentRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    room: Room;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomKeyOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomKey?: PostRoomKeyRequest;
+export interface PostRoomKeyRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomKey: RoomKey;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostServiceRequestsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestsInfo?: PutServiceRequestsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestsInfo: ServiceRequestsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostWakeUpCallRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    wakeUpCalls?: PutWakeUpCallRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    wakeUpCalls: WakeUpCalls;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ProcessBatchCCAuthOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchCCAuth?: ProcessBatchCCAuthRequest;
+export interface ProcessBatchCCAuthRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchCCAuth: BatchCCAuth;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDailyDocketOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyDocket?: PutDailyDocketRequest;
+export interface PutDailyDocketRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyDocket: DailyDocket;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationQueuePriorityOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationQueuePriorityNumber?: PutReservationQueuePriorityRequest;
+export interface PutReservationQueuePriorityRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationQueuePriorityNumber: ReservationQueuePriorityNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomInterfaceStatusOperationRequest {
-    interfaceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationInterface?: PutRoomInterfaceStatusRequest;
+export interface PutRoomInterfaceStatusRequest {
+    interfaceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationInterface: ReservationInterface;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomKeysRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomKeys?: RoomKeyMultipleGuests;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomKeys: RoomKeyMultipleGuests;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutServiceRequestsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestsInfo?: PutServiceRequestsRequest;
+export interface PutServiceRequestsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestsInfo: ServiceRequestsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutWakeUpCallOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    wakeUpCalls?: PutWakeUpCallRequest;
+export interface PutWakeUpCallRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    wakeUpCalls: WakeUpCalls;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReadRoomKeyRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     encoderTerminal?: string;
     encoderId?: string;
     encoderIdContext?: string;
@@ -748,42 +748,42 @@ export interface ReadRoomKeyRequest {
     acceptLanguage?: string;
 }
 export interface ReleaseRoomsOnHoldRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdRooms?: PlaceRoomsOnHoldRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdRooms: HoldRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ShiftRoomsOperationRequest {
-    hotelId?: string;
-    sourceReservationId?: string;
-    targetReservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    shiftRooms?: ShiftRoomsRequest;
+export interface ShiftRoomsRequest {
+    hotelId: string;
+    sourceReservationId: string;
+    targetReservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    shiftRooms: ShiftRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SwapRoomsOperationRequest {
-    hotelId?: string;
-    sourceReservationId?: string;
-    targetReservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    swapRooms?: SwapRoomsRequest;
+export interface SwapRoomsRequest {
+    hotelId: string;
+    sourceReservationId: string;
+    targetReservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    swapRooms: SwapRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface VerifyCheckinReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     verifyCheckinInstructions?: Set<VerifyCheckinReservationVerifyCheckinInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -796,32 +796,32 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Using this API you can assign reservations to the reservation queue if the guest\'s room is not ready for assignment or if there are no available rooms of the room type attached to the reservation. Housekeeping staff can use the Queue Rooms functionality to determine if there are guests waiting to check in to a particular room or type of room; if there are, the queue list can provide guidance in determining which rooms need attention first. <p><strong>OperationId:</strong>addReservationToQueue</p>
      * Add reservation to queue
      */
-    addReservationToQueueRaw(requestParameters: AddReservationToQueueOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>>;
+    addReservationToQueueRaw(requestParameters: AddReservationToQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>>;
     /**
      * Using this API you can assign reservations to the reservation queue if the guest\'s room is not ready for assignment or if there are no available rooms of the room type attached to the reservation. Housekeeping staff can use the Queue Rooms functionality to determine if there are guests waiting to check in to a particular room or type of room; if there are, the queue list can provide guidance in determining which rooms need attention first. <p><strong>OperationId:</strong>addReservationToQueue</p>
      * Add reservation to queue
      */
-    addReservationToQueue(requestParameters: AddReservationToQueueOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority>;
+    addReservationToQueue(requestParameters: AddReservationToQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority>;
     /**
      * This API runs AI Room Assignment and allocates rooms to incoming reservations. <p><strong>OperationId:</strong>assignRoomsAI</p>
      * AI Assign Rooms
      */
-    assignRoomsAIRaw(requestParameters: AssignRoomsAIOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    assignRoomsAIRaw(requestParameters: AssignRoomsAIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API runs AI Room Assignment and allocates rooms to incoming reservations. <p><strong>OperationId:</strong>assignRoomsAI</p>
      * AI Assign Rooms
      */
-    assignRoomsAI(requestParameters: AssignRoomsAIOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    assignRoomsAI(requestParameters: AssignRoomsAIRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    autoAssignRoomRaw(requestParameters: AutoAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignedRoom>>;
+    autoAssignRoomRaw(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignedRoom>>;
     /**
      * This API can be used to assign the room automatically. <p><strong>OperationId:</strong>autoAssignRoom</p>
      * Assign the room automatically
      */
-    autoAssignRoom(requestParameters: AutoAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignedRoom>;
+    autoAssignRoom(requestParameters: AutoAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignedRoom>;
     /**
      * This API can be used to auto unassign a room. <p><strong>OperationId:</strong>autoUnAssignRoom</p>
      * Auto unassign room
@@ -846,12 +846,12 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to remove an assigned room from a reservation in reserved status. <p><strong>OperationId:</strong>deleteAssignRoom</p>
      * Remove an assigned room
      */
-    deleteAssignRoomRaw(requestParameters: DeleteAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnAssignedRoom>>;
+    deleteAssignRoomRaw(requestParameters: DeleteAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnAssignedRoom>>;
     /**
      * This API will allow you to remove an assigned room from a reservation in reserved status. <p><strong>OperationId:</strong>deleteAssignRoom</p>
      * Remove an assigned room
      */
-    deleteAssignRoom(requestParameters: DeleteAssignRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnAssignedRoom>;
+    deleteAssignRoom(requestParameters: DeleteAssignRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnAssignedRoom>;
     /**
      * Use this API to revert a reservation that has been checked in.  This will return the reservation to a Due in/Arrival status. <p><strong>OperationId:</strong>deleteCheckin</p>
      * Revert a checked-in Reservation
@@ -916,12 +916,12 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will deliver Queue rooms text message. <p><strong>OperationId:</strong>deliverQueueRoomsTextMessage</p>
      * Deliver Queue rooms text message
      */
-    deliverQueueRoomsTextMessageRaw(requestParameters: DeliverQueueRoomsTextMessageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueRoomsTextMessage>>;
+    deliverQueueRoomsTextMessageRaw(requestParameters: DeliverQueueRoomsTextMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueueRoomsTextMessage>>;
     /**
      * This API will deliver Queue rooms text message. <p><strong>OperationId:</strong>deliverQueueRoomsTextMessage</p>
      * Deliver Queue rooms text message
      */
-    deliverQueueRoomsTextMessage(requestParameters: DeliverQueueRoomsTextMessageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueRoomsTextMessage>;
+    deliverQueueRoomsTextMessage(requestParameters: DeliverQueueRoomsTextMessageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueueRoomsTextMessage>;
     /**
      * This API fetches the last run status of an Automated Intelligence Room Assignment. <p><strong>OperationId:</strong>fetchAiraLastRunStatus</p>
      * Automated Intelligence Room Assignment last run status
@@ -1106,32 +1106,32 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to change rooms for an in-house guest. <p><strong>OperationId:</strong>moveInHouseGuest</p>
      * Move in-house guest
      */
-    moveInHouseGuestRaw(requestParameters: MoveInHouseGuestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedInHouseGuest>>;
+    moveInHouseGuestRaw(requestParameters: MoveInHouseGuestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedInHouseGuest>>;
     /**
      * This API will allow you to change rooms for an in-house guest. <p><strong>OperationId:</strong>moveInHouseGuest</p>
      * Move in-house guest
      */
-    moveInHouseGuest(requestParameters: MoveInHouseGuestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedInHouseGuest>;
+    moveInHouseGuest(requestParameters: MoveInHouseGuestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedInHouseGuest>;
     /**
      * You can use this API to place Rooms On Hold. <p><strong>OperationId:</strong>placeRoomsOnHold</p>
      * Place Rooms On Hold
      */
-    placeRoomsOnHoldRaw(requestParameters: PlaceRoomsOnHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    placeRoomsOnHoldRaw(requestParameters: PlaceRoomsOnHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to place Rooms On Hold. <p><strong>OperationId:</strong>placeRoomsOnHold</p>
      * Place Rooms On Hold
      */
-    placeRoomsOnHold(requestParameters: PlaceRoomsOnHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    placeRoomsOnHold(requestParameters: PlaceRoomsOnHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * At times, when guests arrive to the property prior to a room being ready, you can flag a reservation as Advance Checked In for arrivals due in on the current business date. This enables guests to post charges to their reservation folio prior to check in, and helps the rooms management team prioritize room cleaning and assignment. Individual reservations (including Walk In reservations, Pre Registered reservations, and reservations that are in Queue) and group block reservations can be Advance Checked In. <p><strong>OperationId:</strong>postAdvanceCheckIn</p>
      * Advance checkin a reservation
      */
-    postAdvanceCheckInRaw(requestParameters: PostAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAdvanceCheckInRaw(requestParameters: PostAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * At times, when guests arrive to the property prior to a room being ready, you can flag a reservation as Advance Checked In for arrivals due in on the current business date. This enables guests to post charges to their reservation folio prior to check in, and helps the rooms management team prioritize room cleaning and assignment. Individual reservations (including Walk In reservations, Pre Registered reservations, and reservations that are in Queue) and group block reservations can be Advance Checked In. <p><strong>OperationId:</strong>postAdvanceCheckIn</p>
      * Advance checkin a reservation
      */
-    postAdvanceCheckIn(requestParameters: PostAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAdvanceCheckIn(requestParameters: PostAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to check in a guest reservation.  The reservation needs to be \'due in\' status.  The API also provides an option to select an available room. <p><strong>OperationId:</strong>postCheckIn</p>
      * Checks in a guest
@@ -1156,42 +1156,42 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to perform a mass advance checkin for reservations. <p><strong>OperationId:</strong>postMassAdvanceCheckIn</p>
      * Mass Advance Check in Reservations
      */
-    postMassAdvanceCheckInRaw(requestParameters: PostMassAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMassAdvanceCheckInRaw(requestParameters: PostMassAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to perform a mass advance checkin for reservations. <p><strong>OperationId:</strong>postMassAdvanceCheckIn</p>
      * Mass Advance Check in Reservations
      */
-    postMassAdvanceCheckIn(requestParameters: PostMassAdvanceCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMassAdvanceCheckIn(requestParameters: PostMassAdvanceCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to perform a mass Checkin for reservations. <p><strong>OperationId:</strong>postMassCheckIn</p>
      * Mass checkin reservations
      */
-    postMassCheckInRaw(requestParameters: PostMassCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMassCheckInRaw(requestParameters: PostMassCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to perform a mass Checkin for reservations. <p><strong>OperationId:</strong>postMassCheckIn</p>
      * Mass checkin reservations
      */
-    postMassCheckIn(requestParameters: PostMassCheckInOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMassCheckIn(requestParameters: PostMassCheckInRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to assign a room to a reservation in reserved status. Override instructions are available to assign a room despite warnings returned in the response message. <p><strong>OperationId:</strong>postRoomAssignment</p>
      * Assign a Room to a Reservation
      */
-    postRoomAssignmentRaw(requestParameters: PostRoomAssignmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignedRoom>>;
+    postRoomAssignmentRaw(requestParameters: PostRoomAssignmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssignedRoom>>;
     /**
      * This API will allow you to assign a room to a reservation in reserved status. Override instructions are available to assign a room despite warnings returned in the response message. <p><strong>OperationId:</strong>postRoomAssignment</p>
      * Assign a Room to a Reservation
      */
-    postRoomAssignment(requestParameters: PostRoomAssignmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignedRoom>;
+    postRoomAssignment(requestParameters: PostRoomAssignmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssignedRoom>;
     /**
      * You can use this API to create a room key request for a reservation to the active Door Locking System Property Interface. <p><strong>OperationId:</strong>postRoomKey</p>
      * Requests room key(s)
      */
-    postRoomKeyRaw(requestParameters: PostRoomKeyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomKeyDetails>>;
+    postRoomKeyRaw(requestParameters: PostRoomKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomKeyDetails>>;
     /**
      * You can use this API to create a room key request for a reservation to the active Door Locking System Property Interface. <p><strong>OperationId:</strong>postRoomKey</p>
      * Requests room key(s)
      */
-    postRoomKey(requestParameters: PostRoomKeyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomKeyDetails>;
+    postRoomKey(requestParameters: PostRoomKeyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomKeyDetails>;
     /**
      * Service Request functionality provides the ability to define, track and report Service Requests on a reservation.  They go through a preset flow including creating the request, completing it and then following up on the resolution with the guest. <p><strong>OperationId:</strong>postServiceRequests</p>
      * Create Service Requests
@@ -1216,42 +1216,42 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API is used to process batch CC Authorization. <p><strong>OperationId:</strong>processBatchCCAuth</p>
      * Process batch CC Auth
      */
-    processBatchCCAuthRaw(requestParameters: ProcessBatchCCAuthOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchCCAuthToProcess>>;
+    processBatchCCAuthRaw(requestParameters: ProcessBatchCCAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchCCAuthToProcess>>;
     /**
      * This API is used to process batch CC Authorization. <p><strong>OperationId:</strong>processBatchCCAuth</p>
      * Process batch CC Auth
      */
-    processBatchCCAuth(requestParameters: ProcessBatchCCAuthOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchCCAuthToProcess>;
+    processBatchCCAuth(requestParameters: ProcessBatchCCAuthRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchCCAuthToProcess>;
     /**
      * Use this API to change Daily Docket. <p><strong>OperationId:</strong>putDailyDocket</p>
      * Change Daily Docket
      */
-    putDailyDocketRaw(requestParameters: PutDailyDocketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDailyDocketRaw(requestParameters: PutDailyDocketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to change Daily Docket. <p><strong>OperationId:</strong>putDailyDocket</p>
      * Change Daily Docket
      */
-    putDailyDocket(requestParameters: PutDailyDocketOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDailyDocket(requestParameters: PutDailyDocketRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API can be used to change the resrevations Queue Priority. <p><strong>OperationId:</strong>putReservationQueuePriority</p>
      * Change the reservation queue priority
      */
-    putReservationQueuePriorityRaw(requestParameters: PutReservationQueuePriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>>;
+    putReservationQueuePriorityRaw(requestParameters: PutReservationQueuePriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationQueuePriority>>;
     /**
      * This API can be used to change the resrevations Queue Priority. <p><strong>OperationId:</strong>putReservationQueuePriority</p>
      * Change the reservation queue priority
      */
-    putReservationQueuePriority(requestParameters: PutReservationQueuePriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority>;
+    putReservationQueuePriority(requestParameters: PutReservationQueuePriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationQueuePriority>;
     /**
      * You can use this API to change room interface status. <p><strong>OperationId:</strong>putRoomInterfaceStatus</p>
      * Change room interface status
      */
-    putRoomInterfaceStatusRaw(requestParameters: PutRoomInterfaceStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomInterfaceStatusRaw(requestParameters: PutRoomInterfaceStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change room interface status. <p><strong>OperationId:</strong>putRoomInterfaceStatus</p>
      * Change room interface status
      */
-    putRoomInterfaceStatus(requestParameters: PutRoomInterfaceStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomInterfaceStatus(requestParameters: PutRoomInterfaceStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * When MUTIPLE_GUEST_KEY is active this methods can be used to update information on the room keys such as balance amount and keyOptions. reservationId and hotelId are required path parameters. The body parameter roomKeys includes information about the encoder, room, key type, key validity, key options  and   guests information for multiple keys
      * Update room keys.
@@ -1266,22 +1266,22 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * Use this API to modify any service requests that exist on a reservation. <p><strong>OperationId:</strong>putServiceRequests</p>
      * Change Service Requests
      */
-    putServiceRequestsRaw(requestParameters: PutServiceRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putServiceRequestsRaw(requestParameters: PutServiceRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to modify any service requests that exist on a reservation. <p><strong>OperationId:</strong>putServiceRequests</p>
      * Change Service Requests
      */
-    putServiceRequests(requestParameters: PutServiceRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putServiceRequests(requestParameters: PutServiceRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Update an existing wake up call.  Wake up call can only be added to in-house reservations. <p><strong>OperationId:</strong>putWakeUpCall</p>
      * Change Wake Up Call
      */
-    putWakeUpCallRaw(requestParameters: PutWakeUpCallOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedWakeUpCalls>>;
+    putWakeUpCallRaw(requestParameters: PutWakeUpCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedWakeUpCalls>>;
     /**
      * Update an existing wake up call.  Wake up call can only be added to in-house reservations. <p><strong>OperationId:</strong>putWakeUpCall</p>
      * Change Wake Up Call
      */
-    putWakeUpCall(requestParameters: PutWakeUpCallOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedWakeUpCalls>;
+    putWakeUpCall(requestParameters: PutWakeUpCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedWakeUpCalls>;
     /**
      * This API can be used to read the Room Key. <p><strong>OperationId:</strong>readRoomKey</p>
      * Read room key
@@ -1306,22 +1306,22 @@ export declare class FrontDeskOperationsApi extends runtime.BaseAPI {
      * This API will allow you to quickly shift rooms for two reservations. <p><strong>OperationId:</strong>shiftRooms</p>
      * Operation for Shift Rooms between two reservations
      */
-    shiftRoomsRaw(requestParameters: ShiftRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    shiftRoomsRaw(requestParameters: ShiftRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to quickly shift rooms for two reservations. <p><strong>OperationId:</strong>shiftRooms</p>
      * Operation for Shift Rooms between two reservations
      */
-    shiftRooms(requestParameters: ShiftRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    shiftRooms(requestParameters: ShiftRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to quickly swap rooms for two reservations. <p><strong>OperationId:</strong>swapRooms</p>
      * Operation for Swap/Shift Rooms between two reservations
      */
-    swapRoomsRaw(requestParameters: SwapRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    swapRoomsRaw(requestParameters: SwapRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to quickly swap rooms for two reservations. <p><strong>OperationId:</strong>swapRooms</p>
      * Operation for Swap/Shift Rooms between two reservations
      */
-    swapRooms(requestParameters: SwapRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    swapRooms(requestParameters: SwapRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to verify checkin reservations. <p><strong>OperationId:</strong>verifyCheckinReservation</p>
      * Verify checkin reservation

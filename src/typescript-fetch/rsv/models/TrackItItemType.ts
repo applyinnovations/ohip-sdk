@@ -202,7 +202,7 @@ export function TrackItItemTypeToJSON(value?: TrackItItemType | null): any {
         'action': TrackItActionTypeToJSON(value.action),
         'assignedTo': ApplicationUserTypeToJSON(value.assignedTo),
         'description': value.description,
-        'followUpDate': value.followUpDate === undefined ? undefined : (value.followUpDate.toISOString().substr(0,10)),
+        'followUpDate': value.followUpDate === undefined ? undefined : (value.followUpDate.toISOString().substring(0,10)),
         'group': TrackItGroupToJSON(value.group),
         'hotelId': value.hotelId,
         'location': CodeDescriptionTypeToJSON(value.location),

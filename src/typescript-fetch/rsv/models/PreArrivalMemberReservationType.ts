@@ -87,7 +87,7 @@ export function PreArrivalMemberReservationTypeToJSON(value?: PreArrivalMemberRe
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'createDateTime': value.createDateTime,
         'membershipId': value.membershipId,
         'reservationIdList': ReservationIdListToJSON(value.reservationIdList),

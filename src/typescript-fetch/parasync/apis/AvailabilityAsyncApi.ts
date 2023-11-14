@@ -19,7 +19,7 @@ import type {
   Links,
   Restrictions,
   RestrictionsStatus,
-} from '../models';
+} from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
@@ -29,35 +29,35 @@ import {
     RestrictionsToJSON,
     RestrictionsStatusFromJSON,
     RestrictionsStatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetRestrictionsRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    requestId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    extSystemCode: string;
+    requestId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface GetRestrictionsProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface PostRestrictionsProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    restrictions?: Restrictions;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    restrictions: Restrictions;
     acceptLanguage?: string;
 }
 
@@ -71,6 +71,30 @@ export class AvailabilityAsyncApi extends runtime.BaseAPI {
      * Get status for created restrictions.
      */
     async getRestrictionsRaw(requestParameters: GetRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestrictionsStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRestrictions.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getRestrictions.');
+        }
+
+        if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+            throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getRestrictions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRestrictions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRestrictions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRestrictions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -115,6 +139,30 @@ export class AvailabilityAsyncApi extends runtime.BaseAPI {
      * Check status of Restrictions
      */
     async getRestrictionsProcessStatusRaw(requestParameters: GetRestrictionsProcessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+            throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getRestrictionsProcessStatus.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getRestrictionsProcessStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRestrictionsProcessStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRestrictionsProcessStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRestrictionsProcessStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRestrictionsProcessStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -158,6 +206,30 @@ export class AvailabilityAsyncApi extends runtime.BaseAPI {
      * Create restrictions in OPERA Cloud.
      */
     async postRestrictionsProcessRaw(requestParameters: PostRestrictionsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Links>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRestrictionsProcess.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling postRestrictionsProcess.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRestrictionsProcess.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRestrictionsProcess.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRestrictionsProcess.');
+        }
+
+        if (requestParameters.restrictions === null || requestParameters.restrictions === undefined) {
+            throw new runtime.RequiredError('restrictions','Required parameter requestParameters.restrictions was null or undefined when calling postRestrictionsProcess.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

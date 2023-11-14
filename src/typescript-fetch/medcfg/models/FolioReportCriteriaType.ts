@@ -109,7 +109,7 @@ export function FolioReportCriteriaTypeToJSON(value?: FolioReportCriteriaType | 
     return {
         
         'billNumber': value.billNumber,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substr(0,10)),
+        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
         'folioType': value.folioType,
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,

@@ -67,7 +67,7 @@ export function TraceResolveTypeToJSON(value?: TraceResolveType | null): any {
     return {
         
         'resolvedBy': value.resolvedBy,
-        'resolvedOn': value.resolvedOn === undefined ? undefined : (value.resolvedOn.toISOString().substr(0,10)),
+        'resolvedOn': value.resolvedOn === undefined ? undefined : (value.resolvedOn.toISOString().substring(0,10)),
     };
 }
 

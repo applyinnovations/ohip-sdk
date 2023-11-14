@@ -62,12 +62,12 @@ function BillingPrivilegesTypeToJSON(value) {
         'autoSettlementType': value.autoSettlementType,
         'creditLimitAutoPay': value.creditLimitAutoPay,
         'directBillAuthorized': value.directBillAuthorized,
-        'folioCloseDate': value.folioCloseDate === undefined ? undefined : (value.folioCloseDate.toISOString().substr(0, 10)),
+        'folioCloseDate': value.folioCloseDate === undefined ? undefined : (value.folioCloseDate.toISOString().substring(0, 10)),
         'postStayCharging': value.postStayCharging,
         'postingRestriction': value.postingRestriction,
         'preStayCharging': value.preStayCharging,
         'scheduledCheckout': value.scheduledCheckout,
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substr(0, 10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0, 10)),
         'videoCheckout': value.videoCheckout,
     };
 }

@@ -47,8 +47,8 @@ function ResPeriodicFolioTypeToJSON(value) {
     }
     return {
         'frequency': value.frequency,
-        'lastFolioDate': value.lastFolioDate === undefined ? undefined : (value.lastFolioDate.toISOString().substr(0, 10)),
-        'lastSettlementDate': value.lastSettlementDate === undefined ? undefined : (value.lastSettlementDate.toISOString().substr(0, 10)),
+        'lastFolioDate': value.lastFolioDate === undefined ? undefined : (value.lastFolioDate.toISOString().substring(0, 10)),
+        'lastSettlementDate': value.lastSettlementDate === undefined ? undefined : (value.lastSettlementDate.toISOString().substring(0, 10)),
     };
 }
 exports.ResPeriodicFolioTypeToJSON = ResPeriodicFolioTypeToJSON;

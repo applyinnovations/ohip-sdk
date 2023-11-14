@@ -54,7 +54,7 @@ function AROldBalanceChargeTypeToJSON(value) {
     }
     return {
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'fiscalBillNo': value.fiscalBillNo,
         'folioNo': value.folioNo,
         'paid': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.paid),

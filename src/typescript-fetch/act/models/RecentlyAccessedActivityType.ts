@@ -107,7 +107,7 @@ export function RecentlyAccessedActivityTypeToJSON(value?: RecentlyAccessedActiv
     }
     return {
         
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substr(0,10)),
+        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
         'activityIdList': ActivityIdListTypeToJSON(value.activityIdList),
         'activityOwnerCode': value.activityOwnerCode,
         'activityTypeDescription': value.activityTypeDescription,

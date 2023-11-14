@@ -35,6 +35,5 @@ __exportStar(require("./ParametersNameType"), exports);
 __exportStar(require("./ParametersType"), exports);
 __exportStar(require("./ValidateListOfValues"), exports);
 __exportStar(require("./ValidateListOfValuesDetails"), exports);
-__exportStar(require("./ValidateListOfValuesRequest"), exports);
 __exportStar(require("./WarningType"), exports);
 __exportStar(require("./WarningsType"), exports);

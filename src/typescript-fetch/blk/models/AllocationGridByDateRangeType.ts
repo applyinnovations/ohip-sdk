@@ -142,13 +142,13 @@ export function AllocationGridByDateRangeTypeToJSON(value?: AllocationGridByDate
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'friday': value.friday,
         'inventory': SetBlockGridInvTypeToJSON(value.inventory),
         'monday': value.monday,
         'rate': BlockGridRatesTypeToJSON(value.rate),
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

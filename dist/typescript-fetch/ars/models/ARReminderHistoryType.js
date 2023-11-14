@@ -48,7 +48,7 @@ function ARReminderHistoryTypeToJSON(value) {
     }
     return {
         'age': value.age,
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substr(0, 10)),
+        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0, 10)),
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,
     };

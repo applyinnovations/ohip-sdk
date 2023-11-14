@@ -17,18 +17,18 @@ import * as runtime from '../runtime';
 import type {
   BlockStats,
   ExceptionDetailType,
-} from '../models';
+} from '../models/index';
 import {
     BlockStatsFromJSON,
     BlockStatsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetBlockStatsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     reportCode?: Set<GetBlockStatsReportCodeEnum>;
     reportEndDate?: Array<Date>;
@@ -52,6 +52,18 @@ export class BlockStatsApi extends runtime.BaseAPI {
      * Get Block statistics
      */
     async getBlockStatsRaw(requestParameters: GetBlockStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockStats>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockStats.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockStats.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockStats.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {

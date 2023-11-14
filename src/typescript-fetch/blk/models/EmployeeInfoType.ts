@@ -153,7 +153,7 @@ export function EmployeeInfoTypeToJSON(value?: EmployeeInfoType | null): any {
     return {
         
         'addressInfo': AddressInfoTypeToJSON(value.addressInfo),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substr(0,10)),
+        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
         'birthDateMasked': value.birthDateMasked,
         'department': CodeDescriptionTypeToJSON(value.department),
         'emailInfo': EmailInfoTypeToJSON(value.emailInfo),

@@ -56,7 +56,7 @@ function CateringEventsProcessedInfoTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substr(0, 10)),
+        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substring(0, 10)),
         'eventName': value.eventName,
         'eventType': value.eventType,
         'functionSpaceDetails': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.functionSpaceDetails),

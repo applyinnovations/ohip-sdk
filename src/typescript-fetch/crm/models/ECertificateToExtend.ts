@@ -94,7 +94,7 @@ export function ECertificateToExtendToJSON(value?: ECertificateToExtend | null):
     return {
         
         'certificateId': value.certificateId,
-        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substr(0,10)),
+        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substring(0,10)),
         'links': LinksToJSON(value.links),
         'warnings': WarningsTypeToJSON(value.warnings),
     };

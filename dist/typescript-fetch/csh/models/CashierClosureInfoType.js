@@ -56,10 +56,10 @@ function CashierClosureInfoTypeToJSON(value) {
         'cashierClosureNo': (0, CashierClosureNoType_1.CashierClosureNoTypeToJSON)(value.cashierClosureNo),
         'cashierTitle': value.cashierTitle,
         'cashierUser': value.cashierUser,
-        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substr(0, 10)),
-        'closureBusinessDate': value.closureBusinessDate === undefined ? undefined : (value.closureBusinessDate.toISOString().substr(0, 10)),
+        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0, 10)),
+        'closureBusinessDate': value.closureBusinessDate === undefined ? undefined : (value.closureBusinessDate.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
-        'openDate': value.openDate === undefined ? undefined : (value.openDate.toISOString().substr(0, 10)),
+        'openDate': value.openDate === undefined ? undefined : (value.openDate.toISOString().substring(0, 10)),
         'reportsList': (0, CashierClosureReportsType_1.CashierClosureReportsTypeToJSON)(value.reportsList),
     };
 }

@@ -148,7 +148,7 @@ export function CompTransactionInfoTypeToJSON(value?: CompTransactionInfoType | 
         'transactionDescription': value.transactionDescription,
         'roomId': value.roomId,
         'confirmationNo': value.confirmationNo,
-        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substr(0,10)),
+        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substring(0,10)),
         'approvalStatus': value.approvalStatus,
         'approvalCode': value.approvalCode,
         'approvalMessage': value.approvalMessage,

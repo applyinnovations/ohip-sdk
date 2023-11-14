@@ -10,69 +10,69 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeTrackItActionsRequest, ChangeTrackItLocationsRequest, ChangeTrackItTypesRequest, CopyTrackItActionsRequest, CopyTrackItLocationsRequest, CopyTrackItTypesRequest, PostTrackItActionsRequest, PostTrackItLocationsRequest, PostTrackItTypesRequest, Status, TrackItActionsDetails, TrackItLocationsDetails, TrackItTypesDetails } from '../models';
-export interface ChangeTrackItActionsOperationRequest {
-    actionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItActionsToBeChanged?: ChangeTrackItActionsRequest;
+import type { CopyTrackItActions, CopyTrackItLocations, CopyTrackItTypes, Status, TrackItActionsCriteria, TrackItActionsDetails, TrackItActionsToBeChanged, TrackItLocationsCriteria, TrackItLocationsDetails, TrackItLocationsToBeChanged, TrackItTypesCriteria, TrackItTypesDetails, TrackItTypesToBeChanged } from '../models/index';
+export interface ChangeTrackItActionsRequest {
+    actionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItActionsToBeChanged: TrackItActionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTrackItLocationsOperationRequest {
-    locationCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItLocationsToBeChanged?: ChangeTrackItLocationsRequest;
+export interface ChangeTrackItLocationsRequest {
+    locationCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItLocationsToBeChanged: TrackItLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTrackItTypesOperationRequest {
-    typeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItTypesToBeChanged?: ChangeTrackItTypesRequest;
+export interface ChangeTrackItTypesRequest {
+    typeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItTypesToBeChanged: TrackItTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTrackItActionsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyTrackItActions?: CopyTrackItActionsRequest;
+export interface CopyTrackItActionsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyTrackItActions: CopyTrackItActions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTrackItLocationsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyTrackItLocations?: CopyTrackItLocationsRequest;
+export interface CopyTrackItLocationsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyTrackItLocations: CopyTrackItLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTrackItTypesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyTrackItTypes?: CopyTrackItTypesRequest;
+export interface CopyTrackItTypesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyTrackItTypes: CopyTrackItTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTrackItActionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -81,10 +81,10 @@ export interface GetTrackItActionsRequest {
     acceptLanguage?: string;
 }
 export interface GetTrackItLocationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -93,10 +93,10 @@ export interface GetTrackItLocationsRequest {
     acceptLanguage?: string;
 }
 export interface GetTrackItTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -104,57 +104,57 @@ export interface GetTrackItTypesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTrackItActionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItActionsCriteria?: PostTrackItActionsRequest;
+export interface PostTrackItActionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItActionsCriteria: TrackItActionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTrackItLocationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItLocationsCriteria?: PostTrackItLocationsRequest;
+export interface PostTrackItLocationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItLocationsCriteria: TrackItLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTrackItTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItTypesCriteria?: PostTrackItTypesRequest;
+export interface PostTrackItTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItTypesCriteria: TrackItTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTrackItActionsRequest {
-    actionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    actionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTrackItLocationsRequest {
-    locationCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    locationCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTrackItTypesRequest {
-    typeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    typeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -166,62 +166,62 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Track it Actions. <p><strong>OperationId:</strong>changeTrackItActions</p>
      * Change Track it Actions
      */
-    changeTrackItActionsRaw(requestParameters: ChangeTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTrackItActionsRaw(requestParameters: ChangeTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Track it Actions. <p><strong>OperationId:</strong>changeTrackItActions</p>
      * Change Track it Actions
      */
-    changeTrackItActions(requestParameters: ChangeTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTrackItActions(requestParameters: ChangeTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Track it Locations. <p><strong>OperationId:</strong>changeTrackItLocations</p>
      * Change Track it Locations
      */
-    changeTrackItLocationsRaw(requestParameters: ChangeTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTrackItLocationsRaw(requestParameters: ChangeTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Track it Locations. <p><strong>OperationId:</strong>changeTrackItLocations</p>
      * Change Track it Locations
      */
-    changeTrackItLocations(requestParameters: ChangeTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTrackItLocations(requestParameters: ChangeTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Track it Types. <p><strong>OperationId:</strong>changeTrackItTypes</p>
      * Change Track it Types
      */
-    changeTrackItTypesRaw(requestParameters: ChangeTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTrackItTypesRaw(requestParameters: ChangeTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Track it Types. <p><strong>OperationId:</strong>changeTrackItTypes</p>
      * Change Track it Types
      */
-    changeTrackItTypes(requestParameters: ChangeTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTrackItTypes(requestParameters: ChangeTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Track it Actions. <p><strong>OperationId:</strong>copyTrackItActions</p>
      *  Copy Track it Actions
      */
-    copyTrackItActionsRaw(requestParameters: CopyTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTrackItActionsRaw(requestParameters: CopyTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Track it Actions. <p><strong>OperationId:</strong>copyTrackItActions</p>
      *  Copy Track it Actions
      */
-    copyTrackItActions(requestParameters: CopyTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTrackItActions(requestParameters: CopyTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Track it Locations. <p><strong>OperationId:</strong>copyTrackItLocations</p>
      *  Copy Track it Locations
      */
-    copyTrackItLocationsRaw(requestParameters: CopyTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTrackItLocationsRaw(requestParameters: CopyTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Track it Locations. <p><strong>OperationId:</strong>copyTrackItLocations</p>
      *  Copy Track it Locations
      */
-    copyTrackItLocations(requestParameters: CopyTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTrackItLocations(requestParameters: CopyTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy Track it Types. <p><strong>OperationId:</strong>copyTrackItTypes</p>
      *  Copy Track it Types
      */
-    copyTrackItTypesRaw(requestParameters: CopyTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTrackItTypesRaw(requestParameters: CopyTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy Track it Types. <p><strong>OperationId:</strong>copyTrackItTypes</p>
      *  Copy Track it Types
      */
-    copyTrackItTypes(requestParameters: CopyTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTrackItTypes(requestParameters: CopyTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to get Track it Actions. <p><strong>OperationId:</strong>getTrackItActions</p>
      * Get Track it Actions
@@ -256,32 +256,32 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Track it Actions. <p><strong>OperationId:</strong>postTrackItActions</p>
      * Create Track it Actions
      */
-    postTrackItActionsRaw(requestParameters: PostTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTrackItActionsRaw(requestParameters: PostTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Track it Actions. <p><strong>OperationId:</strong>postTrackItActions</p>
      * Create Track it Actions
      */
-    postTrackItActions(requestParameters: PostTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTrackItActions(requestParameters: PostTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Track it Locations. <p><strong>OperationId:</strong>postTrackItLocations</p>
      * Create Track it Locations
      */
-    postTrackItLocationsRaw(requestParameters: PostTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTrackItLocationsRaw(requestParameters: PostTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Track it Locations. <p><strong>OperationId:</strong>postTrackItLocations</p>
      * Create Track it Locations
      */
-    postTrackItLocations(requestParameters: PostTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTrackItLocations(requestParameters: PostTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Track it Types. <p><strong>OperationId:</strong>postTrackItTypes</p>
      * Create Track it Types
      */
-    postTrackItTypesRaw(requestParameters: PostTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTrackItTypesRaw(requestParameters: PostTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Track it Types. <p><strong>OperationId:</strong>postTrackItTypes</p>
      * Create Track it Types
      */
-    postTrackItTypes(requestParameters: PostTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTrackItTypes(requestParameters: PostTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Track it Actions. <p><strong>OperationId:</strong>removeTrackItActions</p>
      * Delete Track it Actions

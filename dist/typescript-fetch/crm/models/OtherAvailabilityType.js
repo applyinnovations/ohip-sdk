@@ -57,8 +57,8 @@ function OtherAvailabilityTypeToJSON(value) {
         'awardValue': value.awardValue,
         'longDescription': value.longDescription,
         'pointsRequired': value.pointsRequired,
-        'sellBeginDate': value.sellBeginDate === undefined ? undefined : (value.sellBeginDate.toISOString().substr(0, 10)),
-        'sellEndDate': value.sellEndDate === undefined ? undefined : (value.sellEndDate.toISOString().substr(0, 10)),
+        'sellBeginDate': value.sellBeginDate === undefined ? undefined : (value.sellBeginDate.toISOString().substring(0, 10)),
+        'sellEndDate': value.sellEndDate === undefined ? undefined : (value.sellEndDate.toISOString().substring(0, 10)),
         'shortDescription': value.shortDescription,
         'totalAvailablePoints': value.totalAvailablePoints,
     };

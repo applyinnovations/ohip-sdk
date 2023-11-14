@@ -161,10 +161,10 @@ export function RoomOwnerReferralTypeToJSON(value?: RoomOwnerReferralType | null
     }
     return {
         
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'profileAddress': AddressTypeToJSON(value.profileAddress),
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'profileName': ProfileNameTypeToJSON(value.profileName),
@@ -172,7 +172,7 @@ export function RoomOwnerReferralTypeToJSON(value?: RoomOwnerReferralType | null
         'roomId': value.roomId,
         'roomOwnerId': value.roomOwnerId,
         'roomOwnerReferralId': value.roomOwnerReferralId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

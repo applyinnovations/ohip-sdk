@@ -51,7 +51,7 @@ function CateringMenuClassInfoTypeToJSON(value) {
     return {
         'eventTypes': (0, CodeListType_1.CodeListTypeToJSON)(value.eventTypes),
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'name': value.name,
         'webBookable': value.webBookable,
     };

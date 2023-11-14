@@ -99,7 +99,7 @@ function StagedProfileTypeToJSON(value) {
         'privacyInfo': (0, PrivacyInfoType_1.PrivacyInfoTypeToJSON)(value.privacyInfo),
         'comments': (0, StagedProfileCommentInfosType_1.StagedProfileCommentInfosTypeToJSON)(value.comments),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substr(0, 10)),
+        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
         'profileType': value.profileType,
         'stageStatus': value.stageStatus,
     };

@@ -55,7 +55,7 @@ function MembershipTypeRuleDefinitionTypeToJSON(value) {
         'programType': (0, MembershipTypeRuleType_1.MembershipTypeRuleTypeToJSON)(value.programType),
         'ruleAppliesOn': (0, RuleAppliesOnType_1.RuleAppliesOnTypeToJSON)(value.ruleAppliesOn),
         'ruleCode': value.ruleCode,
-        'ruleExpirationDate': value.ruleExpirationDate === undefined ? undefined : (value.ruleExpirationDate.toISOString().substr(0, 10)),
+        'ruleExpirationDate': value.ruleExpirationDate === undefined ? undefined : (value.ruleExpirationDate.toISOString().substring(0, 10)),
         'ruleExportLabel': value.ruleExportLabel,
     };
 }

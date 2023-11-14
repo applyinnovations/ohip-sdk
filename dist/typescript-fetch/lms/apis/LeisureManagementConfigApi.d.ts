@@ -10,128 +10,128 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeActivityLocationsRS, ChangeActivityStatusCodesRS, ChangeActivityTypesRS, CopyActivityLocationsRS, CopyActivityLocationsRequest, CopyActivityTypesRS, CopyActivityTypesRequest, FetchActivityLocations, FetchActivityStatusCodes, FetchActivityTypes, PostActivityLocationsRequest, PostActivityStatusCodesRequest, PostActivityTypesRequest, PutActivityLocationsRequest, PutActivityStatusCodesRequest, PutActivityTypesRequest, Status } from '../models';
-export interface CopyActivityLocationsOperationRequest {
-    activityLocationsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyActivityLocations?: CopyActivityLocationsRequest;
+import type { ChangeActivityLocations, ChangeActivityLocationsRS, ChangeActivityStatusCodes, ChangeActivityStatusCodesRS, ChangeActivityTypes, ChangeActivityTypesRS, CopyActivityLocations, CopyActivityLocationsRS, CopyActivityTypes, CopyActivityTypesRS, CreateActivityLocations, CreateActivityStatusCodes, CreateActivityTypes, FetchActivityLocations, FetchActivityStatusCodes, FetchActivityTypes, Status } from '../models/index';
+export interface CopyActivityLocationsRequest {
+    activityLocationsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyActivityLocations: CopyActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyActivityTypesOperationRequest {
-    activityTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyActivityTypes?: CopyActivityTypesRequest;
+export interface CopyActivityTypesRequest {
+    activityTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyActivityTypes: CopyActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityLocationsRequest {
-    activityLocationsId?: string;
-    hotelIds?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityLocationsId: string;
+    hotelIds: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityStatusCodesRequest {
-    activityStatusCodesId?: string;
-    hotelIds?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityStatusCodesId: string;
+    hotelIds: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityTypesRequest {
-    activityTypesId?: string;
-    hotelIds?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityTypesId: string;
+    hotelIds: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityLocationsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     criteriaCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityStatusCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     criteriaCodes?: Array<string>;
     applicationCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityTypesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     typeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostActivityLocationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createActivityLocations?: PostActivityLocationsRequest;
+export interface PostActivityLocationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createActivityLocations: CreateActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostActivityStatusCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createActivityStatusCodes?: PostActivityStatusCodesRequest;
+export interface PostActivityStatusCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createActivityStatusCodes: CreateActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostActivityTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createActivityTypes?: PostActivityTypesRequest;
+export interface PostActivityTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createActivityTypes: CreateActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutActivityLocationsOperationRequest {
-    activityLocationsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeActivityLocations?: PutActivityLocationsRequest;
+export interface PutActivityLocationsRequest {
+    activityLocationsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeActivityLocations: ChangeActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutActivityStatusCodesOperationRequest {
-    activityStatusCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeActivityStatusCodes?: PutActivityStatusCodesRequest;
+export interface PutActivityStatusCodesRequest {
+    activityStatusCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeActivityStatusCodes: ChangeActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutActivityTypesOperationRequest {
-    activityTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeActivityTypes?: PutActivityTypesRequest;
+export interface PutActivityTypesRequest {
+    activityTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeActivityTypes: ChangeActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -143,22 +143,22 @@ export declare class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to copy an Activity location for a property. <p><strong>OperationId:</strong>copyActivityLocations</p>
      * Copy Activity Locations
      */
-    copyActivityLocationsRaw(requestParameters: CopyActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityLocationsRS>>;
+    copyActivityLocationsRaw(requestParameters: CopyActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityLocationsRS>>;
     /**
      * Use this API to copy an Activity location for a property. <p><strong>OperationId:</strong>copyActivityLocations</p>
      * Copy Activity Locations
      */
-    copyActivityLocations(requestParameters: CopyActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityLocationsRS>;
+    copyActivityLocations(requestParameters: CopyActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityLocationsRS>;
     /**
      * Copy existing Activity Types from source property to target properties. <p><strong>OperationId:</strong>copyActivityTypes</p>
      * Copy Activity Types
      */
-    copyActivityTypesRaw(requestParameters: CopyActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityTypesRS>>;
+    copyActivityTypesRaw(requestParameters: CopyActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityTypesRS>>;
     /**
      * Copy existing Activity Types from source property to target properties. <p><strong>OperationId:</strong>copyActivityTypes</p>
      * Copy Activity Types
      */
-    copyActivityTypes(requestParameters: CopyActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityTypesRS>;
+    copyActivityTypes(requestParameters: CopyActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityTypesRS>;
     /**
      * Use this API to delete an Activity location for a property. <p><strong>OperationId:</strong>deleteActivityLocations</p>
      * Remove Activity Locations
@@ -223,60 +223,60 @@ export declare class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Activity location for a property. <p><strong>OperationId:</strong>postActivityLocations</p>
      * Create an Activity Locations
      */
-    postActivityLocationsRaw(requestParameters: PostActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postActivityLocationsRaw(requestParameters: PostActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Activity location for a property. <p><strong>OperationId:</strong>postActivityLocations</p>
      * Create an Activity Locations
      */
-    postActivityLocations(requestParameters: PostActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postActivityLocations(requestParameters: PostActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Retrieve Activity Status Code that are configured for a property.  Activity Status Codes are typically used when an EAS (External Activities Scheduler system) interface is connected to OPERA.   <p><strong>OperationId:</strong>postActivityStatusCodes</p>
      * Create Activity Status Code
      */
-    postActivityStatusCodesRaw(requestParameters: PostActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postActivityStatusCodesRaw(requestParameters: PostActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Retrieve Activity Status Code that are configured for a property.  Activity Status Codes are typically used when an EAS (External Activities Scheduler system) interface is connected to OPERA.   <p><strong>OperationId:</strong>postActivityStatusCodes</p>
      * Create Activity Status Code
      */
-    postActivityStatusCodes(requestParameters: PostActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postActivityStatusCodes(requestParameters: PostActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a new Activity Type Code for a specific property. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create Activity Types
      */
-    postActivityTypesRaw(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postActivityTypesRaw(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a new Activity Type Code for a specific property. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create Activity Types
      */
-    postActivityTypes(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postActivityTypes(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update an existing Activity location Code for a property. <p><strong>OperationId:</strong>putActivityLocations</p>
      * Change in Activity Locations
      */
-    putActivityLocationsRaw(requestParameters: PutActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityLocationsRS>>;
+    putActivityLocationsRaw(requestParameters: PutActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityLocationsRS>>;
     /**
      * Use this API to update an existing Activity location Code for a property. <p><strong>OperationId:</strong>putActivityLocations</p>
      * Change in Activity Locations
      */
-    putActivityLocations(requestParameters: PutActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityLocationsRS>;
+    putActivityLocations(requestParameters: PutActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityLocationsRS>;
     /**
      * Modify an Activity Status Code that is configured for a property.  <p><strong>OperationId:</strong>putActivityStatusCodes</p>
      * Change Activity Status Code
      */
-    putActivityStatusCodesRaw(requestParameters: PutActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityStatusCodesRS>>;
+    putActivityStatusCodesRaw(requestParameters: PutActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityStatusCodesRS>>;
     /**
      * Modify an Activity Status Code that is configured for a property.  <p><strong>OperationId:</strong>putActivityStatusCodes</p>
      * Change Activity Status Code
      */
-    putActivityStatusCodes(requestParameters: PutActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityStatusCodesRS>;
+    putActivityStatusCodes(requestParameters: PutActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityStatusCodesRS>;
     /**
      * Modify an Activity Type Code that is configured for a property. <p><strong>OperationId:</strong>putActivityTypes</p>
      * Change Activity Types
      */
-    putActivityTypesRaw(requestParameters: PutActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityTypesRS>>;
+    putActivityTypesRaw(requestParameters: PutActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityTypesRS>>;
     /**
      * Modify an Activity Type Code that is configured for a property. <p><strong>OperationId:</strong>putActivityTypes</p>
      * Change Activity Types
      */
-    putActivityTypes(requestParameters: PutActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityTypesRS>;
+    putActivityTypes(requestParameters: PutActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityTypesRS>;
 }

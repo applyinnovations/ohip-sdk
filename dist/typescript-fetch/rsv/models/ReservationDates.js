@@ -49,11 +49,11 @@ function ReservationDatesToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0, 10)),
-        'cancelledOn': value.cancelledOn === undefined ? undefined : (value.cancelledOn.toISOString().substr(0, 10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'cancelledOn': value.cancelledOn === undefined ? undefined : (value.cancelledOn.toISOString().substring(0, 10)),
         'createDateTime': value.createDateTime,
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0, 10)),
-        'folioClosedOn': value.folioClosedOn === undefined ? undefined : (value.folioClosedOn.toISOString().substr(0, 10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
+        'folioClosedOn': value.folioClosedOn === undefined ? undefined : (value.folioClosedOn.toISOString().substring(0, 10)),
         'lastModifyDateTime': value.lastModifyDateTime,
     };
 }

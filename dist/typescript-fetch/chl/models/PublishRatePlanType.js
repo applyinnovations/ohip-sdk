@@ -51,10 +51,10 @@ function PublishRatePlanTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0, 10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
         'channel': value.channel,
         'channelCodes': (0, PublishRatePlanTypeChannelCodes_1.PublishRatePlanTypeChannelCodesToJSON)(value.channelCodes),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'hotelCodes': (0, PublishRatePlanTypeHotelCodes_1.PublishRatePlanTypeHotelCodesToJSON)(value.hotelCodes),
         'hotelId': value.hotelId,
     };

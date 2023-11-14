@@ -156,7 +156,7 @@ export function ConfigPackageScheduleTypeToJSON(value?: ConfigPackageScheduleTyp
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'maxNights': value.maxNights,
         'maxPersons': value.maxPersons,
         'minNights': value.minNights,
@@ -168,7 +168,7 @@ export function ConfigPackageScheduleTypeToJSON(value?: ConfigPackageScheduleTyp
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
         'ratePlanCode': value.ratePlanCode,
         'schedulePrices': value.schedulePrices === undefined ? undefined : ((value.schedulePrices as Array<any>).map(HotelPackageSchedulePriceTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }
 

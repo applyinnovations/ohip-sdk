@@ -10,58 +10,58 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ActivitiesInfo, Activity, ActivityAttachments, ActivityLog, ActivityStatistics, EmailsDetails, PostActivitiesRequest, PostLinkedActivitiesRequest, PostMultipleActivitiesCompletionRequest, PostSingleActivityCompletionRequest, PutActivitiesRequest, RecentlyAccessedActivities, Status } from '../models';
+import type { ActivitiesInfo, Activity, ActivityAttachments, ActivityLog, ActivityStatistics, EmailsDetails, LinkedActivities, PostActivitiesRequest, PostMultipleActivitiesCompletionRequest, PostSingleActivityCompletionRequest, PutActivitiesRequest, RecentlyAccessedActivities, Status } from '../models/index';
 export interface DeleteActivitiesRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     activityIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivitiesWithOutHotelIdRequest {
-    activityId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     activityIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityAttachmentRequest {
-    attachmentId?: string;
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attachmentId: string;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityAttachmentWithoutHotelIdRequest {
-    attachmentId?: string;
-    activityId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attachmentId: string;
+    activityId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMultipleActivitiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     activityIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivitiesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     completed?: boolean;
     highPriority?: boolean;
     limit?: number;
@@ -81,9 +81,9 @@ export interface GetActivitiesRequest {
     acceptLanguage?: string;
 }
 export interface GetActivitiesByMultipleHotelIdsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     completed?: boolean;
     highPriority?: boolean;
     limit?: number;
@@ -103,29 +103,29 @@ export interface GetActivitiesByMultipleHotelIdsRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetActivityFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityAttachmentsRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityLogRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     module?: GetActivityLogModuleEnum;
@@ -142,10 +142,10 @@ export interface GetActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityStatisticsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reportStartDate?: Date;
     activityTypeCodes?: Array<string>;
     ownerCodeList?: Array<string>;
@@ -153,18 +153,18 @@ export interface GetActivityStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityWithOutHotelIdRequest {
-    activityId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetActivityWithOutHotelIdFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetEmailsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     code?: Array<string>;
@@ -195,64 +195,64 @@ export interface GetEmailsRequest {
     acceptLanguage?: string;
 }
 export interface GetRecentlyAccessedActivitiesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRecentlyAccessedActivitiesWithOutHotelIdRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostActivitiesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activitiesInformation?: PostActivitiesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activitiesInformation: PostActivitiesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostLinkedActivitiesOperationRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    linkedActivities?: PostLinkedActivitiesRequest;
+export interface PostLinkedActivitiesRequest {
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    linkedActivities: LinkedActivities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMultipleActivitiesCompletionOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activitiesToChange?: PostMultipleActivitiesCompletionRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activitiesToChange: PostMultipleActivitiesCompletionRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSingleActivityCompletionOperationRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activitiesToChange?: PostSingleActivityCompletionRequest;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activitiesToChange: PostSingleActivityCompletionRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivitiesOperationRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activitiesToChange?: PutActivitiesRequest;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activitiesToChange: PutActivitiesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -424,12 +424,12 @@ export declare class ActivityApi extends runtime.BaseAPI {
      * You can use this API to invite one or multiple owners to an activity. <p><strong>OperationId:</strong>postLinkedActivities</p>
      * Create linked activities in a hotel by ID
      */
-    postLinkedActivitiesRaw(requestParameters: PostLinkedActivitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postLinkedActivitiesRaw(requestParameters: PostLinkedActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to invite one or multiple owners to an activity. <p><strong>OperationId:</strong>postLinkedActivities</p>
      * Create linked activities in a hotel by ID
      */
-    postLinkedActivities(requestParameters: PostLinkedActivitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postLinkedActivities(requestParameters: PostLinkedActivitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to mark multiple Activities as completed in 1 request.  You must know the OPERA Activity ID\'s for this API. <p><strong>OperationId:</strong>postMultipleActivitiesCompletion</p>
      * Complete activities

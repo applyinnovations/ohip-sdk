@@ -398,7 +398,7 @@ export function TaskCompanionTaskRoomRoomsInnerToJSON(value?: TaskCompanionTaskR
         'smokingPreferenceDescription': value.smokingPreferenceDescription,
         'totalCredits': value.totalCredits,
         'turndownInfo': TurndownInfoTypeToJSON(value.turndownInfo),
-        'wakeUpTime': value.wakeUpTime === undefined ? undefined : (value.wakeUpTime.toISOString().substr(0,10)),
+        'wakeUpTime': value.wakeUpTime === undefined ? undefined : (value.wakeUpTime.toISOString().substring(0,10)),
     };
 }
 

@@ -157,7 +157,7 @@ export function SellMessageTypeToJSON(value?: SellMessageType | null): any {
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'chainCode': value.chainCode,
         'croCode': value.croCode,
         'hotelId': value.hotelId,

@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LeisureManagementApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,27 @@ class LeisureManagementApi extends runtime.BaseAPI {
      */
     deleteActivityBookingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+                throw new runtime.RequiredError('reservationId', 'Required parameter requestParameters.reservationId was null or undefined when calling deleteActivityBooking.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteActivityBooking.');
+            }
+            if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
+                throw new runtime.RequiredError('activityId', 'Required parameter requestParameters.activityId was null or undefined when calling deleteActivityBooking.');
+            }
+            if (requestParameters.activityIdType === null || requestParameters.activityIdType === undefined) {
+                throw new runtime.RequiredError('activityIdType', 'Required parameter requestParameters.activityIdType was null or undefined when calling deleteActivityBooking.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteActivityBooking.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityBooking.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityBooking.');
+            }
             const queryParameters = {};
             if (requestParameters.activityId !== undefined) {
                 queryParameters['activityId'] = requestParameters.activityId;
@@ -87,7 +108,7 @@ class LeisureManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -106,6 +127,21 @@ class LeisureManagementApi extends runtime.BaseAPI {
      */
     getActivityBookingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getActivityBookings.');
+            }
+            if (requestParameters.profileIds === null || requestParameters.profileIds === undefined) {
+                throw new runtime.RequiredError('profileIds', 'Required parameter requestParameters.profileIds was null or undefined when calling getActivityBookings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getActivityBookings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getActivityBookings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getActivityBookings.');
+            }
             const queryParameters = {};
             if (requestParameters.profileIds) {
                 queryParameters['profileIds'] = requestParameters.profileIds;
@@ -156,7 +192,7 @@ class LeisureManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ActivityBookingsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ActivityBookingsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -175,6 +211,24 @@ class LeisureManagementApi extends runtime.BaseAPI {
      */
     postActivityBookingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+                throw new runtime.RequiredError('reservationId', 'Required parameter requestParameters.reservationId was null or undefined when calling postActivityBooking.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postActivityBooking.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postActivityBooking.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postActivityBooking.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postActivityBooking.');
+            }
+            if (requestParameters.createActivityBooking === null || requestParameters.createActivityBooking === undefined) {
+                throw new runtime.RequiredError('createActivityBooking', 'Required parameter requestParameters.createActivityBooking was null or undefined when calling postActivityBooking.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -198,9 +252,9 @@ class LeisureManagementApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostActivityBookingRequestToJSON)(requestParameters.createActivityBooking),
+                body: (0, index_1.CreateActivityBookingToJSON)(requestParameters.createActivityBooking),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -219,6 +273,24 @@ class LeisureManagementApi extends runtime.BaseAPI {
      */
     postLocationNotificationRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+                throw new runtime.RequiredError('reservationId', 'Required parameter requestParameters.reservationId was null or undefined when calling postLocationNotification.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postLocationNotification.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postLocationNotification.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postLocationNotification.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postLocationNotification.');
+            }
+            if (requestParameters.locationNotificationToBeCreated === null || requestParameters.locationNotificationToBeCreated === undefined) {
+                throw new runtime.RequiredError('locationNotificationToBeCreated', 'Required parameter requestParameters.locationNotificationToBeCreated was null or undefined when calling postLocationNotification.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -242,9 +314,9 @@ class LeisureManagementApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostLocationNotificationRequestToJSON)(requestParameters.locationNotificationToBeCreated),
+                body: (0, index_1.LocationNotificationToBeCreatedToJSON)(requestParameters.locationNotificationToBeCreated),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -263,6 +335,24 @@ class LeisureManagementApi extends runtime.BaseAPI {
      */
     putActivityBookingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.reservationId === null || requestParameters.reservationId === undefined) {
+                throw new runtime.RequiredError('reservationId', 'Required parameter requestParameters.reservationId was null or undefined when calling putActivityBooking.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putActivityBooking.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putActivityBooking.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putActivityBooking.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putActivityBooking.');
+            }
+            if (requestParameters.changeActivityBooking === null || requestParameters.changeActivityBooking === undefined) {
+                throw new runtime.RequiredError('changeActivityBooking', 'Required parameter requestParameters.changeActivityBooking was null or undefined when calling putActivityBooking.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -286,9 +376,9 @@ class LeisureManagementApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutActivityBookingRequestToJSON)(requestParameters.changeActivityBooking),
+                body: (0, index_1.ChangeActivityBookingToJSON)(requestParameters.changeActivityBooking),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ActivityBookingModifiedFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ActivityBookingModifiedFromJSON)(jsonValue));
         });
     }
     /**

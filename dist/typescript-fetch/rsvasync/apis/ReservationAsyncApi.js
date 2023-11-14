@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReservationAsyncApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,24 @@ class ReservationAsyncApi extends runtime.BaseAPI {
      */
     getReservationsDailySummaryRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.summaryId === null || requestParameters.summaryId === undefined) {
+                throw new runtime.RequiredError('summaryId', 'Required parameter requestParameters.summaryId was null or undefined when calling getReservationsDailySummary.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getReservationsDailySummary.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getReservationsDailySummary.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReservationsDailySummary.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsDailySummary.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsDailySummary.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -78,7 +96,7 @@ class ReservationAsyncApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ReservationsDailySummaryDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ReservationsDailySummaryDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -97,6 +115,24 @@ class ReservationAsyncApi extends runtime.BaseAPI {
      */
     getReservationsProcessStatusRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.summaryId === null || requestParameters.summaryId === undefined) {
+                throw new runtime.RequiredError('summaryId', 'Required parameter requestParameters.summaryId was null or undefined when calling getReservationsProcessStatus.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getReservationsProcessStatus.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getReservationsProcessStatus.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReservationsProcessStatus.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReservationsProcessStatus.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReservationsProcessStatus.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -135,6 +171,24 @@ class ReservationAsyncApi extends runtime.BaseAPI {
      */
     startReservationsDailySummaryProcessRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling startReservationsDailySummaryProcess.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling startReservationsDailySummaryProcess.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling startReservationsDailySummaryProcess.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling startReservationsDailySummaryProcess.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling startReservationsDailySummaryProcess.');
+            }
+            if (requestParameters.criteria === null || requestParameters.criteria === undefined) {
+                throw new runtime.RequiredError('criteria', 'Required parameter requestParameters.criteria was null or undefined when calling startReservationsDailySummaryProcess.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -155,7 +209,7 @@ class ReservationAsyncApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.CriteriaToJSON)(requestParameters.criteria),
+                body: (0, index_1.CriteriaToJSON)(requestParameters.criteria),
             }, initOverrides);
             return new runtime.VoidApiResponse(response);
         });

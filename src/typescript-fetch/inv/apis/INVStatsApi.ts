@@ -18,7 +18,7 @@ import type {
   BlockInventoryStatistic,
   ExceptionDetailType,
   InventoryStatistics,
-} from '../models';
+} from '../models/index';
 import {
     BlockInventoryStatisticFromJSON,
     BlockInventoryStatisticToJSON,
@@ -26,13 +26,13 @@ import {
     ExceptionDetailTypeToJSON,
     InventoryStatisticsFromJSON,
     InventoryStatisticsToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetBlockInventoryStatisticsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeBlocksWithNoRoom?: boolean;
     includeOverbooking?: boolean;
     includeOpportunities?: boolean;
@@ -60,10 +60,10 @@ export interface GetBlockInventoryStatisticsRequest {
 }
 
 export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeBlocksWithNoRoom?: boolean;
     includeOverbooking?: boolean;
     includeOpportunities?: boolean;
@@ -91,13 +91,13 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
 }
 
 export interface GetInventoryStatisticsRequest {
-    hotelId?: string;
-    dateRangeEnd?: Date;
-    reportCode?: GetInventoryStatisticsReportCodeEnum;
-    dateRangeStart?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    dateRangeEnd: Date;
+    reportCode: GetInventoryStatisticsReportCodeEnum;
+    dateRangeStart: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     parameterName?: Array<GetInventoryStatisticsParameterNameEnum>;
     parameterValue?: Array<string>;
     xExternalsystem?: string;
@@ -114,6 +114,22 @@ export class INVStatsApi extends runtime.BaseAPI {
      * Get block inventory statistics
      */
     async getBlockInventoryStatisticsRaw(requestParameters: GetBlockInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockInventoryStatistic>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockInventoryStatistics.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockInventoryStatistics.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockInventoryStatistics.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockInventoryStatistics.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeBlocksWithNoRoom !== undefined) {
@@ -141,11 +157,11 @@ export class INVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDateRange !== undefined) {
-            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substr(0,10);
+            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDateRange !== undefined) {
-            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substr(0,10);
+            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockStatusCodes) {
@@ -250,6 +266,22 @@ export class INVStatsApi extends runtime.BaseAPI {
      * Get block inventory statistics for multiple hotel Ids
      */
     async getBlockInventoryStatisticsMultipleHotelIdsRaw(requestParameters: GetBlockInventoryStatisticsMultipleHotelIdsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockInventoryStatistic>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockInventoryStatisticsMultipleHotelIds.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -281,11 +313,11 @@ export class INVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDateRange !== undefined) {
-            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substr(0,10);
+            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDateRange !== undefined) {
-            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substr(0,10);
+            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockStatusCodes) {
@@ -390,10 +422,38 @@ export class INVStatsApi extends runtime.BaseAPI {
      * Get hotel inventory
      */
     async getInventoryStatisticsRaw(requestParameters: GetInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryStatistics>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryStatistics.');
+        }
+
+        if (requestParameters.dateRangeEnd === null || requestParameters.dateRangeEnd === undefined) {
+            throw new runtime.RequiredError('dateRangeEnd','Required parameter requestParameters.dateRangeEnd was null or undefined when calling getInventoryStatistics.');
+        }
+
+        if (requestParameters.reportCode === null || requestParameters.reportCode === undefined) {
+            throw new runtime.RequiredError('reportCode','Required parameter requestParameters.reportCode was null or undefined when calling getInventoryStatistics.');
+        }
+
+        if (requestParameters.dateRangeStart === null || requestParameters.dateRangeStart === undefined) {
+            throw new runtime.RequiredError('dateRangeStart','Required parameter requestParameters.dateRangeStart was null or undefined when calling getInventoryStatistics.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryStatistics.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryStatistics.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryStatistics.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.dateRangeEnd !== undefined) {
-            queryParameters['dateRangeEnd'] = (requestParameters.dateRangeEnd as any).toISOString().substr(0,10);
+            queryParameters['dateRangeEnd'] = (requestParameters.dateRangeEnd as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.reportCode !== undefined) {
@@ -401,7 +461,7 @@ export class INVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.dateRangeStart !== undefined) {
-            queryParameters['dateRangeStart'] = (requestParameters.dateRangeStart as any).toISOString().substr(0,10);
+            queryParameters['dateRangeStart'] = (requestParameters.dateRangeStart as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.parameterName) {

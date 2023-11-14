@@ -68,7 +68,7 @@ function TrackItItemTypeToJSON(value) {
         'action': (0, TrackItActionType_1.TrackItActionTypeToJSON)(value.action),
         'assignedTo': (0, ApplicationUserType_1.ApplicationUserTypeToJSON)(value.assignedTo),
         'description': value.description,
-        'followUpDate': value.followUpDate === undefined ? undefined : (value.followUpDate.toISOString().substr(0, 10)),
+        'followUpDate': value.followUpDate === undefined ? undefined : (value.followUpDate.toISOString().substring(0, 10)),
         'group': (0, TrackItGroup_1.TrackItGroupToJSON)(value.group),
         'hotelId': value.hotelId,
         'location': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.location),

@@ -48,7 +48,7 @@ function BlockStatisticsDetailsTypeToJSON(value) {
     }
     return {
         'numberOfDays': value.numberOfDays,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'statisticsDetail': value.statisticsDetail === undefined ? undefined : (value.statisticsDetail.map(BlockStatisticsDetailType_1.BlockStatisticsDetailTypeToJSON)),
     };
 }

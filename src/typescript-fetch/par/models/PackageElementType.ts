@@ -170,14 +170,14 @@ export function PackageElementTypeToJSON(value?: PackageElementType | null): any
         'amount': CurrencyAmountTypeToJSON(value.amount),
         'calculationRule': value.calculationRule,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'endTime': value.endTime,
         'includedInRate': value.includedInRate,
         'packageCode': value.packageCode,
         'postingRhythm': value.postingRhythm,
         'quantity': value.quantity,
         'sellSeparate': value.sellSeparate,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
         'startTime': value.startTime,
     };
 }

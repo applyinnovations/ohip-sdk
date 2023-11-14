@@ -320,7 +320,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
         'privacyInfo': PrivacyInfoTypeToJSON(value.privacyInfo),
         'comments': StagedProfileCommentInfosTypeToJSON(value.comments),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substr(0,10)),
+        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
         'profileType': value.profileType,
         'stageStatus': value.stageStatus,
     };

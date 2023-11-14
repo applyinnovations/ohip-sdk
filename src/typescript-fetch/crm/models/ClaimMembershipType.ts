@@ -115,8 +115,8 @@ export function ClaimMembershipTypeToJSON(value?: ClaimMembershipType | null): a
     }
     return {
         
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substr(0,10)),
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substr(0,10)),
+        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
+        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
         'membershipClass': value.membershipClass,
         'membershipId': value.membershipId,

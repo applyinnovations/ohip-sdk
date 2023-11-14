@@ -15,94 +15,119 @@
 
 import * as runtime from '../runtime';
 import type {
+  AllRestrictions,
+  Allocation,
   Block,
+  BlockAccessExclusion,
   BlockAccessExclusionInfo,
   BlockActivityLog,
+  BlockAllocationRange,
+  BlockAllocationWash,
+  BlockAlternateDates,
   BlockAttachments,
   BlockAvailability,
   BlockChanged,
+  BlockCodeToValidate,
+  BlockCopy,
   BlockDailyStatistics,
   BlockOwners,
+  BlockOwnersToAssign,
+  BlockOwnersToChange,
   BlockPMReservations,
+  BlockPostingMaster,
   BlockRangeInfo,
   BlockReservations,
+  BlockReservationsToChange,
+  BlockRestriction,
   BlockRestrictions,
   BlockRevenueChanges,
   BlockRoomTypes,
   BlockRoomsStatus,
   BlockStatistics,
+  BlockStatus,
   BlockStatusChanges,
+  BlockStatusToChange,
   BlockSummaries,
+  BlockToBeChanged,
+  BlockToCancel,
+  BlockToShift,
+  BlockValidate,
   BlockWashInfo,
   BlockWashSchedules,
-  ChangeRateOverrideRequest,
+  BlockWashSchedulesInfo,
+  BorrowedInventoryToReturn,
+  CateringStatusToChange,
   ChangedBlockReservations,
   ChangedBlockStatus,
   ChangedCateringStatus,
   DefaultBlockCodeDetails,
   ExceptionDetailType,
+  InventoryToBorrow,
   InventoryToBorrowInfo,
   NextBlockStatus,
-  PostBlockOwnersRequest,
-  PostBlockPostingMasterRequest,
-  PostBlockRequest,
-  PostBlockRestrictionRequest,
-  PostBlockValidateRequest,
-  PostCancelBlockRequest,
-  PostCopyBlockRequest,
-  PostRoomingListRequest,
-  PostSubAllocationRequest,
-  PostSubBlockRequest,
-  PostTourSeriesRequest,
-  PutAlternateDatesRequest,
-  PutBlockAccessExclusionRequest,
-  PutBlockAllocationRangeRequest,
-  PutBlockAllocationRequest,
-  PutBlockAllocationWashRequest,
-  PutBlockCutoffRequest,
-  PutBlockOwnersRequest,
-  PutBlockRequest,
-  PutBlockReservationsRequest,
-  PutBlockShiftRequest,
-  PutBlockStatusRequest,
-  PutBlockWashSchedulesRequest,
-  PutCateringStatusRequest,
-  PutClearAllRestrictionsRequest,
-  PutInventoryRequest,
-  PutReleasedInventoryRequest,
-  PutRoomTypeOrderRequest,
-  PutValidateBlockCodeRequest,
+  RateOverride,
   RateOverrideStatus,
   RecentlyAccessedBlocks,
+  RoomTypeOrder,
+  RoomingList,
   RoomingListDetails,
   SalesAllowances,
   ShiftedBlock,
   Status,
+  SubAllocation,
+  SubBlock,
+  TourSeries,
   TracesByDateRange,
-} from '../models';
+} from '../models/index';
 import {
+    AllRestrictionsFromJSON,
+    AllRestrictionsToJSON,
+    AllocationFromJSON,
+    AllocationToJSON,
     BlockFromJSON,
     BlockToJSON,
+    BlockAccessExclusionFromJSON,
+    BlockAccessExclusionToJSON,
     BlockAccessExclusionInfoFromJSON,
     BlockAccessExclusionInfoToJSON,
     BlockActivityLogFromJSON,
     BlockActivityLogToJSON,
+    BlockAllocationRangeFromJSON,
+    BlockAllocationRangeToJSON,
+    BlockAllocationWashFromJSON,
+    BlockAllocationWashToJSON,
+    BlockAlternateDatesFromJSON,
+    BlockAlternateDatesToJSON,
     BlockAttachmentsFromJSON,
     BlockAttachmentsToJSON,
     BlockAvailabilityFromJSON,
     BlockAvailabilityToJSON,
     BlockChangedFromJSON,
     BlockChangedToJSON,
+    BlockCodeToValidateFromJSON,
+    BlockCodeToValidateToJSON,
+    BlockCopyFromJSON,
+    BlockCopyToJSON,
     BlockDailyStatisticsFromJSON,
     BlockDailyStatisticsToJSON,
     BlockOwnersFromJSON,
     BlockOwnersToJSON,
+    BlockOwnersToAssignFromJSON,
+    BlockOwnersToAssignToJSON,
+    BlockOwnersToChangeFromJSON,
+    BlockOwnersToChangeToJSON,
     BlockPMReservationsFromJSON,
     BlockPMReservationsToJSON,
+    BlockPostingMasterFromJSON,
+    BlockPostingMasterToJSON,
     BlockRangeInfoFromJSON,
     BlockRangeInfoToJSON,
     BlockReservationsFromJSON,
     BlockReservationsToJSON,
+    BlockReservationsToChangeFromJSON,
+    BlockReservationsToChangeToJSON,
+    BlockRestrictionFromJSON,
+    BlockRestrictionToJSON,
     BlockRestrictionsFromJSON,
     BlockRestrictionsToJSON,
     BlockRevenueChangesFromJSON,
@@ -113,16 +138,32 @@ import {
     BlockRoomsStatusToJSON,
     BlockStatisticsFromJSON,
     BlockStatisticsToJSON,
+    BlockStatusFromJSON,
+    BlockStatusToJSON,
     BlockStatusChangesFromJSON,
     BlockStatusChangesToJSON,
+    BlockStatusToChangeFromJSON,
+    BlockStatusToChangeToJSON,
     BlockSummariesFromJSON,
     BlockSummariesToJSON,
+    BlockToBeChangedFromJSON,
+    BlockToBeChangedToJSON,
+    BlockToCancelFromJSON,
+    BlockToCancelToJSON,
+    BlockToShiftFromJSON,
+    BlockToShiftToJSON,
+    BlockValidateFromJSON,
+    BlockValidateToJSON,
     BlockWashInfoFromJSON,
     BlockWashInfoToJSON,
     BlockWashSchedulesFromJSON,
     BlockWashSchedulesToJSON,
-    ChangeRateOverrideRequestFromJSON,
-    ChangeRateOverrideRequestToJSON,
+    BlockWashSchedulesInfoFromJSON,
+    BlockWashSchedulesInfoToJSON,
+    BorrowedInventoryToReturnFromJSON,
+    BorrowedInventoryToReturnToJSON,
+    CateringStatusToChangeFromJSON,
+    CateringStatusToChangeToJSON,
     ChangedBlockReservationsFromJSON,
     ChangedBlockReservationsToJSON,
     ChangedBlockStatusFromJSON,
@@ -133,72 +174,22 @@ import {
     DefaultBlockCodeDetailsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    InventoryToBorrowFromJSON,
+    InventoryToBorrowToJSON,
     InventoryToBorrowInfoFromJSON,
     InventoryToBorrowInfoToJSON,
     NextBlockStatusFromJSON,
     NextBlockStatusToJSON,
-    PostBlockOwnersRequestFromJSON,
-    PostBlockOwnersRequestToJSON,
-    PostBlockPostingMasterRequestFromJSON,
-    PostBlockPostingMasterRequestToJSON,
-    PostBlockRequestFromJSON,
-    PostBlockRequestToJSON,
-    PostBlockRestrictionRequestFromJSON,
-    PostBlockRestrictionRequestToJSON,
-    PostBlockValidateRequestFromJSON,
-    PostBlockValidateRequestToJSON,
-    PostCancelBlockRequestFromJSON,
-    PostCancelBlockRequestToJSON,
-    PostCopyBlockRequestFromJSON,
-    PostCopyBlockRequestToJSON,
-    PostRoomingListRequestFromJSON,
-    PostRoomingListRequestToJSON,
-    PostSubAllocationRequestFromJSON,
-    PostSubAllocationRequestToJSON,
-    PostSubBlockRequestFromJSON,
-    PostSubBlockRequestToJSON,
-    PostTourSeriesRequestFromJSON,
-    PostTourSeriesRequestToJSON,
-    PutAlternateDatesRequestFromJSON,
-    PutAlternateDatesRequestToJSON,
-    PutBlockAccessExclusionRequestFromJSON,
-    PutBlockAccessExclusionRequestToJSON,
-    PutBlockAllocationRangeRequestFromJSON,
-    PutBlockAllocationRangeRequestToJSON,
-    PutBlockAllocationRequestFromJSON,
-    PutBlockAllocationRequestToJSON,
-    PutBlockAllocationWashRequestFromJSON,
-    PutBlockAllocationWashRequestToJSON,
-    PutBlockCutoffRequestFromJSON,
-    PutBlockCutoffRequestToJSON,
-    PutBlockOwnersRequestFromJSON,
-    PutBlockOwnersRequestToJSON,
-    PutBlockRequestFromJSON,
-    PutBlockRequestToJSON,
-    PutBlockReservationsRequestFromJSON,
-    PutBlockReservationsRequestToJSON,
-    PutBlockShiftRequestFromJSON,
-    PutBlockShiftRequestToJSON,
-    PutBlockStatusRequestFromJSON,
-    PutBlockStatusRequestToJSON,
-    PutBlockWashSchedulesRequestFromJSON,
-    PutBlockWashSchedulesRequestToJSON,
-    PutCateringStatusRequestFromJSON,
-    PutCateringStatusRequestToJSON,
-    PutClearAllRestrictionsRequestFromJSON,
-    PutClearAllRestrictionsRequestToJSON,
-    PutInventoryRequestFromJSON,
-    PutInventoryRequestToJSON,
-    PutReleasedInventoryRequestFromJSON,
-    PutReleasedInventoryRequestToJSON,
-    PutRoomTypeOrderRequestFromJSON,
-    PutRoomTypeOrderRequestToJSON,
-    PutValidateBlockCodeRequestFromJSON,
-    PutValidateBlockCodeRequestToJSON,
+    RateOverrideFromJSON,
+    RateOverrideToJSON,
     RateOverrideStatusFromJSON,
     RateOverrideStatusToJSON,
     RecentlyAccessedBlocksFromJSON,
     RecentlyAccessedBlocksToJSON,
+    RoomTypeOrderFromJSON,
+    RoomTypeOrderToJSON,
+    RoomingListFromJSON,
+    RoomingListToJSON,
     RoomingListDetailsFromJSON,
     RoomingListDetailsToJSON,
     SalesAllowancesFromJSON,
@@ -207,45 +198,51 @@ import {
     ShiftedBlockToJSON,
     StatusFromJSON,
     StatusToJSON,
+    SubAllocationFromJSON,
+    SubAllocationToJSON,
+    SubBlockFromJSON,
+    SubBlockToJSON,
+    TourSeriesFromJSON,
+    TourSeriesToJSON,
     TracesByDateRangeFromJSON,
     TracesByDateRangeToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ChangeRateOverrideOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateOverride?: ChangeRateOverrideRequest;
+export interface ChangeRateOverrideRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateOverride: RateOverride;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAlternateDatesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockAccessExclusionRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     allowCancelReservation?: boolean;
     allowCreateReservation?: boolean;
     allowModifyReservation?: boolean;
@@ -259,52 +256,52 @@ export interface DeleteBlockAccessExclusionRequest {
 }
 
 export interface DeleteBlockAttachmentRequest {
-    attachId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attachId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockOwnersRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockRestrictionRequest {
-    blockId?: string;
-    hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
-    code?: DeleteBlockRestrictionCodeEnum;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    startDate: Date;
+    endDate: Date;
+    code: DeleteBlockRestrictionCodeEnum;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockWashSchedulesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
@@ -317,19 +314,19 @@ export interface GetBlockRequest {
 }
 
 export interface GetBlockAccessExclusionRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockActivityLogRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: string;
@@ -348,21 +345,21 @@ export interface GetBlockActivityLogRequest {
 }
 
 export interface GetBlockAttachmentsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockAvailabilityRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     overrideRateCode?: boolean;
     arrivalDate?: Date;
     nights?: number;
@@ -380,12 +377,12 @@ export interface GetBlockAvailabilityRequest {
 }
 
 export interface GetBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockByExtIdFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
@@ -398,9 +395,9 @@ export interface GetBlockByExtIdRequest {
 }
 
 export interface GetBlockDailyStatisticsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     genericRoomType?: boolean;
     limit?: number;
     offset?: number;
@@ -412,54 +409,54 @@ export interface GetBlockDailyStatisticsRequest {
 }
 
 export interface GetBlockOwnersRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockPMReservationsRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     postingmaster?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockPMReservationsByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     postingmaster?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockRangeInfoRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     genericRoomType?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockReservationsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     fetchInstructions?: Set<GetBlockReservationsFetchInstructionsEnum>;
     xExternalsystem?: string;
@@ -467,10 +464,10 @@ export interface GetBlockReservationsRequest {
 }
 
 export interface GetBlockRestrictionsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     startDate?: Date;
     endDate?: Date;
@@ -481,10 +478,10 @@ export interface GetBlockRestrictionsRequest {
 }
 
 export interface GetBlockRevenueChangesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: string;
@@ -496,10 +493,10 @@ export interface GetBlockRevenueChangesRequest {
 }
 
 export interface GetBlockRoomTypesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     fetchAllocatedRoomTypes?: boolean;
     startDate?: Date;
@@ -510,20 +507,20 @@ export interface GetBlockRoomTypesRequest {
 }
 
 export interface GetBlockRoomsStatusRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockStatisticsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     startDate?: Date;
     numberOfDays?: number;
@@ -550,10 +547,10 @@ export interface GetBlockStatisticsRequest {
 }
 
 export interface GetBlockStatusChangesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: string;
@@ -565,9 +562,9 @@ export interface GetBlockStatusChangesRequest {
 }
 
 export interface GetBlockWashInfoRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     blockId?: string;
     blockIdType?: string;
@@ -577,19 +574,19 @@ export interface GetBlockWashInfoRequest {
 }
 
 export interface GetBlockWashSchedulesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlocksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     markAsRecentlyAccessed?: boolean;
     limit?: number;
@@ -665,9 +662,9 @@ export interface GetBlocksRequest {
 }
 
 export interface GetDefaultBlockCodeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     blockName?: string;
     startDate?: Date;
@@ -677,13 +674,13 @@ export interface GetDefaultBlockCodeRequest {
 }
 
 export interface GetInventoryToBorrowRequest {
-    hotelId?: string;
-    blockId?: string;
-    startDate?: Date;
-    requiredRooms?: Array<number>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    blockId: string;
+    startDate: Date;
+    requiredRooms: Array<number>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockIdContext?: string;
     blockIdType?: string;
     existingReservationId?: string;
@@ -699,9 +696,9 @@ export interface GetInventoryToBorrowRequest {
 }
 
 export interface GetNextBlockStatusRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     currentStatus?: string;
     includeCateringStatus?: boolean;
@@ -710,27 +707,27 @@ export interface GetNextBlockStatusRequest {
 }
 
 export interface GetRecentlyAccessedBlocksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetSalesAllowancesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ceilingId?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetTracesByDateRangeRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     beginDate?: Date;
     endDate?: Date;
@@ -740,405 +737,405 @@ export interface GetTracesByDateRangeRequest {
 }
 
 export interface PostAlternateDatesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAlternateDates?: PutAlternateDatesRequest;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAlternateDates: BlockAlternateDates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    block?: PostBlockRequest;
+export interface PostBlockRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    block: Block;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockOwnersOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockOwnersToAssign?: PostBlockOwnersRequest;
+export interface PostBlockOwnersRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockOwnersToAssign: BlockOwnersToAssign;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockPostingMasterOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockPostingMaster?: PostBlockPostingMasterRequest;
+export interface PostBlockPostingMasterRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockPostingMaster: BlockPostingMaster;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockRestrictionOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRestriction?: PostBlockRestrictionRequest;
+export interface PostBlockRestrictionRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRestriction: BlockRestriction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockValidateOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockValidate?: PostBlockValidateRequest;
+export interface PostBlockValidateRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockValidate: BlockValidate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostBlockWashSchedulesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockWashSchedulesInfo?: PutBlockWashSchedulesRequest;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockWashSchedulesInfo: BlockWashSchedulesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCancelBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToCancel?: PostCancelBlockRequest;
+export interface PostCancelBlockRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToCancel: BlockToCancel;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCopyBlockOperationRequest {
-    sourceBlockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCopy?: PostCopyBlockRequest;
+export interface PostCopyBlockRequest {
+    sourceBlockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCopy: BlockCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomingListOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomingList?: PostRoomingListRequest;
+export interface PostRoomingListRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomingList: RoomingList;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostSubAllocationOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    subAllocation?: PostSubAllocationRequest;
+export interface PostSubAllocationRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    subAllocation: SubAllocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostSubBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    subBlock?: PostSubBlockRequest;
+export interface PostSubBlockRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    subBlock: SubBlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostSubBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    subBlock?: PostSubBlockRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    subBlock: SubBlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTourSeriesOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    tourSeries?: PostTourSeriesRequest;
+export interface PostTourSeriesRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    tourSeries: TourSeries;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutAlternateDatesOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAlternateDates?: PutAlternateDatesRequest;
+export interface PutAlternateDatesRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAlternateDates: BlockAlternateDates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToBeChanged?: PutBlockRequest;
+export interface PutBlockRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToBeChanged: BlockToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockAccessExclusionOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAccessExclusion?: PutBlockAccessExclusionRequest;
+export interface PutBlockAccessExclusionRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAccessExclusion: BlockAccessExclusion;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockAllocationOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    allocation?: PutBlockAllocationRequest;
+export interface PutBlockAllocationRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    allocation: Allocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockAllocationByExtIdRequest {
-    roomType?: string;
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    allocation?: PutBlockAllocationRequest;
+    roomType: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    allocation: Allocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockAllocationRangeOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAllocationRange?: PutBlockAllocationRangeRequest;
+export interface PutBlockAllocationRangeRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAllocationRange: BlockAllocationRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockAllocationRangeByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAllocationRange?: PutBlockAllocationRangeRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAllocationRange: BlockAllocationRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockAllocationWashOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAllocationWash?: PutBlockAllocationWashRequest;
+export interface PutBlockAllocationWashRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAllocationWash: BlockAllocationWash;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToBeChanged?: PutBlockRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToBeChanged: BlockToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockCutoffOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+export interface PutBlockCutoffRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockOwnersOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockOwnersToChange?: PutBlockOwnersRequest;
+export interface PutBlockOwnersRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockOwnersToChange: BlockOwnersToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockRatesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockReservationsOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockReservationsToChange?: PutBlockReservationsRequest;
+export interface PutBlockReservationsRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockReservationsToChange: BlockReservationsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockShiftOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToShift?: PutBlockShiftRequest;
+export interface PutBlockShiftRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToShift: BlockToShift;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockStatusOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusToChange?: PutBlockStatusRequest;
+export interface PutBlockStatusRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusToChange: BlockStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockStatusByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusToChange?: PutBlockStatusRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusToChange: BlockStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockStatusToOpenRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockWashSchedulesOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockWashSchedulesInfo?: PutBlockWashSchedulesRequest;
+export interface PutBlockWashSchedulesRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockWashSchedulesInfo: BlockWashSchedulesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutCateringStatusOperationRequest {
-    eventId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringStatusToChange?: PutCateringStatusRequest;
+export interface PutCateringStatusRequest {
+    eventId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringStatusToChange: CateringStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutClearAllRestrictionsOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    allRestrictions?: PutClearAllRestrictionsRequest;
+export interface PutClearAllRestrictionsRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    allRestrictions: AllRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutContractDefaultsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutInventoryOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryToBorrow?: PutInventoryRequest;
+export interface PutInventoryRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryToBorrow: InventoryToBorrow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutReleasedInventoryOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    borrowedInventoryToReturn?: PutReleasedInventoryRequest;
+export interface PutReleasedInventoryRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    borrowedInventoryToReturn: BorrowedInventoryToReturn;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoomTypeOrderOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypeOrder?: PutRoomTypeOrderRequest;
+export interface PutRoomTypeOrderRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypeOrder: RoomTypeOrder;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutValidateBlockCodeOperationRequest {
-    blockCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCodeToValidate?: PutValidateBlockCodeRequest;
+export interface PutValidateBlockCodeRequest {
+    blockCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCodeToValidate: BlockCodeToValidate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1152,7 +1149,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to change rate override. <p><strong>OperationId:</strong>changeRateOverride</p>
      * Change rate override
      */
-    async changeRateOverrideRaw(requestParameters: ChangeRateOverrideOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateOverrideStatus>> {
+    async changeRateOverrideRaw(requestParameters: ChangeRateOverrideRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateOverrideStatus>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling changeRateOverride.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeRateOverride.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeRateOverride.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeRateOverride.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeRateOverride.');
+        }
+
+        if (requestParameters.rateOverride === null || requestParameters.rateOverride === undefined) {
+            throw new runtime.RequiredError('rateOverride','Required parameter requestParameters.rateOverride was null or undefined when calling changeRateOverride.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1184,7 +1205,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeRateOverrideRequestToJSON(requestParameters.rateOverride),
+            body: RateOverrideToJSON(requestParameters.rateOverride),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RateOverrideStatusFromJSON(jsonValue));
@@ -1194,7 +1215,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to change rate override. <p><strong>OperationId:</strong>changeRateOverride</p>
      * Change rate override
      */
-    async changeRateOverride(requestParameters: ChangeRateOverrideOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RateOverrideStatus> {
+    async changeRateOverride(requestParameters: ChangeRateOverrideRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RateOverrideStatus> {
         const response = await this.changeRateOverrideRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1204,6 +1225,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Delete alternate dates for a Block
      */
     async deleteAlternateDatesRaw(requestParameters: DeleteAlternateDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling deleteAlternateDates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAlternateDates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAlternateDates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAlternateDates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1252,6 +1289,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Delete a Block
      */
     async deleteBlockRaw(requestParameters: DeleteBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling deleteBlock.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1300,6 +1357,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Delete Block access exclusion
      */
     async deleteBlockAccessExclusionRaw(requestParameters: DeleteBlockAccessExclusionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling deleteBlockAccessExclusion.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockAccessExclusion.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockAccessExclusion.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockAccessExclusion.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.allowCancelReservation !== undefined) {
@@ -1380,6 +1453,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Delete Block Attachment
      */
     async deleteBlockAttachmentRaw(requestParameters: DeleteBlockAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.attachId === null || requestParameters.attachId === undefined) {
+            throw new runtime.RequiredError('attachId','Required parameter requestParameters.attachId was null or undefined when calling deleteBlockAttachment.');
+        }
+
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling deleteBlockAttachment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockAttachment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockAttachment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockAttachment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1428,6 +1521,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Delete a Block owner
      */
     async deleteBlockOwnersRaw(requestParameters: DeleteBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling deleteBlockOwners.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockOwners.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockOwners.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockOwners.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1476,6 +1585,38 @@ export class BlockApi extends runtime.BaseAPI {
      * Delete Block Restriction
      */
     async deleteBlockRestrictionRaw(requestParameters: DeleteBlockRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling deleteBlockRestriction.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteBlockRestriction.');
+        }
+
+        if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
+            throw new runtime.RequiredError('startDate','Required parameter requestParameters.startDate was null or undefined when calling deleteBlockRestriction.');
+        }
+
+        if (requestParameters.endDate === null || requestParameters.endDate === undefined) {
+            throw new runtime.RequiredError('endDate','Required parameter requestParameters.endDate was null or undefined when calling deleteBlockRestriction.');
+        }
+
+        if (requestParameters.code === null || requestParameters.code === undefined) {
+            throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling deleteBlockRestriction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockRestriction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockRestriction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockRestriction.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -1483,11 +1624,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.code !== undefined) {
@@ -1540,6 +1681,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Remove Block Wash Schedules
      */
     async deleteBlockWashSchedulesRaw(requestParameters: DeleteBlockWashSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling deleteBlockWashSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockWashSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockWashSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockWashSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1588,6 +1745,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Get a Block By ID
      */
     async getBlockRaw(requestParameters: GetBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Block>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlock.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlock.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.markAsRecentlyAccessed !== undefined) {
@@ -1603,7 +1780,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -1664,6 +1841,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block exclusion information
      */
     async getBlockAccessExclusionRaw(requestParameters: GetBlockAccessExclusionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockAccessExclusionInfo>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockAccessExclusion.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockAccessExclusion.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockAccessExclusion.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockAccessExclusion.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -1716,6 +1909,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get the Block activity log
      */
     async getBlockActivityLogRaw(requestParameters: GetBlockActivityLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockActivityLog>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockActivityLog.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockActivityLog.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockActivityLog.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1751,11 +1956,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.activityParamsFromDate !== undefined) {
-            queryParameters['activityParamsFromDate'] = (requestParameters.activityParamsFromDate as any).toISOString().substr(0,10);
+            queryParameters['activityParamsFromDate'] = (requestParameters.activityParamsFromDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.activityParamsToDate !== undefined) {
-            queryParameters['activityParamsToDate'] = (requestParameters.activityParamsToDate as any).toISOString().substr(0,10);
+            queryParameters['activityParamsToDate'] = (requestParameters.activityParamsToDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.activityParamsSearchText !== undefined) {
@@ -1816,6 +2021,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block Attachments
      */
     async getBlockAttachmentsRaw(requestParameters: GetBlockAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockAttachments>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockAttachments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockAttachments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockAttachments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockAttachments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -1868,6 +2089,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block AvailaBility
      */
     async getBlockAvailabilityRaw(requestParameters: GetBlockAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockAvailability>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockAvailability.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockAvailability.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockAvailability.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockAvailability.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockAvailability.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.overrideRateCode !== undefined) {
@@ -1875,7 +2116,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrivalDate !== undefined) {
-            queryParameters['arrivalDate'] = (requestParameters.arrivalDate as any).toISOString().substr(0,10);
+            queryParameters['arrivalDate'] = (requestParameters.arrivalDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.nights !== undefined) {
@@ -1964,6 +2205,30 @@ export class BlockApi extends runtime.BaseAPI {
      * Get a Block By ID
      */
     async getBlockByExtIdRaw(requestParameters: GetBlockByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Block>> {
+        if (requestParameters.blockExternalId === null || requestParameters.blockExternalId === undefined) {
+            throw new runtime.RequiredError('blockExternalId','Required parameter requestParameters.blockExternalId was null or undefined when calling getBlockByExtId.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling getBlockByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockByExtId.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.markAsRecentlyAccessed !== undefined) {
@@ -1979,7 +2244,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -2040,6 +2305,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block Daily Statistics
      */
     async getBlockDailyStatisticsRaw(requestParameters: GetBlockDailyStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockDailyStatistics>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockDailyStatistics.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockDailyStatistics.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockDailyStatistics.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.genericRoomType !== undefined) {
@@ -2059,11 +2336,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2112,6 +2389,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block owners
      */
     async getBlockOwnersRaw(requestParameters: GetBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockOwners>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockOwners.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockOwners.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockOwners.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockOwners.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2164,6 +2457,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Posting Master Reservations for a Block
      */
     async getBlockPMReservationsRaw(requestParameters: GetBlockPMReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockPMReservations>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockPMReservations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockPMReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockPMReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockPMReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockPMReservations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.postingmaster !== undefined) {
@@ -2216,6 +2529,30 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Posting Master Reservations for a Block
      */
     async getBlockPMReservationsByExtIdRaw(requestParameters: GetBlockPMReservationsByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockPMReservations>> {
+        if (requestParameters.blockExternalId === null || requestParameters.blockExternalId === undefined) {
+            throw new runtime.RequiredError('blockExternalId','Required parameter requestParameters.blockExternalId was null or undefined when calling getBlockPMReservationsByExtId.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling getBlockPMReservationsByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockPMReservationsByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockPMReservationsByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockPMReservationsByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockPMReservationsByExtId.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.postingmaster !== undefined) {
@@ -2268,6 +2605,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block Range Information
      */
     async getBlockRangeInfoRaw(requestParameters: GetBlockRangeInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRangeInfo>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockRangeInfo.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBlockRangeInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRangeInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRangeInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRangeInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.genericRoomType !== undefined) {
@@ -2320,6 +2677,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Retrieves all reservations created for the Block
      */
     async getBlockReservationsRaw(requestParameters: GetBlockReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockReservations>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockReservations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2376,6 +2749,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block restrictions 
      */
     async getBlockRestrictionsRaw(requestParameters: GetBlockRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRestrictions>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockRestrictions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRestrictions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRestrictions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRestrictions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2383,11 +2772,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -2444,6 +2833,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Fetch Block Revenue Changes
      */
     async getBlockRevenueChangesRaw(requestParameters: GetBlockRevenueChangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRevenueChanges>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockRevenueChanges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRevenueChanges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRevenueChanges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRevenueChanges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2463,11 +2868,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.changeEndDate !== undefined) {
-            queryParameters['changeEndDate'] = (requestParameters.changeEndDate as any).toISOString().substr(0,10);
+            queryParameters['changeEndDate'] = (requestParameters.changeEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.changeStartDate !== undefined) {
-            queryParameters['changeStartDate'] = (requestParameters.changeStartDate as any).toISOString().substr(0,10);
+            queryParameters['changeStartDate'] = (requestParameters.changeStartDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2516,6 +2921,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Bock Room Types
      */
     async getBlockRoomTypesRaw(requestParameters: GetBlockRoomTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRoomTypes>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockRoomTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRoomTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRoomTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRoomTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2527,11 +2948,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fetchGenericRoomTypes !== undefined) {
@@ -2584,6 +3005,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get room status for a Block
      */
     async getBlockRoomsStatusRaw(requestParameters: GetBlockRoomsStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRoomsStatus>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockRoomsStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRoomsStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRoomsStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRoomsStatus.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2636,6 +3073,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block Statistics
      */
     async getBlockStatisticsRaw(requestParameters: GetBlockStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockStatistics>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockStatistics.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockStatistics.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockStatistics.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockStatistics.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2643,7 +3096,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -2768,6 +3221,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block Status Activity Log
      */
     async getBlockStatusChangesRaw(requestParameters: GetBlockStatusChangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockStatusChanges>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockStatusChanges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockStatusChanges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockStatusChanges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockStatusChanges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2783,11 +3252,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.changeEndDate !== undefined) {
-            queryParameters['changeEndDate'] = (requestParameters.changeEndDate as any).toISOString().substr(0,10);
+            queryParameters['changeEndDate'] = (requestParameters.changeEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.changeStartDate !== undefined) {
-            queryParameters['changeStartDate'] = (requestParameters.changeStartDate as any).toISOString().substr(0,10);
+            queryParameters['changeStartDate'] = (requestParameters.changeStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.currentStatus) {
@@ -2840,6 +3309,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block Wash Information
      */
     async getBlockWashInfoRaw(requestParameters: GetBlockWashInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockWashInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockWashInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockWashInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockWashInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2904,6 +3385,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Block Wash Schedule
      */
     async getBlockWashSchedulesRaw(requestParameters: GetBlockWashSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockWashSchedules>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getBlockWashSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockWashSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockWashSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockWashSchedules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2956,6 +3453,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Blocks
      */
     async getBlocksRaw(requestParameters: GetBlocksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockSummaries>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlocks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlocks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlocks.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3023,27 +3532,27 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.blockStartEndDate !== undefined) {
-            queryParameters['blockStartEndDate'] = (requestParameters.blockStartEndDate as any).toISOString().substr(0,10);
+            queryParameters['blockStartEndDate'] = (requestParameters.blockStartEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockStartStartDate !== undefined) {
-            queryParameters['blockStartStartDate'] = (requestParameters.blockStartStartDate as any).toISOString().substr(0,10);
+            queryParameters['blockStartStartDate'] = (requestParameters.blockStartStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockEndEndDate !== undefined) {
-            queryParameters['blockEndEndDate'] = (requestParameters.blockEndEndDate as any).toISOString().substr(0,10);
+            queryParameters['blockEndEndDate'] = (requestParameters.blockEndEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockEndStartDate !== undefined) {
-            queryParameters['blockEndStartDate'] = (requestParameters.blockEndStartDate as any).toISOString().substr(0,10);
+            queryParameters['blockEndStartDate'] = (requestParameters.blockEndStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.reservationArrival !== undefined) {
-            queryParameters['reservationArrival'] = (requestParameters.reservationArrival as any).toISOString().substr(0,10);
+            queryParameters['reservationArrival'] = (requestParameters.reservationArrival as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.reservationDeparture !== undefined) {
-            queryParameters['reservationDeparture'] = (requestParameters.reservationDeparture as any).toISOString().substr(0,10);
+            queryParameters['reservationDeparture'] = (requestParameters.reservationDeparture as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.includeShoulderDates !== undefined) {
@@ -3051,31 +3560,31 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.stayDate !== undefined) {
-            queryParameters['stayDate'] = (requestParameters.stayDate as any).toISOString().substr(0,10);
+            queryParameters['stayDate'] = (requestParameters.stayDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockCreatedOnEndDate !== undefined) {
-            queryParameters['blockCreatedOnEndDate'] = (requestParameters.blockCreatedOnEndDate as any).toISOString().substr(0,10);
+            queryParameters['blockCreatedOnEndDate'] = (requestParameters.blockCreatedOnEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockCreatedOnStartDate !== undefined) {
-            queryParameters['blockCreatedOnStartDate'] = (requestParameters.blockCreatedOnStartDate as any).toISOString().substr(0,10);
+            queryParameters['blockCreatedOnStartDate'] = (requestParameters.blockCreatedOnStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.decisionEndDate !== undefined) {
-            queryParameters['decisionEndDate'] = (requestParameters.decisionEndDate as any).toISOString().substr(0,10);
+            queryParameters['decisionEndDate'] = (requestParameters.decisionEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.decisionStartDate !== undefined) {
-            queryParameters['decisionStartDate'] = (requestParameters.decisionStartDate as any).toISOString().substr(0,10);
+            queryParameters['decisionStartDate'] = (requestParameters.decisionStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.cutOffEndDate !== undefined) {
-            queryParameters['cutOffEndDate'] = (requestParameters.cutOffEndDate as any).toISOString().substr(0,10);
+            queryParameters['cutOffEndDate'] = (requestParameters.cutOffEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.cutOffStartDate !== undefined) {
-            queryParameters['cutOffStartDate'] = (requestParameters.cutOffStartDate as any).toISOString().substr(0,10);
+            queryParameters['cutOffStartDate'] = (requestParameters.cutOffStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.category) {
@@ -3135,7 +3644,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.additionalCriteriaStartDate !== undefined) {
-            queryParameters['additionalCriteriaStartDate'] = (requestParameters.additionalCriteriaStartDate as any).toISOString().substr(0,10);
+            queryParameters['additionalCriteriaStartDate'] = (requestParameters.additionalCriteriaStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -3284,6 +3793,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get default Block Code
      */
     async getDefaultBlockCodeRaw(requestParameters: GetDefaultBlockCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DefaultBlockCodeDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDefaultBlockCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDefaultBlockCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDefaultBlockCode.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3295,7 +3816,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockCodeTemplate !== undefined) {
@@ -3348,6 +3869,34 @@ export class BlockApi extends runtime.BaseAPI {
      * Get inventory to Borrow
      */
     async getInventoryToBorrowRaw(requestParameters: GetInventoryToBorrowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryToBorrowInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryToBorrow.');
+        }
+
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling getInventoryToBorrow.');
+        }
+
+        if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
+            throw new runtime.RequiredError('startDate','Required parameter requestParameters.startDate was null or undefined when calling getInventoryToBorrow.');
+        }
+
+        if (requestParameters.requiredRooms === null || requestParameters.requiredRooms === undefined) {
+            throw new runtime.RequiredError('requiredRooms','Required parameter requestParameters.requiredRooms was null or undefined when calling getInventoryToBorrow.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryToBorrow.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryToBorrow.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryToBorrow.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3359,7 +3908,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.requiredRooms) {
@@ -3387,7 +3936,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3452,6 +4001,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Next Block Status
      */
     async getNextBlockStatusRaw(requestParameters: GetNextBlockStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NextBlockStatus>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNextBlockStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNextBlockStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNextBlockStatus.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3512,6 +4073,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get recently accessed Blocks
      */
     async getRecentlyAccessedBlocksRaw(requestParameters: GetRecentlyAccessedBlocksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecentlyAccessedBlocks>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRecentlyAccessedBlocks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRecentlyAccessedBlocks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRecentlyAccessedBlocks.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3560,6 +4133,18 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Sales allowances
      */
     async getSalesAllowancesRaw(requestParameters: GetSalesAllowancesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SalesAllowances>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSalesAllowances.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSalesAllowances.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSalesAllowances.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ceilingId) {
@@ -3612,6 +4197,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Get Traces By Date Range
      */
     async getTracesByDateRangeRaw(requestParameters: GetTracesByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TracesByDateRange>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTracesByDateRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTracesByDateRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTracesByDateRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTracesByDateRange.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -3619,11 +4220,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substr(0,10);
+            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.department) {
@@ -3676,6 +4277,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Create alternate dates for a Block
      */
     async postAlternateDatesRaw(requestParameters: PostAlternateDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postAlternateDates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAlternateDates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAlternateDates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAlternateDates.');
+        }
+
+        if (requestParameters.blockAlternateDates === null || requestParameters.blockAlternateDates === undefined) {
+            throw new runtime.RequiredError('blockAlternateDates','Required parameter requestParameters.blockAlternateDates was null or undefined when calling postAlternateDates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3707,7 +4328,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAlternateDatesRequestToJSON(requestParameters.blockAlternateDates),
+            body: BlockAlternateDatesToJSON(requestParameters.blockAlternateDates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3726,7 +4347,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a new group block in OPERA Cloud. You must first use the ListOfValues APIs to find block attributes, such as Block Status, Room Types, and so on. Knowing this list of values helps ensure a successful postBlock. <p><strong>OperationId:</strong>postBlock</p>
      * Create a Block
      */
-    async postBlockRaw(requestParameters: PostBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockRaw(requestParameters: PostBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlock.');
+        }
+
+        if (requestParameters.block === null || requestParameters.block === undefined) {
+            throw new runtime.RequiredError('block','Required parameter requestParameters.block was null or undefined when calling postBlock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3758,7 +4399,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockRequestToJSON(requestParameters.block),
+            body: BlockToJSON(requestParameters.block),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3768,7 +4409,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a new group block in OPERA Cloud. You must first use the ListOfValues APIs to find block attributes, such as Block Status, Room Types, and so on. Knowing this list of values helps ensure a successful postBlock. <p><strong>OperationId:</strong>postBlock</p>
      * Create a Block
      */
-    async postBlock(requestParameters: PostBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlock(requestParameters: PostBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3777,7 +4418,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to assign block owners. <p><strong>OperationId:</strong>postBlockOwners</p>
      * Assign a Block owner
      */
-    async postBlockOwnersRaw(requestParameters: PostBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockOwnersRaw(requestParameters: PostBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postBlockOwners.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockOwners.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockOwners.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockOwners.');
+        }
+
+        if (requestParameters.blockOwnersToAssign === null || requestParameters.blockOwnersToAssign === undefined) {
+            throw new runtime.RequiredError('blockOwnersToAssign','Required parameter requestParameters.blockOwnersToAssign was null or undefined when calling postBlockOwners.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3809,7 +4470,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockOwnersRequestToJSON(requestParameters.blockOwnersToAssign),
+            body: BlockOwnersToAssignToJSON(requestParameters.blockOwnersToAssign),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3819,7 +4480,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to assign block owners. <p><strong>OperationId:</strong>postBlockOwners</p>
      * Assign a Block owner
      */
-    async postBlockOwners(requestParameters: PostBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockOwners(requestParameters: PostBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockOwnersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3828,7 +4489,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a new posting Master reservation against a block in OPERA.  The block status in OPERA needs to be \'Open for Pick up\' to successfully post a BlockPostingMaster reservation. <p><strong>OperationId:</strong>postBlockPostingMaster</p>
      * Create Block posting master
      */
-    async postBlockPostingMasterRaw(requestParameters: PostBlockPostingMasterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockPostingMasterRaw(requestParameters: PostBlockPostingMasterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postBlockPostingMaster.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBlockPostingMaster.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockPostingMaster.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockPostingMaster.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockPostingMaster.');
+        }
+
+        if (requestParameters.blockPostingMaster === null || requestParameters.blockPostingMaster === undefined) {
+            throw new runtime.RequiredError('blockPostingMaster','Required parameter requestParameters.blockPostingMaster was null or undefined when calling postBlockPostingMaster.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3860,7 +4545,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockPostingMasterRequestToJSON(requestParameters.blockPostingMaster),
+            body: BlockPostingMasterToJSON(requestParameters.blockPostingMaster),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3870,7 +4555,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a new posting Master reservation against a block in OPERA.  The block status in OPERA needs to be \'Open for Pick up\' to successfully post a BlockPostingMaster reservation. <p><strong>OperationId:</strong>postBlockPostingMaster</p>
      * Create Block posting master
      */
-    async postBlockPostingMaster(requestParameters: PostBlockPostingMasterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockPostingMaster(requestParameters: PostBlockPostingMasterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockPostingMasterRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3879,7 +4564,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create block restrictions. <p><strong>OperationId:</strong>postBlockRestriction</p>
      * Create Block Restriction
      */
-    async postBlockRestrictionRaw(requestParameters: PostBlockRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockRestrictionRaw(requestParameters: PostBlockRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postBlockRestriction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockRestriction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockRestriction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockRestriction.');
+        }
+
+        if (requestParameters.blockRestriction === null || requestParameters.blockRestriction === undefined) {
+            throw new runtime.RequiredError('blockRestriction','Required parameter requestParameters.blockRestriction was null or undefined when calling postBlockRestriction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3911,7 +4616,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockRestrictionRequestToJSON(requestParameters.blockRestriction),
+            body: BlockRestrictionToJSON(requestParameters.blockRestriction),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3921,7 +4626,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create block restrictions. <p><strong>OperationId:</strong>postBlockRestriction</p>
      * Create Block Restriction
      */
-    async postBlockRestriction(requestParameters: PostBlockRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockRestriction(requestParameters: PostBlockRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockRestrictionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3930,7 +4635,23 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to validate if block rate code has overlapping blocks and also validates and creates block details. <p><strong>OperationId:</strong>postBlockValidate</p>
      * Validate Block
      */
-    async postBlockValidateRaw(requestParameters: PostBlockValidateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockValidateRaw(requestParameters: PostBlockValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockValidate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockValidate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockValidate.');
+        }
+
+        if (requestParameters.blockValidate === null || requestParameters.blockValidate === undefined) {
+            throw new runtime.RequiredError('blockValidate','Required parameter requestParameters.blockValidate was null or undefined when calling postBlockValidate.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3962,7 +4683,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockValidateRequestToJSON(requestParameters.blockValidate),
+            body: BlockValidateToJSON(requestParameters.blockValidate),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3972,7 +4693,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to validate if block rate code has overlapping blocks and also validates and creates block details. <p><strong>OperationId:</strong>postBlockValidate</p>
      * Validate Block
      */
-    async postBlockValidate(requestParameters: PostBlockValidateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockValidate(requestParameters: PostBlockValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockValidateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3982,6 +4703,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Create Block Wash Schedules
      */
     async postBlockWashSchedulesRaw(requestParameters: PostBlockWashSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postBlockWashSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockWashSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockWashSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockWashSchedules.');
+        }
+
+        if (requestParameters.blockWashSchedulesInfo === null || requestParameters.blockWashSchedulesInfo === undefined) {
+            throw new runtime.RequiredError('blockWashSchedulesInfo','Required parameter requestParameters.blockWashSchedulesInfo was null or undefined when calling postBlockWashSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4013,7 +4754,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockWashSchedulesRequestToJSON(requestParameters.blockWashSchedulesInfo),
+            body: BlockWashSchedulesInfoToJSON(requestParameters.blockWashSchedulesInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4032,7 +4773,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to complete a cancellation of the block. <p><strong>OperationId:</strong>postCancelBlock</p>
      * Cancel the Block
      */
-    async postCancelBlockRaw(requestParameters: PostCancelBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCancelBlockRaw(requestParameters: PostCancelBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postCancelBlock.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCancelBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCancelBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCancelBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCancelBlock.');
+        }
+
+        if (requestParameters.blockToCancel === null || requestParameters.blockToCancel === undefined) {
+            throw new runtime.RequiredError('blockToCancel','Required parameter requestParameters.blockToCancel was null or undefined when calling postCancelBlock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4064,7 +4829,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCancelBlockRequestToJSON(requestParameters.blockToCancel),
+            body: BlockToCancelToJSON(requestParameters.blockToCancel),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4074,7 +4839,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to complete a cancellation of the block. <p><strong>OperationId:</strong>postCancelBlock</p>
      * Cancel the Block
      */
-    async postCancelBlock(requestParameters: PostCancelBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCancelBlock(requestParameters: PostCancelBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCancelBlockRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4083,7 +4848,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to copy the a block. The block copied (Source block) will serve as a template for the new one. <p><strong>OperationId:</strong>postCopyBlock</p>
      * Copy a Block
      */
-    async postCopyBlockRaw(requestParameters: PostCopyBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCopyBlockRaw(requestParameters: PostCopyBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceBlockId === null || requestParameters.sourceBlockId === undefined) {
+            throw new runtime.RequiredError('sourceBlockId','Required parameter requestParameters.sourceBlockId was null or undefined when calling postCopyBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCopyBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCopyBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCopyBlock.');
+        }
+
+        if (requestParameters.blockCopy === null || requestParameters.blockCopy === undefined) {
+            throw new runtime.RequiredError('blockCopy','Required parameter requestParameters.blockCopy was null or undefined when calling postCopyBlock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4115,7 +4900,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCopyBlockRequestToJSON(requestParameters.blockCopy),
+            body: BlockCopyToJSON(requestParameters.blockCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4125,7 +4910,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to copy the a block. The block copied (Source block) will serve as a template for the new one. <p><strong>OperationId:</strong>postCopyBlock</p>
      * Copy a Block
      */
-    async postCopyBlock(requestParameters: PostCopyBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCopyBlock(requestParameters: PostCopyBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCopyBlockRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4134,7 +4919,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a Reservation Rooming List. <p><strong>OperationId:</strong>postRoomingList</p>
      * Create Block Rooming List Reservations
      */
-    async postRoomingListRaw(requestParameters: PostRoomingListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomingListDetails>> {
+    async postRoomingListRaw(requestParameters: PostRoomingListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomingListDetails>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postRoomingList.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomingList.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomingList.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomingList.');
+        }
+
+        if (requestParameters.roomingList === null || requestParameters.roomingList === undefined) {
+            throw new runtime.RequiredError('roomingList','Required parameter requestParameters.roomingList was null or undefined when calling postRoomingList.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4166,7 +4971,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomingListRequestToJSON(requestParameters.roomingList),
+            body: RoomingListToJSON(requestParameters.roomingList),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoomingListDetailsFromJSON(jsonValue));
@@ -4176,7 +4981,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a Reservation Rooming List. <p><strong>OperationId:</strong>postRoomingList</p>
      * Create Block Rooming List Reservations
      */
-    async postRoomingList(requestParameters: PostRoomingListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomingListDetails> {
+    async postRoomingList(requestParameters: PostRoomingListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomingListDetails> {
         const response = await this.postRoomingListRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4185,7 +4990,23 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create sub allocation. <p><strong>OperationId:</strong>postSubAllocation</p>
      * Create Sub allocation
      */
-    async postSubAllocationRaw(requestParameters: PostSubAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postSubAllocationRaw(requestParameters: PostSubAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSubAllocation.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSubAllocation.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSubAllocation.');
+        }
+
+        if (requestParameters.subAllocation === null || requestParameters.subAllocation === undefined) {
+            throw new runtime.RequiredError('subAllocation','Required parameter requestParameters.subAllocation was null or undefined when calling postSubAllocation.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4217,7 +5038,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSubAllocationRequestToJSON(requestParameters.subAllocation),
+            body: SubAllocationToJSON(requestParameters.subAllocation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4227,7 +5048,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create sub allocation. <p><strong>OperationId:</strong>postSubAllocation</p>
      * Create Sub allocation
      */
-    async postSubAllocation(requestParameters: PostSubAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postSubAllocation(requestParameters: PostSubAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postSubAllocationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4236,7 +5057,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this when you want to create a sub block.You will need to know the OPERA Block ID, which you want this sub block to fall under. <p><strong>OperationId:</strong>postSubBlock</p>
      * Create a sub-Block
      */
-    async postSubBlockRaw(requestParameters: PostSubBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postSubBlockRaw(requestParameters: PostSubBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postSubBlock.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postSubBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSubBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSubBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSubBlock.');
+        }
+
+        if (requestParameters.subBlock === null || requestParameters.subBlock === undefined) {
+            throw new runtime.RequiredError('subBlock','Required parameter requestParameters.subBlock was null or undefined when calling postSubBlock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4268,7 +5113,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSubBlockRequestToJSON(requestParameters.subBlock),
+            body: SubBlockToJSON(requestParameters.subBlock),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4278,7 +5123,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this when you want to create a sub block.You will need to know the OPERA Block ID, which you want this sub block to fall under. <p><strong>OperationId:</strong>postSubBlock</p>
      * Create a sub-Block
      */
-    async postSubBlock(requestParameters: PostSubBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postSubBlock(requestParameters: PostSubBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postSubBlockRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4288,6 +5133,34 @@ export class BlockApi extends runtime.BaseAPI {
      * Create a sub-Block
      */
     async postSubBlockByExtIdRaw(requestParameters: PostSubBlockByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockExternalId === null || requestParameters.blockExternalId === undefined) {
+            throw new runtime.RequiredError('blockExternalId','Required parameter requestParameters.blockExternalId was null or undefined when calling postSubBlockByExtId.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling postSubBlockByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postSubBlockByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSubBlockByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSubBlockByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSubBlockByExtId.');
+        }
+
+        if (requestParameters.subBlock === null || requestParameters.subBlock === undefined) {
+            throw new runtime.RequiredError('subBlock','Required parameter requestParameters.subBlock was null or undefined when calling postSubBlockByExtId.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4319,7 +5192,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSubBlockRequestToJSON(requestParameters.subBlock),
+            body: SubBlockToJSON(requestParameters.subBlock),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4338,7 +5211,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a block tour series. <p><strong>OperationId:</strong>postTourSeries</p>
      * Create a Block tour series
      */
-    async postTourSeriesRaw(requestParameters: PostTourSeriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTourSeriesRaw(requestParameters: PostTourSeriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling postTourSeries.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTourSeries.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTourSeries.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTourSeries.');
+        }
+
+        if (requestParameters.tourSeries === null || requestParameters.tourSeries === undefined) {
+            throw new runtime.RequiredError('tourSeries','Required parameter requestParameters.tourSeries was null or undefined when calling postTourSeries.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4370,7 +5263,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTourSeriesRequestToJSON(requestParameters.tourSeries),
+            body: TourSeriesToJSON(requestParameters.tourSeries),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4380,7 +5273,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to create a block tour series. <p><strong>OperationId:</strong>postTourSeries</p>
      * Create a Block tour series
      */
-    async postTourSeries(requestParameters: PostTourSeriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTourSeries(requestParameters: PostTourSeriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTourSeriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4389,7 +5282,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to change alternate dates for a block. <p><strong>OperationId:</strong>putAlternateDates</p>
      * Change alternate dates for a Block
      */
-    async putAlternateDatesRaw(requestParameters: PutAlternateDatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putAlternateDatesRaw(requestParameters: PutAlternateDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putAlternateDates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAlternateDates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAlternateDates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAlternateDates.');
+        }
+
+        if (requestParameters.blockAlternateDates === null || requestParameters.blockAlternateDates === undefined) {
+            throw new runtime.RequiredError('blockAlternateDates','Required parameter requestParameters.blockAlternateDates was null or undefined when calling putAlternateDates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4421,7 +5334,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAlternateDatesRequestToJSON(requestParameters.blockAlternateDates),
+            body: BlockAlternateDatesToJSON(requestParameters.blockAlternateDates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4431,7 +5344,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to change alternate dates for a block. <p><strong>OperationId:</strong>putAlternateDates</p>
      * Change alternate dates for a Block
      */
-    async putAlternateDates(requestParameters: PutAlternateDatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putAlternateDates(requestParameters: PutAlternateDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putAlternateDatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4440,7 +5353,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to update an existing group block in OPERA Cloud. This API allows update of block header information, such as description, market segment, source code, rate code, and other details, but does not include updates for room grid or events, which have their own update API calls. <p><strong>OperationId:</strong>putBlock</p>
      * Change a Block
      */
-    async putBlockRaw(requestParameters: PutBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockChanged>> {
+    async putBlockRaw(requestParameters: PutBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockChanged>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlock.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlock.');
+        }
+
+        if (requestParameters.blockToBeChanged === null || requestParameters.blockToBeChanged === undefined) {
+            throw new runtime.RequiredError('blockToBeChanged','Required parameter requestParameters.blockToBeChanged was null or undefined when calling putBlock.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4472,7 +5409,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockRequestToJSON(requestParameters.blockToBeChanged),
+            body: BlockToBeChangedToJSON(requestParameters.blockToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BlockChangedFromJSON(jsonValue));
@@ -4482,7 +5419,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to update an existing group block in OPERA Cloud. This API allows update of block header information, such as description, market segment, source code, rate code, and other details, but does not include updates for room grid or events, which have their own update API calls. <p><strong>OperationId:</strong>putBlock</p>
      * Change a Block
      */
-    async putBlock(requestParameters: PutBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockChanged> {
+    async putBlock(requestParameters: PutBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockChanged> {
         const response = await this.putBlockRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4491,7 +5428,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Us this API to create/change block access exclusion information. <p><strong>OperationId:</strong>putBlockAccessExclusion</p>
      * Set Block Exclusion information
      */
-    async putBlockAccessExclusionRaw(requestParameters: PutBlockAccessExclusionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockAccessExclusionRaw(requestParameters: PutBlockAccessExclusionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockAccessExclusion.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockAccessExclusion.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockAccessExclusion.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockAccessExclusion.');
+        }
+
+        if (requestParameters.blockAccessExclusion === null || requestParameters.blockAccessExclusion === undefined) {
+            throw new runtime.RequiredError('blockAccessExclusion','Required parameter requestParameters.blockAccessExclusion was null or undefined when calling putBlockAccessExclusion.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4523,7 +5480,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockAccessExclusionRequestToJSON(requestParameters.blockAccessExclusion),
+            body: BlockAccessExclusionToJSON(requestParameters.blockAccessExclusion),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4533,7 +5490,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Us this API to create/change block access exclusion information. <p><strong>OperationId:</strong>putBlockAccessExclusion</p>
      * Set Block Exclusion information
      */
-    async putBlockAccessExclusion(requestParameters: PutBlockAccessExclusionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockAccessExclusion(requestParameters: PutBlockAccessExclusionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockAccessExclusionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4542,7 +5499,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to add block room type allocations and rates to a specified Block. <p><strong>OperationId:</strong>putBlockAllocation</p>
      * Set Block Allocation  
      */
-    async putBlockAllocationRaw(requestParameters: PutBlockAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockAllocationRaw(requestParameters: PutBlockAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockAllocation.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockAllocation.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockAllocation.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockAllocation.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockAllocation.');
+        }
+
+        if (requestParameters.allocation === null || requestParameters.allocation === undefined) {
+            throw new runtime.RequiredError('allocation','Required parameter requestParameters.allocation was null or undefined when calling putBlockAllocation.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4574,7 +5555,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockAllocationRequestToJSON(requestParameters.allocation),
+            body: AllocationToJSON(requestParameters.allocation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4584,7 +5565,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to add block room type allocations and rates to a specified Block. <p><strong>OperationId:</strong>putBlockAllocation</p>
      * Set Block Allocation  
      */
-    async putBlockAllocation(requestParameters: PutBlockAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockAllocation(requestParameters: PutBlockAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockAllocationRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4594,6 +5575,38 @@ export class BlockApi extends runtime.BaseAPI {
      * Set Block Allocation  
      */
     async putBlockAllocationByExtIdRaw(requestParameters: PutBlockAllocationByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomType === null || requestParameters.roomType === undefined) {
+            throw new runtime.RequiredError('roomType','Required parameter requestParameters.roomType was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
+        if (requestParameters.blockExternalId === null || requestParameters.blockExternalId === undefined) {
+            throw new runtime.RequiredError('blockExternalId','Required parameter requestParameters.blockExternalId was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
+        if (requestParameters.allocation === null || requestParameters.allocation === undefined) {
+            throw new runtime.RequiredError('allocation','Required parameter requestParameters.allocation was null or undefined when calling putBlockAllocationByExtId.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4625,7 +5638,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockAllocationRequestToJSON(requestParameters.allocation),
+            body: AllocationToJSON(requestParameters.allocation),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4644,7 +5657,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to set block allocation for a range of dates for a list of room types. <p><strong>OperationId:</strong>putBlockAllocationRange</p>
      * Set Block Allocation Range
      */
-    async putBlockAllocationRangeRaw(requestParameters: PutBlockAllocationRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockAllocationRangeRaw(requestParameters: PutBlockAllocationRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockAllocationRange.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockAllocationRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockAllocationRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockAllocationRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockAllocationRange.');
+        }
+
+        if (requestParameters.blockAllocationRange === null || requestParameters.blockAllocationRange === undefined) {
+            throw new runtime.RequiredError('blockAllocationRange','Required parameter requestParameters.blockAllocationRange was null or undefined when calling putBlockAllocationRange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4676,7 +5713,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockAllocationRangeRequestToJSON(requestParameters.blockAllocationRange),
+            body: BlockAllocationRangeToJSON(requestParameters.blockAllocationRange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4686,7 +5723,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to set block allocation for a range of dates for a list of room types. <p><strong>OperationId:</strong>putBlockAllocationRange</p>
      * Set Block Allocation Range
      */
-    async putBlockAllocationRange(requestParameters: PutBlockAllocationRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockAllocationRange(requestParameters: PutBlockAllocationRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockAllocationRangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4696,6 +5733,34 @@ export class BlockApi extends runtime.BaseAPI {
      * Set Block Allocation Range
      */
     async putBlockAllocationRangeByExtIdRaw(requestParameters: PutBlockAllocationRangeByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockExternalId === null || requestParameters.blockExternalId === undefined) {
+            throw new runtime.RequiredError('blockExternalId','Required parameter requestParameters.blockExternalId was null or undefined when calling putBlockAllocationRangeByExtId.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling putBlockAllocationRangeByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockAllocationRangeByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockAllocationRangeByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockAllocationRangeByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockAllocationRangeByExtId.');
+        }
+
+        if (requestParameters.blockAllocationRange === null || requestParameters.blockAllocationRange === undefined) {
+            throw new runtime.RequiredError('blockAllocationRange','Required parameter requestParameters.blockAllocationRange was null or undefined when calling putBlockAllocationRangeByExtId.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4727,7 +5792,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockAllocationRangeRequestToJSON(requestParameters.blockAllocationRange),
+            body: BlockAllocationRangeToJSON(requestParameters.blockAllocationRange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4746,7 +5811,23 @@ export class BlockApi extends runtime.BaseAPI {
      * This API removes block allocation to a range of dates for a set of room types. <p><strong>OperationId:</strong>putBlockAllocationWash</p>
      * Update Block Allocation Wash
      */
-    async putBlockAllocationWashRaw(requestParameters: PutBlockAllocationWashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockAllocationWashRaw(requestParameters: PutBlockAllocationWashRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockAllocationWash.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockAllocationWash.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockAllocationWash.');
+        }
+
+        if (requestParameters.blockAllocationWash === null || requestParameters.blockAllocationWash === undefined) {
+            throw new runtime.RequiredError('blockAllocationWash','Required parameter requestParameters.blockAllocationWash was null or undefined when calling putBlockAllocationWash.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4778,7 +5859,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockAllocationWashRequestToJSON(requestParameters.blockAllocationWash),
+            body: BlockAllocationWashToJSON(requestParameters.blockAllocationWash),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4788,7 +5869,7 @@ export class BlockApi extends runtime.BaseAPI {
      * This API removes block allocation to a range of dates for a set of room types. <p><strong>OperationId:</strong>putBlockAllocationWash</p>
      * Update Block Allocation Wash
      */
-    async putBlockAllocationWash(requestParameters: PutBlockAllocationWashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockAllocationWash(requestParameters: PutBlockAllocationWashRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockAllocationWashRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4798,6 +5879,34 @@ export class BlockApi extends runtime.BaseAPI {
      * Change a Block
      */
     async putBlockByExtIdRaw(requestParameters: PutBlockByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockChanged>> {
+        if (requestParameters.blockExternalId === null || requestParameters.blockExternalId === undefined) {
+            throw new runtime.RequiredError('blockExternalId','Required parameter requestParameters.blockExternalId was null or undefined when calling putBlockByExtId.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling putBlockByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockByExtId.');
+        }
+
+        if (requestParameters.blockToBeChanged === null || requestParameters.blockToBeChanged === undefined) {
+            throw new runtime.RequiredError('blockToBeChanged','Required parameter requestParameters.blockToBeChanged was null or undefined when calling putBlockByExtId.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4829,7 +5938,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockRequestToJSON(requestParameters.blockToBeChanged),
+            body: BlockToBeChangedToJSON(requestParameters.blockToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BlockChangedFromJSON(jsonValue));
@@ -4848,7 +5957,27 @@ export class BlockApi extends runtime.BaseAPI {
      * This API cuts off block allocation effective current date. <p><strong>OperationId:</strong>putBlockCutoff</p>
      * Block Cut Off
      */
-    async putBlockCutoffRaw(requestParameters: PutBlockCutoffOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockCutoffRaw(requestParameters: PutBlockCutoffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockCutoff.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockCutoff.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockCutoff.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockCutoff.');
+        }
+
+        if (requestParameters.blockStatus === null || requestParameters.blockStatus === undefined) {
+            throw new runtime.RequiredError('blockStatus','Required parameter requestParameters.blockStatus was null or undefined when calling putBlockCutoff.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4880,7 +6009,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockCutoffRequestToJSON(requestParameters.blockStatus),
+            body: BlockStatusToJSON(requestParameters.blockStatus),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4890,7 +6019,7 @@ export class BlockApi extends runtime.BaseAPI {
      * This API cuts off block allocation effective current date. <p><strong>OperationId:</strong>putBlockCutoff</p>
      * Block Cut Off
      */
-    async putBlockCutoff(requestParameters: PutBlockCutoffOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockCutoff(requestParameters: PutBlockCutoffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockCutoffRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4899,7 +6028,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to change block owners. <p><strong>OperationId:</strong>putBlockOwners</p>
      * Change Block owners
      */
-    async putBlockOwnersRaw(requestParameters: PutBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockOwnersRaw(requestParameters: PutBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockOwners.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockOwners.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockOwners.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockOwners.');
+        }
+
+        if (requestParameters.blockOwnersToChange === null || requestParameters.blockOwnersToChange === undefined) {
+            throw new runtime.RequiredError('blockOwnersToChange','Required parameter requestParameters.blockOwnersToChange was null or undefined when calling putBlockOwners.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4931,7 +6080,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockOwnersRequestToJSON(requestParameters.blockOwnersToChange),
+            body: BlockOwnersToChangeToJSON(requestParameters.blockOwnersToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4941,7 +6090,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to change block owners. <p><strong>OperationId:</strong>putBlockOwners</p>
      * Change Block owners
      */
-    async putBlockOwners(requestParameters: PutBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockOwners(requestParameters: PutBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockOwnersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4951,6 +6100,26 @@ export class BlockApi extends runtime.BaseAPI {
      * Refreshes Block rates
      */
     async putBlockRatesRaw(requestParameters: PutBlockRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockRates.');
+        }
+
+        if (requestParameters.blockStatus === null || requestParameters.blockStatus === undefined) {
+            throw new runtime.RequiredError('blockStatus','Required parameter requestParameters.blockStatus was null or undefined when calling putBlockRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4982,7 +6151,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockCutoffRequestToJSON(requestParameters.blockStatus),
+            body: BlockStatusToJSON(requestParameters.blockStatus),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5001,7 +6170,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to make changes to block reservations. <p><strong>OperationId:</strong>putBlockReservations</p>
      * Change Block reservations
      */
-    async putBlockReservationsRaw(requestParameters: PutBlockReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockReservations>> {
+    async putBlockReservationsRaw(requestParameters: PutBlockReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockReservations>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockReservations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockReservations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockReservations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockReservations.');
+        }
+
+        if (requestParameters.blockReservationsToChange === null || requestParameters.blockReservationsToChange === undefined) {
+            throw new runtime.RequiredError('blockReservationsToChange','Required parameter requestParameters.blockReservationsToChange was null or undefined when calling putBlockReservations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5033,7 +6222,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockReservationsRequestToJSON(requestParameters.blockReservationsToChange),
+            body: BlockReservationsToChangeToJSON(requestParameters.blockReservationsToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedBlockReservationsFromJSON(jsonValue));
@@ -5043,7 +6232,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to make changes to block reservations. <p><strong>OperationId:</strong>putBlockReservations</p>
      * Change Block reservations
      */
-    async putBlockReservations(requestParameters: PutBlockReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockReservations> {
+    async putBlockReservations(requestParameters: PutBlockReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockReservations> {
         const response = await this.putBlockReservationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5052,7 +6241,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to move or shift the dates of a block in OPERA.  <p><strong>OperationId:</strong>putBlockShift</p>
      * Shifts the Block start date
      */
-    async putBlockShiftRaw(requestParameters: PutBlockShiftOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShiftedBlock>> {
+    async putBlockShiftRaw(requestParameters: PutBlockShiftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShiftedBlock>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockShift.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockShift.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockShift.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockShift.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockShift.');
+        }
+
+        if (requestParameters.blockToShift === null || requestParameters.blockToShift === undefined) {
+            throw new runtime.RequiredError('blockToShift','Required parameter requestParameters.blockToShift was null or undefined when calling putBlockShift.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5084,7 +6297,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockShiftRequestToJSON(requestParameters.blockToShift),
+            body: BlockToShiftToJSON(requestParameters.blockToShift),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ShiftedBlockFromJSON(jsonValue));
@@ -5094,7 +6307,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to move or shift the dates of a block in OPERA.  <p><strong>OperationId:</strong>putBlockShift</p>
      * Shifts the Block start date
      */
-    async putBlockShift(requestParameters: PutBlockShiftOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShiftedBlock> {
+    async putBlockShift(requestParameters: PutBlockShiftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShiftedBlock> {
         const response = await this.putBlockShiftRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5103,7 +6316,31 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this to change the status of a block in Opera.  To know a hotels Block status codes, use the List Of Values API - BlockStatuses.  Also note, you can only change the status in a particular order, for example INQ to DEF, but not DEF to INQ. <p><strong>OperationId:</strong>putBlockStatus</p>
      * Change the Status of a Block
      */
-    async putBlockStatusRaw(requestParameters: PutBlockStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockStatus>> {
+    async putBlockStatusRaw(requestParameters: PutBlockStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockStatus>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockStatus.');
+        }
+
+        if (requestParameters.blockStatusToChange === null || requestParameters.blockStatusToChange === undefined) {
+            throw new runtime.RequiredError('blockStatusToChange','Required parameter requestParameters.blockStatusToChange was null or undefined when calling putBlockStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5135,7 +6372,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockStatusRequestToJSON(requestParameters.blockStatusToChange),
+            body: BlockStatusToChangeToJSON(requestParameters.blockStatusToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedBlockStatusFromJSON(jsonValue));
@@ -5145,7 +6382,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this to change the status of a block in Opera.  To know a hotels Block status codes, use the List Of Values API - BlockStatuses.  Also note, you can only change the status in a particular order, for example INQ to DEF, but not DEF to INQ. <p><strong>OperationId:</strong>putBlockStatus</p>
      * Change the Status of a Block
      */
-    async putBlockStatus(requestParameters: PutBlockStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockStatus> {
+    async putBlockStatus(requestParameters: PutBlockStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockStatus> {
         const response = await this.putBlockStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5155,6 +6392,34 @@ export class BlockApi extends runtime.BaseAPI {
      * Change the Status of a Block
      */
     async putBlockStatusByExtIdRaw(requestParameters: PutBlockStatusByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockStatus>> {
+        if (requestParameters.blockExternalId === null || requestParameters.blockExternalId === undefined) {
+            throw new runtime.RequiredError('blockExternalId','Required parameter requestParameters.blockExternalId was null or undefined when calling putBlockStatusByExtId.');
+        }
+
+        if (requestParameters.externalSystemCode === null || requestParameters.externalSystemCode === undefined) {
+            throw new runtime.RequiredError('externalSystemCode','Required parameter requestParameters.externalSystemCode was null or undefined when calling putBlockStatusByExtId.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockStatusByExtId.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockStatusByExtId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockStatusByExtId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockStatusByExtId.');
+        }
+
+        if (requestParameters.blockStatusToChange === null || requestParameters.blockStatusToChange === undefined) {
+            throw new runtime.RequiredError('blockStatusToChange','Required parameter requestParameters.blockStatusToChange was null or undefined when calling putBlockStatusByExtId.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5186,7 +6451,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockStatusRequestToJSON(requestParameters.blockStatusToChange),
+            body: BlockStatusToChangeToJSON(requestParameters.blockStatusToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedBlockStatusFromJSON(jsonValue));
@@ -5206,6 +6471,30 @@ export class BlockApi extends runtime.BaseAPI {
      * Change Block status to Open
      */
     async putBlockStatusToOpenRaw(requestParameters: PutBlockStatusToOpenRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockStatusToOpen.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putBlockStatusToOpen.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockStatusToOpen.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockStatusToOpen.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockStatusToOpen.');
+        }
+
+        if (requestParameters.blockStatus === null || requestParameters.blockStatus === undefined) {
+            throw new runtime.RequiredError('blockStatus','Required parameter requestParameters.blockStatus was null or undefined when calling putBlockStatusToOpen.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5237,7 +6526,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockCutoffRequestToJSON(requestParameters.blockStatus),
+            body: BlockStatusToJSON(requestParameters.blockStatus),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5256,7 +6545,27 @@ export class BlockApi extends runtime.BaseAPI {
      * This API changes block wash schedules Wash Date, Room Type, Occupancy detail, Sell limit and Wash by percent value. <p><strong>OperationId:</strong>putBlockWashSchedules</p>
      * Change Block Wash Schedules
      */
-    async putBlockWashSchedulesRaw(requestParameters: PutBlockWashSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockWashSchedulesRaw(requestParameters: PutBlockWashSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putBlockWashSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockWashSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockWashSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockWashSchedules.');
+        }
+
+        if (requestParameters.blockWashSchedulesInfo === null || requestParameters.blockWashSchedulesInfo === undefined) {
+            throw new runtime.RequiredError('blockWashSchedulesInfo','Required parameter requestParameters.blockWashSchedulesInfo was null or undefined when calling putBlockWashSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5288,7 +6597,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockWashSchedulesRequestToJSON(requestParameters.blockWashSchedulesInfo),
+            body: BlockWashSchedulesInfoToJSON(requestParameters.blockWashSchedulesInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5298,7 +6607,7 @@ export class BlockApi extends runtime.BaseAPI {
      * This API changes block wash schedules Wash Date, Room Type, Occupancy detail, Sell limit and Wash by percent value. <p><strong>OperationId:</strong>putBlockWashSchedules</p>
      * Change Block Wash Schedules
      */
-    async putBlockWashSchedules(requestParameters: PutBlockWashSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockWashSchedules(requestParameters: PutBlockWashSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockWashSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5307,7 +6616,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to update catering status. <p><strong>OperationId:</strong>putCateringStatus</p>
      * Change Catering Status
      */
-    async putCateringStatusRaw(requestParameters: PutCateringStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedCateringStatus>> {
+    async putCateringStatusRaw(requestParameters: PutCateringStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedCateringStatus>> {
+        if (requestParameters.eventId === null || requestParameters.eventId === undefined) {
+            throw new runtime.RequiredError('eventId','Required parameter requestParameters.eventId was null or undefined when calling putCateringStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringStatus.');
+        }
+
+        if (requestParameters.cateringStatusToChange === null || requestParameters.cateringStatusToChange === undefined) {
+            throw new runtime.RequiredError('cateringStatusToChange','Required parameter requestParameters.cateringStatusToChange was null or undefined when calling putCateringStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5339,7 +6668,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutCateringStatusRequestToJSON(requestParameters.cateringStatusToChange),
+            body: CateringStatusToChangeToJSON(requestParameters.cateringStatusToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangedCateringStatusFromJSON(jsonValue));
@@ -5349,7 +6678,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to update catering status. <p><strong>OperationId:</strong>putCateringStatus</p>
      * Change Catering Status
      */
-    async putCateringStatus(requestParameters: PutCateringStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedCateringStatus> {
+    async putCateringStatus(requestParameters: PutCateringStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedCateringStatus> {
         const response = await this.putCateringStatusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5358,7 +6687,27 @@ export class BlockApi extends runtime.BaseAPI {
      * This API clears all block restrictions for a given date. <p><strong>OperationId:</strong>putClearAllRestrictions</p>
      * Clear-All Block Restrictions 
      */
-    async putClearAllRestrictionsRaw(requestParameters: PutClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putClearAllRestrictionsRaw(requestParameters: PutClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putClearAllRestrictions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putClearAllRestrictions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putClearAllRestrictions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putClearAllRestrictions.');
+        }
+
+        if (requestParameters.allRestrictions === null || requestParameters.allRestrictions === undefined) {
+            throw new runtime.RequiredError('allRestrictions','Required parameter requestParameters.allRestrictions was null or undefined when calling putClearAllRestrictions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5390,7 +6739,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutClearAllRestrictionsRequestToJSON(requestParameters.allRestrictions),
+            body: AllRestrictionsToJSON(requestParameters.allRestrictions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5400,7 +6749,7 @@ export class BlockApi extends runtime.BaseAPI {
      * This API clears all block restrictions for a given date. <p><strong>OperationId:</strong>putClearAllRestrictions</p>
      * Clear-All Block Restrictions 
      */
-    async putClearAllRestrictions(requestParameters: PutClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putClearAllRestrictions(requestParameters: PutClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putClearAllRestrictionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5410,6 +6759,22 @@ export class BlockApi extends runtime.BaseAPI {
      * Set Contract Defaults
      */
     async putContractDefaultsRaw(requestParameters: PutContractDefaultsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putContractDefaults.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putContractDefaults.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putContractDefaults.');
+        }
+
+        if (requestParameters.blockStatus === null || requestParameters.blockStatus === undefined) {
+            throw new runtime.RequiredError('blockStatus','Required parameter requestParameters.blockStatus was null or undefined when calling putContractDefaults.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5441,7 +6806,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockCutoffRequestToJSON(requestParameters.blockStatus),
+            body: BlockStatusToJSON(requestParameters.blockStatus),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5460,7 +6825,23 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to borrow inventory from the block or house when you encounter an insufficient number of rooms for block a reservation. <p><strong>OperationId:</strong>putInventory</p>
      * Borrow Inventory
      */
-    async putInventoryRaw(requestParameters: PutInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putInventoryRaw(requestParameters: PutInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putInventory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putInventory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putInventory.');
+        }
+
+        if (requestParameters.inventoryToBorrow === null || requestParameters.inventoryToBorrow === undefined) {
+            throw new runtime.RequiredError('inventoryToBorrow','Required parameter requestParameters.inventoryToBorrow was null or undefined when calling putInventory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5492,7 +6873,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutInventoryRequestToJSON(requestParameters.inventoryToBorrow),
+            body: InventoryToBorrowToJSON(requestParameters.inventoryToBorrow),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5502,7 +6883,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to borrow inventory from the block or house when you encounter an insufficient number of rooms for block a reservation. <p><strong>OperationId:</strong>putInventory</p>
      * Borrow Inventory
      */
-    async putInventory(requestParameters: PutInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putInventory(requestParameters: PutInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putInventoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5511,7 +6892,23 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to return the previously borrowed inventory on the block back to the original source from which it was borrowed. The original source can be a room type or house inventory, as indicated in the request. <p><strong>OperationId:</strong>putReleasedInventory</p>
      * Return Borrowed Inventory
      */
-    async putReleasedInventoryRaw(requestParameters: PutReleasedInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putReleasedInventoryRaw(requestParameters: PutReleasedInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putReleasedInventory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putReleasedInventory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putReleasedInventory.');
+        }
+
+        if (requestParameters.borrowedInventoryToReturn === null || requestParameters.borrowedInventoryToReturn === undefined) {
+            throw new runtime.RequiredError('borrowedInventoryToReturn','Required parameter requestParameters.borrowedInventoryToReturn was null or undefined when calling putReleasedInventory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5543,7 +6940,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutReleasedInventoryRequestToJSON(requestParameters.borrowedInventoryToReturn),
+            body: BorrowedInventoryToReturnToJSON(requestParameters.borrowedInventoryToReturn),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5553,7 +6950,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to return the previously borrowed inventory on the block back to the original source from which it was borrowed. The original source can be a room type or house inventory, as indicated in the request. <p><strong>OperationId:</strong>putReleasedInventory</p>
      * Return Borrowed Inventory
      */
-    async putReleasedInventory(requestParameters: PutReleasedInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putReleasedInventory(requestParameters: PutReleasedInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putReleasedInventoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5562,7 +6959,27 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to set room type order for a block. <p><strong>OperationId:</strong>putRoomTypeOrder</p>
      * Set room type order for a Block
      */
-    async putRoomTypeOrderRaw(requestParameters: PutRoomTypeOrderOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRoomTypeOrderRaw(requestParameters: PutRoomTypeOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockId === null || requestParameters.blockId === undefined) {
+            throw new runtime.RequiredError('blockId','Required parameter requestParameters.blockId was null or undefined when calling putRoomTypeOrder.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomTypeOrder.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomTypeOrder.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomTypeOrder.');
+        }
+
+        if (requestParameters.roomTypeOrder === null || requestParameters.roomTypeOrder === undefined) {
+            throw new runtime.RequiredError('roomTypeOrder','Required parameter requestParameters.roomTypeOrder was null or undefined when calling putRoomTypeOrder.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5594,7 +7011,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoomTypeOrderRequestToJSON(requestParameters.roomTypeOrder),
+            body: RoomTypeOrderToJSON(requestParameters.roomTypeOrder),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5604,7 +7021,7 @@ export class BlockApi extends runtime.BaseAPI {
      * Use this API to set room type order for a block. <p><strong>OperationId:</strong>putRoomTypeOrder</p>
      * Set room type order for a Block
      */
-    async putRoomTypeOrder(requestParameters: PutRoomTypeOrderOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRoomTypeOrder(requestParameters: PutRoomTypeOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRoomTypeOrderRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5613,7 +7030,27 @@ export class BlockApi extends runtime.BaseAPI {
      * This API validates the block code for the following if applicable - Unique block code/ Start of inventory week/ Block code template. <p><strong>OperationId:</strong>putValidateBlockCode</p>
      * Validate Block Code
      */
-    async putValidateBlockCodeRaw(requestParameters: PutValidateBlockCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putValidateBlockCodeRaw(requestParameters: PutValidateBlockCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockCode === null || requestParameters.blockCode === undefined) {
+            throw new runtime.RequiredError('blockCode','Required parameter requestParameters.blockCode was null or undefined when calling putValidateBlockCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putValidateBlockCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putValidateBlockCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putValidateBlockCode.');
+        }
+
+        if (requestParameters.blockCodeToValidate === null || requestParameters.blockCodeToValidate === undefined) {
+            throw new runtime.RequiredError('blockCodeToValidate','Required parameter requestParameters.blockCodeToValidate was null or undefined when calling putValidateBlockCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5645,7 +7082,7 @@ export class BlockApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutValidateBlockCodeRequestToJSON(requestParameters.blockCodeToValidate),
+            body: BlockCodeToValidateToJSON(requestParameters.blockCodeToValidate),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5655,7 +7092,7 @@ export class BlockApi extends runtime.BaseAPI {
      * This API validates the block code for the following if applicable - Unique block code/ Start of inventory week/ Block code template. <p><strong>OperationId:</strong>putValidateBlockCode</p>
      * Validate Block Code
      */
-    async putValidateBlockCode(requestParameters: PutValidateBlockCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putValidateBlockCode(requestParameters: PutValidateBlockCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putValidateBlockCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -58,7 +58,7 @@ function FulfillmentExportInfoTypeToJSON(value) {
         'excludeExtract': value.excludeExtract,
         'extractBatchId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.extractBatchId),
         'extractCode': value.extractCode,
-        'extractDate': value.extractDate === undefined ? undefined : (value.extractDate.toISOString().substr(0, 10)),
+        'extractDate': value.extractDate === undefined ? undefined : (value.extractDate.toISOString().substring(0, 10)),
         'extractId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.extractId),
         'extractLogId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.extractLogId),
         'membershipCard': value.membershipCard,

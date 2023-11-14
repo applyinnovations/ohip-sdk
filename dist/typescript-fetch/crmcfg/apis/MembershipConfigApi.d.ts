@@ -10,95 +10,95 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { MembershipAwardsInfo, MembershipBenefitProgramsInfo, MembershipClassesInfo, MembershipEnrollmentGroupsInfo, MembershipLevelsInfo, MembershipMarketGroupsInfo, MembershipPropertyGroupsInfo, MembershipRateGroupsInfo, MembershipTypeRule, MembershipTypeRulesDetails, MembershipTypeRulesInfo, MembershipTypes, MembershipTypesDetails, PostMembershipAwardsRequest, PostMembershipBenefitProgramsRequest, PostMembershipClassesRequest, PostMembershipEnrollmentGroupsRequest, PostMembershipFolioTextsRequest, PostMembershipLevelsRequest, PostMembershipMarketGroupsRequest, PostMembershipPropertyGroupsRequest, PostMembershipRateGroupsRequest, PostMembershipTypeRulesRequest, PostMembershipTypesRequest, PutMembershipTypeRequest, Status } from '../models';
+import type { MembershipAwards, MembershipAwardsInfo, MembershipBenefitPrograms, MembershipBenefitProgramsInfo, MembershipClasses, MembershipClassesInfo, MembershipEnrollmentGroups, MembershipEnrollmentGroupsInfo, MembershipFolioTexts, MembershipLevels, MembershipLevelsInfo, MembershipMarketGroups, MembershipMarketGroupsInfo, MembershipPropertyGroups, MembershipPropertyGroupsInfo, MembershipRateGroups, MembershipRateGroupsInfo, MembershipTypeChangeInstructions, MembershipTypeRule, MembershipTypeRules, MembershipTypeRulesDetails, MembershipTypeRulesInfo, MembershipTypes, MembershipTypesDetails, Status } from '../models/index';
 export interface DeleteMembershipAwardsRequest {
-    membershipAwardsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipAwardsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipBenefitProgramsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipClassesRequest {
-    membershipClassId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipClassId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipEnrollmentGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipLevelsRequest {
-    membershipLevelsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipLevelsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     type?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipMarketGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipPropertyGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipRateGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeRulesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipPointsSequence?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMembershipTypesRequest {
-    membershipTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: string;
     awardCodes?: Array<string>;
     wildCard?: string;
@@ -110,9 +110,9 @@ export interface GetMembershipAwardsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipBenefitProgramsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: string;
     code?: string;
     end?: Date;
@@ -123,9 +123,9 @@ export interface GetMembershipBenefitProgramsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -134,9 +134,9 @@ export interface GetMembershipClassesRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipEnrollmentGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     enrollmentCodes?: Array<string>;
@@ -146,10 +146,10 @@ export interface GetMembershipEnrollmentGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipLevelsRequest {
-    membershipTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     includeFolioTexts?: boolean;
     hotelIds?: Array<string>;
@@ -157,9 +157,9 @@ export interface GetMembershipLevelsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipMarketGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -168,9 +168,9 @@ export interface GetMembershipMarketGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipPropertyGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -179,9 +179,9 @@ export interface GetMembershipPropertyGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipRateGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -190,20 +190,20 @@ export interface GetMembershipRateGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTypeRequest {
-    membershipTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipTypeCode?: string;
     fetchInstructions?: Set<GetMembershipTypeFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMembershipTypeRuleRequest {
-    membershipTypeRulesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipTypeRulesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipType?: string;
     membershipPointsSequence?: number;
     fetchInstructions?: Set<GetMembershipTypeRuleFetchInstructionsEnum>;
@@ -211,9 +211,9 @@ export interface GetMembershipTypeRuleRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTypeRulesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     membershipTypesCodes?: Array<string>;
     programType?: GetMembershipTypeRulesProgramTypeEnum;
     ruleCode?: string;
@@ -223,9 +223,9 @@ export interface GetMembershipTypeRulesRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     membershipTypesCodes?: Array<string>;
     membershipTypesWildCard?: string;
@@ -234,181 +234,181 @@ export interface GetMembershipTypesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipAwardsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipAwards?: PostMembershipAwardsRequest;
+export interface PostMembershipAwardsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipBenefitProgramsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipBenefitPrograms?: PostMembershipBenefitProgramsRequest;
+export interface PostMembershipBenefitProgramsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClasses?: PostMembershipClassesRequest;
+export interface PostMembershipClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipEnrollmentGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipEnrollmentGroups?: PostMembershipEnrollmentGroupsRequest;
+export interface PostMembershipEnrollmentGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipFolioTextsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipFolioTexts?: PostMembershipFolioTextsRequest;
+export interface PostMembershipFolioTextsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipFolioTexts: MembershipFolioTexts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipLevelsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipLevels?: PostMembershipLevelsRequest;
+export interface PostMembershipLevelsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipMarketGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipMarketGroups?: PostMembershipMarketGroupsRequest;
+export interface PostMembershipMarketGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipPropertyGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipPropertyGroups?: PostMembershipPropertyGroupsRequest;
+export interface PostMembershipPropertyGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipRateGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipRateGroups?: PostMembershipRateGroupsRequest;
+export interface PostMembershipRateGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipTypeRulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypeRules?: PostMembershipTypeRulesRequest;
+export interface PostMembershipTypeRulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMembershipTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypes?: PostMembershipTypesRequest;
+export interface PostMembershipTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypes: MembershipTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipAwardsRequest {
-    membershipAwardsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipAwards?: PostMembershipAwardsRequest;
+    membershipAwardsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipAwards: MembershipAwards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipBenefitProgramsRequest {
-    membershipBenefitProgramsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipBenefitPrograms?: PostMembershipBenefitProgramsRequest;
+    membershipBenefitProgramsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipBenefitPrograms: MembershipBenefitPrograms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipClassesRequest {
-    membershipClassId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipClasses?: PostMembershipClassesRequest;
+    membershipClassId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipClasses: MembershipClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipEnrollmentGroupsRequest {
-    membershipEnrollmentGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipEnrollmentGroups?: PostMembershipEnrollmentGroupsRequest;
+    membershipEnrollmentGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipEnrollmentGroups: MembershipEnrollmentGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipLevelsRequest {
-    membershipLevelsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipLevels?: PostMembershipLevelsRequest;
+    membershipLevelsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipLevels: MembershipLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipMarketGroupsRequest {
-    membershipMarketGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipMarketGroups?: PostMembershipMarketGroupsRequest;
+    membershipMarketGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipMarketGroups: MembershipMarketGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipPropertyGroupsRequest {
-    membershipPropertyGroupsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipPropertyGroups?: PostMembershipPropertyGroupsRequest;
+    membershipPropertyGroupsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipPropertyGroups: MembershipPropertyGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipRateGroupsRequest {
-    membershipRateGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipRateGroups?: PostMembershipRateGroupsRequest;
+    membershipRateGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipRateGroups: MembershipRateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutMembershipTypeOperationRequest {
-    membershipTypeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypeChangeInstructions?: PutMembershipTypeRequest;
+export interface PutMembershipTypeRequest {
+    membershipTypeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypeChangeInstructions: MembershipTypeChangeInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutMembershipTypeRulesRequest {
-    membershipTypeRulesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipTypeRules?: PostMembershipTypeRulesRequest;
+    membershipTypeRulesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipTypeRules: MembershipTypeRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -640,112 +640,112 @@ export declare class MembershipConfigApi extends runtime.BaseAPI {
      * You can use this API to create Membership Awards. <p><strong>OperationId:</strong>postMembershipAwards</p>
      * Create Membership Awards
      */
-    postMembershipAwardsRaw(requestParameters: PostMembershipAwardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipAwardsRaw(requestParameters: PostMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Membership Awards. <p><strong>OperationId:</strong>postMembershipAwards</p>
      * Create Membership Awards
      */
-    postMembershipAwards(requestParameters: PostMembershipAwardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipAwards(requestParameters: PostMembershipAwardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to create Membership Benefit Programs of a Membership Type. A Benefit Program is configurable for a Membership Type when OCIS or ORS license is active and Membership Type meets following criteria  - primary  central setup,  not externally controlled and point calculation method is Manual Batch. <p><strong>OperationId:</strong>postMembershipBenefitPrograms</p>
      * Create Membership Benefit Program
      */
-    postMembershipBenefitProgramsRaw(requestParameters: PostMembershipBenefitProgramsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipBenefitProgramsRaw(requestParameters: PostMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to create Membership Benefit Programs of a Membership Type. A Benefit Program is configurable for a Membership Type when OCIS or ORS license is active and Membership Type meets following criteria  - primary  central setup,  not externally controlled and point calculation method is Manual Batch. <p><strong>OperationId:</strong>postMembershipBenefitPrograms</p>
      * Create Membership Benefit Program
      */
-    postMembershipBenefitPrograms(requestParameters: PostMembershipBenefitProgramsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipBenefitPrograms(requestParameters: PostMembershipBenefitProgramsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a new membership class. <p><strong>OperationId:</strong>postMembershipClasses</p>
      * Create Membership classes
      */
-    postMembershipClassesRaw(requestParameters: PostMembershipClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipClassesRaw(requestParameters: PostMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a new membership class. <p><strong>OperationId:</strong>postMembershipClasses</p>
      * Create Membership classes
      */
-    postMembershipClasses(requestParameters: PostMembershipClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipClasses(requestParameters: PostMembershipClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a new membership enrollment group. <p><strong>OperationId:</strong>postMembershipEnrollmentGroups</p>
      * Create Membership enrollment groups
      */
-    postMembershipEnrollmentGroupsRaw(requestParameters: PostMembershipEnrollmentGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipEnrollmentGroupsRaw(requestParameters: PostMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a new membership enrollment group. <p><strong>OperationId:</strong>postMembershipEnrollmentGroups</p>
      * Create Membership enrollment groups
      */
-    postMembershipEnrollmentGroups(requestParameters: PostMembershipEnrollmentGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipEnrollmentGroups(requestParameters: PostMembershipEnrollmentGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to Set Membership folio texts. <p><strong>OperationId:</strong>postMembershipFolioTexts</p>
      * Set Membership folio texts
      */
-    postMembershipFolioTextsRaw(requestParameters: PostMembershipFolioTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipFolioTextsRaw(requestParameters: PostMembershipFolioTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to Set Membership folio texts. <p><strong>OperationId:</strong>postMembershipFolioTexts</p>
      * Set Membership folio texts
      */
-    postMembershipFolioTexts(requestParameters: PostMembershipFolioTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipFolioTexts(requestParameters: PostMembershipFolioTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Membership levels. <p><strong>OperationId:</strong>postMembershipLevels</p>
      * Create Membership levels
      */
-    postMembershipLevelsRaw(requestParameters: PostMembershipLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipLevelsRaw(requestParameters: PostMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Membership levels. <p><strong>OperationId:</strong>postMembershipLevels</p>
      * Create Membership levels
      */
-    postMembershipLevels(requestParameters: PostMembershipLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipLevels(requestParameters: PostMembershipLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Membership market groups. <p><strong>OperationId:</strong>postMembershipMarketGroups</p>
      * Create Membership market groups
      */
-    postMembershipMarketGroupsRaw(requestParameters: PostMembershipMarketGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipMarketGroupsRaw(requestParameters: PostMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Membership market groups. <p><strong>OperationId:</strong>postMembershipMarketGroups</p>
      * Create Membership market groups
      */
-    postMembershipMarketGroups(requestParameters: PostMembershipMarketGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipMarketGroups(requestParameters: PostMembershipMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Membership property groups. <p><strong>OperationId:</strong>postMembershipPropertyGroups</p>
      * Create Membership property groups
      */
-    postMembershipPropertyGroupsRaw(requestParameters: PostMembershipPropertyGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipPropertyGroupsRaw(requestParameters: PostMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Membership property groups. <p><strong>OperationId:</strong>postMembershipPropertyGroups</p>
      * Create Membership property groups
      */
-    postMembershipPropertyGroups(requestParameters: PostMembershipPropertyGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipPropertyGroups(requestParameters: PostMembershipPropertyGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Membership rate groups. <p><strong>OperationId:</strong>postMembershipRateGroups</p>
      * Create Membership rate groups
      */
-    postMembershipRateGroupsRaw(requestParameters: PostMembershipRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipRateGroupsRaw(requestParameters: PostMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Membership rate groups. <p><strong>OperationId:</strong>postMembershipRateGroups</p>
      * Create Membership rate groups
      */
-    postMembershipRateGroups(requestParameters: PostMembershipRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipRateGroups(requestParameters: PostMembershipRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Membership type rules. <p><strong>OperationId:</strong>postMembershipTypeRules</p>
      * Create Membership type rules
      */
-    postMembershipTypeRulesRaw(requestParameters: PostMembershipTypeRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRulesDetails>>;
+    postMembershipTypeRulesRaw(requestParameters: PostMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypeRulesDetails>>;
     /**
      * You can use this API to create Membership type rules. <p><strong>OperationId:</strong>postMembershipTypeRules</p>
      * Create Membership type rules
      */
-    postMembershipTypeRules(requestParameters: PostMembershipTypeRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypeRulesDetails>;
+    postMembershipTypeRules(requestParameters: PostMembershipTypeRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypeRulesDetails>;
     /**
      * Membership types enable you to identify, organize, and manage the membership programs on a profile. For example, your property might have a guest loyalty program that awards guests based on the amount of revenue generated or the number of stays per year. You would create a specific membership type for this program. <p><strong>OperationId:</strong>postMembershipTypes</p>
      * Create Membership types
      */
-    postMembershipTypesRaw(requestParameters: PostMembershipTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipTypesRaw(requestParameters: PostMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Membership types enable you to identify, organize, and manage the membership programs on a profile. For example, your property might have a guest loyalty program that awards guests based on the amount of revenue generated or the number of stays per year. You would create a specific membership type for this program. <p><strong>OperationId:</strong>postMembershipTypes</p>
      * Create Membership types
      */
-    postMembershipTypes(requestParameters: PostMembershipTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipTypes(requestParameters: PostMembershipTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Membership Awards. <p><strong>OperationId:</strong>putMembershipAwards</p>
      * Change Membership Awards
@@ -830,12 +830,12 @@ export declare class MembershipConfigApi extends runtime.BaseAPI {
      * Use this API to update an existing Membership Type <p><strong>OperationId:</strong>putMembershipType</p>
      * Change Membership type
      */
-    putMembershipTypeRaw(requestParameters: PutMembershipTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypes>>;
+    putMembershipTypeRaw(requestParameters: PutMembershipTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MembershipTypes>>;
     /**
      * Use this API to update an existing Membership Type <p><strong>OperationId:</strong>putMembershipType</p>
      * Change Membership type
      */
-    putMembershipType(requestParameters: PutMembershipTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypes>;
+    putMembershipType(requestParameters: PutMembershipTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MembershipTypes>;
     /**
      * You can use this API to change Membership type rules. <p><strong>OperationId:</strong>putMembershipTypeRules</p>
      * Change Membership type rules

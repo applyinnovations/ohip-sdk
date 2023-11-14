@@ -55,7 +55,7 @@ function ActivityStatReportTypeToJSON(value) {
         return null;
     }
     return {
-        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substr(0, 10)),
+        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0, 10)),
         'chainCode': value.chainCode,
         'chainName': value.chainName,
         'description': value.description,

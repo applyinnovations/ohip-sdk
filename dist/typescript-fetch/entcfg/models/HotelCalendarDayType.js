@@ -48,7 +48,7 @@ function HotelCalendarDayTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'dayType': (0, HotelCalendarDayTypeType_1.HotelCalendarDayTypeTypeToJSON)(value.dayType),
         'events': (0, HotelCalendarEventsType_1.HotelCalendarEventsTypeToJSON)(value.events),
     };

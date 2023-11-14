@@ -51,7 +51,7 @@ function StatisticSetTypeToJSON(value) {
     return {
         'inventory': value.inventory === undefined ? undefined : (value.inventory.map(NumericCategorySummaryType_1.NumericCategorySummaryTypeToJSON)),
         'revenue': value.revenue === undefined ? undefined : (value.revenue.map(RevenueCategorySummaryType_1.RevenueCategorySummaryTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substr(0, 10)),
+        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
         'weekendDate': value.weekendDate,
     };
 }

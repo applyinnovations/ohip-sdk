@@ -143,11 +143,11 @@ export function OperaHotelContextDetailsHotelContextToJSON(value?: OperaHotelCon
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0,10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
         'cateringCurrencyCode': value.cateringCurrencyCode,
         'chainCode': value.chainCode,
-        'checkInTime': value.checkInTime === undefined ? undefined : (value.checkInTime.toISOString().substr(0,10)),
-        'checkOutTime': value.checkOutTime === undefined ? undefined : (value.checkOutTime.toISOString().substr(0,10)),
+        'checkInTime': value.checkInTime === undefined ? undefined : (value.checkInTime.toISOString().substring(0,10)),
+        'checkOutTime': value.checkOutTime === undefined ? undefined : (value.checkOutTime.toISOString().substring(0,10)),
         'configurationMode': value.configurationMode,
         'countryMode': value.countryMode,
         'currencyCode': value.currencyCode,

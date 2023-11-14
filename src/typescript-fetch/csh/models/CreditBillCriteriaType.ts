@@ -180,7 +180,7 @@ export function CreditBillCriteriaTypeToJSON(value?: CreditBillCriteriaType | nu
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),
         'fullCredit': value.fullCredit,
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0,10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
         'originalFolio': FolioTypeToJSON(value.originalFolio),
         'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(PaymentCriteriaTypeToJSON)),
         'reason': FolioReasonTypeToJSON(value.reason),

@@ -73,7 +73,7 @@ function CalendarEventInfoTypeToJSON(value) {
     }
     return {
         'attendees': value.attendees,
-        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substr(0, 10)),
+        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substring(0, 10)),
         'eventBookingInfo': (0, EventBookingInfoType_1.EventBookingInfoTypeToJSON)(value.eventBookingInfo),
         'eventDisplay': (0, EventDisplayType_1.EventDisplayTypeToJSON)(value.eventDisplay),
         'eventName': value.eventName,

@@ -46,7 +46,7 @@ function ItemQuantityDateTypeToJSON(value) {
     }
     return {
         'dailyQuantity': value.dailyQuantity,
-        'quantityDate': value.quantityDate === undefined ? undefined : (value.quantityDate.toISOString().substr(0, 10)),
+        'quantityDate': value.quantityDate === undefined ? undefined : (value.quantityDate.toISOString().substring(0, 10)),
     };
 }
 exports.ItemQuantityDateTypeToJSON = ItemQuantityDateTypeToJSON;

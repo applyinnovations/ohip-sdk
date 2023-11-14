@@ -47,7 +47,7 @@ function BestAvailableRateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'lengthOfStay': value.lengthOfStay,
         'rateCode': (0, CodeListType_1.CodeListTypeToJSON)(value.rateCode),
     };

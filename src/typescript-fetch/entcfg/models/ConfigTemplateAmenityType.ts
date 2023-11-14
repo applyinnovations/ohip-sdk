@@ -116,10 +116,10 @@ export function ConfigTemplateAmenityTypeToJSON(value?: ConfigTemplateAmenityTyp
     return {
         
         'amenityType': AmenityTypeTypeToJSON(value.amenityType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'comments': value.comments,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'featureCode': value.featureCode,
         'newChainCode': value.newChainCode,
         'orderSequence': value.orderSequence,

@@ -50,9 +50,9 @@ function ConfigPackagePrimaryDetailsTypeToJSON(value) {
     }
     return {
         'arrangementCode': value.arrangementCode,
-        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substr(0, 10)),
+        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substring(0, 10)),
         'description': value.description,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substr(0, 10)),
+        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
         'forecastGroup': value.forecastGroup,
         'shortDescription': value.shortDescription,
     };

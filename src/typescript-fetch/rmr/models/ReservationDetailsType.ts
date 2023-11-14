@@ -128,8 +128,8 @@ export function ReservationDetailsTypeToJSON(value?: ReservationDetailsType | nu
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substr(0,10)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substr(0,10)),
+        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
+        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
         'givenName': value.givenName,
         'hotelId': value.hotelId,
         'nights': value.nights,

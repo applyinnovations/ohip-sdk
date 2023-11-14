@@ -114,7 +114,7 @@ export function RatePlanNoteTypeToJSON(value?: RatePlanNoteType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'note': value.note,
         'noteId': UniqueIDTypeToJSON(value.noteId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
     };
 }
 

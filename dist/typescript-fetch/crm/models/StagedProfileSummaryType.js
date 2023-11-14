@@ -57,7 +57,7 @@ function StagedProfileSummaryTypeToJSON(value) {
     return {
         'country': (0, CountryNameType_1.CountryNameTypeToJSON)(value.country),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substr(0, 10)),
+        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
         'profileIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.profileIdList),
         'profileName': (0, ProfileNameType_1.ProfileNameTypeToJSON)(value.profileName),
         'profileType': value.profileType,

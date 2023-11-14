@@ -285,9 +285,9 @@ export function WaitlistedEventTypeToJSON(value?: WaitlistedEventType | null): a
         'priority': value.priority,
         'processInstructions': EventProcessInstructionsTypeToJSON(value.processInstructions),
         'subEventsDetail': LightEventsDetailTypeToJSON(value.subEventsDetail),
-        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substr(0,10)),
+        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0,10)),
         'updateUser': value.updateUser,
-        'waitlistDate': value.waitlistDate === undefined ? undefined : (value.waitlistDate.toISOString().substr(0,10)),
+        'waitlistDate': value.waitlistDate === undefined ? undefined : (value.waitlistDate.toISOString().substring(0,10)),
         'waitlistId': UniqueIDTypeToJSON(value.waitlistId),
     };
 }

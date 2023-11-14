@@ -130,7 +130,7 @@ function EventSummaryInfoTypeToJSON(value) {
         'hasPartialPostings': value.hasPartialPostings,
         'hasPostings': value.hasPostings,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'includeSpaceInPackage': value.includeSpaceInPackage,
         'indicators': (0, IndicatorsType_1.IndicatorsTypeToJSON)(value.indicators),
         'loudEvent': value.loudEvent,

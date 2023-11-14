@@ -343,7 +343,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
         'alternateGivenName': value.alternateGivenName,
         'alternateSurname': value.alternateSurname,
         'anonymization': AnonymizationTypeToJSON(value.anonymization),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substr(0,10)),
+        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
         'email': value.email,
         'externalInfo': ResGuestExternalInfoTypeToJSON(value.externalInfo),
         'fullName': value.fullName,

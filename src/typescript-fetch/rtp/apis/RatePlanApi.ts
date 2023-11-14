@@ -16,83 +16,81 @@
 import * as runtime from '../runtime';
 import type {
   BlockRatePlans,
-  CopyPromotionGroupsRequest,
-  CopyRatePlansRequest,
-  CopyTieredRateSchedulesRequest,
-  DistributeNegotiatedRatesRequest,
+  CreateBestAvailableRates,
+  DailyRatePlanScheduleRange,
+  DistributedNegotiatedRates,
   ExceptionDetailType,
   GetBestAvailableRatesDetails,
   HotelPackageForecastGroups,
-  ManageRatePlansSchedulesRequest,
+  HotelPackageForecastGroupsToChange,
+  HotelPackageForecastGroupsToCreate,
   MassRateChangeStatus,
+  MassRatePlanSchedules,
   NegotiatedRates,
   NegotiatedRatesDetails,
   OperaVersion,
   PackageFormulaRanges,
+  PackageGroup,
   PackageGroupsInfo,
   PackageInfo,
   PackageRates,
   PackagesCopy,
   PackagesInfo,
-  PostBestAvailableRatesRequest,
-  PostHotelPackageForecastGroupsRequest,
-  PostNegotiatedRatesRequest,
-  PostPackageFormulaRangesRequest,
-  PostRatePlanRequest,
-  PostRatePlanSchedulesRequest,
-  PostRateStrategyRequest,
+  PromotionGroup,
   PromotionGroups,
+  PromotionGroupsCopy,
+  PropertyPromotionCode,
   PropertyPromotionCodes,
-  PutHotelPackageForecastGroupsRequest,
-  PutPackageGroupRequest,
-  PutPackageRequest,
-  PutPromotionCodeRequest,
-  PutPromotionGroupRequest,
-  PutRateGroupsRequest,
-  PutRatePlanPackagesRequest,
-  PutRatePlanPostingRhythmsRequest,
-  PutRatePlanSchedulesRequest,
-  PutTemplatePackageForecastGroupsRequest,
-  PutTemplatePromotionCodeRequest,
+  RateAccessExclusions,
   RateActivityLog,
+  RateGroups,
   RateGroupsInfo,
+  RatePlan,
   RatePlanInfo,
+  RatePlanPackages,
+  RatePlanPostingRhythms,
+  RatePlanScheduleToSplit,
   RatePlanScheduleYieldAdjustments,
+  RatePlanSchedules,
   RatePlanSchedulesInfo,
+  RatePlanSchedulesToCreate,
+  RatePlansCopy,
   RatePlansCopyDetails,
+  RatePlansSchedulesToManage,
   RatePlansSummary,
   RateStrategies,
-  SetDailyRatePlanScheduleRangeRequest,
-  SetMassRatePlanSchedulesRequest,
-  SetRateAccessExclusionsRequest,
-  SetRateStrategiesRequest,
-  SplitRatePlanScheduleRequest,
+  RateStrategiesToSet,
+  RateStrategy,
   Status,
   TemplatePackageForecastGroups,
+  TemplatePromotionCode,
   TemplatePromotionCodes,
+  TieredRateSchedulesCopy,
   YieldAdjustments,
-} from '../models';
+} from '../models/index';
 import {
     BlockRatePlansFromJSON,
     BlockRatePlansToJSON,
-    CopyPromotionGroupsRequestFromJSON,
-    CopyPromotionGroupsRequestToJSON,
-    CopyRatePlansRequestFromJSON,
-    CopyRatePlansRequestToJSON,
-    CopyTieredRateSchedulesRequestFromJSON,
-    CopyTieredRateSchedulesRequestToJSON,
-    DistributeNegotiatedRatesRequestFromJSON,
-    DistributeNegotiatedRatesRequestToJSON,
+    CreateBestAvailableRatesFromJSON,
+    CreateBestAvailableRatesToJSON,
+    DailyRatePlanScheduleRangeFromJSON,
+    DailyRatePlanScheduleRangeToJSON,
+    DistributedNegotiatedRatesFromJSON,
+    DistributedNegotiatedRatesToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     GetBestAvailableRatesDetailsFromJSON,
     GetBestAvailableRatesDetailsToJSON,
     HotelPackageForecastGroupsFromJSON,
     HotelPackageForecastGroupsToJSON,
-    ManageRatePlansSchedulesRequestFromJSON,
-    ManageRatePlansSchedulesRequestToJSON,
+    HotelPackageForecastGroupsToChangeFromJSON,
+    HotelPackageForecastGroupsToChangeToJSON,
+    HotelPackageForecastGroupsToCreateFromJSON,
+    HotelPackageForecastGroupsToCreateToJSON,
     MassRateChangeStatusFromJSON,
     MassRateChangeStatusToJSON,
+    MassRatePlanSchedulesFromJSON,
+    MassRatePlanSchedulesToJSON,
     NegotiatedRatesFromJSON,
     NegotiatedRatesToJSON,
     NegotiatedRatesDetailsFromJSON,
@@ -101,6 +99,8 @@ import {
     OperaVersionToJSON,
     PackageFormulaRangesFromJSON,
     PackageFormulaRangesToJSON,
+    PackageGroupFromJSON,
+    PackageGroupToJSON,
     PackageGroupsInfoFromJSON,
     PackageGroupsInfoToJSON,
     PackageInfoFromJSON,
@@ -111,133 +111,121 @@ import {
     PackagesCopyToJSON,
     PackagesInfoFromJSON,
     PackagesInfoToJSON,
-    PostBestAvailableRatesRequestFromJSON,
-    PostBestAvailableRatesRequestToJSON,
-    PostHotelPackageForecastGroupsRequestFromJSON,
-    PostHotelPackageForecastGroupsRequestToJSON,
-    PostNegotiatedRatesRequestFromJSON,
-    PostNegotiatedRatesRequestToJSON,
-    PostPackageFormulaRangesRequestFromJSON,
-    PostPackageFormulaRangesRequestToJSON,
-    PostRatePlanRequestFromJSON,
-    PostRatePlanRequestToJSON,
-    PostRatePlanSchedulesRequestFromJSON,
-    PostRatePlanSchedulesRequestToJSON,
-    PostRateStrategyRequestFromJSON,
-    PostRateStrategyRequestToJSON,
+    PromotionGroupFromJSON,
+    PromotionGroupToJSON,
     PromotionGroupsFromJSON,
     PromotionGroupsToJSON,
+    PromotionGroupsCopyFromJSON,
+    PromotionGroupsCopyToJSON,
+    PropertyPromotionCodeFromJSON,
+    PropertyPromotionCodeToJSON,
     PropertyPromotionCodesFromJSON,
     PropertyPromotionCodesToJSON,
-    PutHotelPackageForecastGroupsRequestFromJSON,
-    PutHotelPackageForecastGroupsRequestToJSON,
-    PutPackageGroupRequestFromJSON,
-    PutPackageGroupRequestToJSON,
-    PutPackageRequestFromJSON,
-    PutPackageRequestToJSON,
-    PutPromotionCodeRequestFromJSON,
-    PutPromotionCodeRequestToJSON,
-    PutPromotionGroupRequestFromJSON,
-    PutPromotionGroupRequestToJSON,
-    PutRateGroupsRequestFromJSON,
-    PutRateGroupsRequestToJSON,
-    PutRatePlanPackagesRequestFromJSON,
-    PutRatePlanPackagesRequestToJSON,
-    PutRatePlanPostingRhythmsRequestFromJSON,
-    PutRatePlanPostingRhythmsRequestToJSON,
-    PutRatePlanSchedulesRequestFromJSON,
-    PutRatePlanSchedulesRequestToJSON,
-    PutTemplatePackageForecastGroupsRequestFromJSON,
-    PutTemplatePackageForecastGroupsRequestToJSON,
-    PutTemplatePromotionCodeRequestFromJSON,
-    PutTemplatePromotionCodeRequestToJSON,
+    RateAccessExclusionsFromJSON,
+    RateAccessExclusionsToJSON,
     RateActivityLogFromJSON,
     RateActivityLogToJSON,
+    RateGroupsFromJSON,
+    RateGroupsToJSON,
     RateGroupsInfoFromJSON,
     RateGroupsInfoToJSON,
+    RatePlanFromJSON,
+    RatePlanToJSON,
     RatePlanInfoFromJSON,
     RatePlanInfoToJSON,
+    RatePlanPackagesFromJSON,
+    RatePlanPackagesToJSON,
+    RatePlanPostingRhythmsFromJSON,
+    RatePlanPostingRhythmsToJSON,
+    RatePlanScheduleToSplitFromJSON,
+    RatePlanScheduleToSplitToJSON,
     RatePlanScheduleYieldAdjustmentsFromJSON,
     RatePlanScheduleYieldAdjustmentsToJSON,
+    RatePlanSchedulesFromJSON,
+    RatePlanSchedulesToJSON,
     RatePlanSchedulesInfoFromJSON,
     RatePlanSchedulesInfoToJSON,
+    RatePlanSchedulesToCreateFromJSON,
+    RatePlanSchedulesToCreateToJSON,
+    RatePlansCopyFromJSON,
+    RatePlansCopyToJSON,
     RatePlansCopyDetailsFromJSON,
     RatePlansCopyDetailsToJSON,
+    RatePlansSchedulesToManageFromJSON,
+    RatePlansSchedulesToManageToJSON,
     RatePlansSummaryFromJSON,
     RatePlansSummaryToJSON,
     RateStrategiesFromJSON,
     RateStrategiesToJSON,
-    SetDailyRatePlanScheduleRangeRequestFromJSON,
-    SetDailyRatePlanScheduleRangeRequestToJSON,
-    SetMassRatePlanSchedulesRequestFromJSON,
-    SetMassRatePlanSchedulesRequestToJSON,
-    SetRateAccessExclusionsRequestFromJSON,
-    SetRateAccessExclusionsRequestToJSON,
-    SetRateStrategiesRequestFromJSON,
-    SetRateStrategiesRequestToJSON,
-    SplitRatePlanScheduleRequestFromJSON,
-    SplitRatePlanScheduleRequestToJSON,
+    RateStrategiesToSetFromJSON,
+    RateStrategiesToSetToJSON,
+    RateStrategyFromJSON,
+    RateStrategyToJSON,
     StatusFromJSON,
     StatusToJSON,
     TemplatePackageForecastGroupsFromJSON,
     TemplatePackageForecastGroupsToJSON,
+    TemplatePromotionCodeFromJSON,
+    TemplatePromotionCodeToJSON,
     TemplatePromotionCodesFromJSON,
     TemplatePromotionCodesToJSON,
+    TieredRateSchedulesCopyFromJSON,
+    TieredRateSchedulesCopyToJSON,
     YieldAdjustmentsFromJSON,
     YieldAdjustmentsToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface CopyPackagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packagesCopy?: PackagesCopy;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packagesCopy: PackagesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyPromotionGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    promotionGroupsCopy?: CopyPromotionGroupsRequest;
+export interface CopyPromotionGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    promotionGroupsCopy: PromotionGroupsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyRatePlansOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlansCopy?: CopyRatePlansRequest;
+export interface CopyRatePlansRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlansCopy: RatePlansCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyTieredRateSchedulesOperationRequest {
-    destinationTierId?: string;
-    sourceTierId?: string;
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    tieredRateSchedulesCopy?: CopyTieredRateSchedulesRequest;
+export interface CopyTieredRateSchedulesRequest {
+    destinationTierId: string;
+    sourceTierId: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    tieredRateSchedulesCopy: TieredRateSchedulesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBestAvailableRatesRequest {
-    hotelId?: string;
-    code?: Array<string>;
-    end?: Date;
-    start?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    code: Array<string>;
+    end: Date;
+    start: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -258,13 +246,13 @@ export interface DeleteBestAvailableRatesRequest {
 }
 
 export interface DeleteDailyRatePlanScheduleRangeRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    startDate: Date;
+    endDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomType?: Array<string>;
     roomClass?: Array<string>;
     friday?: boolean;
@@ -281,52 +269,52 @@ export interface DeleteDailyRatePlanScheduleRangeRequest {
 }
 
 export interface DeleteHotelPackageForecastGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMassRateChangeLogRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteNegotiatedRatesRequest {
-    ratePlanId?: string;
-    startDate?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanId: string;
+    startDate: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeletePackageRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeletePackageFormulaRangesRequest {
-    packageFormulaRangeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageFormulaRangeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     amount?: number;
     currencyCode?: string;
     xExternalsystem?: string;
@@ -334,30 +322,30 @@ export interface DeletePackageFormulaRangesRequest {
 }
 
 export interface DeletePackageGroupsRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeletePromotionGroupRequest {
-    groupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    groupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRateAccessExclusionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateCode?: string;
     allowCancelReservation?: Array<boolean>;
     allowCreateReservation?: Array<boolean>;
@@ -373,30 +361,30 @@ export interface DeleteRateAccessExclusionsRequest {
 }
 
 export interface DeleteRateGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRatePlanPackagesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packageCode?: Array<string>;
     packageGroup?: Array<string>;
     xExternalsystem?: string;
@@ -404,23 +392,23 @@ export interface DeleteRatePlanPackagesRequest {
 }
 
 export interface DeleteRatePlanPostingRhythmsRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    ratePlanScheduleIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    ratePlanScheduleIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     tierID?: number;
     seasonCode?: string;
     start?: Date;
@@ -438,58 +426,58 @@ export interface DeleteRatePlanSchedulesRequest {
 }
 
 export interface DeleteRatePlanServiceCacheRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRateStrategyRequest {
-    rateStrategyId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateStrategyId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplatePackageForecastGroupsRequest {
-    packageForecastGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageForecastGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface DistributeNegotiatedRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    distributedNegotiatedRates?: DistributeNegotiatedRatesRequest;
+export interface DistributeNegotiatedRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    distributedNegotiatedRates: DistributedNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DownloadExternalRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBestAvailableRatesRequest {
-    hotelId?: string;
-    startDay?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    startDay: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     rateCode?: Array<string>;
@@ -501,10 +489,10 @@ export interface GetBestAvailableRatesRequest {
 }
 
 export interface GetHotelPackageForecastGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -516,20 +504,20 @@ export interface GetHotelPackageForecastGroupsRequest {
 }
 
 export interface GetMassRateChangeStatusRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     detailStatus?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetNegotiatedRatesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     startDate?: Date;
     endDate?: Date;
@@ -541,11 +529,11 @@ export interface GetNegotiatedRatesRequest {
 }
 
 export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
-    rateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     startDate?: Date;
     endDate?: Date;
@@ -557,10 +545,10 @@ export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
 }
 
 export interface GetNegotiatedRatesForGivenProfileRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     startDate?: Date;
     endDate?: Date;
@@ -574,31 +562,31 @@ export interface GetNegotiatedRatesForGivenProfileRequest {
 }
 
 export interface GetPackageRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetPackageFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetPackageFormulaRangesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taxRangeType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetPackageGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     code?: string;
@@ -608,20 +596,20 @@ export interface GetPackageGroupsRequest {
 }
 
 export interface GetPackageRatesRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetPackagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     hotelId?: Array<string>;
     packageCode?: Array<string>;
@@ -645,10 +633,10 @@ export interface GetPackagesRequest {
 }
 
 export interface GetPromotionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     promotionCode?: Array<string>;
@@ -661,10 +649,10 @@ export interface GetPromotionCodesRequest {
 }
 
 export interface GetPromotionGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     code?: Array<string>;
@@ -677,13 +665,13 @@ export interface GetPromotionGroupsRequest {
 }
 
 export interface GetRateActivityLogRequest {
-    hotelId?: string;
-    module?: GetRateActivityLogModuleEnum;
-    parameterName?: Array<string>;
-    parameterValue?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    module: GetRateActivityLogModuleEnum;
+    parameterName: Array<string>;
+    parameterValue: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     activityGroup?: string;
@@ -698,10 +686,10 @@ export interface GetRateActivityLogRequest {
 }
 
 export interface GetRateGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     code?: Array<string>;
@@ -712,21 +700,21 @@ export interface GetRateGroupsRequest {
 }
 
 export interface GetRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetRatePlanFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRatePlanScheduleYieldAdjustmentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     summaryInfo?: boolean;
     id?: string;
@@ -736,11 +724,11 @@ export interface GetRatePlanScheduleYieldAdjustmentsRequest {
 }
 
 export interface GetRatePlanSchedulesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     excludeRatePlanPackage?: boolean;
     limit?: number;
     tierId?: number;
@@ -757,10 +745,10 @@ export interface GetRatePlanSchedulesRequest {
 }
 
 export interface GetRatePlansRequest {
-    hotelId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeRateInformation?: boolean;
     limit?: number;
     offset?: number;
@@ -782,10 +770,10 @@ export interface GetRatePlansRequest {
 }
 
 export interface GetRatePlansByHotelRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     fetchInstructions?: Set<GetRatePlansByHotelFetchInstructionsEnum>;
     xExternalsystem?: string;
@@ -793,10 +781,10 @@ export interface GetRatePlansByHotelRequest {
 }
 
 export interface GetRatePlansForBlockRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: Array<string>;
     beginDate?: Date;
     endDate?: Date;
@@ -813,10 +801,10 @@ export interface GetRatePlansForBlockRequest {
 }
 
 export interface GetRateStrategiesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     restrictionDate?: Date;
@@ -825,10 +813,10 @@ export interface GetRateStrategiesRequest {
 }
 
 export interface GetTemplatePackageForecastGroupsRequest {
-    includeInactive?: boolean;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: boolean;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packageForecastGroupCode?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
@@ -836,9 +824,9 @@ export interface GetTemplatePackageForecastGroupsRequest {
 }
 
 export interface GetTemplatePromotionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: Array<string>;
@@ -852,404 +840,404 @@ export interface GetTemplatePromotionCodesRequest {
 }
 
 export interface GetYieldAdjustmentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     currencyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ManageRatePlansSchedulesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlansSchedulesToManage?: ManageRatePlansSchedulesRequest;
+export interface ManageRatePlansSchedulesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlansSchedulesToManage: RatePlansSchedulesToManage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PingRatePlanServiceRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBestAvailableRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createBestAvailableRates?: PostBestAvailableRatesRequest;
+export interface PostBestAvailableRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createBestAvailableRates: CreateBestAvailableRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostHotelPackageForecastGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelPackageForecastGroupsToCreate?: PostHotelPackageForecastGroupsRequest;
+export interface PostHotelPackageForecastGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelPackageForecastGroupsToCreate: HotelPackageForecastGroupsToCreate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostNegotiatedRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    negotiatedRates?: PostNegotiatedRatesRequest;
+export interface PostNegotiatedRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    negotiatedRates: NegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPackageRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageInfo?: PutPackageRequest;
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageInfo: PackageInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostPackageFormulaRangesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageFormulaRanges?: PostPackageFormulaRangesRequest;
+export interface PostPackageFormulaRangesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageFormulaRanges: PackageFormulaRanges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPackageGroupRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageGroup?: PutPackageGroupRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageGroup: PackageGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPromotionCodeRequest {
-    promotionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyPromotionCode?: PutPromotionCodeRequest;
+    promotionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyPromotionCode: PropertyPromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPromotionGroupRequest {
-    groupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    promotionGroup?: PutPromotionGroupRequest;
+    groupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    promotionGroup: PromotionGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRateGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateGroups?: PutRateGroupsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateGroups: RateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRatePlanOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlan?: PostRatePlanRequest;
+export interface PostRatePlanRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlan: RatePlan;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRatePlanPackagesRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPackages?: PutRatePlanPackagesRequest;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPackages: RatePlanPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRatePlanPostingRhythmsRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPostingRhythms?: PutRatePlanPostingRhythmsRequest;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPostingRhythms: RatePlanPostingRhythms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRatePlanSchedulesOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanSchedulesToCreate?: PostRatePlanSchedulesRequest;
+export interface PostRatePlanSchedulesRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanSchedulesToCreate: RatePlanSchedulesToCreate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRateStrategyOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateStrategy?: PostRateStrategyRequest;
+export interface PostRateStrategyRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateStrategy: RateStrategy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplatePackageForecastGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePackageForecastGroups?: PutTemplatePackageForecastGroupsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePackageForecastGroups: TemplatePackageForecastGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplatePromotionCodeRequest {
-    promotionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePromotionCode?: PutTemplatePromotionCodeRequest;
+    promotionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePromotionCode: TemplatePromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutHotelPackageForecastGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelPackageForecastGroupsToChange?: PutHotelPackageForecastGroupsRequest;
+export interface PutHotelPackageForecastGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelPackageForecastGroupsToChange: HotelPackageForecastGroupsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutNegotiatedRatesRequest {
-    rateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    negotiatedRates?: PostNegotiatedRatesRequest;
+    rateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    negotiatedRates: NegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutPackageOperationRequest {
-    packageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageInfo?: PutPackageRequest;
+export interface PutPackageRequest {
+    packageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageInfo: PackageInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutPackageFormulaRangesRequest {
-    packageFormulaRangeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageFormulaRanges?: PostPackageFormulaRangesRequest;
+    packageFormulaRangeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageFormulaRanges: PackageFormulaRanges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutPackageGroupOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    packageGroup?: PutPackageGroupRequest;
+export interface PutPackageGroupRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    packageGroup: PackageGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutPromotionCodeOperationRequest {
-    promotionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyPromotionCode?: PutPromotionCodeRequest;
+export interface PutPromotionCodeRequest {
+    promotionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyPromotionCode: PropertyPromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutPromotionGroupOperationRequest {
-    groupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    promotionGroup?: PutPromotionGroupRequest;
+export interface PutPromotionGroupRequest {
+    groupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    promotionGroup: PromotionGroup;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRateGroupsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateGroups?: PutRateGroupsRequest;
+export interface PutRateGroupsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateGroups: RateGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRatePlanRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlan?: PostRatePlanRequest;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlan: RatePlan;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRatePlanPackagesOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPackages?: PutRatePlanPackagesRequest;
+export interface PutRatePlanPackagesRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPackages: RatePlanPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRatePlanPostingRhythmsOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanPostingRhythms?: PutRatePlanPostingRhythmsRequest;
+export interface PutRatePlanPostingRhythmsRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanPostingRhythms: RatePlanPostingRhythms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRatePlanSchedulesOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanSchedules?: PutRatePlanSchedulesRequest;
+export interface PutRatePlanSchedulesRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanSchedules: RatePlanSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRateStrategyRequest {
-    rateStrategyId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateStrategy?: PostRateStrategyRequest;
+    rateStrategyId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateStrategy: RateStrategy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutTemplatePackageForecastGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePackageForecastGroups?: PutTemplatePackageForecastGroupsRequest;
+export interface PutTemplatePackageForecastGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePackageForecastGroups: TemplatePackageForecastGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutTemplatePromotionCodeOperationRequest {
-    promotionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePromotionCode?: PutTemplatePromotionCodeRequest;
+export interface PutTemplatePromotionCodeRequest {
+    promotionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePromotionCode: TemplatePromotionCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetDailyRatePlanScheduleRangeOperationRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyRatePlanScheduleRange?: SetDailyRatePlanScheduleRangeRequest;
+export interface SetDailyRatePlanScheduleRangeRequest {
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyRatePlanScheduleRange: DailyRatePlanScheduleRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetMassRatePlanSchedulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    massRatePlanSchedules?: SetMassRatePlanSchedulesRequest;
+export interface SetMassRatePlanSchedulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    massRatePlanSchedules: MassRatePlanSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetRateAccessExclusionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateAccessExclusions?: SetRateAccessExclusionsRequest;
+export interface SetRateAccessExclusionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateAccessExclusions: RateAccessExclusions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SetRateStrategiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateStrategiesToSet?: SetRateStrategiesRequest;
+export interface SetRateStrategiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateStrategiesToSet: RateStrategiesToSet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface SplitRatePlanScheduleOperationRequest {
-    scheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanScheduleToSplit?: SplitRatePlanScheduleRequest;
+export interface SplitRatePlanScheduleRequest {
+    scheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanScheduleToSplit: RatePlanScheduleToSplit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1264,6 +1252,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Copy package code(s) 
      */
     async copyPackagesRaw(requestParameters: CopyPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyPackages.');
+        }
+
+        if (requestParameters.packagesCopy === null || requestParameters.packagesCopy === undefined) {
+            throw new runtime.RequiredError('packagesCopy','Required parameter requestParameters.packagesCopy was null or undefined when calling copyPackages.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1314,7 +1318,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to copy promotions groups. <p><strong>OperationId:</strong>copyPromotionGroups</p>
      * Copy promotion groups
      */
-    async copyPromotionGroupsRaw(requestParameters: CopyPromotionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyPromotionGroupsRaw(requestParameters: CopyPromotionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyPromotionGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyPromotionGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyPromotionGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyPromotionGroups.');
+        }
+
+        if (requestParameters.promotionGroupsCopy === null || requestParameters.promotionGroupsCopy === undefined) {
+            throw new runtime.RequiredError('promotionGroupsCopy','Required parameter requestParameters.promotionGroupsCopy was null or undefined when calling copyPromotionGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1346,7 +1370,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyPromotionGroupsRequestToJSON(requestParameters.promotionGroupsCopy),
+            body: PromotionGroupsCopyToJSON(requestParameters.promotionGroupsCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1356,7 +1380,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to copy promotions groups. <p><strong>OperationId:</strong>copyPromotionGroups</p>
      * Copy promotion groups
      */
-    async copyPromotionGroups(requestParameters: CopyPromotionGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyPromotionGroups(requestParameters: CopyPromotionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyPromotionGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1365,7 +1389,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to copy Rate Plans. <p><strong>OperationId:</strong>copyRatePlans</p>
      * Copy rate plans
      */
-    async copyRatePlansRaw(requestParameters: CopyRatePlansOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlansCopyDetails>> {
+    async copyRatePlansRaw(requestParameters: CopyRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlansCopyDetails>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling copyRatePlans.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyRatePlans.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyRatePlans.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyRatePlans.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyRatePlans.');
+        }
+
+        if (requestParameters.ratePlansCopy === null || requestParameters.ratePlansCopy === undefined) {
+            throw new runtime.RequiredError('ratePlansCopy','Required parameter requestParameters.ratePlansCopy was null or undefined when calling copyRatePlans.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1397,7 +1445,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyRatePlansRequestToJSON(requestParameters.ratePlansCopy),
+            body: RatePlansCopyToJSON(requestParameters.ratePlansCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RatePlansCopyDetailsFromJSON(jsonValue));
@@ -1407,7 +1455,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to copy Rate Plans. <p><strong>OperationId:</strong>copyRatePlans</p>
      * Copy rate plans
      */
-    async copyRatePlans(requestParameters: CopyRatePlansOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatePlansCopyDetails> {
+    async copyRatePlans(requestParameters: CopyRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RatePlansCopyDetails> {
         const response = await this.copyRatePlansRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1416,7 +1464,39 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to copy tiered rate schedules. <p><strong>OperationId:</strong>copyTieredRateSchedules</p>
      * Copy tiered rate schedules
      */
-    async copyTieredRateSchedulesRaw(requestParameters: CopyTieredRateSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyTieredRateSchedulesRaw(requestParameters: CopyTieredRateSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.destinationTierId === null || requestParameters.destinationTierId === undefined) {
+            throw new runtime.RequiredError('destinationTierId','Required parameter requestParameters.destinationTierId was null or undefined when calling copyTieredRateSchedules.');
+        }
+
+        if (requestParameters.sourceTierId === null || requestParameters.sourceTierId === undefined) {
+            throw new runtime.RequiredError('sourceTierId','Required parameter requestParameters.sourceTierId was null or undefined when calling copyTieredRateSchedules.');
+        }
+
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling copyTieredRateSchedules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyTieredRateSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTieredRateSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTieredRateSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTieredRateSchedules.');
+        }
+
+        if (requestParameters.tieredRateSchedulesCopy === null || requestParameters.tieredRateSchedulesCopy === undefined) {
+            throw new runtime.RequiredError('tieredRateSchedulesCopy','Required parameter requestParameters.tieredRateSchedulesCopy was null or undefined when calling copyTieredRateSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1448,7 +1528,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyTieredRateSchedulesRequestToJSON(requestParameters.tieredRateSchedulesCopy),
+            body: TieredRateSchedulesCopyToJSON(requestParameters.tieredRateSchedulesCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1458,7 +1538,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to copy tiered rate schedules. <p><strong>OperationId:</strong>copyTieredRateSchedules</p>
      * Copy tiered rate schedules
      */
-    async copyTieredRateSchedules(requestParameters: CopyTieredRateSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyTieredRateSchedules(requestParameters: CopyTieredRateSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyTieredRateSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1468,6 +1548,34 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete Best Available Rates
      */
     async deleteBestAvailableRatesRaw(requestParameters: DeleteBestAvailableRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteBestAvailableRates.');
+        }
+
+        if (requestParameters.code === null || requestParameters.code === undefined) {
+            throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling deleteBestAvailableRates.');
+        }
+
+        if (requestParameters.end === null || requestParameters.end === undefined) {
+            throw new runtime.RequiredError('end','Required parameter requestParameters.end was null or undefined when calling deleteBestAvailableRates.');
+        }
+
+        if (requestParameters.start === null || requestParameters.start === undefined) {
+            throw new runtime.RequiredError('start','Required parameter requestParameters.start was null or undefined when calling deleteBestAvailableRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBestAvailableRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBestAvailableRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBestAvailableRates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -1475,11 +1583,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.friday !== undefined) {
@@ -1588,14 +1696,42 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete daily rate plan schedule range
      */
     async deleteDailyRatePlanScheduleRangeRaw(requestParameters: DeleteDailyRatePlanScheduleRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling deleteDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
+            throw new runtime.RequiredError('startDate','Required parameter requestParameters.startDate was null or undefined when calling deleteDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.endDate === null || requestParameters.endDate === undefined) {
+            throw new runtime.RequiredError('endDate','Required parameter requestParameters.endDate was null or undefined when calling deleteDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDailyRatePlanScheduleRange.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomType) {
@@ -1688,6 +1824,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete Hotel Package Forecast Groups
      */
     async deleteHotelPackageForecastGroupsRaw(requestParameters: DeleteHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteHotelPackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -1740,6 +1892,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete mass rate change log
      */
     async deleteMassRateChangeLogRaw(requestParameters: DeleteMassRateChangeLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteMassRateChangeLog.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMassRateChangeLog.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMassRateChangeLog.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMassRateChangeLog.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1788,6 +1956,34 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete negotiated rates
      */
     async deleteNegotiatedRatesRaw(requestParameters: DeleteNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanId === null || requestParameters.ratePlanId === undefined) {
+            throw new runtime.RequiredError('ratePlanId','Required parameter requestParameters.ratePlanId was null or undefined when calling deleteNegotiatedRates.');
+        }
+
+        if (requestParameters.startDate === null || requestParameters.startDate === undefined) {
+            throw new runtime.RequiredError('startDate','Required parameter requestParameters.startDate was null or undefined when calling deleteNegotiatedRates.');
+        }
+
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteNegotiatedRates.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteNegotiatedRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteNegotiatedRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteNegotiatedRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteNegotiatedRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1836,6 +2032,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete the package
      */
     async deletePackageRaw(requestParameters: DeletePackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageCode === null || requestParameters.packageCode === undefined) {
+            throw new runtime.RequiredError('packageCode','Required parameter requestParameters.packageCode was null or undefined when calling deletePackage.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePackage.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePackage.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePackage.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePackage.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1884,6 +2100,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete package formula ranges
      */
     async deletePackageFormulaRangesRaw(requestParameters: DeletePackageFormulaRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageFormulaRangeId === null || requestParameters.packageFormulaRangeId === undefined) {
+            throw new runtime.RequiredError('packageFormulaRangeId','Required parameter requestParameters.packageFormulaRangeId was null or undefined when calling deletePackageFormulaRanges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePackageFormulaRanges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePackageFormulaRanges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePackageFormulaRanges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePackageFormulaRanges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.amount !== undefined) {
@@ -1940,6 +2176,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete package group
      */
     async deletePackageGroupsRaw(requestParameters: DeletePackageGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageCode === null || requestParameters.packageCode === undefined) {
+            throw new runtime.RequiredError('packageCode','Required parameter requestParameters.packageCode was null or undefined when calling deletePackageGroups.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePackageGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePackageGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePackageGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePackageGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1988,6 +2244,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete promotion groups
      */
     async deletePromotionGroupRaw(requestParameters: DeletePromotionGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.groupCode === null || requestParameters.groupCode === undefined) {
+            throw new runtime.RequiredError('groupCode','Required parameter requestParameters.groupCode was null or undefined when calling deletePromotionGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePromotionGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePromotionGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePromotionGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePromotionGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2036,6 +2312,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete rate access exclusions
      */
     async deleteRateAccessExclusionsRaw(requestParameters: DeleteRateAccessExclusionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRateAccessExclusions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRateAccessExclusions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRateAccessExclusions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRateAccessExclusions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.rateCode !== undefined) {
@@ -2071,11 +2363,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2124,6 +2416,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete rate groups
      */
     async deleteRateGroupsRaw(requestParameters: DeleteRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRateGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2172,6 +2480,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete rate plan 
      */
     async deleteRatePlanRaw(requestParameters: DeleteRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling deleteRatePlan.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRatePlan.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRatePlan.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRatePlan.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRatePlan.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2220,6 +2548,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete rate plan packages
      */
     async deleteRatePlanPackagesRaw(requestParameters: DeleteRatePlanPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling deleteRatePlanPackages.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRatePlanPackages.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRatePlanPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRatePlanPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRatePlanPackages.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.packageCode) {
@@ -2276,6 +2624,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete rate plan posting rhythms
      */
     async deleteRatePlanPostingRhythmsRaw(requestParameters: DeleteRatePlanPostingRhythmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling deleteRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRatePlanPostingRhythms.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -2328,6 +2696,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete rate plan schedule
      */
     async deleteRatePlanSchedulesRaw(requestParameters: DeleteRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling deleteRatePlanSchedules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRatePlanSchedules.');
+        }
+
+        if (requestParameters.ratePlanScheduleIds === null || requestParameters.ratePlanScheduleIds === undefined) {
+            throw new runtime.RequiredError('ratePlanScheduleIds','Required parameter requestParameters.ratePlanScheduleIds was null or undefined when calling deleteRatePlanSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRatePlanSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRatePlanSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRatePlanSchedules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ratePlanScheduleIds) {
@@ -2343,11 +2735,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomType) {
@@ -2428,6 +2820,18 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete the Rate plan service cache
      */
     async deleteRatePlanServiceCacheRaw(requestParameters: DeleteRatePlanServiceCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRatePlanServiceCache.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRatePlanServiceCache.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRatePlanServiceCache.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2476,6 +2880,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete rate strategies
      */
     async deleteRateStrategyRaw(requestParameters: DeleteRateStrategyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateStrategyId === null || requestParameters.rateStrategyId === undefined) {
+            throw new runtime.RequiredError('rateStrategyId','Required parameter requestParameters.rateStrategyId was null or undefined when calling deleteRateStrategy.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRateStrategy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRateStrategy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRateStrategy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRateStrategy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2524,6 +2948,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Delete Template Package Forecast Groups
      */
     async deleteTemplatePackageForecastGroupsRaw(requestParameters: DeleteTemplatePackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageForecastGroupCode === null || requestParameters.packageForecastGroupCode === undefined) {
+            throw new runtime.RequiredError('packageForecastGroupCode','Required parameter requestParameters.packageForecastGroupCode was null or undefined when calling deleteTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplatePackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2571,7 +3011,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to distribute negotiated Rate. <p><strong>OperationId:</strong>distributeNegotiatedRates</p>
      * Distribute negotiated rates
      */
-    async distributeNegotiatedRatesRaw(requestParameters: DistributeNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async distributeNegotiatedRatesRaw(requestParameters: DistributeNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling distributeNegotiatedRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling distributeNegotiatedRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling distributeNegotiatedRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling distributeNegotiatedRates.');
+        }
+
+        if (requestParameters.distributedNegotiatedRates === null || requestParameters.distributedNegotiatedRates === undefined) {
+            throw new runtime.RequiredError('distributedNegotiatedRates','Required parameter requestParameters.distributedNegotiatedRates was null or undefined when calling distributeNegotiatedRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2603,7 +3063,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: DistributeNegotiatedRatesRequestToJSON(requestParameters.distributedNegotiatedRates),
+            body: DistributedNegotiatedRatesToJSON(requestParameters.distributedNegotiatedRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2613,7 +3073,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to distribute negotiated Rate. <p><strong>OperationId:</strong>distributeNegotiatedRates</p>
      * Distribute negotiated rates
      */
-    async distributeNegotiatedRates(requestParameters: DistributeNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async distributeNegotiatedRates(requestParameters: DistributeNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.distributeNegotiatedRatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2623,6 +3083,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get external rate plan
      */
     async downloadExternalRatePlanRaw(requestParameters: DownloadExternalRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling downloadExternalRatePlan.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling downloadExternalRatePlan.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling downloadExternalRatePlan.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling downloadExternalRatePlan.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling downloadExternalRatePlan.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2671,10 +3151,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Fetch Best Available Rates
      */
     async getBestAvailableRatesRaw(requestParameters: GetBestAvailableRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetBestAvailableRatesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBestAvailableRates.');
+        }
+
+        if (requestParameters.startDay === null || requestParameters.startDay === undefined) {
+            throw new runtime.RequiredError('startDay','Required parameter requestParameters.startDay was null or undefined when calling getBestAvailableRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBestAvailableRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBestAvailableRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBestAvailableRates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDay !== undefined) {
-            queryParameters['startDay'] = (requestParameters.startDay as any).toISOString().substr(0,10);
+            queryParameters['startDay'] = (requestParameters.startDay as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.limit !== undefined) {
@@ -2690,7 +3190,7 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDay !== undefined) {
-            queryParameters['endDay'] = (requestParameters.endDay as any).toISOString().substr(0,10);
+            queryParameters['endDay'] = (requestParameters.endDay as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.daysOfWeek) {
@@ -2747,6 +3247,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get Hotel Package Forecast Groups
      */
     async getHotelPackageForecastGroupsRaw(requestParameters: GetHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelPackageForecastGroups>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelPackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -2819,6 +3335,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get mass rate change status
      */
     async getMassRateChangeStatusRaw(requestParameters: GetMassRateChangeStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MassRateChangeStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getMassRateChangeStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMassRateChangeStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMassRateChangeStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMassRateChangeStatus.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.detailStatus !== undefined) {
@@ -2871,6 +3403,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get negotiated rates and profiles 
      */
     async getNegotiatedRatesRaw(requestParameters: GetNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NegotiatedRates>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getNegotiatedRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNegotiatedRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNegotiatedRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNegotiatedRates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2878,11 +3426,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.includeInactiveNegotiatedRates !== undefined) {
@@ -2943,6 +3491,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Fetch Negotiated Rates
      */
     async getNegotiatedRatesForGivenHotelAndRateRaw(requestParameters: GetNegotiatedRatesForGivenHotelAndRateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NegotiatedRates>> {
+        if (requestParameters.rateCode === null || requestParameters.rateCode === undefined) {
+            throw new runtime.RequiredError('rateCode','Required parameter requestParameters.rateCode was null or undefined when calling getNegotiatedRatesForGivenHotelAndRate.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getNegotiatedRatesForGivenHotelAndRate.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNegotiatedRatesForGivenHotelAndRate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNegotiatedRatesForGivenHotelAndRate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNegotiatedRatesForGivenHotelAndRate.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2950,11 +3518,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.includeInactiveNegotiatedRates !== undefined) {
@@ -3015,6 +3583,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get negotiated rate details for given profile
      */
     async getNegotiatedRatesForGivenProfileRaw(requestParameters: GetNegotiatedRatesForGivenProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NegotiatedRates>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getNegotiatedRatesForGivenProfile.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNegotiatedRatesForGivenProfile.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNegotiatedRatesForGivenProfile.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNegotiatedRatesForGivenProfile.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3022,11 +3606,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.hotelCode !== undefined) {
@@ -3095,6 +3679,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get package for given package
      */
     async getPackageRaw(requestParameters: GetPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PackageInfo>> {
+        if (requestParameters.packageCode === null || requestParameters.packageCode === undefined) {
+            throw new runtime.RequiredError('packageCode','Required parameter requestParameters.packageCode was null or undefined when calling getPackage.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPackage.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackage.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackage.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackage.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -3147,6 +3751,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get package formula ranges
      */
     async getPackageFormulaRangesRaw(requestParameters: GetPackageFormulaRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PackageFormulaRanges>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPackageFormulaRanges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackageFormulaRanges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackageFormulaRanges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackageFormulaRanges.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.taxRangeType !== undefined) {
@@ -3199,6 +3819,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get package groups
      */
     async getPackageGroupsRaw(requestParameters: GetPackageGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PackageGroupsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPackageGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackageGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackageGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackageGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -3263,6 +3899,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get package rates
      */
     async getPackageRatesRaw(requestParameters: GetPackageRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PackageRates>> {
+        if (requestParameters.packageCode === null || requestParameters.packageCode === undefined) {
+            throw new runtime.RequiredError('packageCode','Required parameter requestParameters.packageCode was null or undefined when calling getPackageRates.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPackageRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackageRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackageRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackageRates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3315,6 +3971,18 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get Packages
      */
     async getPackagesRaw(requestParameters: GetPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PackagesInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPackages.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3334,11 +4002,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.adults !== undefined) {
@@ -3435,6 +4103,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get promotion codes
      */
     async getPromotionCodesRaw(requestParameters: GetPromotionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PropertyPromotionCodes>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPromotionCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPromotionCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPromotionCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPromotionCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3511,6 +4195,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get promotion groups
      */
     async getPromotionGroupsRaw(requestParameters: GetPromotionGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PromotionGroups>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPromotionGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPromotionGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPromotionGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPromotionGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3587,6 +4287,34 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate activity log
      */
     async getRateActivityLogRaw(requestParameters: GetRateActivityLogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateActivityLog>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateActivityLog.');
+        }
+
+        if (requestParameters.module === null || requestParameters.module === undefined) {
+            throw new runtime.RequiredError('module','Required parameter requestParameters.module was null or undefined when calling getRateActivityLog.');
+        }
+
+        if (requestParameters.parameterName === null || requestParameters.parameterName === undefined) {
+            throw new runtime.RequiredError('parameterName','Required parameter requestParameters.parameterName was null or undefined when calling getRateActivityLog.');
+        }
+
+        if (requestParameters.parameterValue === null || requestParameters.parameterValue === undefined) {
+            throw new runtime.RequiredError('parameterValue','Required parameter requestParameters.parameterValue was null or undefined when calling getRateActivityLog.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateActivityLog.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateActivityLog.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateActivityLog.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.module !== undefined) {
@@ -3618,11 +4346,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substr(0,10);
+            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substr(0,10);
+            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.searchText !== undefined) {
@@ -3683,6 +4411,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate groups
      */
     async getRateGroupsRaw(requestParameters: GetRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateGroupsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3751,6 +4495,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate plan
      */
     async getRatePlanRaw(requestParameters: GetRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlanInfo>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling getRatePlan.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlan.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlan.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlan.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlan.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -3803,6 +4567,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate plan schedule yield adjustments
      */
     async getRatePlanScheduleYieldAdjustmentsRaw(requestParameters: GetRatePlanScheduleYieldAdjustmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlanScheduleYieldAdjustments>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlanScheduleYieldAdjustments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlanScheduleYieldAdjustments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlanScheduleYieldAdjustments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlanScheduleYieldAdjustments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3867,6 +4647,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate plan schedules
      */
     async getRatePlanSchedulesRaw(requestParameters: GetRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlanSchedulesInfo>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling getRatePlanSchedules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlanSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlanSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlanSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlanSchedules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.excludeRatePlanPackage !== undefined) {
@@ -3890,11 +4690,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3959,6 +4759,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate plans
      */
     async getRatePlansRaw(requestParameters: GetRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlansSummary>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlans.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlans.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlans.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlans.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -3986,7 +4802,7 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.sellDate !== undefined) {
-            queryParameters['sellDate'] = (requestParameters.sellDate as any).toISOString().substr(0,10);
+            queryParameters['sellDate'] = (requestParameters.sellDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.displaySet !== undefined) {
@@ -4075,6 +4891,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate plans by Hotel Code
      */
     async getRatePlansByHotelRaw(requestParameters: GetRatePlansByHotelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RatePlanInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlansByHotel.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlansByHotel.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlansByHotel.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlansByHotel.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ratePlanCode !== undefined) {
@@ -4131,6 +4963,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate plans for a given block
      */
     async getRatePlansForBlockRaw(requestParameters: GetRatePlansForBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRatePlans>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRatePlansForBlock.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRatePlansForBlock.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlansForBlock.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlansForBlock.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ratePlanCode) {
@@ -4138,11 +4986,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substr(0,10);
+            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.companyId !== undefined) {
@@ -4223,6 +5071,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get rate strategies
      */
     async getRateStrategiesRaw(requestParameters: GetRateStrategiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateStrategies>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateStrategies.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateStrategies.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateStrategies.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateStrategies.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4234,7 +5098,7 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.restrictionDate !== undefined) {
-            queryParameters['restrictionDate'] = (requestParameters.restrictionDate as any).toISOString().substr(0,10);
+            queryParameters['restrictionDate'] = (requestParameters.restrictionDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4283,6 +5147,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get Template Package Forecast Groups
      */
     async getTemplatePackageForecastGroupsRaw(requestParameters: GetTemplatePackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplatePackageForecastGroups>> {
+        if (requestParameters.includeInactive === null || requestParameters.includeInactive === undefined) {
+            throw new runtime.RequiredError('includeInactive','Required parameter requestParameters.includeInactive was null or undefined when calling getTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplatePackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -4343,6 +5223,18 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get Template Promotion Codes
      */
     async getTemplatePromotionCodesRaw(requestParameters: GetTemplatePromotionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplatePromotionCodes>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplatePromotionCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplatePromotionCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplatePromotionCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4423,6 +5315,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get yield adjustments
      */
     async getYieldAdjustmentsRaw(requestParameters: GetYieldAdjustmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<YieldAdjustments>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getYieldAdjustments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getYieldAdjustments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getYieldAdjustments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getYieldAdjustments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4478,7 +5386,23 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan schedules. <p><strong>OperationId:</strong>manageRatePlansSchedules</p>
      * Manages rate plan schedules
      */
-    async manageRatePlansSchedulesRaw(requestParameters: ManageRatePlansSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async manageRatePlansSchedulesRaw(requestParameters: ManageRatePlansSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling manageRatePlansSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling manageRatePlansSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling manageRatePlansSchedules.');
+        }
+
+        if (requestParameters.ratePlansSchedulesToManage === null || requestParameters.ratePlansSchedulesToManage === undefined) {
+            throw new runtime.RequiredError('ratePlansSchedulesToManage','Required parameter requestParameters.ratePlansSchedulesToManage was null or undefined when calling manageRatePlansSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4510,7 +5434,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ManageRatePlansSchedulesRequestToJSON(requestParameters.ratePlansSchedulesToManage),
+            body: RatePlansSchedulesToManageToJSON(requestParameters.ratePlansSchedulesToManage),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4520,7 +5444,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan schedules. <p><strong>OperationId:</strong>manageRatePlansSchedules</p>
      * Manages rate plan schedules
      */
-    async manageRatePlansSchedules(requestParameters: ManageRatePlansSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async manageRatePlansSchedules(requestParameters: ManageRatePlansSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.manageRatePlansSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4530,6 +5454,18 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Get Rate plan service version
      */
     async pingRatePlanServiceRaw(requestParameters: PingRatePlanServiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OperaVersion>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling pingRatePlanService.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling pingRatePlanService.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling pingRatePlanService.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4577,7 +5513,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows to create Best Available rates for rate code(s). <p><strong>OperationId:</strong>postBestAvailableRates</p>
      * Create a Best Available Rates
      */
-    async postBestAvailableRatesRaw(requestParameters: PostBestAvailableRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBestAvailableRatesRaw(requestParameters: PostBestAvailableRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBestAvailableRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBestAvailableRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBestAvailableRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBestAvailableRates.');
+        }
+
+        if (requestParameters.createBestAvailableRates === null || requestParameters.createBestAvailableRates === undefined) {
+            throw new runtime.RequiredError('createBestAvailableRates','Required parameter requestParameters.createBestAvailableRates was null or undefined when calling postBestAvailableRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4609,7 +5565,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBestAvailableRatesRequestToJSON(requestParameters.createBestAvailableRates),
+            body: CreateBestAvailableRatesToJSON(requestParameters.createBestAvailableRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4619,7 +5575,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows to create Best Available rates for rate code(s). <p><strong>OperationId:</strong>postBestAvailableRates</p>
      * Create a Best Available Rates
      */
-    async postBestAvailableRates(requestParameters: PostBestAvailableRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBestAvailableRates(requestParameters: PostBestAvailableRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBestAvailableRatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4628,7 +5584,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create package forecast groups. <p><strong>OperationId:</strong>postHotelPackageForecastGroups</p>
      * Create Hotel Package Forecast Groups
      */
-    async postHotelPackageForecastGroupsRaw(requestParameters: PostHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postHotelPackageForecastGroupsRaw(requestParameters: PostHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.hotelPackageForecastGroupsToCreate === null || requestParameters.hotelPackageForecastGroupsToCreate === undefined) {
+            throw new runtime.RequiredError('hotelPackageForecastGroupsToCreate','Required parameter requestParameters.hotelPackageForecastGroupsToCreate was null or undefined when calling postHotelPackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4660,7 +5636,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostHotelPackageForecastGroupsRequestToJSON(requestParameters.hotelPackageForecastGroupsToCreate),
+            body: HotelPackageForecastGroupsToCreateToJSON(requestParameters.hotelPackageForecastGroupsToCreate),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4670,7 +5646,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create package forecast groups. <p><strong>OperationId:</strong>postHotelPackageForecastGroups</p>
      * Create Hotel Package Forecast Groups
      */
-    async postHotelPackageForecastGroups(requestParameters: PostHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postHotelPackageForecastGroups(requestParameters: PostHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postHotelPackageForecastGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4679,7 +5655,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create negotiated rate for a given profile. <p><strong>OperationId:</strong>postNegotiatedRates</p>
      * Create negotiated rates 
      */
-    async postNegotiatedRatesRaw(requestParameters: PostNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postNegotiatedRatesRaw(requestParameters: PostNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postNegotiatedRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postNegotiatedRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postNegotiatedRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postNegotiatedRates.');
+        }
+
+        if (requestParameters.negotiatedRates === null || requestParameters.negotiatedRates === undefined) {
+            throw new runtime.RequiredError('negotiatedRates','Required parameter requestParameters.negotiatedRates was null or undefined when calling postNegotiatedRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4711,7 +5707,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostNegotiatedRatesRequestToJSON(requestParameters.negotiatedRates),
+            body: NegotiatedRatesToJSON(requestParameters.negotiatedRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4721,7 +5717,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create negotiated rate for a given profile. <p><strong>OperationId:</strong>postNegotiatedRates</p>
      * Create negotiated rates 
      */
-    async postNegotiatedRates(requestParameters: PostNegotiatedRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postNegotiatedRates(requestParameters: PostNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postNegotiatedRatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4731,6 +5727,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create package
      */
     async postPackageRaw(requestParameters: PostPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageCode === null || requestParameters.packageCode === undefined) {
+            throw new runtime.RequiredError('packageCode','Required parameter requestParameters.packageCode was null or undefined when calling postPackage.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPackage.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPackage.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPackage.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPackage.');
+        }
+
+        if (requestParameters.packageInfo === null || requestParameters.packageInfo === undefined) {
+            throw new runtime.RequiredError('packageInfo','Required parameter requestParameters.packageInfo was null or undefined when calling postPackage.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4762,7 +5782,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPackageRequestToJSON(requestParameters.packageInfo),
+            body: PackageInfoToJSON(requestParameters.packageInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4781,7 +5801,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create package formula ranges. <p><strong>OperationId:</strong>postPackageFormulaRanges</p>
      * Create package formula ranges
      */
-    async postPackageFormulaRangesRaw(requestParameters: PostPackageFormulaRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postPackageFormulaRangesRaw(requestParameters: PostPackageFormulaRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPackageFormulaRanges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPackageFormulaRanges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPackageFormulaRanges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPackageFormulaRanges.');
+        }
+
+        if (requestParameters.packageFormulaRanges === null || requestParameters.packageFormulaRanges === undefined) {
+            throw new runtime.RequiredError('packageFormulaRanges','Required parameter requestParameters.packageFormulaRanges was null or undefined when calling postPackageFormulaRanges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4813,7 +5853,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPackageFormulaRangesRequestToJSON(requestParameters.packageFormulaRanges),
+            body: PackageFormulaRangesToJSON(requestParameters.packageFormulaRanges),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4823,7 +5863,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create package formula ranges. <p><strong>OperationId:</strong>postPackageFormulaRanges</p>
      * Create package formula ranges
      */
-    async postPackageFormulaRanges(requestParameters: PostPackageFormulaRangesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postPackageFormulaRanges(requestParameters: PostPackageFormulaRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postPackageFormulaRangesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4833,6 +5873,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create package group
      */
     async postPackageGroupRaw(requestParameters: PostPackageGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPackageGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPackageGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPackageGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPackageGroup.');
+        }
+
+        if (requestParameters.packageGroup === null || requestParameters.packageGroup === undefined) {
+            throw new runtime.RequiredError('packageGroup','Required parameter requestParameters.packageGroup was null or undefined when calling postPackageGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4864,7 +5924,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPackageGroupRequestToJSON(requestParameters.packageGroup),
+            body: PackageGroupToJSON(requestParameters.packageGroup),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4884,6 +5944,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create promotion codes
      */
     async postPromotionCodeRaw(requestParameters: PostPromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.promotionCode === null || requestParameters.promotionCode === undefined) {
+            throw new runtime.RequiredError('promotionCode','Required parameter requestParameters.promotionCode was null or undefined when calling postPromotionCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPromotionCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPromotionCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPromotionCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPromotionCode.');
+        }
+
+        if (requestParameters.propertyPromotionCode === null || requestParameters.propertyPromotionCode === undefined) {
+            throw new runtime.RequiredError('propertyPromotionCode','Required parameter requestParameters.propertyPromotionCode was null or undefined when calling postPromotionCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4915,7 +5999,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPromotionCodeRequestToJSON(requestParameters.propertyPromotionCode),
+            body: PropertyPromotionCodeToJSON(requestParameters.propertyPromotionCode),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4935,6 +6019,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create promotion groups
      */
     async postPromotionGroupRaw(requestParameters: PostPromotionGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.groupCode === null || requestParameters.groupCode === undefined) {
+            throw new runtime.RequiredError('groupCode','Required parameter requestParameters.groupCode was null or undefined when calling postPromotionGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPromotionGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPromotionGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPromotionGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPromotionGroup.');
+        }
+
+        if (requestParameters.promotionGroup === null || requestParameters.promotionGroup === undefined) {
+            throw new runtime.RequiredError('promotionGroup','Required parameter requestParameters.promotionGroup was null or undefined when calling postPromotionGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4966,7 +6074,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPromotionGroupRequestToJSON(requestParameters.promotionGroup),
+            body: PromotionGroupToJSON(requestParameters.promotionGroup),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4986,6 +6094,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create rate groups
      */
     async postRateGroupsRaw(requestParameters: PostRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRateGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRateGroups.');
+        }
+
+        if (requestParameters.rateGroups === null || requestParameters.rateGroups === undefined) {
+            throw new runtime.RequiredError('rateGroups','Required parameter requestParameters.rateGroups was null or undefined when calling postRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5017,7 +6145,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRateGroupsRequestToJSON(requestParameters.rateGroups),
+            body: RateGroupsToJSON(requestParameters.rateGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5036,7 +6164,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Use this API you to get Rate Plans for a given hotel.<p><strong>OperationId:</strong>postRatePlan</p>
      * Create rate plans
      */
-    async postRatePlanRaw(requestParameters: PostRatePlanOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRatePlanRaw(requestParameters: PostRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRatePlan.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRatePlan.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRatePlan.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRatePlan.');
+        }
+
+        if (requestParameters.ratePlan === null || requestParameters.ratePlan === undefined) {
+            throw new runtime.RequiredError('ratePlan','Required parameter requestParameters.ratePlan was null or undefined when calling postRatePlan.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5068,7 +6216,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRatePlanRequestToJSON(requestParameters.ratePlan),
+            body: RatePlanToJSON(requestParameters.ratePlan),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5078,7 +6226,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Use this API you to get Rate Plans for a given hotel.<p><strong>OperationId:</strong>postRatePlan</p>
      * Create rate plans
      */
-    async postRatePlan(requestParameters: PostRatePlanOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRatePlan(requestParameters: PostRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRatePlanRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5088,6 +6236,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create rate plan package
      */
     async postRatePlanPackagesRaw(requestParameters: PostRatePlanPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling postRatePlanPackages.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRatePlanPackages.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRatePlanPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRatePlanPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRatePlanPackages.');
+        }
+
+        if (requestParameters.ratePlanPackages === null || requestParameters.ratePlanPackages === undefined) {
+            throw new runtime.RequiredError('ratePlanPackages','Required parameter requestParameters.ratePlanPackages was null or undefined when calling postRatePlanPackages.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5119,7 +6291,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRatePlanPackagesRequestToJSON(requestParameters.ratePlanPackages),
+            body: RatePlanPackagesToJSON(requestParameters.ratePlanPackages),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5139,6 +6311,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create rate plan posting rhythms
      */
     async postRatePlanPostingRhythmsRaw(requestParameters: PostRatePlanPostingRhythmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling postRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.ratePlanPostingRhythms === null || requestParameters.ratePlanPostingRhythms === undefined) {
+            throw new runtime.RequiredError('ratePlanPostingRhythms','Required parameter requestParameters.ratePlanPostingRhythms was null or undefined when calling postRatePlanPostingRhythms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5170,7 +6366,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRatePlanPostingRhythmsRequestToJSON(requestParameters.ratePlanPostingRhythms),
+            body: RatePlanPostingRhythmsToJSON(requestParameters.ratePlanPostingRhythms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5189,7 +6385,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create Rate Plan pricing schedule. <p><strong>OperationId:</strong>postRatePlanSchedules</p>
      * Create rate plan schedules
      */
-    async postRatePlanSchedulesRaw(requestParameters: PostRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRatePlanSchedulesRaw(requestParameters: PostRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling postRatePlanSchedules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRatePlanSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRatePlanSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRatePlanSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRatePlanSchedules.');
+        }
+
+        if (requestParameters.ratePlanSchedulesToCreate === null || requestParameters.ratePlanSchedulesToCreate === undefined) {
+            throw new runtime.RequiredError('ratePlanSchedulesToCreate','Required parameter requestParameters.ratePlanSchedulesToCreate was null or undefined when calling postRatePlanSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5221,7 +6441,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRatePlanSchedulesRequestToJSON(requestParameters.ratePlanSchedulesToCreate),
+            body: RatePlanSchedulesToCreateToJSON(requestParameters.ratePlanSchedulesToCreate),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5231,7 +6451,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create Rate Plan pricing schedule. <p><strong>OperationId:</strong>postRatePlanSchedules</p>
      * Create rate plan schedules
      */
-    async postRatePlanSchedules(requestParameters: PostRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRatePlanSchedules(requestParameters: PostRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRatePlanSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5240,7 +6460,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create rate strategies. <p><strong>OperationId:</strong>postRateStrategy</p>
      * Create rate strategies
      */
-    async postRateStrategyRaw(requestParameters: PostRateStrategyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRateStrategyRaw(requestParameters: PostRateStrategyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRateStrategy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRateStrategy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRateStrategy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRateStrategy.');
+        }
+
+        if (requestParameters.rateStrategy === null || requestParameters.rateStrategy === undefined) {
+            throw new runtime.RequiredError('rateStrategy','Required parameter requestParameters.rateStrategy was null or undefined when calling postRateStrategy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5272,7 +6512,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRateStrategyRequestToJSON(requestParameters.rateStrategy),
+            body: RateStrategyToJSON(requestParameters.rateStrategy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5282,7 +6522,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to create rate strategies. <p><strong>OperationId:</strong>postRateStrategy</p>
      * Create rate strategies
      */
-    async postRateStrategy(requestParameters: PostRateStrategyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRateStrategy(requestParameters: PostRateStrategyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRateStrategyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5292,6 +6532,22 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create Template Package Forecast Groups
      */
     async postTemplatePackageForecastGroupsRaw(requestParameters: PostTemplatePackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.templatePackageForecastGroups === null || requestParameters.templatePackageForecastGroups === undefined) {
+            throw new runtime.RequiredError('templatePackageForecastGroups','Required parameter requestParameters.templatePackageForecastGroups was null or undefined when calling postTemplatePackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5323,7 +6579,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTemplatePackageForecastGroupsRequestToJSON(requestParameters.templatePackageForecastGroups),
+            body: TemplatePackageForecastGroupsToJSON(requestParameters.templatePackageForecastGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5343,6 +6599,26 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Create Template Promotion Code
      */
     async postTemplatePromotionCodeRaw(requestParameters: PostTemplatePromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.promotionCode === null || requestParameters.promotionCode === undefined) {
+            throw new runtime.RequiredError('promotionCode','Required parameter requestParameters.promotionCode was null or undefined when calling postTemplatePromotionCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplatePromotionCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplatePromotionCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplatePromotionCode.');
+        }
+
+        if (requestParameters.templatePromotionCode === null || requestParameters.templatePromotionCode === undefined) {
+            throw new runtime.RequiredError('templatePromotionCode','Required parameter requestParameters.templatePromotionCode was null or undefined when calling postTemplatePromotionCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5374,7 +6650,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTemplatePromotionCodeRequestToJSON(requestParameters.templatePromotionCode),
+            body: TemplatePromotionCodeToJSON(requestParameters.templatePromotionCode),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5393,7 +6669,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update package forecast groups. <p><strong>OperationId:</strong>putHotelPackageForecastGroups</p>
      * Change Hotel Package Forecast Groups
      */
-    async putHotelPackageForecastGroupsRaw(requestParameters: PutHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putHotelPackageForecastGroupsRaw(requestParameters: PutHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putHotelPackageForecastGroups.');
+        }
+
+        if (requestParameters.hotelPackageForecastGroupsToChange === null || requestParameters.hotelPackageForecastGroupsToChange === undefined) {
+            throw new runtime.RequiredError('hotelPackageForecastGroupsToChange','Required parameter requestParameters.hotelPackageForecastGroupsToChange was null or undefined when calling putHotelPackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5425,7 +6721,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutHotelPackageForecastGroupsRequestToJSON(requestParameters.hotelPackageForecastGroupsToChange),
+            body: HotelPackageForecastGroupsToChangeToJSON(requestParameters.hotelPackageForecastGroupsToChange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5435,7 +6731,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update package forecast groups. <p><strong>OperationId:</strong>putHotelPackageForecastGroups</p>
      * Change Hotel Package Forecast Groups
      */
-    async putHotelPackageForecastGroups(requestParameters: PutHotelPackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putHotelPackageForecastGroups(requestParameters: PutHotelPackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putHotelPackageForecastGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5445,6 +6741,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Change negotiated rates 
      */
     async putNegotiatedRatesRaw(requestParameters: PutNegotiatedRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NegotiatedRatesDetails>> {
+        if (requestParameters.rateCode === null || requestParameters.rateCode === undefined) {
+            throw new runtime.RequiredError('rateCode','Required parameter requestParameters.rateCode was null or undefined when calling putNegotiatedRates.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putNegotiatedRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putNegotiatedRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putNegotiatedRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putNegotiatedRates.');
+        }
+
+        if (requestParameters.negotiatedRates === null || requestParameters.negotiatedRates === undefined) {
+            throw new runtime.RequiredError('negotiatedRates','Required parameter requestParameters.negotiatedRates was null or undefined when calling putNegotiatedRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5476,7 +6796,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostNegotiatedRatesRequestToJSON(requestParameters.negotiatedRates),
+            body: NegotiatedRatesToJSON(requestParameters.negotiatedRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NegotiatedRatesDetailsFromJSON(jsonValue));
@@ -5495,7 +6815,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update a package. <p><strong>OperationId:</strong>putPackage</p>
      * Change the package
      */
-    async putPackageRaw(requestParameters: PutPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putPackageRaw(requestParameters: PutPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageCode === null || requestParameters.packageCode === undefined) {
+            throw new runtime.RequiredError('packageCode','Required parameter requestParameters.packageCode was null or undefined when calling putPackage.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putPackage.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPackage.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPackage.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPackage.');
+        }
+
+        if (requestParameters.packageInfo === null || requestParameters.packageInfo === undefined) {
+            throw new runtime.RequiredError('packageInfo','Required parameter requestParameters.packageInfo was null or undefined when calling putPackage.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5527,7 +6871,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPackageRequestToJSON(requestParameters.packageInfo),
+            body: PackageInfoToJSON(requestParameters.packageInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5537,7 +6881,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update a package. <p><strong>OperationId:</strong>putPackage</p>
      * Change the package
      */
-    async putPackage(requestParameters: PutPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putPackage(requestParameters: PutPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putPackageRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5547,6 +6891,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Change package formula ranges
      */
     async putPackageFormulaRangesRaw(requestParameters: PutPackageFormulaRangesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageFormulaRangeId === null || requestParameters.packageFormulaRangeId === undefined) {
+            throw new runtime.RequiredError('packageFormulaRangeId','Required parameter requestParameters.packageFormulaRangeId was null or undefined when calling putPackageFormulaRanges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putPackageFormulaRanges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPackageFormulaRanges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPackageFormulaRanges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPackageFormulaRanges.');
+        }
+
+        if (requestParameters.packageFormulaRanges === null || requestParameters.packageFormulaRanges === undefined) {
+            throw new runtime.RequiredError('packageFormulaRanges','Required parameter requestParameters.packageFormulaRanges was null or undefined when calling putPackageFormulaRanges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5578,7 +6946,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPackageFormulaRangesRequestToJSON(requestParameters.packageFormulaRanges),
+            body: PackageFormulaRangesToJSON(requestParameters.packageFormulaRanges),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5597,7 +6965,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to change package group. <p><strong>OperationId:</strong>putPackageGroup</p>
      * Change package group
      */
-    async putPackageGroupRaw(requestParameters: PutPackageGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putPackageGroupRaw(requestParameters: PutPackageGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putPackageGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPackageGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPackageGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPackageGroup.');
+        }
+
+        if (requestParameters.packageGroup === null || requestParameters.packageGroup === undefined) {
+            throw new runtime.RequiredError('packageGroup','Required parameter requestParameters.packageGroup was null or undefined when calling putPackageGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5629,7 +7017,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPackageGroupRequestToJSON(requestParameters.packageGroup),
+            body: PackageGroupToJSON(requestParameters.packageGroup),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5639,7 +7027,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to change package group. <p><strong>OperationId:</strong>putPackageGroup</p>
      * Change package group
      */
-    async putPackageGroup(requestParameters: PutPackageGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putPackageGroup(requestParameters: PutPackageGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putPackageGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5648,7 +7036,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update promotion codes. <p><strong>OperationId:</strong>putPromotionCode</p>
      * Change promotion codes
      */
-    async putPromotionCodeRaw(requestParameters: PutPromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putPromotionCodeRaw(requestParameters: PutPromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.promotionCode === null || requestParameters.promotionCode === undefined) {
+            throw new runtime.RequiredError('promotionCode','Required parameter requestParameters.promotionCode was null or undefined when calling putPromotionCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putPromotionCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPromotionCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPromotionCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPromotionCode.');
+        }
+
+        if (requestParameters.propertyPromotionCode === null || requestParameters.propertyPromotionCode === undefined) {
+            throw new runtime.RequiredError('propertyPromotionCode','Required parameter requestParameters.propertyPromotionCode was null or undefined when calling putPromotionCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5680,7 +7092,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPromotionCodeRequestToJSON(requestParameters.propertyPromotionCode),
+            body: PropertyPromotionCodeToJSON(requestParameters.propertyPromotionCode),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5690,7 +7102,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update promotion codes. <p><strong>OperationId:</strong>putPromotionCode</p>
      * Change promotion codes
      */
-    async putPromotionCode(requestParameters: PutPromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putPromotionCode(requestParameters: PutPromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putPromotionCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5699,7 +7111,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update promotion groups. <p><strong>OperationId:</strong>putPromotionGroup</p>
      * Change promotion groups
      */
-    async putPromotionGroupRaw(requestParameters: PutPromotionGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putPromotionGroupRaw(requestParameters: PutPromotionGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.groupCode === null || requestParameters.groupCode === undefined) {
+            throw new runtime.RequiredError('groupCode','Required parameter requestParameters.groupCode was null or undefined when calling putPromotionGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putPromotionGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPromotionGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPromotionGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPromotionGroup.');
+        }
+
+        if (requestParameters.promotionGroup === null || requestParameters.promotionGroup === undefined) {
+            throw new runtime.RequiredError('promotionGroup','Required parameter requestParameters.promotionGroup was null or undefined when calling putPromotionGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5731,7 +7167,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPromotionGroupRequestToJSON(requestParameters.promotionGroup),
+            body: PromotionGroupToJSON(requestParameters.promotionGroup),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5741,7 +7177,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update promotion groups. <p><strong>OperationId:</strong>putPromotionGroup</p>
      * Change promotion groups
      */
-    async putPromotionGroup(requestParameters: PutPromotionGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putPromotionGroup(requestParameters: PutPromotionGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putPromotionGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5750,7 +7186,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update rate groups. <p><strong>OperationId:</strong>putRateGroups</p>
      * Change rate groups
      */
-    async putRateGroupsRaw(requestParameters: PutRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRateGroupsRaw(requestParameters: PutRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRateGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRateGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRateGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRateGroups.');
+        }
+
+        if (requestParameters.rateGroups === null || requestParameters.rateGroups === undefined) {
+            throw new runtime.RequiredError('rateGroups','Required parameter requestParameters.rateGroups was null or undefined when calling putRateGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5782,7 +7238,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRateGroupsRequestToJSON(requestParameters.rateGroups),
+            body: RateGroupsToJSON(requestParameters.rateGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5792,7 +7248,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update rate groups. <p><strong>OperationId:</strong>putRateGroups</p>
      * Change rate groups
      */
-    async putRateGroups(requestParameters: PutRateGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRateGroups(requestParameters: PutRateGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRateGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5802,6 +7258,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Change rate plan
      */
     async putRatePlanRaw(requestParameters: PutRatePlanRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling putRatePlan.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRatePlan.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRatePlan.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRatePlan.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRatePlan.');
+        }
+
+        if (requestParameters.ratePlan === null || requestParameters.ratePlan === undefined) {
+            throw new runtime.RequiredError('ratePlan','Required parameter requestParameters.ratePlan was null or undefined when calling putRatePlan.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5833,7 +7313,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRatePlanRequestToJSON(requestParameters.ratePlan),
+            body: RatePlanToJSON(requestParameters.ratePlan),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5852,7 +7332,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan package. <p><strong>OperationId:</strong>putRatePlanPackages</p>
      * Change rate plan package
      */
-    async putRatePlanPackagesRaw(requestParameters: PutRatePlanPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRatePlanPackagesRaw(requestParameters: PutRatePlanPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling putRatePlanPackages.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRatePlanPackages.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRatePlanPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRatePlanPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRatePlanPackages.');
+        }
+
+        if (requestParameters.ratePlanPackages === null || requestParameters.ratePlanPackages === undefined) {
+            throw new runtime.RequiredError('ratePlanPackages','Required parameter requestParameters.ratePlanPackages was null or undefined when calling putRatePlanPackages.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5884,7 +7388,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRatePlanPackagesRequestToJSON(requestParameters.ratePlanPackages),
+            body: RatePlanPackagesToJSON(requestParameters.ratePlanPackages),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5894,7 +7398,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan package. <p><strong>OperationId:</strong>putRatePlanPackages</p>
      * Change rate plan package
      */
-    async putRatePlanPackages(requestParameters: PutRatePlanPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRatePlanPackages(requestParameters: PutRatePlanPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRatePlanPackagesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5903,7 +7407,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan posting rhythms. <p><strong>OperationId:</strong>putRatePlanPostingRhythms</p>
      * Change rate plan posting rhythms
      */
-    async putRatePlanPostingRhythmsRaw(requestParameters: PutRatePlanPostingRhythmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRatePlanPostingRhythmsRaw(requestParameters: PutRatePlanPostingRhythmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling putRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRatePlanPostingRhythms.');
+        }
+
+        if (requestParameters.ratePlanPostingRhythms === null || requestParameters.ratePlanPostingRhythms === undefined) {
+            throw new runtime.RequiredError('ratePlanPostingRhythms','Required parameter requestParameters.ratePlanPostingRhythms was null or undefined when calling putRatePlanPostingRhythms.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5935,7 +7463,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRatePlanPostingRhythmsRequestToJSON(requestParameters.ratePlanPostingRhythms),
+            body: RatePlanPostingRhythmsToJSON(requestParameters.ratePlanPostingRhythms),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5945,7 +7473,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Rate Plan posting rhythms. <p><strong>OperationId:</strong>putRatePlanPostingRhythms</p>
      * Change rate plan posting rhythms
      */
-    async putRatePlanPostingRhythms(requestParameters: PutRatePlanPostingRhythmsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRatePlanPostingRhythms(requestParameters: PutRatePlanPostingRhythmsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRatePlanPostingRhythmsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5954,7 +7482,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Use this API to  update Rate Plan pricing schedules.<p><strong>OperationId:</strong>putRatePlanSchedules</p>
      * Change rate plan schedules
      */
-    async putRatePlanSchedulesRaw(requestParameters: PutRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRatePlanSchedulesRaw(requestParameters: PutRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling putRatePlanSchedules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRatePlanSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRatePlanSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRatePlanSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRatePlanSchedules.');
+        }
+
+        if (requestParameters.ratePlanSchedules === null || requestParameters.ratePlanSchedules === undefined) {
+            throw new runtime.RequiredError('ratePlanSchedules','Required parameter requestParameters.ratePlanSchedules was null or undefined when calling putRatePlanSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5986,7 +7538,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRatePlanSchedulesRequestToJSON(requestParameters.ratePlanSchedules),
+            body: RatePlanSchedulesToJSON(requestParameters.ratePlanSchedules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5996,7 +7548,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Use this API to  update Rate Plan pricing schedules.<p><strong>OperationId:</strong>putRatePlanSchedules</p>
      * Change rate plan schedules
      */
-    async putRatePlanSchedules(requestParameters: PutRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRatePlanSchedules(requestParameters: PutRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRatePlanSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6006,6 +7558,30 @@ export class RatePlanApi extends runtime.BaseAPI {
      * Change rate strategies
      */
     async putRateStrategyRaw(requestParameters: PutRateStrategyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateStrategyId === null || requestParameters.rateStrategyId === undefined) {
+            throw new runtime.RequiredError('rateStrategyId','Required parameter requestParameters.rateStrategyId was null or undefined when calling putRateStrategy.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRateStrategy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRateStrategy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRateStrategy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRateStrategy.');
+        }
+
+        if (requestParameters.rateStrategy === null || requestParameters.rateStrategy === undefined) {
+            throw new runtime.RequiredError('rateStrategy','Required parameter requestParameters.rateStrategy was null or undefined when calling putRateStrategy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6037,7 +7613,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRateStrategyRequestToJSON(requestParameters.rateStrategy),
+            body: RateStrategyToJSON(requestParameters.rateStrategy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6056,7 +7632,23 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Package Forecast groups template. <p><strong>OperationId:</strong>putTemplatePackageForecastGroups</p>
      * Change Template Package Forecast Groups
      */
-    async putTemplatePackageForecastGroupsRaw(requestParameters: PutTemplatePackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putTemplatePackageForecastGroupsRaw(requestParameters: PutTemplatePackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTemplatePackageForecastGroups.');
+        }
+
+        if (requestParameters.templatePackageForecastGroups === null || requestParameters.templatePackageForecastGroups === undefined) {
+            throw new runtime.RequiredError('templatePackageForecastGroups','Required parameter requestParameters.templatePackageForecastGroups was null or undefined when calling putTemplatePackageForecastGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6088,7 +7680,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTemplatePackageForecastGroupsRequestToJSON(requestParameters.templatePackageForecastGroups),
+            body: TemplatePackageForecastGroupsToJSON(requestParameters.templatePackageForecastGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6098,7 +7690,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Package Forecast groups template. <p><strong>OperationId:</strong>putTemplatePackageForecastGroups</p>
      * Change Template Package Forecast Groups
      */
-    async putTemplatePackageForecastGroups(requestParameters: PutTemplatePackageForecastGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putTemplatePackageForecastGroups(requestParameters: PutTemplatePackageForecastGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putTemplatePackageForecastGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6107,7 +7699,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Promotion Code template. <p><strong>OperationId:</strong>putTemplatePromotionCode</p>
      * Change Template Promotion Code
      */
-    async putTemplatePromotionCodeRaw(requestParameters: PutTemplatePromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putTemplatePromotionCodeRaw(requestParameters: PutTemplatePromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.promotionCode === null || requestParameters.promotionCode === undefined) {
+            throw new runtime.RequiredError('promotionCode','Required parameter requestParameters.promotionCode was null or undefined when calling putTemplatePromotionCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTemplatePromotionCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTemplatePromotionCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTemplatePromotionCode.');
+        }
+
+        if (requestParameters.templatePromotionCode === null || requestParameters.templatePromotionCode === undefined) {
+            throw new runtime.RequiredError('templatePromotionCode','Required parameter requestParameters.templatePromotionCode was null or undefined when calling putTemplatePromotionCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6139,7 +7751,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTemplatePromotionCodeRequestToJSON(requestParameters.templatePromotionCode),
+            body: TemplatePromotionCodeToJSON(requestParameters.templatePromotionCode),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6149,7 +7761,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update Promotion Code template. <p><strong>OperationId:</strong>putTemplatePromotionCode</p>
      * Change Template Promotion Code
      */
-    async putTemplatePromotionCode(requestParameters: PutTemplatePromotionCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putTemplatePromotionCode(requestParameters: PutTemplatePromotionCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putTemplatePromotionCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6158,7 +7770,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to set Rate Plan schedule range. <p><strong>OperationId:</strong>setDailyRatePlanScheduleRange</p>
      * Set daily rate plan schedule range
      */
-    async setDailyRatePlanScheduleRangeRaw(requestParameters: SetDailyRatePlanScheduleRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async setDailyRatePlanScheduleRangeRaw(requestParameters: SetDailyRatePlanScheduleRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling setDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setDailyRatePlanScheduleRange.');
+        }
+
+        if (requestParameters.dailyRatePlanScheduleRange === null || requestParameters.dailyRatePlanScheduleRange === undefined) {
+            throw new runtime.RequiredError('dailyRatePlanScheduleRange','Required parameter requestParameters.dailyRatePlanScheduleRange was null or undefined when calling setDailyRatePlanScheduleRange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6190,7 +7826,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetDailyRatePlanScheduleRangeRequestToJSON(requestParameters.dailyRatePlanScheduleRange),
+            body: DailyRatePlanScheduleRangeToJSON(requestParameters.dailyRatePlanScheduleRange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6200,7 +7836,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to set Rate Plan schedule range. <p><strong>OperationId:</strong>setDailyRatePlanScheduleRange</p>
      * Set daily rate plan schedule range
      */
-    async setDailyRatePlanScheduleRange(requestParameters: SetDailyRatePlanScheduleRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async setDailyRatePlanScheduleRange(requestParameters: SetDailyRatePlanScheduleRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.setDailyRatePlanScheduleRangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6209,7 +7845,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update mass Rate Plan schedules. <p><strong>OperationId:</strong>setMassRatePlanSchedules</p>
      * Set mass rate plan schedules
      */
-    async setMassRatePlanSchedulesRaw(requestParameters: SetMassRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async setMassRatePlanSchedulesRaw(requestParameters: SetMassRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setMassRatePlanSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setMassRatePlanSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setMassRatePlanSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setMassRatePlanSchedules.');
+        }
+
+        if (requestParameters.massRatePlanSchedules === null || requestParameters.massRatePlanSchedules === undefined) {
+            throw new runtime.RequiredError('massRatePlanSchedules','Required parameter requestParameters.massRatePlanSchedules was null or undefined when calling setMassRatePlanSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6241,7 +7897,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetMassRatePlanSchedulesRequestToJSON(requestParameters.massRatePlanSchedules),
+            body: MassRatePlanSchedulesToJSON(requestParameters.massRatePlanSchedules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6251,7 +7907,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to update mass Rate Plan schedules. <p><strong>OperationId:</strong>setMassRatePlanSchedules</p>
      * Set mass rate plan schedules
      */
-    async setMassRatePlanSchedules(requestParameters: SetMassRatePlanSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async setMassRatePlanSchedules(requestParameters: SetMassRatePlanSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.setMassRatePlanSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6260,7 +7916,27 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to set rate access exclusions. <p><strong>OperationId:</strong>setRateAccessExclusions</p>
      * Set rate access exclusions
      */
-    async setRateAccessExclusionsRaw(requestParameters: SetRateAccessExclusionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async setRateAccessExclusionsRaw(requestParameters: SetRateAccessExclusionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling setRateAccessExclusions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setRateAccessExclusions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setRateAccessExclusions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setRateAccessExclusions.');
+        }
+
+        if (requestParameters.rateAccessExclusions === null || requestParameters.rateAccessExclusions === undefined) {
+            throw new runtime.RequiredError('rateAccessExclusions','Required parameter requestParameters.rateAccessExclusions was null or undefined when calling setRateAccessExclusions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6292,7 +7968,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: SetRateAccessExclusionsRequestToJSON(requestParameters.rateAccessExclusions),
+            body: RateAccessExclusionsToJSON(requestParameters.rateAccessExclusions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6302,7 +7978,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to set rate access exclusions. <p><strong>OperationId:</strong>setRateAccessExclusions</p>
      * Set rate access exclusions
      */
-    async setRateAccessExclusions(requestParameters: SetRateAccessExclusionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async setRateAccessExclusions(requestParameters: SetRateAccessExclusionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.setRateAccessExclusionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6311,7 +7987,23 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to set Rate strategies. <p><strong>OperationId:</strong>setRateStrategies</p>
      * Set rate strategies
      */
-    async setRateStrategiesRaw(requestParameters: SetRateStrategiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async setRateStrategiesRaw(requestParameters: SetRateStrategiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling setRateStrategies.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling setRateStrategies.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling setRateStrategies.');
+        }
+
+        if (requestParameters.rateStrategiesToSet === null || requestParameters.rateStrategiesToSet === undefined) {
+            throw new runtime.RequiredError('rateStrategiesToSet','Required parameter requestParameters.rateStrategiesToSet was null or undefined when calling setRateStrategies.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6343,7 +8035,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SetRateStrategiesRequestToJSON(requestParameters.rateStrategiesToSet),
+            body: RateStrategiesToSetToJSON(requestParameters.rateStrategiesToSet),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6353,7 +8045,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to set Rate strategies. <p><strong>OperationId:</strong>setRateStrategies</p>
      * Set rate strategies
      */
-    async setRateStrategies(requestParameters: SetRateStrategiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async setRateStrategies(requestParameters: SetRateStrategiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.setRateStrategiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6362,7 +8054,31 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to split Rate Plan schedule. <p><strong>OperationId:</strong>splitRatePlanSchedule</p>
      * Split rate plan schedule
      */
-    async splitRatePlanScheduleRaw(requestParameters: SplitRatePlanScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async splitRatePlanScheduleRaw(requestParameters: SplitRatePlanScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.scheduleId === null || requestParameters.scheduleId === undefined) {
+            throw new runtime.RequiredError('scheduleId','Required parameter requestParameters.scheduleId was null or undefined when calling splitRatePlanSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling splitRatePlanSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling splitRatePlanSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling splitRatePlanSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling splitRatePlanSchedule.');
+        }
+
+        if (requestParameters.ratePlanScheduleToSplit === null || requestParameters.ratePlanScheduleToSplit === undefined) {
+            throw new runtime.RequiredError('ratePlanScheduleToSplit','Required parameter requestParameters.ratePlanScheduleToSplit was null or undefined when calling splitRatePlanSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6394,7 +8110,7 @@ export class RatePlanApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SplitRatePlanScheduleRequestToJSON(requestParameters.ratePlanScheduleToSplit),
+            body: RatePlanScheduleToSplitToJSON(requestParameters.ratePlanScheduleToSplit),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6404,7 +8120,7 @@ export class RatePlanApi extends runtime.BaseAPI {
      * This API allows you to split Rate Plan schedule. <p><strong>OperationId:</strong>splitRatePlanSchedule</p>
      * Split rate plan schedule
      */
-    async splitRatePlanSchedule(requestParameters: SplitRatePlanScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async splitRatePlanSchedule(requestParameters: SplitRatePlanScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.splitRatePlanScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }

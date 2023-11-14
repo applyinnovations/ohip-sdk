@@ -57,13 +57,13 @@ function ReceiptSummaryTypeToJSON(value) {
     }
     return {
         'customNumbers': value.customNumbers,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'payeeInfo': (0, PayeeInfoType_1.PayeeInfoTypeToJSON)(value.payeeInfo),
         'receiptAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.receiptAmount),
         'receiptNo': value.receiptNo,
         'receiptType': (0, ReceiptType_1.ReceiptTypeToJSON)(value.receiptType),
         'receiptTypeDescription': value.receiptTypeDescription,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
         'taxInvoice': value.taxInvoice,
         'transactionNo': value.transactionNo,
     };

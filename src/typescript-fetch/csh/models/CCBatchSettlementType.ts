@@ -155,7 +155,7 @@ export function CCBatchSettlementTypeToJSON(value?: CCBatchSettlementType | null
         'roomId': value.roomId,
         'settlementAmount': CurrencyAmountTypeToJSON(value.settlementAmount),
         'settlementId': UniqueIDTypeToJSON(value.settlementId),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0,10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
         'windowNo': value.windowNo,
     };
 }

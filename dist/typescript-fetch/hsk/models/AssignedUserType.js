@@ -52,10 +52,10 @@ function AssignedUserTypeToJSON(value) {
     return {
         'assignedByUser': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.assignedByUser),
         'assignedByUserName': value.assignedByUserName,
-        'assignedDate': value.assignedDate === undefined ? undefined : (value.assignedDate.toISOString().substr(0, 10)),
+        'assignedDate': value.assignedDate === undefined ? undefined : (value.assignedDate.toISOString().substring(0, 10)),
         'assignedToUser': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.assignedToUser),
         'assignedToUserName': value.assignedToUserName,
-        'expectedByDate': value.expectedByDate === undefined ? undefined : (value.expectedByDate.toISOString().substr(0, 10)),
+        'expectedByDate': value.expectedByDate === undefined ? undefined : (value.expectedByDate.toISOString().substring(0, 10)),
     };
 }
 exports.AssignedUserTypeToJSON = AssignedUserTypeToJSON;

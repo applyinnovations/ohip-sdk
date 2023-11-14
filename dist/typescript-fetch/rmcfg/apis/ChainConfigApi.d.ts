@@ -10,74 +10,74 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BedTypeRequestsDetails, BedTypesDetails, ChangeRoomMoveReasonsRequest, FloorTypesDetails, PostBedTypeRequestsRequest, PostBedTypesRequest, PostFloorTypesRequest, PostRoomMoveReasonsRequest, PostRoomPotentialsRequest, PostRoomPreferencePrioritiesRequest, PostSmokingTypesRequest, PutBedTypeRequestsRequest, PutBedTypesRequest, PutFloorTypesRequest, PutRoomPotentialsRequest, PutRoomPreferencePrioritiesRequest, PutSmokingTypesRequest, RoomMoveReasonsDetails, RoomPotentialsDetails, RoomPreferencePrioritiesDetails, SmokingTypesDetails, Status } from '../models';
-export interface ChangeRoomMoveReasonsOperationRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMoveReasonsToBeChanged?: ChangeRoomMoveReasonsRequest;
+import type { BedTypeRequestsCriteria, BedTypeRequestsDetails, BedTypeRequestsToBeChanged, BedTypesCriteria, BedTypesDetails, BedTypesToBeChanged, FloorTypesCriteria, FloorTypesDetails, FloorTypesToBeChanged, RoomMoveReasonsCriteria, RoomMoveReasonsDetails, RoomMoveReasonsToBeChanged, RoomPotentialsCriteria, RoomPotentialsDetails, RoomPotentialsToBeChanged, RoomPreferencePrioritiesCriteria, RoomPreferencePrioritiesDetails, RoomPreferencePrioritiesToBeChanged, SmokingTypesCriteria, SmokingTypesDetails, SmokingTypesToBeChanged, Status } from '../models/index';
+export interface ChangeRoomMoveReasonsRequest {
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMoveReasonsToBeChanged: RoomMoveReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBedTypeRequestsRequest {
-    bedTypeRequestsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bedTypeRequestsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bedTypeRequestsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBedTypesRequest {
-    bedTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bedTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bedTypeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteFloorTypesRequest {
-    floorTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    floorTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     floorTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomPotentialsRequest {
-    roomPotentialsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomPotentialsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomPotentialsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoomPreferencePrioritiesRequest {
-    roomPreferencePrioritiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomPreferencePrioritiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomPreferencePrioritiesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteSmokingTypesRequest {
-    smokingTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    smokingTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     smokingTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBedTypeRequestsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -86,9 +86,9 @@ export interface GetBedTypeRequestsRequest {
     acceptLanguage?: string;
 }
 export interface GetBedTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -97,9 +97,9 @@ export interface GetBedTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetFloorTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -108,9 +108,9 @@ export interface GetFloorTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomMoveReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -119,9 +119,9 @@ export interface GetRoomMoveReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomPotentialsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -130,9 +130,9 @@ export interface GetRoomPotentialsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomPreferencePrioritiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -141,9 +141,9 @@ export interface GetRoomPreferencePrioritiesRequest {
     acceptLanguage?: string;
 }
 export interface GetSmokingTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -151,121 +151,121 @@ export interface GetSmokingTypesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBedTypeRequestsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypeRequestsCriteria?: PostBedTypeRequestsRequest;
+export interface PostBedTypeRequestsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypeRequestsCriteria: BedTypeRequestsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBedTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypesCriteria?: PostBedTypesRequest;
+export interface PostBedTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypesCriteria: BedTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFloorTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    floorTypesCriteria?: PostFloorTypesRequest;
+export interface PostFloorTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    floorTypesCriteria: FloorTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomMoveReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMoveReasonsCriteria?: PostRoomMoveReasonsRequest;
+export interface PostRoomMoveReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMoveReasonsCriteria: RoomMoveReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomPotentialsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPotentialsCriteria?: PostRoomPotentialsRequest;
+export interface PostRoomPotentialsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPotentialsCriteria: RoomPotentialsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomPreferencePrioritiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPreferencePrioritiesCriteria?: PostRoomPreferencePrioritiesRequest;
+export interface PostRoomPreferencePrioritiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPreferencePrioritiesCriteria: RoomPreferencePrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSmokingTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    smokingTypesCriteria?: PostSmokingTypesRequest;
+export interface PostSmokingTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    smokingTypesCriteria: SmokingTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBedTypeRequestsOperationRequest {
-    bedTypeRequestsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypeRequestsToBeChanged?: PutBedTypeRequestsRequest;
+export interface PutBedTypeRequestsRequest {
+    bedTypeRequestsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypeRequestsToBeChanged: BedTypeRequestsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBedTypesOperationRequest {
-    bedTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTypesToBeChanged?: PutBedTypesRequest;
+export interface PutBedTypesRequest {
+    bedTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTypesToBeChanged: BedTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutFloorTypesOperationRequest {
-    floorTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    floorTypesToBeChanged?: PutFloorTypesRequest;
+export interface PutFloorTypesRequest {
+    floorTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    floorTypesToBeChanged: FloorTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomPotentialsOperationRequest {
-    roomPotentialsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPotentialsToBeChanged?: PutRoomPotentialsRequest;
+export interface PutRoomPotentialsRequest {
+    roomPotentialsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPotentialsToBeChanged: RoomPotentialsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomPreferencePrioritiesOperationRequest {
-    roomPreferencePrioritiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomPreferencePrioritiesToBeChanged?: PutRoomPreferencePrioritiesRequest;
+export interface PutRoomPreferencePrioritiesRequest {
+    roomPreferencePrioritiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomPreferencePrioritiesToBeChanged: RoomPreferencePrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutSmokingTypesOperationRequest {
-    smokingTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    smokingTypesToBeChanged?: PutSmokingTypesRequest;
+export interface PutSmokingTypesRequest {
+    smokingTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    smokingTypesToBeChanged: SmokingTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRoomMoveReasonsRequest {
-    reasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomMoveReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -278,12 +278,12 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update room move reasons based on reasonCode, roomMoveReasonsToBeChanged. Room move reasons are used when moving a guest from one room in a property to another room in the same property after the reservation has been checked in. <p><strong>OperationId:</strong>changeRoomMoveReasons</p>
      * Change Room Move Reasons
      */
-    changeRoomMoveReasonsRaw(requestParameters: ChangeRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRoomMoveReasonsRaw(requestParameters: ChangeRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update room move reasons based on reasonCode, roomMoveReasonsToBeChanged. Room move reasons are used when moving a guest from one room in a property to another room in the same property after the reservation has been checked in. <p><strong>OperationId:</strong>changeRoomMoveReasons</p>
      * Change Room Move Reasons
      */
-    changeRoomMoveReasons(requestParameters: ChangeRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRoomMoveReasons(requestParameters: ChangeRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete bed type requests based on the bedTypeRequestsId, bedTypeRequestsCodes. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>deleteBedTypeRequests</p>
      * Delete Bed Type Requests
@@ -418,132 +418,132 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create bed type requests. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>postBedTypeRequests</p>
      * Create Bed Type Requests
      */
-    postBedTypeRequestsRaw(requestParameters: PostBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBedTypeRequestsRaw(requestParameters: PostBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create bed type requests. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>postBedTypeRequests</p>
      * Create Bed Type Requests
      */
-    postBedTypeRequests(requestParameters: PostBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBedTypeRequests(requestParameters: PostBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Bed type. <p><strong>OperationId:</strong>postBedTypes</p>
      * Create a new Bed type
      */
-    postBedTypesRaw(requestParameters: PostBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBedTypesRaw(requestParameters: PostBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Bed type. <p><strong>OperationId:</strong>postBedTypes</p>
      * Create a new Bed type
      */
-    postBedTypes(requestParameters: PostBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBedTypes(requestParameters: PostBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create floor types. <p><strong>OperationId:</strong>postFloorTypes</p>
      * Create Floor Types
      */
-    postFloorTypesRaw(requestParameters: PostFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFloorTypesRaw(requestParameters: PostFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create floor types. <p><strong>OperationId:</strong>postFloorTypes</p>
      * Create Floor Types
      */
-    postFloorTypes(requestParameters: PostFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFloorTypes(requestParameters: PostFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Room Move Reasons. <p><strong>OperationId:</strong>postRoomMoveReasons</p>
      * Create Room Move Reasons
      */
-    postRoomMoveReasonsRaw(requestParameters: PostRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomMoveReasonsRaw(requestParameters: PostRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Room Move Reasons. <p><strong>OperationId:</strong>postRoomMoveReasons</p>
      * Create Room Move Reasons
      */
-    postRoomMoveReasons(requestParameters: PostRoomMoveReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomMoveReasons(requestParameters: PostRoomMoveReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Room Potentials. <p><strong>OperationId:</strong>postRoomPotentials</p>
      * Create Room Potentials
      */
-    postRoomPotentialsRaw(requestParameters: PostRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomPotentialsRaw(requestParameters: PostRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Room Potentials. <p><strong>OperationId:</strong>postRoomPotentials</p>
      * Create Room Potentials
      */
-    postRoomPotentials(requestParameters: PostRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomPotentials(requestParameters: PostRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Room Preference Priorities. <p><strong>OperationId:</strong>postRoomPreferencePriorities</p>
      * Create Room Preference Priorities
      */
-    postRoomPreferencePrioritiesRaw(requestParameters: PostRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomPreferencePrioritiesRaw(requestParameters: PostRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Room Preference Priorities. <p><strong>OperationId:</strong>postRoomPreferencePriorities</p>
      * Create Room Preference Priorities
      */
-    postRoomPreferencePriorities(requestParameters: PostRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomPreferencePriorities(requestParameters: PostRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Smoking Types. <p><strong>OperationId:</strong>postSmokingTypes</p>
      * Create Smoking Types
      */
-    postSmokingTypesRaw(requestParameters: PostSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postSmokingTypesRaw(requestParameters: PostSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Smoking Types. <p><strong>OperationId:</strong>postSmokingTypes</p>
      * Create Smoking Types
      */
-    postSmokingTypes(requestParameters: PostSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postSmokingTypes(requestParameters: PostSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update bed type requests based on the bedTypeRequestsId, bedTypeRequestsToBeChanged. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>putBedTypeRequests</p>
      * Change Bed Type Requests
      */
-    putBedTypeRequestsRaw(requestParameters: PutBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBedTypeRequestsRaw(requestParameters: PutBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update bed type requests based on the bedTypeRequestsId, bedTypeRequestsToBeChanged. <p>Bed types are referenced in room type configuration to identify the bed configuration in the room.</p>  <p><strong>OperationId:</strong>putBedTypeRequests</p>
      * Change Bed Type Requests
      */
-    putBedTypeRequests(requestParameters: PutBedTypeRequestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBedTypeRequests(requestParameters: PutBedTypeRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update bed type based on the bedTypesId, bedTypesToBeChanged. Bed types are referenced in room type configuration to identify the bed configuration in the room. <p><strong>OperationId:</strong>putBedTypes</p>
      * Change an existing Bed type
      */
-    putBedTypesRaw(requestParameters: PutBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBedTypesRaw(requestParameters: PutBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update bed type based on the bedTypesId, bedTypesToBeChanged. Bed types are referenced in room type configuration to identify the bed configuration in the room. <p><strong>OperationId:</strong>putBedTypes</p>
      * Change an existing Bed type
      */
-    putBedTypes(requestParameters: PutBedTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBedTypes(requestParameters: PutBedTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Floor Types. <p><strong>OperationId:</strong>putFloorTypes</p>
      * Change Floor Types
      */
-    putFloorTypesRaw(requestParameters: PutFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putFloorTypesRaw(requestParameters: PutFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Floor Types. <p><strong>OperationId:</strong>putFloorTypes</p>
      * Change Floor Types
      */
-    putFloorTypes(requestParameters: PutFloorTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putFloorTypes(requestParameters: PutFloorTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Room Potentials. <p><strong>OperationId:</strong>putRoomPotentials</p>
      * Change Room Potentials
      */
-    putRoomPotentialsRaw(requestParameters: PutRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomPotentialsRaw(requestParameters: PutRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Room Potentials. <p><strong>OperationId:</strong>putRoomPotentials</p>
      * Change Room Potentials
      */
-    putRoomPotentials(requestParameters: PutRoomPotentialsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomPotentials(requestParameters: PutRoomPotentialsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Room Preference Priorities. <p><strong>OperationId:</strong>putRoomPreferencePriorities</p>
      * Change Room Preference Priorities
      */
-    putRoomPreferencePrioritiesRaw(requestParameters: PutRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomPreferencePrioritiesRaw(requestParameters: PutRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Room Preference Priorities. <p><strong>OperationId:</strong>putRoomPreferencePriorities</p>
      * Change Room Preference Priorities
      */
-    putRoomPreferencePriorities(requestParameters: PutRoomPreferencePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomPreferencePriorities(requestParameters: PutRoomPreferencePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Smoking Types. <p><strong>OperationId:</strong>putSmokingTypes</p>
      * Change Smoking Types
      */
-    putSmokingTypesRaw(requestParameters: PutSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putSmokingTypesRaw(requestParameters: PutSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Smoking Types. <p><strong>OperationId:</strong>putSmokingTypes</p>
      * Change Smoking Types
      */
-    putSmokingTypes(requestParameters: PutSmokingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putSmokingTypes(requestParameters: PutSmokingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete room move reasons based on reasonCode, roomMoveReasonsCodes. Room move reasons are used when moving a guest from one room in a property to another room in the same property after the reservation has been checked in. <p><strong>OperationId:</strong>removeRoomMoveReasons</p>
      * Delete Room Move Reasons

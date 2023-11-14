@@ -41,11 +41,9 @@ models/ConditionGroupType.ts
 models/ConditionType.ts
 models/CopyActivityConfigCriteriaType.ts
 models/CopyActivityConfigCriteriaTypeCopyActivityConfig.ts
-models/CopyActivityTypesConfigRequest.ts
 models/CopyAutoTraceDefinitionCriteriaType.ts
 models/CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinition.ts
 models/CopyAutoTraceDefinitionCriteriaTypeCopyAutoTraceDefinitionCopyInstructions.ts
-models/CopyAutoTraceDefinitionsRequest.ts
 models/ErrorInstance.ts
 models/ExceptionDetailType.ts
 models/ExpressionFieldType.ts
@@ -54,11 +52,6 @@ models/ExpressionParameterType.ts
 models/InstanceLink.ts
 models/Links.ts
 models/LogicalOperatorType.ts
-models/PostActivityResultsConfigRequest.ts
-models/PostActivityTypesRequest.ts
-models/PostAutoTraceCodesRequest.ts
-models/PostAutoTraceDefinitionsRequest.ts
-models/PostAutoTraceOwnerAssignmentsRequest.ts
 models/Status.ts
 models/TranslationTextType2000.ts
 models/TranslationsTextType.ts

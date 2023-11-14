@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { OpenPaymentTokenExchange200Response, OpenPaymentTokenExchangeRequest } from '../models';
+import type { OpenPaymentTokenExchange200Response, OpenPaymentTokenExchangeRequest } from '../models/index';
 export interface OpenPaymentTokenExchangeOperationRequest {
-    hotelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    body?: OpenPaymentTokenExchangeRequest;
+    hotelCode: string;
+    authorization: string;
+    xAppKey: string;
+    body: OpenPaymentTokenExchangeRequest;
 }
 /**
  *

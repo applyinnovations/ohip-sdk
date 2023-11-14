@@ -66,7 +66,7 @@ function BlockCateringPackageTypeToJSON(value) {
     }
     return {
         'attendees': (0, CateringEventsAttendeesType_1.CateringEventsAttendeesTypeToJSON)(value.attendees),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0, 10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
         'blockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.blockId),
         'cateringPackageRemovable': value.cateringPackageRemovable,
         'duration': value.duration,

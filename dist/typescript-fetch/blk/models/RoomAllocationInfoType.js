@@ -54,7 +54,7 @@ function RoomAllocationInfoTypeToJSON(value) {
         'extendedStay': value.extendedStay,
         'roomGridDetails': value.roomGridDetails === undefined ? undefined : (value.roomGridDetails.map(RoomGridDetailsType_1.RoomGridDetailsTypeToJSON)),
         'roomGridInvSummary': value.roomGridInvSummary === undefined ? undefined : (value.roomGridInvSummary.map(BlockGridInvType_1.BlockGridInvTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0, 10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
     };
 }
 exports.RoomAllocationInfoTypeToJSON = RoomAllocationInfoTypeToJSON;

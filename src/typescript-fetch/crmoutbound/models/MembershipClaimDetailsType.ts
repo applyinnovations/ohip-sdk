@@ -248,8 +248,8 @@ export function MembershipClaimDetailsTypeToJSON(value?: MembershipClaimDetailsT
     return {
         
         'claimNo': UniqueIDTypeToJSON(value.claimNo),
-        'claimDate': value.claimDate === undefined ? undefined : (value.claimDate.toISOString().substr(0,10)),
-        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substr(0,10)),
+        'claimDate': value.claimDate === undefined ? undefined : (value.claimDate.toISOString().substring(0,10)),
+        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0,10)),
         'source': ClaimSourceTypeToJSON(value.source),
         'callerName': value.callerName,
         'owner': value.owner,
@@ -257,7 +257,7 @@ export function MembershipClaimDetailsTypeToJSON(value?: MembershipClaimDetailsT
         'claimType': value.claimType,
         'origin': value.origin,
         'callerInformation': value.callerInformation,
-        'replyBy': value.replyBy === undefined ? undefined : (value.replyBy.toISOString().substr(0,10)),
+        'replyBy': value.replyBy === undefined ? undefined : (value.replyBy.toISOString().substring(0,10)),
         'comments': value.comments,
         'approvalStatus': ClaimApprovalStatusTypeToJSON(value.approvalStatus),
         'recordType': ClaimRecordTypeToJSON(value.recordType),

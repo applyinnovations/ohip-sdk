@@ -53,8 +53,8 @@ function OperaRecordLockToJSON(value) {
     }
     return {
         'createdBy': value.createdBy,
-        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substr(0, 10)),
-        'expiresOn': value.expiresOn === undefined ? undefined : (value.expiresOn.toISOString().substr(0, 10)),
+        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substring(0, 10)),
+        'expiresOn': value.expiresOn === undefined ? undefined : (value.expiresOn.toISOString().substring(0, 10)),
         'internal': value.internal,
         'lockHandle': value.lockHandle,
         'recordId': value.recordId,

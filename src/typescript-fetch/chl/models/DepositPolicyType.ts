@@ -149,7 +149,7 @@ export function DepositPolicyTypeToJSON(value?: DepositPolicyType | null): any {
         'formattedRule': value.formattedRule,
         'manual': value.manual,
         'policyCode': value.policyCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0,10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
         'typeOfCharges': DepositCancelRevenueTypeToJSON(value.typeOfCharges),
     };
 }

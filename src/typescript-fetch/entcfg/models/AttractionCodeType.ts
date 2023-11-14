@@ -195,7 +195,7 @@ export function AttractionCodeTypeToJSON(value?: AttractionCodeType | null): any
         'displaySeq': value.displaySeq,
         'generalDirections': value.generalDirections,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'latitude': value.latitude,
         'longitude': value.longitude,
         'name': TranslationTextType2000ToJSON(value.name),

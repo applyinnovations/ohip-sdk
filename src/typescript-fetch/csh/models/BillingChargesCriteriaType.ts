@@ -117,7 +117,7 @@ export function BillingChargesCriteriaTypeToJSON(value?: BillingChargesCriteriaT
         'cashierId': value.cashierId,
         'charges': ChargesCriteriaTypeToJSON(value.charges),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0,10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
         'postIt': value.postIt,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'welcomeOfferPosting': value.welcomeOfferPosting,

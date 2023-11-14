@@ -75,7 +75,7 @@ export function CalendarTaskTypeStatusToJSON(value?: CalendarTaskTypeStatus | nu
         
         'completed': value.completed,
         'completedBy': value.completedBy,
-        'completedOn': value.completedOn === undefined ? undefined : (value.completedOn.toISOString().substr(0,10)),
+        'completedOn': value.completedOn === undefined ? undefined : (value.completedOn.toISOString().substring(0,10)),
     };
 }
 

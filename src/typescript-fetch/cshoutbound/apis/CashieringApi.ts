@@ -15,88 +15,88 @@
 
 import * as runtime from '../runtime';
 import type {
-  ApproveCompPostingsRequest,
+  AuthorizeCompRedemptionsRQ,
   AuthorizeCompRedemptionsRS,
-  AuthorizeCompRedemptionsRequest,
+  CompTransactionsCriteriaType,
   ExceptionDetailType,
   FetchCompRedemptionsRS,
+  PostCompRedemptionsRQ,
   PostCompRedemptionsRS,
-  PostCompRedemptionsRequest,
-  ReverseCompRedemptionsRequest,
+  ReverseCompRedemptionsRQ,
   SendCompTransactionsStatus,
   Status,
-} from '../models';
+} from '../models/index';
 import {
-    ApproveCompPostingsRequestFromJSON,
-    ApproveCompPostingsRequestToJSON,
+    AuthorizeCompRedemptionsRQFromJSON,
+    AuthorizeCompRedemptionsRQToJSON,
     AuthorizeCompRedemptionsRSFromJSON,
     AuthorizeCompRedemptionsRSToJSON,
-    AuthorizeCompRedemptionsRequestFromJSON,
-    AuthorizeCompRedemptionsRequestToJSON,
+    CompTransactionsCriteriaTypeFromJSON,
+    CompTransactionsCriteriaTypeToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     FetchCompRedemptionsRSFromJSON,
     FetchCompRedemptionsRSToJSON,
+    PostCompRedemptionsRQFromJSON,
+    PostCompRedemptionsRQToJSON,
     PostCompRedemptionsRSFromJSON,
     PostCompRedemptionsRSToJSON,
-    PostCompRedemptionsRequestFromJSON,
-    PostCompRedemptionsRequestToJSON,
-    ReverseCompRedemptionsRequestFromJSON,
-    ReverseCompRedemptionsRequestToJSON,
+    ReverseCompRedemptionsRQFromJSON,
+    ReverseCompRedemptionsRQToJSON,
     SendCompTransactionsStatusFromJSON,
     SendCompTransactionsStatusToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ApproveCompPostingsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    postings?: ApproveCompPostingsRequest;
+export interface ApproveCompPostingsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    postings: CompTransactionsCriteriaType;
     acceptLanguage?: string;
 }
 
-export interface AuthorizeCompRedemptionsOperationRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    authorizeCompRedemptions?: AuthorizeCompRedemptionsRequest;
+export interface AuthorizeCompRedemptionsRequest {
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    authorizeCompRedemptions: AuthorizeCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 
 export interface GetCompRedemptionsRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
     acceptLanguage?: string;
 }
 
-export interface PostCompRedemptionsOperationRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    postCompRedemptions?: PostCompRedemptionsRequest;
+export interface PostCompRedemptionsRequest {
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    postCompRedemptions: PostCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 
 export interface ReverseCompPostingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    postings?: ApproveCompPostingsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    postings: CompTransactionsCriteriaType;
     acceptLanguage?: string;
 }
 
-export interface ReverseCompRedemptionsOperationRequest {
-    membershipId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    reverseCompRedemptions?: ReverseCompRedemptionsRequest;
+export interface ReverseCompRedemptionsRequest {
+    membershipId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    reverseCompRedemptions: ReverseCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 
@@ -109,7 +109,23 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>approveCompPostings</p>
      * Operation to request for comp postings approval.
      */
-    async approveCompPostingsRaw(requestParameters: ApproveCompPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendCompTransactionsStatus>> {
+    async approveCompPostingsRaw(requestParameters: ApproveCompPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SendCompTransactionsStatus>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling approveCompPostings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling approveCompPostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling approveCompPostings.');
+        }
+
+        if (requestParameters.postings === null || requestParameters.postings === undefined) {
+            throw new runtime.RequiredError('postings','Required parameter requestParameters.postings was null or undefined when calling approveCompPostings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -133,7 +149,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ApproveCompPostingsRequestToJSON(requestParameters.postings),
+            body: CompTransactionsCriteriaTypeToJSON(requestParameters.postings),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SendCompTransactionsStatusFromJSON(jsonValue));
@@ -143,7 +159,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>approveCompPostings</p>
      * Operation to request for comp postings approval.
      */
-    async approveCompPostings(requestParameters: ApproveCompPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendCompTransactionsStatus> {
+    async approveCompPostings(requestParameters: ApproveCompPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SendCompTransactionsStatus> {
         const response = await this.approveCompPostingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -152,7 +168,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to authorize complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>authorizeCompRedemptions</p>
      * Operation to authorize complimentary redemptions for a guest having PTS Membership Type
      */
-    async authorizeCompRedemptionsRaw(requestParameters: AuthorizeCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizeCompRedemptionsRS>> {
+    async authorizeCompRedemptionsRaw(requestParameters: AuthorizeCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizeCompRedemptionsRS>> {
+        if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
+            throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling authorizeCompRedemptions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling authorizeCompRedemptions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling authorizeCompRedemptions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling authorizeCompRedemptions.');
+        }
+
+        if (requestParameters.authorizeCompRedemptions === null || requestParameters.authorizeCompRedemptions === undefined) {
+            throw new runtime.RequiredError('authorizeCompRedemptions','Required parameter requestParameters.authorizeCompRedemptions was null or undefined when calling authorizeCompRedemptions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -176,7 +212,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: AuthorizeCompRedemptionsRequestToJSON(requestParameters.authorizeCompRedemptions),
+            body: AuthorizeCompRedemptionsRQToJSON(requestParameters.authorizeCompRedemptions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AuthorizeCompRedemptionsRSFromJSON(jsonValue));
@@ -186,7 +222,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to authorize complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>authorizeCompRedemptions</p>
      * Operation to authorize complimentary redemptions for a guest having PTS Membership Type
      */
-    async authorizeCompRedemptions(requestParameters: AuthorizeCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizeCompRedemptionsRS> {
+    async authorizeCompRedemptions(requestParameters: AuthorizeCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizeCompRedemptionsRS> {
         const response = await this.authorizeCompRedemptionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -196,6 +232,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Operation to get complimentary redemptions for a guest having PTS Membership Type
      */
     async getCompRedemptionsRaw(requestParameters: GetCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchCompRedemptionsRS>> {
+        if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
+            throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling getCompRedemptions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCompRedemptions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCompRedemptions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCompRedemptions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -235,7 +287,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary redemptions for a guest having PTS Membership Type
      */
-    async postCompRedemptionsRaw(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostCompRedemptionsRS>> {
+    async postCompRedemptionsRaw(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostCompRedemptionsRS>> {
+        if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
+            throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCompRedemptions.');
+        }
+
+        if (requestParameters.postCompRedemptions === null || requestParameters.postCompRedemptions === undefined) {
+            throw new runtime.RequiredError('postCompRedemptions','Required parameter requestParameters.postCompRedemptions was null or undefined when calling postCompRedemptions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -259,7 +331,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCompRedemptionsRequestToJSON(requestParameters.postCompRedemptions),
+            body: PostCompRedemptionsRQToJSON(requestParameters.postCompRedemptions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostCompRedemptionsRSFromJSON(jsonValue));
@@ -269,7 +341,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to post complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary redemptions for a guest having PTS Membership Type
      */
-    async postCompRedemptions(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostCompRedemptionsRS> {
+    async postCompRedemptions(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostCompRedemptionsRS> {
         const response = await this.postCompRedemptionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -279,6 +351,22 @@ export class CashieringApi extends runtime.BaseAPI {
      * Operation to request for comp postings reversal.
      */
     async reverseCompPostingsRaw(requestParameters: ReverseCompPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reverseCompPostings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reverseCompPostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reverseCompPostings.');
+        }
+
+        if (requestParameters.postings === null || requestParameters.postings === undefined) {
+            throw new runtime.RequiredError('postings','Required parameter requestParameters.postings was null or undefined when calling reverseCompPostings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -302,7 +390,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ApproveCompPostingsRequestToJSON(requestParameters.postings),
+            body: CompTransactionsCriteriaTypeToJSON(requestParameters.postings),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -321,7 +409,27 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reverse complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary redemptions for a guest having PTS Membership Type
      */
-    async reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.membershipId === null || requestParameters.membershipId === undefined) {
+            throw new runtime.RequiredError('membershipId','Required parameter requestParameters.membershipId was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reverseCompRedemptions.');
+        }
+
+        if (requestParameters.reverseCompRedemptions === null || requestParameters.reverseCompRedemptions === undefined) {
+            throw new runtime.RequiredError('reverseCompRedemptions','Required parameter requestParameters.reverseCompRedemptions was null or undefined when calling reverseCompRedemptions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -345,7 +453,7 @@ export class CashieringApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ReverseCompRedemptionsRequestToJSON(requestParameters.reverseCompRedemptions),
+            body: ReverseCompRedemptionsRQToJSON(requestParameters.reverseCompRedemptions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -355,7 +463,7 @@ export class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reverse complimentary redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary redemptions for a guest having PTS Membership Type
      */
-    async reverseCompRedemptions(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async reverseCompRedemptions(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.reverseCompRedemptionsRaw(requestParameters, initOverrides);
         return await response.value();
     }

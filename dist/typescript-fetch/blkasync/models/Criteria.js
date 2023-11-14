@@ -48,10 +48,10 @@ function CriteriaToJSON(value) {
         return null;
     }
     return {
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'endLastModifiedDate': value.endLastModifiedDate,
-        'occupancyDate': value.occupancyDate === undefined ? undefined : (value.occupancyDate.toISOString().substr(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'occupancyDate': value.occupancyDate === undefined ? undefined : (value.occupancyDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'startLastModifiedDate': value.startLastModifiedDate,
     };
 }

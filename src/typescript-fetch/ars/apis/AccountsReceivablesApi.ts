@@ -16,185 +16,179 @@
 import * as runtime from '../runtime';
 import type {
   Account,
+  AccountComment,
+  AccountCriteria,
+  AccountFixedCharge,
+  AccountTrace,
   AccountsInfo,
+  ArAccountCopy,
   ArAgingCycles,
+  ArChargesPostingCriteria,
+  ArCompressInvoices,
   ArCreditCardPayments,
+  ArCreditCardPaymentsToTransfer,
   ArFolioPrinters,
+  ArInvoice,
   ArInvoiceDetails,
+  ArInvoicesAccount,
+  ArOldBalances,
   ArPayments,
+  ArPaymentsToBeCreated,
   ArTransactions,
-  CompressARInvoicesRequest,
+  BatchChargesToPost,
   CompressedARInvoices,
-  CopyARAccountRequest,
+  CreditToInvoices,
   ExceptionDetailType,
+  Invoice,
   InvoiceAppliedPayments,
   InvoicePayment,
   InvoicePostings,
+  Invoices,
+  InvoicesAndPaymentsToTransfer,
   InvoicesOnHold,
   InvoicesPayments,
-  PostAROldBalancesRequest,
-  PostARPaymentsRequest,
-  PostAccountFixedChargeRequest,
-  PostAccountRequest,
-  PostBatchChargesRequest,
-  PostChargesToARRequest,
-  PostCreditToInvoicesRequest,
-  PostInvoiceRequest,
-  PostRemindersRequest,
-  PostReversePaymentRequest,
-  PostStatementsRequest,
   ProfileAging,
   ProfileYearView,
-  PutARInvoicesAccountRequest,
-  PutAccountCommentRequest,
-  PutAccountRequest,
-  PutAccountTraceRequest,
-  PutInvoicesRequest,
   Reminders,
   RemindersHistory,
+  ReversePayment,
   StatementHistory,
   Statements,
+  StatementsToBeGenerated,
   Status,
-  TransferARCreditCardPaymentsRequest,
-  TransferDirectBillsToArRequest,
-  TransferInvoicesAndPaymentsRequest,
-  TransferPostingsRequest,
-  UncompressARInvoicesRequest,
-  UnlinkInvoiceFromStatementRequest,
-} from '../models';
+  TransferDirectBillsToAr,
+  TransferPostings,
+  UnlinkInvoiceFromStatement,
+} from '../models/index';
 import {
     AccountFromJSON,
     AccountToJSON,
+    AccountCommentFromJSON,
+    AccountCommentToJSON,
+    AccountCriteriaFromJSON,
+    AccountCriteriaToJSON,
+    AccountFixedChargeFromJSON,
+    AccountFixedChargeToJSON,
+    AccountTraceFromJSON,
+    AccountTraceToJSON,
     AccountsInfoFromJSON,
     AccountsInfoToJSON,
+    ArAccountCopyFromJSON,
+    ArAccountCopyToJSON,
     ArAgingCyclesFromJSON,
     ArAgingCyclesToJSON,
+    ArChargesPostingCriteriaFromJSON,
+    ArChargesPostingCriteriaToJSON,
+    ArCompressInvoicesFromJSON,
+    ArCompressInvoicesToJSON,
     ArCreditCardPaymentsFromJSON,
     ArCreditCardPaymentsToJSON,
+    ArCreditCardPaymentsToTransferFromJSON,
+    ArCreditCardPaymentsToTransferToJSON,
     ArFolioPrintersFromJSON,
     ArFolioPrintersToJSON,
+    ArInvoiceFromJSON,
+    ArInvoiceToJSON,
     ArInvoiceDetailsFromJSON,
     ArInvoiceDetailsToJSON,
+    ArInvoicesAccountFromJSON,
+    ArInvoicesAccountToJSON,
+    ArOldBalancesFromJSON,
+    ArOldBalancesToJSON,
     ArPaymentsFromJSON,
     ArPaymentsToJSON,
+    ArPaymentsToBeCreatedFromJSON,
+    ArPaymentsToBeCreatedToJSON,
     ArTransactionsFromJSON,
     ArTransactionsToJSON,
-    CompressARInvoicesRequestFromJSON,
-    CompressARInvoicesRequestToJSON,
+    BatchChargesToPostFromJSON,
+    BatchChargesToPostToJSON,
     CompressedARInvoicesFromJSON,
     CompressedARInvoicesToJSON,
-    CopyARAccountRequestFromJSON,
-    CopyARAccountRequestToJSON,
+    CreditToInvoicesFromJSON,
+    CreditToInvoicesToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    InvoiceFromJSON,
+    InvoiceToJSON,
     InvoiceAppliedPaymentsFromJSON,
     InvoiceAppliedPaymentsToJSON,
     InvoicePaymentFromJSON,
     InvoicePaymentToJSON,
     InvoicePostingsFromJSON,
     InvoicePostingsToJSON,
+    InvoicesFromJSON,
+    InvoicesToJSON,
+    InvoicesAndPaymentsToTransferFromJSON,
+    InvoicesAndPaymentsToTransferToJSON,
     InvoicesOnHoldFromJSON,
     InvoicesOnHoldToJSON,
     InvoicesPaymentsFromJSON,
     InvoicesPaymentsToJSON,
-    PostAROldBalancesRequestFromJSON,
-    PostAROldBalancesRequestToJSON,
-    PostARPaymentsRequestFromJSON,
-    PostARPaymentsRequestToJSON,
-    PostAccountFixedChargeRequestFromJSON,
-    PostAccountFixedChargeRequestToJSON,
-    PostAccountRequestFromJSON,
-    PostAccountRequestToJSON,
-    PostBatchChargesRequestFromJSON,
-    PostBatchChargesRequestToJSON,
-    PostChargesToARRequestFromJSON,
-    PostChargesToARRequestToJSON,
-    PostCreditToInvoicesRequestFromJSON,
-    PostCreditToInvoicesRequestToJSON,
-    PostInvoiceRequestFromJSON,
-    PostInvoiceRequestToJSON,
-    PostRemindersRequestFromJSON,
-    PostRemindersRequestToJSON,
-    PostReversePaymentRequestFromJSON,
-    PostReversePaymentRequestToJSON,
-    PostStatementsRequestFromJSON,
-    PostStatementsRequestToJSON,
     ProfileAgingFromJSON,
     ProfileAgingToJSON,
     ProfileYearViewFromJSON,
     ProfileYearViewToJSON,
-    PutARInvoicesAccountRequestFromJSON,
-    PutARInvoicesAccountRequestToJSON,
-    PutAccountCommentRequestFromJSON,
-    PutAccountCommentRequestToJSON,
-    PutAccountRequestFromJSON,
-    PutAccountRequestToJSON,
-    PutAccountTraceRequestFromJSON,
-    PutAccountTraceRequestToJSON,
-    PutInvoicesRequestFromJSON,
-    PutInvoicesRequestToJSON,
     RemindersFromJSON,
     RemindersToJSON,
     RemindersHistoryFromJSON,
     RemindersHistoryToJSON,
+    ReversePaymentFromJSON,
+    ReversePaymentToJSON,
     StatementHistoryFromJSON,
     StatementHistoryToJSON,
     StatementsFromJSON,
     StatementsToJSON,
+    StatementsToBeGeneratedFromJSON,
+    StatementsToBeGeneratedToJSON,
     StatusFromJSON,
     StatusToJSON,
-    TransferARCreditCardPaymentsRequestFromJSON,
-    TransferARCreditCardPaymentsRequestToJSON,
-    TransferDirectBillsToArRequestFromJSON,
-    TransferDirectBillsToArRequestToJSON,
-    TransferInvoicesAndPaymentsRequestFromJSON,
-    TransferInvoicesAndPaymentsRequestToJSON,
-    TransferPostingsRequestFromJSON,
-    TransferPostingsRequestToJSON,
-    UncompressARInvoicesRequestFromJSON,
-    UncompressARInvoicesRequestToJSON,
-    UnlinkInvoiceFromStatementRequestFromJSON,
-    UnlinkInvoiceFromStatementRequestToJSON,
-} from '../models';
+    TransferDirectBillsToArFromJSON,
+    TransferDirectBillsToArToJSON,
+    TransferPostingsFromJSON,
+    TransferPostingsToJSON,
+    UnlinkInvoiceFromStatementFromJSON,
+    UnlinkInvoiceFromStatementToJSON,
+} from '../models/index';
 
-export interface CompressARInvoicesOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arCompressInvoices?: CompressARInvoicesRequest;
+export interface CompressARInvoicesRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arCompressInvoices: ArCompressInvoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyARAccountOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arAccountCopy?: CopyARAccountRequest;
+export interface CopyARAccountRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arAccountCopy: ArAccountCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAccountRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAccountCommentRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     value?: string;
     hotel?: string;
@@ -203,22 +197,22 @@ export interface DeleteAccountCommentRequest {
 }
 
 export interface DeleteAccountFixedChargeRequest {
-    fixedChargeId?: string;
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fixedChargeId: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAccountTraceRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     traceID?: string;
     traceOn?: string;
     traceText?: string;
@@ -227,14 +221,14 @@ export interface DeleteAccountTraceRequest {
 }
 
 export interface DeletePaymentsFromInvoiceRequest {
-    transactionId?: string;
-    invoiceId?: string;
-    hotelId?: string;
-    trxNo?: Array<number>;
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    invoiceId: string;
+    hotelId: string;
+    trxNo: Array<number>;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierID?: number;
     invoiceNo?: number;
     xExternalsystem?: string;
@@ -242,20 +236,20 @@ export interface DeletePaymentsFromInvoiceRequest {
 }
 
 export interface GetARAgingCyclesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetARCreditCardPaymentsRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     endDate?: Date;
     startDate?: Date;
     limit?: number;
@@ -265,11 +259,11 @@ export interface GetARCreditCardPaymentsRequest {
 }
 
 export interface GetARFolioPrintersRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     balance?: number;
     overrideCreditHoldCheck?: boolean;
     cashierId?: number;
@@ -306,9 +300,9 @@ export interface GetARFolioPrintersRequest {
 }
 
 export interface GetARStatementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     profileId?: Array<string>;
     profileIdContext?: string;
@@ -441,10 +435,10 @@ export interface GetARStatementsRequest {
 }
 
 export interface GetARTransactionsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accounts?: string;
     endDate?: Date;
     startDate?: Date;
@@ -463,11 +457,11 @@ export interface GetARTransactionsRequest {
 }
 
 export interface GetAccountRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountNo?: string;
     profileId?: string;
     profileIdContext?: string;
@@ -478,9 +472,9 @@ export interface GetAccountRequest {
 }
 
 export interface GetAccountsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     balance?: GetAccountsBalanceEnum;
     batchStatement?: boolean;
     limit?: number;
@@ -506,37 +500,37 @@ export interface GetAccountsRequest {
 }
 
 export interface GetAppliedInvoicePaymentsRequest {
-    accountId?: string;
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetInvoiceAppliedPaymentsRequest {
-    accountId?: string;
-    transactionId?: string;
-    invoiceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    transactionId: string;
+    invoiceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetInvoicePaymentDetailRequest {
-    transactionId?: string;
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileId?: string;
     profileIdContext?: string;
     profileType?: string;
@@ -547,9 +541,9 @@ export interface GetInvoicePaymentDetailRequest {
 }
 
 export interface GetInvoicePostingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     canBeModified?: boolean;
     closeDate?: Date;
     fiscalBillNo?: string;
@@ -684,10 +678,10 @@ export interface GetInvoicePostingsRequest {
 }
 
 export interface GetInvoicesOnHoldRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileId?: string;
     profileIdContext?: string;
     profileType?: string;
@@ -707,10 +701,10 @@ export interface GetInvoicesOnHoldRequest {
 }
 
 export interface GetInvoicesPaymentsRequest {
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inclDetails?: boolean;
     inclZeroBalance?: boolean;
     limit?: number;
@@ -737,10 +731,10 @@ export interface GetInvoicesPaymentsRequest {
 }
 
 export interface GetProfileAgingRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currency?: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
@@ -748,10 +742,10 @@ export interface GetProfileAgingRequest {
 }
 
 export interface GetProfileYearViewRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currency?: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
@@ -759,10 +753,10 @@ export interface GetProfileYearViewRequest {
 }
 
 export interface GetRemindersRequest {
-    accounts?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accounts: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     profiles?: Array<string>;
     accountNo?: Array<string>;
@@ -772,10 +766,10 @@ export interface GetRemindersRequest {
 }
 
 export interface GetRemindersHistoryRequest {
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     profileId?: string;
     accountIdContext?: string;
@@ -789,10 +783,10 @@ export interface GetRemindersHistoryRequest {
 }
 
 export interface GetStatementsRequest {
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     profileId?: string;
     profileIdContext?: string;
@@ -924,12 +918,12 @@ export interface GetStatementsRequest {
 }
 
 export interface GetStatementsHistoryRequest {
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountNo?: string;
     accountName?: string;
     dateSent?: Date;
@@ -939,249 +933,249 @@ export interface GetStatementsHistoryRequest {
 }
 
 export interface PostARChargesRequest {
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arChargesPostingCriteria?: PostChargesToARRequest;
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arChargesPostingCriteria: ArChargesPostingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAROldBalancesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arOldBalances?: PostAROldBalancesRequest;
+export interface PostAROldBalancesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arOldBalances: ArOldBalances;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostARPaymentsOperationRequest {
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arPaymentsToBeCreated?: PostARPaymentsRequest;
+export interface PostARPaymentsRequest {
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arPaymentsToBeCreated: ArPaymentsToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAccountOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountCriteria?: PostAccountRequest;
+export interface PostAccountRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountCriteria: AccountCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAccountCommentRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountComment?: PutAccountCommentRequest;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountComment: AccountComment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAccountFixedChargeOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountFixedCharge?: PostAccountFixedChargeRequest;
+export interface PostAccountFixedChargeRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountFixedCharge: AccountFixedCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAccountTraceRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountTrace?: PutAccountTraceRequest;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountTrace: AccountTrace;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBatchChargesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchChargesToPost?: PostBatchChargesRequest;
+export interface PostBatchChargesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchChargesToPost: BatchChargesToPost;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostChargesToAROperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arChargesPostingCriteria?: PostChargesToARRequest;
+export interface PostChargesToARRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arChargesPostingCriteria: ArChargesPostingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCreditToInvoicesOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditToInvoices?: PostCreditToInvoicesRequest;
+export interface PostCreditToInvoicesRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditToInvoices: CreditToInvoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostInvoiceOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arInvoice?: PostInvoiceRequest;
+export interface PostInvoiceRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arInvoice: ArInvoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRemindersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reminders?: PostRemindersRequest;
+export interface PostRemindersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reminders: Reminders;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostReversePaymentOperationRequest {
-    transactionId?: string;
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reversePayment?: PostReversePaymentRequest;
+export interface PostReversePaymentRequest {
+    transactionId: string;
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reversePayment: ReversePayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostStatementsOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    statementsToBeGenerated?: PostStatementsRequest;
+export interface PostStatementsRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    statementsToBeGenerated: StatementsToBeGenerated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutARInvoicesAccountOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arInvoicesAccount?: PutARInvoicesAccountRequest;
+export interface PutARInvoicesAccountRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arInvoicesAccount: ArInvoicesAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutAccountOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    account?: PutAccountRequest;
+export interface PutAccountRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    account: Account;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutAccountCommentOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountComment?: PutAccountCommentRequest;
+export interface PutAccountCommentRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountComment: AccountComment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAccountFixedChargeRequest {
-    fixedChargeId?: string;
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountFixedCharge?: PostAccountFixedChargeRequest;
+    fixedChargeId: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountFixedCharge: AccountFixedCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutAccountTraceOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountTrace?: PutAccountTraceRequest;
+export interface PutAccountTraceRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountTrace: AccountTrace;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutInvoiceRequest {
-    invoiceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoice?: UncompressARInvoicesRequest;
+    invoiceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoice: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutInvoiceDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoice?: UncompressARInvoicesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoice: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutInvoicesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoices?: PutInvoicesRequest;
+export interface PutInvoicesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoices: Invoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemovePaymentsFromInvoiceRequest {
-    transactionId?: string;
-    hotelId?: string;
-    trxNo?: Array<number>;
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    trxNo: Array<number>;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierID?: number;
     invoiceNo?: number;
     xExternalsystem?: string;
@@ -1189,70 +1183,70 @@ export interface RemovePaymentsFromInvoiceRequest {
 }
 
 export interface ReopenInvoicesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoices?: PutInvoicesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoices: Invoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferARCreditCardPaymentsOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arCreditCardPaymentsToTransfer?: TransferARCreditCardPaymentsRequest;
+export interface TransferARCreditCardPaymentsRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arCreditCardPaymentsToTransfer: ArCreditCardPaymentsToTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferDirectBillsToArOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transferDirectBillsToAr?: TransferDirectBillsToArRequest;
+export interface TransferDirectBillsToArRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transferDirectBillsToAr: TransferDirectBillsToAr;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferInvoicesAndPaymentsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoicesAndPaymentsToTransfer?: TransferInvoicesAndPaymentsRequest;
+export interface TransferInvoicesAndPaymentsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoicesAndPaymentsToTransfer: InvoicesAndPaymentsToTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface TransferPostingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transferPostings?: TransferPostingsRequest;
+export interface TransferPostingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transferPostings: TransferPostings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface UncompressARInvoicesOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoice?: UncompressARInvoicesRequest;
+export interface UncompressARInvoicesRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoice: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface UnlinkInvoiceFromStatementOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    unlinkInvoiceFromStatement?: UnlinkInvoiceFromStatementRequest;
+export interface UnlinkInvoiceFromStatementRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    unlinkInvoiceFromStatement: UnlinkInvoiceFromStatement;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1266,7 +1260,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to combine two or more invoices into one invoice <p><strong>OperationId:</strong>compressARInvoices</p>
      * Combines Account receivable invoices
      */
-    async compressARInvoicesRaw(requestParameters: CompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompressedARInvoices>> {
+    async compressARInvoicesRaw(requestParameters: CompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompressedARInvoices>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling compressARInvoices.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling compressARInvoices.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling compressARInvoices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling compressARInvoices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling compressARInvoices.');
+        }
+
+        if (requestParameters.arCompressInvoices === null || requestParameters.arCompressInvoices === undefined) {
+            throw new runtime.RequiredError('arCompressInvoices','Required parameter requestParameters.arCompressInvoices was null or undefined when calling compressARInvoices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1298,7 +1316,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CompressARInvoicesRequestToJSON(requestParameters.arCompressInvoices),
+            body: ArCompressInvoicesToJSON(requestParameters.arCompressInvoices),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CompressedARInvoicesFromJSON(jsonValue));
@@ -1308,7 +1326,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to combine two or more invoices into one invoice <p><strong>OperationId:</strong>compressARInvoices</p>
      * Combines Account receivable invoices
      */
-    async compressARInvoices(requestParameters: CompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompressedARInvoices> {
+    async compressARInvoices(requestParameters: CompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompressedARInvoices> {
         const response = await this.compressARInvoicesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1317,7 +1335,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create account receivable to multiple hotels by copying from source hotel. <p><strong>OperationId:</strong>copyARAccount</p>
      * Copy account receivable account 
      */
-    async copyARAccountRaw(requestParameters: CopyARAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyARAccountRaw(requestParameters: CopyARAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling copyARAccount.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyARAccount.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyARAccount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyARAccount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyARAccount.');
+        }
+
+        if (requestParameters.arAccountCopy === null || requestParameters.arAccountCopy === undefined) {
+            throw new runtime.RequiredError('arAccountCopy','Required parameter requestParameters.arAccountCopy was null or undefined when calling copyARAccount.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1349,7 +1391,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyARAccountRequestToJSON(requestParameters.arAccountCopy),
+            body: ArAccountCopyToJSON(requestParameters.arAccountCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1359,7 +1401,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create account receivable to multiple hotels by copying from source hotel. <p><strong>OperationId:</strong>copyARAccount</p>
      * Copy account receivable account 
      */
-    async copyARAccount(requestParameters: CopyARAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyARAccount(requestParameters: CopyARAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyARAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1369,6 +1411,26 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Delete Account 
      */
     async deleteAccountRaw(requestParameters: DeleteAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling deleteAccount.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAccount.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAccount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccount.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1417,6 +1479,26 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Delete Account Comment
      */
     async deleteAccountCommentRaw(requestParameters: DeleteAccountCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling deleteAccountComment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAccountComment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAccountComment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccountComment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccountComment.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.id !== undefined) {
@@ -1477,6 +1559,30 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Delete fixed charges 
      */
     async deleteAccountFixedChargeRaw(requestParameters: DeleteAccountFixedChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.fixedChargeId === null || requestParameters.fixedChargeId === undefined) {
+            throw new runtime.RequiredError('fixedChargeId','Required parameter requestParameters.fixedChargeId was null or undefined when calling deleteAccountFixedCharge.');
+        }
+
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling deleteAccountFixedCharge.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAccountFixedCharge.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAccountFixedCharge.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccountFixedCharge.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccountFixedCharge.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1525,6 +1631,26 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * This API facilitates deletion of account traces.
      */
     async deleteAccountTraceRaw(requestParameters: DeleteAccountTraceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling deleteAccountTrace.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteAccountTrace.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAccountTrace.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccountTrace.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccountTrace.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.traceID !== undefined) {
@@ -1583,8 +1709,41 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Delete payments from invoice.<br><p><strong><mark>This API is deprecated. Please use removePaymentsFromInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>deletePaymentsFromInvoice</p>
      * Delete payments from invoice
+     * @deprecated
      */
     async deletePaymentsFromInvoiceRaw(requestParameters: DeletePaymentsFromInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.invoiceId === null || requestParameters.invoiceId === undefined) {
+            throw new runtime.RequiredError('invoiceId','Required parameter requestParameters.invoiceId was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.trxNo === null || requestParameters.trxNo === undefined) {
+            throw new runtime.RequiredError('trxNo','Required parameter requestParameters.trxNo was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePaymentsFromInvoice.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.trxNo) {
@@ -1638,6 +1797,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Delete payments from invoice.<br><p><strong><mark>This API is deprecated. Please use removePaymentsFromInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>deletePaymentsFromInvoice</p>
      * Delete payments from invoice
+     * @deprecated
      */
     async deletePaymentsFromInvoice(requestParameters: DeletePaymentsFromInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.deletePaymentsFromInvoiceRaw(requestParameters, initOverrides);
@@ -1649,6 +1809,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get given AR account\'s aging detail
      */
     async getARAgingCyclesRaw(requestParameters: GetARAgingCyclesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArAgingCycles>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getARAgingCycles.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARAgingCycles.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARAgingCycles.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARAgingCycles.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1697,14 +1873,34 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get account receivable folios which are paid using credit cards
      */
     async getARCreditCardPaymentsRaw(requestParameters: GetARCreditCardPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArCreditCardPayments>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling getARCreditCardPayments.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getARCreditCardPayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARCreditCardPayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARCreditCardPayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARCreditCardPayments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.limit !== undefined) {
@@ -1761,6 +1957,26 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get list of account receivable folio printers
      */
     async getARFolioPrintersRaw(requestParameters: GetARFolioPrintersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArFolioPrinters>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getARFolioPrinters.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getARFolioPrinters.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARFolioPrinters.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARFolioPrinters.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARFolioPrinters.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.balance !== undefined) {
@@ -1933,6 +2149,18 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get given profile\'s account receivable statements
      */
     async getARStatementsRaw(requestParameters: GetARStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Statements>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARStatements.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARStatements.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARStatements.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -2292,7 +2520,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -2416,7 +2644,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.balanceForwardDate !== undefined) {
-            queryParameters['balanceForwardDate'] = (requestParameters.balanceForwardDate as any).toISOString().substr(0,10);
+            queryParameters['balanceForwardDate'] = (requestParameters.balanceForwardDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.inclFolios !== undefined) {
@@ -2432,11 +2660,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.filterEndDate !== undefined) {
-            queryParameters['filterEndDate'] = (requestParameters.filterEndDate as any).toISOString().substr(0,10);
+            queryParameters['filterEndDate'] = (requestParameters.filterEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.filterStartDate !== undefined) {
-            queryParameters['filterStartDate'] = (requestParameters.filterStartDate as any).toISOString().substr(0,10);
+            queryParameters['filterStartDate'] = (requestParameters.filterStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.statementText !== undefined) {
@@ -2489,6 +2717,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get AR transactions.
      */
     async getARTransactionsRaw(requestParameters: GetARTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArTransactions>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getARTransactions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getARTransactions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getARTransactions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getARTransactions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -2500,11 +2744,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fromAmount !== undefined) {
@@ -2593,6 +2837,26 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get account
      */
     async getAccountRaw(requestParameters: GetAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getAccount.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAccount.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAccount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAccount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAccount.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.accountNo !== undefined) {
@@ -2661,6 +2925,18 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get given profile\'s account receivable detail
      */
     async getAccountsRaw(requestParameters: GetAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAccounts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAccounts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAccounts.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.balance !== undefined) {
@@ -2789,6 +3065,30 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get account receivable invoice\'s payment history
      */
     async getAppliedInvoicePaymentsRaw(requestParameters: GetAppliedInvoicePaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoiceAppliedPayments>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getAppliedInvoicePayments.');
+        }
+
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling getAppliedInvoicePayments.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAppliedInvoicePayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAppliedInvoicePayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAppliedInvoicePayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAppliedInvoicePayments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.invoiceNo !== undefined) {
@@ -2839,8 +3139,37 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to get applied payment details for AR invoices.<br><p><strong><mark>This API is deprecated. Please use getAppliedInvoicePayments instead</mark></strong></p> <p><strong>OperationId:</strong>getInvoiceAppliedPayments</p>
      * Get account receivable invoice\'s payment history
+     * @deprecated
      */
     async getInvoiceAppliedPaymentsRaw(requestParameters: GetInvoiceAppliedPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoiceAppliedPayments>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getInvoiceAppliedPayments.');
+        }
+
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling getInvoiceAppliedPayments.');
+        }
+
+        if (requestParameters.invoiceId === null || requestParameters.invoiceId === undefined) {
+            throw new runtime.RequiredError('invoiceId','Required parameter requestParameters.invoiceId was null or undefined when calling getInvoiceAppliedPayments.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInvoiceAppliedPayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInvoiceAppliedPayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInvoiceAppliedPayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInvoiceAppliedPayments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.invoiceNo !== undefined) {
@@ -2882,6 +3211,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to get applied payment details for AR invoices.<br><p><strong><mark>This API is deprecated. Please use getAppliedInvoicePayments instead</mark></strong></p> <p><strong>OperationId:</strong>getInvoiceAppliedPayments</p>
      * Get account receivable invoice\'s payment history
+     * @deprecated
      */
     async getInvoiceAppliedPayments(requestParameters: GetInvoiceAppliedPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InvoiceAppliedPayments> {
         const response = await this.getInvoiceAppliedPaymentsRaw(requestParameters, initOverrides);
@@ -2893,6 +3223,30 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get account receivable invoice and payment details
      */
     async getInvoicePaymentDetailRaw(requestParameters: GetInvoicePaymentDetailRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoicePayment>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling getInvoicePaymentDetail.');
+        }
+
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getInvoicePaymentDetail.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInvoicePaymentDetail.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInvoicePaymentDetail.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicePaymentDetail.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicePaymentDetail.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.profileId !== undefined) {
@@ -2961,6 +3315,18 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get account receivable invoice postings
      */
     async getInvoicePostingsRaw(requestParameters: GetInvoicePostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoicePostings>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInvoicePostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicePostings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicePostings.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.canBeModified !== undefined) {
@@ -2968,7 +3334,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.closeDate !== undefined) {
-            queryParameters['closeDate'] = (requestParameters.closeDate as any).toISOString().substr(0,10);
+            queryParameters['closeDate'] = (requestParameters.closeDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fiscalBillNo !== undefined) {
@@ -2976,7 +3342,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substr(0,10);
+            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -3004,11 +3370,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.postingDate !== undefined) {
-            queryParameters['postingDate'] = (requestParameters.postingDate as any).toISOString().substr(0,10);
+            queryParameters['postingDate'] = (requestParameters.postingDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.revenueDate !== undefined) {
-            queryParameters['revenueDate'] = (requestParameters.revenueDate as any).toISOString().substr(0,10);
+            queryParameters['revenueDate'] = (requestParameters.revenueDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.statementNo !== undefined) {
@@ -3020,7 +3386,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transferDate !== undefined) {
-            queryParameters['transferDate'] = (requestParameters.transferDate as any).toISOString().substr(0,10);
+            queryParameters['transferDate'] = (requestParameters.transferDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.postingTransactionCode !== undefined) {
@@ -3028,7 +3394,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transactionDate !== undefined) {
-            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substr(0,10);
+            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.transactionNo !== undefined) {
@@ -3128,7 +3494,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.compressedDate !== undefined) {
-            queryParameters['compressedDate'] = (requestParameters.compressedDate as any).toISOString().substr(0,10);
+            queryParameters['compressedDate'] = (requestParameters.compressedDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.transferredOut !== undefined) {
@@ -3296,7 +3662,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -3384,7 +3750,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.printedDate !== undefined) {
-            queryParameters['printedDate'] = (requestParameters.printedDate as any).toISOString().substr(0,10);
+            queryParameters['printedDate'] = (requestParameters.printedDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.storedFolioId !== undefined) {
@@ -3460,11 +3826,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.referenceWildCard !== undefined) {
@@ -3525,6 +3891,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get list of hold invoices for account receivable
      */
     async getInvoicesOnHoldRaw(requestParameters: GetInvoicesOnHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoicesOnHold>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInvoicesOnHold.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInvoicesOnHold.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicesOnHold.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicesOnHold.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.profileId !== undefined) {
@@ -3560,11 +3942,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.folios !== undefined) {
@@ -3629,6 +4011,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get payment detail for account\'s invoices
      */
     async getInvoicesPaymentsRaw(requestParameters: GetInvoicesPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoicesPayments>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getInvoicesPayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInvoicesPayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicesPayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicesPayments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.inclDetails !== undefined) {
@@ -3652,11 +4050,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.guestDisplayName !== undefined) {
@@ -3761,6 +4159,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get given profile\'s aging detail
      */
     async getProfileAgingRaw(requestParameters: GetProfileAgingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProfileAging>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileAging.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileAging.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileAging.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileAging.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.currency !== undefined) {
@@ -3817,6 +4231,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get given profile\'s yearly account receivable detail
      */
     async getProfileYearViewRaw(requestParameters: GetProfileYearViewRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProfileYearView>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileYearView.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileYearView.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileYearView.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileYearView.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.currency !== undefined) {
@@ -3873,6 +4303,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get account receivable\'s reminder statements
      */
     async getRemindersRaw(requestParameters: GetRemindersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reminders>> {
+        if (requestParameters.accounts === null || requestParameters.accounts === undefined) {
+            throw new runtime.RequiredError('accounts','Required parameter requestParameters.accounts was null or undefined when calling getReminders.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReminders.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReminders.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReminders.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.accounts) {
@@ -3941,6 +4387,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get history of reminder letters for a given account receivable
      */
     async getRemindersHistoryRaw(requestParameters: GetRemindersHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RemindersHistory>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getRemindersHistory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRemindersHistory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRemindersHistory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRemindersHistory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3968,7 +4430,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.dateSent !== undefined) {
-            queryParameters['dateSent'] = (requestParameters.dateSent as any).toISOString().substr(0,10);
+            queryParameters['dateSent'] = (requestParameters.dateSent as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.reportFileNameWildCard !== undefined) {
@@ -4019,8 +4481,25 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to prepare statement for an AR account holders. It is typically prepared for billing purposes.<br><p><strong><mark>This API is deprecated. Please use getARStatements instead</mark></strong></p> <p><strong>OperationId:</strong>getStatements</p>
      * Get given profile\'s account receivable statements
+     * @deprecated
      */
     async getStatementsRaw(requestParameters: GetStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Statements>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getStatements.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStatements.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStatements.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStatements.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -4376,7 +4855,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -4500,7 +4979,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.balanceForwardDate !== undefined) {
-            queryParameters['balanceForwardDate'] = (requestParameters.balanceForwardDate as any).toISOString().substr(0,10);
+            queryParameters['balanceForwardDate'] = (requestParameters.balanceForwardDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.inclFolios !== undefined) {
@@ -4516,11 +4995,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.filterEndDate !== undefined) {
-            queryParameters['filterEndDate'] = (requestParameters.filterEndDate as any).toISOString().substr(0,10);
+            queryParameters['filterEndDate'] = (requestParameters.filterEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.filterStartDate !== undefined) {
-            queryParameters['filterStartDate'] = (requestParameters.filterStartDate as any).toISOString().substr(0,10);
+            queryParameters['filterStartDate'] = (requestParameters.filterStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.statementText !== undefined) {
@@ -4562,6 +5041,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to prepare statement for an AR account holders. It is typically prepared for billing purposes.<br><p><strong><mark>This API is deprecated. Please use getARStatements instead</mark></strong></p> <p><strong>OperationId:</strong>getStatements</p>
      * Get given profile\'s account receivable statements
+     * @deprecated
      */
     async getStatements(requestParameters: GetStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Statements> {
         const response = await this.getStatementsRaw(requestParameters, initOverrides);
@@ -4573,6 +5053,30 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Get given profile\'s account receivable statements history
      */
     async getStatementsHistoryRaw(requestParameters: GetStatementsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StatementHistory>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getStatementsHistory.');
+        }
+
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getStatementsHistory.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getStatementsHistory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getStatementsHistory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getStatementsHistory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getStatementsHistory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.accountNo !== undefined) {
@@ -4584,7 +5088,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.dateSent !== undefined) {
-            queryParameters['dateSent'] = (requestParameters.dateSent as any).toISOString().substr(0,10);
+            queryParameters['dateSent'] = (requestParameters.dateSent as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.reportFileNameWildCard !== undefined) {
@@ -4635,8 +5139,37 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to post charges to account receivable account.<br><p><strong><mark>This API is deprecated. Please use postChargesToAR instead</mark></strong></p> <p><strong>OperationId:</strong>postARCharges</p>
      * Add charges to account receivable
+     * @deprecated
      */
     async postARChargesRaw(requestParameters: PostARChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postARCharges.');
+        }
+
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postARCharges.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postARCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postARCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postARCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postARCharges.');
+        }
+
+        if (requestParameters.arChargesPostingCriteria === null || requestParameters.arChargesPostingCriteria === undefined) {
+            throw new runtime.RequiredError('arChargesPostingCriteria','Required parameter requestParameters.arChargesPostingCriteria was null or undefined when calling postARCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4668,7 +5201,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostChargesToARRequestToJSON(requestParameters.arChargesPostingCriteria),
+            body: ArChargesPostingCriteriaToJSON(requestParameters.arChargesPostingCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4677,6 +5210,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to post charges to account receivable account.<br><p><strong><mark>This API is deprecated. Please use postChargesToAR instead</mark></strong></p> <p><strong>OperationId:</strong>postARCharges</p>
      * Add charges to account receivable
+     * @deprecated
      */
     async postARCharges(requestParameters: PostARChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postARChargesRaw(requestParameters, initOverrides);
@@ -4687,7 +5221,23 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to add old balances from external accounting systems into OPERA Accounts Receivable. <p><strong>OperationId:</strong>postAROldBalances</p>
      * Add old balances from external accounting systems
      */
-    async postAROldBalancesRaw(requestParameters: PostAROldBalancesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAROldBalancesRaw(requestParameters: PostAROldBalancesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAROldBalances.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAROldBalances.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAROldBalances.');
+        }
+
+        if (requestParameters.arOldBalances === null || requestParameters.arOldBalances === undefined) {
+            throw new runtime.RequiredError('arOldBalances','Required parameter requestParameters.arOldBalances was null or undefined when calling postAROldBalances.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4719,7 +5269,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAROldBalancesRequestToJSON(requestParameters.arOldBalances),
+            body: ArOldBalancesToJSON(requestParameters.arOldBalances),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4729,7 +5279,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to add old balances from external accounting systems into OPERA Accounts Receivable. <p><strong>OperationId:</strong>postAROldBalances</p>
      * Add old balances from external accounting systems
      */
-    async postAROldBalances(requestParameters: PostAROldBalancesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAROldBalances(requestParameters: PostAROldBalancesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAROldBalancesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4738,7 +5288,35 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to make payment to AR accounts for a list of reservations. <p><strong>OperationId:</strong>postARPayments</p>
      * Add payment to an account receivable account for a list of reservations
      */
-    async postARPaymentsRaw(requestParameters: PostARPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArPayments>> {
+    async postARPaymentsRaw(requestParameters: PostARPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArPayments>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postARPayments.');
+        }
+
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postARPayments.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postARPayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postARPayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postARPayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postARPayments.');
+        }
+
+        if (requestParameters.arPaymentsToBeCreated === null || requestParameters.arPaymentsToBeCreated === undefined) {
+            throw new runtime.RequiredError('arPaymentsToBeCreated','Required parameter requestParameters.arPaymentsToBeCreated was null or undefined when calling postARPayments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4770,7 +5348,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostARPaymentsRequestToJSON(requestParameters.arPaymentsToBeCreated),
+            body: ArPaymentsToBeCreatedToJSON(requestParameters.arPaymentsToBeCreated),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ArPaymentsFromJSON(jsonValue));
@@ -4780,7 +5358,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to make payment to AR accounts for a list of reservations. <p><strong>OperationId:</strong>postARPayments</p>
      * Add payment to an account receivable account for a list of reservations
      */
-    async postARPayments(requestParameters: PostARPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArPayments> {
+    async postARPayments(requestParameters: PostARPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArPayments> {
         const response = await this.postARPaymentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4789,7 +5367,27 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create a new account receivable type account for given OPERA profile id. Prior creating account, need to use getProfile to find OPERA profile\'s id.  <p><strong>OperationId:</strong>postAccount</p>
      * Create an account receivable account
      */
-    async postAccountRaw(requestParameters: PostAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAccountRaw(requestParameters: PostAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAccount.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAccount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAccount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAccount.');
+        }
+
+        if (requestParameters.accountCriteria === null || requestParameters.accountCriteria === undefined) {
+            throw new runtime.RequiredError('accountCriteria','Required parameter requestParameters.accountCriteria was null or undefined when calling postAccount.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4821,7 +5419,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAccountRequestToJSON(requestParameters.accountCriteria),
+            body: AccountCriteriaToJSON(requestParameters.accountCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4831,7 +5429,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create a new account receivable type account for given OPERA profile id. Prior creating account, need to use getProfile to find OPERA profile\'s id.  <p><strong>OperationId:</strong>postAccount</p>
      * Create an account receivable account
      */
-    async postAccount(requestParameters: PostAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAccount(requestParameters: PostAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4841,6 +5439,30 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Create Account Comment
      */
     async postAccountCommentRaw(requestParameters: PostAccountCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postAccountComment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAccountComment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAccountComment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAccountComment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAccountComment.');
+        }
+
+        if (requestParameters.accountComment === null || requestParameters.accountComment === undefined) {
+            throw new runtime.RequiredError('accountComment','Required parameter requestParameters.accountComment was null or undefined when calling postAccountComment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4872,7 +5494,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAccountCommentRequestToJSON(requestParameters.accountComment),
+            body: AccountCommentToJSON(requestParameters.accountComment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4891,7 +5513,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create fixed charges for a given account id of account receivable. Use get accounts to find an account id. <p><strong>OperationId:</strong>postAccountFixedCharge</p>
      * Create fixed charges 
      */
-    async postAccountFixedChargeRaw(requestParameters: PostAccountFixedChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAccountFixedChargeRaw(requestParameters: PostAccountFixedChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postAccountFixedCharge.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAccountFixedCharge.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAccountFixedCharge.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAccountFixedCharge.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAccountFixedCharge.');
+        }
+
+        if (requestParameters.accountFixedCharge === null || requestParameters.accountFixedCharge === undefined) {
+            throw new runtime.RequiredError('accountFixedCharge','Required parameter requestParameters.accountFixedCharge was null or undefined when calling postAccountFixedCharge.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4923,7 +5569,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAccountFixedChargeRequestToJSON(requestParameters.accountFixedCharge),
+            body: AccountFixedChargeToJSON(requestParameters.accountFixedCharge),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4933,7 +5579,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create fixed charges for a given account id of account receivable. Use get accounts to find an account id. <p><strong>OperationId:</strong>postAccountFixedCharge</p>
      * Create fixed charges 
      */
-    async postAccountFixedCharge(requestParameters: PostAccountFixedChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAccountFixedCharge(requestParameters: PostAccountFixedChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAccountFixedChargeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4943,6 +5589,30 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Add a trace to an account receivable account
      */
     async postAccountTraceRaw(requestParameters: PostAccountTraceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postAccountTrace.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAccountTrace.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAccountTrace.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAccountTrace.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAccountTrace.');
+        }
+
+        if (requestParameters.accountTrace === null || requestParameters.accountTrace === undefined) {
+            throw new runtime.RequiredError('accountTrace','Required parameter requestParameters.accountTrace was null or undefined when calling postAccountTrace.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4974,7 +5644,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAccountTraceRequestToJSON(requestParameters.accountTrace),
+            body: AccountTraceToJSON(requestParameters.accountTrace),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4993,7 +5663,27 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create a batch process for simultaneously post a one-time charge to multiple account receivable accounts. <p><strong>OperationId:</strong>postBatchCharges</p>
      * Create process to charge on multiple account receivables
      */
-    async postBatchChargesRaw(requestParameters: PostBatchChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBatchChargesRaw(requestParameters: PostBatchChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postBatchCharges.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBatchCharges.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBatchCharges.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBatchCharges.');
+        }
+
+        if (requestParameters.batchChargesToPost === null || requestParameters.batchChargesToPost === undefined) {
+            throw new runtime.RequiredError('batchChargesToPost','Required parameter requestParameters.batchChargesToPost was null or undefined when calling postBatchCharges.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5025,7 +5715,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBatchChargesRequestToJSON(requestParameters.batchChargesToPost),
+            body: BatchChargesToPostToJSON(requestParameters.batchChargesToPost),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5035,7 +5725,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create a batch process for simultaneously post a one-time charge to multiple account receivable accounts. <p><strong>OperationId:</strong>postBatchCharges</p>
      * Create process to charge on multiple account receivables
      */
-    async postBatchCharges(requestParameters: PostBatchChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBatchCharges(requestParameters: PostBatchChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBatchChargesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5044,7 +5734,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to post charges to account receivable account. <p><strong>OperationId:</strong>postChargesToAR</p>
      * Add charges to account receivable
      */
-    async postChargesToARRaw(requestParameters: PostChargesToAROperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postChargesToARRaw(requestParameters: PostChargesToARRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postChargesToAR.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postChargesToAR.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postChargesToAR.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postChargesToAR.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postChargesToAR.');
+        }
+
+        if (requestParameters.arChargesPostingCriteria === null || requestParameters.arChargesPostingCriteria === undefined) {
+            throw new runtime.RequiredError('arChargesPostingCriteria','Required parameter requestParameters.arChargesPostingCriteria was null or undefined when calling postChargesToAR.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5076,7 +5790,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostChargesToARRequestToJSON(requestParameters.arChargesPostingCriteria),
+            body: ArChargesPostingCriteriaToJSON(requestParameters.arChargesPostingCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5086,7 +5800,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to post charges to account receivable account. <p><strong>OperationId:</strong>postChargesToAR</p>
      * Add charges to account receivable
      */
-    async postChargesToAR(requestParameters: PostChargesToAROperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postChargesToAR(requestParameters: PostChargesToARRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postChargesToARRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5095,7 +5809,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to add credits to account receivable invoices. <p><strong>OperationId:</strong>postCreditToInvoices</p>
      * Add credits to AR invoices
      */
-    async postCreditToInvoicesRaw(requestParameters: PostCreditToInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCreditToInvoicesRaw(requestParameters: PostCreditToInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postCreditToInvoices.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCreditToInvoices.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCreditToInvoices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCreditToInvoices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCreditToInvoices.');
+        }
+
+        if (requestParameters.creditToInvoices === null || requestParameters.creditToInvoices === undefined) {
+            throw new runtime.RequiredError('creditToInvoices','Required parameter requestParameters.creditToInvoices was null or undefined when calling postCreditToInvoices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5127,7 +5865,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCreditToInvoicesRequestToJSON(requestParameters.creditToInvoices),
+            body: CreditToInvoicesToJSON(requestParameters.creditToInvoices),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5137,7 +5875,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to add credits to account receivable invoices. <p><strong>OperationId:</strong>postCreditToInvoices</p>
      * Add credits to AR invoices
      */
-    async postCreditToInvoices(requestParameters: PostCreditToInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCreditToInvoices(requestParameters: PostCreditToInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCreditToInvoicesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5146,7 +5884,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create a new invoice for an AR account. <p><strong>OperationId:</strong>postInvoice</p>
      * Create account receivable invoices
      */
-    async postInvoiceRaw(requestParameters: PostInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArInvoiceDetails>> {
+    async postInvoiceRaw(requestParameters: PostInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArInvoiceDetails>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postInvoice.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postInvoice.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postInvoice.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postInvoice.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postInvoice.');
+        }
+
+        if (requestParameters.arInvoice === null || requestParameters.arInvoice === undefined) {
+            throw new runtime.RequiredError('arInvoice','Required parameter requestParameters.arInvoice was null or undefined when calling postInvoice.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5178,7 +5940,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostInvoiceRequestToJSON(requestParameters.arInvoice),
+            body: ArInvoiceToJSON(requestParameters.arInvoice),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ArInvoiceDetailsFromJSON(jsonValue));
@@ -5188,7 +5950,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create a new invoice for an AR account. <p><strong>OperationId:</strong>postInvoice</p>
      * Create account receivable invoices
      */
-    async postInvoice(requestParameters: PostInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArInvoiceDetails> {
+    async postInvoice(requestParameters: PostInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArInvoiceDetails> {
         const response = await this.postInvoiceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5197,7 +5959,23 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to generate a reminder statement which includes payment due,  current account balance, and etc. of account receivable account holder. <p><strong>OperationId:</strong>postReminders</p>
      * Generate reminders
      */
-    async postRemindersRaw(requestParameters: PostRemindersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRemindersRaw(requestParameters: PostRemindersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postReminders.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postReminders.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postReminders.');
+        }
+
+        if (requestParameters.reminders === null || requestParameters.reminders === undefined) {
+            throw new runtime.RequiredError('reminders','Required parameter requestParameters.reminders was null or undefined when calling postReminders.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5229,7 +6007,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRemindersRequestToJSON(requestParameters.reminders),
+            body: RemindersToJSON(requestParameters.reminders),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5239,7 +6017,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to generate a reminder statement which includes payment due,  current account balance, and etc. of account receivable account holder. <p><strong>OperationId:</strong>postReminders</p>
      * Generate reminders
      */
-    async postReminders(requestParameters: PostRemindersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postReminders(requestParameters: PostRemindersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRemindersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5248,7 +6026,39 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to reverse payment that occurred accidently or via user error. <p><strong>OperationId:</strong>postReversePayment</p>
      * Reverse Payment
      */
-    async postReversePaymentRaw(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postReversePaymentRaw(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postReversePayment.');
+        }
+
+        if (requestParameters.reversePayment === null || requestParameters.reversePayment === undefined) {
+            throw new runtime.RequiredError('reversePayment','Required parameter requestParameters.reversePayment was null or undefined when calling postReversePayment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5280,7 +6090,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostReversePaymentRequestToJSON(requestParameters.reversePayment),
+            body: ReversePaymentToJSON(requestParameters.reversePayment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5290,7 +6100,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to reverse payment that occurred accidently or via user error. <p><strong>OperationId:</strong>postReversePayment</p>
      * Reverse Payment
      */
-    async postReversePayment(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postReversePayment(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postReversePaymentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5299,7 +6109,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to generate statement for a given account receivable id. It includes the account balance as of the current business date, an aging summary that shows how long outstanding balances have been \"on the books\" for each aging level set up for given property. <p><strong>OperationId:</strong>postStatements</p>
      * Generate a statement for a given account receivable
      */
-    async postStatementsRaw(requestParameters: PostStatementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postStatementsRaw(requestParameters: PostStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling postStatements.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postStatements.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postStatements.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postStatements.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postStatements.');
+        }
+
+        if (requestParameters.statementsToBeGenerated === null || requestParameters.statementsToBeGenerated === undefined) {
+            throw new runtime.RequiredError('statementsToBeGenerated','Required parameter requestParameters.statementsToBeGenerated was null or undefined when calling postStatements.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5331,7 +6165,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostStatementsRequestToJSON(requestParameters.statementsToBeGenerated),
+            body: StatementsToBeGeneratedToJSON(requestParameters.statementsToBeGenerated),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5341,7 +6175,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to generate statement for a given account receivable id. It includes the account balance as of the current business date, an aging summary that shows how long outstanding balances have been \"on the books\" for each aging level set up for given property. <p><strong>OperationId:</strong>postStatements</p>
      * Generate a statement for a given account receivable
      */
-    async postStatements(requestParameters: PostStatementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postStatements(requestParameters: PostStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postStatementsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5350,7 +6184,23 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to update existing AR invoice for a given profile and/or a reservation. <p><strong>OperationId:</strong>putARInvoicesAccount</p>
      * Change Account receivable invoice for an AR account
      */
-    async putARInvoicesAccountRaw(requestParameters: PutARInvoicesAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putARInvoicesAccountRaw(requestParameters: PutARInvoicesAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putARInvoicesAccount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putARInvoicesAccount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putARInvoicesAccount.');
+        }
+
+        if (requestParameters.arInvoicesAccount === null || requestParameters.arInvoicesAccount === undefined) {
+            throw new runtime.RequiredError('arInvoicesAccount','Required parameter requestParameters.arInvoicesAccount was null or undefined when calling putARInvoicesAccount.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5382,7 +6232,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutARInvoicesAccountRequestToJSON(requestParameters.arInvoicesAccount),
+            body: ArInvoicesAccountToJSON(requestParameters.arInvoicesAccount),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5392,7 +6242,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to update existing AR invoice for a given profile and/or a reservation. <p><strong>OperationId:</strong>putARInvoicesAccount</p>
      * Change Account receivable invoice for an AR account
      */
-    async putARInvoicesAccount(requestParameters: PutARInvoicesAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putARInvoicesAccount(requestParameters: PutARInvoicesAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putARInvoicesAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5401,7 +6251,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to update existing account using account id and further detail. Use get account to get account detail prior updating. <p><strong>OperationId:</strong>putAccount</p>
      * Update a account receivable account
      */
-    async putAccountRaw(requestParameters: PutAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putAccountRaw(requestParameters: PutAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling putAccount.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAccount.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAccount.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAccount.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAccount.');
+        }
+
+        if (requestParameters.account === null || requestParameters.account === undefined) {
+            throw new runtime.RequiredError('account','Required parameter requestParameters.account was null or undefined when calling putAccount.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5433,7 +6307,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAccountRequestToJSON(requestParameters.account),
+            body: AccountToJSON(requestParameters.account),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5443,7 +6317,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to update existing account using account id and further detail. Use get account to get account detail prior updating. <p><strong>OperationId:</strong>putAccount</p>
      * Update a account receivable account
      */
-    async putAccount(requestParameters: PutAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putAccount(requestParameters: PutAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5452,7 +6326,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to update existing account note. Use get account to find noteid <p><strong>OperationId:</strong>putAccountComment</p>
      * Change Account Comment
      */
-    async putAccountCommentRaw(requestParameters: PutAccountCommentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putAccountCommentRaw(requestParameters: PutAccountCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling putAccountComment.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAccountComment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAccountComment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAccountComment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAccountComment.');
+        }
+
+        if (requestParameters.accountComment === null || requestParameters.accountComment === undefined) {
+            throw new runtime.RequiredError('accountComment','Required parameter requestParameters.accountComment was null or undefined when calling putAccountComment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5484,7 +6382,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAccountCommentRequestToJSON(requestParameters.accountComment),
+            body: AccountCommentToJSON(requestParameters.accountComment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5494,7 +6392,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to update existing account note. Use get account to find noteid <p><strong>OperationId:</strong>putAccountComment</p>
      * Change Account Comment
      */
-    async putAccountComment(requestParameters: PutAccountCommentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putAccountComment(requestParameters: PutAccountCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putAccountCommentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5504,6 +6402,34 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Update fixed charge detail 
      */
     async putAccountFixedChargeRaw(requestParameters: PutAccountFixedChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.fixedChargeId === null || requestParameters.fixedChargeId === undefined) {
+            throw new runtime.RequiredError('fixedChargeId','Required parameter requestParameters.fixedChargeId was null or undefined when calling putAccountFixedCharge.');
+        }
+
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling putAccountFixedCharge.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAccountFixedCharge.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAccountFixedCharge.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAccountFixedCharge.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAccountFixedCharge.');
+        }
+
+        if (requestParameters.accountFixedCharge === null || requestParameters.accountFixedCharge === undefined) {
+            throw new runtime.RequiredError('accountFixedCharge','Required parameter requestParameters.accountFixedCharge was null or undefined when calling putAccountFixedCharge.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5535,7 +6461,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAccountFixedChargeRequestToJSON(requestParameters.accountFixedCharge),
+            body: AccountFixedChargeToJSON(requestParameters.accountFixedCharge),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5554,7 +6480,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putAccountTrace</p>
      * This API facilitates modification of account traces.
      */
-    async putAccountTraceRaw(requestParameters: PutAccountTraceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putAccountTraceRaw(requestParameters: PutAccountTraceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling putAccountTrace.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAccountTrace.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAccountTrace.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAccountTrace.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAccountTrace.');
+        }
+
+        if (requestParameters.accountTrace === null || requestParameters.accountTrace === undefined) {
+            throw new runtime.RequiredError('accountTrace','Required parameter requestParameters.accountTrace was null or undefined when calling putAccountTrace.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5586,7 +6536,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAccountTraceRequestToJSON(requestParameters.accountTrace),
+            body: AccountTraceToJSON(requestParameters.accountTrace),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5596,7 +6546,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putAccountTrace</p>
      * This API facilitates modification of account traces.
      */
-    async putAccountTrace(requestParameters: PutAccountTraceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putAccountTrace(requestParameters: PutAccountTraceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putAccountTraceRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5604,8 +6554,33 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to update or transfer invoice detail such as amount, transaction code, etc.<br><p><strong><mark>This API is deprecated. Please use putInvoiceDetails instead</mark></strong></p> <p><strong>OperationId:</strong>putInvoice</p>
      * Update invoice detail.
+     * @deprecated
      */
     async putInvoiceRaw(requestParameters: PutInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.invoiceId === null || requestParameters.invoiceId === undefined) {
+            throw new runtime.RequiredError('invoiceId','Required parameter requestParameters.invoiceId was null or undefined when calling putInvoice.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putInvoice.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putInvoice.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putInvoice.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putInvoice.');
+        }
+
+        if (requestParameters.invoice === null || requestParameters.invoice === undefined) {
+            throw new runtime.RequiredError('invoice','Required parameter requestParameters.invoice was null or undefined when calling putInvoice.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5637,7 +6612,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UncompressARInvoicesRequestToJSON(requestParameters.invoice),
+            body: InvoiceToJSON(requestParameters.invoice),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5646,6 +6621,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to update or transfer invoice detail such as amount, transaction code, etc.<br><p><strong><mark>This API is deprecated. Please use putInvoiceDetails instead</mark></strong></p> <p><strong>OperationId:</strong>putInvoice</p>
      * Update invoice detail.
+     * @deprecated
      */
     async putInvoice(requestParameters: PutInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putInvoiceRaw(requestParameters, initOverrides);
@@ -5657,6 +6633,26 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Update invoice detail.
      */
     async putInvoiceDetailsRaw(requestParameters: PutInvoiceDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putInvoiceDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putInvoiceDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putInvoiceDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putInvoiceDetails.');
+        }
+
+        if (requestParameters.invoice === null || requestParameters.invoice === undefined) {
+            throw new runtime.RequiredError('invoice','Required parameter requestParameters.invoice was null or undefined when calling putInvoiceDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5688,7 +6684,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UncompressARInvoicesRequestToJSON(requestParameters.invoice),
+            body: InvoiceToJSON(requestParameters.invoice),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5707,7 +6703,23 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to close (\"freeze\") one or more selected invoices at any point after they have been created. When an invoice has been closed, no new postings to the invoice can be made, transaction reference or supplemental information can be edited, or adjustments to transaction codes can be made. However, payments can be posted to an invoice after it has been closed. <p><strong>OperationId:</strong>putInvoices</p>
      * Close account receivable invoices
      */
-    async putInvoicesRaw(requestParameters: PutInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putInvoicesRaw(requestParameters: PutInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putInvoices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putInvoices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putInvoices.');
+        }
+
+        if (requestParameters.invoices === null || requestParameters.invoices === undefined) {
+            throw new runtime.RequiredError('invoices','Required parameter requestParameters.invoices was null or undefined when calling putInvoices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5739,7 +6751,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutInvoicesRequestToJSON(requestParameters.invoices),
+            body: InvoicesToJSON(requestParameters.invoices),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5749,7 +6761,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to close (\"freeze\") one or more selected invoices at any point after they have been created. When an invoice has been closed, no new postings to the invoice can be made, transaction reference or supplemental information can be edited, or adjustments to transaction codes can be made. However, payments can be posted to an invoice after it has been closed. <p><strong>OperationId:</strong>putInvoices</p>
      * Close account receivable invoices
      */
-    async putInvoices(requestParameters: PutInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putInvoices(requestParameters: PutInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putInvoicesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5759,6 +6771,34 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Delete payments from invoice
      */
     async removePaymentsFromInvoiceRaw(requestParameters: RemovePaymentsFromInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+            throw new runtime.RequiredError('transactionId','Required parameter requestParameters.transactionId was null or undefined when calling removePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.trxNo === null || requestParameters.trxNo === undefined) {
+            throw new runtime.RequiredError('trxNo','Required parameter requestParameters.trxNo was null or undefined when calling removePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling removePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removePaymentsFromInvoice.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removePaymentsFromInvoice.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.trxNo) {
@@ -5823,6 +6863,22 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Reopen account receivable closed invoice
      */
     async reopenInvoicesRaw(requestParameters: ReopenInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling reopenInvoices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling reopenInvoices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling reopenInvoices.');
+        }
+
+        if (requestParameters.invoices === null || requestParameters.invoices === undefined) {
+            throw new runtime.RequiredError('invoices','Required parameter requestParameters.invoices was null or undefined when calling reopenInvoices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5854,7 +6910,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutInvoicesRequestToJSON(requestParameters.invoices),
+            body: InvoicesToJSON(requestParameters.invoices),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5873,7 +6929,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to transfer credit card payment transactions to Accounts Receivable. <p><strong>OperationId:</strong>transferARCreditCardPayments</p>
      * Move credit card payment to account receivable
      */
-    async transferARCreditCardPaymentsRaw(requestParameters: TransferARCreditCardPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transferARCreditCardPaymentsRaw(requestParameters: TransferARCreditCardPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling transferARCreditCardPayments.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling transferARCreditCardPayments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferARCreditCardPayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferARCreditCardPayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferARCreditCardPayments.');
+        }
+
+        if (requestParameters.arCreditCardPaymentsToTransfer === null || requestParameters.arCreditCardPaymentsToTransfer === undefined) {
+            throw new runtime.RequiredError('arCreditCardPaymentsToTransfer','Required parameter requestParameters.arCreditCardPaymentsToTransfer was null or undefined when calling transferARCreditCardPayments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5905,7 +6985,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferARCreditCardPaymentsRequestToJSON(requestParameters.arCreditCardPaymentsToTransfer),
+            body: ArCreditCardPaymentsToTransferToJSON(requestParameters.arCreditCardPaymentsToTransfer),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5915,7 +6995,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to transfer credit card payment transactions to Accounts Receivable. <p><strong>OperationId:</strong>transferARCreditCardPayments</p>
      * Move credit card payment to account receivable
      */
-    async transferARCreditCardPayments(requestParameters: TransferARCreditCardPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transferARCreditCardPayments(requestParameters: TransferARCreditCardPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transferARCreditCardPaymentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5924,7 +7004,27 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to transfer direct bills to account receivable account <p><strong>OperationId:</strong>transferDirectBillsToAr</p>
      * Move direct bills to account receivable
      */
-    async transferDirectBillsToArRaw(requestParameters: TransferDirectBillsToArOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transferDirectBillsToArRaw(requestParameters: TransferDirectBillsToArRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling transferDirectBillsToAr.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferDirectBillsToAr.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferDirectBillsToAr.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferDirectBillsToAr.');
+        }
+
+        if (requestParameters.transferDirectBillsToAr === null || requestParameters.transferDirectBillsToAr === undefined) {
+            throw new runtime.RequiredError('transferDirectBillsToAr','Required parameter requestParameters.transferDirectBillsToAr was null or undefined when calling transferDirectBillsToAr.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5956,7 +7056,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferDirectBillsToArRequestToJSON(requestParameters.transferDirectBillsToAr),
+            body: TransferDirectBillsToArToJSON(requestParameters.transferDirectBillsToAr),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5966,7 +7066,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to transfer direct bills to account receivable account <p><strong>OperationId:</strong>transferDirectBillsToAr</p>
      * Move direct bills to account receivable
      */
-    async transferDirectBillsToAr(requestParameters: TransferDirectBillsToArOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transferDirectBillsToAr(requestParameters: TransferDirectBillsToArRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transferDirectBillsToArRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5975,7 +7075,23 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to move all or a portion of an invoice or a payment from one AR account to another AR account <p><strong>OperationId:</strong>transferInvoicesAndPayments</p>
      * Move an invoice or a payment to another AR account
      */
-    async transferInvoicesAndPaymentsRaw(requestParameters: TransferInvoicesAndPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transferInvoicesAndPaymentsRaw(requestParameters: TransferInvoicesAndPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferInvoicesAndPayments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferInvoicesAndPayments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferInvoicesAndPayments.');
+        }
+
+        if (requestParameters.invoicesAndPaymentsToTransfer === null || requestParameters.invoicesAndPaymentsToTransfer === undefined) {
+            throw new runtime.RequiredError('invoicesAndPaymentsToTransfer','Required parameter requestParameters.invoicesAndPaymentsToTransfer was null or undefined when calling transferInvoicesAndPayments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6007,7 +7123,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferInvoicesAndPaymentsRequestToJSON(requestParameters.invoicesAndPaymentsToTransfer),
+            body: InvoicesAndPaymentsToTransferToJSON(requestParameters.invoicesAndPaymentsToTransfer),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6017,7 +7133,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to move all or a portion of an invoice or a payment from one AR account to another AR account <p><strong>OperationId:</strong>transferInvoicesAndPayments</p>
      * Move an invoice or a payment to another AR account
      */
-    async transferInvoicesAndPayments(requestParameters: TransferInvoicesAndPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transferInvoicesAndPayments(requestParameters: TransferInvoicesAndPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transferInvoicesAndPaymentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6026,7 +7142,23 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to transfer postings from one account receivable invoice to another account receivable invoice. <p><strong>OperationId:</strong>transferPostings</p>
      * Transfer postings
      */
-    async transferPostingsRaw(requestParameters: TransferPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async transferPostingsRaw(requestParameters: TransferPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling transferPostings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling transferPostings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling transferPostings.');
+        }
+
+        if (requestParameters.transferPostings === null || requestParameters.transferPostings === undefined) {
+            throw new runtime.RequiredError('transferPostings','Required parameter requestParameters.transferPostings was null or undefined when calling transferPostings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6058,7 +7190,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: TransferPostingsRequestToJSON(requestParameters.transferPostings),
+            body: TransferPostingsToJSON(requestParameters.transferPostings),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6068,7 +7200,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to transfer postings from one account receivable invoice to another account receivable invoice. <p><strong>OperationId:</strong>transferPostings</p>
      * Transfer postings
      */
-    async transferPostings(requestParameters: TransferPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async transferPostings(requestParameters: TransferPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.transferPostingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6077,7 +7209,31 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to reverse compressing account receivable invoices and break single combined invoice into individual invoices. <p><strong>OperationId:</strong>uncompressARInvoices</p>
      * Reverse the compressing invoice process
      */
-    async uncompressARInvoicesRaw(requestParameters: UncompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async uncompressARInvoicesRaw(requestParameters: UncompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling uncompressARInvoices.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling uncompressARInvoices.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling uncompressARInvoices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling uncompressARInvoices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling uncompressARInvoices.');
+        }
+
+        if (requestParameters.invoice === null || requestParameters.invoice === undefined) {
+            throw new runtime.RequiredError('invoice','Required parameter requestParameters.invoice was null or undefined when calling uncompressARInvoices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6109,7 +7265,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: UncompressARInvoicesRequestToJSON(requestParameters.invoice),
+            body: InvoiceToJSON(requestParameters.invoice),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6119,7 +7275,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to reverse compressing account receivable invoices and break single combined invoice into individual invoices. <p><strong>OperationId:</strong>uncompressARInvoices</p>
      * Reverse the compressing invoice process
      */
-    async uncompressARInvoices(requestParameters: UncompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async uncompressARInvoices(requestParameters: UncompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.uncompressARInvoicesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -6128,7 +7284,27 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to remove the invoice from the statement before that invoice can be included in a different statement. <p><strong>OperationId:</strong>unlinkInvoiceFromStatement</p>
      * Unlink invoices from a statement
      */
-    async unlinkInvoiceFromStatementRaw(requestParameters: UnlinkInvoiceFromStatementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async unlinkInvoiceFromStatementRaw(requestParameters: UnlinkInvoiceFromStatementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling unlinkInvoiceFromStatement.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling unlinkInvoiceFromStatement.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling unlinkInvoiceFromStatement.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling unlinkInvoiceFromStatement.');
+        }
+
+        if (requestParameters.unlinkInvoiceFromStatement === null || requestParameters.unlinkInvoiceFromStatement === undefined) {
+            throw new runtime.RequiredError('unlinkInvoiceFromStatement','Required parameter requestParameters.unlinkInvoiceFromStatement was null or undefined when calling unlinkInvoiceFromStatement.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6160,7 +7336,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UnlinkInvoiceFromStatementRequestToJSON(requestParameters.unlinkInvoiceFromStatement),
+            body: UnlinkInvoiceFromStatementToJSON(requestParameters.unlinkInvoiceFromStatement),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -6170,7 +7346,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to remove the invoice from the statement before that invoice can be included in a different statement. <p><strong>OperationId:</strong>unlinkInvoiceFromStatement</p>
      * Unlink invoices from a statement
      */
-    async unlinkInvoiceFromStatement(requestParameters: UnlinkInvoiceFromStatementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async unlinkInvoiceFromStatement(requestParameters: UnlinkInvoiceFromStatementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.unlinkInvoiceFromStatementRaw(requestParameters, initOverrides);
         return await response.value();
     }

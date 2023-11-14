@@ -69,7 +69,7 @@ function ExternalProfileSummaryTypeFormerNameToJSON(value) {
         'nameTitle': value.nameTitle,
         'nameType': (0, PersonNameTypeType_1.PersonNameTypeTypeToJSON)(value.nameType),
         'gender': value.gender,
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substr(0, 10)),
+        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0, 10)),
         'birthDateMasked': value.birthDateMasked,
         'currencyCode': value.currencyCode,
         'currencySymbol': value.currencySymbol,

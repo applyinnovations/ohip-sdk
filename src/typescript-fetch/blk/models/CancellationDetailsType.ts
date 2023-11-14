@@ -108,7 +108,7 @@ export function CancellationDetailsTypeToJSON(value?: CancellationDetailsType | 
     return {
         
         'cancellationCode': CodeDescriptionTypeToJSON(value.cancellationCode),
-        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substr(0,10)),
+        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substring(0,10)),
         'cancellationInfo': value.cancellationInfo,
         'cancellationNumber': UniqueIDTypeToJSON(value.cancellationNumber),
         'destination': value.destination,

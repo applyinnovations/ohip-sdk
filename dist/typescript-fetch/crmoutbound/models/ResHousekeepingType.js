@@ -56,7 +56,7 @@ function ResHousekeepingTypeToJSON(value) {
         'facilityTaskInfo': (0, FacilityTaskType_1.FacilityTaskTypeToJSON)(value.facilityTaskInfo),
         'linenChange': value.linenChange,
         'turndownRequested': value.turndownRequested,
-        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substr(0, 10)),
+        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substring(0, 10)),
         'expectedServiceTime': value.expectedServiceTime,
         'roomStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.roomStatus),
     };

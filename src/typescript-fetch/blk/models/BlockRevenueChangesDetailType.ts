@@ -121,11 +121,11 @@ export function BlockRevenueChangesDetailTypeToJSON(value?: BlockRevenueChangesD
     return {
         
         'blockOwner': value.blockOwner === undefined ? undefined : ((value.blockOwner as Array<any>).map(BlockOwnersTypeToJSON)),
-        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substr(0,10)),
+        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substring(0,10)),
         'nights': value.nights,
         'roomRevenue': CurrencyAmountTypeToJSON(value.roomRevenue),
         'roomStatus': value.roomStatus,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0,10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
         'userDetails': LogUserInfoTypeToJSON(value.userDetails),
     };
 }

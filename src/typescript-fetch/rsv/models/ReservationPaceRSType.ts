@@ -80,7 +80,7 @@ export function ReservationPaceRSTypeToJSON(value?: ReservationPaceRSType | null
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0,10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
         'dailyPaceStats': DailyPaceStatsTypeToJSON(value.dailyPaceStats),
         'hotelId': value.hotelId,
     };

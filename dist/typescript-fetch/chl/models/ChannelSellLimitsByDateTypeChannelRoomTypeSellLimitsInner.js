@@ -49,7 +49,7 @@ function ChannelSellLimitsByDateTypeChannelRoomTypeSellLimitsInnerToJSON(value) 
     return {
         'bookingChannelCode': value.bookingChannelCode,
         'channelRoomType': value.channelRoomType,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'numberOfRooms': value.numberOfRooms,
     };
 }

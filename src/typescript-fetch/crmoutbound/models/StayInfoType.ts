@@ -325,8 +325,8 @@ export function StayInfoTypeToJSON(value?: StayInfoType | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
         'originalTimeSpan': TimeSpanTypeToJSON(value.originalTimeSpan),
         'expectedTimes': ResExpectedTimesTypeToJSON(value.expectedTimes),
         'adultCount': value.adultCount,
@@ -354,7 +354,7 @@ export function StayInfoTypeToJSON(value?: StayInfoType | null): any {
         'roomTypeCharged': value.roomTypeCharged,
         'depositPayments': CurrencyAmountTypeToJSON(value.depositPayments),
         'guestServiceStatus': GuestHousekeepingServiceRequestTypeToJSON(value.guestServiceStatus),
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substr(0,10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0,10)),
         'roomNumberLocked': value.roomNumberLocked,
         'pseudoRoom': value.pseudoRoom,
     };

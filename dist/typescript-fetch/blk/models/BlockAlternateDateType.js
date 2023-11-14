@@ -48,7 +48,7 @@ function BlockAlternateDateTypeToJSON(value) {
         return null;
     }
     return {
-        'alternateBeginDate': value.alternateBeginDate === undefined ? undefined : (value.alternateBeginDate.toISOString().substr(0, 10)),
+        'alternateBeginDate': value.alternateBeginDate === undefined ? undefined : (value.alternateBeginDate.toISOString().substring(0, 10)),
         'blockRates': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.blockRates),
         'priority': value.priority,
         'roomCategory': value.roomCategory,

@@ -107,7 +107,7 @@ export function CheckDetailsToJSON(value?: CheckDetails | null): any {
     }
     return {
         
-        'checkDate': value.checkDate === undefined ? undefined : (value.checkDate.toISOString().substr(0,10)),
+        'checkDate': value.checkDate === undefined ? undefined : (value.checkDate.toISOString().substring(0,10)),
         'checkDetailsInfo': value.checkDetailsInfo,
         'checkImageInfo': value.checkImageInfo,
         'checkNumber': value.checkNumber,

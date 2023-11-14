@@ -15,120 +15,120 @@
 
 import * as runtime from '../runtime';
 import type {
-  ChangeTrackItActionsRequest,
-  ChangeTrackItLocationsRequest,
-  ChangeTrackItTypesRequest,
-  CopyTrackItActionsRequest,
-  CopyTrackItLocationsRequest,
-  CopyTrackItTypesRequest,
+  CopyTrackItActions,
+  CopyTrackItLocations,
+  CopyTrackItTypes,
   ExceptionDetailType,
-  PostTrackItActionsRequest,
-  PostTrackItLocationsRequest,
-  PostTrackItTypesRequest,
   Status,
+  TrackItActionsCriteria,
   TrackItActionsDetails,
+  TrackItActionsToBeChanged,
+  TrackItLocationsCriteria,
   TrackItLocationsDetails,
+  TrackItLocationsToBeChanged,
+  TrackItTypesCriteria,
   TrackItTypesDetails,
-} from '../models';
+  TrackItTypesToBeChanged,
+} from '../models/index';
 import {
-    ChangeTrackItActionsRequestFromJSON,
-    ChangeTrackItActionsRequestToJSON,
-    ChangeTrackItLocationsRequestFromJSON,
-    ChangeTrackItLocationsRequestToJSON,
-    ChangeTrackItTypesRequestFromJSON,
-    ChangeTrackItTypesRequestToJSON,
-    CopyTrackItActionsRequestFromJSON,
-    CopyTrackItActionsRequestToJSON,
-    CopyTrackItLocationsRequestFromJSON,
-    CopyTrackItLocationsRequestToJSON,
-    CopyTrackItTypesRequestFromJSON,
-    CopyTrackItTypesRequestToJSON,
+    CopyTrackItActionsFromJSON,
+    CopyTrackItActionsToJSON,
+    CopyTrackItLocationsFromJSON,
+    CopyTrackItLocationsToJSON,
+    CopyTrackItTypesFromJSON,
+    CopyTrackItTypesToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostTrackItActionsRequestFromJSON,
-    PostTrackItActionsRequestToJSON,
-    PostTrackItLocationsRequestFromJSON,
-    PostTrackItLocationsRequestToJSON,
-    PostTrackItTypesRequestFromJSON,
-    PostTrackItTypesRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
+    TrackItActionsCriteriaFromJSON,
+    TrackItActionsCriteriaToJSON,
     TrackItActionsDetailsFromJSON,
     TrackItActionsDetailsToJSON,
+    TrackItActionsToBeChangedFromJSON,
+    TrackItActionsToBeChangedToJSON,
+    TrackItLocationsCriteriaFromJSON,
+    TrackItLocationsCriteriaToJSON,
     TrackItLocationsDetailsFromJSON,
     TrackItLocationsDetailsToJSON,
+    TrackItLocationsToBeChangedFromJSON,
+    TrackItLocationsToBeChangedToJSON,
+    TrackItTypesCriteriaFromJSON,
+    TrackItTypesCriteriaToJSON,
     TrackItTypesDetailsFromJSON,
     TrackItTypesDetailsToJSON,
-} from '../models';
+    TrackItTypesToBeChangedFromJSON,
+    TrackItTypesToBeChangedToJSON,
+} from '../models/index';
 
-export interface ChangeTrackItActionsOperationRequest {
-    actionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItActionsToBeChanged?: ChangeTrackItActionsRequest;
+export interface ChangeTrackItActionsRequest {
+    actionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItActionsToBeChanged: TrackItActionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTrackItLocationsOperationRequest {
-    locationCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItLocationsToBeChanged?: ChangeTrackItLocationsRequest;
+export interface ChangeTrackItLocationsRequest {
+    locationCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItLocationsToBeChanged: TrackItLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTrackItTypesOperationRequest {
-    typeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItTypesToBeChanged?: ChangeTrackItTypesRequest;
+export interface ChangeTrackItTypesRequest {
+    typeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItTypesToBeChanged: TrackItTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyTrackItActionsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyTrackItActions?: CopyTrackItActionsRequest;
+export interface CopyTrackItActionsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyTrackItActions: CopyTrackItActions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyTrackItLocationsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyTrackItLocations?: CopyTrackItLocationsRequest;
+export interface CopyTrackItLocationsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyTrackItLocations: CopyTrackItLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyTrackItTypesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyTrackItTypes?: CopyTrackItTypesRequest;
+export interface CopyTrackItTypesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyTrackItTypes: CopyTrackItTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetTrackItActionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -138,10 +138,10 @@ export interface GetTrackItActionsRequest {
 }
 
 export interface GetTrackItLocationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -151,10 +151,10 @@ export interface GetTrackItLocationsRequest {
 }
 
 export interface GetTrackItTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     codes?: Array<string>;
     wildCard?: string;
@@ -163,62 +163,62 @@ export interface GetTrackItTypesRequest {
     acceptLanguage?: string;
 }
 
-export interface PostTrackItActionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItActionsCriteria?: PostTrackItActionsRequest;
+export interface PostTrackItActionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItActionsCriteria: TrackItActionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTrackItLocationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItLocationsCriteria?: PostTrackItLocationsRequest;
+export interface PostTrackItLocationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItLocationsCriteria: TrackItLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTrackItTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItTypesCriteria?: PostTrackItTypesRequest;
+export interface PostTrackItTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItTypesCriteria: TrackItTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTrackItActionsRequest {
-    actionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    actionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTrackItLocationsRequest {
-    locationCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    locationCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTrackItTypesRequest {
-    typeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    typeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -232,7 +232,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Track it Actions. <p><strong>OperationId:</strong>changeTrackItActions</p>
      * Change Track it Actions
      */
-    async changeTrackItActionsRaw(requestParameters: ChangeTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTrackItActionsRaw(requestParameters: ChangeTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.actionCode === null || requestParameters.actionCode === undefined) {
+            throw new runtime.RequiredError('actionCode','Required parameter requestParameters.actionCode was null or undefined when calling changeTrackItActions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeTrackItActions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTrackItActions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTrackItActions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTrackItActions.');
+        }
+
+        if (requestParameters.trackItActionsToBeChanged === null || requestParameters.trackItActionsToBeChanged === undefined) {
+            throw new runtime.RequiredError('trackItActionsToBeChanged','Required parameter requestParameters.trackItActionsToBeChanged was null or undefined when calling changeTrackItActions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -264,7 +288,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTrackItActionsRequestToJSON(requestParameters.trackItActionsToBeChanged),
+            body: TrackItActionsToBeChangedToJSON(requestParameters.trackItActionsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -274,7 +298,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Track it Actions. <p><strong>OperationId:</strong>changeTrackItActions</p>
      * Change Track it Actions
      */
-    async changeTrackItActions(requestParameters: ChangeTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTrackItActions(requestParameters: ChangeTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTrackItActionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -283,7 +307,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Track it Locations. <p><strong>OperationId:</strong>changeTrackItLocations</p>
      * Change Track it Locations
      */
-    async changeTrackItLocationsRaw(requestParameters: ChangeTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTrackItLocationsRaw(requestParameters: ChangeTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.locationCode === null || requestParameters.locationCode === undefined) {
+            throw new runtime.RequiredError('locationCode','Required parameter requestParameters.locationCode was null or undefined when calling changeTrackItLocations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeTrackItLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTrackItLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTrackItLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTrackItLocations.');
+        }
+
+        if (requestParameters.trackItLocationsToBeChanged === null || requestParameters.trackItLocationsToBeChanged === undefined) {
+            throw new runtime.RequiredError('trackItLocationsToBeChanged','Required parameter requestParameters.trackItLocationsToBeChanged was null or undefined when calling changeTrackItLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -315,7 +363,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTrackItLocationsRequestToJSON(requestParameters.trackItLocationsToBeChanged),
+            body: TrackItLocationsToBeChangedToJSON(requestParameters.trackItLocationsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -325,7 +373,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Track it Locations. <p><strong>OperationId:</strong>changeTrackItLocations</p>
      * Change Track it Locations
      */
-    async changeTrackItLocations(requestParameters: ChangeTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTrackItLocations(requestParameters: ChangeTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTrackItLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -334,7 +382,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Track it Types. <p><strong>OperationId:</strong>changeTrackItTypes</p>
      * Change Track it Types
      */
-    async changeTrackItTypesRaw(requestParameters: ChangeTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTrackItTypesRaw(requestParameters: ChangeTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.typeCode === null || requestParameters.typeCode === undefined) {
+            throw new runtime.RequiredError('typeCode','Required parameter requestParameters.typeCode was null or undefined when calling changeTrackItTypes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeTrackItTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTrackItTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTrackItTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTrackItTypes.');
+        }
+
+        if (requestParameters.trackItTypesToBeChanged === null || requestParameters.trackItTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('trackItTypesToBeChanged','Required parameter requestParameters.trackItTypesToBeChanged was null or undefined when calling changeTrackItTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -366,7 +438,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTrackItTypesRequestToJSON(requestParameters.trackItTypesToBeChanged),
+            body: TrackItTypesToBeChangedToJSON(requestParameters.trackItTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -376,7 +448,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Track it Types. <p><strong>OperationId:</strong>changeTrackItTypes</p>
      * Change Track it Types
      */
-    async changeTrackItTypes(requestParameters: ChangeTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTrackItTypes(requestParameters: ChangeTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTrackItTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -385,7 +457,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy Track it Actions. <p><strong>OperationId:</strong>copyTrackItActions</p>
      *  Copy Track it Actions
      */
-    async copyTrackItActionsRaw(requestParameters: CopyTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyTrackItActionsRaw(requestParameters: CopyTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
+            throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyTrackItActions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTrackItActions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTrackItActions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTrackItActions.');
+        }
+
+        if (requestParameters.copyTrackItActions === null || requestParameters.copyTrackItActions === undefined) {
+            throw new runtime.RequiredError('copyTrackItActions','Required parameter requestParameters.copyTrackItActions was null or undefined when calling copyTrackItActions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -417,7 +509,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyTrackItActionsRequestToJSON(requestParameters.copyTrackItActions),
+            body: CopyTrackItActionsToJSON(requestParameters.copyTrackItActions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -427,7 +519,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy Track it Actions. <p><strong>OperationId:</strong>copyTrackItActions</p>
      *  Copy Track it Actions
      */
-    async copyTrackItActions(requestParameters: CopyTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyTrackItActions(requestParameters: CopyTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyTrackItActionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -436,7 +528,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy Track it Locations. <p><strong>OperationId:</strong>copyTrackItLocations</p>
      *  Copy Track it Locations
      */
-    async copyTrackItLocationsRaw(requestParameters: CopyTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyTrackItLocationsRaw(requestParameters: CopyTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
+            throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyTrackItLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTrackItLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTrackItLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTrackItLocations.');
+        }
+
+        if (requestParameters.copyTrackItLocations === null || requestParameters.copyTrackItLocations === undefined) {
+            throw new runtime.RequiredError('copyTrackItLocations','Required parameter requestParameters.copyTrackItLocations was null or undefined when calling copyTrackItLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -468,7 +580,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyTrackItLocationsRequestToJSON(requestParameters.copyTrackItLocations),
+            body: CopyTrackItLocationsToJSON(requestParameters.copyTrackItLocations),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -478,7 +590,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy Track it Locations. <p><strong>OperationId:</strong>copyTrackItLocations</p>
      *  Copy Track it Locations
      */
-    async copyTrackItLocations(requestParameters: CopyTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyTrackItLocations(requestParameters: CopyTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyTrackItLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -487,7 +599,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy Track it Types. <p><strong>OperationId:</strong>copyTrackItTypes</p>
      *  Copy Track it Types
      */
-    async copyTrackItTypesRaw(requestParameters: CopyTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyTrackItTypesRaw(requestParameters: CopyTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
+            throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyTrackItTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyTrackItTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyTrackItTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyTrackItTypes.');
+        }
+
+        if (requestParameters.copyTrackItTypes === null || requestParameters.copyTrackItTypes === undefined) {
+            throw new runtime.RequiredError('copyTrackItTypes','Required parameter requestParameters.copyTrackItTypes was null or undefined when calling copyTrackItTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -519,7 +651,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyTrackItTypesRequestToJSON(requestParameters.copyTrackItTypes),
+            body: CopyTrackItTypesToJSON(requestParameters.copyTrackItTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -529,7 +661,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy Track it Types. <p><strong>OperationId:</strong>copyTrackItTypes</p>
      *  Copy Track it Types
      */
-    async copyTrackItTypes(requestParameters: CopyTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyTrackItTypes(requestParameters: CopyTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyTrackItTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -539,6 +671,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Track it Actions
      */
     async getTrackItActionsRaw(requestParameters: GetTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItActionsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItActions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItActions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItActions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItActions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -603,6 +751,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Track it Locations
      */
     async getTrackItLocationsRaw(requestParameters: GetTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItLocationsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItLocations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -667,6 +831,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Track it Types
      */
     async getTrackItTypesRaw(requestParameters: GetTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItTypesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -730,7 +910,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Track it Actions. <p><strong>OperationId:</strong>postTrackItActions</p>
      * Create Track it Actions
      */
-    async postTrackItActionsRaw(requestParameters: PostTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTrackItActionsRaw(requestParameters: PostTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItActions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItActions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItActions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItActions.');
+        }
+
+        if (requestParameters.trackItActionsCriteria === null || requestParameters.trackItActionsCriteria === undefined) {
+            throw new runtime.RequiredError('trackItActionsCriteria','Required parameter requestParameters.trackItActionsCriteria was null or undefined when calling postTrackItActions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -762,7 +962,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTrackItActionsRequestToJSON(requestParameters.trackItActionsCriteria),
+            body: TrackItActionsCriteriaToJSON(requestParameters.trackItActionsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -772,7 +972,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Track it Actions. <p><strong>OperationId:</strong>postTrackItActions</p>
      * Create Track it Actions
      */
-    async postTrackItActions(requestParameters: PostTrackItActionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTrackItActions(requestParameters: PostTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTrackItActionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -781,7 +981,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Track it Locations. <p><strong>OperationId:</strong>postTrackItLocations</p>
      * Create Track it Locations
      */
-    async postTrackItLocationsRaw(requestParameters: PostTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTrackItLocationsRaw(requestParameters: PostTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItLocations.');
+        }
+
+        if (requestParameters.trackItLocationsCriteria === null || requestParameters.trackItLocationsCriteria === undefined) {
+            throw new runtime.RequiredError('trackItLocationsCriteria','Required parameter requestParameters.trackItLocationsCriteria was null or undefined when calling postTrackItLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -813,7 +1033,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTrackItLocationsRequestToJSON(requestParameters.trackItLocationsCriteria),
+            body: TrackItLocationsCriteriaToJSON(requestParameters.trackItLocationsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -823,7 +1043,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Track it Locations. <p><strong>OperationId:</strong>postTrackItLocations</p>
      * Create Track it Locations
      */
-    async postTrackItLocations(requestParameters: PostTrackItLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTrackItLocations(requestParameters: PostTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTrackItLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -832,7 +1052,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Track it Types. <p><strong>OperationId:</strong>postTrackItTypes</p>
      * Create Track it Types
      */
-    async postTrackItTypesRaw(requestParameters: PostTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTrackItTypesRaw(requestParameters: PostTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItTypes.');
+        }
+
+        if (requestParameters.trackItTypesCriteria === null || requestParameters.trackItTypesCriteria === undefined) {
+            throw new runtime.RequiredError('trackItTypesCriteria','Required parameter requestParameters.trackItTypesCriteria was null or undefined when calling postTrackItTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -864,7 +1104,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTrackItTypesRequestToJSON(requestParameters.trackItTypesCriteria),
+            body: TrackItTypesCriteriaToJSON(requestParameters.trackItTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -874,7 +1114,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Track it Types. <p><strong>OperationId:</strong>postTrackItTypes</p>
      * Create Track it Types
      */
-    async postTrackItTypes(requestParameters: PostTrackItTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTrackItTypes(requestParameters: PostTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTrackItTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -884,6 +1124,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Track it Actions
      */
     async removeTrackItActionsRaw(requestParameters: RemoveTrackItActionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.actionCode === null || requestParameters.actionCode === undefined) {
+            throw new runtime.RequiredError('actionCode','Required parameter requestParameters.actionCode was null or undefined when calling removeTrackItActions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeTrackItActions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTrackItActions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTrackItActions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTrackItActions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -932,6 +1192,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Track it Locations
      */
     async removeTrackItLocationsRaw(requestParameters: RemoveTrackItLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.locationCode === null || requestParameters.locationCode === undefined) {
+            throw new runtime.RequiredError('locationCode','Required parameter requestParameters.locationCode was null or undefined when calling removeTrackItLocations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeTrackItLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTrackItLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTrackItLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTrackItLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -980,6 +1260,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Track it Types
      */
     async removeTrackItTypesRaw(requestParameters: RemoveTrackItTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.typeCode === null || requestParameters.typeCode === undefined) {
+            throw new runtime.RequiredError('typeCode','Required parameter requestParameters.typeCode was null or undefined when calling removeTrackItTypes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeTrackItTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTrackItTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTrackItTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTrackItTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

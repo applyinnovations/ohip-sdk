@@ -57,7 +57,7 @@ function UserSessionInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0, 10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
         'cROCountryCode': value.cROCountryCode,
         'chain': value.chain,
         'cro': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.cro),
@@ -66,7 +66,7 @@ function UserSessionInfoTypeToJSON(value) {
         'runningApp': value.runningApp,
         'sessionDefaults': (0, UserSessionDefaultsType_1.UserSessionDefaultsTypeToJSON)(value.sessionDefaults),
         'shareProfiles': value.shareProfiles,
-        'systemDate': value.systemDate === undefined ? undefined : (value.systemDate.toISOString().substr(0, 10)),
+        'systemDate': value.systemDate === undefined ? undefined : (value.systemDate.toISOString().substring(0, 10)),
         'terminal': value.terminal,
     };
 }

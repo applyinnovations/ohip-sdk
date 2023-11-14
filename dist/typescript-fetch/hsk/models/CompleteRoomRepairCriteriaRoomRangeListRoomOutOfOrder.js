@@ -52,13 +52,13 @@ function CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'newDateRange': (0, DateRangeType_1.DateRangeTypeToJSON)(value.newDateRange),
         'reasonCode': value.reasonCode,
         'reasonDescription': value.reasonDescription,
         'repairRemarks': value.repairRemarks,
         'returnStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.returnStatus),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderToJSON = CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderToJSON;

@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ListOfValueNames, ListOfValues, OperaVersion, ValidateListOfValuesDetails, ValidateListOfValuesRequest } from '../models';
+import type { ListOfValueNames, ListOfValues, OperaVersion, ValidateListOfValues, ValidateListOfValuesDetails } from '../models/index';
 export interface GetADSEchoTokenLOVRequest {
-    errorType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    errorType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -24,10 +24,10 @@ export interface GetADSEchoTokenLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetADSStatusLOVRequest {
-    errorType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    errorType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -36,10 +36,10 @@ export interface GetADSStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetARAccountTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -48,10 +48,10 @@ export interface GetARAccountTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetARCreditCardsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -60,10 +60,10 @@ export interface GetARCreditCardsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActionTypesLOVRequest {
-    module?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    module: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -72,10 +72,10 @@ export interface GetActionTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivitiesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -84,10 +84,10 @@ export interface GetActivitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityConfigTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -96,10 +96,10 @@ export interface GetActivityConfigTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityLocationsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -108,10 +108,10 @@ export interface GetActivityLocationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityStatusLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -120,10 +120,10 @@ export interface GetActivityStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -132,10 +132,10 @@ export interface GetActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAddressFormatElementsLOVRequest {
-    salesFormat?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesFormat: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -144,10 +144,10 @@ export interface GetAddressFormatElementsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAgentAccountsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -156,10 +156,10 @@ export interface GetAgentAccountsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAgentSourceCitiesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -168,10 +168,10 @@ export interface GetAgentSourceCitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAgentSourceResvCitiesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -180,10 +180,10 @@ export interface GetAgentSourceResvCitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAlertCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -192,10 +192,10 @@ export interface GetAlertCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAllRevenueTypesLOVRequest {
-    interfaceId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    interfaceId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -204,12 +204,12 @@ export interface GetAllRevenueTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAllowedHotelInterfaceRightsLOVRequest {
-    interfaceRowId?: string;
-    interfaceType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    interfaceRowId: string;
+    interfaceType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -218,10 +218,10 @@ export interface GetAllowedHotelInterfaceRightsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAlternateHotelCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -230,10 +230,10 @@ export interface GetAlternateHotelCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAmenitiesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -242,11 +242,11 @@ export interface GetAmenitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetApplicationModulesLOVRequest {
-    relModuleName?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    relModuleName: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -255,11 +255,11 @@ export interface GetApplicationModulesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetApplicationSettingsLOVRequest {
-    settingName?: string;
-    levelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    settingName: string;
+    levelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -268,10 +268,10 @@ export interface GetApplicationSettingsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetArrangementCodeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -280,10 +280,10 @@ export interface GetArrangementCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetArrangementCodesNumberLOVRequest {
-    type?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    type: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -292,10 +292,10 @@ export interface GetArrangementCodesNumberLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetArticleCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -304,11 +304,11 @@ export interface GetArticleCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAssignRoomsLOVRequest {
-    room?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    room: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -317,10 +317,10 @@ export interface GetAssignRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAttractionsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -329,10 +329,10 @@ export interface GetAttractionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAuthorizerLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -341,10 +341,10 @@ export interface GetAuthorizerLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoNumberGeneratorLOVRequest {
-    number?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    number: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -353,11 +353,11 @@ export interface GetAutoNumberGeneratorLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoTraceExpressionFieldsLOVRequest {
-    traceGroup?: string;
-    tableName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    traceGroup: string;
+    tableName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -366,11 +366,11 @@ export interface GetAutoTraceExpressionFieldsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableExportTemplatesLOVRequest {
-    fileGroup?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fileGroup: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -379,10 +379,10 @@ export interface GetAvailableExportTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableProfileOwnerRoomsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -391,12 +391,12 @@ export interface GetAvailableProfileOwnerRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableRoomComponentsLOVRequest {
-    roomNumber?: string;
-    roomType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomNumber: string;
+    roomType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -405,11 +405,11 @@ export interface GetAvailableRoomComponentsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableRoomTypeComponentsLOVRequest {
-    roomType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -418,10 +418,10 @@ export interface GetAvailableRoomTypeComponentsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailableScriptLanguagesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -430,10 +430,10 @@ export interface GetAvailableScriptLanguagesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -442,10 +442,10 @@ export interface GetAwardCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardCodesMultiHotelLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -454,10 +454,10 @@ export interface GetAwardCodesMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardMktgCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -466,11 +466,11 @@ export interface GetAwardMktgCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardPaymentLOVRequest {
-    membershipType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -479,10 +479,10 @@ export interface GetAwardPaymentLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBankAccountsForReportsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -491,10 +491,10 @@ export interface GetBankAccountsForReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBankAccountsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -503,10 +503,10 @@ export interface GetBankAccountsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBanquetPrintingMethodLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -515,10 +515,10 @@ export interface GetBanquetPrintingMethodLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBillingInstructionsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -527,10 +527,10 @@ export interface GetBillingInstructionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockBookingStatusesLOVRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -539,10 +539,10 @@ export interface GetBlockBookingStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCatNextStatusesLOVRequest {
-    catStatus?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    catStatus: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -551,11 +551,11 @@ export interface GetBlockCatNextStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCodesByArrivalDateLOVRequest {
-    arrivalDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    arrivalDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -564,10 +564,10 @@ export interface GetBlockCodesByArrivalDateLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCodesFinOperationsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -576,12 +576,12 @@ export interface GetBlockCodesFinOperationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCodesLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -590,10 +590,10 @@ export interface GetBlockCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockCurrentStatusesLOVRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -602,11 +602,11 @@ export interface GetBlockCurrentStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockEventIdsLOVRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -615,10 +615,10 @@ export interface GetBlockEventIdsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockEventsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -627,12 +627,12 @@ export interface GetBlockEventsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockIdsLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -641,10 +641,10 @@ export interface GetBlockIdsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockModeLovLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -653,10 +653,10 @@ export interface GetBlockModeLovLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockNextStatusesLOVRequest {
-    bookingStatus?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingStatus: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -665,10 +665,10 @@ export interface GetBlockNextStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockPaymentMethodsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -677,13 +677,13 @@ export interface GetBlockPaymentMethodsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRateCodesLOVRequest {
-    negotiatedOnly?: string;
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    negotiatedOnly: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -692,13 +692,13 @@ export interface GetBlockRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRatesLOVRequest {
-    blockId?: string;
-    departure?: string;
-    arrival?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    departure: string;
+    arrival: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -707,11 +707,11 @@ export interface GetBlockRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockReservationTypesLOVRequest {
-    bookingStatus?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingStatus: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -720,11 +720,11 @@ export interface GetBlockReservationTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBookingChannelRatePlansLOVRequest {
-    channel?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channel: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -733,10 +733,10 @@ export interface GetBookingChannelRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBookingChannelRoomTypesLOVRequest {
-    channel?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channel: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -745,10 +745,10 @@ export interface GetBookingChannelRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBookingTypesIndividualsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -757,10 +757,10 @@ export interface GetBookingTypesIndividualsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBudgetForecastCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -769,10 +769,10 @@ export interface GetBudgetForecastCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBudgetRateCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -781,13 +781,13 @@ export interface GetBudgetRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBusinessEventActionTypeExtDBLOVRequest {
-    databaseId?: string;
-    extSystem?: string;
-    module?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    databaseId: string;
+    extSystem: string;
+    module: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -796,12 +796,12 @@ export interface GetBusinessEventActionTypeExtDBLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetBusinessEventActionTypeLOVRequest {
-    module?: string;
-    extSystem?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    module: string;
+    extSystem: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -810,10 +810,10 @@ export interface GetBusinessEventActionTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCampaignActivityTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -822,10 +822,10 @@ export interface GetCampaignActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCashRegisterIDLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -834,10 +834,10 @@ export interface GetCashRegisterIDLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierHotelsLOVRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -846,11 +846,11 @@ export interface GetCashierHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeEventCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    catBudgetType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -859,11 +859,11 @@ export interface GetCatBudgetTypeEventCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeMarketCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    catBudgetType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -872,11 +872,11 @@ export interface GetCatBudgetTypeMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeMealCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    catBudgetType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -885,11 +885,11 @@ export interface GetCatBudgetTypeMealCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCatBudgetTypeRevenueCodesLOVRequest {
-    catBudgetType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    catBudgetType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -898,11 +898,11 @@ export interface GetCatBudgetTypeRevenueCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringBudgetTypesLOVRequest {
-    active?: string;
-    catering?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    active: string;
+    catering: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -911,10 +911,10 @@ export interface GetCateringBudgetTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringCodesLOVRequest {
-    codeType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    codeType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -923,11 +923,11 @@ export interface GetCateringCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringEventStatusLOVRequest {
-    waitList?: string;
-    newEvent?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    waitList: string;
+    newEvent: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -936,11 +936,11 @@ export interface GetCateringEventStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageCodesLOVRequest {
-    hotelId?: string;
-    radioType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    radioType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -949,10 +949,10 @@ export interface GetCateringPackageCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagePriceCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -961,10 +961,10 @@ export interface GetCateringPackagePriceCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRevenueConfigEventTypeLOVRequest {
-    pkgLinkId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    pkgLinkId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -973,10 +973,10 @@ export interface GetCateringPackageRevenueConfigEventTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRevenueEventTypeLOVRequest {
-    pkgId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    pkgId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -985,11 +985,11 @@ export interface GetCateringPackageRevenueEventTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringSetupStylesLOVRequest {
-    space?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    space: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -998,10 +998,10 @@ export interface GetCateringSetupStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringStatusCodesLOVRequest {
-    exclusionList?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exclusionList: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1010,10 +1010,10 @@ export interface GetCateringStatusCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChainLanguagesLOVRequest {
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1022,10 +1022,10 @@ export interface GetChainLanguagesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingCardTypeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1034,11 +1034,11 @@ export interface GetChannelCardTypeMappingCardTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingChannelCardTypeLOVRequest {
-    cardType?: string;
-    gdsHost?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cardType: string;
+    gdsHost: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1047,10 +1047,10 @@ export interface GetChannelCardTypeMappingChannelCardTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingGdsHostLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1059,12 +1059,12 @@ export interface GetChannelCardTypeMappingGdsHostLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelConfigRateCodesLOVRequest {
-    roomType?: string;
-    bookingChannelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomType: string;
+    bookingChannelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1073,13 +1073,13 @@ export interface GetChannelConfigRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelParametersLOVRequest {
-    channelCode?: string;
-    settingName?: string;
-    levelType?: string;
-    levelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channelCode: string;
+    settingName: string;
+    levelType: string;
+    levelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1088,10 +1088,10 @@ export interface GetChannelParametersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetClaimMembershipDetailsLOVRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1100,10 +1100,10 @@ export interface GetClaimMembershipDetailsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionCodeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1112,10 +1112,10 @@ export interface GetCommissionCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCommissionTxnCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1124,10 +1124,10 @@ export interface GetCommissionTxnCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCompAuthorizersLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1136,10 +1136,10 @@ export interface GetCompAuthorizersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCompTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1148,10 +1148,10 @@ export interface GetCompTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCompaniesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1160,10 +1160,10 @@ export interface GetCompaniesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfLetterReportsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1172,13 +1172,13 @@ export interface GetConfLetterReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigAdvDynamicBaseRatePlansLOVRequest {
-    daily?: string;
-    tiered?: string;
-    currentRateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    daily: string;
+    tiered: string;
+    currentRateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1187,14 +1187,14 @@ export interface GetConfigAdvDynamicBaseRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigBaseRatePlansLOVRequest {
-    tiered?: string;
-    daily?: string;
-    currencyCode?: string;
-    currentRateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    tiered: string;
+    daily: string;
+    currencyCode: string;
+    currentRateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1203,12 +1203,12 @@ export interface GetConfigBaseRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigDynamicBaseRatePlansLOVRequest {
-    currentRateCode?: string;
-    tiered?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    currentRateCode: string;
+    tiered: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1217,10 +1217,10 @@ export interface GetConfigDynamicBaseRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConfigReportsLOVRequest {
-    moduleName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    moduleName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1229,11 +1229,11 @@ export interface GetConfigReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetConnectingSuitesLOVRequest {
-    roomNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1242,10 +1242,10 @@ export interface GetConnectingSuitesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditCardTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1254,10 +1254,10 @@ export interface GetCreditCardTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCroUsersLOVRequest {
-    userId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    userId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1266,11 +1266,11 @@ export interface GetCroUsersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCurrencyExchangeRatesLOVRequest {
-    exchangeType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exchangeType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1279,10 +1279,10 @@ export interface GetCurrencyExchangeRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCurrencyFormatsLOVRequest {
-    decimal?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    decimal: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1291,10 +1291,10 @@ export interface GetCurrencyFormatsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomNumberConfigCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1303,11 +1303,11 @@ export interface GetCustomNumberConfigCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomRoomTranslationLOVRequest {
-    dbfLogo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    dbfLogo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1316,11 +1316,11 @@ export interface GetCustomRoomTranslationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositCancelRulesLOVRequest {
-    policyType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    policyType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1329,10 +1329,10 @@ export interface GetDepositCancelRulesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositCancelRulesMultiHotelLOVRequest {
-    policyType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    policyType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1341,13 +1341,13 @@ export interface GetDepositCancelRulesMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDeviceCodeMappingValuesLOVRequest {
-    externalCode?: string;
-    codeType?: string;
-    deviceCode?: string;
-    deviceType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    externalCode: string;
+    codeType: string;
+    deviceCode: string;
+    deviceType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1356,10 +1356,10 @@ export interface GetDeviceCodeMappingValuesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDeviceLocationsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1368,10 +1368,10 @@ export interface GetDeviceLocationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDietaryPreferencesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1380,11 +1380,11 @@ export interface GetDietaryPreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetDistributionTemplatesLOVRequest {
-    location?: string;
-    locationType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    location: string;
+    locationType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1393,10 +1393,10 @@ export interface GetDistributionTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetECertificateGroupEntityLOVRequest {
-    entityName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    entityName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1405,10 +1405,10 @@ export interface GetECertificateGroupEntityLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetECouponLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1417,10 +1417,10 @@ export interface GetECouponLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetECouponRateCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1429,10 +1429,10 @@ export interface GetECouponRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEcouponResvRoomLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1441,11 +1441,11 @@ export interface GetEcouponResvRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEndOfDayReportsLOVRequest {
-    beforeIncomeAudit?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    beforeIncomeAudit: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1454,10 +1454,10 @@ export interface GetEndOfDayReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEnrollmentMatchCommunicationTypeLOVRequest {
-    type?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    type: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1466,10 +1466,10 @@ export interface GetEnrollmentMatchCommunicationTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1478,10 +1478,10 @@ export interface GetEventGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventLocationsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1490,11 +1490,11 @@ export interface GetEventLocationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventRateCodeLOVRequest {
-    space?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    space: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1503,11 +1503,11 @@ export interface GetEventRateCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventSetupStylesLOVRequest {
-    room?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    room: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1516,10 +1516,10 @@ export interface GetEventSetupStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetEventStatusCodesLOVRequest {
-    exclusionList?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exclusionList: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1528,10 +1528,10 @@ export interface GetEventStatusCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExchangeTypesLOVRequest {
-    currencyCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    currencyCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1540,11 +1540,11 @@ export interface GetExchangeTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingCodesToLinkLOVRequest {
-    configType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    configType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1553,10 +1553,10 @@ export interface GetExportMappingCodesToLinkLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingTypeCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1565,11 +1565,11 @@ export interface GetExportMappingTypeCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalDatabaseAvailableResortsLOVRequest {
-    databaseId?: string;
-    interfaceType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    databaseId: string;
+    interfaceType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1578,10 +1578,10 @@ export interface GetExternalDatabaseAvailableResortsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalReferenceTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1590,10 +1590,10 @@ export interface GetExternalReferenceTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1602,11 +1602,11 @@ export interface GetFacilityCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityCodesReservationLOVRequest {
-    facilityTask?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    facilityTask: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1615,10 +1615,10 @@ export interface GetFacilityCodesReservationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityTasksLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1627,11 +1627,11 @@ export interface GetFacilityTasksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFacilityTasksRoomTypeLOVRequest {
-    roomTypeLabel?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomTypeLabel: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1640,10 +1640,10 @@ export interface GetFacilityTasksRoomTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFieldNameLOVRequest {
-    changeSource?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    changeSource: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1652,10 +1652,10 @@ export interface GetFieldNameLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalPaymentMethodsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1664,10 +1664,10 @@ export interface GetFiscalPaymentMethodsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFixedChargesTransactionCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1676,10 +1676,10 @@ export interface GetFixedChargesTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFloorsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1688,10 +1688,10 @@ export interface GetFloorsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioGroupingCodesLOVRequest {
-    type?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    type: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1700,10 +1700,10 @@ export interface GetFolioGroupingCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioGroupingTransactionCodesLOVRequest {
-    mode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    mode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1712,10 +1712,10 @@ export interface GetFolioGroupingTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioStylesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1724,10 +1724,10 @@ export interface GetFolioStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1736,10 +1736,10 @@ export interface GetFolioTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetForecastGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1748,12 +1748,12 @@ export interface GetForecastGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetForeignCurrenciesLOVRequest {
-    exchangeType?: string;
-    sell?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exchangeType: string;
+    sell: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1762,12 +1762,12 @@ export interface GetForeignCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFormatLOVRequest {
-    method?: string;
-    moduleName?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    method: string;
+    moduleName: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1776,11 +1776,11 @@ export interface GetFormatLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFrequencyLOVRequest {
-    defaultDepartureTask?: string;
-    guestRequested?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    defaultDepartureTask: string;
+    guestRequested: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1789,11 +1789,11 @@ export interface GetFrequencyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFrequencyTypeLOVRequest {
-    defaultDepartureTask?: string;
-    guestRequested?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    defaultDepartureTask: string;
+    guestRequested: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1802,10 +1802,10 @@ export interface GetFrequencyTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetFromRoomNumberLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1814,11 +1814,11 @@ export interface GetFromRoomNumberLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsConvAmenityCodesLOVRequest {
-    bookingChannelCodes?: string;
-    featureType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCodes: string;
+    featureType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1827,10 +1827,10 @@ export interface GetGdsConvAmenityCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsGuaranteeCodesLOVRequest {
-    bookingChannelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1839,10 +1839,10 @@ export interface GetGdsGuaranteeCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsHotelsLOVRequest {
-    channelType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channelType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1851,10 +1851,10 @@ export interface GetGdsHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsRateCategoriesLOVRequest {
-    bookingChannelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1863,10 +1863,10 @@ export interface GetGdsRateCategoriesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsRateLevelsLOVRequest {
-    bookingChannelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1875,10 +1875,10 @@ export interface GetGdsRateLevelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGdsRoomCategoryTemplatesLOVRequest {
-    bookingChannelCodes?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCodes: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1887,10 +1887,10 @@ export interface GetGdsRoomCategoryTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGemMenuItemsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1899,10 +1899,10 @@ export interface GetGemMenuItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGenericReportsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1911,10 +1911,10 @@ export interface GetGenericReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalAlertFieldQueryLOVRequest {
-    sourceId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1923,10 +1923,10 @@ export interface GetGlobalAlertFieldQueryLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalAlertFunctionLOVRequest {
-    fieldType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fieldType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1935,13 +1935,13 @@ export interface GetGlobalAlertFunctionLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalAlertOperatorLOVRequest {
-    tableName?: string;
-    fieldName?: string;
-    fieldType?: string;
-    sourceIdIn?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    tableName: string;
+    fieldName: string;
+    fieldType: string;
+    sourceIdIn: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1950,10 +1950,10 @@ export interface GetGlobalAlertOperatorLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGridTypesLOVRequest {
-    bookingStatus?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingStatus: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1962,10 +1962,10 @@ export interface GetGridTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGroupArrivalsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1974,10 +1974,10 @@ export interface GetGroupArrivalsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1986,10 +1986,10 @@ export interface GetGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestMessagesMultiHotelLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -1998,10 +1998,10 @@ export interface GetGuestMessagesMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestMessagesQuickTextsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2010,10 +2010,10 @@ export interface GetGuestMessagesQuickTextsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKAttendantsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2022,10 +2022,10 @@ export interface GetHKAttendantsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKAttendantsMobileLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2034,11 +2034,11 @@ export interface GetHKAttendantsMobileLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKScheduledAttendantsLOVRequest {
-    businessDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    businessDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2047,10 +2047,10 @@ export interface GetHKScheduledAttendantsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskBreakOutLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2059,10 +2059,10 @@ export interface GetHKTaskBreakOutLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2071,11 +2071,11 @@ export interface GetHKTaskCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskSheetsNoLOVRequest {
-    breakOutId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    breakOutId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2084,10 +2084,10 @@ export interface GetHKTaskSheetsNoLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHKTaskTemplatesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2096,10 +2096,10 @@ export interface GetHKTaskTemplatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHkFloorsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2108,10 +2108,10 @@ export interface GetHkFloorsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHkRoomTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2120,10 +2120,10 @@ export interface GetHkRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHkRoomsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2132,11 +2132,11 @@ export interface GetHkRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelContactCommMethodLOVRequest {
-    contactType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    contactType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2145,10 +2145,10 @@ export interface GetHotelContactCommMethodLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelEventTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2157,11 +2157,11 @@ export interface GetHotelEventTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceDataLineTypesLOVRequest {
-    logo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    logo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2170,10 +2170,10 @@ export interface GetHotelInterfaceDataLineTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceImportRoomsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2182,10 +2182,10 @@ export interface GetHotelInterfaceImportRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelRateTierLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2194,10 +2194,10 @@ export interface GetHotelRateTierLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelsForARProfileLOVRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2206,10 +2206,10 @@ export interface GetHotelsForARProfileLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelsForSnCLOVRequest {
-    cateringEvents?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringEvents: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2218,10 +2218,10 @@ export interface GetHotelsForSnCLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHouseKeepingRoomsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2230,10 +2230,10 @@ export interface GetHouseKeepingRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHouseKeepingSectionsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2242,10 +2242,10 @@ export interface GetHouseKeepingSectionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingCreditRulesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2254,12 +2254,12 @@ export interface GetHousekeepingCreditRulesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetIfcRightsViewLOVRequest {
-    category?: string;
-    ifcId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    category: string;
+    ifcId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2268,10 +2268,10 @@ export interface GetIfcRightsViewLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetImbalanceVerificationTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2280,10 +2280,10 @@ export interface GetImbalanceVerificationTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceAutoBalanceLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2292,10 +2292,10 @@ export interface GetInterfaceAutoBalanceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestMarketCodeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2304,10 +2304,10 @@ export interface GetInterfaceDataRequestMarketCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestMarketGroupLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2316,10 +2316,10 @@ export interface GetInterfaceDataRequestMarketGroupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestRoomClassLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2328,10 +2328,10 @@ export interface GetInterfaceDataRequestRoomClassLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestRoomTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2340,10 +2340,10 @@ export interface GetInterfaceDataRequestRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestSourceCodeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2352,10 +2352,10 @@ export interface GetInterfaceDataRequestSourceCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceDataRequestSourceGroupLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2364,10 +2364,10 @@ export interface GetInterfaceDataRequestSourceGroupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfacePseudoRoomLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2376,10 +2376,10 @@ export interface GetInterfacePseudoRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncFunctionSpaceLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2388,10 +2388,10 @@ export interface GetInterfaceResyncFunctionSpaceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncOwnerContractLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2400,10 +2400,10 @@ export interface GetInterfaceResyncOwnerContractLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncOwnerContractRoomLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2412,10 +2412,10 @@ export interface GetInterfaceResyncOwnerContractRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceResyncProductsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2424,11 +2424,11 @@ export interface GetInterfaceResyncProductsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceRevenueCodeLOVRequest {
-    logo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    logo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2437,10 +2437,10 @@ export interface GetInterfaceRevenueCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceTabColumnsLOVRequest {
-    tableName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    tableName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2449,10 +2449,10 @@ export interface GetInterfaceTabColumnsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceTrxCodesAllChargesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2461,10 +2461,10 @@ export interface GetInterfaceTrxCodesAllChargesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceTrxCodesMinibarLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2473,10 +2473,10 @@ export interface GetInterfaceTrxCodesMinibarLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInvItemsClassesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2485,10 +2485,10 @@ export interface GetInvItemsClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInvItemsPoolsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2497,11 +2497,11 @@ export interface GetInvItemsPoolsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemAttributesLOVRequest {
-    itemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2510,11 +2510,11 @@ export interface GetInventoryItemAttributesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemRatesLOVRequest {
-    itemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2523,10 +2523,10 @@ export interface GetInventoryItemRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemTemplateItemsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2535,12 +2535,12 @@ export interface GetInventoryItemTemplateItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemsLOVRequest {
-    sellInEvent?: string;
-    sellInReservation?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sellInEvent: string;
+    sellInReservation: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2549,10 +2549,10 @@ export interface GetInventoryItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemClassesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2561,10 +2561,10 @@ export interface GetItemClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2573,11 +2573,11 @@ export interface GetItemCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemPriceCodeLOVRequest {
-    itemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2586,11 +2586,11 @@ export interface GetItemPriceCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetItemVendorLOVRequest {
-    itemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2599,10 +2599,10 @@ export interface GetItemVendorLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetJobTitlesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2611,10 +2611,10 @@ export interface GetJobTitlesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetKeyOptionsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2623,17 +2623,17 @@ export interface GetKeyOptionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetLOVNamesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetLicensesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2642,10 +2642,10 @@ export interface GetLicensesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetListOfValuesRequest {
-    name?: GetListOfValuesNameEnum;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    name: GetListOfValuesNameEnum;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2654,10 +2654,10 @@ export interface GetListOfValuesRequest {
     acceptLanguage?: string;
 }
 export interface GetLocatorQuickTextsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2666,10 +2666,10 @@ export interface GetLocatorQuickTextsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMailGenericLOVRequest {
-    sourceIdIn?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceIdIn: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2678,10 +2678,10 @@ export interface GetMailGenericLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetManagerReportDetailsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2690,10 +2690,10 @@ export interface GetManagerReportDetailsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetManagersReportsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2702,10 +2702,10 @@ export interface GetManagersReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMarketGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2714,10 +2714,10 @@ export interface GetMarketGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMarketSegmentLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2726,10 +2726,10 @@ export interface GetMarketSegmentLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMasterBlockLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2738,10 +2738,10 @@ export interface GetMasterBlockLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardFinTrxLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2750,10 +2750,10 @@ export interface GetMembershipAwardFinTrxLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardProductsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2762,10 +2762,10 @@ export interface GetMembershipAwardProductsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardRateCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2774,10 +2774,10 @@ export interface GetMembershipAwardRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardUpgradeRoomGroupLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2786,10 +2786,10 @@ export interface GetMembershipAwardUpgradeRoomGroupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipAwardUpgradeRoomLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2798,10 +2798,10 @@ export interface GetMembershipAwardUpgradeRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipBenefitProgramLOVRequest {
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2810,10 +2810,10 @@ export interface GetMembershipBenefitProgramLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipBenefitsLOVRequest {
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2822,10 +2822,10 @@ export interface GetMembershipBenefitsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipCardFeeAmountLOVRequest {
-    membershipLevel?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipLevel: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2834,11 +2834,11 @@ export interface GetMembershipCardFeeAmountLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipClassTypesLOVRequest {
-    loyalty?: string;
-    airlines?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    loyalty: string;
+    airlines: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2847,11 +2847,11 @@ export interface GetMembershipClassTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipMaxDowngradeLevelLOVRequest {
-    membershipType?: string;
-    membershipLevelRank?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipType: string;
+    membershipLevelRank: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2860,10 +2860,10 @@ export interface GetMembershipMaxDowngradeLevelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipPointsRuleCodesLOVRequest {
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2872,12 +2872,12 @@ export interface GetMembershipPointsRuleCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipPromotionsLOVRequest {
-    membershipId?: string;
-    beginDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    beginDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2886,10 +2886,10 @@ export interface GetMembershipPromotionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipStatementBatchListLOVRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2898,10 +2898,10 @@ export interface GetMembershipStatementBatchListLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTotalPointsAvailableLOVRequest {
-    membershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2910,10 +2910,10 @@ export interface GetMembershipTotalPointsAvailableLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipTransferPointsLOVRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2922,10 +2922,10 @@ export interface GetMembershipTransferPointsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMenuClassesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2934,10 +2934,10 @@ export interface GetMenuClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMenuItemsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2946,10 +2946,10 @@ export interface GetMenuItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetMenuLOVRequest {
-    menuClassId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    menuClassId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2958,10 +2958,10 @@ export interface GetMenuLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRateHotelsLOVRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2970,11 +2970,11 @@ export interface GetNegotiatedRateHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetNegotiatedRatesHotelsLOVRequest {
-    profileId?: string;
-    rateCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    rateCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2983,10 +2983,10 @@ export interface GetNegotiatedRatesHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetNoteTypesLOVRequest {
-    departmentType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    departmentType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -2995,10 +2995,10 @@ export interface GetNoteTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOSAActivityTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3007,10 +3007,10 @@ export interface GetOSAActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIInterfaceReferencesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3019,10 +3019,10 @@ export interface GetOXIInterfaceReferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIInterfaceResortsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3031,10 +3031,10 @@ export interface GetOXIInterfaceResortsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIInterfacesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3043,10 +3043,10 @@ export interface GetOXIInterfacesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOXIResortsLOVRequest {
-    interfaceId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    interfaceId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3055,12 +3055,12 @@ export interface GetOXIResortsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetOrganizationsLOVRequest {
-    actionTask?: string;
-    chainCode?: string;
-    roles?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    actionTask: string;
+    chainCode: string;
+    roles: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3069,10 +3069,10 @@ export interface GetOrganizationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPackForecastGroupCodeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3081,11 +3081,11 @@ export interface GetPackForecastGroupCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPackageArrangementAssociationLOVRequest {
-    arrangementCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    arrangementCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3094,11 +3094,11 @@ export interface GetPackageArrangementAssociationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetParameterActiveUnderChainLOVRequest {
-    chainCode?: string;
-    parameter?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    chainCode: string;
+    parameter: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3107,10 +3107,10 @@ export interface GetParameterActiveUnderChainLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentMethodsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3119,10 +3119,10 @@ export interface GetPaymentMethodsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3131,10 +3131,10 @@ export interface GetPaymentTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPeriodSetupLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3143,10 +3143,10 @@ export interface GetPeriodSetupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPeriodsSetupLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3155,10 +3155,10 @@ export interface GetPeriodsSetupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPostalCodesLOVRequest {
-    country?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    country: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3167,10 +3167,10 @@ export interface GetPostalCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingRoomLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3179,10 +3179,10 @@ export interface GetPostingRoomLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingTransactionCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3191,11 +3191,11 @@ export interface GetPostingTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferenceSubgroupsLOVRequest {
-    preferenceGroup?: string;
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceGroup: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3204,10 +3204,10 @@ export interface GetPreferenceSubgroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferencesMultiHotelsLOVRequest {
-    preferenceGroup?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceGroup: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3216,10 +3216,10 @@ export interface GetPreferencesMultiHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPrepaidCardInterfacesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3228,10 +3228,10 @@ export interface GetPrepaidCardInterfacesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPrintersLOVRequest {
-    alertPrinters?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    alertPrinters: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3240,10 +3240,10 @@ export interface GetPrintersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPrioritiesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3252,10 +3252,10 @@ export interface GetPrioritiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileCommunicationsLOVRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3264,10 +3264,10 @@ export interface GetProfileCommunicationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileEnrollmentMatchCriteriaLOVRequest {
-    nameType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    nameType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3276,10 +3276,10 @@ export interface GetProfileEnrollmentMatchCriteriaLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileEnrollmentRuleDoNotMergeCriteriaLOVRequest {
-    nameType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    nameType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3288,10 +3288,10 @@ export interface GetProfileEnrollmentRuleDoNotMergeCriteriaLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileEnrollmentRuleFilterCriteriaLOVRequest {
-    nameType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    nameType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3300,11 +3300,11 @@ export interface GetProfileEnrollmentRuleFilterCriteriaLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileHotelsLOVRequest {
-    taxTypeCheck?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxTypeCheck: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3313,11 +3313,11 @@ export interface GetProfileHotelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileIdentificationsLOVRequest {
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3326,10 +3326,10 @@ export interface GetProfileIdentificationsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileNameValidationsTypeLOVRequest {
-    operaParam?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    operaParam: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3338,10 +3338,10 @@ export interface GetProfileNameValidationsTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPromoGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3350,11 +3350,11 @@ export interface GetPromoGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPromoRatesLOVRequest {
-    promoCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    promoCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3363,10 +3363,10 @@ export interface GetPromoRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPropertyAmenitiesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3375,10 +3375,10 @@ export interface GetPropertyAmenitiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetPublisherPropertiesLOVRequest {
-    subscriber?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    subscriber: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3387,10 +3387,10 @@ export interface GetPublisherPropertiesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetQueueNameLOVRequest {
-    hotelCodeList?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelCodeList: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3399,11 +3399,11 @@ export interface GetQueueNameLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetQuickTextsLOVRequest {
-    departmentId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    departmentId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3412,10 +3412,10 @@ export interface GetQuickTextsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCategoriesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3424,10 +3424,10 @@ export interface GetRateCategoriesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCodeGlobalDescEditLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3436,11 +3436,11 @@ export interface GetRateCodeGlobalDescEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCodesByTypeLOVRequest {
-    rateCodeType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateCodeType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3449,10 +3449,10 @@ export interface GetRateCodesByTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCodesValidLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3461,10 +3461,10 @@ export interface GetRateCodesValidLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateCommissionCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3473,10 +3473,10 @@ export interface GetRateCommissionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateConfigCurrenciesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3485,10 +3485,10 @@ export interface GetRateConfigCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRateGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3497,11 +3497,11 @@ export interface GetRateGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanForMassRateLOVRequest {
-    rateCodeType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateCodeType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3510,11 +3510,11 @@ export interface GetRatePlanForMassRateLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansForYieldAsConfigLOVRequest {
-    rateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3523,10 +3523,10 @@ export interface GetRatePlansForYieldAsConfigLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlansLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3535,10 +3535,10 @@ export interface GetRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepBlockCodesParamOffLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3547,10 +3547,10 @@ export interface GetRepBlockCodesParamOffLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepBlockCodesParamOnLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3559,10 +3559,10 @@ export interface GetRepBlockCodesParamOnLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCalendarMonthsLOVRequest {
-    year?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    year: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3571,10 +3571,10 @@ export interface GetRepCalendarMonthsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCalendarWeeksLOVRequest {
-    year?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    year: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3583,10 +3583,10 @@ export interface GetRepCalendarWeeksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCalendarYearsLOVRequest {
-    period?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    period: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3595,10 +3595,10 @@ export interface GetRepCalendarYearsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCashiersLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3607,10 +3607,10 @@ export interface GetRepCashiersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepContactListLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3619,10 +3619,10 @@ export interface GetRepContactListLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepCurrenciesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3631,10 +3631,10 @@ export interface GetRepCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepDepartmentsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3643,11 +3643,11 @@ export interface GetRepDepartmentsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepFiscalMonthsLOVRequest {
-    fiscalYearId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fiscalYearId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3656,11 +3656,11 @@ export interface GetRepFiscalMonthsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepFiscalWeeksLOVRequest {
-    fiscalYearId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fiscalYearId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3669,10 +3669,10 @@ export interface GetRepFiscalWeeksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepFiscalYearsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3681,10 +3681,10 @@ export interface GetRepFiscalYearsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepForeignCurrenciesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3693,10 +3693,10 @@ export interface GetRepForeignCurrenciesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepGroupReportsLOVRequest {
-    groupName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    groupName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3705,10 +3705,10 @@ export interface GetRepGroupReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3717,10 +3717,10 @@ export interface GetRepGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepInventoryItemPoolsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3729,10 +3729,10 @@ export interface GetRepInventoryItemPoolsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepMarketCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3741,10 +3741,10 @@ export interface GetRepMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepOwnerCodesLOVRequest {
-    hotelCodesList?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelCodesList: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3753,10 +3753,10 @@ export interface GetRepOwnerCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRatePlansLOVRequest {
-    propertyList?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    propertyList: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3765,10 +3765,10 @@ export interface GetRepRatePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomStatusesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3777,10 +3777,10 @@ export interface GetRepRoomStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomTypeMultiHotelLOVRequest {
-    hotelCodeList?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelCodeList: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3789,10 +3789,10 @@ export interface GetRepRoomTypeMultiHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3801,10 +3801,10 @@ export interface GetRepRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3813,12 +3813,12 @@ export interface GetRepRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepRoomsStatLOVRequest {
-    toDate?: string;
-    fromDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    toDate: string;
+    fromDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3827,10 +3827,10 @@ export interface GetRepRoomsStatLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepServiceRequestCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3839,10 +3839,10 @@ export interface GetRepServiceRequestCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepTransactionCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3851,10 +3851,10 @@ export interface GetRepTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRepTraveAgtCalendarYearLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3863,11 +3863,11 @@ export interface GetRepTraveAgtCalendarYearLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReportsGenericLOVRequest {
-    parameter?: string;
-    moduleId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    parameter: string;
+    moduleId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3876,12 +3876,12 @@ export interface GetReportsGenericLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResStatReportRateCodeLOVRequest {
-    endDate?: string;
-    beginDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    endDate: string;
+    beginDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3890,10 +3890,10 @@ export interface GetResStatReportRateCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationBasedBlocksLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3902,10 +3902,10 @@ export interface GetReservationBasedBlocksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationBasedProfilesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3914,14 +3914,14 @@ export interface GetReservationBasedProfilesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPackagesGroupItemsLOVRequest {
-    group?: string;
-    arrival?: string;
-    children?: string;
-    adults?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    group: string;
+    arrival: string;
+    children: string;
+    adults: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3930,14 +3930,14 @@ export interface GetReservationPackagesGroupItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPackagesLOVRequest {
-    departure?: string;
-    arrival?: string;
-    children?: string;
-    adults?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    departure: string;
+    arrival: string;
+    children: string;
+    adults: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3946,10 +3946,10 @@ export interface GetReservationPackagesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPreferencesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3958,10 +3958,10 @@ export interface GetReservationPreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationStatusesHotelLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3970,12 +3970,12 @@ export interface GetReservationStatusesHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationTicketsCodesLOVRequest {
-    departure?: string;
-    arrival?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    departure: string;
+    arrival: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3984,11 +3984,11 @@ export interface GetReservationTicketsCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationTicketsLOVRequest {
-    resvNameId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    resvNameId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -3997,10 +3997,10 @@ export interface GetReservationTicketsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortAirportsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4009,10 +4009,10 @@ export interface GetResortAirportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortCROsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4021,10 +4021,10 @@ export interface GetResortCROsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortGuaranteeCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4033,12 +4033,12 @@ export interface GetResortGuaranteeCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortInventoryItemsLOVRequest {
-    sellInEvent?: string;
-    sellInReservation?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sellInEvent: string;
+    sellInReservation: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4047,10 +4047,10 @@ export interface GetResortInventoryItemsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortMarketCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4059,10 +4059,10 @@ export interface GetResortMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRateClassesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4071,10 +4071,10 @@ export interface GetResortRateClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRestrictionStatusesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4083,10 +4083,10 @@ export interface GetResortRestrictionStatusesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRoomNumbersLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4095,10 +4095,10 @@ export interface GetResortRoomNumbersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortRoomTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4107,10 +4107,10 @@ export interface GetResortRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResortTransportationLabelsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4119,10 +4119,10 @@ export interface GetResortTransportationLabelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResourceItemClassesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4131,10 +4131,10 @@ export interface GetResourceItemClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvAutoAttachRulesCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4143,10 +4143,10 @@ export interface GetResvAutoAttachRulesCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvAutoAttachRulesRuleTypeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4155,10 +4155,10 @@ export interface GetResvAutoAttachRulesRuleTypeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvBasedProfilesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4167,11 +4167,11 @@ export interface GetResvBasedProfilesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetResvTransactionDiversionCodesLOVRequest {
-    resvNameId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    resvNameId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4180,11 +4180,11 @@ export interface GetResvTransactionDiversionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketTrxCodesLOVRequest {
-    bucketType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bucketType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4193,10 +4193,10 @@ export interface GetRevenueBucketTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueBucketsLOVRequest {
-    type?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    type: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4205,10 +4205,10 @@ export interface GetRevenueBucketsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypeMappingSpaceLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4217,10 +4217,10 @@ export interface GetRevenueTypeMappingSpaceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypeMappingTrxCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4229,11 +4229,11 @@ export interface GetRevenueTypeMappingTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRolesForLevelLOVRequest {
-    levelCode?: string;
-    roleLevel?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    levelCode: string;
+    roleLevel: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4242,10 +4242,10 @@ export interface GetRolesForLevelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassCategoriesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4254,10 +4254,10 @@ export interface GetRoomClassCategoriesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassMultiPropertyLOVRequest {
-    hotelCodeList?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelCodeList: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4266,10 +4266,10 @@ export interface GetRoomClassMultiPropertyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomClassesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4278,10 +4278,10 @@ export interface GetRoomClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomFeaturesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4290,10 +4290,10 @@ export interface GetRoomFeaturesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyClassesCopyLOVRequest {
-    property?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    property: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4302,10 +4302,10 @@ export interface GetRoomHierarchyClassesCopyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyRoomClassesLOVRequest {
-    property?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    property: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4314,10 +4314,10 @@ export interface GetRoomHierarchyRoomClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyRoomTypesLOVRequest {
-    property?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    property: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4326,10 +4326,10 @@ export interface GetRoomHierarchyRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHierarchyTypesCopyLOVRequest {
-    property?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    property: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4338,10 +4338,10 @@ export interface GetRoomHierarchyTypesCopyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomHoldConditionsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4350,10 +4350,10 @@ export interface GetRoomHoldConditionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomMaintenanceLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4362,11 +4362,11 @@ export interface GetRoomMaintenanceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomPoolRoomTypesLOVRequest {
-    roomPool?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomPool: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4375,10 +4375,10 @@ export interface GetRoomPoolRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomPoolsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4387,11 +4387,11 @@ export interface GetRoomPoolsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRatesLOVRequest {
-    room?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    room: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4400,10 +4400,10 @@ export interface GetRoomRatesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomReservationStatusLOVRequest {
-    includeDayUse?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeDayUse: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4412,10 +4412,10 @@ export interface GetRoomReservationStatusLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRevenueTrxCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4424,10 +4424,10 @@ export interface GetRoomRevenueTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRotationGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4436,10 +4436,10 @@ export interface GetRoomRotationGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRotationUnitGradesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4448,10 +4448,10 @@ export interface GetRoomRotationUnitGradesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomSpecialsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4460,10 +4460,10 @@ export interface GetRoomSpecialsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypePoolLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4472,11 +4472,11 @@ export interface GetRoomTypePoolLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypesForMassRateLOVRequest {
-    ratePlanCodes?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCodes: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4485,10 +4485,10 @@ export interface GetRoomTypesForMassRateLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4497,13 +4497,13 @@ export interface GetRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomingListHKRoomsLOVRequest {
-    departure?: string;
-    arrival?: string;
-    roomType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    departure: string;
+    arrival: string;
+    roomType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4512,10 +4512,10 @@ export interface GetRoomingListHKRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsKeyGenerationLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4524,10 +4524,10 @@ export interface GetRoomsKeyGenerationLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4536,10 +4536,10 @@ export interface GetRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4548,10 +4548,10 @@ export interface GetRoutingInstructionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSalesManagerGoalPeriodLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4560,10 +4560,10 @@ export interface GetSalesManagerGoalPeriodLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetScheduledReportsExportLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4572,12 +4572,12 @@ export interface GetScheduledReportsExportLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetScreenCodesLOVRequest {
-    screenArea?: string;
-    screenType?: string;
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    screenArea: string;
+    screenType: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4586,11 +4586,11 @@ export interface GetScreenCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetScreenStyleCodesLOVRequest {
-    screenCode?: string;
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    screenCode: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4599,11 +4599,11 @@ export interface GetScreenStyleCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceNameLOVRequest {
-    protocol?: string;
-    outboundType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    protocol: string;
+    outboundType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4612,10 +4612,10 @@ export interface GetServiceNameLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceRequestCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4624,10 +4624,10 @@ export interface GetServiceRequestCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSetupStylesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4636,10 +4636,10 @@ export interface GetSetupStylesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetShiftReportsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4648,10 +4648,10 @@ export interface GetShiftReportsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetShiftReportsNoParamLOVRequest {
-    shiftGroupId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    shiftGroupId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4660,11 +4660,11 @@ export interface GetShiftReportsNoParamLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSitePlanSectionTypeLinksLOVRequest {
-    sectionType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sectionType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4673,10 +4673,10 @@ export interface GetSitePlanSectionTypeLinksLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSitePlanSectionTypesLOVRequest {
-    siteType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    siteType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4685,11 +4685,11 @@ export interface GetSitePlanSectionTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSitePlansLOVRequest {
-    siteType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    siteType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4698,11 +4698,11 @@ export interface GetSitePlansLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSourceGroupsLOVRequest {
-    includeInactive?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4711,10 +4711,10 @@ export interface GetSourceGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSpacesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4723,10 +4723,10 @@ export interface GetSpacesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSpecialRequestsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4735,10 +4735,10 @@ export interface GetSpecialRequestsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSpecialsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4747,11 +4747,11 @@ export interface GetSpecialsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStageProfilesLOVRequest {
-    criteria?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    criteria: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4760,11 +4760,11 @@ export interface GetStageProfilesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStagedProfilePreferencesLOVRequest {
-    resortNameId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    resortNameId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4773,10 +4773,10 @@ export interface GetStagedProfilePreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStatisticsYearsLOVRequest {
-    year?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    year: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4785,10 +4785,10 @@ export interface GetStatisticsYearsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetStoredValueRedeemTrxLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4797,11 +4797,11 @@ export interface GetStoredValueRedeemTrxLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSubBlockLOVRequest {
-    superBlock?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    superBlock: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4810,10 +4810,10 @@ export interface GetSubBlockLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSummaryRefreshLogLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4822,10 +4822,10 @@ export interface GetSummaryRefreshLogLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetSynchronizeRateCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4834,11 +4834,11 @@ export interface GetSynchronizeRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskBreakOutLOVRequest {
-    fromDate?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fromDate: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4847,10 +4847,10 @@ export interface GetTaskBreakOutLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskSheetDeptLOVRequest {
-    levelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    levelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4859,10 +4859,10 @@ export interface GetTaskSheetDeptLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskSheetLOVRequest {
-    breakOutId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    breakOutId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4871,12 +4871,12 @@ export interface GetTaskSheetLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskSheetRoomsLOVRequest {
-    taskSheetNo?: string;
-    taskCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taskSheetNo: string;
+    taskCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4885,11 +4885,11 @@ export interface GetTaskSheetRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxTransactionCodeLOVRequest {
-    taxCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4898,10 +4898,10 @@ export interface GetTaxTransactionCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4910,10 +4910,10 @@ export interface GetTaxTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTelephoneCategoryLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4922,10 +4922,10 @@ export interface GetTelephoneCategoryLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateBookingChannelRoomTypesLOVRequest {
-    bookingChannelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4934,10 +4934,10 @@ export interface GetTemplateBookingChannelRoomTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateFiscalFolioParametersLOVRequest {
-    templateCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    templateCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4946,10 +4946,10 @@ export interface GetTemplateFiscalFolioParametersLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateMarketCodesLOVRequest {
-    includeInactive?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4958,10 +4958,10 @@ export interface GetTemplateMarketCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateMarketGroupsLOVRequest {
-    includeInactive?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4970,10 +4970,10 @@ export interface GetTemplateMarketGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePolicyCodesLOVRequest {
-    policyType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    policyType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4982,10 +4982,10 @@ export interface GetTemplatePolicyCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePreferencesLOVRequest {
-    includeGlobals?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeGlobals: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -4994,10 +4994,10 @@ export interface GetTemplatePreferencesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateRoomClassesLOVRequest {
-    includeInactive?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5006,10 +5006,10 @@ export interface GetTemplateRoomClassesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateSourceCodesLOVRequest {
-    includeInactive?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5018,10 +5018,10 @@ export interface GetTemplateSourceCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateSourceGroupsLOVRequest {
-    includeInactive?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeInactive: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5030,10 +5030,10 @@ export interface GetTemplateSourceGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateTransactionSubgroupsLOVRequest {
-    fetchOnlyUniqueValues?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fetchOnlyUniqueValues: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5042,13 +5042,13 @@ export interface GetTemplateTransactionSubgroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTestUpsellRulesRateCodeLOVRequest {
-    roomCategory?: string;
-    arrivalDate?: string;
-    nights?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomCategory: string;
+    arrivalDate: string;
+    nights: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5057,10 +5057,10 @@ export interface GetTestUpsellRulesRateCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetToPostalCodesLOVRequest {
-    country?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    country: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5069,10 +5069,10 @@ export interface GetToPostalCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTraceDateCalcLOVRequest {
-    view?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    view: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5081,10 +5081,10 @@ export interface GetTraceDateCalcLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTraceFieldLOVRequest {
-    view?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    view: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5093,10 +5093,10 @@ export interface GetTraceFieldLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionAdjustmentReasonCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5105,10 +5105,10 @@ export interface GetTransactionAdjustmentReasonCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesConsumptionLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5117,10 +5117,10 @@ export interface GetTransactionCodesConsumptionLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5129,10 +5129,10 @@ export interface GetTransactionCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesPaymentLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5141,10 +5141,10 @@ export interface GetTransactionCodesPaymentLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDeleteReasonCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5153,10 +5153,10 @@ export interface GetTransactionDeleteReasonCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionDiversionRuleRoomsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5165,10 +5165,10 @@ export interface GetTransactionDiversionRuleRoomsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5177,10 +5177,10 @@ export interface GetTransactionGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionSubgroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5189,10 +5189,10 @@ export interface GetTransactionSubgroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransportTypesHotelLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5201,10 +5201,10 @@ export interface GetTransportTypesHotelLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTransportTypesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5213,10 +5213,10 @@ export interface GetTransportTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTravelAgentSourceLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5225,10 +5225,10 @@ export interface GetTravelAgentSourceLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTravelAgentSourceResvLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5237,10 +5237,10 @@ export interface GetTravelAgentSourceResvLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTrxCodeArrangementLOVRequest {
-    type?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    type: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5249,10 +5249,10 @@ export interface GetTrxCodeArrangementLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetTurnawayCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5261,10 +5261,10 @@ export interface GetTurnawayCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUDFMappingsLOVRequest {
-    moduleName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    moduleName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5273,11 +5273,11 @@ export interface GetUDFMappingsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUdfAttributesLOVRequest {
-    udfCategory?: string;
-    udfType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    udfCategory: string;
+    udfType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5286,10 +5286,10 @@ export interface GetUdfAttributesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellDefaultTrxCodeLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5298,10 +5298,10 @@ export interface GetUpsellDefaultTrxCodeLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellFromRoomClassEditLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5310,10 +5310,10 @@ export interface GetUpsellFromRoomClassEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellFromRoomTypeEditLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5322,10 +5322,10 @@ export interface GetUpsellFromRoomTypeEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellHierarchyLevelsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5334,10 +5334,10 @@ export interface GetUpsellHierarchyLevelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellMembershipLevelsOnlyLOVRequest {
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5346,11 +5346,11 @@ export interface GetUpsellMembershipLevelsOnlyLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellOccupancyLevelsLOVRequest {
-    includeBlank?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    includeBlank: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5359,10 +5359,10 @@ export interface GetUpsellOccupancyLevelsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRateCategoriesEditLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5371,10 +5371,10 @@ export interface GetUpsellRateCategoriesEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRateCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5383,10 +5383,10 @@ export interface GetUpsellRateCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRoomClassViewLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5395,10 +5395,10 @@ export interface GetUpsellRoomClassViewLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRoomTypeViewLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5407,10 +5407,10 @@ export interface GetUpsellRoomTypeViewLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRuleLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5419,11 +5419,11 @@ export interface GetUpsellRuleLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellToRoomClassEditLOVRequest {
-    fromRoomClass?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fromRoomClass: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5432,11 +5432,11 @@ export interface GetUpsellToRoomClassEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellToRoomTypeEditLOVRequest {
-    fromRoomTypeLabel?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fromRoomTypeLabel: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5445,10 +5445,10 @@ export interface GetUpsellToRoomTypeEditLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellTrxCodesLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5457,11 +5457,11 @@ export interface GetUpsellTrxCodesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserDbFunctionArgsLOVRequest {
-    category?: string;
-    functionName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    category: string;
+    functionName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5470,10 +5470,10 @@ export interface GetUserDbFunctionArgsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserDbFunctionsLOVRequest {
-    category?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    category: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5482,10 +5482,10 @@ export interface GetUserDbFunctionsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserLogActivityGroupsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5494,11 +5494,11 @@ export interface GetUserLogActivityGroupsLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserLogActivityTypesLOVRequest {
-    activityGroup?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityGroup: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5507,11 +5507,11 @@ export interface GetUserLogActivityTypesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetUserRolesLOVRequest {
-    roleWithDepartment?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roleWithDepartment: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5520,10 +5520,10 @@ export interface GetUserRolesLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetYearSetupLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5532,10 +5532,10 @@ export interface GetYearSetupLOVRequest {
     acceptLanguage?: string;
 }
 export interface GetYieldMarketsLOVRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactiveFlag?: boolean;
     parameterName?: Array<string>;
     parameterValue?: Array<string>;
@@ -5544,17 +5544,17 @@ export interface GetYieldMarketsLOVRequest {
     acceptLanguage?: string;
 }
 export interface PingLOVServiceRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ValidateListOfValuesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    validateListOfValues?: ValidateListOfValuesRequest;
+export interface ValidateListOfValuesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    validateListOfValues: ValidateListOfValues;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -10056,12 +10056,12 @@ export declare class LOVApi extends runtime.BaseAPI {
      * Use this API to validate the  the list of values based on search criteria such as validateListOfValues. <p><strong>OperationId:</strong>validateListOfValues</p>
      * Validate list of values
      */
-    validateListOfValuesRaw(requestParameters: ValidateListOfValuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateListOfValuesDetails>>;
+    validateListOfValuesRaw(requestParameters: ValidateListOfValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateListOfValuesDetails>>;
     /**
      * Use this API to validate the  the list of values based on search criteria such as validateListOfValues. <p><strong>OperationId:</strong>validateListOfValues</p>
      * Validate list of values
      */
-    validateListOfValues(requestParameters: ValidateListOfValuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateListOfValuesDetails>;
+    validateListOfValues(requestParameters: ValidateListOfValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidateListOfValuesDetails>;
 }
 /**
  * @export

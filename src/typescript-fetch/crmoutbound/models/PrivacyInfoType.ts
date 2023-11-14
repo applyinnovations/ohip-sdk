@@ -151,7 +151,7 @@ export function PrivacyInfoTypeToJSON(value?: PrivacyInfoType | null): any {
     return {
         
         'marketResearchParticipation': value.marketResearchParticipation,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substr(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
         'infoFromThirdParty': value.infoFromThirdParty,
         'autoEnrollLoyaltyProgram': value.autoEnrollLoyaltyProgram,
         'allowPhone': value.allowPhone,

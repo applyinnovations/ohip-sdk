@@ -106,8 +106,8 @@ export function RevenueInventoryStatisticsSearchTypeToJSON(value?: RevenueInvent
     }
     return {
         
-        'dateRangeEnd': value.dateRangeEnd === undefined ? undefined : (value.dateRangeEnd.toISOString().substr(0,10)),
-        'dateRangeStart': value.dateRangeStart === undefined ? undefined : (value.dateRangeStart.toISOString().substr(0,10)),
+        'dateRangeEnd': value.dateRangeEnd === undefined ? undefined : (value.dateRangeEnd.toISOString().substring(0,10)),
+        'dateRangeStart': value.dateRangeStart === undefined ? undefined : (value.dateRangeStart.toISOString().substring(0,10)),
         'groupBy': value.groupBy === undefined ? undefined : Array.from(value.groupBy as Set<any>),
         'guaranteeCodes': value.guaranteeCodes,
         'marketCodes': value.marketCodes,

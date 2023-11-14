@@ -49,7 +49,7 @@ function InventoryToReturnTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'returnDate': value.returnDate === undefined ? undefined : (value.returnDate.toISOString().substr(0, 10)),
+        'returnDate': value.returnDate === undefined ? undefined : (value.returnDate.toISOString().substring(0, 10)),
         'returnRooms': value.returnRooms === undefined ? undefined : (value.returnRooms.map(ReturnRoomType_1.ReturnRoomTypeToJSON)),
     };
 }

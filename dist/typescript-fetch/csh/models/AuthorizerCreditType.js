@@ -65,7 +65,7 @@ function AuthorizerCreditTypeToJSON(value) {
         'creditLimit': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.creditLimit),
         'hotelId': value.hotelId,
         'inheritAuthorizerRateCode': value.inheritAuthorizerRateCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0, 10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
     };
 }
 exports.AuthorizerCreditTypeToJSON = AuthorizerCreditTypeToJSON;

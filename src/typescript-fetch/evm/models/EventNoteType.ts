@@ -145,7 +145,7 @@ export function EventNoteTypeToJSON(value?: EventNoteType | null): any {
         'noteCode': value.noteCode,
         'noteId': UniqueIDTypeToJSON(value.noteId),
         'noteTitle': value.noteTitle,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'sequence': value.sequence,
     };
 }

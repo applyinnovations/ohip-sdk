@@ -175,7 +175,7 @@ export function UpsellInfoTypeUpsellInfoToJSON(value?: UpsellInfoTypeUpsellInfo 
         'totalUpsellCharge': CurrencyAmountTypeToJSON(value.totalUpsellCharge),
         'totalUpsellMoneyAmount': CurrencyAmountTypeToJSON(value.totalUpsellMoneyAmount),
         'totalUpsellPoints': value.totalUpsellPoints,
-        'upsellDate': value.upsellDate === undefined ? undefined : (value.upsellDate.toISOString().substr(0,10)),
+        'upsellDate': value.upsellDate === undefined ? undefined : (value.upsellDate.toISOString().substring(0,10)),
         'upsellUser': value.upsellUser,
     };
 }

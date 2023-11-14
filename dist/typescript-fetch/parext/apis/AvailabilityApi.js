@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AvailabilityApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,15 @@ class AvailabilityApi extends runtime.BaseAPI {
      */
     postMinimumRateAvailabilityRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postMinimumRateAvailability.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postMinimumRateAvailability.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postMinimumRateAvailability.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json; charset=utf-8';
@@ -81,9 +90,9 @@ class AvailabilityApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.SearchPropertyRequestTypeToJSON)(requestParameters.body),
+                body: (0, index_1.SearchPropertyRequestTypeToJSON)(requestParameters.body),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.SearchPropertyResponseTypeFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.SearchPropertyResponseTypeFromJSON)(jsonValue));
         });
     }
     /**
@@ -102,6 +111,18 @@ class AvailabilityApi extends runtime.BaseAPI {
      */
     postMultiRoomRateAvailabilityRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postMultiRoomRateAvailability.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postMultiRoomRateAvailability.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postMultiRoomRateAvailability.');
+            }
+            if (requestParameters.request === null || requestParameters.request === undefined) {
+                throw new runtime.RequiredError('request', 'Required parameter requestParameters.request was null or undefined when calling postMultiRoomRateAvailability.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -125,9 +146,9 @@ class AvailabilityApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostMultiRoomRateAvailabilityRequestToJSON)(requestParameters.request),
+                body: (0, index_1.PostMultiRoomRateAvailabilityRequestToJSON)(requestParameters.request),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.MultiRoomRateAvailabilityResponseTypeFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MultiRoomRateAvailabilityResponseTypeFromJSON)(jsonValue));
         });
     }
     /**

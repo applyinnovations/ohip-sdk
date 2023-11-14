@@ -59,7 +59,7 @@ function MembershipTransactionInfoTypeToJSON(value) {
         'reservationIdList': (0, ReservationIdList_1.ReservationIdListToJSON)(value.reservationIdList),
         'stay': value.stay,
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0, 10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
         'transactionType': value.transactionType,
     };
 }

@@ -15,24 +15,25 @@
 
 import * as runtime from '../runtime';
 import type {
+  ApplicationSecureSetting,
   AuthorizationRule,
   CardReaderDelimiters,
   CreditCardInfo,
   CreditCardReaderDevices,
   CreditCardTypeValidationStatus,
   CreditCardUniqueId,
+  CreditCardUniqueIdRQ,
   DecodedCard,
   ExceptionDetailType,
-  GetCreditCardUniqueIdRequest,
   HotelInterfaceDetail,
   PrepaidCardBalanceDetails,
   PrepaidCardDetails,
   PrepaidCards,
-  PutSecureApplicationSettingsRequest,
   Status,
-  UpdateInterfaceCustomDataRequest,
-} from '../models';
+} from '../models/index';
 import {
+    ApplicationSecureSettingFromJSON,
+    ApplicationSecureSettingToJSON,
     AuthorizationRuleFromJSON,
     AuthorizationRuleToJSON,
     CardReaderDelimitersFromJSON,
@@ -45,12 +46,12 @@ import {
     CreditCardTypeValidationStatusToJSON,
     CreditCardUniqueIdFromJSON,
     CreditCardUniqueIdToJSON,
+    CreditCardUniqueIdRQFromJSON,
+    CreditCardUniqueIdRQToJSON,
     DecodedCardFromJSON,
     DecodedCardToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    GetCreditCardUniqueIdRequestFromJSON,
-    GetCreditCardUniqueIdRequestToJSON,
     HotelInterfaceDetailFromJSON,
     HotelInterfaceDetailToJSON,
     PrepaidCardBalanceDetailsFromJSON,
@@ -59,28 +60,24 @@ import {
     PrepaidCardDetailsToJSON,
     PrepaidCardsFromJSON,
     PrepaidCardsToJSON,
-    PutSecureApplicationSettingsRequestFromJSON,
-    PutSecureApplicationSettingsRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-    UpdateInterfaceCustomDataRequestFromJSON,
-    UpdateInterfaceCustomDataRequestToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DecodeCardRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     trackData?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAuthorizationRuleRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     reservationId?: string;
     idExtension?: number;
@@ -95,19 +92,19 @@ export interface GetAuthorizationRuleRequest {
 }
 
 export interface GetCardReaderDelimitersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     deviceID?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCreditCardInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     idExtension?: number;
     idContext?: string;
@@ -122,39 +119,39 @@ export interface GetCreditCardInfoRequest {
 }
 
 export interface GetCreditCardReaderDevicesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface GetCreditCardUniqueIdOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditCardUniqueIdRQ?: GetCreditCardUniqueIdRequest;
+export interface GetCreditCardUniqueIdRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditCardUniqueIdRQ: CreditCardUniqueIdRQ;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHotelInterfaceCustomDataRequest {
-    interfaceLogoId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    interfaceLogoId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: GetHotelInterfaceCustomDataFetchInstructionsEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetPrepaidCardRequest {
-    hotelId?: string;
-    cardNumber?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    cardNumber: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     interfaceId?: string;
     interfaceIdType?: string;
     reservationId?: string;
@@ -165,11 +162,11 @@ export interface GetPrepaidCardRequest {
 }
 
 export interface GetPrepaidCardBalanceRequest {
-    hotelId?: string;
-    cardNumber?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    cardNumber: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     interfaceId?: string;
     interfaceIdType?: string;
     reservationId?: string;
@@ -180,10 +177,10 @@ export interface GetPrepaidCardBalanceRequest {
 }
 
 export interface GetPrepaidCardsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeCardDetails?: boolean;
     reservationId?: string;
     idExtension?: number;
@@ -197,30 +194,30 @@ export interface GetPrepaidCardsRequest {
     acceptLanguage?: string;
 }
 
-export interface PutSecureApplicationSettingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    applicationSecureSetting?: PutSecureApplicationSettingsRequest;
+export interface PutSecureApplicationSettingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    applicationSecureSetting: ApplicationSecureSetting;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface UpdateInterfaceCustomDataOperationRequest {
-    interfaceLogoId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelInterfaceDetail?: UpdateInterfaceCustomDataRequest;
+export interface UpdateInterfaceCustomDataRequest {
+    interfaceLogoId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelInterfaceDetail: HotelInterfaceDetail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ValidateCreditCardTypeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationID?: string;
     reservationIDIdExtension?: number;
     reservationIDIdContext?: string;
@@ -285,6 +282,22 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to Decode Card.
      */
     async decodeCardRaw(requestParameters: DecodeCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DecodedCard>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling decodeCard.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling decodeCard.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling decodeCard.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling decodeCard.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -341,6 +354,18 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to fetch AuthorizationRule.
      */
     async getAuthorizationRuleRaw(requestParameters: GetAuthorizationRuleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationRule>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAuthorizationRule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAuthorizationRule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAuthorizationRule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -425,6 +450,18 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to fetch CardReaderDelimiters.
      */
     async getCardReaderDelimitersRaw(requestParameters: GetCardReaderDelimitersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CardReaderDelimiters>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCardReaderDelimiters.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCardReaderDelimiters.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCardReaderDelimiters.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.deviceID !== undefined) {
@@ -477,6 +514,22 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Get credit card token information
      */
     async getCreditCardInfoRaw(requestParameters: GetCreditCardInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCreditCardInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCreditCardInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCreditCardInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCreditCardInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -565,6 +618,18 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to fetch CreditCardReaderDevices.
      */
     async getCreditCardReaderDevicesRaw(requestParameters: GetCreditCardReaderDevicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardReaderDevices>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCreditCardReaderDevices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCreditCardReaderDevices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCreditCardReaderDevices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -612,7 +677,23 @@ export class CreditCardApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>getCreditCardUniqueId</p>
      * Operation to fetch CreditCardUniqueId.
      */
-    async getCreditCardUniqueIdRaw(requestParameters: GetCreditCardUniqueIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardUniqueId>> {
+    async getCreditCardUniqueIdRaw(requestParameters: GetCreditCardUniqueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardUniqueId>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCreditCardUniqueId.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCreditCardUniqueId.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCreditCardUniqueId.');
+        }
+
+        if (requestParameters.creditCardUniqueIdRQ === null || requestParameters.creditCardUniqueIdRQ === undefined) {
+            throw new runtime.RequiredError('creditCardUniqueIdRQ','Required parameter requestParameters.creditCardUniqueIdRQ was null or undefined when calling getCreditCardUniqueId.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -644,7 +725,7 @@ export class CreditCardApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: GetCreditCardUniqueIdRequestToJSON(requestParameters.creditCardUniqueIdRQ),
+            body: CreditCardUniqueIdRQToJSON(requestParameters.creditCardUniqueIdRQ),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreditCardUniqueIdFromJSON(jsonValue));
@@ -654,7 +735,7 @@ export class CreditCardApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>getCreditCardUniqueId</p>
      * Operation to fetch CreditCardUniqueId.
      */
-    async getCreditCardUniqueId(requestParameters: GetCreditCardUniqueIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditCardUniqueId> {
+    async getCreditCardUniqueId(requestParameters: GetCreditCardUniqueIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditCardUniqueId> {
         const response = await this.getCreditCardUniqueIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -664,6 +745,26 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to fetch hotel interface custom data.
      */
     async getHotelInterfaceCustomDataRaw(requestParameters: GetHotelInterfaceCustomDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelInterfaceDetail>> {
+        if (requestParameters.interfaceLogoId === null || requestParameters.interfaceLogoId === undefined) {
+            throw new runtime.RequiredError('interfaceLogoId','Required parameter requestParameters.interfaceLogoId was null or undefined when calling getHotelInterfaceCustomData.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelInterfaceCustomData.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelInterfaceCustomData.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelInterfaceCustomData.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelInterfaceCustomData.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions !== undefined) {
@@ -716,6 +817,26 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to fetch Prepaid Card.
      */
     async getPrepaidCardRaw(requestParameters: GetPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PrepaidCardDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPrepaidCard.');
+        }
+
+        if (requestParameters.cardNumber === null || requestParameters.cardNumber === undefined) {
+            throw new runtime.RequiredError('cardNumber','Required parameter requestParameters.cardNumber was null or undefined when calling getPrepaidCard.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPrepaidCard.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPrepaidCard.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPrepaidCard.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -792,6 +913,26 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to fetch prepaid card balance.
      */
     async getPrepaidCardBalanceRaw(requestParameters: GetPrepaidCardBalanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PrepaidCardBalanceDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPrepaidCardBalance.');
+        }
+
+        if (requestParameters.cardNumber === null || requestParameters.cardNumber === undefined) {
+            throw new runtime.RequiredError('cardNumber','Required parameter requestParameters.cardNumber was null or undefined when calling getPrepaidCardBalance.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPrepaidCardBalance.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPrepaidCardBalance.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPrepaidCardBalance.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -868,6 +1009,22 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to fetch PrepaidCards.
      */
     async getPrepaidCardsRaw(requestParameters: GetPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PrepaidCards>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPrepaidCards.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPrepaidCards.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPrepaidCards.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPrepaidCards.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -955,7 +1112,23 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to update one or more secure application settings. <p><strong>OperationId:</strong>putSecureApplicationSettings</p>
      * Operation to change AR SecureApplicationSettings.
      */
-    async putSecureApplicationSettingsRaw(requestParameters: PutSecureApplicationSettingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putSecureApplicationSettingsRaw(requestParameters: PutSecureApplicationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putSecureApplicationSettings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putSecureApplicationSettings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putSecureApplicationSettings.');
+        }
+
+        if (requestParameters.applicationSecureSetting === null || requestParameters.applicationSecureSetting === undefined) {
+            throw new runtime.RequiredError('applicationSecureSetting','Required parameter requestParameters.applicationSecureSetting was null or undefined when calling putSecureApplicationSettings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -987,7 +1160,7 @@ export class CreditCardApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutSecureApplicationSettingsRequestToJSON(requestParameters.applicationSecureSetting),
+            body: ApplicationSecureSettingToJSON(requestParameters.applicationSecureSetting),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -997,7 +1170,7 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to update one or more secure application settings. <p><strong>OperationId:</strong>putSecureApplicationSettings</p>
      * Operation to change AR SecureApplicationSettings.
      */
-    async putSecureApplicationSettings(requestParameters: PutSecureApplicationSettingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putSecureApplicationSettings(requestParameters: PutSecureApplicationSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putSecureApplicationSettingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1006,7 +1179,31 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to update hotel interface custom data. <p><strong>OperationId:</strong>updateInterfaceCustomData</p>
      * Operation to update hotel interface custom data.
      */
-    async updateInterfaceCustomDataRaw(requestParameters: UpdateInterfaceCustomDataOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async updateInterfaceCustomDataRaw(requestParameters: UpdateInterfaceCustomDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.interfaceLogoId === null || requestParameters.interfaceLogoId === undefined) {
+            throw new runtime.RequiredError('interfaceLogoId','Required parameter requestParameters.interfaceLogoId was null or undefined when calling updateInterfaceCustomData.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling updateInterfaceCustomData.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling updateInterfaceCustomData.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling updateInterfaceCustomData.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling updateInterfaceCustomData.');
+        }
+
+        if (requestParameters.hotelInterfaceDetail === null || requestParameters.hotelInterfaceDetail === undefined) {
+            throw new runtime.RequiredError('hotelInterfaceDetail','Required parameter requestParameters.hotelInterfaceDetail was null or undefined when calling updateInterfaceCustomData.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1038,7 +1235,7 @@ export class CreditCardApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateInterfaceCustomDataRequestToJSON(requestParameters.hotelInterfaceDetail),
+            body: HotelInterfaceDetailToJSON(requestParameters.hotelInterfaceDetail),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1048,7 +1245,7 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to update hotel interface custom data. <p><strong>OperationId:</strong>updateInterfaceCustomData</p>
      * Operation to update hotel interface custom data.
      */
-    async updateInterfaceCustomData(requestParameters: UpdateInterfaceCustomDataOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async updateInterfaceCustomData(requestParameters: UpdateInterfaceCustomDataRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.updateInterfaceCustomDataRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1058,6 +1255,18 @@ export class CreditCardApi extends runtime.BaseAPI {
      * Operation to validate CreditCardType.
      */
     async validateCreditCardTypeRaw(requestParameters: ValidateCreditCardTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditCardTypeValidationStatus>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateCreditCardType.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateCreditCardType.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateCreditCardType.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationID !== undefined) {
@@ -1117,7 +1326,7 @@ export class CreditCardApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substr(0,10);
+            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -1249,7 +1458,7 @@ export class CreditCardApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.emailFolioInfoPurgeDate !== undefined) {
-            queryParameters['emailFolioInfoPurgeDate'] = (requestParameters.emailFolioInfoPurgeDate as any).toISOString().substr(0,10);
+            queryParameters['emailFolioInfoPurgeDate'] = (requestParameters.emailFolioInfoPurgeDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.emailEmailFolioInfoType !== undefined) {

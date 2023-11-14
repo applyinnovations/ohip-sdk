@@ -60,11 +60,11 @@ function BlockPostingReservationsTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0, 10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
         'blockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.blockId),
         'confirmationNumber': value.confirmationNumber,
         'defaultPostingAccount': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.defaultPostingAccount),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0, 10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
         'eventId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.eventId),
         'guestFirstName': value.guestFirstName,
         'guestName': value.guestName,

@@ -10,41 +10,41 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeChannelSellLimitsByDateRangeRequest, ChangeChannelSellLimitsByDateRequest, ChannelSellLimits, Status } from '../models';
-export interface ChangeChannelSellLimitsByDateOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelSellLimitsByDate?: ChangeChannelSellLimitsByDateRequest;
+import type { ChannelSellLimits, ChannelSellLimitsByDate, ChannelSellLimitsByDateRange, Status } from '../models/index';
+export interface ChangeChannelSellLimitsByDateRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelSellLimitsByDate: ChannelSellLimitsByDate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeChannelSellLimitsByDateRangeOperationRequest {
-    channelId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelSellLimitsByDateRange?: ChangeChannelSellLimitsByDateRangeRequest;
+export interface ChangeChannelSellLimitsByDateRangeRequest {
+    channelId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelSellLimitsByDateRange: ChannelSellLimitsByDateRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelSellLimitsRequest {
-    id?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    id: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelSellLimitsRequest {
-    hotelId?: string;
-    fromDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    fromDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bookingChannelCode?: string;
     channelRoomType?: string;
     xExternalsystem?: string;
@@ -58,22 +58,22 @@ export declare class InventoryApi extends runtime.BaseAPI {
      * Use this API to update channel property sell limit mapping by given dates. <p><strong>OperationId:</strong>changeChannelSellLimitsByDate</p>
      * Updates channel sell limits by date
      */
-    changeChannelSellLimitsByDateRaw(requestParameters: ChangeChannelSellLimitsByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeChannelSellLimitsByDateRaw(requestParameters: ChangeChannelSellLimitsByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel property sell limit mapping by given dates. <p><strong>OperationId:</strong>changeChannelSellLimitsByDate</p>
      * Updates channel sell limits by date
      */
-    changeChannelSellLimitsByDate(requestParameters: ChangeChannelSellLimitsByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeChannelSellLimitsByDate(requestParameters: ChangeChannelSellLimitsByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel property sell limit mapping by given date range. <p><strong>OperationId:</strong>changeChannelSellLimitsByDateRange</p>
      * Updates channel sell limits by daterange
      */
-    changeChannelSellLimitsByDateRangeRaw(requestParameters: ChangeChannelSellLimitsByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeChannelSellLimitsByDateRangeRaw(requestParameters: ChangeChannelSellLimitsByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel property sell limit mapping by given date range. <p><strong>OperationId:</strong>changeChannelSellLimitsByDateRange</p>
      * Updates channel sell limits by daterange
      */
-    changeChannelSellLimitsByDateRange(requestParameters: ChangeChannelSellLimitsByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeChannelSellLimitsByDateRange(requestParameters: ChangeChannelSellLimitsByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete channel property sell limit mapping. <p><strong>OperationId:</strong>deleteChannelSellLimits</p>
      * Deletes channel sell limits

@@ -52,7 +52,7 @@ function CancellationDetailsTypeToJSON(value) {
     }
     return {
         'cancellationCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.cancellationCode),
-        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substr(0, 10)),
+        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substring(0, 10)),
         'cancellationInfo': value.cancellationInfo,
         'cancellationNumber': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.cancellationNumber),
         'destination': value.destination,

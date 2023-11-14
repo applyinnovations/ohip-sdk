@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetConvertedValuesConversionCodeEnum = exports.DataValueMappingApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,21 @@ class DataValueMappingApi extends runtime.BaseAPI {
      */
     getConvertedValuesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.operaHotelId === null || requestParameters.operaHotelId === undefined) {
+                throw new runtime.RequiredError('operaHotelId', 'Required parameter requestParameters.operaHotelId was null or undefined when calling getConvertedValues.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getConvertedValues.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getConvertedValues.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getConvertedValues.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getConvertedValues.');
+            }
             const queryParameters = {};
             if (requestParameters.externalHotelId !== undefined) {
                 queryParameters['externalHotelId'] = requestParameters.externalHotelId;
@@ -93,7 +108,7 @@ class DataValueMappingApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ConvertedValuesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ConvertedValuesFromJSON)(jsonValue));
         });
     }
     /**
@@ -112,6 +127,21 @@ class DataValueMappingApi extends runtime.BaseAPI {
      */
     getDefaultValuesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.operaHotelId === null || requestParameters.operaHotelId === undefined) {
+                throw new runtime.RequiredError('operaHotelId', 'Required parameter requestParameters.operaHotelId was null or undefined when calling getDefaultValues.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getDefaultValues.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getDefaultValues.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getDefaultValues.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getDefaultValues.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -135,7 +165,7 @@ class DataValueMappingApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.DefaultValuesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.DefaultValuesFromJSON)(jsonValue));
         });
     }
     /**
@@ -154,6 +184,21 @@ class DataValueMappingApi extends runtime.BaseAPI {
      */
     getOperaHotelCodeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.externalHotelId === null || requestParameters.externalHotelId === undefined) {
+                throw new runtime.RequiredError('externalHotelId', 'Required parameter requestParameters.externalHotelId was null or undefined when calling getOperaHotelCode.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getOperaHotelCode.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getOperaHotelCode.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getOperaHotelCode.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getOperaHotelCode.');
+            }
             const queryParameters = {};
             if (requestParameters.operaHotelCode !== undefined) {
                 queryParameters['operaHotelCode'] = requestParameters.operaHotelCode;
@@ -180,7 +225,7 @@ class DataValueMappingApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ConvertedHotelCodeFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ConvertedHotelCodeFromJSON)(jsonValue));
         });
     }
     /**

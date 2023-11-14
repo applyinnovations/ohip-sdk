@@ -76,7 +76,7 @@ function ResPaymentCardTypeToJSON(value) {
         'cardPresent': value.cardPresent,
         'cardType': (0, CardTypeType_1.CardTypeTypeToJSON)(value.cardType),
         'currentAuthorizedAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.currentAuthorizedAmount),
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substr(0, 10)),
+        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0, 10)),
         'expirationDateExpired': value.expirationDateExpired,
         'expirationDateMasked': value.expirationDateMasked,
         'processing': (0, CardProcessingType_1.CardProcessingTypeToJSON)(value.processing),

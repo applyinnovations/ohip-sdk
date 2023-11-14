@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,21 @@ class ProfileApi extends runtime.BaseAPI {
      */
     postMembershipNumberRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling postMembershipNumber.');
+            }
+            if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
+                throw new runtime.RequiredError('membershipType', 'Required parameter requestParameters.membershipType was null or undefined when calling postMembershipNumber.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postMembershipNumber.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipNumber.');
+            }
+            if (requestParameters.membershipNumber === null || requestParameters.membershipNumber === undefined) {
+                throw new runtime.RequiredError('membershipNumber', 'Required parameter requestParameters.membershipNumber was null or undefined when calling postMembershipNumber.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -78,9 +93,9 @@ class ProfileApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostMembershipNumberRequestToJSON)(requestParameters.membershipNumber),
+                body: (0, index_1.MembershipNumberToJSON)(requestParameters.membershipNumber),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**

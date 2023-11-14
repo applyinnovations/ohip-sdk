@@ -88,7 +88,7 @@ function StagedProfileTypeToJSON(value) {
         'emails': value.emails === undefined ? undefined : (value.emails.map(StagedProfileEmailType_1.StagedProfileEmailTypeToJSON)),
         'hotelId': value.hotelId,
         'identifications': value.identifications === undefined ? undefined : (value.identifications.map(StagedProfileIdentificationsType_1.StagedProfileIdentificationsTypeToJSON)),
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substr(0, 10)),
+        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
         'keywords': value.keywords === undefined ? undefined : (value.keywords.map(StagedProfileKeywordType_1.StagedProfileKeywordTypeToJSON)),
         'mailingActions': (0, MailingActionsType_1.MailingActionsTypeToJSON)(value.mailingActions),
         'memberships': value.memberships === undefined ? undefined : (value.memberships.map(StagedProfileMembershipType_1.StagedProfileMembershipTypeToJSON)),

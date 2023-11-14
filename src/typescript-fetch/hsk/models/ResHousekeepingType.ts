@@ -140,7 +140,7 @@ export function ResHousekeepingTypeToJSON(value?: ResHousekeepingType | null): a
         'housekeepingRoomStatus': HousekeepingRoomStatusTypeToJSON(value.housekeepingRoomStatus),
         'instructions': value.instructions,
         'linenChange': value.linenChange,
-        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substr(0,10)),
+        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substring(0,10)),
         'status': GuestHousekeepingServiceRequestTypeToJSON(value.status),
         'turndownRequested': value.turndownRequested,
     };

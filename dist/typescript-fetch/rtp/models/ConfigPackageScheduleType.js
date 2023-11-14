@@ -58,7 +58,7 @@ function ConfigPackageScheduleTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'maxNights': value.maxNights,
         'maxPersons': value.maxPersons,
         'minNights': value.minNights,
@@ -70,7 +70,7 @@ function ConfigPackageScheduleTypeToJSON(value) {
         'newTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.newTimeSpan),
         'ratePlanCode': value.ratePlanCode,
         'schedulePrices': value.schedulePrices === undefined ? undefined : (value.schedulePrices.map(HotelPackageSchedulePriceType_1.HotelPackageSchedulePriceTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.ConfigPackageScheduleTypeToJSON = ConfigPackageScheduleTypeToJSON;

@@ -15,40 +15,52 @@
 
 import * as runtime from '../runtime';
 import type {
+  ChangeActivityLocations,
   ChangeActivityLocationsRS,
+  ChangeActivityStatusCodes,
   ChangeActivityStatusCodesRS,
+  ChangeActivityTypes,
   ChangeActivityTypesRS,
+  CopyActivityLocations,
   CopyActivityLocationsRS,
-  CopyActivityLocationsRequest,
+  CopyActivityTypes,
   CopyActivityTypesRS,
-  CopyActivityTypesRequest,
+  CreateActivityLocations,
+  CreateActivityStatusCodes,
+  CreateActivityTypes,
   ExceptionDetailType,
   FetchActivityLocations,
   FetchActivityStatusCodes,
   FetchActivityTypes,
-  PostActivityLocationsRequest,
-  PostActivityStatusCodesRequest,
-  PostActivityTypesRequest,
-  PutActivityLocationsRequest,
-  PutActivityStatusCodesRequest,
-  PutActivityTypesRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
+    ChangeActivityLocationsFromJSON,
+    ChangeActivityLocationsToJSON,
     ChangeActivityLocationsRSFromJSON,
     ChangeActivityLocationsRSToJSON,
+    ChangeActivityStatusCodesFromJSON,
+    ChangeActivityStatusCodesToJSON,
     ChangeActivityStatusCodesRSFromJSON,
     ChangeActivityStatusCodesRSToJSON,
+    ChangeActivityTypesFromJSON,
+    ChangeActivityTypesToJSON,
     ChangeActivityTypesRSFromJSON,
     ChangeActivityTypesRSToJSON,
+    CopyActivityLocationsFromJSON,
+    CopyActivityLocationsToJSON,
     CopyActivityLocationsRSFromJSON,
     CopyActivityLocationsRSToJSON,
-    CopyActivityLocationsRequestFromJSON,
-    CopyActivityLocationsRequestToJSON,
+    CopyActivityTypesFromJSON,
+    CopyActivityTypesToJSON,
     CopyActivityTypesRSFromJSON,
     CopyActivityTypesRSToJSON,
-    CopyActivityTypesRequestFromJSON,
-    CopyActivityTypesRequestToJSON,
+    CreateActivityLocationsFromJSON,
+    CreateActivityLocationsToJSON,
+    CreateActivityStatusCodesFromJSON,
+    CreateActivityStatusCodesToJSON,
+    CreateActivityTypesFromJSON,
+    CreateActivityTypesToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     FetchActivityLocationsFromJSON,
@@ -57,87 +69,75 @@ import {
     FetchActivityStatusCodesToJSON,
     FetchActivityTypesFromJSON,
     FetchActivityTypesToJSON,
-    PostActivityLocationsRequestFromJSON,
-    PostActivityLocationsRequestToJSON,
-    PostActivityStatusCodesRequestFromJSON,
-    PostActivityStatusCodesRequestToJSON,
-    PostActivityTypesRequestFromJSON,
-    PostActivityTypesRequestToJSON,
-    PutActivityLocationsRequestFromJSON,
-    PutActivityLocationsRequestToJSON,
-    PutActivityStatusCodesRequestFromJSON,
-    PutActivityStatusCodesRequestToJSON,
-    PutActivityTypesRequestFromJSON,
-    PutActivityTypesRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface CopyActivityLocationsOperationRequest {
-    activityLocationsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyActivityLocations?: CopyActivityLocationsRequest;
+export interface CopyActivityLocationsRequest {
+    activityLocationsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyActivityLocations: CopyActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyActivityTypesOperationRequest {
-    activityTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyActivityTypes?: CopyActivityTypesRequest;
+export interface CopyActivityTypesRequest {
+    activityTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyActivityTypes: CopyActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteActivityLocationsRequest {
-    activityLocationsId?: string;
-    hotelIds?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityLocationsId: string;
+    hotelIds: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteActivityStatusCodesRequest {
-    activityStatusCodesId?: string;
-    hotelIds?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityStatusCodesId: string;
+    hotelIds: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteActivityTypesRequest {
-    activityTypesId?: string;
-    hotelIds?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityTypesId: string;
+    hotelIds: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetActivityLocationsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     criteriaCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetActivityStatusCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     criteriaCodes?: Array<string>;
     applicationCodes?: Array<string>;
     xExternalsystem?: string;
@@ -145,68 +145,68 @@ export interface GetActivityStatusCodesRequest {
 }
 
 export interface GetActivityTypesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     typeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostActivityLocationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createActivityLocations?: PostActivityLocationsRequest;
+export interface PostActivityLocationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createActivityLocations: CreateActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostActivityStatusCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createActivityStatusCodes?: PostActivityStatusCodesRequest;
+export interface PostActivityStatusCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createActivityStatusCodes: CreateActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostActivityTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createActivityTypes?: PostActivityTypesRequest;
+export interface PostActivityTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createActivityTypes: CreateActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutActivityLocationsOperationRequest {
-    activityLocationsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeActivityLocations?: PutActivityLocationsRequest;
+export interface PutActivityLocationsRequest {
+    activityLocationsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeActivityLocations: ChangeActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutActivityStatusCodesOperationRequest {
-    activityStatusCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeActivityStatusCodes?: PutActivityStatusCodesRequest;
+export interface PutActivityStatusCodesRequest {
+    activityStatusCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeActivityStatusCodes: ChangeActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutActivityTypesOperationRequest {
-    activityTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeActivityTypes?: PutActivityTypesRequest;
+export interface PutActivityTypesRequest {
+    activityTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeActivityTypes: ChangeActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -220,7 +220,27 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to copy an Activity location for a property. <p><strong>OperationId:</strong>copyActivityLocations</p>
      * Copy Activity Locations
      */
-    async copyActivityLocationsRaw(requestParameters: CopyActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityLocationsRS>> {
+    async copyActivityLocationsRaw(requestParameters: CopyActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityLocationsRS>> {
+        if (requestParameters.activityLocationsId === null || requestParameters.activityLocationsId === undefined) {
+            throw new runtime.RequiredError('activityLocationsId','Required parameter requestParameters.activityLocationsId was null or undefined when calling copyActivityLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyActivityLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyActivityLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyActivityLocations.');
+        }
+
+        if (requestParameters.copyActivityLocations === null || requestParameters.copyActivityLocations === undefined) {
+            throw new runtime.RequiredError('copyActivityLocations','Required parameter requestParameters.copyActivityLocations was null or undefined when calling copyActivityLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -252,7 +272,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyActivityLocationsRequestToJSON(requestParameters.copyActivityLocations),
+            body: CopyActivityLocationsToJSON(requestParameters.copyActivityLocations),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CopyActivityLocationsRSFromJSON(jsonValue));
@@ -262,7 +282,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to copy an Activity location for a property. <p><strong>OperationId:</strong>copyActivityLocations</p>
      * Copy Activity Locations
      */
-    async copyActivityLocations(requestParameters: CopyActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityLocationsRS> {
+    async copyActivityLocations(requestParameters: CopyActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityLocationsRS> {
         const response = await this.copyActivityLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -271,7 +291,27 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Copy existing Activity Types from source property to target properties. <p><strong>OperationId:</strong>copyActivityTypes</p>
      * Copy Activity Types
      */
-    async copyActivityTypesRaw(requestParameters: CopyActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityTypesRS>> {
+    async copyActivityTypesRaw(requestParameters: CopyActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyActivityTypesRS>> {
+        if (requestParameters.activityTypesId === null || requestParameters.activityTypesId === undefined) {
+            throw new runtime.RequiredError('activityTypesId','Required parameter requestParameters.activityTypesId was null or undefined when calling copyActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyActivityTypes.');
+        }
+
+        if (requestParameters.copyActivityTypes === null || requestParameters.copyActivityTypes === undefined) {
+            throw new runtime.RequiredError('copyActivityTypes','Required parameter requestParameters.copyActivityTypes was null or undefined when calling copyActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -303,7 +343,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyActivityTypesRequestToJSON(requestParameters.copyActivityTypes),
+            body: CopyActivityTypesToJSON(requestParameters.copyActivityTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CopyActivityTypesRSFromJSON(jsonValue));
@@ -313,7 +353,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Copy existing Activity Types from source property to target properties. <p><strong>OperationId:</strong>copyActivityTypes</p>
      * Copy Activity Types
      */
-    async copyActivityTypes(requestParameters: CopyActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityTypesRS> {
+    async copyActivityTypes(requestParameters: CopyActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyActivityTypesRS> {
         const response = await this.copyActivityTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -323,6 +363,26 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Remove Activity Locations
      */
     async deleteActivityLocationsRaw(requestParameters: DeleteActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityLocationsId === null || requestParameters.activityLocationsId === undefined) {
+            throw new runtime.RequiredError('activityLocationsId','Required parameter requestParameters.activityLocationsId was null or undefined when calling deleteActivityLocations.');
+        }
+
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling deleteActivityLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityLocations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds !== undefined) {
@@ -375,6 +435,26 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Remove Activity Status Code
      */
     async deleteActivityStatusCodesRaw(requestParameters: DeleteActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityStatusCodesId === null || requestParameters.activityStatusCodesId === undefined) {
+            throw new runtime.RequiredError('activityStatusCodesId','Required parameter requestParameters.activityStatusCodesId was null or undefined when calling deleteActivityStatusCodes.');
+        }
+
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling deleteActivityStatusCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityStatusCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityStatusCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityStatusCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds !== undefined) {
@@ -427,6 +507,26 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Remove Activity Types
      */
     async deleteActivityTypesRaw(requestParameters: DeleteActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityTypesId === null || requestParameters.activityTypesId === undefined) {
+            throw new runtime.RequiredError('activityTypesId','Required parameter requestParameters.activityTypesId was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds !== undefined) {
@@ -479,6 +579,22 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Look up of Activity Locations
      */
     async getActivityLocationsRaw(requestParameters: GetActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchActivityLocations>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getActivityLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityLocations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -535,6 +651,22 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Get Activity Status Codes
      */
     async getActivityStatusCodesRaw(requestParameters: GetActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchActivityStatusCodes>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getActivityStatusCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityStatusCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityStatusCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityStatusCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -595,6 +727,22 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Fetch Activity Types
      */
     async getActivityTypesRaw(requestParameters: GetActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchActivityTypes>> {
+        if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+            throw new runtime.RequiredError('hotelIds','Required parameter requestParameters.hotelIds was null or undefined when calling getActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -650,7 +798,23 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Activity location for a property. <p><strong>OperationId:</strong>postActivityLocations</p>
      * Create an Activity Locations
      */
-    async postActivityLocationsRaw(requestParameters: PostActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postActivityLocationsRaw(requestParameters: PostActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityLocations.');
+        }
+
+        if (requestParameters.createActivityLocations === null || requestParameters.createActivityLocations === undefined) {
+            throw new runtime.RequiredError('createActivityLocations','Required parameter requestParameters.createActivityLocations was null or undefined when calling postActivityLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -682,7 +846,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostActivityLocationsRequestToJSON(requestParameters.createActivityLocations),
+            body: CreateActivityLocationsToJSON(requestParameters.createActivityLocations),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -692,7 +856,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Activity location for a property. <p><strong>OperationId:</strong>postActivityLocations</p>
      * Create an Activity Locations
      */
-    async postActivityLocations(requestParameters: PostActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postActivityLocations(requestParameters: PostActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postActivityLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -701,7 +865,23 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Retrieve Activity Status Code that are configured for a property.  Activity Status Codes are typically used when an EAS (External Activities Scheduler system) interface is connected to OPERA.   <p><strong>OperationId:</strong>postActivityStatusCodes</p>
      * Create Activity Status Code
      */
-    async postActivityStatusCodesRaw(requestParameters: PostActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postActivityStatusCodesRaw(requestParameters: PostActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityStatusCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityStatusCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityStatusCodes.');
+        }
+
+        if (requestParameters.createActivityStatusCodes === null || requestParameters.createActivityStatusCodes === undefined) {
+            throw new runtime.RequiredError('createActivityStatusCodes','Required parameter requestParameters.createActivityStatusCodes was null or undefined when calling postActivityStatusCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -733,7 +913,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostActivityStatusCodesRequestToJSON(requestParameters.createActivityStatusCodes),
+            body: CreateActivityStatusCodesToJSON(requestParameters.createActivityStatusCodes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -743,7 +923,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Retrieve Activity Status Code that are configured for a property.  Activity Status Codes are typically used when an EAS (External Activities Scheduler system) interface is connected to OPERA.   <p><strong>OperationId:</strong>postActivityStatusCodes</p>
      * Create Activity Status Code
      */
-    async postActivityStatusCodes(requestParameters: PostActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postActivityStatusCodes(requestParameters: PostActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postActivityStatusCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -752,7 +932,23 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Create a new Activity Type Code for a specific property. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create Activity Types
      */
-    async postActivityTypesRaw(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postActivityTypesRaw(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityTypes.');
+        }
+
+        if (requestParameters.createActivityTypes === null || requestParameters.createActivityTypes === undefined) {
+            throw new runtime.RequiredError('createActivityTypes','Required parameter requestParameters.createActivityTypes was null or undefined when calling postActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -784,7 +980,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostActivityTypesRequestToJSON(requestParameters.createActivityTypes),
+            body: CreateActivityTypesToJSON(requestParameters.createActivityTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -794,7 +990,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Create a new Activity Type Code for a specific property. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create Activity Types
      */
-    async postActivityTypes(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postActivityTypes(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postActivityTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -803,7 +999,27 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to update an existing Activity location Code for a property. <p><strong>OperationId:</strong>putActivityLocations</p>
      * Change in Activity Locations
      */
-    async putActivityLocationsRaw(requestParameters: PutActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityLocationsRS>> {
+    async putActivityLocationsRaw(requestParameters: PutActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityLocationsRS>> {
+        if (requestParameters.activityLocationsId === null || requestParameters.activityLocationsId === undefined) {
+            throw new runtime.RequiredError('activityLocationsId','Required parameter requestParameters.activityLocationsId was null or undefined when calling putActivityLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityLocations.');
+        }
+
+        if (requestParameters.changeActivityLocations === null || requestParameters.changeActivityLocations === undefined) {
+            throw new runtime.RequiredError('changeActivityLocations','Required parameter requestParameters.changeActivityLocations was null or undefined when calling putActivityLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -835,7 +1051,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutActivityLocationsRequestToJSON(requestParameters.changeActivityLocations),
+            body: ChangeActivityLocationsToJSON(requestParameters.changeActivityLocations),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangeActivityLocationsRSFromJSON(jsonValue));
@@ -845,7 +1061,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Use this API to update an existing Activity location Code for a property. <p><strong>OperationId:</strong>putActivityLocations</p>
      * Change in Activity Locations
      */
-    async putActivityLocations(requestParameters: PutActivityLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityLocationsRS> {
+    async putActivityLocations(requestParameters: PutActivityLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityLocationsRS> {
         const response = await this.putActivityLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -854,7 +1070,27 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Modify an Activity Status Code that is configured for a property.  <p><strong>OperationId:</strong>putActivityStatusCodes</p>
      * Change Activity Status Code
      */
-    async putActivityStatusCodesRaw(requestParameters: PutActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityStatusCodesRS>> {
+    async putActivityStatusCodesRaw(requestParameters: PutActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityStatusCodesRS>> {
+        if (requestParameters.activityStatusCodesId === null || requestParameters.activityStatusCodesId === undefined) {
+            throw new runtime.RequiredError('activityStatusCodesId','Required parameter requestParameters.activityStatusCodesId was null or undefined when calling putActivityStatusCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityStatusCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityStatusCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityStatusCodes.');
+        }
+
+        if (requestParameters.changeActivityStatusCodes === null || requestParameters.changeActivityStatusCodes === undefined) {
+            throw new runtime.RequiredError('changeActivityStatusCodes','Required parameter requestParameters.changeActivityStatusCodes was null or undefined when calling putActivityStatusCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -886,7 +1122,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutActivityStatusCodesRequestToJSON(requestParameters.changeActivityStatusCodes),
+            body: ChangeActivityStatusCodesToJSON(requestParameters.changeActivityStatusCodes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangeActivityStatusCodesRSFromJSON(jsonValue));
@@ -896,7 +1132,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Modify an Activity Status Code that is configured for a property.  <p><strong>OperationId:</strong>putActivityStatusCodes</p>
      * Change Activity Status Code
      */
-    async putActivityStatusCodes(requestParameters: PutActivityStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityStatusCodesRS> {
+    async putActivityStatusCodes(requestParameters: PutActivityStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityStatusCodesRS> {
         const response = await this.putActivityStatusCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -905,7 +1141,27 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Modify an Activity Type Code that is configured for a property. <p><strong>OperationId:</strong>putActivityTypes</p>
      * Change Activity Types
      */
-    async putActivityTypesRaw(requestParameters: PutActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityTypesRS>> {
+    async putActivityTypesRaw(requestParameters: PutActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeActivityTypesRS>> {
+        if (requestParameters.activityTypesId === null || requestParameters.activityTypesId === undefined) {
+            throw new runtime.RequiredError('activityTypesId','Required parameter requestParameters.activityTypesId was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.changeActivityTypes === null || requestParameters.changeActivityTypes === undefined) {
+            throw new runtime.RequiredError('changeActivityTypes','Required parameter requestParameters.changeActivityTypes was null or undefined when calling putActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -937,7 +1193,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutActivityTypesRequestToJSON(requestParameters.changeActivityTypes),
+            body: ChangeActivityTypesToJSON(requestParameters.changeActivityTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangeActivityTypesRSFromJSON(jsonValue));
@@ -947,7 +1203,7 @@ export class LeisureManagementConfigApi extends runtime.BaseAPI {
      * Modify an Activity Type Code that is configured for a property. <p><strong>OperationId:</strong>putActivityTypes</p>
      * Change Activity Types
      */
-    async putActivityTypes(requestParameters: PutActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityTypesRS> {
+    async putActivityTypes(requestParameters: PutActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeActivityTypesRS> {
         const response = await this.putActivityTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -74,7 +74,7 @@ export function EventOrderTypeToJSON(value?: EventOrderType | null): any {
     return {
         
         'distributed': value.distributed,
-        'distributedDate': value.distributedDate === undefined ? undefined : (value.distributedDate.toISOString().substr(0,10)),
+        'distributedDate': value.distributedDate === undefined ? undefined : (value.distributedDate.toISOString().substring(0,10)),
         'distributedDateTime': value.distributedDateTime,
     };
 }

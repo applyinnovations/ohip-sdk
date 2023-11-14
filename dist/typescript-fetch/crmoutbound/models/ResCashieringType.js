@@ -75,7 +75,7 @@ function ResCashieringTypeToJSON(value) {
         'resPreConfiguredRoutingInstruction': (0, ResPreConfiguredRoutingInstrType_1.ResPreConfiguredRoutingInstrTypeToJSON)(value.resPreConfiguredRoutingInstruction),
         'financiallyResponsible': value.financiallyResponsible,
         'proratedBilling': value.proratedBilling,
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substr(0, 10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0, 10)),
         'reverseCheckInAllowed': value.reverseCheckInAllowed,
         'reverseAdvanceCheckInAllowed': value.reverseAdvanceCheckInAllowed,
         'transactionsPosted': value.transactionsPosted,

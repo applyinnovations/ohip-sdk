@@ -176,7 +176,7 @@ export function ReservationPackageTypeToJSON(value?: ReservationPackageType | nu
         
         'awardCode': value.awardCode,
         'consumptionDetails': PackageConsumptionTypeToJSON(value.consumptionDetails),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'internalID': value.internalID,
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
         'packageCode': value.packageCode,
@@ -186,7 +186,7 @@ export function ReservationPackageTypeToJSON(value?: ReservationPackageType | nu
         'ratePlanCode': value.ratePlanCode,
         'scheduleList': value.scheduleList === undefined ? undefined : ((value.scheduleList as Array<any>).map(ReservationPackageScheduleTypeToJSON)),
         'source': ProductSourceTypeToJSON(value.source),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

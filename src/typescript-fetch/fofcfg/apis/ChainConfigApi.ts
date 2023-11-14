@@ -15,189 +15,189 @@
 
 import * as runtime from '../runtime';
 import type {
+  AutoFolioSettlementTypesCriteria,
   AutoFolioSettlementTypesDetails,
+  AutoFolioSettlementTypesToBeChanged,
+  CashierShiftDropLocationsCriteria,
   CashierShiftDropLocationsDetails,
-  ChangeCashierShiftDropLocationsRequest,
-  ChangeCustomTaxTypesRequest,
-  ChangeFiscalGuestTypesRequest,
-  ChangeFiscalRegionsRequest,
-  ChangeTaxOfficesRequest,
-  ChangeTemplateCashierShiftDropLocationsRequest,
+  CashierShiftDropLocationsToBeChanged,
+  ContractBillingInstructionsCriteria,
   ContractBillingInstructionsDetails,
+  ContractBillingInstructionsToBeChanged,
+  CustomTaxTypesCriteria,
   CustomTaxTypesDetails,
+  CustomTaxTypesToBeChanged,
   ExceptionDetailType,
+  FiscalGuestTypesCriteria,
   FiscalGuestTypesDetails,
+  FiscalGuestTypesToBeChanged,
+  FiscalRegionsCriteria,
   FiscalRegionsDetails,
-  PostAutoFolioSettlementTypesRequest,
-  PostCashierShiftDropLocationsRequest,
-  PostContractBillingInstructionsRequest,
-  PostCustomTaxTypesRequest,
-  PostFiscalGuestTypesRequest,
-  PostFiscalRegionsRequest,
-  PostTaxCategoryCodesRequest,
-  PostTaxOfficesRequest,
-  PostTemplateCashierShiftDropLocationsRequest,
-  PutAutoFolioSettlementTypesRequest,
-  PutContractBillingInstructionsRequest,
-  PutTaxCategoryCodesRequest,
+  FiscalRegionsToBeChanged,
   Status,
+  TaxCategoryCodesCriteria,
   TaxCategoryCodesDetails,
+  TaxCategoryCodesToBeChanged,
+  TaxOfficesCriteria,
   TaxOfficesDetails,
+  TaxOfficesToBeChanged,
+  TemplateCashierShiftDropLocationsCriteria,
   TemplateCashierShiftDropLocationsDetails,
-} from '../models';
+  TemplateCashierShiftDropLocationsToBeChanged,
+} from '../models/index';
 import {
+    AutoFolioSettlementTypesCriteriaFromJSON,
+    AutoFolioSettlementTypesCriteriaToJSON,
     AutoFolioSettlementTypesDetailsFromJSON,
     AutoFolioSettlementTypesDetailsToJSON,
+    AutoFolioSettlementTypesToBeChangedFromJSON,
+    AutoFolioSettlementTypesToBeChangedToJSON,
+    CashierShiftDropLocationsCriteriaFromJSON,
+    CashierShiftDropLocationsCriteriaToJSON,
     CashierShiftDropLocationsDetailsFromJSON,
     CashierShiftDropLocationsDetailsToJSON,
-    ChangeCashierShiftDropLocationsRequestFromJSON,
-    ChangeCashierShiftDropLocationsRequestToJSON,
-    ChangeCustomTaxTypesRequestFromJSON,
-    ChangeCustomTaxTypesRequestToJSON,
-    ChangeFiscalGuestTypesRequestFromJSON,
-    ChangeFiscalGuestTypesRequestToJSON,
-    ChangeFiscalRegionsRequestFromJSON,
-    ChangeFiscalRegionsRequestToJSON,
-    ChangeTaxOfficesRequestFromJSON,
-    ChangeTaxOfficesRequestToJSON,
-    ChangeTemplateCashierShiftDropLocationsRequestFromJSON,
-    ChangeTemplateCashierShiftDropLocationsRequestToJSON,
+    CashierShiftDropLocationsToBeChangedFromJSON,
+    CashierShiftDropLocationsToBeChangedToJSON,
+    ContractBillingInstructionsCriteriaFromJSON,
+    ContractBillingInstructionsCriteriaToJSON,
     ContractBillingInstructionsDetailsFromJSON,
     ContractBillingInstructionsDetailsToJSON,
+    ContractBillingInstructionsToBeChangedFromJSON,
+    ContractBillingInstructionsToBeChangedToJSON,
+    CustomTaxTypesCriteriaFromJSON,
+    CustomTaxTypesCriteriaToJSON,
     CustomTaxTypesDetailsFromJSON,
     CustomTaxTypesDetailsToJSON,
+    CustomTaxTypesToBeChangedFromJSON,
+    CustomTaxTypesToBeChangedToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    FiscalGuestTypesCriteriaFromJSON,
+    FiscalGuestTypesCriteriaToJSON,
     FiscalGuestTypesDetailsFromJSON,
     FiscalGuestTypesDetailsToJSON,
+    FiscalGuestTypesToBeChangedFromJSON,
+    FiscalGuestTypesToBeChangedToJSON,
+    FiscalRegionsCriteriaFromJSON,
+    FiscalRegionsCriteriaToJSON,
     FiscalRegionsDetailsFromJSON,
     FiscalRegionsDetailsToJSON,
-    PostAutoFolioSettlementTypesRequestFromJSON,
-    PostAutoFolioSettlementTypesRequestToJSON,
-    PostCashierShiftDropLocationsRequestFromJSON,
-    PostCashierShiftDropLocationsRequestToJSON,
-    PostContractBillingInstructionsRequestFromJSON,
-    PostContractBillingInstructionsRequestToJSON,
-    PostCustomTaxTypesRequestFromJSON,
-    PostCustomTaxTypesRequestToJSON,
-    PostFiscalGuestTypesRequestFromJSON,
-    PostFiscalGuestTypesRequestToJSON,
-    PostFiscalRegionsRequestFromJSON,
-    PostFiscalRegionsRequestToJSON,
-    PostTaxCategoryCodesRequestFromJSON,
-    PostTaxCategoryCodesRequestToJSON,
-    PostTaxOfficesRequestFromJSON,
-    PostTaxOfficesRequestToJSON,
-    PostTemplateCashierShiftDropLocationsRequestFromJSON,
-    PostTemplateCashierShiftDropLocationsRequestToJSON,
-    PutAutoFolioSettlementTypesRequestFromJSON,
-    PutAutoFolioSettlementTypesRequestToJSON,
-    PutContractBillingInstructionsRequestFromJSON,
-    PutContractBillingInstructionsRequestToJSON,
-    PutTaxCategoryCodesRequestFromJSON,
-    PutTaxCategoryCodesRequestToJSON,
+    FiscalRegionsToBeChangedFromJSON,
+    FiscalRegionsToBeChangedToJSON,
     StatusFromJSON,
     StatusToJSON,
+    TaxCategoryCodesCriteriaFromJSON,
+    TaxCategoryCodesCriteriaToJSON,
     TaxCategoryCodesDetailsFromJSON,
     TaxCategoryCodesDetailsToJSON,
+    TaxCategoryCodesToBeChangedFromJSON,
+    TaxCategoryCodesToBeChangedToJSON,
+    TaxOfficesCriteriaFromJSON,
+    TaxOfficesCriteriaToJSON,
     TaxOfficesDetailsFromJSON,
     TaxOfficesDetailsToJSON,
+    TaxOfficesToBeChangedFromJSON,
+    TaxOfficesToBeChangedToJSON,
+    TemplateCashierShiftDropLocationsCriteriaFromJSON,
+    TemplateCashierShiftDropLocationsCriteriaToJSON,
     TemplateCashierShiftDropLocationsDetailsFromJSON,
     TemplateCashierShiftDropLocationsDetailsToJSON,
-} from '../models';
+    TemplateCashierShiftDropLocationsToBeChangedFromJSON,
+    TemplateCashierShiftDropLocationsToBeChangedToJSON,
+} from '../models/index';
 
-export interface ChangeCashierShiftDropLocationsOperationRequest {
-    dropLocationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierShiftDropLocationsToBeChanged?: ChangeCashierShiftDropLocationsRequest;
+export interface ChangeCashierShiftDropLocationsRequest {
+    dropLocationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierShiftDropLocationsToBeChanged: CashierShiftDropLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCustomTaxTypesOperationRequest {
-    taxTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customTaxTypesToBeChanged?: ChangeCustomTaxTypesRequest;
+export interface ChangeCustomTaxTypesRequest {
+    taxTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customTaxTypesToBeChanged: CustomTaxTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeFiscalGuestTypesOperationRequest {
-    fiscalGuestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalGuestTypesToBeChanged?: ChangeFiscalGuestTypesRequest;
+export interface ChangeFiscalGuestTypesRequest {
+    fiscalGuestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalGuestTypesToBeChanged: FiscalGuestTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeFiscalRegionsOperationRequest {
-    regionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalRegionsToBeChanged?: ChangeFiscalRegionsRequest;
+export interface ChangeFiscalRegionsRequest {
+    regionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalRegionsToBeChanged: FiscalRegionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTaxOfficesOperationRequest {
-    taxOfficeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxOfficesToBeChanged?: ChangeTaxOfficesRequest;
+export interface ChangeTaxOfficesRequest {
+    taxOfficeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxOfficesToBeChanged: TaxOfficesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateCashierShiftDropLocationsOperationRequest {
-    dropLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCashierShiftDropLocationsToBeChanged?: ChangeTemplateCashierShiftDropLocationsRequest;
+export interface ChangeTemplateCashierShiftDropLocationsRequest {
+    dropLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCashierShiftDropLocationsToBeChanged: TemplateCashierShiftDropLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAutoFolioSettlementTypesRequest {
-    code?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteContractBillingInstructionsRequest {
-    contractBillingInstructionsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    contractBillingInstructionsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTaxCategoryCodesRequest {
-    taxCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAutoFolioSettlementTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -207,10 +207,10 @@ export interface GetAutoFolioSettlementTypesRequest {
 }
 
 export interface GetCashierShiftDropLocationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     fetchInactive?: boolean;
     codes?: Array<string>;
@@ -221,9 +221,9 @@ export interface GetCashierShiftDropLocationsRequest {
 }
 
 export interface GetContractBillingInstructionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -233,9 +233,9 @@ export interface GetContractBillingInstructionsRequest {
 }
 
 export interface GetCustomTaxTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -245,9 +245,9 @@ export interface GetCustomTaxTypesRequest {
 }
 
 export interface GetFetchTaxCategoryCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -257,9 +257,9 @@ export interface GetFetchTaxCategoryCodesRequest {
 }
 
 export interface GetFiscalGuestTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -269,9 +269,9 @@ export interface GetFiscalGuestTypesRequest {
 }
 
 export interface GetFiscalRegionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -281,9 +281,9 @@ export interface GetFiscalRegionsRequest {
 }
 
 export interface GetTaxOfficesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -293,9 +293,9 @@ export interface GetTaxOfficesRequest {
 }
 
 export interface GetTemplateCashierShiftDropLocationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -304,169 +304,169 @@ export interface GetTemplateCashierShiftDropLocationsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostAutoFolioSettlementTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoFolioSettlementTypesCriteria?: PostAutoFolioSettlementTypesRequest;
+export interface PostAutoFolioSettlementTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoFolioSettlementTypesCriteria: AutoFolioSettlementTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCashierShiftDropLocationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierShiftDropLocationsCriteria?: PostCashierShiftDropLocationsRequest;
+export interface PostCashierShiftDropLocationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierShiftDropLocationsCriteria: CashierShiftDropLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostContractBillingInstructionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    contractBillingInstructionsCriteria?: PostContractBillingInstructionsRequest;
+export interface PostContractBillingInstructionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    contractBillingInstructionsCriteria: ContractBillingInstructionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCustomTaxTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customTaxTypesCriteria?: PostCustomTaxTypesRequest;
+export interface PostCustomTaxTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customTaxTypesCriteria: CustomTaxTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostFiscalGuestTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalGuestTypesCriteria?: PostFiscalGuestTypesRequest;
+export interface PostFiscalGuestTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalGuestTypesCriteria: FiscalGuestTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostFiscalRegionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalRegionsCriteria?: PostFiscalRegionsRequest;
+export interface PostFiscalRegionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalRegionsCriteria: FiscalRegionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTaxCategoryCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxCategoryCodesCriteria?: PostTaxCategoryCodesRequest;
+export interface PostTaxCategoryCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxCategoryCodesCriteria: TaxCategoryCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTaxOfficesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxOfficesCriteria?: PostTaxOfficesRequest;
+export interface PostTaxOfficesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxOfficesCriteria: TaxOfficesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateCashierShiftDropLocationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCashierShiftDropLocationsCriteria?: PostTemplateCashierShiftDropLocationsRequest;
+export interface PostTemplateCashierShiftDropLocationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCashierShiftDropLocationsCriteria: TemplateCashierShiftDropLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutAutoFolioSettlementTypesOperationRequest {
-    code?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoFolioSettlementTypesToBeChanged?: PutAutoFolioSettlementTypesRequest;
+export interface PutAutoFolioSettlementTypesRequest {
+    code: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoFolioSettlementTypesToBeChanged: AutoFolioSettlementTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutContractBillingInstructionsOperationRequest {
-    contractBillingInstructionsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    contractBillingInstructionsToBeChanged?: PutContractBillingInstructionsRequest;
+export interface PutContractBillingInstructionsRequest {
+    contractBillingInstructionsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    contractBillingInstructionsToBeChanged: ContractBillingInstructionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutTaxCategoryCodesOperationRequest {
-    taxCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxCategoryCodesToBeChanged?: PutTaxCategoryCodesRequest;
+export interface PutTaxCategoryCodesRequest {
+    taxCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxCategoryCodesToBeChanged: TaxCategoryCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    dropLocationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCustomTaxTypesRequest {
-    taxTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveFiscalGuestTypesRequest {
-    fiscalGuestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fiscalGuestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveFiscalRegionsRequest {
-    regionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    regionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTaxOfficesRequest {
-    taxOfficeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxOfficeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    dropLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -480,7 +480,31 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeCashierShiftDropLocations</p>
      * Change Cashier Shift Drop Locations
      */
-    async changeCashierShiftDropLocationsRaw(requestParameters: ChangeCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCashierShiftDropLocationsRaw(requestParameters: ChangeCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.dropLocationId === null || requestParameters.dropLocationId === undefined) {
+            throw new runtime.RequiredError('dropLocationId','Required parameter requestParameters.dropLocationId was null or undefined when calling changeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.cashierShiftDropLocationsToBeChanged === null || requestParameters.cashierShiftDropLocationsToBeChanged === undefined) {
+            throw new runtime.RequiredError('cashierShiftDropLocationsToBeChanged','Required parameter requestParameters.cashierShiftDropLocationsToBeChanged was null or undefined when calling changeCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -512,7 +536,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCashierShiftDropLocationsRequestToJSON(requestParameters.cashierShiftDropLocationsToBeChanged),
+            body: CashierShiftDropLocationsToBeChangedToJSON(requestParameters.cashierShiftDropLocationsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -522,7 +546,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeCashierShiftDropLocations</p>
      * Change Cashier Shift Drop Locations
      */
-    async changeCashierShiftDropLocations(requestParameters: ChangeCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCashierShiftDropLocations(requestParameters: ChangeCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCashierShiftDropLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -531,7 +555,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Custom Tax Types. <p><strong>OperationId:</strong>changeCustomTaxTypes</p>
      * Change Custom Tax Types
      */
-    async changeCustomTaxTypesRaw(requestParameters: ChangeCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCustomTaxTypesRaw(requestParameters: ChangeCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxTypeCode === null || requestParameters.taxTypeCode === undefined) {
+            throw new runtime.RequiredError('taxTypeCode','Required parameter requestParameters.taxTypeCode was null or undefined when calling changeCustomTaxTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCustomTaxTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCustomTaxTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCustomTaxTypes.');
+        }
+
+        if (requestParameters.customTaxTypesToBeChanged === null || requestParameters.customTaxTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('customTaxTypesToBeChanged','Required parameter requestParameters.customTaxTypesToBeChanged was null or undefined when calling changeCustomTaxTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -563,7 +607,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCustomTaxTypesRequestToJSON(requestParameters.customTaxTypesToBeChanged),
+            body: CustomTaxTypesToBeChangedToJSON(requestParameters.customTaxTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -573,7 +617,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Custom Tax Types. <p><strong>OperationId:</strong>changeCustomTaxTypes</p>
      * Change Custom Tax Types
      */
-    async changeCustomTaxTypes(requestParameters: ChangeCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCustomTaxTypes(requestParameters: ChangeCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCustomTaxTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -582,7 +626,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Fiscal Guest Types. <p><strong>OperationId:</strong>changeFiscalGuestTypes</p>
      * Change Fiscal Guest Types
      */
-    async changeFiscalGuestTypesRaw(requestParameters: ChangeFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeFiscalGuestTypesRaw(requestParameters: ChangeFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.fiscalGuestTypeCode === null || requestParameters.fiscalGuestTypeCode === undefined) {
+            throw new runtime.RequiredError('fiscalGuestTypeCode','Required parameter requestParameters.fiscalGuestTypeCode was null or undefined when calling changeFiscalGuestTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeFiscalGuestTypes.');
+        }
+
+        if (requestParameters.fiscalGuestTypesToBeChanged === null || requestParameters.fiscalGuestTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('fiscalGuestTypesToBeChanged','Required parameter requestParameters.fiscalGuestTypesToBeChanged was null or undefined when calling changeFiscalGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -614,7 +678,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeFiscalGuestTypesRequestToJSON(requestParameters.fiscalGuestTypesToBeChanged),
+            body: FiscalGuestTypesToBeChangedToJSON(requestParameters.fiscalGuestTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -624,7 +688,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Fiscal Guest Types. <p><strong>OperationId:</strong>changeFiscalGuestTypes</p>
      * Change Fiscal Guest Types
      */
-    async changeFiscalGuestTypes(requestParameters: ChangeFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeFiscalGuestTypes(requestParameters: ChangeFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeFiscalGuestTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -633,7 +697,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Fiscal Regions. <p><strong>OperationId:</strong>changeFiscalRegions</p>
      * Change Fiscal Regions
      */
-    async changeFiscalRegionsRaw(requestParameters: ChangeFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeFiscalRegionsRaw(requestParameters: ChangeFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.regionCode === null || requestParameters.regionCode === undefined) {
+            throw new runtime.RequiredError('regionCode','Required parameter requestParameters.regionCode was null or undefined when calling changeFiscalRegions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeFiscalRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeFiscalRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeFiscalRegions.');
+        }
+
+        if (requestParameters.fiscalRegionsToBeChanged === null || requestParameters.fiscalRegionsToBeChanged === undefined) {
+            throw new runtime.RequiredError('fiscalRegionsToBeChanged','Required parameter requestParameters.fiscalRegionsToBeChanged was null or undefined when calling changeFiscalRegions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -665,7 +749,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeFiscalRegionsRequestToJSON(requestParameters.fiscalRegionsToBeChanged),
+            body: FiscalRegionsToBeChangedToJSON(requestParameters.fiscalRegionsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -675,7 +759,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Fiscal Regions. <p><strong>OperationId:</strong>changeFiscalRegions</p>
      * Change Fiscal Regions
      */
-    async changeFiscalRegions(requestParameters: ChangeFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeFiscalRegions(requestParameters: ChangeFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeFiscalRegionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -684,7 +768,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Tax Offices. <p><strong>OperationId:</strong>changeTaxOffices</p>
      * Change Tax Offices
      */
-    async changeTaxOfficesRaw(requestParameters: ChangeTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTaxOfficesRaw(requestParameters: ChangeTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxOfficeId === null || requestParameters.taxOfficeId === undefined) {
+            throw new runtime.RequiredError('taxOfficeId','Required parameter requestParameters.taxOfficeId was null or undefined when calling changeTaxOffices.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTaxOffices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTaxOffices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTaxOffices.');
+        }
+
+        if (requestParameters.taxOfficesToBeChanged === null || requestParameters.taxOfficesToBeChanged === undefined) {
+            throw new runtime.RequiredError('taxOfficesToBeChanged','Required parameter requestParameters.taxOfficesToBeChanged was null or undefined when calling changeTaxOffices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -716,7 +820,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTaxOfficesRequestToJSON(requestParameters.taxOfficesToBeChanged),
+            body: TaxOfficesToBeChangedToJSON(requestParameters.taxOfficesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -726,7 +830,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Tax Offices. <p><strong>OperationId:</strong>changeTaxOffices</p>
      * Change Tax Offices
      */
-    async changeTaxOffices(requestParameters: ChangeTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTaxOffices(requestParameters: ChangeTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTaxOfficesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -735,7 +839,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeTemplateCashierShiftDropLocations</p>
      * Change Template Cashier Shift Drop Locations
      */
-    async changeTemplateCashierShiftDropLocationsRaw(requestParameters: ChangeTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateCashierShiftDropLocationsRaw(requestParameters: ChangeTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.dropLocationId === null || requestParameters.dropLocationId === undefined) {
+            throw new runtime.RequiredError('dropLocationId','Required parameter requestParameters.dropLocationId was null or undefined when calling changeTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.templateCashierShiftDropLocationsToBeChanged === null || requestParameters.templateCashierShiftDropLocationsToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateCashierShiftDropLocationsToBeChanged','Required parameter requestParameters.templateCashierShiftDropLocationsToBeChanged was null or undefined when calling changeTemplateCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -767,7 +891,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateCashierShiftDropLocationsRequestToJSON(requestParameters.templateCashierShiftDropLocationsToBeChanged),
+            body: TemplateCashierShiftDropLocationsToBeChangedToJSON(requestParameters.templateCashierShiftDropLocationsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -777,7 +901,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeTemplateCashierShiftDropLocations</p>
      * Change Template Cashier Shift Drop Locations
      */
-    async changeTemplateCashierShiftDropLocations(requestParameters: ChangeTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateCashierShiftDropLocations(requestParameters: ChangeTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateCashierShiftDropLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -787,6 +911,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Auto Folio Settlement Types
      */
     async deleteAutoFolioSettlementTypesRaw(requestParameters: DeleteAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.code === null || requestParameters.code === undefined) {
+            throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling deleteAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoFolioSettlementTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -835,6 +975,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Contract Billing Instructions
      */
     async deleteContractBillingInstructionsRaw(requestParameters: DeleteContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.contractBillingInstructionsId === null || requestParameters.contractBillingInstructionsId === undefined) {
+            throw new runtime.RequiredError('contractBillingInstructionsId','Required parameter requestParameters.contractBillingInstructionsId was null or undefined when calling deleteContractBillingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteContractBillingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteContractBillingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteContractBillingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -883,6 +1039,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Tax Category Codes
      */
     async deleteTaxCategoryCodesRaw(requestParameters: DeleteTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxCategoryCode === null || requestParameters.taxCategoryCode === undefined) {
+            throw new runtime.RequiredError('taxCategoryCode','Required parameter requestParameters.taxCategoryCode was null or undefined when calling deleteTaxCategoryCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTaxCategoryCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -931,6 +1103,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Auto Folio Settlement Types
      */
     async getAutoFolioSettlementTypesRaw(requestParameters: GetAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoFolioSettlementTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoFolioSettlementTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -995,6 +1179,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Cashier Shift Drop Locations
      */
     async getCashierShiftDropLocationsRaw(requestParameters: GetCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashierShiftDropLocationsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -1063,6 +1263,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Contract Billing Instructions
      */
     async getContractBillingInstructionsRaw(requestParameters: GetContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContractBillingInstructionsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getContractBillingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getContractBillingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getContractBillingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1127,6 +1339,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Custom Tax Types
      */
     async getCustomTaxTypesRaw(requestParameters: GetCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomTaxTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCustomTaxTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCustomTaxTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCustomTaxTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1191,6 +1415,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Tax Category Codes
      */
     async getFetchTaxCategoryCodesRaw(requestParameters: GetFetchTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaxCategoryCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFetchTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFetchTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFetchTaxCategoryCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1255,6 +1491,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Fiscal Guest Types
      */
     async getFiscalGuestTypesRaw(requestParameters: GetFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalGuestTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1319,6 +1567,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Fiscal Regions
      */
     async getFiscalRegionsRaw(requestParameters: GetFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalRegionsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getFiscalRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getFiscalRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getFiscalRegions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1383,6 +1643,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Tax Offices
      */
     async getTaxOfficesRaw(requestParameters: GetTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TaxOfficesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTaxOffices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTaxOffices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTaxOffices.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1447,6 +1719,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Template Cashier Shift Drop Locations
      */
     async getTemplateCashierShiftDropLocationsRaw(requestParameters: GetTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateCashierShiftDropLocationsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1510,7 +1794,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Auto Folio Settlement Types. <p><strong>OperationId:</strong>postAutoFolioSettlementTypes</p>
      * Create Auto Folio Settlement Types
      */
-    async postAutoFolioSettlementTypesRaw(requestParameters: PostAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAutoFolioSettlementTypesRaw(requestParameters: PostAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.autoFolioSettlementTypesCriteria === null || requestParameters.autoFolioSettlementTypesCriteria === undefined) {
+            throw new runtime.RequiredError('autoFolioSettlementTypesCriteria','Required parameter requestParameters.autoFolioSettlementTypesCriteria was null or undefined when calling postAutoFolioSettlementTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1542,7 +1842,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoFolioSettlementTypesRequestToJSON(requestParameters.autoFolioSettlementTypesCriteria),
+            body: AutoFolioSettlementTypesCriteriaToJSON(requestParameters.autoFolioSettlementTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1552,7 +1852,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Auto Folio Settlement Types. <p><strong>OperationId:</strong>postAutoFolioSettlementTypes</p>
      * Create Auto Folio Settlement Types
      */
-    async postAutoFolioSettlementTypes(requestParameters: PostAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAutoFolioSettlementTypes(requestParameters: PostAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAutoFolioSettlementTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1561,7 +1861,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postCashierShiftDropLocations</p>
      * Create Cashier Shift Drop Locations
      */
-    async postCashierShiftDropLocationsRaw(requestParameters: PostCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCashierShiftDropLocationsRaw(requestParameters: PostCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.cashierShiftDropLocationsCriteria === null || requestParameters.cashierShiftDropLocationsCriteria === undefined) {
+            throw new runtime.RequiredError('cashierShiftDropLocationsCriteria','Required parameter requestParameters.cashierShiftDropLocationsCriteria was null or undefined when calling postCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1593,7 +1913,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCashierShiftDropLocationsRequestToJSON(requestParameters.cashierShiftDropLocationsCriteria),
+            body: CashierShiftDropLocationsCriteriaToJSON(requestParameters.cashierShiftDropLocationsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1603,7 +1923,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postCashierShiftDropLocations</p>
      * Create Cashier Shift Drop Locations
      */
-    async postCashierShiftDropLocations(requestParameters: PostCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCashierShiftDropLocations(requestParameters: PostCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCashierShiftDropLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1612,7 +1932,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Contract Billing Instructions. <p><strong>OperationId:</strong>postContractBillingInstructions</p>
      * Create Contract Billing Instructions
      */
-    async postContractBillingInstructionsRaw(requestParameters: PostContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postContractBillingInstructionsRaw(requestParameters: PostContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postContractBillingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postContractBillingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postContractBillingInstructions.');
+        }
+
+        if (requestParameters.contractBillingInstructionsCriteria === null || requestParameters.contractBillingInstructionsCriteria === undefined) {
+            throw new runtime.RequiredError('contractBillingInstructionsCriteria','Required parameter requestParameters.contractBillingInstructionsCriteria was null or undefined when calling postContractBillingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1644,7 +1980,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostContractBillingInstructionsRequestToJSON(requestParameters.contractBillingInstructionsCriteria),
+            body: ContractBillingInstructionsCriteriaToJSON(requestParameters.contractBillingInstructionsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1654,7 +1990,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Contract Billing Instructions. <p><strong>OperationId:</strong>postContractBillingInstructions</p>
      * Create Contract Billing Instructions
      */
-    async postContractBillingInstructions(requestParameters: PostContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postContractBillingInstructions(requestParameters: PostContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postContractBillingInstructionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1663,7 +1999,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Custom Tax Types. <p><strong>OperationId:</strong>postCustomTaxTypes</p>
      * Create Custom Tax Types
      */
-    async postCustomTaxTypesRaw(requestParameters: PostCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCustomTaxTypesRaw(requestParameters: PostCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCustomTaxTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCustomTaxTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCustomTaxTypes.');
+        }
+
+        if (requestParameters.customTaxTypesCriteria === null || requestParameters.customTaxTypesCriteria === undefined) {
+            throw new runtime.RequiredError('customTaxTypesCriteria','Required parameter requestParameters.customTaxTypesCriteria was null or undefined when calling postCustomTaxTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1695,7 +2047,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCustomTaxTypesRequestToJSON(requestParameters.customTaxTypesCriteria),
+            body: CustomTaxTypesCriteriaToJSON(requestParameters.customTaxTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1705,7 +2057,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Custom Tax Types. <p><strong>OperationId:</strong>postCustomTaxTypes</p>
      * Create Custom Tax Types
      */
-    async postCustomTaxTypes(requestParameters: PostCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCustomTaxTypes(requestParameters: PostCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCustomTaxTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1714,7 +2066,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Fiscal Guest Types. <p><strong>OperationId:</strong>postFiscalGuestTypes</p>
      * Create Fiscal Guest Types
      */
-    async postFiscalGuestTypesRaw(requestParameters: PostFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postFiscalGuestTypesRaw(requestParameters: PostFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalGuestTypes.');
+        }
+
+        if (requestParameters.fiscalGuestTypesCriteria === null || requestParameters.fiscalGuestTypesCriteria === undefined) {
+            throw new runtime.RequiredError('fiscalGuestTypesCriteria','Required parameter requestParameters.fiscalGuestTypesCriteria was null or undefined when calling postFiscalGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1746,7 +2114,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFiscalGuestTypesRequestToJSON(requestParameters.fiscalGuestTypesCriteria),
+            body: FiscalGuestTypesCriteriaToJSON(requestParameters.fiscalGuestTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1756,7 +2124,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Fiscal Guest Types. <p><strong>OperationId:</strong>postFiscalGuestTypes</p>
      * Create Fiscal Guest Types
      */
-    async postFiscalGuestTypes(requestParameters: PostFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postFiscalGuestTypes(requestParameters: PostFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postFiscalGuestTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1765,7 +2133,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Fiscal Regions. <p><strong>OperationId:</strong>postFiscalRegions</p>
      * Create Fiscal Regions
      */
-    async postFiscalRegionsRaw(requestParameters: PostFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postFiscalRegionsRaw(requestParameters: PostFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postFiscalRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postFiscalRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postFiscalRegions.');
+        }
+
+        if (requestParameters.fiscalRegionsCriteria === null || requestParameters.fiscalRegionsCriteria === undefined) {
+            throw new runtime.RequiredError('fiscalRegionsCriteria','Required parameter requestParameters.fiscalRegionsCriteria was null or undefined when calling postFiscalRegions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1797,7 +2181,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFiscalRegionsRequestToJSON(requestParameters.fiscalRegionsCriteria),
+            body: FiscalRegionsCriteriaToJSON(requestParameters.fiscalRegionsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1807,7 +2191,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Fiscal Regions. <p><strong>OperationId:</strong>postFiscalRegions</p>
      * Create Fiscal Regions
      */
-    async postFiscalRegions(requestParameters: PostFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postFiscalRegions(requestParameters: PostFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postFiscalRegionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1816,7 +2200,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Tax Category Codes. <p><strong>OperationId:</strong>postTaxCategoryCodes</p>
      * Create Tax Category Codes
      */
-    async postTaxCategoryCodesRaw(requestParameters: PostTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTaxCategoryCodesRaw(requestParameters: PostTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTaxCategoryCodes.');
+        }
+
+        if (requestParameters.taxCategoryCodesCriteria === null || requestParameters.taxCategoryCodesCriteria === undefined) {
+            throw new runtime.RequiredError('taxCategoryCodesCriteria','Required parameter requestParameters.taxCategoryCodesCriteria was null or undefined when calling postTaxCategoryCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1848,7 +2248,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTaxCategoryCodesRequestToJSON(requestParameters.taxCategoryCodesCriteria),
+            body: TaxCategoryCodesCriteriaToJSON(requestParameters.taxCategoryCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1858,7 +2258,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Tax Category Codes. <p><strong>OperationId:</strong>postTaxCategoryCodes</p>
      * Create Tax Category Codes
      */
-    async postTaxCategoryCodes(requestParameters: PostTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTaxCategoryCodes(requestParameters: PostTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTaxCategoryCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1867,7 +2267,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Tax Offices. <p><strong>OperationId:</strong>postTaxOffices</p>
      * Create Tax Offices
      */
-    async postTaxOfficesRaw(requestParameters: PostTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTaxOfficesRaw(requestParameters: PostTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTaxOffices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTaxOffices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTaxOffices.');
+        }
+
+        if (requestParameters.taxOfficesCriteria === null || requestParameters.taxOfficesCriteria === undefined) {
+            throw new runtime.RequiredError('taxOfficesCriteria','Required parameter requestParameters.taxOfficesCriteria was null or undefined when calling postTaxOffices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1899,7 +2315,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTaxOfficesRequestToJSON(requestParameters.taxOfficesCriteria),
+            body: TaxOfficesCriteriaToJSON(requestParameters.taxOfficesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1909,7 +2325,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Tax Offices. <p><strong>OperationId:</strong>postTaxOffices</p>
      * Create Tax Offices
      */
-    async postTaxOffices(requestParameters: PostTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTaxOffices(requestParameters: PostTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTaxOfficesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1918,7 +2334,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postTemplateCashierShiftDropLocations</p>
      * Create Template Cashier Shift Drop Locations
      */
-    async postTemplateCashierShiftDropLocationsRaw(requestParameters: PostTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateCashierShiftDropLocationsRaw(requestParameters: PostTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.templateCashierShiftDropLocationsCriteria === null || requestParameters.templateCashierShiftDropLocationsCriteria === undefined) {
+            throw new runtime.RequiredError('templateCashierShiftDropLocationsCriteria','Required parameter requestParameters.templateCashierShiftDropLocationsCriteria was null or undefined when calling postTemplateCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1950,7 +2382,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateCashierShiftDropLocationsRequestToJSON(requestParameters.templateCashierShiftDropLocationsCriteria),
+            body: TemplateCashierShiftDropLocationsCriteriaToJSON(requestParameters.templateCashierShiftDropLocationsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1960,7 +2392,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postTemplateCashierShiftDropLocations</p>
      * Create Template Cashier Shift Drop Locations
      */
-    async postTemplateCashierShiftDropLocations(requestParameters: PostTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateCashierShiftDropLocations(requestParameters: PostTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateCashierShiftDropLocationsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1969,7 +2401,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Auto Folio Settlement Types. <p><strong>OperationId:</strong>putAutoFolioSettlementTypes</p>
      * Change Auto Folio Settlement Types
      */
-    async putAutoFolioSettlementTypesRaw(requestParameters: PutAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putAutoFolioSettlementTypesRaw(requestParameters: PutAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.code === null || requestParameters.code === undefined) {
+            throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling putAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAutoFolioSettlementTypes.');
+        }
+
+        if (requestParameters.autoFolioSettlementTypesToBeChanged === null || requestParameters.autoFolioSettlementTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('autoFolioSettlementTypesToBeChanged','Required parameter requestParameters.autoFolioSettlementTypesToBeChanged was null or undefined when calling putAutoFolioSettlementTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2001,7 +2453,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAutoFolioSettlementTypesRequestToJSON(requestParameters.autoFolioSettlementTypesToBeChanged),
+            body: AutoFolioSettlementTypesToBeChangedToJSON(requestParameters.autoFolioSettlementTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2011,7 +2463,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Auto Folio Settlement Types. <p><strong>OperationId:</strong>putAutoFolioSettlementTypes</p>
      * Change Auto Folio Settlement Types
      */
-    async putAutoFolioSettlementTypes(requestParameters: PutAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putAutoFolioSettlementTypes(requestParameters: PutAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putAutoFolioSettlementTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2020,7 +2472,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Contract Billing Instructions. <p><strong>OperationId:</strong>putContractBillingInstructions</p>
      * Change Contract Billing Instructions
      */
-    async putContractBillingInstructionsRaw(requestParameters: PutContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putContractBillingInstructionsRaw(requestParameters: PutContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.contractBillingInstructionsId === null || requestParameters.contractBillingInstructionsId === undefined) {
+            throw new runtime.RequiredError('contractBillingInstructionsId','Required parameter requestParameters.contractBillingInstructionsId was null or undefined when calling putContractBillingInstructions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putContractBillingInstructions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putContractBillingInstructions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putContractBillingInstructions.');
+        }
+
+        if (requestParameters.contractBillingInstructionsToBeChanged === null || requestParameters.contractBillingInstructionsToBeChanged === undefined) {
+            throw new runtime.RequiredError('contractBillingInstructionsToBeChanged','Required parameter requestParameters.contractBillingInstructionsToBeChanged was null or undefined when calling putContractBillingInstructions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2052,7 +2524,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutContractBillingInstructionsRequestToJSON(requestParameters.contractBillingInstructionsToBeChanged),
+            body: ContractBillingInstructionsToBeChangedToJSON(requestParameters.contractBillingInstructionsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2062,7 +2534,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Contract Billing Instructions. <p><strong>OperationId:</strong>putContractBillingInstructions</p>
      * Change Contract Billing Instructions
      */
-    async putContractBillingInstructions(requestParameters: PutContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putContractBillingInstructions(requestParameters: PutContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putContractBillingInstructionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2071,7 +2543,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Tax Category Codes. <p><strong>OperationId:</strong>putTaxCategoryCodes</p>
      * Change Tax Category Codes
      */
-    async putTaxCategoryCodesRaw(requestParameters: PutTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putTaxCategoryCodesRaw(requestParameters: PutTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxCategoryCode === null || requestParameters.taxCategoryCode === undefined) {
+            throw new runtime.RequiredError('taxCategoryCode','Required parameter requestParameters.taxCategoryCode was null or undefined when calling putTaxCategoryCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTaxCategoryCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTaxCategoryCodes.');
+        }
+
+        if (requestParameters.taxCategoryCodesToBeChanged === null || requestParameters.taxCategoryCodesToBeChanged === undefined) {
+            throw new runtime.RequiredError('taxCategoryCodesToBeChanged','Required parameter requestParameters.taxCategoryCodesToBeChanged was null or undefined when calling putTaxCategoryCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2103,7 +2595,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTaxCategoryCodesRequestToJSON(requestParameters.taxCategoryCodesToBeChanged),
+            body: TaxCategoryCodesToBeChangedToJSON(requestParameters.taxCategoryCodesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2113,7 +2605,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Tax Category Codes. <p><strong>OperationId:</strong>putTaxCategoryCodes</p>
      * Change Tax Category Codes
      */
-    async putTaxCategoryCodes(requestParameters: PutTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putTaxCategoryCodes(requestParameters: PutTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putTaxCategoryCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2123,6 +2615,26 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Cashier Shift Drop Locations
      */
     async removeCashierShiftDropLocationsRaw(requestParameters: RemoveCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.dropLocationId === null || requestParameters.dropLocationId === undefined) {
+            throw new runtime.RequiredError('dropLocationId','Required parameter requestParameters.dropLocationId was null or undefined when calling removeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2171,6 +2683,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Custom Tax Types
      */
     async removeCustomTaxTypesRaw(requestParameters: RemoveCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxTypeCode === null || requestParameters.taxTypeCode === undefined) {
+            throw new runtime.RequiredError('taxTypeCode','Required parameter requestParameters.taxTypeCode was null or undefined when calling removeCustomTaxTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCustomTaxTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCustomTaxTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCustomTaxTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2219,6 +2747,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Fiscal Guest Types
      */
     async removeFiscalGuestTypesRaw(requestParameters: RemoveFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.fiscalGuestTypeCode === null || requestParameters.fiscalGuestTypeCode === undefined) {
+            throw new runtime.RequiredError('fiscalGuestTypeCode','Required parameter requestParameters.fiscalGuestTypeCode was null or undefined when calling removeFiscalGuestTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeFiscalGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeFiscalGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2267,6 +2811,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Fiscal Regions
      */
     async removeFiscalRegionsRaw(requestParameters: RemoveFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.regionCode === null || requestParameters.regionCode === undefined) {
+            throw new runtime.RequiredError('regionCode','Required parameter requestParameters.regionCode was null or undefined when calling removeFiscalRegions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeFiscalRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeFiscalRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeFiscalRegions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2315,6 +2875,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Tax Offices
      */
     async removeTaxOfficesRaw(requestParameters: RemoveTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.taxOfficeId === null || requestParameters.taxOfficeId === undefined) {
+            throw new runtime.RequiredError('taxOfficeId','Required parameter requestParameters.taxOfficeId was null or undefined when calling removeTaxOffices.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTaxOffices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTaxOffices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTaxOffices.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2363,6 +2939,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Template Cashier Shift Drop Locations
      */
     async removeTemplateCashierShiftDropLocationsRaw(requestParameters: RemoveTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.dropLocationId === null || requestParameters.dropLocationId === undefined) {
+            throw new runtime.RequiredError('dropLocationId','Required parameter requestParameters.dropLocationId was null or undefined when calling removeTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateCashierShiftDropLocations.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateCashierShiftDropLocations.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

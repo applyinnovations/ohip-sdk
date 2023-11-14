@@ -90,7 +90,7 @@ export function BlockWashScheduleTypeToJSON(value?: BlockWashScheduleType | null
         'roomTypes': value.roomTypes,
         'washByPercent': value.washByPercent,
         'washByRooms': BlockGridInvTypeToJSON(value.washByRooms),
-        'washDate': value.washDate === undefined ? undefined : (value.washDate.toISOString().substr(0,10)),
+        'washDate': value.washDate === undefined ? undefined : (value.washDate.toISOString().substring(0,10)),
     };
 }
 

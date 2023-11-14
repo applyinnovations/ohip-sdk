@@ -53,12 +53,12 @@ function ChannelAccountSetupDetailsTypeToJSON(value) {
     }
     return {
         'chainCode': value.chainCode,
-        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substr(0, 10)),
+        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0, 10)),
         'currencyCode': value.currencyCode,
         'hotelCodes': (0, CodeListType_1.CodeListTypeToJSON)(value.hotelCodes),
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
         'instances': (0, CodeListType_1.CodeListTypeToJSON)(value.instances),
-        'rebateDate': value.rebateDate === undefined ? undefined : (value.rebateDate.toISOString().substr(0, 10)),
+        'rebateDate': value.rebateDate === undefined ? undefined : (value.rebateDate.toISOString().substring(0, 10)),
         'registeredHotel': value.registeredHotel,
     };
 }

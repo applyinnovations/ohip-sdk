@@ -110,11 +110,11 @@ export function MembershipTransactionRateTypeToJSON(value?: MembershipTransactio
         
         'centralRateAmount': CurrencyAmountTypeToJSON(value.centralRateAmount),
         'currency': value.currency,
-        'fromDate': value.fromDate === undefined ? undefined : (value.fromDate.toISOString().substr(0,10)),
+        'fromDate': value.fromDate === undefined ? undefined : (value.fromDate.toISOString().substring(0,10)),
         'marketCode': value.marketCode,
         'pMSRateAmount': CurrencyAmountTypeToJSON(value.pMSRateAmount),
         'rateCode': value.rateCode,
-        'toDate': value.toDate === undefined ? undefined : (value.toDate.toISOString().substr(0,10)),
+        'toDate': value.toDate === undefined ? undefined : (value.toDate.toISOString().substring(0,10)),
     };
 }
 

@@ -1,6 +1,5 @@
 export * from './ActivityLogListType';
 export * from './ActivityLogType';
-export * from './ChangeExportSchedulesByChainRequest';
 export * from './ErrorInstance';
 export * from './ExceptionDetailType';
 export * from './ExpDataSourceColumnType';
@@ -76,10 +75,6 @@ export * from './GeneratedExportType';
 export * from './GeneratedExports';
 export * from './InstanceLink';
 export * from './Links';
-export * from './PostExportSchedulesRequest';
-export * from './PutExportMappingCodesRequest';
-export * from './PutExportMappingLinkedTypesRequest';
-export * from './PutExportMappingsRequest';
 export * from './ScheduleExportGroupType';
 export * from './Status';
 export * from './TransportMethodType';

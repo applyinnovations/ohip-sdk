@@ -16,41 +16,59 @@
 import * as runtime from '../runtime';
 import type {
   AdjustmentReasonsDetailsUpdated,
+  ChangeAdjustmentReasonsDetails,
+  ChangeRevenueTransactionCodesCriteria,
   ChangeRevenueTransactionCodesDetails,
+  ChangeRoomOwnerDetails,
+  ChangeRoomOwnerReferralDetails,
   ChangeRotationPeriodDetails,
+  ChangeUnitGradesDetails,
+  CreateAdjustmentReasonsDetails,
+  CreateRoomOwnerDetails,
+  CreateRoomOwnerReferralDetails,
+  CreateUnitGradesDetails,
   ExceptionDetailType,
   FetchAdjustmentReasonsDetails,
   FetchRevenueTransactionCodesDetails,
   FetchRotationPeriod,
   FetchRotationRules,
   FetchUnitGradesDetails,
+  OverrideReasonsCriteria,
   OverrideReasonsDetails,
-  PostAdjustmentReasonsRequest,
-  PostOverrideReasonsRequest,
-  PostRoomOwnerReferralsRequest,
-  PostRoomOwnerRequest,
-  PostRoomRotationRulesRequest,
-  PostRotationRulesRequest,
-  PostUnitGradesRequest,
-  PutAdjustmentReasonsRequest,
-  PutOverrideReasonsRequest,
-  PutRevenueTransactionCodesRequest,
-  PutRoomOwnerReferralRequest,
-  PutRoomOwnerRequest,
-  PutRotationPeriodRequest,
-  PutUnitGradesRequest,
+  OverrideReasonsToBeChanged,
   RoomOwnerReferralDetails,
   RoomOwnershipDetails,
+  RoomRotationRules,
+  RotationPeriod,
+  RotationRules,
   Status,
   UnitGradesDetailsUpdated,
-} from '../models';
+} from '../models/index';
 import {
     AdjustmentReasonsDetailsUpdatedFromJSON,
     AdjustmentReasonsDetailsUpdatedToJSON,
+    ChangeAdjustmentReasonsDetailsFromJSON,
+    ChangeAdjustmentReasonsDetailsToJSON,
+    ChangeRevenueTransactionCodesCriteriaFromJSON,
+    ChangeRevenueTransactionCodesCriteriaToJSON,
     ChangeRevenueTransactionCodesDetailsFromJSON,
     ChangeRevenueTransactionCodesDetailsToJSON,
+    ChangeRoomOwnerDetailsFromJSON,
+    ChangeRoomOwnerDetailsToJSON,
+    ChangeRoomOwnerReferralDetailsFromJSON,
+    ChangeRoomOwnerReferralDetailsToJSON,
     ChangeRotationPeriodDetailsFromJSON,
     ChangeRotationPeriodDetailsToJSON,
+    ChangeUnitGradesDetailsFromJSON,
+    ChangeUnitGradesDetailsToJSON,
+    CreateAdjustmentReasonsDetailsFromJSON,
+    CreateAdjustmentReasonsDetailsToJSON,
+    CreateRoomOwnerDetailsFromJSON,
+    CreateRoomOwnerDetailsToJSON,
+    CreateRoomOwnerReferralDetailsFromJSON,
+    CreateRoomOwnerReferralDetailsToJSON,
+    CreateUnitGradesDetailsFromJSON,
+    CreateUnitGradesDetailsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     FetchAdjustmentReasonsDetailsFromJSON,
@@ -63,111 +81,93 @@ import {
     FetchRotationRulesToJSON,
     FetchUnitGradesDetailsFromJSON,
     FetchUnitGradesDetailsToJSON,
+    OverrideReasonsCriteriaFromJSON,
+    OverrideReasonsCriteriaToJSON,
     OverrideReasonsDetailsFromJSON,
     OverrideReasonsDetailsToJSON,
-    PostAdjustmentReasonsRequestFromJSON,
-    PostAdjustmentReasonsRequestToJSON,
-    PostOverrideReasonsRequestFromJSON,
-    PostOverrideReasonsRequestToJSON,
-    PostRoomOwnerReferralsRequestFromJSON,
-    PostRoomOwnerReferralsRequestToJSON,
-    PostRoomOwnerRequestFromJSON,
-    PostRoomOwnerRequestToJSON,
-    PostRoomRotationRulesRequestFromJSON,
-    PostRoomRotationRulesRequestToJSON,
-    PostRotationRulesRequestFromJSON,
-    PostRotationRulesRequestToJSON,
-    PostUnitGradesRequestFromJSON,
-    PostUnitGradesRequestToJSON,
-    PutAdjustmentReasonsRequestFromJSON,
-    PutAdjustmentReasonsRequestToJSON,
-    PutOverrideReasonsRequestFromJSON,
-    PutOverrideReasonsRequestToJSON,
-    PutRevenueTransactionCodesRequestFromJSON,
-    PutRevenueTransactionCodesRequestToJSON,
-    PutRoomOwnerReferralRequestFromJSON,
-    PutRoomOwnerReferralRequestToJSON,
-    PutRoomOwnerRequestFromJSON,
-    PutRoomOwnerRequestToJSON,
-    PutRotationPeriodRequestFromJSON,
-    PutRotationPeriodRequestToJSON,
-    PutUnitGradesRequestFromJSON,
-    PutUnitGradesRequestToJSON,
+    OverrideReasonsToBeChangedFromJSON,
+    OverrideReasonsToBeChangedToJSON,
     RoomOwnerReferralDetailsFromJSON,
     RoomOwnerReferralDetailsToJSON,
     RoomOwnershipDetailsFromJSON,
     RoomOwnershipDetailsToJSON,
+    RoomRotationRulesFromJSON,
+    RoomRotationRulesToJSON,
+    RotationPeriodFromJSON,
+    RotationPeriodToJSON,
+    RotationRulesFromJSON,
+    RotationRulesToJSON,
     StatusFromJSON,
     StatusToJSON,
     UnitGradesDetailsUpdatedFromJSON,
     UnitGradesDetailsUpdatedToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteAdjustmentReasonsRequest {
-    adjustmentReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    adjustmentReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteOverrideReasonsRequest {
-    overrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    overrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomOwnerRequest {
-    roomOwnershipId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomOwnershipId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     overrideReferralCheck?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomOwnerReferralRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    roomOwnerReferralId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ruleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteUnitGradesRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    unitGradeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAdjustmentReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     code?: Array<string>;
     wildCard?: string;
@@ -177,9 +177,9 @@ export interface GetAdjustmentReasonsRequest {
 }
 
 export interface GetOverrideReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     code?: Array<string>;
     wildCard?: string;
@@ -189,49 +189,49 @@ export interface GetOverrideReasonsRequest {
 }
 
 export interface GetProfileRoomOwnersRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     showInactiveRoomOwners?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRevenueTransactionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rotationRevenue?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRoomOwnerReferralsRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRotationPeriodRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRotationRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     setupType?: GetRotationRulesSetupTypeEnum;
@@ -241,10 +241,10 @@ export interface GetRotationRulesRequest {
 }
 
 export interface GetUnitGradesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     fetchInactive?: boolean;
     code?: Array<string>;
@@ -254,151 +254,151 @@ export interface GetUnitGradesRequest {
     acceptLanguage?: string;
 }
 
-export interface PostAdjustmentReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createAdjustmentReasonsDetails?: PostAdjustmentReasonsRequest;
+export interface PostAdjustmentReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createAdjustmentReasonsDetails: CreateAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostOverrideReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    overrideReasonsCriteria?: PostOverrideReasonsRequest;
+export interface PostOverrideReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    overrideReasonsCriteria: OverrideReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomOwnerOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createRoomOwnerDetails?: PostRoomOwnerRequest;
+export interface PostRoomOwnerRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createRoomOwnerDetails: CreateRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomOwnerReferralsOperationRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createRoomOwnerReferralDetails?: PostRoomOwnerReferralsRequest;
+export interface PostRoomOwnerReferralsRequest {
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createRoomOwnerReferralDetails: CreateRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomRotationRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationRules?: PostRoomRotationRulesRequest;
+export interface PostRoomRotationRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationRules: RoomRotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRotationRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationRules?: PostRotationRulesRequest;
+export interface PostRotationRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostUnitGradesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createUnitGradesDetails?: PostUnitGradesRequest;
+export interface PostUnitGradesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createUnitGradesDetails: CreateUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutAdjustmentReasonsOperationRequest {
-    adjustmentReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeAdjustmentReasonsDetails?: PutAdjustmentReasonsRequest;
+export interface PutAdjustmentReasonsRequest {
+    adjustmentReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeAdjustmentReasonsDetails: ChangeAdjustmentReasonsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutOverrideReasonsOperationRequest {
-    overrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    overrideReasonsToBeChanged?: PutOverrideReasonsRequest;
+export interface PutOverrideReasonsRequest {
+    overrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    overrideReasonsToBeChanged: OverrideReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRevenueTransactionCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeRevenueTransactionCodesCriteria?: PutRevenueTransactionCodesRequest;
+export interface PutRevenueTransactionCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeRevenueTransactionCodesCriteria: ChangeRevenueTransactionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoomOwnerOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeRoomOwnerDetails?: PutRoomOwnerRequest;
+export interface PutRoomOwnerRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeRoomOwnerDetails: ChangeRoomOwnerDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoomOwnerReferralOperationRequest {
-    profileId?: string;
-    roomOwnerReferralId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeRoomOwnerReferralDetails?: PutRoomOwnerReferralRequest;
+export interface PutRoomOwnerReferralRequest {
+    profileId: string;
+    roomOwnerReferralId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeRoomOwnerReferralDetails: ChangeRoomOwnerReferralDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRotationPeriodOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationPeriod?: PutRotationPeriodRequest;
+export interface PutRotationPeriodRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationPeriod: RotationPeriod;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRotationRulesRequest {
-    ruleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rotationRules?: PostRotationRulesRequest;
+    ruleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rotationRules: RotationRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutUnitGradesOperationRequest {
-    unitGradeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeUnitGradesDetails?: PutUnitGradesRequest;
+export interface PutUnitGradesRequest {
+    unitGradeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeUnitGradesDetails: ChangeUnitGradesDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -413,6 +413,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Delete Room Rotation Adjustment Reasons
      */
     async deleteAdjustmentReasonsRaw(requestParameters: DeleteAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.adjustmentReasonsId === null || requestParameters.adjustmentReasonsId === undefined) {
+            throw new runtime.RequiredError('adjustmentReasonsId','Required parameter requestParameters.adjustmentReasonsId was null or undefined when calling deleteAdjustmentReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAdjustmentReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAdjustmentReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAdjustmentReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -465,6 +481,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Delete an existing Room Rotation Override Reason
      */
     async deleteOverrideReasonsRaw(requestParameters: DeleteOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.overrideReasonsId === null || requestParameters.overrideReasonsId === undefined) {
+            throw new runtime.RequiredError('overrideReasonsId','Required parameter requestParameters.overrideReasonsId was null or undefined when calling deleteOverrideReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -517,6 +549,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Delete Room Ownership Record
      */
     async deleteRoomOwnerRaw(requestParameters: DeleteRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomOwnershipId === null || requestParameters.roomOwnershipId === undefined) {
+            throw new runtime.RequiredError('roomOwnershipId','Required parameter requestParameters.roomOwnershipId was null or undefined when calling deleteRoomOwner.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomOwner.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomOwner.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomOwner.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.overrideReferralCheck !== undefined) {
@@ -569,6 +617,26 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Delete Room Owner Referral Record
      */
     async deleteRoomOwnerReferralRaw(requestParameters: DeleteRoomOwnerReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling deleteRoomOwnerReferral.');
+        }
+
+        if (requestParameters.roomOwnerReferralId === null || requestParameters.roomOwnerReferralId === undefined) {
+            throw new runtime.RequiredError('roomOwnerReferralId','Required parameter requestParameters.roomOwnerReferralId was null or undefined when calling deleteRoomOwnerReferral.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomOwnerReferral.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomOwnerReferral.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomOwnerReferral.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -615,8 +683,29 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Delete an existing Room Rotation Rule
+     * @deprecated
      */
     async deleteRotationRulesRaw(requestParameters: DeleteRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ruleId === null || requestParameters.ruleId === undefined) {
+            throw new runtime.RequiredError('ruleId','Required parameter requestParameters.ruleId was null or undefined when calling deleteRotationRules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRotationRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRotationRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRotationRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRotationRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -654,6 +743,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Delete an existing Room Rotation Rule
+     * @deprecated
      */
     async deleteRotationRules(requestParameters: DeleteRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.deleteRotationRulesRaw(requestParameters, initOverrides);
@@ -665,6 +755,26 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Delete an existing Room Rotation Owner Room Unit Grade
      */
     async deleteUnitGradesRaw(requestParameters: DeleteUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.unitGradeCode === null || requestParameters.unitGradeCode === undefined) {
+            throw new runtime.RequiredError('unitGradeCode','Required parameter requestParameters.unitGradeCode was null or undefined when calling deleteUnitGrades.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteUnitGrades.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteUnitGrades.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteUnitGrades.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteUnitGrades.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.code) {
@@ -717,6 +827,18 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Get Room Rotation Adjustment Reasons
      */
     async getAdjustmentReasonsRaw(requestParameters: GetAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchAdjustmentReasonsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAdjustmentReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAdjustmentReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAdjustmentReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -781,6 +903,18 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Get Room Rotation Override Reasons
      */
     async getOverrideReasonsRaw(requestParameters: GetOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OverrideReasonsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -845,6 +979,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Get Profile Room Ownership Records
      */
     async getProfileRoomOwnersRaw(requestParameters: GetProfileRoomOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getProfileRoomOwners.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getProfileRoomOwners.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getProfileRoomOwners.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getProfileRoomOwners.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.showInactiveRoomOwners !== undefined) {
@@ -897,6 +1047,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Retrieve all Room Rotation Revenue Transaction Codes
      */
     async getRevenueTransactionCodesRaw(requestParameters: GetRevenueTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchRevenueTransactionCodesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRevenueTransactionCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueTransactionCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueTransactionCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueTransactionCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.rotationRevenue !== undefined) {
@@ -949,6 +1115,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Get Profile Owner Referral Records.
      */
     async getRoomOwnerReferralsRaw(requestParameters: GetRoomOwnerReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnerReferralDetails>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getRoomOwnerReferrals.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomOwnerReferrals.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomOwnerReferrals.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomOwnerReferrals.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.includeInactive !== undefined) {
@@ -1001,6 +1183,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Fetch Room Rotation Period
      */
     async getRotationPeriodRaw(requestParameters: GetRotationPeriodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchRotationPeriod>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRotationPeriod.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRotationPeriod.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRotationPeriod.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRotationPeriod.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1049,6 +1247,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Retrieve all Room Rotation Setup Rules
      */
     async getRotationRulesRaw(requestParameters: GetRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchRotationRules>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRotationRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRotationRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRotationRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRotationRules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1113,6 +1327,22 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Get Room Rotation Owner Room Grades
      */
     async getUnitGradesRaw(requestParameters: GetUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchUnitGradesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getUnitGrades.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUnitGrades.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUnitGrades.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUnitGrades.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -1180,7 +1410,23 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to post Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>postAdjustmentReasons</p>
      * Post Room Rotation Adjustment Reasons
      */
-    async postAdjustmentReasonsRaw(requestParameters: PostAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAdjustmentReasonsRaw(requestParameters: PostAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAdjustmentReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAdjustmentReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAdjustmentReasons.');
+        }
+
+        if (requestParameters.createAdjustmentReasonsDetails === null || requestParameters.createAdjustmentReasonsDetails === undefined) {
+            throw new runtime.RequiredError('createAdjustmentReasonsDetails','Required parameter requestParameters.createAdjustmentReasonsDetails was null or undefined when calling postAdjustmentReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1212,7 +1458,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAdjustmentReasonsRequestToJSON(requestParameters.createAdjustmentReasonsDetails),
+            body: CreateAdjustmentReasonsDetailsToJSON(requestParameters.createAdjustmentReasonsDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1222,7 +1468,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to post Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>postAdjustmentReasons</p>
      * Post Room Rotation Adjustment Reasons
      */
-    async postAdjustmentReasons(requestParameters: PostAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAdjustmentReasons(requestParameters: PostAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAdjustmentReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1231,7 +1477,23 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Room Rotation Override Reason. <p><strong>OperationId:</strong>postOverrideReasons</p>
      * Create a new Room Rotation Override Reason
      */
-    async postOverrideReasonsRaw(requestParameters: PostOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postOverrideReasonsRaw(requestParameters: PostOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postOverrideReasons.');
+        }
+
+        if (requestParameters.overrideReasonsCriteria === null || requestParameters.overrideReasonsCriteria === undefined) {
+            throw new runtime.RequiredError('overrideReasonsCriteria','Required parameter requestParameters.overrideReasonsCriteria was null or undefined when calling postOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1263,7 +1525,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostOverrideReasonsRequestToJSON(requestParameters.overrideReasonsCriteria),
+            body: OverrideReasonsCriteriaToJSON(requestParameters.overrideReasonsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1273,7 +1535,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Room Rotation Override Reason. <p><strong>OperationId:</strong>postOverrideReasons</p>
      * Create a new Room Rotation Override Reason
      */
-    async postOverrideReasons(requestParameters: PostOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postOverrideReasons(requestParameters: PostOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postOverrideReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1282,7 +1544,23 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create Create Room Ownership Record. <p><strong>OperationId:</strong>postRoomOwner</p>
      * Create Room Ownership Record
      */
-    async postRoomOwnerRaw(requestParameters: PostRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>> {
+    async postRoomOwnerRaw(requestParameters: PostRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomOwner.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomOwner.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomOwner.');
+        }
+
+        if (requestParameters.createRoomOwnerDetails === null || requestParameters.createRoomOwnerDetails === undefined) {
+            throw new runtime.RequiredError('createRoomOwnerDetails','Required parameter requestParameters.createRoomOwnerDetails was null or undefined when calling postRoomOwner.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1314,7 +1592,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomOwnerRequestToJSON(requestParameters.createRoomOwnerDetails),
+            body: CreateRoomOwnerDetailsToJSON(requestParameters.createRoomOwnerDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoomOwnershipDetailsFromJSON(jsonValue));
@@ -1324,7 +1602,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create Create Room Ownership Record. <p><strong>OperationId:</strong>postRoomOwner</p>
      * Create Room Ownership Record
      */
-    async postRoomOwner(requestParameters: PostRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails> {
+    async postRoomOwner(requestParameters: PostRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails> {
         const response = await this.postRoomOwnerRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1333,7 +1611,27 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create multiple Room Owner Referral Records. <p><strong>OperationId:</strong>postRoomOwnerReferrals</p>
      * Create Room Owner Referrals
      */
-    async postRoomOwnerReferralsRaw(requestParameters: PostRoomOwnerReferralsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomOwnerReferralsRaw(requestParameters: PostRoomOwnerReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling postRoomOwnerReferrals.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomOwnerReferrals.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomOwnerReferrals.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomOwnerReferrals.');
+        }
+
+        if (requestParameters.createRoomOwnerReferralDetails === null || requestParameters.createRoomOwnerReferralDetails === undefined) {
+            throw new runtime.RequiredError('createRoomOwnerReferralDetails','Required parameter requestParameters.createRoomOwnerReferralDetails was null or undefined when calling postRoomOwnerReferrals.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1365,7 +1663,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomOwnerReferralsRequestToJSON(requestParameters.createRoomOwnerReferralDetails),
+            body: CreateRoomOwnerReferralDetailsToJSON(requestParameters.createRoomOwnerReferralDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1375,7 +1673,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create multiple Room Owner Referral Records. <p><strong>OperationId:</strong>postRoomOwnerReferrals</p>
      * Create Room Owner Referrals
      */
-    async postRoomOwnerReferrals(requestParameters: PostRoomOwnerReferralsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomOwnerReferrals(requestParameters: PostRoomOwnerReferralsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomOwnerReferralsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1384,7 +1682,27 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * This operation will create/update/delete Rotation Setup Rules sent in the request and then recalculate rotation points.  <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Save changes to Rotation Setup Rules and recalculate Rotation Points
      */
-    async postRoomRotationRulesRaw(requestParameters: PostRoomRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomRotationRulesRaw(requestParameters: PostRoomRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRoomRotationRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomRotationRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomRotationRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomRotationRules.');
+        }
+
+        if (requestParameters.rotationRules === null || requestParameters.rotationRules === undefined) {
+            throw new runtime.RequiredError('rotationRules','Required parameter requestParameters.rotationRules was null or undefined when calling postRoomRotationRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1416,7 +1734,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomRotationRulesRequestToJSON(requestParameters.rotationRules),
+            body: RoomRotationRulesToJSON(requestParameters.rotationRules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1426,7 +1744,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * This operation will create/update/delete Rotation Setup Rules sent in the request and then recalculate rotation points.  <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Save changes to Rotation Setup Rules and recalculate Rotation Points
      */
-    async postRoomRotationRules(requestParameters: PostRoomRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomRotationRules(requestParameters: PostRoomRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomRotationRulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1434,8 +1752,29 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Create Room Rotation Rules
+     * @deprecated
      */
-    async postRotationRulesRaw(requestParameters: PostRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRotationRulesRaw(requestParameters: PostRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRotationRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRotationRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRotationRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRotationRules.');
+        }
+
+        if (requestParameters.rotationRules === null || requestParameters.rotationRules === undefined) {
+            throw new runtime.RequiredError('rotationRules','Required parameter requestParameters.rotationRules was null or undefined when calling postRotationRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1467,7 +1806,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRotationRulesRequestToJSON(requestParameters.rotationRules),
+            body: RotationRulesToJSON(requestParameters.rotationRules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1476,8 +1815,9 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Create Room Rotation Rules
+     * @deprecated
      */
-    async postRotationRules(requestParameters: PostRotationRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRotationRules(requestParameters: PostRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRotationRulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1486,7 +1826,27 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Room Rotation Owner Room Grade Code. <p><strong>OperationId:</strong>postUnitGrades</p>
      * Create a new Room Rotation Owner Room Grade Code
      */
-    async postUnitGradesRaw(requestParameters: PostUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postUnitGradesRaw(requestParameters: PostUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postUnitGrades.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postUnitGrades.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postUnitGrades.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postUnitGrades.');
+        }
+
+        if (requestParameters.createUnitGradesDetails === null || requestParameters.createUnitGradesDetails === undefined) {
+            throw new runtime.RequiredError('createUnitGradesDetails','Required parameter requestParameters.createUnitGradesDetails was null or undefined when calling postUnitGrades.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1518,7 +1878,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostUnitGradesRequestToJSON(requestParameters.createUnitGradesDetails),
+            body: CreateUnitGradesDetailsToJSON(requestParameters.createUnitGradesDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1528,7 +1888,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Room Rotation Owner Room Grade Code. <p><strong>OperationId:</strong>postUnitGrades</p>
      * Create a new Room Rotation Owner Room Grade Code
      */
-    async postUnitGrades(requestParameters: PostUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postUnitGrades(requestParameters: PostUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postUnitGradesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1537,7 +1897,27 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>putAdjustmentReasons</p>
      * Update Room Rotation Adjustment Reasons
      */
-    async putAdjustmentReasonsRaw(requestParameters: PutAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustmentReasonsDetailsUpdated>> {
+    async putAdjustmentReasonsRaw(requestParameters: PutAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustmentReasonsDetailsUpdated>> {
+        if (requestParameters.adjustmentReasonsId === null || requestParameters.adjustmentReasonsId === undefined) {
+            throw new runtime.RequiredError('adjustmentReasonsId','Required parameter requestParameters.adjustmentReasonsId was null or undefined when calling putAdjustmentReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAdjustmentReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAdjustmentReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAdjustmentReasons.');
+        }
+
+        if (requestParameters.changeAdjustmentReasonsDetails === null || requestParameters.changeAdjustmentReasonsDetails === undefined) {
+            throw new runtime.RequiredError('changeAdjustmentReasonsDetails','Required parameter requestParameters.changeAdjustmentReasonsDetails was null or undefined when calling putAdjustmentReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1569,7 +1949,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAdjustmentReasonsRequestToJSON(requestParameters.changeAdjustmentReasonsDetails),
+            body: ChangeAdjustmentReasonsDetailsToJSON(requestParameters.changeAdjustmentReasonsDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AdjustmentReasonsDetailsUpdatedFromJSON(jsonValue));
@@ -1579,7 +1959,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Rotation Adjustment Reasons. <p><strong>OperationId:</strong>putAdjustmentReasons</p>
      * Update Room Rotation Adjustment Reasons
      */
-    async putAdjustmentReasons(requestParameters: PutAdjustmentReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustmentReasonsDetailsUpdated> {
+    async putAdjustmentReasons(requestParameters: PutAdjustmentReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustmentReasonsDetailsUpdated> {
         const response = await this.putAdjustmentReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1588,7 +1968,27 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update an existing Room Rotation Override Reason. <p><strong>OperationId:</strong>putOverrideReasons</p>
      * Change an existing Room Rotation Override Reason
      */
-    async putOverrideReasonsRaw(requestParameters: PutOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putOverrideReasonsRaw(requestParameters: PutOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.overrideReasonsId === null || requestParameters.overrideReasonsId === undefined) {
+            throw new runtime.RequiredError('overrideReasonsId','Required parameter requestParameters.overrideReasonsId was null or undefined when calling putOverrideReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putOverrideReasons.');
+        }
+
+        if (requestParameters.overrideReasonsToBeChanged === null || requestParameters.overrideReasonsToBeChanged === undefined) {
+            throw new runtime.RequiredError('overrideReasonsToBeChanged','Required parameter requestParameters.overrideReasonsToBeChanged was null or undefined when calling putOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1620,7 +2020,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutOverrideReasonsRequestToJSON(requestParameters.overrideReasonsToBeChanged),
+            body: OverrideReasonsToBeChangedToJSON(requestParameters.overrideReasonsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1630,7 +2030,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update an existing Room Rotation Override Reason. <p><strong>OperationId:</strong>putOverrideReasons</p>
      * Change an existing Room Rotation Override Reason
      */
-    async putOverrideReasons(requestParameters: PutOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putOverrideReasons(requestParameters: PutOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putOverrideReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1639,7 +2039,27 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update the room rotation revenue status of a set of transaction codes. <p><strong>OperationId:</strong>putRevenueTransactionCodes</p>
      * Update the room rotation revenue status of a set of transaction codes
      */
-    async putRevenueTransactionCodesRaw(requestParameters: PutRevenueTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRevenueTransactionCodesDetails>> {
+    async putRevenueTransactionCodesRaw(requestParameters: PutRevenueTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRevenueTransactionCodesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRevenueTransactionCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRevenueTransactionCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRevenueTransactionCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRevenueTransactionCodes.');
+        }
+
+        if (requestParameters.changeRevenueTransactionCodesCriteria === null || requestParameters.changeRevenueTransactionCodesCriteria === undefined) {
+            throw new runtime.RequiredError('changeRevenueTransactionCodesCriteria','Required parameter requestParameters.changeRevenueTransactionCodesCriteria was null or undefined when calling putRevenueTransactionCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1671,7 +2091,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRevenueTransactionCodesRequestToJSON(requestParameters.changeRevenueTransactionCodesCriteria),
+            body: ChangeRevenueTransactionCodesCriteriaToJSON(requestParameters.changeRevenueTransactionCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangeRevenueTransactionCodesDetailsFromJSON(jsonValue));
@@ -1681,7 +2101,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update the room rotation revenue status of a set of transaction codes. <p><strong>OperationId:</strong>putRevenueTransactionCodes</p>
      * Update the room rotation revenue status of a set of transaction codes
      */
-    async putRevenueTransactionCodes(requestParameters: PutRevenueTransactionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRevenueTransactionCodesDetails> {
+    async putRevenueTransactionCodes(requestParameters: PutRevenueTransactionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRevenueTransactionCodesDetails> {
         const response = await this.putRevenueTransactionCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1690,7 +2110,23 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Multiple Room Ownership Records across properties. <p><strong>OperationId:</strong>putRoomOwner</p>
      * Change Room Ownership Records
      */
-    async putRoomOwnerRaw(requestParameters: PutRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>> {
+    async putRoomOwnerRaw(requestParameters: PutRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomOwnershipDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomOwner.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomOwner.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomOwner.');
+        }
+
+        if (requestParameters.changeRoomOwnerDetails === null || requestParameters.changeRoomOwnerDetails === undefined) {
+            throw new runtime.RequiredError('changeRoomOwnerDetails','Required parameter requestParameters.changeRoomOwnerDetails was null or undefined when calling putRoomOwner.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1722,7 +2158,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoomOwnerRequestToJSON(requestParameters.changeRoomOwnerDetails),
+            body: ChangeRoomOwnerDetailsToJSON(requestParameters.changeRoomOwnerDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoomOwnershipDetailsFromJSON(jsonValue));
@@ -1732,7 +2168,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Multiple Room Ownership Records across properties. <p><strong>OperationId:</strong>putRoomOwner</p>
      * Change Room Ownership Records
      */
-    async putRoomOwner(requestParameters: PutRoomOwnerOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails> {
+    async putRoomOwner(requestParameters: PutRoomOwnerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomOwnershipDetails> {
         const response = await this.putRoomOwnerRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1741,7 +2177,31 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Owner Referral Record. <p><strong>OperationId:</strong>putRoomOwnerReferral</p>
      * Change Room Owner Referral Record
      */
-    async putRoomOwnerReferralRaw(requestParameters: PutRoomOwnerReferralOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRoomOwnerReferralRaw(requestParameters: PutRoomOwnerReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling putRoomOwnerReferral.');
+        }
+
+        if (requestParameters.roomOwnerReferralId === null || requestParameters.roomOwnerReferralId === undefined) {
+            throw new runtime.RequiredError('roomOwnerReferralId','Required parameter requestParameters.roomOwnerReferralId was null or undefined when calling putRoomOwnerReferral.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomOwnerReferral.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomOwnerReferral.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomOwnerReferral.');
+        }
+
+        if (requestParameters.changeRoomOwnerReferralDetails === null || requestParameters.changeRoomOwnerReferralDetails === undefined) {
+            throw new runtime.RequiredError('changeRoomOwnerReferralDetails','Required parameter requestParameters.changeRoomOwnerReferralDetails was null or undefined when calling putRoomOwnerReferral.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1773,7 +2233,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoomOwnerReferralRequestToJSON(requestParameters.changeRoomOwnerReferralDetails),
+            body: ChangeRoomOwnerReferralDetailsToJSON(requestParameters.changeRoomOwnerReferralDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1783,7 +2243,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Owner Referral Record. <p><strong>OperationId:</strong>putRoomOwnerReferral</p>
      * Change Room Owner Referral Record
      */
-    async putRoomOwnerReferral(requestParameters: PutRoomOwnerReferralOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRoomOwnerReferral(requestParameters: PutRoomOwnerReferralRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRoomOwnerReferralRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1792,7 +2252,27 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to change Room Rotation Period. <p><strong>OperationId:</strong>putRotationPeriod</p>
      * Change Room Rotation Period
      */
-    async putRotationPeriodRaw(requestParameters: PutRotationPeriodOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRotationPeriodDetails>> {
+    async putRotationPeriodRaw(requestParameters: PutRotationPeriodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeRotationPeriodDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRotationPeriod.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRotationPeriod.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRotationPeriod.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRotationPeriod.');
+        }
+
+        if (requestParameters.rotationPeriod === null || requestParameters.rotationPeriod === undefined) {
+            throw new runtime.RequiredError('rotationPeriod','Required parameter requestParameters.rotationPeriod was null or undefined when calling putRotationPeriod.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1824,7 +2304,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRotationPeriodRequestToJSON(requestParameters.rotationPeriod),
+            body: RotationPeriodToJSON(requestParameters.rotationPeriod),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangeRotationPeriodDetailsFromJSON(jsonValue));
@@ -1834,7 +2314,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to change Room Rotation Period. <p><strong>OperationId:</strong>putRotationPeriod</p>
      * Change Room Rotation Period
      */
-    async putRotationPeriod(requestParameters: PutRotationPeriodOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRotationPeriodDetails> {
+    async putRotationPeriod(requestParameters: PutRotationPeriodRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeRotationPeriodDetails> {
         const response = await this.putRotationPeriodRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1842,8 +2322,33 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Change Room Rotation Rules
+     * @deprecated
      */
     async putRotationRulesRaw(requestParameters: PutRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.ruleId === null || requestParameters.ruleId === undefined) {
+            throw new runtime.RequiredError('ruleId','Required parameter requestParameters.ruleId was null or undefined when calling putRotationRules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putRotationRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRotationRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRotationRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRotationRules.');
+        }
+
+        if (requestParameters.rotationRules === null || requestParameters.rotationRules === undefined) {
+            throw new runtime.RequiredError('rotationRules','Required parameter requestParameters.rotationRules was null or undefined when calling putRotationRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1875,7 +2380,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRotationRulesRequestToJSON(requestParameters.rotationRules),
+            body: RotationRulesToJSON(requestParameters.rotationRules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1884,6 +2389,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
     /**
      * This API has been deprecated and will be replaced by <p><strong>OperationId:</strong>postRoomRotationRules</p>
      * Change Room Rotation Rules
+     * @deprecated
      */
     async putRotationRules(requestParameters: PutRotationRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRotationRulesRaw(requestParameters, initOverrides);
@@ -1894,7 +2400,31 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Rotation Owner Room Unit Grades. <p><strong>OperationId:</strong>putUnitGrades</p>
      * Change an existing Room Rotation Owner Room Unit Grade
      */
-    async putUnitGradesRaw(requestParameters: PutUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnitGradesDetailsUpdated>> {
+    async putUnitGradesRaw(requestParameters: PutUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnitGradesDetailsUpdated>> {
+        if (requestParameters.unitGradeCode === null || requestParameters.unitGradeCode === undefined) {
+            throw new runtime.RequiredError('unitGradeCode','Required parameter requestParameters.unitGradeCode was null or undefined when calling putUnitGrades.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putUnitGrades.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putUnitGrades.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putUnitGrades.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putUnitGrades.');
+        }
+
+        if (requestParameters.changeUnitGradesDetails === null || requestParameters.changeUnitGradesDetails === undefined) {
+            throw new runtime.RequiredError('changeUnitGradesDetails','Required parameter requestParameters.changeUnitGradesDetails was null or undefined when calling putUnitGrades.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1926,7 +2456,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutUnitGradesRequestToJSON(requestParameters.changeUnitGradesDetails),
+            body: ChangeUnitGradesDetailsToJSON(requestParameters.changeUnitGradesDetails),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UnitGradesDetailsUpdatedFromJSON(jsonValue));
@@ -1936,7 +2466,7 @@ export class RoomRotationConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Rotation Owner Room Unit Grades. <p><strong>OperationId:</strong>putUnitGrades</p>
      * Change an existing Room Rotation Owner Room Unit Grade
      */
-    async putUnitGrades(requestParameters: PutUnitGradesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnitGradesDetailsUpdated> {
+    async putUnitGrades(requestParameters: PutUnitGradesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnitGradesDetailsUpdated> {
         const response = await this.putUnitGradesRaw(requestParameters, initOverrides);
         return await response.value();
     }

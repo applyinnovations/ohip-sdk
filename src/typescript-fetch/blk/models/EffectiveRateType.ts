@@ -214,7 +214,7 @@ export function EffectiveRateTypeToJSON(value?: EffectiveRateType | null): any {
     return {
         
         'amountBeforeTax': value.amountBeforeTax,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'extraChildRate': value.extraChildRate,
         'extraPersonRate': value.extraPersonRate,
         'fivePersonRate': value.fivePersonRate,
@@ -230,7 +230,7 @@ export function EffectiveRateTypeToJSON(value?: EffectiveRateType | null): any {
         'rateByAgeBuckets': RateByAgeBucketsTypeToJSON(value.rateByAgeBuckets),
         'ratePlanCode': value.ratePlanCode,
         'roomType': value.roomType,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'threeChildrenRate': value.threeChildrenRate,
         'threePersonRate': value.threePersonRate,
         'twoChildrenRate': value.twoChildrenRate,

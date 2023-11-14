@@ -151,7 +151,7 @@ export function ConfigTestUpsellRuleSearchTypeToJSON(value?: ConfigTestUpsellRul
     return {
         
         'adults': value.adults,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'channel': value.channel,
         'children': value.children,
         'hotelId': value.hotelId,

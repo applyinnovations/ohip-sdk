@@ -212,7 +212,7 @@ export function ParityRateTypeToJSON(value?: ParityRateType | null): any {
         'additionalAmounts': AdditionalAmountListTypeToJSON(value.additionalAmounts),
         'additionalDetailList': AdditionalDetailListTypeToJSON(value.additionalDetailList),
         'amount': value.amount,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'availableRooms': value.availableRooms,
         'channelRatePlanCategory': value.channelRatePlanCategory,
         'closed': value.closed,

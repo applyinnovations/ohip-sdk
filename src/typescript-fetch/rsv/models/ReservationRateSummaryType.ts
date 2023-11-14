@@ -153,7 +153,7 @@ export function ReservationRateSummaryTypeToJSON(value?: ReservationRateSummaryT
         'currencyCode': value.currencyCode,
         'deposit': value.deposit,
         'details': value.details === undefined ? undefined : ((value.details as Array<any>).map(ReservationRateSummaryDetailTypeToJSON)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'fixedCharges': value.fixedCharges,
         'gross': value.gross,
         'guestPay': value.guestPay,
@@ -161,7 +161,7 @@ export function ReservationRateSummaryTypeToJSON(value?: ReservationRateSummaryT
         'net': value.net,
         'outStandingCostOfStay': value.outStandingCostOfStay,
         'routing': value.routing,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'totalCostOfStay': value.totalCostOfStay,
     };
 }

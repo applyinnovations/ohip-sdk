@@ -315,7 +315,7 @@ export function RoomTypeTypeToJSON(value?: RoomTypeType | null): any {
     return {
         
         'accessible': value.accessible,
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substr(0,10)),
+        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0,10)),
         'autoCheckin': value.autoCheckin,
         'autoPopulate': value.autoPopulate,
         'autoRoomAssign': value.autoRoomAssign,

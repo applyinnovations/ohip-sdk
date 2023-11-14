@@ -86,7 +86,7 @@ export function AlternateAvailDateTypeToJSON(value?: AlternateAvailDateType | nu
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'rateAmount': CurrencyAmountTypeToJSON(value.rateAmount),
         'status': AvailabilityStatusTypeToJSON(value.status),
     };

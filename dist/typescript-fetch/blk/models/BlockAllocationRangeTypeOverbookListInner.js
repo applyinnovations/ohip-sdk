@@ -48,7 +48,7 @@ function BlockAllocationRangeTypeOverbookListInnerToJSON(value) {
     return {
         'overbook': value.overbook,
         'roomType': value.roomType,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0, 10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockAllocationRangeTypeOverbookListInnerToJSON = BlockAllocationRangeTypeOverbookListInnerToJSON;

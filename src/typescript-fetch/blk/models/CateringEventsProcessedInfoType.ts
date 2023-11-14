@@ -136,7 +136,7 @@ export function CateringEventsProcessedInfoTypeToJSON(value?: CateringEventsProc
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substr(0,10)),
+        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substring(0,10)),
         'eventName': value.eventName,
         'eventType': value.eventType,
         'hotelId': value.hotelId,

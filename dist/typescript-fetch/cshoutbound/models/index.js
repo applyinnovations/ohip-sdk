@@ -16,14 +16,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 /* eslint-disable */
-__exportStar(require("./ApproveCompPostingsRequest"), exports);
 __exportStar(require("./AuthorizeCompRedemptionsRQ"), exports);
 __exportStar(require("./AuthorizeCompRedemptionsRQCompRedemptionType"), exports);
 __exportStar(require("./AuthorizeCompRedemptionsRQCompRedemptionsType"), exports);
 __exportStar(require("./AuthorizeCompRedemptionsRS"), exports);
 __exportStar(require("./AuthorizeCompRedemptionsRSCompRedemptionType"), exports);
 __exportStar(require("./AuthorizeCompRedemptionsRSCompRedemptionsType"), exports);
-__exportStar(require("./AuthorizeCompRedemptionsRequest"), exports);
 __exportStar(require("./CompTransactionInfoType"), exports);
 __exportStar(require("./CompTransactionType"), exports);
 __exportStar(require("./CompTransactionsCriteriaType"), exports);
@@ -42,12 +40,10 @@ __exportStar(require("./PostCompRedemptionsRQCompRedemptionsType"), exports);
 __exportStar(require("./PostCompRedemptionsRS"), exports);
 __exportStar(require("./PostCompRedemptionsRSCompRedemptionType"), exports);
 __exportStar(require("./PostCompRedemptionsRSCompRedemptionsType"), exports);
-__exportStar(require("./PostCompRedemptionsRequest"), exports);
 __exportStar(require("./ReverseCompRedemptionsRQ"), exports);
 __exportStar(require("./ReverseCompRedemptionsRQCompRedemptionType"), exports);
 __exportStar(require("./ReverseCompRedemptionsRQCompRedemptionsType"), exports);
 __exportStar(require("./ReverseCompRedemptionsRS"), exports);
-__exportStar(require("./ReverseCompRedemptionsRequest"), exports);
 __exportStar(require("./SendCompTransactionsStatus"), exports);
 __exportStar(require("./Status"), exports);
 __exportStar(require("./UniqueIDType"), exports);

@@ -60,14 +60,14 @@ function BlockAllocationWashTypeToJSON(value) {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
         'blockInventory': (0, BlockGridInvType_1.BlockGridInvTypeToJSON)(value.blockInventory),
         'byValue': value.byValue,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'genericRoomType': value.genericRoomType,
         'hotelId': value.hotelId,
         'includedDays': value.includedDays,
         'occPercentByDay': (0, BlockAllocationWashTypeOccPercentByDay_1.BlockAllocationWashTypeOccPercentByDayToJSON)(value.occPercentByDay),
         'percentByDay': value.percentByDay,
         'roomTypes': value.roomTypes,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockAllocationWashTypeToJSON = BlockAllocationWashTypeToJSON;

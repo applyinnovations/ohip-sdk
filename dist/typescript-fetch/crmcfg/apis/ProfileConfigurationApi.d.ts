@@ -10,139 +10,139 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AddressFormats, CopyExclusivePreferencesRequest, CopyPreferencesRequest, CreditRatings, ExclusivePreferences, HotelPreferences, PostProfileNameValidationsRequest, PreferenceGroups, ProfileLinks, ProfileNameValidations, PutAddressFormatsRequest, PutCreditRatingsRequest, PutExclusivePreferencesRequest, PutPreferenceGroupsRequest, PutPreferencesRequest, PutProfileLinksRequest, PutProfileNameValidationsRequest, PutTemplateExclusivePreferencesRequest, PutTemplatePreferencesRequest, Status, TemplateExclusivePreferences, TemplatePreferences } from '../models';
-export interface CopyExclusivePreferencesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exclusivePreferencesCopy?: CopyExclusivePreferencesRequest;
+import type { AddressFormats, CreditRatings, ExclusivePreferences, ExclusivePreferencesCopy, HotelPreferences, PreferenceGroups, PreferencesCopy, ProfileLinks, ProfileNameValidations, ProfileNameValidationsToChange, Status, TemplateExclusivePreferences, TemplatePreferences } from '../models/index';
+export interface CopyExclusivePreferencesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exclusivePreferencesCopy: ExclusivePreferencesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyPreferencesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preferencesCopy?: CopyPreferencesRequest;
+export interface CopyPreferencesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preferencesCopy: PreferencesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAddressFormatsRequest {
-    formatCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    formatCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCreditRatingsRequest {
-    creditRatings?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    creditRatings: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExclusivePreferencesRequest {
-    hotelId?: string;
-    exclusivePreferenceCode?: string;
-    exclusivePreferenceGroup?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    exclusivePreferenceCode: string;
+    exclusivePreferenceGroup: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteHotelAndGlobalPreferencesRequest {
-    preferenceCode?: string;
-    preferenceGroup?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceCode: string;
+    preferenceGroup: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePreferenceGroupsRequest {
-    preferenceGroup?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceGroup: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePreferencesRequest {
-    hotelId?: string;
-    preferenceCode?: string;
-    preferenceGroup?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    preferenceCode: string;
+    preferenceGroup: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileLinksRequest {
-    fromType?: string;
-    toType?: string;
-    fromCode?: string;
-    toCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fromType: string;
+    toType: string;
+    fromCode: string;
+    toCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileNameValidationsRequest {
-    profileType?: DeleteProfileNameValidationsProfileTypeEnum;
-    profileName?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileType: DeleteProfileNameValidationsProfileTypeEnum;
+    profileName: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileRelationshipsRequest {
-    fromType?: string;
-    toType?: string;
-    fromCode?: string;
-    toCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fromType: string;
+    toType: string;
+    fromCode: string;
+    toCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateExclusivePreferencesRequest {
-    exclusivePreferenceCode?: string;
-    exclusivePreferenceGroup?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    exclusivePreferenceCode: string;
+    exclusivePreferenceGroup: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplatePreferencesRequest {
-    preferenceCode?: string;
-    preferenceGroup?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceCode: string;
+    preferenceGroup: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAddressFormatsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCreditRatingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -151,10 +151,10 @@ export interface GetCreditRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetExclusivePreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exclusivePreferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     preferenceCodes?: Array<string>;
@@ -162,19 +162,19 @@ export interface GetExclusivePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferenceGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     preferenceGroupsCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     preferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     createdByUserIds?: Array<number>;
@@ -182,18 +182,18 @@ export interface GetPreferencesRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileLinksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fromType?: string;
     toType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetProfileNameValidationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     typeCodes?: Array<string>;
     wildCard?: string;
     name?: string;
@@ -201,18 +201,18 @@ export interface GetProfileNameValidationsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRelationshipsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fromType?: string;
     toType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateExclusivePreferencesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     exclusivePreferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     preferenceCodes?: Array<string>;
@@ -220,175 +220,175 @@ export interface GetTemplateExclusivePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePreferencesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     preferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAddressFormatsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    addressFormats?: PutAddressFormatsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    addressFormats: AddressFormats;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCreditRatingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditRatings?: PutCreditRatingsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditRatings: CreditRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExclusivePreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exclusivePreferences?: PutExclusivePreferencesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exclusivePreferences: ExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreferenceGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preferenceGroups?: PutPreferenceGroupsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preferenceGroups: PreferenceGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelPreferences?: PutPreferencesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelPreferences: HotelPreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileLinksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileLinks?: PutProfileLinksRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostProfileNameValidationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileNameValidations?: PostProfileNameValidationsRequest;
+export interface PostProfileNameValidationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileNameValidations: ProfileNameValidations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileRelationshipsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileLinks?: PutProfileLinksRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateExclusivePreferencesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateExclusivePreferences?: PutTemplateExclusivePreferencesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateExclusivePreferences: TemplateExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplatePreferencesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePreferences?: PutTemplatePreferencesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePreferences: TemplatePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAddressFormatsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    addressFormats?: PutAddressFormatsRequest;
+export interface PutAddressFormatsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    addressFormats: AddressFormats;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCreditRatingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditRatings?: PutCreditRatingsRequest;
+export interface PutCreditRatingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditRatings: CreditRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutExclusivePreferencesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    exclusivePreferences?: PutExclusivePreferencesRequest;
+export interface PutExclusivePreferencesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    exclusivePreferences: ExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPreferenceGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preferenceGroups?: PutPreferenceGroupsRequest;
+export interface PutPreferenceGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preferenceGroups: PreferenceGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPreferencesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelPreferences?: PutPreferencesRequest;
+export interface PutPreferencesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelPreferences: HotelPreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutProfileLinksOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileLinks?: PutProfileLinksRequest;
+export interface PutProfileLinksRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutProfileNameValidationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileNameValidationsToChange?: PutProfileNameValidationsRequest;
+export interface PutProfileNameValidationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileNameValidationsToChange: ProfileNameValidationsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileRelationshipsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    profileLinks?: PutProfileLinksRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    profileLinks: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplateExclusivePreferencesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateExclusivePreferences?: PutTemplateExclusivePreferencesRequest;
+export interface PutTemplateExclusivePreferencesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateExclusivePreferences: TemplateExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplatePreferencesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templatePreferences?: PutTemplatePreferencesRequest;
+export interface PutTemplatePreferencesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templatePreferences: TemplatePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -400,22 +400,22 @@ export declare class ProfileConfigurationApi extends runtime.BaseAPI {
      * You can use this API to copy Exclusive Preferences. <p><strong>OperationId:</strong>copyExclusivePreferences</p>
      * Copy Exclusive Preferences
      */
-    copyExclusivePreferencesRaw(requestParameters: CopyExclusivePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyExclusivePreferencesRaw(requestParameters: CopyExclusivePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to copy Exclusive Preferences. <p><strong>OperationId:</strong>copyExclusivePreferences</p>
      * Copy Exclusive Preferences
      */
-    copyExclusivePreferences(requestParameters: CopyExclusivePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyExclusivePreferences(requestParameters: CopyExclusivePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to copy preferences. <p><strong>OperationId:</strong>copyPreferences</p>
      * Copy preferences
      */
-    copyPreferencesRaw(requestParameters: CopyPreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyPreferencesRaw(requestParameters: CopyPreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to copy preferences. <p><strong>OperationId:</strong>copyPreferences</p>
      * Copy preferences
      */
-    copyPreferences(requestParameters: CopyPreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyPreferences(requestParameters: CopyPreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to delete address formats. <p><strong>OperationId:</strong>deleteAddressFormats</p>
      * Delete address formats
@@ -479,11 +479,13 @@ export declare class ProfileConfigurationApi extends runtime.BaseAPI {
     /**
      * You can use this API to delete profile links.<br><p><strong><mark>This API is deprecated. Please use deleteProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>deleteProfileLinks</p>
      * Delete profile links
+     * @deprecated
      */
     deleteProfileLinksRaw(requestParameters: DeleteProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to delete profile links.<br><p><strong><mark>This API is deprecated. Please use deleteProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>deleteProfileLinks</p>
      * Delete profile links
+     * @deprecated
      */
     deleteProfileLinks(requestParameters: DeleteProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -579,11 +581,13 @@ export declare class ProfileConfigurationApi extends runtime.BaseAPI {
     /**
      * You can use this API to get profile links.<br><p><strong><mark>This API is deprecated. Please use getProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>getProfileLinks</p>
      * Get profile links
+     * @deprecated
      */
     getProfileLinksRaw(requestParameters: GetProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProfileLinks>>;
     /**
      * You can use this API to get profile links.<br><p><strong><mark>This API is deprecated. Please use getProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>getProfileLinks</p>
      * Get profile links
+     * @deprecated
      */
     getProfileLinks(requestParameters: GetProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProfileLinks>;
     /**
@@ -679,23 +683,25 @@ export declare class ProfileConfigurationApi extends runtime.BaseAPI {
     /**
      * You can use this API to create profile links.<br><p><strong><mark>This API is deprecated. Please use postProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>postProfileLinks</p>
      * Create profile links
+     * @deprecated
      */
     postProfileLinksRaw(requestParameters: PostProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create profile links.<br><p><strong><mark>This API is deprecated. Please use postProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>postProfileLinks</p>
      * Create profile links
+     * @deprecated
      */
     postProfileLinks(requestParameters: PostProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Profile Name Validations. <p><strong>OperationId:</strong>postProfileNameValidations</p>
      * Create Profile Name Validations
      */
-    postProfileNameValidationsRaw(requestParameters: PostProfileNameValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postProfileNameValidationsRaw(requestParameters: PostProfileNameValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Profile Name Validations. <p><strong>OperationId:</strong>postProfileNameValidations</p>
      * Create Profile Name Validations
      */
-    postProfileNameValidations(requestParameters: PostProfileNameValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postProfileNameValidations(requestParameters: PostProfileNameValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create profile relationships. <p><strong>OperationId:</strong>postProfileRelationships</p>
      * Create profile relationships
@@ -730,72 +736,74 @@ export declare class ProfileConfigurationApi extends runtime.BaseAPI {
      * You can use this API to change address formats. <p><strong>OperationId:</strong>putAddressFormats</p>
      * Change address formats
      */
-    putAddressFormatsRaw(requestParameters: PutAddressFormatsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAddressFormatsRaw(requestParameters: PutAddressFormatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change address formats. <p><strong>OperationId:</strong>putAddressFormats</p>
      * Change address formats
      */
-    putAddressFormats(requestParameters: PutAddressFormatsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAddressFormats(requestParameters: PutAddressFormatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change credit ratings. <p><strong>OperationId:</strong>putCreditRatings</p>
      * Change credit ratings
      */
-    putCreditRatingsRaw(requestParameters: PutCreditRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCreditRatingsRaw(requestParameters: PutCreditRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change credit ratings. <p><strong>OperationId:</strong>putCreditRatings</p>
      * Change credit ratings
      */
-    putCreditRatings(requestParameters: PutCreditRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCreditRatings(requestParameters: PutCreditRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Exclusive Preferences at hotel Level. <p><strong>OperationId:</strong>putExclusivePreferences</p>
      * Change Exclusive Preferences
      */
-    putExclusivePreferencesRaw(requestParameters: PutExclusivePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putExclusivePreferencesRaw(requestParameters: PutExclusivePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Exclusive Preferences at hotel Level. <p><strong>OperationId:</strong>putExclusivePreferences</p>
      * Change Exclusive Preferences
      */
-    putExclusivePreferences(requestParameters: PutExclusivePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putExclusivePreferences(requestParameters: PutExclusivePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API can be used to modify the preference groups. Changes can be made concurrently to multiple groups. <p><strong>OperationId:</strong>putPreferenceGroups</p>
      * Change Preference Groups
      */
-    putPreferenceGroupsRaw(requestParameters: PutPreferenceGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPreferenceGroupsRaw(requestParameters: PutPreferenceGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API can be used to modify the preference groups. Changes can be made concurrently to multiple groups. <p><strong>OperationId:</strong>putPreferenceGroups</p>
      * Change Preference Groups
      */
-    putPreferenceGroups(requestParameters: PutPreferenceGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPreferenceGroups(requestParameters: PutPreferenceGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update and change existing preferences. <p><strong>OperationId:</strong>putPreferences</p>
      * Change preferences
      */
-    putPreferencesRaw(requestParameters: PutPreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPreferencesRaw(requestParameters: PutPreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update and change existing preferences. <p><strong>OperationId:</strong>putPreferences</p>
      * Change preferences
      */
-    putPreferences(requestParameters: PutPreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPreferences(requestParameters: PutPreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change profile links.<br><p><strong><mark>This API is deprecated. Please use putProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>putProfileLinks</p>
      * Change profile links
+     * @deprecated
      */
-    putProfileLinksRaw(requestParameters: PutProfileLinksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putProfileLinksRaw(requestParameters: PutProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change profile links.<br><p><strong><mark>This API is deprecated. Please use putProfileRelationships instead</mark></strong></p> <p><strong>OperationId:</strong>putProfileLinks</p>
      * Change profile links
+     * @deprecated
      */
-    putProfileLinks(requestParameters: PutProfileLinksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putProfileLinks(requestParameters: PutProfileLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Profile Name Validations. <p><strong>OperationId:</strong>putProfileNameValidations</p>
      * Change Profile Name Validations
      */
-    putProfileNameValidationsRaw(requestParameters: PutProfileNameValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putProfileNameValidationsRaw(requestParameters: PutProfileNameValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Profile Name Validations. <p><strong>OperationId:</strong>putProfileNameValidations</p>
      * Change Profile Name Validations
      */
-    putProfileNameValidations(requestParameters: PutProfileNameValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putProfileNameValidations(requestParameters: PutProfileNameValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change profile relationships. <p><strong>OperationId:</strong>putProfileRelationships</p>
      * Change profile relationships
@@ -810,22 +818,22 @@ export declare class ProfileConfigurationApi extends runtime.BaseAPI {
      * You can use this API to change template Exclusive Preferences. <p><strong>OperationId:</strong>putTemplateExclusivePreferences</p>
      * Change template Exclusive Preferences
      */
-    putTemplateExclusivePreferencesRaw(requestParameters: PutTemplateExclusivePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplateExclusivePreferencesRaw(requestParameters: PutTemplateExclusivePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change template Exclusive Preferences. <p><strong>OperationId:</strong>putTemplateExclusivePreferences</p>
      * Change template Exclusive Preferences
      */
-    putTemplateExclusivePreferences(requestParameters: PutTemplateExclusivePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplateExclusivePreferences(requestParameters: PutTemplateExclusivePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change template preferences. <p><strong>OperationId:</strong>putTemplatePreferences</p>
      * Change template preferences
      */
-    putTemplatePreferencesRaw(requestParameters: PutTemplatePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplatePreferencesRaw(requestParameters: PutTemplatePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change template preferences. <p><strong>OperationId:</strong>putTemplatePreferences</p>
      * Change template preferences
      */
-    putTemplatePreferences(requestParameters: PutTemplatePreferencesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplatePreferences(requestParameters: PutTemplatePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

@@ -195,7 +195,7 @@ export function PrepaidCardTypeToJSON(value?: PrepaidCardType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'name': value.name,
         'profileId': ProfileIdToJSON(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'reservationId': ReservationIdToJSON(value.reservationId),
     };
 }

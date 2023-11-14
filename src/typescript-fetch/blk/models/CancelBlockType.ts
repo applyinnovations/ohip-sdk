@@ -104,7 +104,7 @@ export function CancelBlockTypeToJSON(value?: CancelBlockType | null): any {
         'cancellationDetails': CancellationDetailsTypeToJSON(value.cancellationDetails),
         'hotelId': value.hotelId,
         'pMReservationsCancellationDetails': CancellationDetailsTypeToJSON(value.pMReservationsCancellationDetails),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

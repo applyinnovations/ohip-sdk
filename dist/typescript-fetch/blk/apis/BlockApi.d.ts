@@ -10,39 +10,39 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { Block, BlockAccessExclusionInfo, BlockActivityLog, BlockAttachments, BlockAvailability, BlockChanged, BlockDailyStatistics, BlockOwners, BlockPMReservations, BlockRangeInfo, BlockReservations, BlockRestrictions, BlockRevenueChanges, BlockRoomTypes, BlockRoomsStatus, BlockStatistics, BlockStatusChanges, BlockSummaries, BlockWashInfo, BlockWashSchedules, ChangeRateOverrideRequest, ChangedBlockReservations, ChangedBlockStatus, ChangedCateringStatus, DefaultBlockCodeDetails, InventoryToBorrowInfo, NextBlockStatus, PostBlockOwnersRequest, PostBlockPostingMasterRequest, PostBlockRequest, PostBlockRestrictionRequest, PostBlockValidateRequest, PostCancelBlockRequest, PostCopyBlockRequest, PostRoomingListRequest, PostSubAllocationRequest, PostSubBlockRequest, PostTourSeriesRequest, PutAlternateDatesRequest, PutBlockAccessExclusionRequest, PutBlockAllocationRangeRequest, PutBlockAllocationRequest, PutBlockAllocationWashRequest, PutBlockCutoffRequest, PutBlockOwnersRequest, PutBlockRequest, PutBlockReservationsRequest, PutBlockShiftRequest, PutBlockStatusRequest, PutBlockWashSchedulesRequest, PutCateringStatusRequest, PutClearAllRestrictionsRequest, PutInventoryRequest, PutReleasedInventoryRequest, PutRoomTypeOrderRequest, PutValidateBlockCodeRequest, RateOverrideStatus, RecentlyAccessedBlocks, RoomingListDetails, SalesAllowances, ShiftedBlock, Status, TracesByDateRange } from '../models';
-export interface ChangeRateOverrideOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateOverride?: ChangeRateOverrideRequest;
+import type { AllRestrictions, Allocation, Block, BlockAccessExclusion, BlockAccessExclusionInfo, BlockActivityLog, BlockAllocationRange, BlockAllocationWash, BlockAlternateDates, BlockAttachments, BlockAvailability, BlockChanged, BlockCodeToValidate, BlockCopy, BlockDailyStatistics, BlockOwners, BlockOwnersToAssign, BlockOwnersToChange, BlockPMReservations, BlockPostingMaster, BlockRangeInfo, BlockReservations, BlockReservationsToChange, BlockRestriction, BlockRestrictions, BlockRevenueChanges, BlockRoomTypes, BlockRoomsStatus, BlockStatistics, BlockStatus, BlockStatusChanges, BlockStatusToChange, BlockSummaries, BlockToBeChanged, BlockToCancel, BlockToShift, BlockValidate, BlockWashInfo, BlockWashSchedules, BlockWashSchedulesInfo, BorrowedInventoryToReturn, CateringStatusToChange, ChangedBlockReservations, ChangedBlockStatus, ChangedCateringStatus, DefaultBlockCodeDetails, InventoryToBorrow, InventoryToBorrowInfo, NextBlockStatus, RateOverride, RateOverrideStatus, RecentlyAccessedBlocks, RoomTypeOrder, RoomingList, RoomingListDetails, SalesAllowances, ShiftedBlock, Status, SubAllocation, SubBlock, TourSeries, TracesByDateRange } from '../models/index';
+export interface ChangeRateOverrideRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateOverride: RateOverride;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAlternateDatesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockAccessExclusionRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     allowCancelReservation?: boolean;
     allowCreateReservation?: boolean;
     allowModifyReservation?: boolean;
@@ -55,48 +55,48 @@ export interface DeleteBlockAccessExclusionRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockAttachmentRequest {
-    attachId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attachId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockOwnersRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockRestrictionRequest {
-    blockId?: string;
-    hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
-    code?: DeleteBlockRestrictionCodeEnum;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    startDate: Date;
+    endDate: Date;
+    code: DeleteBlockRestrictionCodeEnum;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockWashSchedulesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
@@ -108,18 +108,18 @@ export interface GetBlockRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockAccessExclusionRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockActivityLogRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: string;
@@ -137,20 +137,20 @@ export interface GetBlockActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockAttachmentsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockAvailabilityRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     overrideRateCode?: boolean;
     arrivalDate?: Date;
     nights?: number;
@@ -167,12 +167,12 @@ export interface GetBlockAvailabilityRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockByExtIdFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
@@ -184,9 +184,9 @@ export interface GetBlockByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockDailyStatisticsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     genericRoomType?: boolean;
     limit?: number;
     offset?: number;
@@ -197,60 +197,60 @@ export interface GetBlockDailyStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockOwnersRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockPMReservationsRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     postingmaster?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockPMReservationsByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     postingmaster?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockRangeInfoRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     genericRoomType?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockReservationsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     fetchInstructions?: Set<GetBlockReservationsFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockRestrictionsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     startDate?: Date;
     endDate?: Date;
@@ -260,10 +260,10 @@ export interface GetBlockRestrictionsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRevenueChangesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: string;
@@ -274,10 +274,10 @@ export interface GetBlockRevenueChangesRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRoomTypesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     fetchAllocatedRoomTypes?: boolean;
     startDate?: Date;
@@ -287,19 +287,19 @@ export interface GetBlockRoomTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRoomsStatusRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockStatisticsRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     startDate?: Date;
     numberOfDays?: number;
@@ -325,10 +325,10 @@ export interface GetBlockStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockStatusChangesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: string;
@@ -339,9 +339,9 @@ export interface GetBlockStatusChangesRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockWashInfoRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     blockId?: string;
     blockIdType?: string;
@@ -350,18 +350,18 @@ export interface GetBlockWashInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockWashSchedulesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlocksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     markAsRecentlyAccessed?: boolean;
     limit?: number;
@@ -436,9 +436,9 @@ export interface GetBlocksRequest {
     acceptLanguage?: string;
 }
 export interface GetDefaultBlockCodeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     blockName?: string;
     startDate?: Date;
@@ -447,13 +447,13 @@ export interface GetDefaultBlockCodeRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryToBorrowRequest {
-    hotelId?: string;
-    blockId?: string;
-    startDate?: Date;
-    requiredRooms?: Array<number>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    blockId: string;
+    startDate: Date;
+    requiredRooms: Array<number>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockIdContext?: string;
     blockIdType?: string;
     existingReservationId?: string;
@@ -468,9 +468,9 @@ export interface GetInventoryToBorrowRequest {
     acceptLanguage?: string;
 }
 export interface GetNextBlockStatusRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     currentStatus?: string;
     includeCateringStatus?: boolean;
@@ -478,25 +478,25 @@ export interface GetNextBlockStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetRecentlyAccessedBlocksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetSalesAllowancesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ceilingId?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTracesByDateRangeRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     beginDate?: Date;
     endDate?: Date;
@@ -505,367 +505,367 @@ export interface GetTracesByDateRangeRequest {
     acceptLanguage?: string;
 }
 export interface PostAlternateDatesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAlternateDates?: PutAlternateDatesRequest;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAlternateDates: BlockAlternateDates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    block?: PostBlockRequest;
+export interface PostBlockRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    block: Block;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockOwnersOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockOwnersToAssign?: PostBlockOwnersRequest;
+export interface PostBlockOwnersRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockOwnersToAssign: BlockOwnersToAssign;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockPostingMasterOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockPostingMaster?: PostBlockPostingMasterRequest;
+export interface PostBlockPostingMasterRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockPostingMaster: BlockPostingMaster;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockRestrictionOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRestriction?: PostBlockRestrictionRequest;
+export interface PostBlockRestrictionRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRestriction: BlockRestriction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockValidateOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockValidate?: PostBlockValidateRequest;
+export interface PostBlockValidateRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockValidate: BlockValidate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBlockWashSchedulesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockWashSchedulesInfo?: PutBlockWashSchedulesRequest;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockWashSchedulesInfo: BlockWashSchedulesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCancelBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToCancel?: PostCancelBlockRequest;
+export interface PostCancelBlockRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToCancel: BlockToCancel;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCopyBlockOperationRequest {
-    sourceBlockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCopy?: PostCopyBlockRequest;
+export interface PostCopyBlockRequest {
+    sourceBlockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCopy: BlockCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomingListOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomingList?: PostRoomingListRequest;
+export interface PostRoomingListRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomingList: RoomingList;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSubAllocationOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    subAllocation?: PostSubAllocationRequest;
+export interface PostSubAllocationRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    subAllocation: SubAllocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSubBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    subBlock?: PostSubBlockRequest;
+export interface PostSubBlockRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    subBlock: SubBlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSubBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    subBlock?: PostSubBlockRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    subBlock: SubBlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTourSeriesOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    tourSeries?: PostTourSeriesRequest;
+export interface PostTourSeriesRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    tourSeries: TourSeries;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAlternateDatesOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAlternateDates?: PutAlternateDatesRequest;
+export interface PutAlternateDatesRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAlternateDates: BlockAlternateDates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToBeChanged?: PutBlockRequest;
+export interface PutBlockRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToBeChanged: BlockToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockAccessExclusionOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAccessExclusion?: PutBlockAccessExclusionRequest;
+export interface PutBlockAccessExclusionRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAccessExclusion: BlockAccessExclusion;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockAllocationOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    allocation?: PutBlockAllocationRequest;
+export interface PutBlockAllocationRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    allocation: Allocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockAllocationByExtIdRequest {
-    roomType?: string;
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    allocation?: PutBlockAllocationRequest;
+    roomType: string;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    allocation: Allocation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockAllocationRangeOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAllocationRange?: PutBlockAllocationRangeRequest;
+export interface PutBlockAllocationRangeRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAllocationRange: BlockAllocationRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockAllocationRangeByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAllocationRange?: PutBlockAllocationRangeRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAllocationRange: BlockAllocationRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockAllocationWashOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockAllocationWash?: PutBlockAllocationWashRequest;
+export interface PutBlockAllocationWashRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockAllocationWash: BlockAllocationWash;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToBeChanged?: PutBlockRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToBeChanged: BlockToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockCutoffOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+export interface PutBlockCutoffRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockOwnersOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockOwnersToChange?: PutBlockOwnersRequest;
+export interface PutBlockOwnersRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockOwnersToChange: BlockOwnersToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockRatesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockReservationsOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockReservationsToChange?: PutBlockReservationsRequest;
+export interface PutBlockReservationsRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockReservationsToChange: BlockReservationsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockShiftOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockToShift?: PutBlockShiftRequest;
+export interface PutBlockShiftRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockToShift: BlockToShift;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockStatusOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusToChange?: PutBlockStatusRequest;
+export interface PutBlockStatusRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusToChange: BlockStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockStatusByExtIdRequest {
-    blockExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusToChange?: PutBlockStatusRequest;
+    blockExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusToChange: BlockStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockStatusToOpenRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockWashSchedulesOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockWashSchedulesInfo?: PutBlockWashSchedulesRequest;
+export interface PutBlockWashSchedulesRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockWashSchedulesInfo: BlockWashSchedulesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCateringStatusOperationRequest {
-    eventId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringStatusToChange?: PutCateringStatusRequest;
+export interface PutCateringStatusRequest {
+    eventId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringStatusToChange: CateringStatusToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutClearAllRestrictionsOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    allRestrictions?: PutClearAllRestrictionsRequest;
+export interface PutClearAllRestrictionsRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    allRestrictions: AllRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutContractDefaultsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatus?: PutBlockCutoffRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatus: BlockStatus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutInventoryOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryToBorrow?: PutInventoryRequest;
+export interface PutInventoryRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryToBorrow: InventoryToBorrow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReleasedInventoryOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    borrowedInventoryToReturn?: PutReleasedInventoryRequest;
+export interface PutReleasedInventoryRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    borrowedInventoryToReturn: BorrowedInventoryToReturn;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomTypeOrderOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomTypeOrder?: PutRoomTypeOrderRequest;
+export interface PutRoomTypeOrderRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomTypeOrder: RoomTypeOrder;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutValidateBlockCodeOperationRequest {
-    blockCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCodeToValidate?: PutValidateBlockCodeRequest;
+export interface PutValidateBlockCodeRequest {
+    blockCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCodeToValidate: BlockCodeToValidate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -877,12 +877,12 @@ export declare class BlockApi extends runtime.BaseAPI {
      * Use this API to change rate override. <p><strong>OperationId:</strong>changeRateOverride</p>
      * Change rate override
      */
-    changeRateOverrideRaw(requestParameters: ChangeRateOverrideOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateOverrideStatus>>;
+    changeRateOverrideRaw(requestParameters: ChangeRateOverrideRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateOverrideStatus>>;
     /**
      * Use this API to change rate override. <p><strong>OperationId:</strong>changeRateOverride</p>
      * Change rate override
      */
-    changeRateOverride(requestParameters: ChangeRateOverrideOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RateOverrideStatus>;
+    changeRateOverride(requestParameters: ChangeRateOverrideRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RateOverrideStatus>;
     /**
      * Use this API to delete alternate dates for a block. <p><strong>OperationId:</strong>deleteAlternateDates</p>
      * Delete alternate dates for a Block
@@ -1237,52 +1237,52 @@ export declare class BlockApi extends runtime.BaseAPI {
      * Use this API to create a new group block in OPERA Cloud. You must first use the ListOfValues APIs to find block attributes, such as Block Status, Room Types, and so on. Knowing this list of values helps ensure a successful postBlock. <p><strong>OperationId:</strong>postBlock</p>
      * Create a Block
      */
-    postBlockRaw(requestParameters: PostBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockRaw(requestParameters: PostBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new group block in OPERA Cloud. You must first use the ListOfValues APIs to find block attributes, such as Block Status, Room Types, and so on. Knowing this list of values helps ensure a successful postBlock. <p><strong>OperationId:</strong>postBlock</p>
      * Create a Block
      */
-    postBlock(requestParameters: PostBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlock(requestParameters: PostBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to assign block owners. <p><strong>OperationId:</strong>postBlockOwners</p>
      * Assign a Block owner
      */
-    postBlockOwnersRaw(requestParameters: PostBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockOwnersRaw(requestParameters: PostBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to assign block owners. <p><strong>OperationId:</strong>postBlockOwners</p>
      * Assign a Block owner
      */
-    postBlockOwners(requestParameters: PostBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockOwners(requestParameters: PostBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new posting Master reservation against a block in OPERA.  The block status in OPERA needs to be \'Open for Pick up\' to successfully post a BlockPostingMaster reservation. <p><strong>OperationId:</strong>postBlockPostingMaster</p>
      * Create Block posting master
      */
-    postBlockPostingMasterRaw(requestParameters: PostBlockPostingMasterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockPostingMasterRaw(requestParameters: PostBlockPostingMasterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new posting Master reservation against a block in OPERA.  The block status in OPERA needs to be \'Open for Pick up\' to successfully post a BlockPostingMaster reservation. <p><strong>OperationId:</strong>postBlockPostingMaster</p>
      * Create Block posting master
      */
-    postBlockPostingMaster(requestParameters: PostBlockPostingMasterOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockPostingMaster(requestParameters: PostBlockPostingMasterRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create block restrictions. <p><strong>OperationId:</strong>postBlockRestriction</p>
      * Create Block Restriction
      */
-    postBlockRestrictionRaw(requestParameters: PostBlockRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockRestrictionRaw(requestParameters: PostBlockRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create block restrictions. <p><strong>OperationId:</strong>postBlockRestriction</p>
      * Create Block Restriction
      */
-    postBlockRestriction(requestParameters: PostBlockRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockRestriction(requestParameters: PostBlockRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to validate if block rate code has overlapping blocks and also validates and creates block details. <p><strong>OperationId:</strong>postBlockValidate</p>
      * Validate Block
      */
-    postBlockValidateRaw(requestParameters: PostBlockValidateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockValidateRaw(requestParameters: PostBlockValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to validate if block rate code has overlapping blocks and also validates and creates block details. <p><strong>OperationId:</strong>postBlockValidate</p>
      * Validate Block
      */
-    postBlockValidate(requestParameters: PostBlockValidateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockValidate(requestParameters: PostBlockValidateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API creates new block wash schedules based on Wash Date, Room Type, Occupancy detail, Sell limit and Wash by percent value. <p><strong>OperationId:</strong>postBlockWashSchedules</p>
      * Create Block Wash Schedules
@@ -1297,52 +1297,52 @@ export declare class BlockApi extends runtime.BaseAPI {
      * Use this API to complete a cancellation of the block. <p><strong>OperationId:</strong>postCancelBlock</p>
      * Cancel the Block
      */
-    postCancelBlockRaw(requestParameters: PostCancelBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCancelBlockRaw(requestParameters: PostCancelBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to complete a cancellation of the block. <p><strong>OperationId:</strong>postCancelBlock</p>
      * Cancel the Block
      */
-    postCancelBlock(requestParameters: PostCancelBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCancelBlock(requestParameters: PostCancelBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to copy the a block. The block copied (Source block) will serve as a template for the new one. <p><strong>OperationId:</strong>postCopyBlock</p>
      * Copy a Block
      */
-    postCopyBlockRaw(requestParameters: PostCopyBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCopyBlockRaw(requestParameters: PostCopyBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to copy the a block. The block copied (Source block) will serve as a template for the new one. <p><strong>OperationId:</strong>postCopyBlock</p>
      * Copy a Block
      */
-    postCopyBlock(requestParameters: PostCopyBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCopyBlock(requestParameters: PostCopyBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a Reservation Rooming List. <p><strong>OperationId:</strong>postRoomingList</p>
      * Create Block Rooming List Reservations
      */
-    postRoomingListRaw(requestParameters: PostRoomingListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomingListDetails>>;
+    postRoomingListRaw(requestParameters: PostRoomingListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomingListDetails>>;
     /**
      * Use this API to create a Reservation Rooming List. <p><strong>OperationId:</strong>postRoomingList</p>
      * Create Block Rooming List Reservations
      */
-    postRoomingList(requestParameters: PostRoomingListOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomingListDetails>;
+    postRoomingList(requestParameters: PostRoomingListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomingListDetails>;
     /**
      * Use this API to create sub allocation. <p><strong>OperationId:</strong>postSubAllocation</p>
      * Create Sub allocation
      */
-    postSubAllocationRaw(requestParameters: PostSubAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postSubAllocationRaw(requestParameters: PostSubAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create sub allocation. <p><strong>OperationId:</strong>postSubAllocation</p>
      * Create Sub allocation
      */
-    postSubAllocation(requestParameters: PostSubAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postSubAllocation(requestParameters: PostSubAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this when you want to create a sub block.You will need to know the OPERA Block ID, which you want this sub block to fall under. <p><strong>OperationId:</strong>postSubBlock</p>
      * Create a sub-Block
      */
-    postSubBlockRaw(requestParameters: PostSubBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postSubBlockRaw(requestParameters: PostSubBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this when you want to create a sub block.You will need to know the OPERA Block ID, which you want this sub block to fall under. <p><strong>OperationId:</strong>postSubBlock</p>
      * Create a sub-Block
      */
-    postSubBlock(requestParameters: PostSubBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postSubBlock(requestParameters: PostSubBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this when you want to create a sub block.You will need to know the OPERA Block ID, which you want this sub block to fall under. <p><strong>OperationId:</strong>postSubBlockByExtId</p>
      * Create a sub-Block
@@ -1357,52 +1357,52 @@ export declare class BlockApi extends runtime.BaseAPI {
      * Use this API to create a block tour series. <p><strong>OperationId:</strong>postTourSeries</p>
      * Create a Block tour series
      */
-    postTourSeriesRaw(requestParameters: PostTourSeriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTourSeriesRaw(requestParameters: PostTourSeriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a block tour series. <p><strong>OperationId:</strong>postTourSeries</p>
      * Create a Block tour series
      */
-    postTourSeries(requestParameters: PostTourSeriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTourSeries(requestParameters: PostTourSeriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to change alternate dates for a block. <p><strong>OperationId:</strong>putAlternateDates</p>
      * Change alternate dates for a Block
      */
-    putAlternateDatesRaw(requestParameters: PutAlternateDatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAlternateDatesRaw(requestParameters: PutAlternateDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to change alternate dates for a block. <p><strong>OperationId:</strong>putAlternateDates</p>
      * Change alternate dates for a Block
      */
-    putAlternateDates(requestParameters: PutAlternateDatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAlternateDates(requestParameters: PutAlternateDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update an existing group block in OPERA Cloud. This API allows update of block header information, such as description, market segment, source code, rate code, and other details, but does not include updates for room grid or events, which have their own update API calls. <p><strong>OperationId:</strong>putBlock</p>
      * Change a Block
      */
-    putBlockRaw(requestParameters: PutBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockChanged>>;
+    putBlockRaw(requestParameters: PutBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockChanged>>;
     /**
      * Use this API to update an existing group block in OPERA Cloud. This API allows update of block header information, such as description, market segment, source code, rate code, and other details, but does not include updates for room grid or events, which have their own update API calls. <p><strong>OperationId:</strong>putBlock</p>
      * Change a Block
      */
-    putBlock(requestParameters: PutBlockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockChanged>;
+    putBlock(requestParameters: PutBlockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockChanged>;
     /**
      * Us this API to create/change block access exclusion information. <p><strong>OperationId:</strong>putBlockAccessExclusion</p>
      * Set Block Exclusion information
      */
-    putBlockAccessExclusionRaw(requestParameters: PutBlockAccessExclusionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockAccessExclusionRaw(requestParameters: PutBlockAccessExclusionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Us this API to create/change block access exclusion information. <p><strong>OperationId:</strong>putBlockAccessExclusion</p>
      * Set Block Exclusion information
      */
-    putBlockAccessExclusion(requestParameters: PutBlockAccessExclusionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockAccessExclusion(requestParameters: PutBlockAccessExclusionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add block room type allocations and rates to a specified Block. <p><strong>OperationId:</strong>putBlockAllocation</p>
      * Set Block Allocation
      */
-    putBlockAllocationRaw(requestParameters: PutBlockAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockAllocationRaw(requestParameters: PutBlockAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to add block room type allocations and rates to a specified Block. <p><strong>OperationId:</strong>putBlockAllocation</p>
      * Set Block Allocation
      */
-    putBlockAllocation(requestParameters: PutBlockAllocationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockAllocation(requestParameters: PutBlockAllocationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add block room type allocations and rates to a specified Block. <p><strong>OperationId:</strong>putBlockAllocationByExtId</p>
      * Set Block Allocation
@@ -1417,12 +1417,12 @@ export declare class BlockApi extends runtime.BaseAPI {
      * Use this API to set block allocation for a range of dates for a list of room types. <p><strong>OperationId:</strong>putBlockAllocationRange</p>
      * Set Block Allocation Range
      */
-    putBlockAllocationRangeRaw(requestParameters: PutBlockAllocationRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockAllocationRangeRaw(requestParameters: PutBlockAllocationRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to set block allocation for a range of dates for a list of room types. <p><strong>OperationId:</strong>putBlockAllocationRange</p>
      * Set Block Allocation Range
      */
-    putBlockAllocationRange(requestParameters: PutBlockAllocationRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockAllocationRange(requestParameters: PutBlockAllocationRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to set block allocation for a range of dates for a list of room types. <p><strong>OperationId:</strong>putBlockAllocationRangeByExtId</p>
      * Set Block Allocation Range
@@ -1437,12 +1437,12 @@ export declare class BlockApi extends runtime.BaseAPI {
      * This API removes block allocation to a range of dates for a set of room types. <p><strong>OperationId:</strong>putBlockAllocationWash</p>
      * Update Block Allocation Wash
      */
-    putBlockAllocationWashRaw(requestParameters: PutBlockAllocationWashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockAllocationWashRaw(requestParameters: PutBlockAllocationWashRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API removes block allocation to a range of dates for a set of room types. <p><strong>OperationId:</strong>putBlockAllocationWash</p>
      * Update Block Allocation Wash
      */
-    putBlockAllocationWash(requestParameters: PutBlockAllocationWashOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockAllocationWash(requestParameters: PutBlockAllocationWashRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to update an existing block.  You must know the block ID for the request message.  Use getBlocks if you dont already know the block ID. <p><strong>OperationId:</strong>putBlockByExtId</p>
      * Change a Block
@@ -1457,22 +1457,22 @@ export declare class BlockApi extends runtime.BaseAPI {
      * This API cuts off block allocation effective current date. <p><strong>OperationId:</strong>putBlockCutoff</p>
      * Block Cut Off
      */
-    putBlockCutoffRaw(requestParameters: PutBlockCutoffOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockCutoffRaw(requestParameters: PutBlockCutoffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API cuts off block allocation effective current date. <p><strong>OperationId:</strong>putBlockCutoff</p>
      * Block Cut Off
      */
-    putBlockCutoff(requestParameters: PutBlockCutoffOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockCutoff(requestParameters: PutBlockCutoffRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to change block owners. <p><strong>OperationId:</strong>putBlockOwners</p>
      * Change Block owners
      */
-    putBlockOwnersRaw(requestParameters: PutBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockOwnersRaw(requestParameters: PutBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to change block owners. <p><strong>OperationId:</strong>putBlockOwners</p>
      * Change Block owners
      */
-    putBlockOwners(requestParameters: PutBlockOwnersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockOwners(requestParameters: PutBlockOwnersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to refreshes block rates. <p><strong>OperationId:</strong>putBlockRates</p>
      * Refreshes Block rates
@@ -1487,32 +1487,32 @@ export declare class BlockApi extends runtime.BaseAPI {
      * Use this API to make changes to block reservations. <p><strong>OperationId:</strong>putBlockReservations</p>
      * Change Block reservations
      */
-    putBlockReservationsRaw(requestParameters: PutBlockReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockReservations>>;
+    putBlockReservationsRaw(requestParameters: PutBlockReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockReservations>>;
     /**
      * Use this API to make changes to block reservations. <p><strong>OperationId:</strong>putBlockReservations</p>
      * Change Block reservations
      */
-    putBlockReservations(requestParameters: PutBlockReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockReservations>;
+    putBlockReservations(requestParameters: PutBlockReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockReservations>;
     /**
      * Use this API to move or shift the dates of a block in OPERA.  <p><strong>OperationId:</strong>putBlockShift</p>
      * Shifts the Block start date
      */
-    putBlockShiftRaw(requestParameters: PutBlockShiftOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShiftedBlock>>;
+    putBlockShiftRaw(requestParameters: PutBlockShiftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShiftedBlock>>;
     /**
      * Use this API to move or shift the dates of a block in OPERA.  <p><strong>OperationId:</strong>putBlockShift</p>
      * Shifts the Block start date
      */
-    putBlockShift(requestParameters: PutBlockShiftOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShiftedBlock>;
+    putBlockShift(requestParameters: PutBlockShiftRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShiftedBlock>;
     /**
      * Use this to change the status of a block in Opera.  To know a hotels Block status codes, use the List Of Values API - BlockStatuses.  Also note, you can only change the status in a particular order, for example INQ to DEF, but not DEF to INQ. <p><strong>OperationId:</strong>putBlockStatus</p>
      * Change the Status of a Block
      */
-    putBlockStatusRaw(requestParameters: PutBlockStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockStatus>>;
+    putBlockStatusRaw(requestParameters: PutBlockStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedBlockStatus>>;
     /**
      * Use this to change the status of a block in Opera.  To know a hotels Block status codes, use the List Of Values API - BlockStatuses.  Also note, you can only change the status in a particular order, for example INQ to DEF, but not DEF to INQ. <p><strong>OperationId:</strong>putBlockStatus</p>
      * Change the Status of a Block
      */
-    putBlockStatus(requestParameters: PutBlockStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockStatus>;
+    putBlockStatus(requestParameters: PutBlockStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedBlockStatus>;
     /**
      * Use this to change the status of a block in Opera.  To know a hotels Block status codes, use the List Of Values API - BlockStatuses.  Also note, you can only change the status in a particular order, for example INQ to DEF, but not DEF to INQ. <p><strong>OperationId:</strong>putBlockStatusByExtId</p>
      * Change the Status of a Block
@@ -1537,32 +1537,32 @@ export declare class BlockApi extends runtime.BaseAPI {
      * This API changes block wash schedules Wash Date, Room Type, Occupancy detail, Sell limit and Wash by percent value. <p><strong>OperationId:</strong>putBlockWashSchedules</p>
      * Change Block Wash Schedules
      */
-    putBlockWashSchedulesRaw(requestParameters: PutBlockWashSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockWashSchedulesRaw(requestParameters: PutBlockWashSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API changes block wash schedules Wash Date, Room Type, Occupancy detail, Sell limit and Wash by percent value. <p><strong>OperationId:</strong>putBlockWashSchedules</p>
      * Change Block Wash Schedules
      */
-    putBlockWashSchedules(requestParameters: PutBlockWashSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockWashSchedules(requestParameters: PutBlockWashSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update catering status. <p><strong>OperationId:</strong>putCateringStatus</p>
      * Change Catering Status
      */
-    putCateringStatusRaw(requestParameters: PutCateringStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedCateringStatus>>;
+    putCateringStatusRaw(requestParameters: PutCateringStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedCateringStatus>>;
     /**
      * Use this API to update catering status. <p><strong>OperationId:</strong>putCateringStatus</p>
      * Change Catering Status
      */
-    putCateringStatus(requestParameters: PutCateringStatusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedCateringStatus>;
+    putCateringStatus(requestParameters: PutCateringStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedCateringStatus>;
     /**
      * This API clears all block restrictions for a given date. <p><strong>OperationId:</strong>putClearAllRestrictions</p>
      * Clear-All Block Restrictions
      */
-    putClearAllRestrictionsRaw(requestParameters: PutClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putClearAllRestrictionsRaw(requestParameters: PutClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API clears all block restrictions for a given date. <p><strong>OperationId:</strong>putClearAllRestrictions</p>
      * Clear-All Block Restrictions
      */
-    putClearAllRestrictions(requestParameters: PutClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putClearAllRestrictions(requestParameters: PutClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to set the contract defaults. <p><strong>OperationId:</strong>putContractDefaults</p>
      * Set Contract Defaults
@@ -1577,42 +1577,42 @@ export declare class BlockApi extends runtime.BaseAPI {
      * Use this API to borrow inventory from the block or house when you encounter an insufficient number of rooms for block a reservation. <p><strong>OperationId:</strong>putInventory</p>
      * Borrow Inventory
      */
-    putInventoryRaw(requestParameters: PutInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putInventoryRaw(requestParameters: PutInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to borrow inventory from the block or house when you encounter an insufficient number of rooms for block a reservation. <p><strong>OperationId:</strong>putInventory</p>
      * Borrow Inventory
      */
-    putInventory(requestParameters: PutInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putInventory(requestParameters: PutInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to return the previously borrowed inventory on the block back to the original source from which it was borrowed. The original source can be a room type or house inventory, as indicated in the request. <p><strong>OperationId:</strong>putReleasedInventory</p>
      * Return Borrowed Inventory
      */
-    putReleasedInventoryRaw(requestParameters: PutReleasedInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putReleasedInventoryRaw(requestParameters: PutReleasedInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to return the previously borrowed inventory on the block back to the original source from which it was borrowed. The original source can be a room type or house inventory, as indicated in the request. <p><strong>OperationId:</strong>putReleasedInventory</p>
      * Return Borrowed Inventory
      */
-    putReleasedInventory(requestParameters: PutReleasedInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putReleasedInventory(requestParameters: PutReleasedInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to set room type order for a block. <p><strong>OperationId:</strong>putRoomTypeOrder</p>
      * Set room type order for a Block
      */
-    putRoomTypeOrderRaw(requestParameters: PutRoomTypeOrderOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomTypeOrderRaw(requestParameters: PutRoomTypeOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to set room type order for a block. <p><strong>OperationId:</strong>putRoomTypeOrder</p>
      * Set room type order for a Block
      */
-    putRoomTypeOrder(requestParameters: PutRoomTypeOrderOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomTypeOrder(requestParameters: PutRoomTypeOrderRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API validates the block code for the following if applicable - Unique block code/ Start of inventory week/ Block code template. <p><strong>OperationId:</strong>putValidateBlockCode</p>
      * Validate Block Code
      */
-    putValidateBlockCodeRaw(requestParameters: PutValidateBlockCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putValidateBlockCodeRaw(requestParameters: PutValidateBlockCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API validates the block code for the following if applicable - Unique block code/ Start of inventory week/ Block code template. <p><strong>OperationId:</strong>putValidateBlockCode</p>
      * Validate Block Code
      */
-    putValidateBlockCode(requestParameters: PutValidateBlockCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putValidateBlockCode(requestParameters: PutValidateBlockCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

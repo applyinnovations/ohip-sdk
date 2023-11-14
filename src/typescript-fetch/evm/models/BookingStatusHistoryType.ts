@@ -89,7 +89,7 @@ export function BookingStatusHistoryTypeToJSON(value?: BookingStatusHistoryType 
         
         'bookingStatus': CodeDescriptionTypeToJSON(value.bookingStatus),
         'modifierId': value.modifierId,
-        'modifyDateTime': value.modifyDateTime === undefined ? undefined : (value.modifyDateTime.toISOString().substr(0,10)),
+        'modifyDateTime': value.modifyDateTime === undefined ? undefined : (value.modifyDateTime.toISOString().substring(0,10)),
         'sequence': value.sequence,
     };
 }

@@ -47,8 +47,8 @@ function TimeSpanTypeToJSON(value) {
     }
     return {
         'duration': value.duration,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.TimeSpanTypeToJSON = TimeSpanTypeToJSON;

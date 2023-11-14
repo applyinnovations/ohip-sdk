@@ -64,7 +64,7 @@ function SuspendedAddressesInfoTypeToJSON(value) {
         'name': value.name,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'profileType': value.profileType,
-        'validateDate': value.validateDate === undefined ? undefined : (value.validateDate.toISOString().substr(0, 10)),
+        'validateDate': value.validateDate === undefined ? undefined : (value.validateDate.toISOString().substring(0, 10)),
     };
 }
 exports.SuspendedAddressesInfoTypeToJSON = SuspendedAddressesInfoTypeToJSON;

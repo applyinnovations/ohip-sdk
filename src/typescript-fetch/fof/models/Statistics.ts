@@ -112,7 +112,7 @@ export function StatisticsToJSON(value?: Statistics | null): any {
     }
     return {
         
-        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substr(0,10)),
+        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0,10)),
         'links': LinksToJSON(value.links),
         'metricSet': value.metricSet === undefined ? undefined : ((value.metricSet as Array<any>).map(StatisticsMetricSetInnerToJSON)),
         'statisticsCode': HSKStatReportCodeTypeToJSON(value.statisticsCode),

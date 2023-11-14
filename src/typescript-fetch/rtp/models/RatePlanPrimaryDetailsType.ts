@@ -143,12 +143,12 @@ export function RatePlanPrimaryDetailsTypeToJSON(value?: RatePlanPrimaryDetailsT
         'approvalStatus': RatePlanApprovalStatusTypeToJSON(value.approvalStatus),
         'baseType': BaseTypeToJSON(value.baseType),
         'description': TranslationTextType2000ToJSON(value.description),
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substr(0,10)),
+        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0,10)),
         'lockStatus': RateCodeLockStatusTypeToJSON(value.lockStatus),
         'privilegedRate': value.privilegedRate,
         'privilegedRateRestriction': value.privilegedRateRestriction,
         'sellSequence': value.sellSequence,
-        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substr(0,10)),
+        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substring(0,10)),
     };
 }
 

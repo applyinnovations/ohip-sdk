@@ -17,18 +17,18 @@ import * as runtime from '../runtime';
 import type {
   Currencies,
   ExceptionDetailType,
-} from '../models';
+} from '../models/index';
 import {
     CurrenciesFromJSON,
     CurrenciesToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetCurrenciesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -43,6 +43,18 @@ export class ProvisioningApi extends runtime.BaseAPI {
      * Operation to fetch all currencies that are valid in the Environment.
      */
     async getCurrenciesRaw(requestParameters: GetCurrenciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Currencies>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCurrencies.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCurrencies.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCurrencies.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

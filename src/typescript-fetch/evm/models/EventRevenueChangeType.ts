@@ -131,7 +131,7 @@ export function EventRevenueChangeTypeToJSON(value?: EventRevenueChangeType | nu
         'blockId': UniqueIDTypeToJSON(value.blockId),
         'changeUserInfo': LogUserInfoTypeToJSON(value.changeUserInfo),
         'eventChangeId': UniqueIDTypeToJSON(value.eventChangeId),
-        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substr(0,10)),
+        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substring(0,10)),
         'eventId': UniqueIDTypeToJSON(value.eventId),
         'eventStatus': value.eventStatus,
         'revenueChange': EventRevenueTypeToJSON(value.revenueChange),

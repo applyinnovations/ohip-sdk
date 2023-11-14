@@ -58,7 +58,7 @@ function EventRevenueChangeTypeToJSON(value) {
         'blockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.blockId),
         'changeUserInfo': (0, LogUserInfoType_1.LogUserInfoTypeToJSON)(value.changeUserInfo),
         'eventChangeId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.eventChangeId),
-        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substr(0, 10)),
+        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substring(0, 10)),
         'eventId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.eventId),
         'eventStatus': value.eventStatus,
         'revenueChange': (0, EventRevenueType_1.EventRevenueTypeToJSON)(value.revenueChange),

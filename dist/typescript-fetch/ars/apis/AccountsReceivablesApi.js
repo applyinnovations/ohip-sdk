@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetStatementsProcessingEnum = exports.GetStatementsCardTypeEnum = exports.GetStatementsCardOrTokenEnum = exports.GetStatementsColorEnum = exports.GetStatementsInvoiceTypeEnum = exports.GetStatementsFolioStatusEnum = exports.GetInvoicesPaymentsFetchInstructionsEnum = exports.GetInvoicePostingsProcessingEnum = exports.GetInvoicePostingsCardTypeEnum = exports.GetInvoicePostingsCardOrTokenEnum = exports.GetInvoicePostingsColorEnum = exports.GetInvoicePostingsInvoiceTypeEnum = exports.GetInvoicePostingsFolioStatusEnum = exports.GetAccountsOrderTypeEnum = exports.GetAccountsBalanceEnum = exports.GetAccountFetchInstructionsEnum = exports.GetARStatementsProcessingEnum = exports.GetARStatementsCardTypeEnum = exports.GetARStatementsCardOrTokenEnum = exports.GetARStatementsColorEnum = exports.GetARStatementsInvoiceTypeEnum = exports.GetARStatementsFolioStatusEnum = exports.AccountsReceivablesApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     compressARInvoicesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling compressARInvoices.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling compressARInvoices.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling compressARInvoices.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling compressARInvoices.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling compressARInvoices.');
+            }
+            if (requestParameters.arCompressInvoices === null || requestParameters.arCompressInvoices === undefined) {
+                throw new runtime.RequiredError('arCompressInvoices', 'Required parameter requestParameters.arCompressInvoices was null or undefined when calling compressARInvoices.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -81,9 +99,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.CompressARInvoicesRequestToJSON)(requestParameters.arCompressInvoices),
+                body: (0, index_1.ArCompressInvoicesToJSON)(requestParameters.arCompressInvoices),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.CompressedARInvoicesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CompressedARInvoicesFromJSON)(jsonValue));
         });
     }
     /**
@@ -102,6 +120,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     copyARAccountRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling copyARAccount.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling copyARAccount.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling copyARAccount.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling copyARAccount.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling copyARAccount.');
+            }
+            if (requestParameters.arAccountCopy === null || requestParameters.arAccountCopy === undefined) {
+                throw new runtime.RequiredError('arAccountCopy', 'Required parameter requestParameters.arAccountCopy was null or undefined when calling copyARAccount.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -125,9 +161,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.CopyARAccountRequestToJSON)(requestParameters.arAccountCopy),
+                body: (0, index_1.ArAccountCopyToJSON)(requestParameters.arAccountCopy),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -146,6 +182,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     deleteAccountRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling deleteAccount.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteAccount.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteAccount.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccount.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccount.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -169,7 +220,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -188,6 +239,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     deleteAccountCommentRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling deleteAccountComment.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteAccountComment.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteAccountComment.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccountComment.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccountComment.');
+            }
             const queryParameters = {};
             if (requestParameters.id !== undefined) {
                 queryParameters['id'] = requestParameters.id;
@@ -220,7 +286,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -239,6 +305,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     deleteAccountFixedChargeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.fixedChargeId === null || requestParameters.fixedChargeId === undefined) {
+                throw new runtime.RequiredError('fixedChargeId', 'Required parameter requestParameters.fixedChargeId was null or undefined when calling deleteAccountFixedCharge.');
+            }
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling deleteAccountFixedCharge.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteAccountFixedCharge.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteAccountFixedCharge.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccountFixedCharge.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccountFixedCharge.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -262,7 +346,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -281,6 +365,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     deleteAccountTraceRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling deleteAccountTrace.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteAccountTrace.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteAccountTrace.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteAccountTrace.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteAccountTrace.');
+            }
             const queryParameters = {};
             if (requestParameters.traceID !== undefined) {
                 queryParameters['traceID'] = requestParameters.traceID;
@@ -313,7 +412,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -329,9 +428,34 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Delete payments from invoice.<br><p><strong><mark>This API is deprecated. Please use removePaymentsFromInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>deletePaymentsFromInvoice</p>
      * Delete payments from invoice
+     * @deprecated
      */
     deletePaymentsFromInvoiceRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+                throw new runtime.RequiredError('transactionId', 'Required parameter requestParameters.transactionId was null or undefined when calling deletePaymentsFromInvoice.');
+            }
+            if (requestParameters.invoiceId === null || requestParameters.invoiceId === undefined) {
+                throw new runtime.RequiredError('invoiceId', 'Required parameter requestParameters.invoiceId was null or undefined when calling deletePaymentsFromInvoice.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deletePaymentsFromInvoice.');
+            }
+            if (requestParameters.trxNo === null || requestParameters.trxNo === undefined) {
+                throw new runtime.RequiredError('trxNo', 'Required parameter requestParameters.trxNo was null or undefined when calling deletePaymentsFromInvoice.');
+            }
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling deletePaymentsFromInvoice.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deletePaymentsFromInvoice.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deletePaymentsFromInvoice.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deletePaymentsFromInvoice.');
+            }
             const queryParameters = {};
             if (requestParameters.trxNo) {
                 queryParameters['trxNo'] = requestParameters.trxNo;
@@ -367,12 +491,13 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
      * Delete payments from invoice.<br><p><strong><mark>This API is deprecated. Please use removePaymentsFromInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>deletePaymentsFromInvoice</p>
      * Delete payments from invoice
+     * @deprecated
      */
     deletePaymentsFromInvoice(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -386,6 +511,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getARAgingCyclesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getARAgingCycles.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getARAgingCycles.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getARAgingCycles.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getARAgingCycles.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -409,7 +546,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ArAgingCyclesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ArAgingCyclesFromJSON)(jsonValue));
         });
     }
     /**
@@ -428,12 +565,27 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getARCreditCardPaymentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+                throw new runtime.RequiredError('transactionId', 'Required parameter requestParameters.transactionId was null or undefined when calling getARCreditCardPayments.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getARCreditCardPayments.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getARCreditCardPayments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getARCreditCardPayments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getARCreditCardPayments.');
+            }
             const queryParameters = {};
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -463,7 +615,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ArCreditCardPaymentsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ArCreditCardPaymentsFromJSON)(jsonValue));
         });
     }
     /**
@@ -482,6 +634,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getARFolioPrintersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getARFolioPrinters.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getARFolioPrinters.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getARFolioPrinters.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getARFolioPrinters.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getARFolioPrinters.');
+            }
             const queryParameters = {};
             if (requestParameters.balance !== undefined) {
                 queryParameters['balance'] = requestParameters.balance;
@@ -598,7 +765,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ArFolioPrintersFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ArFolioPrintersFromJSON)(jsonValue));
         });
     }
     /**
@@ -617,6 +784,15 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getARStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getARStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getARStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getARStatements.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -886,7 +1062,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substr(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -979,7 +1155,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['storedDebitFolioName'] = requestParameters.storedDebitFolioName;
             }
             if (requestParameters.balanceForwardDate !== undefined) {
-                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate.toISOString().substr(0, 10);
+                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate.toISOString().substring(0, 10);
             }
             if (requestParameters.inclFolios !== undefined) {
                 queryParameters['inclFolios'] = requestParameters.inclFolios;
@@ -991,10 +1167,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['inclZero'] = requestParameters.inclZero;
             }
             if (requestParameters.filterEndDate !== undefined) {
-                queryParameters['filterEndDate'] = requestParameters.filterEndDate.toISOString().substr(0, 10);
+                queryParameters['filterEndDate'] = requestParameters.filterEndDate.toISOString().substring(0, 10);
             }
             if (requestParameters.filterStartDate !== undefined) {
-                queryParameters['filterStartDate'] = requestParameters.filterStartDate.toISOString().substr(0, 10);
+                queryParameters['filterStartDate'] = requestParameters.filterStartDate.toISOString().substring(0, 10);
             }
             if (requestParameters.statementText !== undefined) {
                 queryParameters['statementText'] = requestParameters.statementText;
@@ -1021,7 +1197,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatementsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatementsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1040,6 +1216,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getARTransactionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+                throw new runtime.RequiredError('hotelIds', 'Required parameter requestParameters.hotelIds was null or undefined when calling getARTransactions.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getARTransactions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getARTransactions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getARTransactions.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelIds) {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
@@ -1048,10 +1236,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accounts'] = requestParameters.accounts;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.fromAmount !== undefined) {
                 queryParameters['fromAmount'] = requestParameters.fromAmount;
@@ -1105,7 +1293,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ArTransactionsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ArTransactionsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1124,6 +1312,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getAccountRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getAccount.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getAccount.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getAccount.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getAccount.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getAccount.');
+            }
             const queryParameters = {};
             if (requestParameters.accountNo !== undefined) {
                 queryParameters['accountNo'] = requestParameters.accountNo;
@@ -1162,7 +1365,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.AccountFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AccountFromJSON)(jsonValue));
         });
     }
     /**
@@ -1181,6 +1384,15 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getAccountsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getAccounts.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getAccounts.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getAccounts.');
+            }
             const queryParameters = {};
             if (requestParameters.balance !== undefined) {
                 queryParameters['balance'] = requestParameters.balance;
@@ -1264,7 +1476,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.AccountsInfoFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AccountsInfoFromJSON)(jsonValue));
         });
     }
     /**
@@ -1283,6 +1495,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getAppliedInvoicePaymentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getAppliedInvoicePayments.');
+            }
+            if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+                throw new runtime.RequiredError('transactionId', 'Required parameter requestParameters.transactionId was null or undefined when calling getAppliedInvoicePayments.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getAppliedInvoicePayments.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getAppliedInvoicePayments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getAppliedInvoicePayments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getAppliedInvoicePayments.');
+            }
             const queryParameters = {};
             if (requestParameters.invoiceNo !== undefined) {
                 queryParameters['invoiceNo'] = requestParameters.invoiceNo;
@@ -1309,7 +1539,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.InvoiceAppliedPaymentsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.InvoiceAppliedPaymentsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1325,9 +1555,31 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to get applied payment details for AR invoices.<br><p><strong><mark>This API is deprecated. Please use getAppliedInvoicePayments instead</mark></strong></p> <p><strong>OperationId:</strong>getInvoiceAppliedPayments</p>
      * Get account receivable invoice\'s payment history
+     * @deprecated
      */
     getInvoiceAppliedPaymentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getInvoiceAppliedPayments.');
+            }
+            if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+                throw new runtime.RequiredError('transactionId', 'Required parameter requestParameters.transactionId was null or undefined when calling getInvoiceAppliedPayments.');
+            }
+            if (requestParameters.invoiceId === null || requestParameters.invoiceId === undefined) {
+                throw new runtime.RequiredError('invoiceId', 'Required parameter requestParameters.invoiceId was null or undefined when calling getInvoiceAppliedPayments.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getInvoiceAppliedPayments.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getInvoiceAppliedPayments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getInvoiceAppliedPayments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getInvoiceAppliedPayments.');
+            }
             const queryParameters = {};
             if (requestParameters.invoiceNo !== undefined) {
                 queryParameters['invoiceNo'] = requestParameters.invoiceNo;
@@ -1354,12 +1606,13 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.InvoiceAppliedPaymentsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.InvoiceAppliedPaymentsFromJSON)(jsonValue));
         });
     }
     /**
      * Use this API to get applied payment details for AR invoices.<br><p><strong><mark>This API is deprecated. Please use getAppliedInvoicePayments instead</mark></strong></p> <p><strong>OperationId:</strong>getInvoiceAppliedPayments</p>
      * Get account receivable invoice\'s payment history
+     * @deprecated
      */
     getInvoiceAppliedPayments(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -1373,6 +1626,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getInvoicePaymentDetailRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+                throw new runtime.RequiredError('transactionId', 'Required parameter requestParameters.transactionId was null or undefined when calling getInvoicePaymentDetail.');
+            }
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getInvoicePaymentDetail.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getInvoicePaymentDetail.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getInvoicePaymentDetail.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicePaymentDetail.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicePaymentDetail.');
+            }
             const queryParameters = {};
             if (requestParameters.profileId !== undefined) {
                 queryParameters['profileId'] = requestParameters.profileId;
@@ -1411,7 +1682,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.InvoicePaymentFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.InvoicePaymentFromJSON)(jsonValue));
         });
     }
     /**
@@ -1430,18 +1701,27 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getInvoicePostingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getInvoicePostings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicePostings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicePostings.');
+            }
             const queryParameters = {};
             if (requestParameters.canBeModified !== undefined) {
                 queryParameters['canBeModified'] = requestParameters.canBeModified;
             }
             if (requestParameters.closeDate !== undefined) {
-                queryParameters['closeDate'] = requestParameters.closeDate.toISOString().substr(0, 10);
+                queryParameters['closeDate'] = requestParameters.closeDate.toISOString().substring(0, 10);
             }
             if (requestParameters.fiscalBillNo !== undefined) {
                 queryParameters['fiscalBillNo'] = requestParameters.fiscalBillNo;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substr(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
             }
             if (requestParameters.folioNo !== undefined) {
                 queryParameters['folioNo'] = requestParameters.folioNo;
@@ -1462,10 +1742,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['invoiceType'] = requestParameters.invoiceType;
             }
             if (requestParameters.postingDate !== undefined) {
-                queryParameters['postingDate'] = requestParameters.postingDate.toISOString().substr(0, 10);
+                queryParameters['postingDate'] = requestParameters.postingDate.toISOString().substring(0, 10);
             }
             if (requestParameters.revenueDate !== undefined) {
-                queryParameters['revenueDate'] = requestParameters.revenueDate.toISOString().substr(0, 10);
+                queryParameters['revenueDate'] = requestParameters.revenueDate.toISOString().substring(0, 10);
             }
             if (requestParameters.statementNo !== undefined) {
                 queryParameters['statementNo'] = requestParameters.statementNo;
@@ -1474,13 +1754,13 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['status'] = requestParameters.status;
             }
             if (requestParameters.transferDate !== undefined) {
-                queryParameters['transferDate'] = requestParameters.transferDate.toISOString().substr(0, 10);
+                queryParameters['transferDate'] = requestParameters.transferDate.toISOString().substring(0, 10);
             }
             if (requestParameters.postingTransactionCode !== undefined) {
                 queryParameters['postingTransactionCode'] = requestParameters.postingTransactionCode;
             }
             if (requestParameters.transactionDate !== undefined) {
-                queryParameters['transactionDate'] = requestParameters.transactionDate.toISOString().substr(0, 10);
+                queryParameters['transactionDate'] = requestParameters.transactionDate.toISOString().substring(0, 10);
             }
             if (requestParameters.transactionNo !== undefined) {
                 queryParameters['transactionNo'] = requestParameters.transactionNo;
@@ -1555,7 +1835,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['compressed'] = requestParameters.compressed;
             }
             if (requestParameters.compressedDate !== undefined) {
-                queryParameters['compressedDate'] = requestParameters.compressedDate.toISOString().substr(0, 10);
+                queryParameters['compressedDate'] = requestParameters.compressedDate.toISOString().substring(0, 10);
             }
             if (requestParameters.transferredOut !== undefined) {
                 queryParameters['transferredOut'] = requestParameters.transferredOut;
@@ -1681,7 +1961,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substr(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -1747,7 +2027,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['printed'] = requestParameters.printed;
             }
             if (requestParameters.printedDate !== undefined) {
-                queryParameters['printedDate'] = requestParameters.printedDate.toISOString().substr(0, 10);
+                queryParameters['printedDate'] = requestParameters.printedDate.toISOString().substring(0, 10);
             }
             if (requestParameters.storedFolioId !== undefined) {
                 queryParameters['storedFolioId'] = requestParameters.storedFolioId;
@@ -1804,10 +2084,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['additionalFilterTransactionSubGroupCode'] = requestParameters.additionalFilterTransactionSubGroupCode;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substr(0, 10);
+                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substr(0, 10);
+                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
             }
             if (requestParameters.referenceWildCard !== undefined) {
                 queryParameters['referenceWildCard'] = requestParameters.referenceWildCard;
@@ -1840,7 +2120,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.InvoicePostingsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.InvoicePostingsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1859,6 +2139,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getInvoicesOnHoldRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getInvoicesOnHold.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getInvoicesOnHold.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicesOnHold.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicesOnHold.');
+            }
             const queryParameters = {};
             if (requestParameters.profileId !== undefined) {
                 queryParameters['profileId'] = requestParameters.profileId;
@@ -1885,10 +2177,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accountName'] = requestParameters.accountName;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.folios !== undefined) {
                 queryParameters['folios'] = requestParameters.folios;
@@ -1924,7 +2216,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.InvoicesOnHoldFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.InvoicesOnHoldFromJSON)(jsonValue));
         });
     }
     /**
@@ -1943,6 +2235,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getInvoicesPaymentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getInvoicesPayments.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getInvoicesPayments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getInvoicesPayments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getInvoicesPayments.');
+            }
             const queryParameters = {};
             if (requestParameters.inclDetails !== undefined) {
                 queryParameters['inclDetails'] = requestParameters.inclDetails;
@@ -1960,10 +2264,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substr(0, 10);
+                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substr(0, 10);
+                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
             }
             if (requestParameters.guestDisplayName !== undefined) {
                 queryParameters['guestDisplayName'] = requestParameters.guestDisplayName;
@@ -2029,7 +2333,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.InvoicesPaymentsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.InvoicesPaymentsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2048,6 +2352,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getProfileAgingRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling getProfileAging.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileAging.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileAging.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileAging.');
+            }
             const queryParameters = {};
             if (requestParameters.currency !== undefined) {
                 queryParameters['currency'] = requestParameters.currency;
@@ -2077,7 +2393,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ProfileAgingFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ProfileAgingFromJSON)(jsonValue));
         });
     }
     /**
@@ -2096,6 +2412,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getProfileYearViewRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling getProfileYearView.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileYearView.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileYearView.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileYearView.');
+            }
             const queryParameters = {};
             if (requestParameters.currency !== undefined) {
                 queryParameters['currency'] = requestParameters.currency;
@@ -2125,7 +2453,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ProfileYearViewFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ProfileYearViewFromJSON)(jsonValue));
         });
     }
     /**
@@ -2144,6 +2472,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getRemindersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accounts === null || requestParameters.accounts === undefined) {
+                throw new runtime.RequiredError('accounts', 'Required parameter requestParameters.accounts was null or undefined when calling getReminders.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getReminders.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getReminders.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getReminders.');
+            }
             const queryParameters = {};
             if (requestParameters.accounts) {
                 queryParameters['accounts'] = requestParameters.accounts;
@@ -2182,7 +2522,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.RemindersFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.RemindersFromJSON)(jsonValue));
         });
     }
     /**
@@ -2201,6 +2541,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getRemindersHistoryRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getRemindersHistory.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRemindersHistory.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRemindersHistory.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRemindersHistory.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId !== undefined) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -2221,7 +2573,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accountName'] = requestParameters.accountName;
             }
             if (requestParameters.dateSent !== undefined) {
-                queryParameters['dateSent'] = requestParameters.dateSent.toISOString().substr(0, 10);
+                queryParameters['dateSent'] = requestParameters.dateSent.toISOString().substring(0, 10);
             }
             if (requestParameters.reportFileNameWildCard !== undefined) {
                 queryParameters['reportFileNameWildCard'] = requestParameters.reportFileNameWildCard;
@@ -2248,7 +2600,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.RemindersHistoryFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.RemindersHistoryFromJSON)(jsonValue));
         });
     }
     /**
@@ -2264,9 +2616,22 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to prepare statement for an AR account holders. It is typically prepared for billing purposes.<br><p><strong><mark>This API is deprecated. Please use getARStatements instead</mark></strong></p> <p><strong>OperationId:</strong>getStatements</p>
      * Get given profile\'s account receivable statements
+     * @deprecated
      */
     getStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getStatements.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getStatements.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -2533,7 +2898,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substr(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -2626,7 +2991,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['storedDebitFolioName'] = requestParameters.storedDebitFolioName;
             }
             if (requestParameters.balanceForwardDate !== undefined) {
-                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate.toISOString().substr(0, 10);
+                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate.toISOString().substring(0, 10);
             }
             if (requestParameters.inclFolios !== undefined) {
                 queryParameters['inclFolios'] = requestParameters.inclFolios;
@@ -2638,10 +3003,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['inclZero'] = requestParameters.inclZero;
             }
             if (requestParameters.filterEndDate !== undefined) {
-                queryParameters['filterEndDate'] = requestParameters.filterEndDate.toISOString().substr(0, 10);
+                queryParameters['filterEndDate'] = requestParameters.filterEndDate.toISOString().substring(0, 10);
             }
             if (requestParameters.filterStartDate !== undefined) {
-                queryParameters['filterStartDate'] = requestParameters.filterStartDate.toISOString().substr(0, 10);
+                queryParameters['filterStartDate'] = requestParameters.filterStartDate.toISOString().substring(0, 10);
             }
             if (requestParameters.statementText !== undefined) {
                 queryParameters['statementText'] = requestParameters.statementText;
@@ -2668,12 +3033,13 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatementsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatementsFromJSON)(jsonValue));
         });
     }
     /**
      * Use this API to prepare statement for an AR account holders. It is typically prepared for billing purposes.<br><p><strong><mark>This API is deprecated. Please use getARStatements instead</mark></strong></p> <p><strong>OperationId:</strong>getStatements</p>
      * Get given profile\'s account receivable statements
+     * @deprecated
      */
     getStatements(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -2687,6 +3053,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     getStatementsHistoryRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling getStatementsHistory.');
+            }
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling getStatementsHistory.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getStatementsHistory.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getStatementsHistory.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getStatementsHistory.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getStatementsHistory.');
+            }
             const queryParameters = {};
             if (requestParameters.accountNo !== undefined) {
                 queryParameters['accountNo'] = requestParameters.accountNo;
@@ -2695,7 +3079,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accountName'] = requestParameters.accountName;
             }
             if (requestParameters.dateSent !== undefined) {
-                queryParameters['dateSent'] = requestParameters.dateSent.toISOString().substr(0, 10);
+                queryParameters['dateSent'] = requestParameters.dateSent.toISOString().substring(0, 10);
             }
             if (requestParameters.reportFileNameWildCard !== undefined) {
                 queryParameters['reportFileNameWildCard'] = requestParameters.reportFileNameWildCard;
@@ -2722,7 +3106,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatementHistoryFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatementHistoryFromJSON)(jsonValue));
         });
     }
     /**
@@ -2738,9 +3122,31 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to post charges to account receivable account.<br><p><strong><mark>This API is deprecated. Please use postChargesToAR instead</mark></strong></p> <p><strong>OperationId:</strong>postARCharges</p>
      * Add charges to account receivable
+     * @deprecated
      */
     postARChargesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postARCharges.');
+            }
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling postARCharges.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postARCharges.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postARCharges.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postARCharges.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postARCharges.');
+            }
+            if (requestParameters.arChargesPostingCriteria === null || requestParameters.arChargesPostingCriteria === undefined) {
+                throw new runtime.RequiredError('arChargesPostingCriteria', 'Required parameter requestParameters.arChargesPostingCriteria was null or undefined when calling postARCharges.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2764,14 +3170,15 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChargesToARRequestToJSON)(requestParameters.arChargesPostingCriteria),
+                body: (0, index_1.ArChargesPostingCriteriaToJSON)(requestParameters.arChargesPostingCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
      * Use this API to post charges to account receivable account.<br><p><strong><mark>This API is deprecated. Please use postChargesToAR instead</mark></strong></p> <p><strong>OperationId:</strong>postARCharges</p>
      * Add charges to account receivable
+     * @deprecated
      */
     postARCharges(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -2785,6 +3192,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postAROldBalancesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAROldBalances.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAROldBalances.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAROldBalances.');
+            }
+            if (requestParameters.arOldBalances === null || requestParameters.arOldBalances === undefined) {
+                throw new runtime.RequiredError('arOldBalances', 'Required parameter requestParameters.arOldBalances was null or undefined when calling postAROldBalances.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2808,9 +3227,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostAROldBalancesRequestToJSON)(requestParameters.arOldBalances),
+                body: (0, index_1.ArOldBalancesToJSON)(requestParameters.arOldBalances),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2829,6 +3248,27 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postARPaymentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postARPayments.');
+            }
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling postARPayments.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postARPayments.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postARPayments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postARPayments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postARPayments.');
+            }
+            if (requestParameters.arPaymentsToBeCreated === null || requestParameters.arPaymentsToBeCreated === undefined) {
+                throw new runtime.RequiredError('arPaymentsToBeCreated', 'Required parameter requestParameters.arPaymentsToBeCreated was null or undefined when calling postARPayments.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2852,9 +3292,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostARPaymentsRequestToJSON)(requestParameters.arPaymentsToBeCreated),
+                body: (0, index_1.ArPaymentsToBeCreatedToJSON)(requestParameters.arPaymentsToBeCreated),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ArPaymentsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ArPaymentsFromJSON)(jsonValue));
         });
     }
     /**
@@ -2873,6 +3313,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postAccountRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postAccount.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAccount.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAccount.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAccount.');
+            }
+            if (requestParameters.accountCriteria === null || requestParameters.accountCriteria === undefined) {
+                throw new runtime.RequiredError('accountCriteria', 'Required parameter requestParameters.accountCriteria was null or undefined when calling postAccount.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2896,9 +3351,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostAccountRequestToJSON)(requestParameters.accountCriteria),
+                body: (0, index_1.AccountCriteriaToJSON)(requestParameters.accountCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2917,6 +3372,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postAccountCommentRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postAccountComment.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postAccountComment.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAccountComment.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAccountComment.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAccountComment.');
+            }
+            if (requestParameters.accountComment === null || requestParameters.accountComment === undefined) {
+                throw new runtime.RequiredError('accountComment', 'Required parameter requestParameters.accountComment was null or undefined when calling postAccountComment.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2940,9 +3413,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutAccountCommentRequestToJSON)(requestParameters.accountComment),
+                body: (0, index_1.AccountCommentToJSON)(requestParameters.accountComment),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -2961,6 +3434,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postAccountFixedChargeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postAccountFixedCharge.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postAccountFixedCharge.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAccountFixedCharge.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAccountFixedCharge.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAccountFixedCharge.');
+            }
+            if (requestParameters.accountFixedCharge === null || requestParameters.accountFixedCharge === undefined) {
+                throw new runtime.RequiredError('accountFixedCharge', 'Required parameter requestParameters.accountFixedCharge was null or undefined when calling postAccountFixedCharge.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -2984,9 +3475,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostAccountFixedChargeRequestToJSON)(requestParameters.accountFixedCharge),
+                body: (0, index_1.AccountFixedChargeToJSON)(requestParameters.accountFixedCharge),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3005,6 +3496,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postAccountTraceRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postAccountTrace.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postAccountTrace.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postAccountTrace.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postAccountTrace.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postAccountTrace.');
+            }
+            if (requestParameters.accountTrace === null || requestParameters.accountTrace === undefined) {
+                throw new runtime.RequiredError('accountTrace', 'Required parameter requestParameters.accountTrace was null or undefined when calling postAccountTrace.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3028,9 +3537,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutAccountTraceRequestToJSON)(requestParameters.accountTrace),
+                body: (0, index_1.AccountTraceToJSON)(requestParameters.accountTrace),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3049,6 +3558,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postBatchChargesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postBatchCharges.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postBatchCharges.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postBatchCharges.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postBatchCharges.');
+            }
+            if (requestParameters.batchChargesToPost === null || requestParameters.batchChargesToPost === undefined) {
+                throw new runtime.RequiredError('batchChargesToPost', 'Required parameter requestParameters.batchChargesToPost was null or undefined when calling postBatchCharges.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3072,9 +3596,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostBatchChargesRequestToJSON)(requestParameters.batchChargesToPost),
+                body: (0, index_1.BatchChargesToPostToJSON)(requestParameters.batchChargesToPost),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3093,6 +3617,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postChargesToARRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postChargesToAR.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postChargesToAR.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postChargesToAR.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postChargesToAR.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postChargesToAR.');
+            }
+            if (requestParameters.arChargesPostingCriteria === null || requestParameters.arChargesPostingCriteria === undefined) {
+                throw new runtime.RequiredError('arChargesPostingCriteria', 'Required parameter requestParameters.arChargesPostingCriteria was null or undefined when calling postChargesToAR.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3116,9 +3658,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostChargesToARRequestToJSON)(requestParameters.arChargesPostingCriteria),
+                body: (0, index_1.ArChargesPostingCriteriaToJSON)(requestParameters.arChargesPostingCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3137,6 +3679,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postCreditToInvoicesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postCreditToInvoices.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postCreditToInvoices.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postCreditToInvoices.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postCreditToInvoices.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postCreditToInvoices.');
+            }
+            if (requestParameters.creditToInvoices === null || requestParameters.creditToInvoices === undefined) {
+                throw new runtime.RequiredError('creditToInvoices', 'Required parameter requestParameters.creditToInvoices was null or undefined when calling postCreditToInvoices.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3160,9 +3720,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostCreditToInvoicesRequestToJSON)(requestParameters.creditToInvoices),
+                body: (0, index_1.CreditToInvoicesToJSON)(requestParameters.creditToInvoices),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3181,6 +3741,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postInvoiceRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postInvoice.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postInvoice.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postInvoice.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postInvoice.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postInvoice.');
+            }
+            if (requestParameters.arInvoice === null || requestParameters.arInvoice === undefined) {
+                throw new runtime.RequiredError('arInvoice', 'Required parameter requestParameters.arInvoice was null or undefined when calling postInvoice.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3204,9 +3782,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostInvoiceRequestToJSON)(requestParameters.arInvoice),
+                body: (0, index_1.ArInvoiceToJSON)(requestParameters.arInvoice),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ArInvoiceDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ArInvoiceDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -3225,6 +3803,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postRemindersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postReminders.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postReminders.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postReminders.');
+            }
+            if (requestParameters.reminders === null || requestParameters.reminders === undefined) {
+                throw new runtime.RequiredError('reminders', 'Required parameter requestParameters.reminders was null or undefined when calling postReminders.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3248,9 +3838,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostRemindersRequestToJSON)(requestParameters.reminders),
+                body: (0, index_1.RemindersToJSON)(requestParameters.reminders),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3269,6 +3859,30 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postReversePaymentRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+                throw new runtime.RequiredError('transactionId', 'Required parameter requestParameters.transactionId was null or undefined when calling postReversePayment.');
+            }
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postReversePayment.');
+            }
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling postReversePayment.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postReversePayment.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postReversePayment.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postReversePayment.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postReversePayment.');
+            }
+            if (requestParameters.reversePayment === null || requestParameters.reversePayment === undefined) {
+                throw new runtime.RequiredError('reversePayment', 'Required parameter requestParameters.reversePayment was null or undefined when calling postReversePayment.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3292,9 +3906,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostReversePaymentRequestToJSON)(requestParameters.reversePayment),
+                body: (0, index_1.ReversePaymentToJSON)(requestParameters.reversePayment),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3313,6 +3927,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     postStatementsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling postStatements.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postStatements.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postStatements.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postStatements.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postStatements.');
+            }
+            if (requestParameters.statementsToBeGenerated === null || requestParameters.statementsToBeGenerated === undefined) {
+                throw new runtime.RequiredError('statementsToBeGenerated', 'Required parameter requestParameters.statementsToBeGenerated was null or undefined when calling postStatements.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3336,9 +3968,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostStatementsRequestToJSON)(requestParameters.statementsToBeGenerated),
+                body: (0, index_1.StatementsToBeGeneratedToJSON)(requestParameters.statementsToBeGenerated),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3357,6 +3989,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     putARInvoicesAccountRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putARInvoicesAccount.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putARInvoicesAccount.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putARInvoicesAccount.');
+            }
+            if (requestParameters.arInvoicesAccount === null || requestParameters.arInvoicesAccount === undefined) {
+                throw new runtime.RequiredError('arInvoicesAccount', 'Required parameter requestParameters.arInvoicesAccount was null or undefined when calling putARInvoicesAccount.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3380,9 +4024,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutARInvoicesAccountRequestToJSON)(requestParameters.arInvoicesAccount),
+                body: (0, index_1.ArInvoicesAccountToJSON)(requestParameters.arInvoicesAccount),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3401,6 +4045,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     putAccountRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling putAccount.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putAccount.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putAccount.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putAccount.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putAccount.');
+            }
+            if (requestParameters.account === null || requestParameters.account === undefined) {
+                throw new runtime.RequiredError('account', 'Required parameter requestParameters.account was null or undefined when calling putAccount.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3424,9 +4086,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutAccountRequestToJSON)(requestParameters.account),
+                body: (0, index_1.AccountToJSON)(requestParameters.account),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3445,6 +4107,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     putAccountCommentRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling putAccountComment.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putAccountComment.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putAccountComment.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putAccountComment.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putAccountComment.');
+            }
+            if (requestParameters.accountComment === null || requestParameters.accountComment === undefined) {
+                throw new runtime.RequiredError('accountComment', 'Required parameter requestParameters.accountComment was null or undefined when calling putAccountComment.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3468,9 +4148,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutAccountCommentRequestToJSON)(requestParameters.accountComment),
+                body: (0, index_1.AccountCommentToJSON)(requestParameters.accountComment),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3489,6 +4169,27 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     putAccountFixedChargeRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.fixedChargeId === null || requestParameters.fixedChargeId === undefined) {
+                throw new runtime.RequiredError('fixedChargeId', 'Required parameter requestParameters.fixedChargeId was null or undefined when calling putAccountFixedCharge.');
+            }
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling putAccountFixedCharge.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putAccountFixedCharge.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putAccountFixedCharge.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putAccountFixedCharge.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putAccountFixedCharge.');
+            }
+            if (requestParameters.accountFixedCharge === null || requestParameters.accountFixedCharge === undefined) {
+                throw new runtime.RequiredError('accountFixedCharge', 'Required parameter requestParameters.accountFixedCharge was null or undefined when calling putAccountFixedCharge.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3512,9 +4213,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostAccountFixedChargeRequestToJSON)(requestParameters.accountFixedCharge),
+                body: (0, index_1.AccountFixedChargeToJSON)(requestParameters.accountFixedCharge),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3533,6 +4234,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     putAccountTraceRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling putAccountTrace.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putAccountTrace.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putAccountTrace.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putAccountTrace.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putAccountTrace.');
+            }
+            if (requestParameters.accountTrace === null || requestParameters.accountTrace === undefined) {
+                throw new runtime.RequiredError('accountTrace', 'Required parameter requestParameters.accountTrace was null or undefined when calling putAccountTrace.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3556,9 +4275,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutAccountTraceRequestToJSON)(requestParameters.accountTrace),
+                body: (0, index_1.AccountTraceToJSON)(requestParameters.accountTrace),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3574,9 +4293,28 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to update or transfer invoice detail such as amount, transaction code, etc.<br><p><strong><mark>This API is deprecated. Please use putInvoiceDetails instead</mark></strong></p> <p><strong>OperationId:</strong>putInvoice</p>
      * Update invoice detail.
+     * @deprecated
      */
     putInvoiceRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.invoiceId === null || requestParameters.invoiceId === undefined) {
+                throw new runtime.RequiredError('invoiceId', 'Required parameter requestParameters.invoiceId was null or undefined when calling putInvoice.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putInvoice.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putInvoice.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putInvoice.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putInvoice.');
+            }
+            if (requestParameters.invoice === null || requestParameters.invoice === undefined) {
+                throw new runtime.RequiredError('invoice', 'Required parameter requestParameters.invoice was null or undefined when calling putInvoice.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3600,14 +4338,15 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.UncompressARInvoicesRequestToJSON)(requestParameters.invoice),
+                body: (0, index_1.InvoiceToJSON)(requestParameters.invoice),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
      * Use this API to update or transfer invoice detail such as amount, transaction code, etc.<br><p><strong><mark>This API is deprecated. Please use putInvoiceDetails instead</mark></strong></p> <p><strong>OperationId:</strong>putInvoice</p>
      * Update invoice detail.
+     * @deprecated
      */
     putInvoice(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -3621,6 +4360,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     putInvoiceDetailsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putInvoiceDetails.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putInvoiceDetails.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putInvoiceDetails.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putInvoiceDetails.');
+            }
+            if (requestParameters.invoice === null || requestParameters.invoice === undefined) {
+                throw new runtime.RequiredError('invoice', 'Required parameter requestParameters.invoice was null or undefined when calling putInvoiceDetails.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3644,9 +4398,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.UncompressARInvoicesRequestToJSON)(requestParameters.invoice),
+                body: (0, index_1.InvoiceToJSON)(requestParameters.invoice),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3665,6 +4419,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     putInvoicesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putInvoices.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putInvoices.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putInvoices.');
+            }
+            if (requestParameters.invoices === null || requestParameters.invoices === undefined) {
+                throw new runtime.RequiredError('invoices', 'Required parameter requestParameters.invoices was null or undefined when calling putInvoices.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3688,9 +4454,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutInvoicesRequestToJSON)(requestParameters.invoices),
+                body: (0, index_1.InvoicesToJSON)(requestParameters.invoices),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3709,6 +4475,27 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     removePaymentsFromInvoiceRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.transactionId === null || requestParameters.transactionId === undefined) {
+                throw new runtime.RequiredError('transactionId', 'Required parameter requestParameters.transactionId was null or undefined when calling removePaymentsFromInvoice.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling removePaymentsFromInvoice.');
+            }
+            if (requestParameters.trxNo === null || requestParameters.trxNo === undefined) {
+                throw new runtime.RequiredError('trxNo', 'Required parameter requestParameters.trxNo was null or undefined when calling removePaymentsFromInvoice.');
+            }
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling removePaymentsFromInvoice.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removePaymentsFromInvoice.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removePaymentsFromInvoice.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removePaymentsFromInvoice.');
+            }
             const queryParameters = {};
             if (requestParameters.trxNo) {
                 queryParameters['trxNo'] = requestParameters.trxNo;
@@ -3744,7 +4531,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3763,6 +4550,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     reopenInvoicesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling reopenInvoices.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling reopenInvoices.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling reopenInvoices.');
+            }
+            if (requestParameters.invoices === null || requestParameters.invoices === undefined) {
+                throw new runtime.RequiredError('invoices', 'Required parameter requestParameters.invoices was null or undefined when calling reopenInvoices.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3786,9 +4585,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutInvoicesRequestToJSON)(requestParameters.invoices),
+                body: (0, index_1.InvoicesToJSON)(requestParameters.invoices),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3807,6 +4606,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     transferARCreditCardPaymentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling transferARCreditCardPayments.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling transferARCreditCardPayments.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling transferARCreditCardPayments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling transferARCreditCardPayments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling transferARCreditCardPayments.');
+            }
+            if (requestParameters.arCreditCardPaymentsToTransfer === null || requestParameters.arCreditCardPaymentsToTransfer === undefined) {
+                throw new runtime.RequiredError('arCreditCardPaymentsToTransfer', 'Required parameter requestParameters.arCreditCardPaymentsToTransfer was null or undefined when calling transferARCreditCardPayments.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3830,9 +4647,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.TransferARCreditCardPaymentsRequestToJSON)(requestParameters.arCreditCardPaymentsToTransfer),
+                body: (0, index_1.ArCreditCardPaymentsToTransferToJSON)(requestParameters.arCreditCardPaymentsToTransfer),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3851,6 +4668,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     transferDirectBillsToArRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling transferDirectBillsToAr.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling transferDirectBillsToAr.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling transferDirectBillsToAr.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling transferDirectBillsToAr.');
+            }
+            if (requestParameters.transferDirectBillsToAr === null || requestParameters.transferDirectBillsToAr === undefined) {
+                throw new runtime.RequiredError('transferDirectBillsToAr', 'Required parameter requestParameters.transferDirectBillsToAr was null or undefined when calling transferDirectBillsToAr.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3874,9 +4706,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.TransferDirectBillsToArRequestToJSON)(requestParameters.transferDirectBillsToAr),
+                body: (0, index_1.TransferDirectBillsToArToJSON)(requestParameters.transferDirectBillsToAr),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3895,6 +4727,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     transferInvoicesAndPaymentsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling transferInvoicesAndPayments.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling transferInvoicesAndPayments.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling transferInvoicesAndPayments.');
+            }
+            if (requestParameters.invoicesAndPaymentsToTransfer === null || requestParameters.invoicesAndPaymentsToTransfer === undefined) {
+                throw new runtime.RequiredError('invoicesAndPaymentsToTransfer', 'Required parameter requestParameters.invoicesAndPaymentsToTransfer was null or undefined when calling transferInvoicesAndPayments.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3918,9 +4762,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.TransferInvoicesAndPaymentsRequestToJSON)(requestParameters.invoicesAndPaymentsToTransfer),
+                body: (0, index_1.InvoicesAndPaymentsToTransferToJSON)(requestParameters.invoicesAndPaymentsToTransfer),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3939,6 +4783,18 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     transferPostingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling transferPostings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling transferPostings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling transferPostings.');
+            }
+            if (requestParameters.transferPostings === null || requestParameters.transferPostings === undefined) {
+                throw new runtime.RequiredError('transferPostings', 'Required parameter requestParameters.transferPostings was null or undefined when calling transferPostings.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -3962,9 +4818,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.TransferPostingsRequestToJSON)(requestParameters.transferPostings),
+                body: (0, index_1.TransferPostingsToJSON)(requestParameters.transferPostings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -3983,6 +4839,24 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     uncompressARInvoicesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+                throw new runtime.RequiredError('accountId', 'Required parameter requestParameters.accountId was null or undefined when calling uncompressARInvoices.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling uncompressARInvoices.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling uncompressARInvoices.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling uncompressARInvoices.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling uncompressARInvoices.');
+            }
+            if (requestParameters.invoice === null || requestParameters.invoice === undefined) {
+                throw new runtime.RequiredError('invoice', 'Required parameter requestParameters.invoice was null or undefined when calling uncompressARInvoices.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4006,9 +4880,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.UncompressARInvoicesRequestToJSON)(requestParameters.invoice),
+                body: (0, index_1.InvoiceToJSON)(requestParameters.invoice),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -4027,6 +4901,21 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
      */
     unlinkInvoiceFromStatementRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling unlinkInvoiceFromStatement.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling unlinkInvoiceFromStatement.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling unlinkInvoiceFromStatement.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling unlinkInvoiceFromStatement.');
+            }
+            if (requestParameters.unlinkInvoiceFromStatement === null || requestParameters.unlinkInvoiceFromStatement === undefined) {
+                throw new runtime.RequiredError('unlinkInvoiceFromStatement', 'Required parameter requestParameters.unlinkInvoiceFromStatement was null or undefined when calling unlinkInvoiceFromStatement.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -4050,9 +4939,9 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.UnlinkInvoiceFromStatementRequestToJSON)(requestParameters.unlinkInvoiceFromStatement),
+                body: (0, index_1.UnlinkInvoiceFromStatementToJSON)(requestParameters.unlinkInvoiceFromStatement),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**

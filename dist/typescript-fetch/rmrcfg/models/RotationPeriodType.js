@@ -51,7 +51,7 @@ function RotationPeriodTypeToJSON(value) {
         'forceRecalculate': value.forceRecalculate,
         'hotelId': value.hotelId,
         'periodFrequency': (0, RotationPeriodFrequencyType_1.RotationPeriodFrequencyTypeToJSON)(value.periodFrequency),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.RotationPeriodTypeToJSON = RotationPeriodTypeToJSON;

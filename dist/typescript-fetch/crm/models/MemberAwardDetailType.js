@@ -95,7 +95,7 @@ function MemberAwardDetailTypeToJSON(value) {
         'redeemedCentralAmount': value.redeemedCentralAmount,
         'redeemedLocalAmount': value.redeemedLocalAmount,
         'roomType': value.roomType,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0, 10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
         'toRoomType': value.toRoomType,
         'totalCentralAmount': value.totalCentralAmount,
         'totalLocalAmount': value.totalLocalAmount,

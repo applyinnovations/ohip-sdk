@@ -246,7 +246,7 @@ export function ChannelRateMappingTypeToJSON(value?: ChannelRateMappingType | nu
         
         'allowRateUpdate': value.allowRateUpdate,
         'allowRestrictionUpdate': value.allowRestrictionUpdate,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'blockRateIndicator': value.blockRateIndicator,
         'bookingChannelCode': value.bookingChannelCode,
         'carrierInfo': CarrierInfoTypeToJSON(value.carrierInfo),
@@ -255,7 +255,7 @@ export function ChannelRateMappingTypeToJSON(value?: ChannelRateMappingType | nu
         'channelRatePlanOrder': value.channelRatePlanOrder,
         'channelRatePlanWebName': value.channelRatePlanWebName,
         'description': ChannelRateMappingDescriptionTypeToJSON(value.description),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'hasChannelNegotiatedRates': value.hasChannelNegotiatedRates,
         'hasNegotiatedRates': value.hasNegotiatedRates,
         'hotelId': value.hotelId,

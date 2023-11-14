@@ -64,10 +64,10 @@ function FolioTypeToJSON(value) {
     }
     return {
         'allowConvertFolioYn': value.allowConvertFolioYn,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'fiscalBillNo': value.fiscalBillNo,
         'folioAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.folioAmount),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substr(0, 10)),
+        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0, 10)),
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,
@@ -78,7 +78,7 @@ function FolioTypeToJSON(value) {
         'payeeInfo': (0, PayeeInfoType_1.PayeeInfoTypeToJSON)(value.payeeInfo),
         'postings': (0, SummaryPostingsType_1.SummaryPostingsTypeToJSON)(value.postings),
         'revisionNo': value.revisionNo,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.FolioTypeToJSON = FolioTypeToJSON;

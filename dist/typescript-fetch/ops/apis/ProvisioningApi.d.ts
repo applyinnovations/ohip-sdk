@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { Currencies } from '../models';
+import type { Currencies } from '../models/index';
 export interface GetCurrenciesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

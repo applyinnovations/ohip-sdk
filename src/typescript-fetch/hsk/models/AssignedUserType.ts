@@ -103,10 +103,10 @@ export function AssignedUserTypeToJSON(value?: AssignedUserType | null): any {
         
         'assignedByUser': UniqueIDTypeToJSON(value.assignedByUser),
         'assignedByUserName': value.assignedByUserName,
-        'assignedDate': value.assignedDate === undefined ? undefined : (value.assignedDate.toISOString().substr(0,10)),
+        'assignedDate': value.assignedDate === undefined ? undefined : (value.assignedDate.toISOString().substring(0,10)),
         'assignedToUser': UniqueIDTypeToJSON(value.assignedToUser),
         'assignedToUserName': value.assignedToUserName,
-        'expectedByDate': value.expectedByDate === undefined ? undefined : (value.expectedByDate.toISOString().substr(0,10)),
+        'expectedByDate': value.expectedByDate === undefined ? undefined : (value.expectedByDate.toISOString().substring(0,10)),
     };
 }
 

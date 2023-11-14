@@ -58,13 +58,13 @@ function AlertGuestInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substr(0, 10)),
+        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0, 10)),
         'birthDateMasked': value.birthDateMasked,
         'comments': value.comments,
         'guestName': value.guestName,
         'guestPreferredLanguage': value.guestPreferredLanguage,
         'lastHotelCode': value.lastHotelCode,
-        'lastStayDate': value.lastStayDate === undefined ? undefined : (value.lastStayDate.toISOString().substr(0, 10)),
+        'lastStayDate': value.lastStayDate === undefined ? undefined : (value.lastStayDate.toISOString().substring(0, 10)),
         'membership': (0, MembershipType_1.MembershipTypeToJSON)(value.membership),
         'preference': value.preference,
         'preference2': value.preference2,

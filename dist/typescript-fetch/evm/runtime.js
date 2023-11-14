@@ -23,7 +23,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextApiResponse = exports.BlobApiResponse = exports.VoidApiResponse = exports.JSONApiResponse = exports.canConsumeForm = exports.mapValues = exports.querystring = exports.exists = exports.COLLECTION_FORMATS = exports.RequiredError = exports.FetchError = exports.ResponseError = exports.BaseAPI = exports.DefaultConfig = exports.Configuration = exports.BASE_PATH = void 0;
-const index_1 = require("../oauth/index");
 exports.BASE_PATH = "/evm/v1".replace(/\/+$/, "");
 class Configuration {
     constructor(configuration = {}) {
@@ -32,17 +31,8 @@ class Configuration {
     set config(configuration) {
         this.configuration = configuration;
     }
-    get host() {
-        return this.configuration.host;
-    }
     get basePath() {
         return this.configuration.basePath != null ? this.configuration.basePath : exports.BASE_PATH;
-    }
-    get hotelId() {
-        return this.configuration.hotelId;
-    }
-    get ohipCredentials() {
-        return this.configuration.ohipCredentials;
     }
     get fetchApi() {
         return this.configuration.fetchApi;
@@ -79,9 +69,6 @@ class Configuration {
     get credentials() {
         return this.configuration.credentials;
     }
-    get appKey() {
-        return this.configuration.appKey;
-    }
 }
 exports.Configuration = Configuration;
 exports.DefaultConfig = new Configuration();
@@ -91,11 +78,6 @@ exports.DefaultConfig = new Configuration();
 class BaseAPI {
     constructor(configuration = exports.DefaultConfig) {
         this.configuration = configuration;
-        this.backoffTimeout = 0;
-        this.authTries = 0;
-        this.maxBackOffTimeoutToWait = 1000;
-        this.baseBackOffTimeout = 1;
-        this.maxBackOffTimeout = 60 * 60 * 1000;
         this.fetchApi = (url, init) => __awaiter(this, void 0, void 0, function* () {
             let fetchParams = { url, init };
             for (const middleware of this.middleware) {
@@ -140,46 +122,7 @@ class BaseAPI {
             }
             return response;
         });
-        this.getAuthApi = () => {
-            const authConfig = new index_1.Configuration({
-                basePath: this.configuration.host + index_1.BASE_PATH,
-            });
-            return new index_1.AuthenticationApi(authConfig);
-        };
-        this.handleClientRequest = (context) => __awaiter(this, void 0, void 0, function* () {
-            if (!this.token) {
-                yield this.requestNewAuthToken();
-            }
-            else if (this.isAuthTokenExpired()) {
-                yield this.renewAuthToken();
-            }
-            if (!this.token)
-                throw new Error('Failed to get authentication token');
-            context.init.headers['authorization'] = `Bearer ${this.token}`;
-            context.init.headers['x-app-key'] = this.configuration.appKey;
-            context.init.headers['x-hotel-id'] = this.configuration.hotelId;
-            return context;
-        });
-        this.handleClientRequestError = (error) => __awaiter(this, void 0, void 0, function* () {
-            if (error && ![401, 403].includes(error === null || error === void 0 ? void 0 : error.response.status))
-                return Promise.reject(error);
-            yield this.requestNewAuthToken();
-            if (!this.token)
-                return Promise.reject(error);
-            error.init.headers['authorization'] = `Bearer ${this.token}`;
-            return error.fetch(error.url, error.init);
-        });
-        let authenticationMiddleware = [];
-        authenticationMiddleware = [
-            {
-                pre: this.handleClientRequest,
-                onError: this.handleClientRequestError,
-                post: (context) => __awaiter(this, void 0, void 0, function* () {
-                    return context.response;
-                }),
-            },
-        ];
-        this.middleware = [...authenticationMiddleware, ...configuration.middleware];
+        this.middleware = configuration.middleware;
     }
     withMiddleware(...middlewares) {
         const next = this.clone();
@@ -222,7 +165,7 @@ class BaseAPI {
     }
     createFetchParams(context, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
-            let url = this.configuration.host + exports.BASE_PATH + context.path;
+            let url = this.configuration.basePath + context.path;
             if (context.query !== undefined && Object.keys(context.query).length !== 0) {
                 // only add the querystring to the URL if there are query parameters.
                 // this is done to avoid urls ending with a "?" character which buggy webservers
@@ -244,125 +187,20 @@ class BaseAPI {
                 init: initParams,
                 context,
             })));
-            const init = Object.assign(Object.assign({}, overriddenInit), { body: isFormData(overriddenInit.body) ||
-                    overriddenInit.body instanceof URLSearchParams ||
-                    isBlob(overriddenInit.body)
-                    ? overriddenInit.body
-                    : JSON.stringify(overriddenInit.body) });
-            return { url, init };
-        });
-    }
-    requestNewAuthToken() {
-        return __awaiter(this, void 0, void 0, function* () {
-            // a request for a new token is already in progress
-            // just wait for it to finish instead of trying to request a new one
-            if (this.requestingNewAuthToken) {
-                yield this.requestingNewAuthToken;
-                return;
+            let body;
+            if (isFormData(overriddenInit.body)
+                || (overriddenInit.body instanceof URLSearchParams)
+                || isBlob(overriddenInit.body)) {
+                body = overriddenInit.body;
             }
-            if (this.shouldBackOff()) {
-                const backOffMsRemaining = this.backoffTimeout - new Date().getTime();
-                if (backOffMsRemaining > this.maxBackOffTimeoutToWait) {
-                    console.log(`Max backoff timeout to wait reached`);
-                }
-                else {
-                    console.log(`Backing off for ${backOffMsRemaining} ms`);
-                    yield delay(backOffMsRemaining);
-                    yield this.requestNewAuthToken();
-                }
-                return;
-            }
-            this.requestingNewAuthToken = new Promise((resolve) => __awaiter(this, void 0, void 0, function* () {
-                this.authTries++;
-                this.incrementActiveCrendentialIndex();
-                this.clearTokens();
-                try {
-                    console.log(`Requesting authentication token using credentials[${this.activeCredentialIndex}]`);
-                    const authApi = this.getAuthApi();
-                    const data = yield authApi.getToken({
-                        xAppKey: this.configuration.appKey,
-                        grantType: 'password',
-                        username: this.configuration.ohipCredentials[this.activeCredentialIndex]
-                            .username,
-                        password: this.configuration.ohipCredentials[this.activeCredentialIndex]
-                            .password,
-                    });
-                    this.setTokenHeaders(data);
-                    this.authTries = 0;
-                }
-                catch (error) {
-                    console.error('Failed to get authentication token');
-                    console.error(error);
-                    this.setBackoffTimeout();
-                }
-                resolve();
-                this.requestingNewAuthToken = undefined;
-            }));
-            return this.requestingNewAuthToken;
-        });
-    }
-    renewAuthToken() {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const authApi = this.getAuthApi();
-                const data = yield authApi.getToken({
-                    grantType: 'password',
-                    xAppKey: this.configuration.appKey,
-                    username: this.configuration.ohipCredentials[this.activeCredentialIndex]
-                        .username,
-                    password: this.configuration.ohipCredentials[this.activeCredentialIndex]
-                        .password,
-                });
-                this.setTokenHeaders(data);
-            }
-            catch (error) {
-                console.error(`Failed to renew authentication token`);
-                console.error(error);
-                yield this.requestNewAuthToken();
-            }
-        });
-    }
-    setTokenHeaders(response) {
-        var _a;
-        this.token = response.accessToken;
-        // response.expires_in is in number of seconds. Multiply it by 90% of 1000ms
-        this.tokenExpiration = Date.now() + ((_a = response.expiresIn) !== null && _a !== void 0 ? _a : 0) * 900;
-    }
-    clearTokens() {
-        this.refreshToken = undefined;
-        this.token = undefined;
-        this.tokenExpiration = undefined;
-    }
-    isAuthTokenExpired() {
-        return Date.now() > this.tokenExpiration;
-    }
-    shouldBackOff() {
-        if (this.authTries === 0)
-            return false;
-        return new Date().getTime() < this.backoffTimeout;
-    }
-    setBackoffTimeout() {
-        if (this.activeCredentialIndex !==
-            this.configuration.ohipCredentials.length - 1)
-            return;
-        const delay = Math.min(this.baseBackOffTimeout *
-            Math.pow(10, Math.floor(this.authTries / this.configuration.ohipCredentials.length)), this.maxBackOffTimeout);
-        if (delay === this.maxBackOffTimeout) {
-            // if this happens we probably have the wrong password set in the config
-            console.error(`Max backoff timeout reached`);
-        }
-        this.backoffTimeout = new Date().getTime() + delay;
-    }
-    incrementActiveCrendentialIndex() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (this.activeCredentialIndex === undefined ||
-                this.activeCredentialIndex + 1 >=
-                    this.configuration.ohipCredentials.length) {
-                this.activeCredentialIndex = 0;
+            else if (this.isJsonMime(headers['Content-Type'])) {
+                body = JSON.stringify(overriddenInit.body);
             }
             else {
-                this.activeCredentialIndex += 1;
+                body = overriddenInit.body;
             }
+            const init = Object.assign(Object.assign({}, overriddenInit), { body });
+            return { url, init };
         });
     }
     /**
@@ -506,8 +344,3 @@ class TextApiResponse {
     ;
 }
 exports.TextApiResponse = TextApiResponse;
-function delay(ms) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-    });
-}

@@ -96,7 +96,7 @@ export function CateringMenuClassInfoTypeToJSON(value?: CateringMenuClassInfoTyp
         
         'eventTypes': CodeListTypeToJSON(value.eventTypes),
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'name': value.name,
         'webBookable': value.webBookable,
     };

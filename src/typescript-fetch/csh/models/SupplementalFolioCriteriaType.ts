@@ -159,7 +159,7 @@ export function SupplementalFolioCriteriaTypeToJSON(value?: SupplementalFolioCri
         'fiscalTerminalId': value.fiscalTerminalId,
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0,10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
         'originalFolio': FolioTypeToJSON(value.originalFolio),
         'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(PaymentCriteriaTypeToJSON)),
         'trxServiceType': value.trxServiceType,

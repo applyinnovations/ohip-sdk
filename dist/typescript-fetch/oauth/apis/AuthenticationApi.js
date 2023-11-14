@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetTokenGrantTypeEnum = exports.AuthenticationApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -107,7 +107,7 @@ class AuthenticationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: formParams,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.OAuth2TokenResponseFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.OAuth2TokenResponseFromJSON)(jsonValue));
         });
     }
     /**

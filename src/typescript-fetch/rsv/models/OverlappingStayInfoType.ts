@@ -113,12 +113,12 @@ export function OverlappingStayInfoTypeToJSON(value?: OverlappingStayInfoType | 
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'excludedReservations': UniqueIDListTypeToJSON(value.excludedReservations),
         'hotelId': value.hotelId,
         'profileId': ProfileIdToJSON(value.profileId),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }
 

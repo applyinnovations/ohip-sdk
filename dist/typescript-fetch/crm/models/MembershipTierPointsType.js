@@ -50,7 +50,7 @@ function MembershipTierPointsTypeToJSON(value) {
     return {
         'nightPoints': value.nightPoints,
         'pointsCost': value.pointsCost,
-        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substr(0, 10)),
+        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0, 10)),
         'revenuePoints': value.revenuePoints,
         'stayPoints': value.stayPoints,
     };

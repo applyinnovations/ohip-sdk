@@ -175,13 +175,13 @@ export function BaseRatePlanScheduleDetailTypeToJSON(value?: BaseRatePlanSchedul
         'adjustmentDetails': ScheduleAdjustmentDetailsTypeToJSON(value.adjustmentDetails),
         'advancedBaseRateOffset': AdvancedBaseRateOffsetTypeToJSON(value.advancedBaseRateOffset),
         'classifications': RatePlanScheduleClassificationsTypeToJSON(value.classifications),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'occupantThresholdPricing': OccupantThresholdPricingTypeToJSON(value.occupantThresholdPricing),
         'rateAmountBoundaries': RateAmountBoundariesTypeToJSON(value.rateAmountBoundaries),
         'rateAmounts': ScheduleRateAmountsTypeToJSON(value.rateAmounts),
         'rateSchedulePackages': RatePackagesTypeToJSON(value.rateSchedulePackages),
         'seasonCode': value.seasonCode,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'tierID': value.tierID,
     };
 }

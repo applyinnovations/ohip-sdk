@@ -119,7 +119,7 @@ export function RewardsInfoTypeToJSON(value?: RewardsInfoType | null): any {
         'currentBalance': value.currentBalance,
         'mVCIOwner': value.mVCIOwner,
         'meetingPlanner': value.meetingPlanner,
-        'membershipDate': value.membershipDate === undefined ? undefined : (value.membershipDate.toISOString().substr(0,10)),
+        'membershipDate': value.membershipDate === undefined ? undefined : (value.membershipDate.toISOString().substring(0,10)),
         'membershipId': value.membershipId,
         'membershipLevel': value.membershipLevel,
         'membershipNo': value.membershipNo,

@@ -55,7 +55,7 @@ function MoveTaskRoomsCriteriaTypeToJSON(value) {
         'hotelId': value.hotelId,
         'rooms': value.rooms === undefined ? undefined : (value.rooms.map(RoomType_1.RoomTypeToJSON)),
         'taskCode': value.taskCode === undefined ? undefined : (value.taskCode.map(HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0, 10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
         'toTaskSheetNumber': value.toTaskSheetNumber,
     };
 }

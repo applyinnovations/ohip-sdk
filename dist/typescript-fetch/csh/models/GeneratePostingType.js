@@ -52,7 +52,7 @@ function GeneratePostingTypeToJSON(value) {
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
         'referenceTransactionNo': value.referenceTransactionNo,
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0, 10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
         'transactionNo': value.transactionNo,
     };
 }

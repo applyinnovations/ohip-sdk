@@ -109,10 +109,10 @@ export function NegRateAccessTypeToJSON(value?: NegRateAccessType | null): any {
         
         'commissionCode': value.commissionCode,
         'discounts': value.discounts === undefined ? undefined : ((value.discounts as Array<any>).map(ProfileDiscountTypeToJSON)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'negotiatedRateOrder': value.negotiatedRateOrder,
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }
 

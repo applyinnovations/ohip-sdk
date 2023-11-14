@@ -176,7 +176,7 @@ export function NewBlockDetailsTypeToJSON(value?: NewBlockDetailsType | null): a
         'rateCode': value.rateCode,
         'sourceCode': value.sourceCode,
         'sourceDateRangeToCopy': DateRangeTypeToJSON(value.sourceDateRangeToCopy),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

@@ -240,7 +240,7 @@ export function ConfigBankAccountTypeToJSON(value?: ConfigBankAccountType | null
         'format': value.format,
         'hotelId': value.hotelId,
         'language': value.language,
-        'lastExportDate': value.lastExportDate === undefined ? undefined : (value.lastExportDate.toISOString().substr(0,10)),
+        'lastExportDate': value.lastExportDate === undefined ? undefined : (value.lastExportDate.toISOString().substring(0,10)),
         'lastExportFileNo': value.lastExportFileNo,
         'minProcessingAmount': value.minProcessingAmount,
         'nextCheckNumber': value.nextCheckNumber,

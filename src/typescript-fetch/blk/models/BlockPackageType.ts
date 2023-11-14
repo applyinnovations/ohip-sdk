@@ -128,13 +128,13 @@ export function BlockPackageTypeToJSON(value?: BlockPackageType | null): any {
     return {
         
         'consumptionDetails': PackageConsumptionTypeToJSON(value.consumptionDetails),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
         'packageCode': value.packageCode,
         'packageGroup': value.packageGroup,
         'packageHeaderType': PackageCodeHeaderTypeToJSON(value.packageHeaderType),
         'ratePlanCode': value.ratePlanCode,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
     };
 }
 

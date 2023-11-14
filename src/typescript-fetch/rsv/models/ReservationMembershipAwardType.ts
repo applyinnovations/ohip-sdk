@@ -144,14 +144,14 @@ export function ReservationMembershipAwardTypeToJSON(value?: ReservationMembersh
     return {
         
         'actualCancelPoints': value.actualCancelPoints,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'awardBasedOn': value.awardBasedOn,
-        'awardCancelDate': value.awardCancelDate === undefined ? undefined : (value.awardCancelDate.toISOString().substr(0,10)),
+        'awardCancelDate': value.awardCancelDate === undefined ? undefined : (value.awardCancelDate.toISOString().substring(0,10)),
         'awardCancellationNo': value.awardCancellationNo,
         'awardType': value.awardType,
         'cancelPenaltyDays': value.cancelPenaltyDays,
         'cancelPenaltyPoints': value.cancelPenaltyPoints,
-        'dateAwarded': value.dateAwarded === undefined ? undefined : (value.dateAwarded.toISOString().substr(0,10)),
+        'dateAwarded': value.dateAwarded === undefined ? undefined : (value.dateAwarded.toISOString().substring(0,10)),
         'membershipCardNo': value.membershipCardNo,
         'membershipType': value.membershipType,
         'nameOnCard': value.nameOnCard,

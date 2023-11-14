@@ -120,7 +120,6 @@ models/CateringEventRevenueChangeListType.ts
 models/CateringEventStatusChangeListType.ts
 models/CateringEventsAttendeesType.ts
 models/CateringEventsBulkUpdate.ts
-models/CateringEventsBulkUpdateRequest.ts
 models/CateringEventsBulkUpdateStatus.ts
 models/CateringEventsBulkUpdateType.ts
 models/CateringEventsProcessedInfoType.ts
@@ -135,10 +134,8 @@ models/CateringStatusChangeHistoryType.ts
 models/CateringStatusTypeType.ts
 models/CateringType.ts
 models/ChangeCateringPackageRevenueRequest.ts
-models/ChangeCateringPackagesRequest.ts
 models/ChangeEventResourceByMenuRequest.ts
 models/ChangeEventsRequest.ts
-models/ChangeEventsResourcesByChainRequest.ts
 models/ChangeEventsResourcesRequest.ts
 models/ChangeRelationsType.ts
 models/CharacterUDFType.ts
@@ -166,12 +163,10 @@ models/CopyAndMoveEventResourcesType.ts
 models/CopyCateringEventResourcesProcessedInfoList.ts
 models/CopyCateringEvents.ts
 models/CopyCateringEventsProcessedInfoList.ts
-models/CopyCateringEventsRequest.ts
 models/CopyCateringEventsResponse.ts
 models/CopyCateringEventsType.ts
 models/CopyCateringPackage.ts
 models/CopyCateringPackageProcessedInfoList.ts
-models/CopyCateringPackageRequest.ts
 models/CopyCateringPackageResponse.ts
 models/CopyCateringPkgType.ts
 models/CopyEventResourcesRequest.ts
@@ -387,11 +382,7 @@ models/PointsType.ts
 models/PolicyAmountPercentType.ts
 models/PolicyBasisTypeType.ts
 models/PolicyDeadlineType.ts
-models/PostCateringPackageRequest.ts
-models/PostCateringPackageRevenueRequest.ts
 models/PostEventsRequest.ts
-models/PostOpportunityEventsRequest.ts
-models/PostQuickInsertResourcesRequest.ts
 models/PostingRhythmType.ts
 models/PreferenceType.ts
 models/PreferenceTypeType.ts

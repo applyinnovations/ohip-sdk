@@ -292,7 +292,7 @@ export function MembershipTransactionDetailsTypeToJSON(value?: MembershipTransac
         'notes': value.notes,
         'pointsCalculated': value.pointsCalculated,
         'pointsCost': value.pointsCost,
-        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substr(0,10)),
+        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0,10)),
         'processingMessages': value.processingMessages,
         'profilePromotions': CodeListTypeToJSON(value.profilePromotions),
         'ratePromotion': value.ratePromotion,
@@ -301,7 +301,7 @@ export function MembershipTransactionDetailsTypeToJSON(value?: MembershipTransac
         'statementId': UniqueIDTypeToJSON(value.statementId),
         'stayTimeSpan': TimeSpanTypeToJSON(value.stayTimeSpan),
         'tierPoints': MembershipTransactionTierPointsTypeToJSON(value.tierPoints),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0,10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
         'transactionType': value.transactionType,
     };
 }

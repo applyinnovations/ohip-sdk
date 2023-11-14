@@ -54,8 +54,8 @@ function ReservationRotationPointsTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0, 10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0, 10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
         'guestName': value.guestName,
         'nights': value.nights,
         'pointsAdjusted': value.pointsAdjusted,

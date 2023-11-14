@@ -73,7 +73,7 @@ export function ForgetProfileFailureReasonTypeToJSON(value?: ForgetProfileFailur
     }
     return {
         
-        'expectedResolutionDate': value.expectedResolutionDate === undefined ? undefined : (value.expectedResolutionDate.toISOString().substr(0,10)),
+        'expectedResolutionDate': value.expectedResolutionDate === undefined ? undefined : (value.expectedResolutionDate.toISOString().substring(0,10)),
         'reasonCode': value.reasonCode,
         'reasonDescription': value.reasonDescription,
     };

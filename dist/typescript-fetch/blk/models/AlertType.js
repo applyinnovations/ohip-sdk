@@ -88,7 +88,7 @@ function AlertTypeToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'printerName': value.printerName,
         'printerNotification': value.printerNotification,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'reportDescription': value.reportDescription,
         'reportId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.reportId),
         'reportName': value.reportName,

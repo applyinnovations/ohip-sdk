@@ -151,7 +151,7 @@ export function StagedProfilePreferenceTypeToJSON(value?: StagedProfilePreferenc
         'preferenceCode': value.preferenceCode,
         'excludedPreferencesCount': value.excludedPreferencesCount,
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'resortPrefernce': value.resortPrefernce,
         'valid': value.valid,
         'id': value.id,

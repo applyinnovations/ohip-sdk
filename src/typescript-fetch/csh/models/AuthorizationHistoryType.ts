@@ -168,13 +168,13 @@ export function AuthorizationHistoryTypeToJSON(value?: AuthorizationHistoryType 
     return {
         
         'approvalAmount': CurrencyAmountTypeToJSON(value.approvalAmount),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0,10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
         'cardPaymentInformation': AuthorizationHistoryTypeCardPaymentInformationToJSON(value.cardPaymentInformation),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'status': AuthorizationHistoryTypeStatusToJSON(value.status),
         'transactionType': CardAuthorizationTransactionTypeToJSON(value.transactionType),
         'type': value.type,

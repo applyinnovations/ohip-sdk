@@ -15,460 +15,460 @@
 
 import * as runtime from '../runtime';
 import type {
+  CancellationPolicyCriteria,
   CancellationPolicyDetails,
-  ChangeCancellationPolicyRequest,
-  ChangeDepositPolicyRequest,
-  ChangeGuaranteeCodeRequest,
-  ChangeGuaranteeCodeScheduleRequest,
-  ChangeMarketCodeRequest,
-  ChangeMarketGroupRequest,
-  ChangePolicyScheduleRequest,
-  ChangePreCheckInRulesRequest,
-  ChangeServiceRequestCodePrioritiesRequest,
-  ChangeServiceRequestCodesRequest,
-  ChangeSourceCodeRequest,
-  ChangeSourceGroupRequest,
-  ChangeTemplateCancellationPolicyRequest,
-  ChangeTemplateDepositPolicyRequest,
-  ChangeTemplateGuaranteeCodeRequest,
-  ChangeTemplateMarketCodeRequest,
-  ChangeTemplateMarketGroupRequest,
-  ChangeTemplateSourceCodeRequest,
-  ChangeTemplateSourceGroupRequest,
-  CopyGuaranteeCodeSchedulesRequest,
-  CopyPolicySchedulesRequest,
-  CopyServiceRequestCodesRequest,
+  CancellationPolicyToBeChanged,
+  CopyGuaranteeCodeSchedules,
+  CopyPolicySchedules,
+  CopyServiceRequestCodes,
+  DepositPolicyCriteria,
   DepositPolicyDetails,
+  DepositPolicyToBeChanged,
   ExceptionDetailType,
+  GuaranteeCodeCriteria,
+  GuaranteeCodeScheduleCriteria,
+  GuaranteeCodeScheduleToBeChanged,
   GuaranteeCodeSchedulesDetails,
+  GuaranteeCodeToBeChanged,
   GuaranteeCodesDetails,
+  MarketCodeCriteria,
+  MarketCodeToBeChanged,
   MarketCodesDetails,
+  MarketGroupCriteria,
+  MarketGroupToBeChanged,
   MarketGroupsDetails,
+  PolicyScheduleCriteria,
+  PolicyScheduleToBeChanged,
   PolicySchedulesDetails,
-  PostCancellationPolicyRequest,
-  PostDepositPolicyRequest,
-  PostGuaranteeCodeRequest,
-  PostGuaranteeCodeScheduleRequest,
-  PostMarketCodeRequest,
-  PostMarketGroupRequest,
-  PostNewPolicyScheduleRequest,
-  PostPreCheckInRulesRequest,
-  PostServiceRequestCodePrioritiesRequest,
-  PostServiceRequestCodesRequest,
-  PostSourceCodeRequest,
-  PostSourceGroupRequest,
-  PostTemplateCancellationPolicyRequest,
-  PostTemplateDepositPolicyRequest,
-  PostTemplateGuaranteeCodeRequest,
-  PostTemplateMarketCodeRequest,
-  PostTemplateMarketGroupRequest,
-  PostTemplateSourceCodeRequest,
-  PostTemplateSourceGroupRequest,
+  PreCheckInRulesCriteria,
   PreCheckInRulesDetails,
+  PreCheckInRulesToBeChanged,
+  ServiceRequestCodePrioritiesCriteria,
   ServiceRequestCodePrioritiesDetails,
+  ServiceRequestCodePrioritiesToBeChanged,
+  ServiceRequestCodesCriteria,
   ServiceRequestCodesDetails,
+  ServiceRequestCodesToBeChanged,
+  SourceCodeCriteria,
+  SourceCodeToBeChanged,
   SourceCodesDetails,
+  SourceGroupCriteria,
+  SourceGroupToBeChanged,
   SourceGroupsDetails,
   Status,
+  TemplateCancellationPolicyCriteria,
   TemplateCancellationPolicyDetails,
+  TemplateCancellationPolicyToBeChanged,
+  TemplateDepositPolicyCriteria,
   TemplateDepositPolicyDetails,
+  TemplateDepositPolicyToBeChanged,
+  TemplateGuaranteeCodeCriteria,
+  TemplateGuaranteeCodeToBeChanged,
   TemplateGuaranteeCodesDetails,
+  TemplateMarketCodeCriteria,
+  TemplateMarketCodeToBeChanged,
   TemplateMarketCodesDetails,
+  TemplateMarketGroupCriteria,
+  TemplateMarketGroupToBeChanged,
   TemplateMarketGroupsDetails,
+  TemplateSourceCodeCriteria,
+  TemplateSourceCodeToBeChanged,
   TemplateSourceCodesDetails,
+  TemplateSourceGroupCriteria,
+  TemplateSourceGroupToBeChanged,
   TemplateSourceGroupsDetails,
-} from '../models';
+} from '../models/index';
 import {
+    CancellationPolicyCriteriaFromJSON,
+    CancellationPolicyCriteriaToJSON,
     CancellationPolicyDetailsFromJSON,
     CancellationPolicyDetailsToJSON,
-    ChangeCancellationPolicyRequestFromJSON,
-    ChangeCancellationPolicyRequestToJSON,
-    ChangeDepositPolicyRequestFromJSON,
-    ChangeDepositPolicyRequestToJSON,
-    ChangeGuaranteeCodeRequestFromJSON,
-    ChangeGuaranteeCodeRequestToJSON,
-    ChangeGuaranteeCodeScheduleRequestFromJSON,
-    ChangeGuaranteeCodeScheduleRequestToJSON,
-    ChangeMarketCodeRequestFromJSON,
-    ChangeMarketCodeRequestToJSON,
-    ChangeMarketGroupRequestFromJSON,
-    ChangeMarketGroupRequestToJSON,
-    ChangePolicyScheduleRequestFromJSON,
-    ChangePolicyScheduleRequestToJSON,
-    ChangePreCheckInRulesRequestFromJSON,
-    ChangePreCheckInRulesRequestToJSON,
-    ChangeServiceRequestCodePrioritiesRequestFromJSON,
-    ChangeServiceRequestCodePrioritiesRequestToJSON,
-    ChangeServiceRequestCodesRequestFromJSON,
-    ChangeServiceRequestCodesRequestToJSON,
-    ChangeSourceCodeRequestFromJSON,
-    ChangeSourceCodeRequestToJSON,
-    ChangeSourceGroupRequestFromJSON,
-    ChangeSourceGroupRequestToJSON,
-    ChangeTemplateCancellationPolicyRequestFromJSON,
-    ChangeTemplateCancellationPolicyRequestToJSON,
-    ChangeTemplateDepositPolicyRequestFromJSON,
-    ChangeTemplateDepositPolicyRequestToJSON,
-    ChangeTemplateGuaranteeCodeRequestFromJSON,
-    ChangeTemplateGuaranteeCodeRequestToJSON,
-    ChangeTemplateMarketCodeRequestFromJSON,
-    ChangeTemplateMarketCodeRequestToJSON,
-    ChangeTemplateMarketGroupRequestFromJSON,
-    ChangeTemplateMarketGroupRequestToJSON,
-    ChangeTemplateSourceCodeRequestFromJSON,
-    ChangeTemplateSourceCodeRequestToJSON,
-    ChangeTemplateSourceGroupRequestFromJSON,
-    ChangeTemplateSourceGroupRequestToJSON,
-    CopyGuaranteeCodeSchedulesRequestFromJSON,
-    CopyGuaranteeCodeSchedulesRequestToJSON,
-    CopyPolicySchedulesRequestFromJSON,
-    CopyPolicySchedulesRequestToJSON,
-    CopyServiceRequestCodesRequestFromJSON,
-    CopyServiceRequestCodesRequestToJSON,
+    CancellationPolicyToBeChangedFromJSON,
+    CancellationPolicyToBeChangedToJSON,
+    CopyGuaranteeCodeSchedulesFromJSON,
+    CopyGuaranteeCodeSchedulesToJSON,
+    CopyPolicySchedulesFromJSON,
+    CopyPolicySchedulesToJSON,
+    CopyServiceRequestCodesFromJSON,
+    CopyServiceRequestCodesToJSON,
+    DepositPolicyCriteriaFromJSON,
+    DepositPolicyCriteriaToJSON,
     DepositPolicyDetailsFromJSON,
     DepositPolicyDetailsToJSON,
+    DepositPolicyToBeChangedFromJSON,
+    DepositPolicyToBeChangedToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    GuaranteeCodeCriteriaFromJSON,
+    GuaranteeCodeCriteriaToJSON,
+    GuaranteeCodeScheduleCriteriaFromJSON,
+    GuaranteeCodeScheduleCriteriaToJSON,
+    GuaranteeCodeScheduleToBeChangedFromJSON,
+    GuaranteeCodeScheduleToBeChangedToJSON,
     GuaranteeCodeSchedulesDetailsFromJSON,
     GuaranteeCodeSchedulesDetailsToJSON,
+    GuaranteeCodeToBeChangedFromJSON,
+    GuaranteeCodeToBeChangedToJSON,
     GuaranteeCodesDetailsFromJSON,
     GuaranteeCodesDetailsToJSON,
+    MarketCodeCriteriaFromJSON,
+    MarketCodeCriteriaToJSON,
+    MarketCodeToBeChangedFromJSON,
+    MarketCodeToBeChangedToJSON,
     MarketCodesDetailsFromJSON,
     MarketCodesDetailsToJSON,
+    MarketGroupCriteriaFromJSON,
+    MarketGroupCriteriaToJSON,
+    MarketGroupToBeChangedFromJSON,
+    MarketGroupToBeChangedToJSON,
     MarketGroupsDetailsFromJSON,
     MarketGroupsDetailsToJSON,
+    PolicyScheduleCriteriaFromJSON,
+    PolicyScheduleCriteriaToJSON,
+    PolicyScheduleToBeChangedFromJSON,
+    PolicyScheduleToBeChangedToJSON,
     PolicySchedulesDetailsFromJSON,
     PolicySchedulesDetailsToJSON,
-    PostCancellationPolicyRequestFromJSON,
-    PostCancellationPolicyRequestToJSON,
-    PostDepositPolicyRequestFromJSON,
-    PostDepositPolicyRequestToJSON,
-    PostGuaranteeCodeRequestFromJSON,
-    PostGuaranteeCodeRequestToJSON,
-    PostGuaranteeCodeScheduleRequestFromJSON,
-    PostGuaranteeCodeScheduleRequestToJSON,
-    PostMarketCodeRequestFromJSON,
-    PostMarketCodeRequestToJSON,
-    PostMarketGroupRequestFromJSON,
-    PostMarketGroupRequestToJSON,
-    PostNewPolicyScheduleRequestFromJSON,
-    PostNewPolicyScheduleRequestToJSON,
-    PostPreCheckInRulesRequestFromJSON,
-    PostPreCheckInRulesRequestToJSON,
-    PostServiceRequestCodePrioritiesRequestFromJSON,
-    PostServiceRequestCodePrioritiesRequestToJSON,
-    PostServiceRequestCodesRequestFromJSON,
-    PostServiceRequestCodesRequestToJSON,
-    PostSourceCodeRequestFromJSON,
-    PostSourceCodeRequestToJSON,
-    PostSourceGroupRequestFromJSON,
-    PostSourceGroupRequestToJSON,
-    PostTemplateCancellationPolicyRequestFromJSON,
-    PostTemplateCancellationPolicyRequestToJSON,
-    PostTemplateDepositPolicyRequestFromJSON,
-    PostTemplateDepositPolicyRequestToJSON,
-    PostTemplateGuaranteeCodeRequestFromJSON,
-    PostTemplateGuaranteeCodeRequestToJSON,
-    PostTemplateMarketCodeRequestFromJSON,
-    PostTemplateMarketCodeRequestToJSON,
-    PostTemplateMarketGroupRequestFromJSON,
-    PostTemplateMarketGroupRequestToJSON,
-    PostTemplateSourceCodeRequestFromJSON,
-    PostTemplateSourceCodeRequestToJSON,
-    PostTemplateSourceGroupRequestFromJSON,
-    PostTemplateSourceGroupRequestToJSON,
+    PreCheckInRulesCriteriaFromJSON,
+    PreCheckInRulesCriteriaToJSON,
     PreCheckInRulesDetailsFromJSON,
     PreCheckInRulesDetailsToJSON,
+    PreCheckInRulesToBeChangedFromJSON,
+    PreCheckInRulesToBeChangedToJSON,
+    ServiceRequestCodePrioritiesCriteriaFromJSON,
+    ServiceRequestCodePrioritiesCriteriaToJSON,
     ServiceRequestCodePrioritiesDetailsFromJSON,
     ServiceRequestCodePrioritiesDetailsToJSON,
+    ServiceRequestCodePrioritiesToBeChangedFromJSON,
+    ServiceRequestCodePrioritiesToBeChangedToJSON,
+    ServiceRequestCodesCriteriaFromJSON,
+    ServiceRequestCodesCriteriaToJSON,
     ServiceRequestCodesDetailsFromJSON,
     ServiceRequestCodesDetailsToJSON,
+    ServiceRequestCodesToBeChangedFromJSON,
+    ServiceRequestCodesToBeChangedToJSON,
+    SourceCodeCriteriaFromJSON,
+    SourceCodeCriteriaToJSON,
+    SourceCodeToBeChangedFromJSON,
+    SourceCodeToBeChangedToJSON,
     SourceCodesDetailsFromJSON,
     SourceCodesDetailsToJSON,
+    SourceGroupCriteriaFromJSON,
+    SourceGroupCriteriaToJSON,
+    SourceGroupToBeChangedFromJSON,
+    SourceGroupToBeChangedToJSON,
     SourceGroupsDetailsFromJSON,
     SourceGroupsDetailsToJSON,
     StatusFromJSON,
     StatusToJSON,
+    TemplateCancellationPolicyCriteriaFromJSON,
+    TemplateCancellationPolicyCriteriaToJSON,
     TemplateCancellationPolicyDetailsFromJSON,
     TemplateCancellationPolicyDetailsToJSON,
+    TemplateCancellationPolicyToBeChangedFromJSON,
+    TemplateCancellationPolicyToBeChangedToJSON,
+    TemplateDepositPolicyCriteriaFromJSON,
+    TemplateDepositPolicyCriteriaToJSON,
     TemplateDepositPolicyDetailsFromJSON,
     TemplateDepositPolicyDetailsToJSON,
+    TemplateDepositPolicyToBeChangedFromJSON,
+    TemplateDepositPolicyToBeChangedToJSON,
+    TemplateGuaranteeCodeCriteriaFromJSON,
+    TemplateGuaranteeCodeCriteriaToJSON,
+    TemplateGuaranteeCodeToBeChangedFromJSON,
+    TemplateGuaranteeCodeToBeChangedToJSON,
     TemplateGuaranteeCodesDetailsFromJSON,
     TemplateGuaranteeCodesDetailsToJSON,
+    TemplateMarketCodeCriteriaFromJSON,
+    TemplateMarketCodeCriteriaToJSON,
+    TemplateMarketCodeToBeChangedFromJSON,
+    TemplateMarketCodeToBeChangedToJSON,
     TemplateMarketCodesDetailsFromJSON,
     TemplateMarketCodesDetailsToJSON,
+    TemplateMarketGroupCriteriaFromJSON,
+    TemplateMarketGroupCriteriaToJSON,
+    TemplateMarketGroupToBeChangedFromJSON,
+    TemplateMarketGroupToBeChangedToJSON,
     TemplateMarketGroupsDetailsFromJSON,
     TemplateMarketGroupsDetailsToJSON,
+    TemplateSourceCodeCriteriaFromJSON,
+    TemplateSourceCodeCriteriaToJSON,
+    TemplateSourceCodeToBeChangedFromJSON,
+    TemplateSourceCodeToBeChangedToJSON,
     TemplateSourceCodesDetailsFromJSON,
     TemplateSourceCodesDetailsToJSON,
+    TemplateSourceGroupCriteriaFromJSON,
+    TemplateSourceGroupCriteriaToJSON,
+    TemplateSourceGroupToBeChangedFromJSON,
+    TemplateSourceGroupToBeChangedToJSON,
     TemplateSourceGroupsDetailsFromJSON,
     TemplateSourceGroupsDetailsToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ChangeCancellationPolicyOperationRequest {
-    cancelpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancellationPolicyToBeChanged?: ChangeCancellationPolicyRequest;
+export interface ChangeCancellationPolicyRequest {
+    cancelpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancellationPolicyToBeChanged: CancellationPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeDepositPolicyOperationRequest {
-    depositpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPolicyToBeChanged?: ChangeDepositPolicyRequest;
+export interface ChangeDepositPolicyRequest {
+    depositpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPolicyToBeChanged: DepositPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeGuaranteeCodeOperationRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeToBeChanged?: ChangeGuaranteeCodeRequest;
+export interface ChangeGuaranteeCodeRequest {
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeToBeChanged: GuaranteeCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeGuaranteeCodeScheduleOperationRequest {
-    policyScheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeScheduleToBeChanged?: ChangeGuaranteeCodeScheduleRequest;
+export interface ChangeGuaranteeCodeScheduleRequest {
+    policyScheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeScheduleToBeChanged: GuaranteeCodeScheduleToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeMarketCodeOperationRequest {
-    marketcode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketCodeToBeChanged?: ChangeMarketCodeRequest;
+export interface ChangeMarketCodeRequest {
+    marketcode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketCodeToBeChanged: MarketCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketGroupToBeChanged?: ChangeMarketGroupRequest;
+export interface ChangeMarketGroupRequest {
+    marketGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketGroupToBeChanged: MarketGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangePolicyScheduleOperationRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    policyScheduleToBeChanged?: ChangePolicyScheduleRequest;
+export interface ChangePolicyScheduleRequest {
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    policyScheduleToBeChanged: PolicyScheduleToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangePreCheckInRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preCheckInRulesToBeChanged?: ChangePreCheckInRulesRequest;
+export interface ChangePreCheckInRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preCheckInRulesToBeChanged: PreCheckInRulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeServiceRequestCodePrioritiesOperationRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodePrioritiesToBeChanged?: ChangeServiceRequestCodePrioritiesRequest;
+export interface ChangeServiceRequestCodePrioritiesRequest {
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodePrioritiesToBeChanged: ServiceRequestCodePrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeServiceRequestCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodesToBeChanged?: ChangeServiceRequestCodesRequest;
+export interface ChangeServiceRequestCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodesToBeChanged: ServiceRequestCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeSourceCodeOperationRequest {
-    sourceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceCodeToBeChanged?: ChangeSourceCodeRequest;
+export interface ChangeSourceCodeRequest {
+    sourceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceCodeToBeChanged: SourceCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeSourceGroupOperationRequest {
-    sourceGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceGroupToBeChanged?: ChangeSourceGroupRequest;
+export interface ChangeSourceGroupRequest {
+    sourceGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceGroupToBeChanged: SourceGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateCancellationPolicyOperationRequest {
-    cancelpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCancellationPolicyToBeChanged?: ChangeTemplateCancellationPolicyRequest;
+export interface ChangeTemplateCancellationPolicyRequest {
+    cancelpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCancellationPolicyToBeChanged: TemplateCancellationPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateDepositPolicyOperationRequest {
-    depositpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDepositPolicyToBeChanged?: ChangeTemplateDepositPolicyRequest;
+export interface ChangeTemplateDepositPolicyRequest {
+    depositpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDepositPolicyToBeChanged: TemplateDepositPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateGuaranteeCodeOperationRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateGuaranteeCodeToBeChanged?: ChangeTemplateGuaranteeCodeRequest;
+export interface ChangeTemplateGuaranteeCodeRequest {
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateGuaranteeCodeToBeChanged: TemplateGuaranteeCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateMarketCodeOperationRequest {
-    marketcode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketCodeToBeChanged?: ChangeTemplateMarketCodeRequest;
+export interface ChangeTemplateMarketCodeRequest {
+    marketcode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketCodeToBeChanged: TemplateMarketCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketGroupToBeChanged?: ChangeTemplateMarketGroupRequest;
+export interface ChangeTemplateMarketGroupRequest {
+    marketGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketGroupToBeChanged: TemplateMarketGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateSourceCodeOperationRequest {
-    sourceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceCodeToBeChanged?: ChangeTemplateSourceCodeRequest;
+export interface ChangeTemplateSourceCodeRequest {
+    sourceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceCodeToBeChanged: TemplateSourceCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateSourceGroupOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceGroupToBeChanged?: ChangeTemplateSourceGroupRequest;
+export interface ChangeTemplateSourceGroupRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceGroupToBeChanged: TemplateSourceGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyGuaranteeCodeSchedulesOperationRequest {
-    policyScheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyGuaranteeCodeSchedules?: CopyGuaranteeCodeSchedulesRequest;
+export interface CopyGuaranteeCodeSchedulesRequest {
+    policyScheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyGuaranteeCodeSchedules: CopyGuaranteeCodeSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyPolicySchedulesOperationRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyPolicySchedules?: CopyPolicySchedulesRequest;
+export interface CopyPolicySchedulesRequest {
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyPolicySchedules: CopyPolicySchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyServiceRequestCodesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyServiceRequestCodes?: CopyServiceRequestCodesRequest;
+export interface CopyServiceRequestCodesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyServiceRequestCodes: CopyServiceRequestCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCancellationPolicyRequest {
-    cancelpolicycode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cancelpolicycode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteDepositPolicyRequest {
-    depositpolicycode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    depositpolicycode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteGuaranteeCodeRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteGuaranteeCodeScheduleRequest {
-    policyScheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    policyScheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
@@ -476,11 +476,11 @@ export interface DeleteGuaranteeCodeScheduleRequest {
 }
 
 export interface DeletePolicyScheduleRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
@@ -488,38 +488,38 @@ export interface DeletePolicyScheduleRequest {
 }
 
 export interface DeleteTemplateCancellationPolicyRequest {
-    cancelpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cancelpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     policyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateDepositPolicyRequest {
-    depositpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    depositpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     policyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateGuaranteeCodeRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCancellationPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -530,9 +530,9 @@ export interface GetCancellationPolicyRequest {
 }
 
 export interface GetDepositPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -543,10 +543,10 @@ export interface GetDepositPolicyRequest {
 }
 
 export interface GetGuaranteeCodeSchedulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -563,9 +563,9 @@ export interface GetGuaranteeCodeSchedulesRequest {
 }
 
 export interface GetGuaranteeCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -576,9 +576,9 @@ export interface GetGuaranteeCodesRequest {
 }
 
 export interface GetMarketCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -590,9 +590,9 @@ export interface GetMarketCodesRequest {
 }
 
 export interface GetMarketGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -604,10 +604,10 @@ export interface GetMarketGroupsRequest {
 }
 
 export interface GetPolicySchedulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -629,10 +629,10 @@ export interface GetPolicySchedulesRequest {
 }
 
 export interface GetPreCheckInRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     date?: Date;
     ruleType?: GetPreCheckInRulesRuleTypeEnum;
     xExternalsystem?: string;
@@ -640,9 +640,9 @@ export interface GetPreCheckInRulesRequest {
 }
 
 export interface GetServiceRequestCodeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -654,11 +654,11 @@ export interface GetServiceRequestCodeRequest {
 }
 
 export interface GetServiceRequestCodePrioritiesRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     wildCard?: string;
     description?: string;
@@ -667,9 +667,9 @@ export interface GetServiceRequestCodePrioritiesRequest {
 }
 
 export interface GetServiceRequestCodePriorityRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     serviceRequestCodes?: Array<string>;
     wildCard?: string;
@@ -680,10 +680,10 @@ export interface GetServiceRequestCodePriorityRequest {
 }
 
 export interface GetServiceRequestCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     serviceRequestCodes?: Array<string>;
@@ -694,10 +694,10 @@ export interface GetServiceRequestCodesRequest {
 }
 
 export interface GetSourceCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -709,10 +709,10 @@ export interface GetSourceCodesRequest {
 }
 
 export interface GetSourceGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -724,9 +724,9 @@ export interface GetSourceGroupsRequest {
 }
 
 export interface GetTemplateCancellationPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -737,9 +737,9 @@ export interface GetTemplateCancellationPolicyRequest {
 }
 
 export interface GetTemplateDepositPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -750,9 +750,9 @@ export interface GetTemplateDepositPolicyRequest {
 }
 
 export interface GetTemplateGuaranteeCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     guaranteeCodes?: Array<string>;
@@ -762,9 +762,9 @@ export interface GetTemplateGuaranteeCodesRequest {
 }
 
 export interface GetTemplateMarketCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateMarketCodes?: Array<string>;
@@ -775,9 +775,9 @@ export interface GetTemplateMarketCodesRequest {
 }
 
 export interface GetTemplateMarketGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateMarketCodes?: Array<string>;
@@ -788,9 +788,9 @@ export interface GetTemplateMarketGroupsRequest {
 }
 
 export interface GetTemplateSourceCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateSourceCodes?: Array<string>;
@@ -801,9 +801,9 @@ export interface GetTemplateSourceCodesRequest {
 }
 
 export interface GetTemplateSourceGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateSourceCodes?: Array<string>;
@@ -813,231 +813,231 @@ export interface GetTemplateSourceGroupsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostCancellationPolicyOperationRequest {
-    cancelpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancellationPolicyCriteria?: PostCancellationPolicyRequest;
+export interface PostCancellationPolicyRequest {
+    cancelpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancellationPolicyCriteria: CancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostDepositPolicyOperationRequest {
-    depositpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPolicyCriteria?: PostDepositPolicyRequest;
+export interface PostDepositPolicyRequest {
+    depositpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPolicyCriteria: DepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostGuaranteeCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeCriteria?: PostGuaranteeCodeRequest;
+export interface PostGuaranteeCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeCriteria: GuaranteeCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostGuaranteeCodeScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeScheduleCriteria?: PostGuaranteeCodeScheduleRequest;
+export interface PostGuaranteeCodeScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeScheduleCriteria: GuaranteeCodeScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMarketCodeOperationRequest {
-    marketcode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketCodeCriteria?: PostMarketCodeRequest;
+export interface PostMarketCodeRequest {
+    marketcode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketCodeCriteria: MarketCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketGroupCriteria?: PostMarketGroupRequest;
+export interface PostMarketGroupRequest {
+    marketGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketGroupCriteria: MarketGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostNewPolicyScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    policyScheduleCriteria?: PostNewPolicyScheduleRequest;
+export interface PostNewPolicyScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    policyScheduleCriteria: PolicyScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPolicyScheduleRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    policyScheduleCriteria?: PostNewPolicyScheduleRequest;
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    policyScheduleCriteria: PolicyScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostPreCheckInRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preCheckInRulesCriteria?: PostPreCheckInRulesRequest;
+export interface PostPreCheckInRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preCheckInRulesCriteria: PreCheckInRulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostServiceRequestCodePrioritiesOperationRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodePrioritiesCriteria?: PostServiceRequestCodePrioritiesRequest;
+export interface PostServiceRequestCodePrioritiesRequest {
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodePrioritiesCriteria: ServiceRequestCodePrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostServiceRequestCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodesCriteria?: PostServiceRequestCodesRequest;
+export interface PostServiceRequestCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodesCriteria: ServiceRequestCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostSourceCodeOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceCodeCriteria?: PostSourceCodeRequest;
+export interface PostSourceCodeRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceCodeCriteria: SourceCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostSourceGroupOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceGroupCriteria?: PostSourceGroupRequest;
+export interface PostSourceGroupRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceGroupCriteria: SourceGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateCancellationPolicyOperationRequest {
-    cancelpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCancellationPolicyCriteria?: PostTemplateCancellationPolicyRequest;
+export interface PostTemplateCancellationPolicyRequest {
+    cancelpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCancellationPolicyCriteria: TemplateCancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateDepositPolicyOperationRequest {
-    depositpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDepositPolicyCriteria?: PostTemplateDepositPolicyRequest;
+export interface PostTemplateDepositPolicyRequest {
+    depositpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDepositPolicyCriteria: TemplateDepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateGuaranteeCodeOperationRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateGuaranteeCodeCriteria?: PostTemplateGuaranteeCodeRequest;
+export interface PostTemplateGuaranteeCodeRequest {
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateGuaranteeCodeCriteria: TemplateGuaranteeCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateMarketCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketCodeCriteria?: PostTemplateMarketCodeRequest;
+export interface PostTemplateMarketCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketCodeCriteria: TemplateMarketCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketGroupCriteria?: PostTemplateMarketGroupRequest;
+export interface PostTemplateMarketGroupRequest {
+    marketGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketGroupCriteria: TemplateMarketGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateSourceCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceCodeCriteria?: PostTemplateSourceCodeRequest;
+export interface PostTemplateSourceCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceCodeCriteria: TemplateSourceCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateSourceGroupOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceGroupCriteria?: PostTemplateSourceGroupRequest;
+export interface PostTemplateSourceGroupRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceGroupCriteria: TemplateSourceGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveMarketCodeRequest {
-    marketcode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketcode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveMarketGroupRequest {
-    marketGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemovePreCheckInRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ruleType?: Set<RemovePreCheckInRulesRuleTypeEnum>;
     startDate?: Date;
     endDate?: Date;
@@ -1065,79 +1065,79 @@ export interface RemovePreCheckInRulesRequest {
 }
 
 export interface RemoveServiceRequestCodePrioritiesRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveServiceRequestCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     serviceRequestCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSourceCodeRequest {
-    sourceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSourceGroupRequest {
-    sourceGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateMarketCodeRequest {
-    marketcode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketcode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateMarketCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateMarketGroupRequest {
-    marketGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateMarketGroup?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateSourceCodeRequest {
-    sourceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateSourceCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateSourceGroupRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateSourceGroup?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1152,7 +1152,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Cancellation policies in hotel level. <p><strong>OperationId:</strong>changeCancellationPolicy</p>
      * Change Cancellation policies in hotel level
      */
-    async changeCancellationPolicyRaw(requestParameters: ChangeCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCancellationPolicyRaw(requestParameters: ChangeCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cancelpolicycode === null || requestParameters.cancelpolicycode === undefined) {
+            throw new runtime.RequiredError('cancelpolicycode','Required parameter requestParameters.cancelpolicycode was null or undefined when calling changeCancellationPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCancellationPolicy.');
+        }
+
+        if (requestParameters.cancellationPolicyToBeChanged === null || requestParameters.cancellationPolicyToBeChanged === undefined) {
+            throw new runtime.RequiredError('cancellationPolicyToBeChanged','Required parameter requestParameters.cancellationPolicyToBeChanged was null or undefined when calling changeCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1184,7 +1204,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCancellationPolicyRequestToJSON(requestParameters.cancellationPolicyToBeChanged),
+            body: CancellationPolicyToBeChangedToJSON(requestParameters.cancellationPolicyToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1194,7 +1214,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Cancellation policies in hotel level. <p><strong>OperationId:</strong>changeCancellationPolicy</p>
      * Change Cancellation policies in hotel level
      */
-    async changeCancellationPolicy(requestParameters: ChangeCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCancellationPolicy(requestParameters: ChangeCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCancellationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1203,7 +1223,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update deposit policy in hotel level. <p><strong>OperationId:</strong>changeDepositPolicy</p>
      * Change deposit policy in hotel level
      */
-    async changeDepositPolicyRaw(requestParameters: ChangeDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeDepositPolicyRaw(requestParameters: ChangeDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.depositpolicycode === null || requestParameters.depositpolicycode === undefined) {
+            throw new runtime.RequiredError('depositpolicycode','Required parameter requestParameters.depositpolicycode was null or undefined when calling changeDepositPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeDepositPolicy.');
+        }
+
+        if (requestParameters.depositPolicyToBeChanged === null || requestParameters.depositPolicyToBeChanged === undefined) {
+            throw new runtime.RequiredError('depositPolicyToBeChanged','Required parameter requestParameters.depositPolicyToBeChanged was null or undefined when calling changeDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1235,7 +1275,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeDepositPolicyRequestToJSON(requestParameters.depositPolicyToBeChanged),
+            body: DepositPolicyToBeChangedToJSON(requestParameters.depositPolicyToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1245,7 +1285,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update deposit policy in hotel level. <p><strong>OperationId:</strong>changeDepositPolicy</p>
      * Change deposit policy in hotel level
      */
-    async changeDepositPolicy(requestParameters: ChangeDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeDepositPolicy(requestParameters: ChangeDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeDepositPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1254,7 +1294,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Guarantee Code. <p><strong>OperationId:</strong>changeGuaranteeCode</p>
      * Change Guarantee Code
      */
-    async changeGuaranteeCodeRaw(requestParameters: ChangeGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeGuaranteeCodeRaw(requestParameters: ChangeGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+            throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling changeGuaranteeCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeGuaranteeCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeGuaranteeCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeGuaranteeCode.');
+        }
+
+        if (requestParameters.guaranteeCodeToBeChanged === null || requestParameters.guaranteeCodeToBeChanged === undefined) {
+            throw new runtime.RequiredError('guaranteeCodeToBeChanged','Required parameter requestParameters.guaranteeCodeToBeChanged was null or undefined when calling changeGuaranteeCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1286,7 +1346,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeGuaranteeCodeRequestToJSON(requestParameters.guaranteeCodeToBeChanged),
+            body: GuaranteeCodeToBeChangedToJSON(requestParameters.guaranteeCodeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1296,7 +1356,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Guarantee Code. <p><strong>OperationId:</strong>changeGuaranteeCode</p>
      * Change Guarantee Code
      */
-    async changeGuaranteeCode(requestParameters: ChangeGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeGuaranteeCode(requestParameters: ChangeGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeGuaranteeCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1305,7 +1365,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update an schedule for guarantee codes. <p><strong>OperationId:</strong>changeGuaranteeCodeSchedule</p>
      * Change an schedule for guarantee codes 
      */
-    async changeGuaranteeCodeScheduleRaw(requestParameters: ChangeGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeGuaranteeCodeScheduleRaw(requestParameters: ChangeGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.policyScheduleId === null || requestParameters.policyScheduleId === undefined) {
+            throw new runtime.RequiredError('policyScheduleId','Required parameter requestParameters.policyScheduleId was null or undefined when calling changeGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.guaranteeCodeScheduleToBeChanged === null || requestParameters.guaranteeCodeScheduleToBeChanged === undefined) {
+            throw new runtime.RequiredError('guaranteeCodeScheduleToBeChanged','Required parameter requestParameters.guaranteeCodeScheduleToBeChanged was null or undefined when calling changeGuaranteeCodeSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1337,7 +1421,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeGuaranteeCodeScheduleRequestToJSON(requestParameters.guaranteeCodeScheduleToBeChanged),
+            body: GuaranteeCodeScheduleToBeChangedToJSON(requestParameters.guaranteeCodeScheduleToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1347,7 +1431,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update an schedule for guarantee codes. <p><strong>OperationId:</strong>changeGuaranteeCodeSchedule</p>
      * Change an schedule for guarantee codes 
      */
-    async changeGuaranteeCodeSchedule(requestParameters: ChangeGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeGuaranteeCodeSchedule(requestParameters: ChangeGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeGuaranteeCodeScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1356,7 +1440,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * You can use this API to modify a Market Code . <p><strong>OperationId:</strong>changeMarketCode</p>
      * Modify a Market Code 
      */
-    async changeMarketCodeRaw(requestParameters: ChangeMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeMarketCodeRaw(requestParameters: ChangeMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketcode === null || requestParameters.marketcode === undefined) {
+            throw new runtime.RequiredError('marketcode','Required parameter requestParameters.marketcode was null or undefined when calling changeMarketCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeMarketCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeMarketCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeMarketCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeMarketCode.');
+        }
+
+        if (requestParameters.marketCodeToBeChanged === null || requestParameters.marketCodeToBeChanged === undefined) {
+            throw new runtime.RequiredError('marketCodeToBeChanged','Required parameter requestParameters.marketCodeToBeChanged was null or undefined when calling changeMarketCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1388,7 +1496,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeMarketCodeRequestToJSON(requestParameters.marketCodeToBeChanged),
+            body: MarketCodeToBeChangedToJSON(requestParameters.marketCodeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1398,7 +1506,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * You can use this API to modify a Market Code . <p><strong>OperationId:</strong>changeMarketCode</p>
      * Modify a Market Code 
      */
-    async changeMarketCode(requestParameters: ChangeMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeMarketCode(requestParameters: ChangeMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeMarketCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1407,7 +1515,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to modify a Market Group. Only one Market Group can be modified at a time. <p><strong>OperationId:</strong>changeMarketGroup</p>
      * Change Market Group
      */
-    async changeMarketGroupRaw(requestParameters: ChangeMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeMarketGroupRaw(requestParameters: ChangeMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
+            throw new runtime.RequiredError('marketGroupCode','Required parameter requestParameters.marketGroupCode was null or undefined when calling changeMarketGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeMarketGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeMarketGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeMarketGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeMarketGroup.');
+        }
+
+        if (requestParameters.marketGroupToBeChanged === null || requestParameters.marketGroupToBeChanged === undefined) {
+            throw new runtime.RequiredError('marketGroupToBeChanged','Required parameter requestParameters.marketGroupToBeChanged was null or undefined when calling changeMarketGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1439,7 +1571,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeMarketGroupRequestToJSON(requestParameters.marketGroupToBeChanged),
+            body: MarketGroupToBeChangedToJSON(requestParameters.marketGroupToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1449,7 +1581,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to modify a Market Group. Only one Market Group can be modified at a time. <p><strong>OperationId:</strong>changeMarketGroup</p>
      * Change Market Group
      */
-    async changeMarketGroup(requestParameters: ChangeMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeMarketGroup(requestParameters: ChangeMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeMarketGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1458,7 +1590,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update an schedule for deposit or cancel policy. <p><strong>OperationId:</strong>changePolicySchedule</p>
      * Change a Policy Schedule
      */
-    async changePolicyScheduleRaw(requestParameters: ChangePolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changePolicyScheduleRaw(requestParameters: ChangePolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.policyscheduleId === null || requestParameters.policyscheduleId === undefined) {
+            throw new runtime.RequiredError('policyscheduleId','Required parameter requestParameters.policyscheduleId was null or undefined when calling changePolicySchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changePolicySchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changePolicySchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changePolicySchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changePolicySchedule.');
+        }
+
+        if (requestParameters.policyScheduleToBeChanged === null || requestParameters.policyScheduleToBeChanged === undefined) {
+            throw new runtime.RequiredError('policyScheduleToBeChanged','Required parameter requestParameters.policyScheduleToBeChanged was null or undefined when calling changePolicySchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1490,7 +1646,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangePolicyScheduleRequestToJSON(requestParameters.policyScheduleToBeChanged),
+            body: PolicyScheduleToBeChangedToJSON(requestParameters.policyScheduleToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1500,7 +1656,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update an schedule for deposit or cancel policy. <p><strong>OperationId:</strong>changePolicySchedule</p>
      * Change a Policy Schedule
      */
-    async changePolicySchedule(requestParameters: ChangePolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changePolicySchedule(requestParameters: ChangePolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changePolicyScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1509,7 +1665,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Pre Check In rules. <p><strong>OperationId:</strong>changePreCheckInRules</p>
      * Change Pre Check In rules
      */
-    async changePreCheckInRulesRaw(requestParameters: ChangePreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changePreCheckInRulesRaw(requestParameters: ChangePreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changePreCheckInRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changePreCheckInRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changePreCheckInRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changePreCheckInRules.');
+        }
+
+        if (requestParameters.preCheckInRulesToBeChanged === null || requestParameters.preCheckInRulesToBeChanged === undefined) {
+            throw new runtime.RequiredError('preCheckInRulesToBeChanged','Required parameter requestParameters.preCheckInRulesToBeChanged was null or undefined when calling changePreCheckInRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1541,7 +1717,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangePreCheckInRulesRequestToJSON(requestParameters.preCheckInRulesToBeChanged),
+            body: PreCheckInRulesToBeChangedToJSON(requestParameters.preCheckInRulesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1551,7 +1727,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Pre Check In rules. <p><strong>OperationId:</strong>changePreCheckInRules</p>
      * Change Pre Check In rules
      */
-    async changePreCheckInRules(requestParameters: ChangePreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changePreCheckInRules(requestParameters: ChangePreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changePreCheckInRulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1560,7 +1736,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Service Request Code Priorities. <p><strong>OperationId:</strong>changeServiceRequestCodePriorities</p>
      * Change Service Request Code Priorities
      */
-    async changeServiceRequestCodePrioritiesRaw(requestParameters: ChangeServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeServiceRequestCodePrioritiesRaw(requestParameters: ChangeServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.serviceRequestCode === null || requestParameters.serviceRequestCode === undefined) {
+            throw new runtime.RequiredError('serviceRequestCode','Required parameter requestParameters.serviceRequestCode was null or undefined when calling changeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.serviceRequestCodePrioritiesToBeChanged === null || requestParameters.serviceRequestCodePrioritiesToBeChanged === undefined) {
+            throw new runtime.RequiredError('serviceRequestCodePrioritiesToBeChanged','Required parameter requestParameters.serviceRequestCodePrioritiesToBeChanged was null or undefined when calling changeServiceRequestCodePriorities.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1592,7 +1792,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeServiceRequestCodePrioritiesRequestToJSON(requestParameters.serviceRequestCodePrioritiesToBeChanged),
+            body: ServiceRequestCodePrioritiesToBeChangedToJSON(requestParameters.serviceRequestCodePrioritiesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1602,7 +1802,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Service Request Code Priorities. <p><strong>OperationId:</strong>changeServiceRequestCodePriorities</p>
      * Change Service Request Code Priorities
      */
-    async changeServiceRequestCodePriorities(requestParameters: ChangeServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeServiceRequestCodePriorities(requestParameters: ChangeServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeServiceRequestCodePrioritiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1611,7 +1811,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update configuration service request codes. <p><strong>OperationId:</strong>changeServiceRequestCodes</p>
      * Change configuration service request codes
      */
-    async changeServiceRequestCodesRaw(requestParameters: ChangeServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeServiceRequestCodesRaw(requestParameters: ChangeServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeServiceRequestCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeServiceRequestCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeServiceRequestCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeServiceRequestCodes.');
+        }
+
+        if (requestParameters.serviceRequestCodesToBeChanged === null || requestParameters.serviceRequestCodesToBeChanged === undefined) {
+            throw new runtime.RequiredError('serviceRequestCodesToBeChanged','Required parameter requestParameters.serviceRequestCodesToBeChanged was null or undefined when calling changeServiceRequestCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1643,7 +1863,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeServiceRequestCodesRequestToJSON(requestParameters.serviceRequestCodesToBeChanged),
+            body: ServiceRequestCodesToBeChangedToJSON(requestParameters.serviceRequestCodesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1653,7 +1873,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update configuration service request codes. <p><strong>OperationId:</strong>changeServiceRequestCodes</p>
      * Change configuration service request codes
      */
-    async changeServiceRequestCodes(requestParameters: ChangeServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeServiceRequestCodes(requestParameters: ChangeServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeServiceRequestCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1662,7 +1882,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to modify a Source Code. Only one Source Code can be modified at a time. <p><strong>OperationId:</strong>changeSourceCode</p>
      * Update a Source Code
      */
-    async changeSourceCodeRaw(requestParameters: ChangeSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeSourceCodeRaw(requestParameters: ChangeSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceCode === null || requestParameters.sourceCode === undefined) {
+            throw new runtime.RequiredError('sourceCode','Required parameter requestParameters.sourceCode was null or undefined when calling changeSourceCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeSourceCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeSourceCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeSourceCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeSourceCode.');
+        }
+
+        if (requestParameters.sourceCodeToBeChanged === null || requestParameters.sourceCodeToBeChanged === undefined) {
+            throw new runtime.RequiredError('sourceCodeToBeChanged','Required parameter requestParameters.sourceCodeToBeChanged was null or undefined when calling changeSourceCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1694,7 +1938,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeSourceCodeRequestToJSON(requestParameters.sourceCodeToBeChanged),
+            body: SourceCodeToBeChangedToJSON(requestParameters.sourceCodeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1704,7 +1948,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to modify a Source Code. Only one Source Code can be modified at a time. <p><strong>OperationId:</strong>changeSourceCode</p>
      * Update a Source Code
      */
-    async changeSourceCode(requestParameters: ChangeSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeSourceCode(requestParameters: ChangeSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeSourceCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1713,7 +1957,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to modify a Source Group. Only one Source Group can be modified at a time. <p><strong>OperationId:</strong>changeSourceGroup</p>
      * Change a Source Group
      */
-    async changeSourceGroupRaw(requestParameters: ChangeSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeSourceGroupRaw(requestParameters: ChangeSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceGroupCode === null || requestParameters.sourceGroupCode === undefined) {
+            throw new runtime.RequiredError('sourceGroupCode','Required parameter requestParameters.sourceGroupCode was null or undefined when calling changeSourceGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeSourceGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeSourceGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeSourceGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeSourceGroup.');
+        }
+
+        if (requestParameters.sourceGroupToBeChanged === null || requestParameters.sourceGroupToBeChanged === undefined) {
+            throw new runtime.RequiredError('sourceGroupToBeChanged','Required parameter requestParameters.sourceGroupToBeChanged was null or undefined when calling changeSourceGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1745,7 +2013,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeSourceGroupRequestToJSON(requestParameters.sourceGroupToBeChanged),
+            body: SourceGroupToBeChangedToJSON(requestParameters.sourceGroupToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1755,7 +2023,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to modify a Source Group. Only one Source Group can be modified at a time. <p><strong>OperationId:</strong>changeSourceGroup</p>
      * Change a Source Group
      */
-    async changeSourceGroup(requestParameters: ChangeSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeSourceGroup(requestParameters: ChangeSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeSourceGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1764,7 +2032,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update template Cancellation policies. <p><strong>OperationId:</strong>changeTemplateCancellationPolicy</p>
      * Change template Cancellation policies
      */
-    async changeTemplateCancellationPolicyRaw(requestParameters: ChangeTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateCancellationPolicyRaw(requestParameters: ChangeTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cancelpolicytemplate === null || requestParameters.cancelpolicytemplate === undefined) {
+            throw new runtime.RequiredError('cancelpolicytemplate','Required parameter requestParameters.cancelpolicytemplate was null or undefined when calling changeTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.templateCancellationPolicyToBeChanged === null || requestParameters.templateCancellationPolicyToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateCancellationPolicyToBeChanged','Required parameter requestParameters.templateCancellationPolicyToBeChanged was null or undefined when calling changeTemplateCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1796,7 +2084,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateCancellationPolicyRequestToJSON(requestParameters.templateCancellationPolicyToBeChanged),
+            body: TemplateCancellationPolicyToBeChangedToJSON(requestParameters.templateCancellationPolicyToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1806,7 +2094,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update template Cancellation policies. <p><strong>OperationId:</strong>changeTemplateCancellationPolicy</p>
      * Change template Cancellation policies
      */
-    async changeTemplateCancellationPolicy(requestParameters: ChangeTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateCancellationPolicy(requestParameters: ChangeTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateCancellationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1815,7 +2103,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update template deposit policy. <p><strong>OperationId:</strong>changeTemplateDepositPolicy</p>
      * Change template deposit policy
      */
-    async changeTemplateDepositPolicyRaw(requestParameters: ChangeTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateDepositPolicyRaw(requestParameters: ChangeTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.depositpolicytemplate === null || requestParameters.depositpolicytemplate === undefined) {
+            throw new runtime.RequiredError('depositpolicytemplate','Required parameter requestParameters.depositpolicytemplate was null or undefined when calling changeTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.templateDepositPolicyToBeChanged === null || requestParameters.templateDepositPolicyToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateDepositPolicyToBeChanged','Required parameter requestParameters.templateDepositPolicyToBeChanged was null or undefined when calling changeTemplateDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1847,7 +2155,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateDepositPolicyRequestToJSON(requestParameters.templateDepositPolicyToBeChanged),
+            body: TemplateDepositPolicyToBeChangedToJSON(requestParameters.templateDepositPolicyToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1857,7 +2165,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update template deposit policy. <p><strong>OperationId:</strong>changeTemplateDepositPolicy</p>
      * Change template deposit policy
      */
-    async changeTemplateDepositPolicy(requestParameters: ChangeTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateDepositPolicy(requestParameters: ChangeTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateDepositPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1866,7 +2174,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update template Guarantee Code. <p><strong>OperationId:</strong>changeTemplateGuaranteeCode</p>
      * Change template Guarantee Code
      */
-    async changeTemplateGuaranteeCodeRaw(requestParameters: ChangeTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateGuaranteeCodeRaw(requestParameters: ChangeTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+            throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling changeTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.templateGuaranteeCodeToBeChanged === null || requestParameters.templateGuaranteeCodeToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateGuaranteeCodeToBeChanged','Required parameter requestParameters.templateGuaranteeCodeToBeChanged was null or undefined when calling changeTemplateGuaranteeCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1898,7 +2226,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateGuaranteeCodeRequestToJSON(requestParameters.templateGuaranteeCodeToBeChanged),
+            body: TemplateGuaranteeCodeToBeChangedToJSON(requestParameters.templateGuaranteeCodeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1908,7 +2236,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update template Guarantee Code. <p><strong>OperationId:</strong>changeTemplateGuaranteeCode</p>
      * Change template Guarantee Code
      */
-    async changeTemplateGuaranteeCode(requestParameters: ChangeTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateGuaranteeCode(requestParameters: ChangeTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateGuaranteeCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1917,7 +2245,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to modify a template Market Code. Only one template Market Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketCode</p>
      * Update a Market Code Template
      */
-    async changeTemplateMarketCodeRaw(requestParameters: ChangeTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateMarketCodeRaw(requestParameters: ChangeTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketcode === null || requestParameters.marketcode === undefined) {
+            throw new runtime.RequiredError('marketcode','Required parameter requestParameters.marketcode was null or undefined when calling changeTemplateMarketCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateMarketCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateMarketCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateMarketCode.');
+        }
+
+        if (requestParameters.templateMarketCodeToBeChanged === null || requestParameters.templateMarketCodeToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateMarketCodeToBeChanged','Required parameter requestParameters.templateMarketCodeToBeChanged was null or undefined when calling changeTemplateMarketCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1949,7 +2297,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateMarketCodeRequestToJSON(requestParameters.templateMarketCodeToBeChanged),
+            body: TemplateMarketCodeToBeChangedToJSON(requestParameters.templateMarketCodeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1959,7 +2307,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to modify a template Market Code. Only one template Market Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketCode</p>
      * Update a Market Code Template
      */
-    async changeTemplateMarketCode(requestParameters: ChangeTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateMarketCode(requestParameters: ChangeTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateMarketCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1968,7 +2316,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to modify a Template Market Group. Only one Template Market Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketGroup</p>
      * Change Market Group Template
      */
-    async changeTemplateMarketGroupRaw(requestParameters: ChangeTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateMarketGroupRaw(requestParameters: ChangeTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
+            throw new runtime.RequiredError('marketGroupCode','Required parameter requestParameters.marketGroupCode was null or undefined when calling changeTemplateMarketGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateMarketGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateMarketGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateMarketGroup.');
+        }
+
+        if (requestParameters.templateMarketGroupToBeChanged === null || requestParameters.templateMarketGroupToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateMarketGroupToBeChanged','Required parameter requestParameters.templateMarketGroupToBeChanged was null or undefined when calling changeTemplateMarketGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2000,7 +2368,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateMarketGroupRequestToJSON(requestParameters.templateMarketGroupToBeChanged),
+            body: TemplateMarketGroupToBeChangedToJSON(requestParameters.templateMarketGroupToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2010,7 +2378,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to modify a Template Market Group. Only one Template Market Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketGroup</p>
      * Change Market Group Template
      */
-    async changeTemplateMarketGroup(requestParameters: ChangeTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateMarketGroup(requestParameters: ChangeTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateMarketGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2019,7 +2387,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to Modify a Template Source Code. Only one Template Source Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceCode</p>
      * Change a Template Source Code
      */
-    async changeTemplateSourceCodeRaw(requestParameters: ChangeTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateSourceCodeRaw(requestParameters: ChangeTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceCode === null || requestParameters.sourceCode === undefined) {
+            throw new runtime.RequiredError('sourceCode','Required parameter requestParameters.sourceCode was null or undefined when calling changeTemplateSourceCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateSourceCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateSourceCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateSourceCode.');
+        }
+
+        if (requestParameters.templateSourceCodeToBeChanged === null || requestParameters.templateSourceCodeToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateSourceCodeToBeChanged','Required parameter requestParameters.templateSourceCodeToBeChanged was null or undefined when calling changeTemplateSourceCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2051,7 +2439,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateSourceCodeRequestToJSON(requestParameters.templateSourceCodeToBeChanged),
+            body: TemplateSourceCodeToBeChangedToJSON(requestParameters.templateSourceCodeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2061,7 +2449,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to Modify a Template Source Code. Only one Template Source Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceCode</p>
      * Change a Template Source Code
      */
-    async changeTemplateSourceCode(requestParameters: ChangeTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateSourceCode(requestParameters: ChangeTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateSourceCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2070,7 +2458,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to Modify a Template Source Group. Only one Template Source Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceGroup</p>
      * Change Template Source Group
      */
-    async changeTemplateSourceGroupRaw(requestParameters: ChangeTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateSourceGroupRaw(requestParameters: ChangeTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateSourceGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateSourceGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateSourceGroup.');
+        }
+
+        if (requestParameters.templateSourceGroupToBeChanged === null || requestParameters.templateSourceGroupToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateSourceGroupToBeChanged','Required parameter requestParameters.templateSourceGroupToBeChanged was null or undefined when calling changeTemplateSourceGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2102,7 +2506,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateSourceGroupRequestToJSON(requestParameters.templateSourceGroupToBeChanged),
+            body: TemplateSourceGroupToBeChangedToJSON(requestParameters.templateSourceGroupToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2112,7 +2516,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to Modify a Template Source Group. Only one Template Source Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceGroup</p>
      * Change Template Source Group
      */
-    async changeTemplateSourceGroup(requestParameters: ChangeTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateSourceGroup(requestParameters: ChangeTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateSourceGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2121,7 +2525,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this APU to copy schedules for guarantee codes. <p><strong>OperationId:</strong>copyGuaranteeCodeSchedules</p>
      * Copy schedule s for guarantee codes 
      */
-    async copyGuaranteeCodeSchedulesRaw(requestParameters: CopyGuaranteeCodeSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyGuaranteeCodeSchedulesRaw(requestParameters: CopyGuaranteeCodeSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.policyScheduleId === null || requestParameters.policyScheduleId === undefined) {
+            throw new runtime.RequiredError('policyScheduleId','Required parameter requestParameters.policyScheduleId was null or undefined when calling copyGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.copyGuaranteeCodeSchedules === null || requestParameters.copyGuaranteeCodeSchedules === undefined) {
+            throw new runtime.RequiredError('copyGuaranteeCodeSchedules','Required parameter requestParameters.copyGuaranteeCodeSchedules was null or undefined when calling copyGuaranteeCodeSchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2153,7 +2581,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyGuaranteeCodeSchedulesRequestToJSON(requestParameters.copyGuaranteeCodeSchedules),
+            body: CopyGuaranteeCodeSchedulesToJSON(requestParameters.copyGuaranteeCodeSchedules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2163,7 +2591,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this APU to copy schedules for guarantee codes. <p><strong>OperationId:</strong>copyGuaranteeCodeSchedules</p>
      * Copy schedule s for guarantee codes 
      */
-    async copyGuaranteeCodeSchedules(requestParameters: CopyGuaranteeCodeSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyGuaranteeCodeSchedules(requestParameters: CopyGuaranteeCodeSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyGuaranteeCodeSchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2172,7 +2600,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this APU to copy schedules for deposit or cancel policy. <p><strong>OperationId:</strong>copyPolicySchedules</p>
      * Copy a Policy Schedule
      */
-    async copyPolicySchedulesRaw(requestParameters: CopyPolicySchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyPolicySchedulesRaw(requestParameters: CopyPolicySchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.policyscheduleId === null || requestParameters.policyscheduleId === undefined) {
+            throw new runtime.RequiredError('policyscheduleId','Required parameter requestParameters.policyscheduleId was null or undefined when calling copyPolicySchedules.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyPolicySchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyPolicySchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyPolicySchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyPolicySchedules.');
+        }
+
+        if (requestParameters.copyPolicySchedules === null || requestParameters.copyPolicySchedules === undefined) {
+            throw new runtime.RequiredError('copyPolicySchedules','Required parameter requestParameters.copyPolicySchedules was null or undefined when calling copyPolicySchedules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2204,7 +2656,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyPolicySchedulesRequestToJSON(requestParameters.copyPolicySchedules),
+            body: CopyPolicySchedulesToJSON(requestParameters.copyPolicySchedules),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2214,7 +2666,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this APU to copy schedules for deposit or cancel policy. <p><strong>OperationId:</strong>copyPolicySchedules</p>
      * Copy a Policy Schedule
      */
-    async copyPolicySchedules(requestParameters: CopyPolicySchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyPolicySchedules(requestParameters: CopyPolicySchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyPolicySchedulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2223,7 +2675,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy configuration service request codes. <p><strong>OperationId:</strong>copyServiceRequestCodes</p>
      *  copy configuration service request codes
      */
-    async copyServiceRequestCodesRaw(requestParameters: CopyServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyServiceRequestCodesRaw(requestParameters: CopyServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
+            throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyServiceRequestCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyServiceRequestCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyServiceRequestCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyServiceRequestCodes.');
+        }
+
+        if (requestParameters.copyServiceRequestCodes === null || requestParameters.copyServiceRequestCodes === undefined) {
+            throw new runtime.RequiredError('copyServiceRequestCodes','Required parameter requestParameters.copyServiceRequestCodes was null or undefined when calling copyServiceRequestCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2255,7 +2727,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyServiceRequestCodesRequestToJSON(requestParameters.copyServiceRequestCodes),
+            body: CopyServiceRequestCodesToJSON(requestParameters.copyServiceRequestCodes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2265,7 +2737,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Copy configuration service request codes. <p><strong>OperationId:</strong>copyServiceRequestCodes</p>
      *  copy configuration service request codes
      */
-    async copyServiceRequestCodes(requestParameters: CopyServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyServiceRequestCodes(requestParameters: CopyServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyServiceRequestCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2275,6 +2747,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Cancellation policies in hotel level
      */
     async deleteCancellationPolicyRaw(requestParameters: DeleteCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cancelpolicycode === null || requestParameters.cancelpolicycode === undefined) {
+            throw new runtime.RequiredError('cancelpolicycode','Required parameter requestParameters.cancelpolicycode was null or undefined when calling deleteCancellationPolicy.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCancellationPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2327,6 +2819,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete deposit policy in hotel level
      */
     async deleteDepositPolicyRaw(requestParameters: DeleteDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.depositpolicycode === null || requestParameters.depositpolicycode === undefined) {
+            throw new runtime.RequiredError('depositpolicycode','Required parameter requestParameters.depositpolicycode was null or undefined when calling deleteDepositPolicy.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteDepositPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2379,6 +2891,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Guarantee Code
      */
     async deleteGuaranteeCodeRaw(requestParameters: DeleteGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+            throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling deleteGuaranteeCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteGuaranteeCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteGuaranteeCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteGuaranteeCode.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2431,6 +2959,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete schedule for guarantee codes 
      */
     async deleteGuaranteeCodeScheduleRaw(requestParameters: DeleteGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.policyScheduleId === null || requestParameters.policyScheduleId === undefined) {
+            throw new runtime.RequiredError('policyScheduleId','Required parameter requestParameters.policyScheduleId was null or undefined when calling deleteGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteGuaranteeCodeSchedule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -2487,6 +3035,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Policy Schedule
      */
     async deletePolicyScheduleRaw(requestParameters: DeletePolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.policyscheduleId === null || requestParameters.policyscheduleId === undefined) {
+            throw new runtime.RequiredError('policyscheduleId','Required parameter requestParameters.policyscheduleId was null or undefined when calling deletePolicySchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deletePolicySchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePolicySchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePolicySchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePolicySchedule.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -2543,6 +3111,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete template Cancellation policies
      */
     async deleteTemplateCancellationPolicyRaw(requestParameters: DeleteTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cancelpolicytemplate === null || requestParameters.cancelpolicytemplate === undefined) {
+            throw new runtime.RequiredError('cancelpolicytemplate','Required parameter requestParameters.cancelpolicytemplate was null or undefined when calling deleteTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.policyCode !== undefined) {
@@ -2595,6 +3179,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete template deposit policy
      */
     async deleteTemplateDepositPolicyRaw(requestParameters: DeleteTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.depositpolicytemplate === null || requestParameters.depositpolicytemplate === undefined) {
+            throw new runtime.RequiredError('depositpolicytemplate','Required parameter requestParameters.depositpolicytemplate was null or undefined when calling deleteTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.policyCode !== undefined) {
@@ -2647,6 +3247,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete template Guarantee Code
      */
     async deleteTemplateGuaranteeCodeRaw(requestParameters: DeleteTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+            throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling deleteTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateGuaranteeCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2695,6 +3311,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Cancellation policies in hotel level
      */
     async getCancellationPolicyRaw(requestParameters: GetCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancellationPolicyDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2763,6 +3391,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get deposit policies in hotel level
      */
     async getDepositPolicyRaw(requestParameters: GetDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositPolicyDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2831,6 +3471,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get schedules for guarantee codes 
      */
     async getGuaranteeCodeSchedulesRaw(requestParameters: GetGuaranteeCodeSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuaranteeCodeSchedulesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuaranteeCodeSchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuaranteeCodeSchedules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -2850,11 +3506,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -2923,6 +3579,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get guarantee codes
      */
     async getGuaranteeCodesRaw(requestParameters: GetGuaranteeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuaranteeCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuaranteeCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuaranteeCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuaranteeCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2991,6 +3659,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Market codes
      */
     async getMarketCodesRaw(requestParameters: GetMarketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MarketCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMarketCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMarketCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMarketCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3063,6 +3743,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Market Groups 
      */
     async getMarketGroupsRaw(requestParameters: GetMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MarketGroupsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMarketGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMarketGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMarketGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3135,6 +3827,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get policy schedules
      */
     async getPolicySchedulesRaw(requestParameters: GetPolicySchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PolicySchedulesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPolicySchedules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPolicySchedules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPolicySchedules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPolicySchedules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -3162,11 +3870,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3247,10 +3955,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Pre Check In rules
      */
     async getPreCheckInRulesRaw(requestParameters: GetPreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PreCheckInRulesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getPreCheckInRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPreCheckInRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPreCheckInRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPreCheckInRules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.date !== undefined) {
-            queryParameters['date'] = (requestParameters.date as any).toISOString().substr(0,10);
+            queryParameters['date'] = (requestParameters.date as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.ruleType !== undefined) {
@@ -3303,6 +4027,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get service request codes
      */
     async getServiceRequestCodeRaw(requestParameters: GetServiceRequestCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceRequestCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCode.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3373,8 +4109,29 @@ export class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to get Service Request Code Priorities.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCodePriority instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodePriorities</p>
      * Get Service Request Code Priorities
+     * @deprecated
      */
     async getServiceRequestCodePrioritiesRaw(requestParameters: GetServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceRequestCodePrioritiesDetails>> {
+        if (requestParameters.serviceRequestCode === null || requestParameters.serviceRequestCode === undefined) {
+            throw new runtime.RequiredError('serviceRequestCode','Required parameter requestParameters.serviceRequestCode was null or undefined when calling getServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCodePriorities.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3424,6 +4181,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to get Service Request Code Priorities.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCodePriority instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodePriorities</p>
      * Get Service Request Code Priorities
+     * @deprecated
      */
     async getServiceRequestCodePriorities(requestParameters: GetServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceRequestCodePrioritiesDetails> {
         const response = await this.getServiceRequestCodePrioritiesRaw(requestParameters, initOverrides);
@@ -3435,6 +4193,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Service Request Code Priorities
      */
     async getServiceRequestCodePriorityRaw(requestParameters: GetServiceRequestCodePriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceRequestCodePrioritiesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCodePriority.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCodePriority.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCodePriority.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3501,8 +4271,25 @@ export class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to get service request codes.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCode instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodes</p>
      * Get service request codes
+     * @deprecated
      */
     async getServiceRequestCodesRaw(requestParameters: GetServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceRequestCodesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getServiceRequestCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getServiceRequestCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getServiceRequestCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getServiceRequestCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3560,6 +4347,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to get service request codes.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCode instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodes</p>
      * Get service request codes
+     * @deprecated
      */
     async getServiceRequestCodes(requestParameters: GetServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceRequestCodesDetails> {
         const response = await this.getServiceRequestCodesRaw(requestParameters, initOverrides);
@@ -3571,6 +4359,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Source Codes
      */
     async getSourceCodesRaw(requestParameters: GetSourceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SourceCodesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSourceCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSourceCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSourceCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSourceCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -3643,6 +4447,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Search for Source Groups 
      */
     async getSourceGroupsRaw(requestParameters: GetSourceGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SourceGroupsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSourceGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSourceGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSourceGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSourceGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -3715,6 +4535,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get template Cancellation policies
      */
     async getTemplateCancellationPolicyRaw(requestParameters: GetTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateCancellationPolicyDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3783,6 +4615,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get template deposit policies
      */
     async getTemplateDepositPolicyRaw(requestParameters: GetTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateDepositPolicyDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3851,6 +4695,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get template Guarantee Codes
      */
     async getTemplateGuaranteeCodesRaw(requestParameters: GetTemplateGuaranteeCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateGuaranteeCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateGuaranteeCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateGuaranteeCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateGuaranteeCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3915,6 +4771,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Search for Market codes Template
      */
     async getTemplateMarketCodesRaw(requestParameters: GetTemplateMarketCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateMarketCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateMarketCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateMarketCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateMarketCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3983,6 +4851,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get  Market Group Templates
      */
     async getTemplateMarketGroupsRaw(requestParameters: GetTemplateMarketGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateMarketGroupsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateMarketGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateMarketGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateMarketGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4051,6 +4931,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get template Source Codes
      */
     async getTemplateSourceCodesRaw(requestParameters: GetTemplateSourceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateSourceCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateSourceCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateSourceCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateSourceCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4119,6 +5011,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Template Source Groups
      */
     async getTemplateSourceGroupsRaw(requestParameters: GetTemplateSourceGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateSourceGroupsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateSourceGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateSourceGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateSourceGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -4186,7 +5090,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Cancellation policies in hotel level. <p><strong>OperationId:</strong>postCancellationPolicy</p>
      * Create Cancellation policies in hotel level
      */
-    async postCancellationPolicyRaw(requestParameters: PostCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCancellationPolicyRaw(requestParameters: PostCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cancelpolicycode === null || requestParameters.cancelpolicycode === undefined) {
+            throw new runtime.RequiredError('cancelpolicycode','Required parameter requestParameters.cancelpolicycode was null or undefined when calling postCancellationPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCancellationPolicy.');
+        }
+
+        if (requestParameters.cancellationPolicyCriteria === null || requestParameters.cancellationPolicyCriteria === undefined) {
+            throw new runtime.RequiredError('cancellationPolicyCriteria','Required parameter requestParameters.cancellationPolicyCriteria was null or undefined when calling postCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4218,7 +5142,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCancellationPolicyRequestToJSON(requestParameters.cancellationPolicyCriteria),
+            body: CancellationPolicyCriteriaToJSON(requestParameters.cancellationPolicyCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4228,7 +5152,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Cancellation policies in hotel level. <p><strong>OperationId:</strong>postCancellationPolicy</p>
      * Create Cancellation policies in hotel level
      */
-    async postCancellationPolicy(requestParameters: PostCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCancellationPolicy(requestParameters: PostCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCancellationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4237,7 +5161,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create deposit policy in hotel level. <p><strong>OperationId:</strong>postDepositPolicy</p>
      * Create deposit policy in hotel level
      */
-    async postDepositPolicyRaw(requestParameters: PostDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postDepositPolicyRaw(requestParameters: PostDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.depositpolicycode === null || requestParameters.depositpolicycode === undefined) {
+            throw new runtime.RequiredError('depositpolicycode','Required parameter requestParameters.depositpolicycode was null or undefined when calling postDepositPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDepositPolicy.');
+        }
+
+        if (requestParameters.depositPolicyCriteria === null || requestParameters.depositPolicyCriteria === undefined) {
+            throw new runtime.RequiredError('depositPolicyCriteria','Required parameter requestParameters.depositPolicyCriteria was null or undefined when calling postDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4269,7 +5213,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDepositPolicyRequestToJSON(requestParameters.depositPolicyCriteria),
+            body: DepositPolicyCriteriaToJSON(requestParameters.depositPolicyCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4279,7 +5223,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create deposit policy in hotel level. <p><strong>OperationId:</strong>postDepositPolicy</p>
      * Create deposit policy in hotel level
      */
-    async postDepositPolicy(requestParameters: PostDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postDepositPolicy(requestParameters: PostDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postDepositPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4288,7 +5232,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Guarantee Code. <p><strong>OperationId:</strong>postGuaranteeCode</p>
      * Create Guarantee Code
      */
-    async postGuaranteeCodeRaw(requestParameters: PostGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postGuaranteeCodeRaw(requestParameters: PostGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postGuaranteeCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postGuaranteeCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postGuaranteeCode.');
+        }
+
+        if (requestParameters.guaranteeCodeCriteria === null || requestParameters.guaranteeCodeCriteria === undefined) {
+            throw new runtime.RequiredError('guaranteeCodeCriteria','Required parameter requestParameters.guaranteeCodeCriteria was null or undefined when calling postGuaranteeCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4320,7 +5280,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostGuaranteeCodeRequestToJSON(requestParameters.guaranteeCodeCriteria),
+            body: GuaranteeCodeCriteriaToJSON(requestParameters.guaranteeCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4330,7 +5290,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Guarantee Code. <p><strong>OperationId:</strong>postGuaranteeCode</p>
      * Create Guarantee Code
      */
-    async postGuaranteeCode(requestParameters: PostGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postGuaranteeCode(requestParameters: PostGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postGuaranteeCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4339,7 +5299,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create schedule for guarantee codes. <p><strong>OperationId:</strong>postGuaranteeCodeSchedule</p>
      * Create schedule for guarantee codes 
      */
-    async postGuaranteeCodeScheduleRaw(requestParameters: PostGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postGuaranteeCodeScheduleRaw(requestParameters: PostGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postGuaranteeCodeSchedule.');
+        }
+
+        if (requestParameters.guaranteeCodeScheduleCriteria === null || requestParameters.guaranteeCodeScheduleCriteria === undefined) {
+            throw new runtime.RequiredError('guaranteeCodeScheduleCriteria','Required parameter requestParameters.guaranteeCodeScheduleCriteria was null or undefined when calling postGuaranteeCodeSchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4371,7 +5351,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostGuaranteeCodeScheduleRequestToJSON(requestParameters.guaranteeCodeScheduleCriteria),
+            body: GuaranteeCodeScheduleCriteriaToJSON(requestParameters.guaranteeCodeScheduleCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4381,7 +5361,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create schedule for guarantee codes. <p><strong>OperationId:</strong>postGuaranteeCodeSchedule</p>
      * Create schedule for guarantee codes 
      */
-    async postGuaranteeCodeSchedule(requestParameters: PostGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postGuaranteeCodeSchedule(requestParameters: PostGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postGuaranteeCodeScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4390,7 +5370,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Market Code. <p><strong>OperationId:</strong>postMarketCode</p>
      * Create a new Market Code
      */
-    async postMarketCodeRaw(requestParameters: PostMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMarketCodeRaw(requestParameters: PostMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketcode === null || requestParameters.marketcode === undefined) {
+            throw new runtime.RequiredError('marketcode','Required parameter requestParameters.marketcode was null or undefined when calling postMarketCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postMarketCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMarketCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMarketCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMarketCode.');
+        }
+
+        if (requestParameters.marketCodeCriteria === null || requestParameters.marketCodeCriteria === undefined) {
+            throw new runtime.RequiredError('marketCodeCriteria','Required parameter requestParameters.marketCodeCriteria was null or undefined when calling postMarketCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4422,7 +5426,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMarketCodeRequestToJSON(requestParameters.marketCodeCriteria),
+            body: MarketCodeCriteriaToJSON(requestParameters.marketCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4432,7 +5436,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Market Code. <p><strong>OperationId:</strong>postMarketCode</p>
      * Create a new Market Code
      */
-    async postMarketCode(requestParameters: PostMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMarketCode(requestParameters: PostMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMarketCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4441,7 +5445,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Market Group. Only one Market Code can be created at a time. <p><strong>OperationId:</strong>postMarketGroup</p>
      * Create Market Group
      */
-    async postMarketGroupRaw(requestParameters: PostMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMarketGroupRaw(requestParameters: PostMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
+            throw new runtime.RequiredError('marketGroupCode','Required parameter requestParameters.marketGroupCode was null or undefined when calling postMarketGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postMarketGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMarketGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMarketGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMarketGroup.');
+        }
+
+        if (requestParameters.marketGroupCriteria === null || requestParameters.marketGroupCriteria === undefined) {
+            throw new runtime.RequiredError('marketGroupCriteria','Required parameter requestParameters.marketGroupCriteria was null or undefined when calling postMarketGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4473,7 +5501,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMarketGroupRequestToJSON(requestParameters.marketGroupCriteria),
+            body: MarketGroupCriteriaToJSON(requestParameters.marketGroupCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4483,7 +5511,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Market Group. Only one Market Code can be created at a time. <p><strong>OperationId:</strong>postMarketGroup</p>
      * Create Market Group
      */
-    async postMarketGroup(requestParameters: PostMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMarketGroup(requestParameters: PostMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMarketGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4492,7 +5520,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create schedule for deposit or cancel policy. <p><strong>OperationId:</strong>postNewPolicySchedule</p>
      * Create a Policy Schedule
      */
-    async postNewPolicyScheduleRaw(requestParameters: PostNewPolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postNewPolicyScheduleRaw(requestParameters: PostNewPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postNewPolicySchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postNewPolicySchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postNewPolicySchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postNewPolicySchedule.');
+        }
+
+        if (requestParameters.policyScheduleCriteria === null || requestParameters.policyScheduleCriteria === undefined) {
+            throw new runtime.RequiredError('policyScheduleCriteria','Required parameter requestParameters.policyScheduleCriteria was null or undefined when calling postNewPolicySchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4524,7 +5572,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostNewPolicyScheduleRequestToJSON(requestParameters.policyScheduleCriteria),
+            body: PolicyScheduleCriteriaToJSON(requestParameters.policyScheduleCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4534,7 +5582,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create schedule for deposit or cancel policy. <p><strong>OperationId:</strong>postNewPolicySchedule</p>
      * Create a Policy Schedule
      */
-    async postNewPolicySchedule(requestParameters: PostNewPolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postNewPolicySchedule(requestParameters: PostNewPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postNewPolicyScheduleRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4542,8 +5590,33 @@ export class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to create schedule for deposit or cancel policy.<br><p><strong><mark>This API is deprecated. Please use createNewPolicySchedule instead</mark></strong></p> <p><strong>OperationId:</strong>postPolicySchedule</p>
      * Create a Policy Schedule
+     * @deprecated
      */
     async postPolicyScheduleRaw(requestParameters: PostPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.policyscheduleId === null || requestParameters.policyscheduleId === undefined) {
+            throw new runtime.RequiredError('policyscheduleId','Required parameter requestParameters.policyscheduleId was null or undefined when calling postPolicySchedule.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPolicySchedule.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPolicySchedule.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPolicySchedule.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPolicySchedule.');
+        }
+
+        if (requestParameters.policyScheduleCriteria === null || requestParameters.policyScheduleCriteria === undefined) {
+            throw new runtime.RequiredError('policyScheduleCriteria','Required parameter requestParameters.policyScheduleCriteria was null or undefined when calling postPolicySchedule.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4575,7 +5648,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostNewPolicyScheduleRequestToJSON(requestParameters.policyScheduleCriteria),
+            body: PolicyScheduleCriteriaToJSON(requestParameters.policyScheduleCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4584,6 +5657,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to create schedule for deposit or cancel policy.<br><p><strong><mark>This API is deprecated. Please use createNewPolicySchedule instead</mark></strong></p> <p><strong>OperationId:</strong>postPolicySchedule</p>
      * Create a Policy Schedule
+     * @deprecated
      */
     async postPolicySchedule(requestParameters: PostPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postPolicyScheduleRaw(requestParameters, initOverrides);
@@ -4594,7 +5668,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Pre Check In rules. <p><strong>OperationId:</strong>postPreCheckInRules</p>
      * Create Pre Check In rules
      */
-    async postPreCheckInRulesRaw(requestParameters: PostPreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postPreCheckInRulesRaw(requestParameters: PostPreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postPreCheckInRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPreCheckInRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPreCheckInRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPreCheckInRules.');
+        }
+
+        if (requestParameters.preCheckInRulesCriteria === null || requestParameters.preCheckInRulesCriteria === undefined) {
+            throw new runtime.RequiredError('preCheckInRulesCriteria','Required parameter requestParameters.preCheckInRulesCriteria was null or undefined when calling postPreCheckInRules.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4626,7 +5720,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPreCheckInRulesRequestToJSON(requestParameters.preCheckInRulesCriteria),
+            body: PreCheckInRulesCriteriaToJSON(requestParameters.preCheckInRulesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4636,7 +5730,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Pre Check In rules. <p><strong>OperationId:</strong>postPreCheckInRules</p>
      * Create Pre Check In rules
      */
-    async postPreCheckInRules(requestParameters: PostPreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postPreCheckInRules(requestParameters: PostPreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postPreCheckInRulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4645,7 +5739,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Service Request Code Priorities. <p><strong>OperationId:</strong>postServiceRequestCodePriorities</p>
      * Create Service Request Code Priorities
      */
-    async postServiceRequestCodePrioritiesRaw(requestParameters: PostServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postServiceRequestCodePrioritiesRaw(requestParameters: PostServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.serviceRequestCode === null || requestParameters.serviceRequestCode === undefined) {
+            throw new runtime.RequiredError('serviceRequestCode','Required parameter requestParameters.serviceRequestCode was null or undefined when calling postServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.serviceRequestCodePrioritiesCriteria === null || requestParameters.serviceRequestCodePrioritiesCriteria === undefined) {
+            throw new runtime.RequiredError('serviceRequestCodePrioritiesCriteria','Required parameter requestParameters.serviceRequestCodePrioritiesCriteria was null or undefined when calling postServiceRequestCodePriorities.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4677,7 +5795,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostServiceRequestCodePrioritiesRequestToJSON(requestParameters.serviceRequestCodePrioritiesCriteria),
+            body: ServiceRequestCodePrioritiesCriteriaToJSON(requestParameters.serviceRequestCodePrioritiesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4687,7 +5805,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Service Request Code Priorities. <p><strong>OperationId:</strong>postServiceRequestCodePriorities</p>
      * Create Service Request Code Priorities
      */
-    async postServiceRequestCodePriorities(requestParameters: PostServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postServiceRequestCodePriorities(requestParameters: PostServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postServiceRequestCodePrioritiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4696,7 +5814,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create service request codes. <p><strong>OperationId:</strong>postServiceRequestCodes</p>
      * Create service request codes
      */
-    async postServiceRequestCodesRaw(requestParameters: PostServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postServiceRequestCodesRaw(requestParameters: PostServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postServiceRequestCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postServiceRequestCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postServiceRequestCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postServiceRequestCodes.');
+        }
+
+        if (requestParameters.serviceRequestCodesCriteria === null || requestParameters.serviceRequestCodesCriteria === undefined) {
+            throw new runtime.RequiredError('serviceRequestCodesCriteria','Required parameter requestParameters.serviceRequestCodesCriteria was null or undefined when calling postServiceRequestCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4728,7 +5866,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostServiceRequestCodesRequestToJSON(requestParameters.serviceRequestCodesCriteria),
+            body: ServiceRequestCodesCriteriaToJSON(requestParameters.serviceRequestCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4738,7 +5876,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create service request codes. <p><strong>OperationId:</strong>postServiceRequestCodes</p>
      * Create service request codes
      */
-    async postServiceRequestCodes(requestParameters: PostServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postServiceRequestCodes(requestParameters: PostServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postServiceRequestCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4747,7 +5885,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Source Code. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceCode</p>
      * Create a Source Code
      */
-    async postSourceCodeRaw(requestParameters: PostSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postSourceCodeRaw(requestParameters: PostSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postSourceCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSourceCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSourceCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSourceCode.');
+        }
+
+        if (requestParameters.sourceCodeCriteria === null || requestParameters.sourceCodeCriteria === undefined) {
+            throw new runtime.RequiredError('sourceCodeCriteria','Required parameter requestParameters.sourceCodeCriteria was null or undefined when calling postSourceCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4779,7 +5937,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSourceCodeRequestToJSON(requestParameters.sourceCodeCriteria),
+            body: SourceCodeCriteriaToJSON(requestParameters.sourceCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4789,7 +5947,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Source Code. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceCode</p>
      * Create a Source Code
      */
-    async postSourceCode(requestParameters: PostSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postSourceCode(requestParameters: PostSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postSourceCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4798,7 +5956,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to create a new Source Group. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceGroup</p>
      * Create a Source Group
      */
-    async postSourceGroupRaw(requestParameters: PostSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postSourceGroupRaw(requestParameters: PostSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postSourceGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSourceGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSourceGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSourceGroup.');
+        }
+
+        if (requestParameters.sourceGroupCriteria === null || requestParameters.sourceGroupCriteria === undefined) {
+            throw new runtime.RequiredError('sourceGroupCriteria','Required parameter requestParameters.sourceGroupCriteria was null or undefined when calling postSourceGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4830,7 +6008,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostSourceGroupRequestToJSON(requestParameters.sourceGroupCriteria),
+            body: SourceGroupCriteriaToJSON(requestParameters.sourceGroupCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4840,7 +6018,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to create a new Source Group. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceGroup</p>
      * Create a Source Group
      */
-    async postSourceGroup(requestParameters: PostSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postSourceGroup(requestParameters: PostSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postSourceGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4849,7 +6027,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create template Cancellation policies. <p><strong>OperationId:</strong>postTemplateCancellationPolicy</p>
      * Create template Cancellation policies
      */
-    async postTemplateCancellationPolicyRaw(requestParameters: PostTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateCancellationPolicyRaw(requestParameters: PostTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cancelpolicytemplate === null || requestParameters.cancelpolicytemplate === undefined) {
+            throw new runtime.RequiredError('cancelpolicytemplate','Required parameter requestParameters.cancelpolicytemplate was null or undefined when calling postTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateCancellationPolicy.');
+        }
+
+        if (requestParameters.templateCancellationPolicyCriteria === null || requestParameters.templateCancellationPolicyCriteria === undefined) {
+            throw new runtime.RequiredError('templateCancellationPolicyCriteria','Required parameter requestParameters.templateCancellationPolicyCriteria was null or undefined when calling postTemplateCancellationPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4881,7 +6079,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateCancellationPolicyRequestToJSON(requestParameters.templateCancellationPolicyCriteria),
+            body: TemplateCancellationPolicyCriteriaToJSON(requestParameters.templateCancellationPolicyCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4891,7 +6089,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create template Cancellation policies. <p><strong>OperationId:</strong>postTemplateCancellationPolicy</p>
      * Create template Cancellation policies
      */
-    async postTemplateCancellationPolicy(requestParameters: PostTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateCancellationPolicy(requestParameters: PostTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateCancellationPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4900,7 +6098,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create template deposit policy. <p><strong>OperationId:</strong>postTemplateDepositPolicy</p>
      * Create template deposit policy
      */
-    async postTemplateDepositPolicyRaw(requestParameters: PostTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateDepositPolicyRaw(requestParameters: PostTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.depositpolicytemplate === null || requestParameters.depositpolicytemplate === undefined) {
+            throw new runtime.RequiredError('depositpolicytemplate','Required parameter requestParameters.depositpolicytemplate was null or undefined when calling postTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateDepositPolicy.');
+        }
+
+        if (requestParameters.templateDepositPolicyCriteria === null || requestParameters.templateDepositPolicyCriteria === undefined) {
+            throw new runtime.RequiredError('templateDepositPolicyCriteria','Required parameter requestParameters.templateDepositPolicyCriteria was null or undefined when calling postTemplateDepositPolicy.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4932,7 +6150,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateDepositPolicyRequestToJSON(requestParameters.templateDepositPolicyCriteria),
+            body: TemplateDepositPolicyCriteriaToJSON(requestParameters.templateDepositPolicyCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4942,7 +6160,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create template deposit policy. <p><strong>OperationId:</strong>postTemplateDepositPolicy</p>
      * Create template deposit policy
      */
-    async postTemplateDepositPolicy(requestParameters: PostTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateDepositPolicy(requestParameters: PostTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateDepositPolicyRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4951,7 +6169,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create template Guarantee Code. <p><strong>OperationId:</strong>postTemplateGuaranteeCode</p>
      * Create template Guarantee Code
      */
-    async postTemplateGuaranteeCodeRaw(requestParameters: PostTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateGuaranteeCodeRaw(requestParameters: PostTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.guaranteeCode === null || requestParameters.guaranteeCode === undefined) {
+            throw new runtime.RequiredError('guaranteeCode','Required parameter requestParameters.guaranteeCode was null or undefined when calling postTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateGuaranteeCode.');
+        }
+
+        if (requestParameters.templateGuaranteeCodeCriteria === null || requestParameters.templateGuaranteeCodeCriteria === undefined) {
+            throw new runtime.RequiredError('templateGuaranteeCodeCriteria','Required parameter requestParameters.templateGuaranteeCodeCriteria was null or undefined when calling postTemplateGuaranteeCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4983,7 +6221,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateGuaranteeCodeRequestToJSON(requestParameters.templateGuaranteeCodeCriteria),
+            body: TemplateGuaranteeCodeCriteriaToJSON(requestParameters.templateGuaranteeCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4993,7 +6231,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create template Guarantee Code. <p><strong>OperationId:</strong>postTemplateGuaranteeCode</p>
      * Create template Guarantee Code
      */
-    async postTemplateGuaranteeCode(requestParameters: PostTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateGuaranteeCode(requestParameters: PostTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateGuaranteeCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5002,7 +6240,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to create a new Template Market Code. Only one template Market Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketCode</p>
      * Create Market Code Template
      */
-    async postTemplateMarketCodeRaw(requestParameters: PostTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateMarketCodeRaw(requestParameters: PostTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateMarketCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateMarketCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateMarketCode.');
+        }
+
+        if (requestParameters.templateMarketCodeCriteria === null || requestParameters.templateMarketCodeCriteria === undefined) {
+            throw new runtime.RequiredError('templateMarketCodeCriteria','Required parameter requestParameters.templateMarketCodeCriteria was null or undefined when calling postTemplateMarketCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5034,7 +6288,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateMarketCodeRequestToJSON(requestParameters.templateMarketCodeCriteria),
+            body: TemplateMarketCodeCriteriaToJSON(requestParameters.templateMarketCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5044,7 +6298,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to create a new Template Market Code. Only one template Market Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketCode</p>
      * Create Market Code Template
      */
-    async postTemplateMarketCode(requestParameters: PostTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateMarketCode(requestParameters: PostTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateMarketCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5053,7 +6307,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to create a new Template Market Group. Only one template Market Group can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketGroup</p>
      * Create Market Group Template
      */
-    async postTemplateMarketGroupRaw(requestParameters: PostTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateMarketGroupRaw(requestParameters: PostTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
+            throw new runtime.RequiredError('marketGroupCode','Required parameter requestParameters.marketGroupCode was null or undefined when calling postTemplateMarketGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateMarketGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateMarketGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateMarketGroup.');
+        }
+
+        if (requestParameters.templateMarketGroupCriteria === null || requestParameters.templateMarketGroupCriteria === undefined) {
+            throw new runtime.RequiredError('templateMarketGroupCriteria','Required parameter requestParameters.templateMarketGroupCriteria was null or undefined when calling postTemplateMarketGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5085,7 +6359,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateMarketGroupRequestToJSON(requestParameters.templateMarketGroupCriteria),
+            body: TemplateMarketGroupCriteriaToJSON(requestParameters.templateMarketGroupCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5095,7 +6369,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API is used to create a new Template Market Group. Only one template Market Group can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketGroup</p>
      * Create Market Group Template
      */
-    async postTemplateMarketGroup(requestParameters: PostTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateMarketGroup(requestParameters: PostTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateMarketGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5104,7 +6378,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Template Source Code. Only one template Source Code can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceCode</p>
      * Create a Template Source Code
      */
-    async postTemplateSourceCodeRaw(requestParameters: PostTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateSourceCodeRaw(requestParameters: PostTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateSourceCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateSourceCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateSourceCode.');
+        }
+
+        if (requestParameters.templateSourceCodeCriteria === null || requestParameters.templateSourceCodeCriteria === undefined) {
+            throw new runtime.RequiredError('templateSourceCodeCriteria','Required parameter requestParameters.templateSourceCodeCriteria was null or undefined when calling postTemplateSourceCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5136,7 +6426,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateSourceCodeRequestToJSON(requestParameters.templateSourceCodeCriteria),
+            body: TemplateSourceCodeCriteriaToJSON(requestParameters.templateSourceCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5146,7 +6436,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Template Source Code. Only one template Source Code can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceCode</p>
      * Create a Template Source Code
      */
-    async postTemplateSourceCode(requestParameters: PostTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateSourceCode(requestParameters: PostTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateSourceCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5155,7 +6445,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Template Source Group. Only one template Source Group can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceGroup</p>
      * Create a Template Source Group
      */
-    async postTemplateSourceGroupRaw(requestParameters: PostTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateSourceGroupRaw(requestParameters: PostTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateSourceGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateSourceGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateSourceGroup.');
+        }
+
+        if (requestParameters.templateSourceGroupCriteria === null || requestParameters.templateSourceGroupCriteria === undefined) {
+            throw new runtime.RequiredError('templateSourceGroupCriteria','Required parameter requestParameters.templateSourceGroupCriteria was null or undefined when calling postTemplateSourceGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5187,7 +6493,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateSourceGroupRequestToJSON(requestParameters.templateSourceGroupCriteria),
+            body: TemplateSourceGroupCriteriaToJSON(requestParameters.templateSourceGroupCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5197,7 +6503,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Template Source Group. Only one template Source Group can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceGroup</p>
      * Create a Template Source Group
      */
-    async postTemplateSourceGroup(requestParameters: PostTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateSourceGroup(requestParameters: PostTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateSourceGroupRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5207,6 +6513,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Market Code 
      */
     async removeMarketCodeRaw(requestParameters: RemoveMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketcode === null || requestParameters.marketcode === undefined) {
+            throw new runtime.RequiredError('marketcode','Required parameter requestParameters.marketcode was null or undefined when calling removeMarketCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeMarketCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeMarketCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeMarketCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeMarketCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5255,6 +6581,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Market Group 
      */
     async removeMarketGroupRaw(requestParameters: RemoveMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
+            throw new runtime.RequiredError('marketGroupCode','Required parameter requestParameters.marketGroupCode was null or undefined when calling removeMarketGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeMarketGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeMarketGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeMarketGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeMarketGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5303,6 +6649,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Pre Check In rules
      */
     async removePreCheckInRulesRaw(requestParameters: RemovePreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removePreCheckInRules.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removePreCheckInRules.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removePreCheckInRules.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removePreCheckInRules.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ruleType) {
@@ -5310,11 +6672,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -5322,11 +6684,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.newStartDate !== undefined) {
-            queryParameters['newStartDate'] = (requestParameters.newStartDate as any).toISOString().substr(0,10);
+            queryParameters['newStartDate'] = (requestParameters.newStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.newEndDate !== undefined) {
-            queryParameters['newEndDate'] = (requestParameters.newEndDate as any).toISOString().substr(0,10);
+            queryParameters['newEndDate'] = (requestParameters.newEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.newDuration !== undefined) {
@@ -5439,6 +6801,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Service Request Code Priorities
      */
     async removeServiceRequestCodePrioritiesRaw(requestParameters: RemoveServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.serviceRequestCode === null || requestParameters.serviceRequestCode === undefined) {
+            throw new runtime.RequiredError('serviceRequestCode','Required parameter requestParameters.serviceRequestCode was null or undefined when calling removeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeServiceRequestCodePriorities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeServiceRequestCodePriorities.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5487,6 +6869,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete configuration service request codes
      */
     async removeServiceRequestCodesRaw(requestParameters: RemoveServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeServiceRequestCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeServiceRequestCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeServiceRequestCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeServiceRequestCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.serviceRequestCode) {
@@ -5539,6 +6937,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Source Code
      */
     async removeSourceCodeRaw(requestParameters: RemoveSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceCode === null || requestParameters.sourceCode === undefined) {
+            throw new runtime.RequiredError('sourceCode','Required parameter requestParameters.sourceCode was null or undefined when calling removeSourceCode.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeSourceCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeSourceCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeSourceCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeSourceCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5587,6 +7005,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Source Group
      */
     async removeSourceGroupRaw(requestParameters: RemoveSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceGroupCode === null || requestParameters.sourceGroupCode === undefined) {
+            throw new runtime.RequiredError('sourceGroupCode','Required parameter requestParameters.sourceGroupCode was null or undefined when calling removeSourceGroup.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeSourceGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeSourceGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeSourceGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeSourceGroup.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5635,6 +7073,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Market Code Template
      */
     async removeTemplateMarketCodeRaw(requestParameters: RemoveTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketcode === null || requestParameters.marketcode === undefined) {
+            throw new runtime.RequiredError('marketcode','Required parameter requestParameters.marketcode was null or undefined when calling removeTemplateMarketCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateMarketCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateMarketCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateMarketCode.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.templateMarketCode !== undefined) {
@@ -5687,6 +7141,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete market Group Template
      */
     async removeTemplateMarketGroupRaw(requestParameters: RemoveTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketGroupCode === null || requestParameters.marketGroupCode === undefined) {
+            throw new runtime.RequiredError('marketGroupCode','Required parameter requestParameters.marketGroupCode was null or undefined when calling removeTemplateMarketGroup.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateMarketGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateMarketGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateMarketGroup.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.templateMarketGroup !== undefined) {
@@ -5739,6 +7209,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Template Source Code
      */
     async removeTemplateSourceCodeRaw(requestParameters: RemoveTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceCode === null || requestParameters.sourceCode === undefined) {
+            throw new runtime.RequiredError('sourceCode','Required parameter requestParameters.sourceCode was null or undefined when calling removeTemplateSourceCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateSourceCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateSourceCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateSourceCode.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.templateSourceCode !== undefined) {
@@ -5791,6 +7277,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Template Source Group
      */
     async removeTemplateSourceGroupRaw(requestParameters: RemoveTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateSourceGroup.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateSourceGroup.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateSourceGroup.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.templateSourceGroup !== undefined) {

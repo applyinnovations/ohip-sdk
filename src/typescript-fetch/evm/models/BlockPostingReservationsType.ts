@@ -170,11 +170,11 @@ export function BlockPostingReservationsTypeToJSON(value?: BlockPostingReservati
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0,10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
         'blockId': UniqueIDTypeToJSON(value.blockId),
         'confirmationNumber': value.confirmationNumber,
         'defaultPostingAccount': UniqueIDTypeToJSON(value.defaultPostingAccount),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0,10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
         'eventId': UniqueIDTypeToJSON(value.eventId),
         'guestFirstName': value.guestFirstName,
         'guestName': value.guestName,

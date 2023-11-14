@@ -47,7 +47,7 @@ function CommissionPaymentActivityStatusCriteriaTypeToJSON(value) {
     }
     return {
         'status': (0, CommissionPaymentActivityStatusType_1.CommissionPaymentActivityStatusTypeToJSON)(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substr(0, 10)),
+        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0, 10)),
     };
 }
 exports.CommissionPaymentActivityStatusCriteriaTypeToJSON = CommissionPaymentActivityStatusCriteriaTypeToJSON;

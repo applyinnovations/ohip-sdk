@@ -10,82 +10,82 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ActivityLog, Alerts, AwardUpgrades, BreakShareValidationsDetails, CallHistory, CallStatistics, CancelReservationDetails, CancellationHistory, ChangeDepositPolicyDetails, ChangeGuestMessages, ChangeReservationDetails, ChangeReservationLocatorsRequest, ChangeResvGuestMessages, ChangeSharingGuests, CheckReservationsDetails, CombineShareReservationsDetails, CombineShareValidationsDetails, ComputeCancellationPoliciesDetails, ComputeDepositPoliciesDetails, ConfirmationLettersDetails, CreateReservationType, DeliveryHistoryLog, ECoupons, ExtendReservationLockDetails, FetchReservations, FetchSellMessageConfig, FutureReservationsOrBlocksDetails, GuestMessages, GuestMessagesDetails, InventoryItems, LinkedHotelReservations, LinkedReservationsInfo, MasterAccountSummary, MergeReservationsRequest, MergeReservationsStatus, MoveReservationHotelDetails, OverlappingStayDetails, Packages, PostBulkReservationAlertsRequest, PostCallRequest, PostCancelReservationByExtIdRequest, PostCancelReservationRequest, PostCancelReservationsRequest, PostCombineShareReservationsByExtIdRequest, PostConfirmationLettersRequest, PostGuestMessagesRequest, PostPreCheckInReservationRequest, PostReservationByBlockRequest, PostReservationCertificateRequest, PostReservationCopyRequest, PostReservationLinksByExtIdRequest, PostReservationLinksRequest, PostReservationLocatorsRequest, PostReservationMembershipRequest, PostReservationPreferenceRequest, PostReservationRequest, PostReserveInventoryItemsRequest, PostReverseDepositPolicyRequest, PostRoutingInstructionsByExtIdRequest, PostTurnawayReservationRequest, PostUpsellReservationRequest, PreArrivalMemberReservationsDetails, PreConfiguredRoutingInstructions, PutAcquireReservationLockRequest, PutBreakShareValidationsRequest, PutCancellationPolicyRequest, PutCombineShareValidationsRequest, PutComputeCancellationPoliciesRequest, PutComputeDepositPoliciesRequest, PutDepositPolicyRequest, PutECouponsRequest, PutGuestMessagesRequest, PutMasterAccountRequest, PutPaymentMethodsRequest, PutReinstateReservationByExtIdRequest, PutReservationByExtIdRequest, PutReservationDailyRateDetailValidationRequest, PutReservationHotelMoveRequest, PutReservationLockRequest, PutReservationPackageRequest, PutReservationRequest, PutReservationsUpgradeEligibilityRequest, PutReservedInventoryItemsRequest, PutResvGuestMessagesRequest, PutRoutingInstructionsByExtIdRequest, PutSellMessageConfigRequest, PutShareRateAmountRequest, PutSharingGuestsRequest, PutSplitMultiRoomReservationRequest, PutTicketsRequest, PutTransactionDiversionsRequest, PutValidateOverlappingStayRequest, PutValidateReservationChangesRequest, RateInfo, RecentlyAccessedReservations, RegisterCall, ReinstateReservationDetails, Reservation, ReservationAttachments, ReservationAwards, ReservationCancellationPolicyCriteria, ReservationConfirmationLetters, ReservationDailyRateDetailDetails, ReservationExcludedPreferences, ReservationLocators, ReservationLocatorsDetails, ReservationLocatorsStatus, ReservationLockDetails, ReservationPackagesInfo, ReservationPaymentMethods, ReservationPolicies, ReservationPreference, ReservationPreferenceDetails, ReservationUpsellInfo, ReservationsDetails, ReservationsSummary, ReservationsUpgradeEligibilityDetails, ReservedInventoryItemsInfo, RoomCalendar, RoutingInstructions, Script, SellMessageConfig, SellMessages, ShareReservations, SplitMultiRoomReservationDetails, Status, Tickets, Traces, TransactionDiversions, TransactionDiversionsDetails, UpgradeEligibilityReservations, ValidateRateInfoRequest, ValidateReservationChangesDetails } from '../models';
-export interface ChangeReservationLocatorsOperationRequest {
-    locatorId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationLocatorsInfo?: ChangeReservationLocatorsRequest;
+import type { ActivityLog, Alerts, AttachCertificate, AwardUpgrades, BreakShareValidations, BreakShareValidationsDetails, CallHistory, CallStatistics, CancelReservation, CancelReservationDetails, CancelReservations, CancellationHistory, ChangeDepositPolicyDetails, ChangeGuestMessages, ChangeReservation, ChangeReservationDetails, ChangeResvGuestMessages, ChangeShareRateAmount, ChangeSharingGuests, CheckReservationsDetails, CombineShareReservations, CombineShareReservationsDetails, CombineShareValidations, CombineShareValidationsDetails, ComputeCancellationPolicies, ComputeCancellationPoliciesDetails, ComputeDepositPolicies, ComputeDepositPoliciesDetails, ConfirmationLetters, ConfirmationLettersDetails, CopyReservation, CreateGuestMessages, CreateReservationType, DeliveryHistoryLog, ECoupons, ECouponsInfo, ExtendReservationLock, ExtendReservationLockDetails, FetchReservations, FetchSellMessageConfig, FutureReservationsOrBlocksDetails, GuestMessages, GuestMessagesDetails, InventoryItems, LinkReservationsCriteria, LinkedHotelReservations, LinkedReservationsInfo, MasterAccount, MasterAccountSummary, MergeReservationsStatus, MoveReservationHotel, MoveReservationHotelDetails, OverlappingStay, OverlappingStayDetails, Packages, PostCancelReservationRequest, PostPreCheckInReservationRequest, PostReservationByBlockRequest, PostReservationLinksRequest, PostReservationRequest, PostUpsellReservationRequest, PreArrivalMemberReservationsDetails, PreConfiguredRoutingInstructions, PutReservationRequest, PutValidateReservationChangesRequest, RateInfo, RecentlyAccessedReservations, RegisterCall, RegisterTurnaway, ReinstateReservation, ReinstateReservationDetails, Reservation, ReservationAlerts, ReservationAttachments, ReservationAwards, ReservationCancellationPolicyCriteria, ReservationConfirmationLetters, ReservationDailyRateDetail, ReservationDailyRateDetailDetails, ReservationDepositPolicyCriteria, ReservationExcludedPreferences, ReservationLocators, ReservationLocatorsDetails, ReservationLocatorsDetailsInfo, ReservationLocatorsInfo, ReservationLocatorsStatus, ReservationLock, ReservationLockDetails, ReservationMembership, ReservationPackagesInfo, ReservationPaymentMethods, ReservationPolicies, ReservationPreference, ReservationPreferenceDetails, ReservationPreferenceInfo, ReservationRoutingCriteria, ReservationUpsellInfo, ReservationsDetails, ReservationsSummary, ReservationsToMerge, ReservationsUpgradeEligibility, ReservationsUpgradeEligibilityDetails, ReserveInventoryItems, ReservedInventoryItemsInfo, ReverseDepositPolicy, RoomCalendar, RoutingInstructions, RoutingInstructionsInfo, Script, SellMessageConfig, SellMessages, ShareReservations, SplitMultiRoomReservation, SplitMultiRoomReservationDetails, Status, Tickets, TicketsInfo, Traces, TransactionDiversions, TransactionDiversionsDetails, TransactionDiversionsInfo, UpgradeEligibilityReservations, ValidateRateInfo, ValidateReservationChangesDetails } from '../models/index';
+export interface ChangeReservationLocatorsRequest {
+    locatorId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationLocatorsInfo: ReservationLocatorsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCancellationPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    policyId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    policyId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteDepositPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    policyId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    policyId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteECouponsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eCouponId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGuestMessagesRequest {
-    guestMessageId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestMessageId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMasterAccountRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePaymentMethodsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePreCheckInReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     resvIDExtension?: number;
     arrivalTime?: string;
     roomNumber?: string;
@@ -148,147 +148,147 @@ export interface DeletePreCheckInReservationRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRefundTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationAttachmentRequest {
-    attachmentId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attachmentId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationCertificateRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationLinksRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationLinksByChainRequest {
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationLinksByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationLocatorsRequest {
-    locatorId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    locatorId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationLockRequest {
-    lockHandle?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    lockHandle: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationMembershipRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationPackageRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationPreferenceRequest {
-    preferenceCode?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    preferenceCode: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservedInventoryItemsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteSellMessageConfigRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteSellMessageConfigByChainRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     sellMessageConfigId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteShareReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     overrideInventoryCheck?: boolean;
     overrideMaxOccupancyCheck?: boolean;
     overrideRateAvailabilityCheck?: boolean;
@@ -297,12 +297,12 @@ export interface DeleteShareReservationRequest {
     acceptLanguage?: string;
 }
 export interface DeleteShareReservationByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     overrideInventoryCheck?: boolean;
     overrideMaxOccupancyCheck?: boolean;
     overrideRateAvailabilityCheck?: boolean;
@@ -311,48 +311,48 @@ export interface DeleteShareReservationByExtIdRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTransactionDiversionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteUpsellRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAlertNoticesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     alertArea?: GetAlertNoticesAlertAreaEnum;
     welcomeOffer?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAwardUpgradesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileId?: string;
     idContext?: string;
     profileIdType?: string;
@@ -369,27 +369,27 @@ export interface GetAwardUpgradesRequest {
     acceptLanguage?: string;
 }
 export interface GetAwardsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCallHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCallStatisticsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     end?: Date;
     start?: Date;
     domain?: string;
@@ -398,11 +398,11 @@ export interface GetCallStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetCancellationHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelName?: string;
     roomStayStartDate?: Date;
     roomStayEndDate?: Date;
@@ -428,10 +428,10 @@ export interface GetCancellationHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetConfirmationLettersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     notAttached?: boolean;
     pending?: boolean;
     sent?: boolean;
@@ -457,32 +457,32 @@ export interface GetConfirmationLettersRequest {
     acceptLanguage?: string;
 }
 export interface GetECouponsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExternalSystemDeliveryHistoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     reservationIdType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExternalSystemReservationsRequest {
-    extSystemCode?: string;
-    externalReferenceList?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    extSystemCode: string;
+    externalReferenceList: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     recentlyAccessed?: boolean;
     limit?: number;
     offset?: number;
@@ -586,18 +586,18 @@ export interface GetExternalSystemReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetFutureReservationsOrBlocksRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetGuestMessagesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     reservationId?: string;
@@ -618,10 +618,10 @@ export interface GetGuestMessagesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelReservationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     keyTrack2?: string;
     discrepancy?: GetHotelReservationsDiscrepancyEnum;
     recentlyAccessed?: boolean;
@@ -753,11 +753,11 @@ export interface GetHotelReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetLinkedReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     additionalReservationId?: Array<string>;
     additionalReservationIdType?: Array<string>;
     fetchInstructions?: Set<GetLinkedReservationsFetchInstructionsEnum>;
@@ -765,22 +765,22 @@ export interface GetLinkedReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetLinkedReservationsSummaryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     additionalReservationId?: Array<string>;
     additionalReservationIdType?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPackageRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     postingRhythm?: string;
     productCode?: string;
     ratePlanCode?: string;
@@ -797,20 +797,20 @@ export interface GetPackageRequest {
     acceptLanguage?: string;
 }
 export interface GetPaymentMethodsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeAmounts?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPreArrivalMemberReservationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     end?: Date;
     start?: Date;
     membershipType?: string;
@@ -819,10 +819,10 @@ export interface GetPreArrivalMemberReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetPreConfiguredRoutingInstructionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateCode?: string;
     promotionCodes?: Array<string>;
     guestName?: string;
@@ -845,10 +845,10 @@ export interface GetPreConfiguredRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetRateInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currencyCode?: string;
     summaryInfo?: boolean;
     criteriaStartDate?: Date;
@@ -876,18 +876,18 @@ export interface GetRateInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetRecentlyAccessedReservationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReprintTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ticketId?: string;
     ticketIdType?: string;
     packageCode?: Array<string>;
@@ -903,11 +903,11 @@ export interface GetReprintTicketsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetReservationFetchInstructionsEnum>;
     allowedActions?: Set<GetReservationAllowedActionsEnum>;
     markAsRecentlyAccessed?: boolean;
@@ -915,10 +915,10 @@ export interface GetReservationRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationActivityLogRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     parameterName?: Array<string>;
@@ -934,90 +934,90 @@ export interface GetReservationActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationAttachmentsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     webRegistrationCard?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetReservationByExtIdFetchInstructionsEnum>;
     allowedActions?: Set<GetReservationByExtIdAllowedActionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationExcludedPreferencesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     preferenceType?: string;
     preferenceCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationIndicatorsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: Array<string>;
     checkInstructions?: Set<GetReservationIndicatorsCheckInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationLocatorsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationPoliciesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchDepositPolicies?: boolean;
     fetchCancellationPolicies?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationPreferenceRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     preferenceTypeCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationUpsellInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     recentlyAccessed?: boolean;
     limit?: number;
     offset?: number;
@@ -1133,10 +1133,10 @@ export interface GetReservationsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsSummaryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     advancedCheckedIn?: boolean;
     limit?: number;
     offset?: number;
@@ -1161,11 +1161,11 @@ export interface GetReservationsSummaryRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsToShareByProfileIdRequest {
-    profileIdtoShare?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileIdtoShare: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     superSearch?: string;
     reservationGuestId?: string;
@@ -1181,11 +1181,11 @@ export interface GetReservationsToShareByProfileIdRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationsToShareByReservationIdRequest {
-    reservationIdtoShare?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationIdtoShare: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     superSearch?: string;
     reservationGuestId?: string;
@@ -1201,19 +1201,19 @@ export interface GetReservationsToShareByReservationIdRequest {
     acceptLanguage?: string;
 }
 export interface GetReservedInventoryItemsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomCalendarRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     advanceCheckedIn?: boolean;
     assignedRooms?: string;
     componentRooms?: string;
@@ -1244,11 +1244,11 @@ export interface GetRoomCalendarRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeWindowRouting?: boolean;
     includeRoomRouting?: boolean;
     includeCompRouting?: boolean;
@@ -1258,10 +1258,10 @@ export interface GetRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetScriptRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     languageCode?: string;
     scriptType?: string;
     reservationId?: Array<string>;
@@ -1270,10 +1270,10 @@ export interface GetScriptRequest {
     acceptLanguage?: string;
 }
 export interface GetSellMessageConfigRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     message?: string;
@@ -1289,9 +1289,9 @@ export interface GetSellMessageConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetSellMessageConfigByChainRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     message?: string;
@@ -1309,9 +1309,9 @@ export interface GetSellMessageConfigByChainRequest {
     acceptLanguage?: string;
 }
 export interface GetSellMessagesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     croCode?: string;
     hotelId?: string;
     criteriaId?: string;
@@ -1330,30 +1330,30 @@ export interface GetSellMessagesRequest {
     acceptLanguage?: string;
 }
 export interface GetShareReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetShareReservationsByExtIdRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packageCode?: string;
     retrieveIssuedOnly?: boolean;
     retrieveNotIssuedOnly?: boolean;
@@ -1361,11 +1361,11 @@ export interface GetTicketsRequest {
     acceptLanguage?: string;
 }
 export interface GetTicketsInquiryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ticketId?: string;
     ticketIdType?: string;
     packageCode?: Array<string>;
@@ -1381,39 +1381,39 @@ export interface GetTicketsInquiryRequest {
     acceptLanguage?: string;
 }
 export interface GetTracesByReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTracesByRoomRequest {
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTransactionDiversionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionDiversionCodes?: Array<string>;
     includeDailyDetails?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetUpgradeEligibilityReservationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     arrivalEndDate?: Date;
     arrivalStartDate?: Date;
     membershipType?: string;
@@ -1421,762 +1421,762 @@ export interface GetUpgradeEligibilityReservationsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface MergeReservationsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationsToMerge?: MergeReservationsRequest;
+export interface MergeReservationsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationsToMerge: ReservationsToMerge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostBreakReservationLockRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationLock?: PutAcquireReservationLockRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationLock: ReservationLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBulkReservationAlertsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationAlerts?: PostBulkReservationAlertsRequest;
+export interface PostBulkReservationAlertsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationAlerts: ReservationAlerts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCallOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    registerCall?: PostCallRequest;
+export interface PostCallRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    registerCall: RegisterCall;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancelReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancelReservation?: PostCancelReservationRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancelReservation: PostCancelReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCancelReservationByExtIdOperationRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancelReservation?: PostCancelReservationByExtIdRequest;
+export interface PostCancelReservationByExtIdRequest {
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancelReservation: CancelReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCancelReservationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancelReservations?: PostCancelReservationsRequest;
+export interface PostCancelReservationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancelReservations: CancelReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancelShareReservationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancelReservation?: PostCancelReservationByExtIdRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancelReservation: CancelReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCancellationPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationCancellationPolicyCriteria?: PutCancellationPolicyRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationCancellationPolicyCriteria: ReservationCancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCombineShareReservationsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    combineShareReservations?: PostCombineShareReservationsByExtIdRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    combineShareReservations: CombineShareReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCombineShareReservationsByExtIdOperationRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    combineShareReservations?: PostCombineShareReservationsByExtIdRequest;
+export interface PostCombineShareReservationsByExtIdRequest {
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    combineShareReservations: CombineShareReservations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostConfirmationLettersOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    confirmationLetters?: PostConfirmationLettersRequest;
+export interface PostConfirmationLettersRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    confirmationLetters: ConfirmationLetters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDepositPolicyRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationDepositPolicyCriteria?: PutDepositPolicyRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationDepositPolicyCriteria: ReservationDepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostECouponsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCouponsInfo?: PutECouponsRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCouponsInfo: ECouponsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuestMessagesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createGuestMessages?: PostGuestMessagesRequest;
+export interface PostGuestMessagesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createGuestMessages: CreateGuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostIssueTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ticketsInfo?: PutTicketsRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ticketsInfo: TicketsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostMasterAccountRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    masterAccount?: PutMasterAccountRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    masterAccount: MasterAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPaymentMethodsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationPaymentMethods?: PutPaymentMethodsRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationPaymentMethods: ReservationPaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreCheckInReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preCheckInReservation?: PostPreCheckInReservationRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preCheckInReservation: PostPreCheckInReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createReservation?: PostReservationRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createReservation: PostReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationByBlockOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createReservation?: PostReservationByBlockRequest;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createReservation: PostReservationByBlockRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReservationCertificateOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attachCertificate?: PostReservationCertificateRequest;
+export interface PostReservationCertificateRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attachCertificate: AttachCertificate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReservationCopyOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyReservation?: PostReservationCopyRequest;
+export interface PostReservationCopyRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyReservation: CopyReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationLinksOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    linkReservationsCriteria?: PostReservationLinksRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    linkReservationsCriteria: PostReservationLinksRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationLinksByChainRequest {
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    linkReservationsCriteria?: PostReservationLinksByExtIdRequest;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    linkReservationsCriteria: LinkReservationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReservationLinksByExtIdOperationRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    linkReservationsCriteria?: PostReservationLinksByExtIdRequest;
+export interface PostReservationLinksByExtIdRequest {
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    linkReservationsCriteria: LinkReservationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReservationLocatorsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationLocatorsDetailsInfo?: PostReservationLocatorsRequest;
+export interface PostReservationLocatorsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationLocatorsDetailsInfo: ReservationLocatorsDetailsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReservationMembershipOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationMembership?: PostReservationMembershipRequest;
+export interface PostReservationMembershipRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationMembership: ReservationMembership;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationPackageRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationPackagesInfo?: PutReservationPackageRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationPackagesInfo: ReservationPackagesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReservationPreferenceOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationPreferenceInfo?: PostReservationPreferenceRequest;
+export interface PostReservationPreferenceRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationPreferenceInfo: ReservationPreferenceInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReserveInventoryItemsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reserveInventoryItems?: PostReserveInventoryItemsRequest;
+export interface PostReserveInventoryItemsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reserveInventoryItems: ReserveInventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReverseDepositPolicyOperationRequest {
-    policyId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reverseDepositPolicy?: PostReverseDepositPolicyRequest;
+export interface PostReverseDepositPolicyRequest {
+    policyId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reverseDepositPolicy: ReverseDepositPolicy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationRoutingCriteria?: PostRoutingInstructionsByExtIdRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationRoutingCriteria: ReservationRoutingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoutingInstructionsByExtIdOperationRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationRoutingCriteria?: PostRoutingInstructionsByExtIdRequest;
+export interface PostRoutingInstructionsByExtIdRequest {
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationRoutingCriteria: ReservationRoutingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSellMessageConfigRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellMessageConfig?: PutSellMessageConfigRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostSellMessageConfigByChainRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellMessageConfig?: PutSellMessageConfigRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTicketsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ticketsInfo?: PutTicketsRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ticketsInfo: TicketsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTransactionDiversionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionDiversionsInfo?: PutTransactionDiversionsRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionDiversionsInfo: TransactionDiversionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTurnawayReservationOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    registerTurnaway?: PostTurnawayReservationRequest;
+export interface PostTurnawayReservationRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    registerTurnaway: RegisterTurnaway;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostUpsellReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    upsellReservation?: PostUpsellReservationRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    upsellReservation: PostUpsellReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAcquireReservationLockOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationLock?: PutAcquireReservationLockRequest;
+export interface PutAcquireReservationLockRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationLock: ReservationLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBreakShareValidationsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    breakShareValidations?: PutBreakShareValidationsRequest;
+export interface PutBreakShareValidationsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    breakShareValidations: BreakShareValidations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCancellationPolicyOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationCancellationPolicyCriteria?: PutCancellationPolicyRequest;
+export interface PutCancellationPolicyRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationCancellationPolicyCriteria: ReservationCancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCombineShareValidationsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    combineShareValidations?: PutCombineShareValidationsRequest;
+export interface PutCombineShareValidationsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    combineShareValidations: CombineShareValidations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutComputeCancellationPoliciesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    computeCancellationPolicies?: PutComputeCancellationPoliciesRequest;
+export interface PutComputeCancellationPoliciesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    computeCancellationPolicies: ComputeCancellationPolicies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutComputeDepositPoliciesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    computeDepositPolicies?: PutComputeDepositPoliciesRequest;
+export interface PutComputeDepositPoliciesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    computeDepositPolicies: ComputeDepositPolicies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDepositPolicyOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationDepositPolicyCriteria?: PutDepositPolicyRequest;
+export interface PutDepositPolicyRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationDepositPolicyCriteria: ReservationDepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutECouponsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCouponsInfo?: PutECouponsRequest;
+export interface PutECouponsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCouponsInfo: ECouponsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGuestMessagesOperationRequest {
-    guestMessageId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeGuestMessages?: PutGuestMessagesRequest;
+export interface PutGuestMessagesRequest {
+    guestMessageId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeGuestMessages: ChangeGuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutMasterAccountOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    masterAccount?: PutMasterAccountRequest;
+export interface PutMasterAccountRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    masterAccount: MasterAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPaymentMethodsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationPaymentMethods?: PutPaymentMethodsRequest;
+export interface PutPaymentMethodsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationPaymentMethods: ReservationPaymentMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReinstateReservationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reinstateReservation?: PutReinstateReservationByExtIdRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reinstateReservation: ReinstateReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReinstateReservationByExtIdOperationRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reinstateReservation?: PutReinstateReservationByExtIdRequest;
+export interface PutReinstateReservationByExtIdRequest {
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reinstateReservation: ReinstateReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeReservation?: PutReservationRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeReservation: PutReservationRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationByExtIdOperationRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeReservation?: PutReservationByExtIdRequest;
+export interface PutReservationByExtIdRequest {
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeReservation: ChangeReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationDailyRateDetailValidationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationDailyRateDetail?: PutReservationDailyRateDetailValidationRequest;
+export interface PutReservationDailyRateDetailValidationRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationDailyRateDetail: ReservationDailyRateDetail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationHeaderValidationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationDailyRateDetail?: PutReservationDailyRateDetailValidationRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationDailyRateDetail: ReservationDailyRateDetail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationHotelMoveOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    moveReservationHotel?: PutReservationHotelMoveRequest;
+export interface PutReservationHotelMoveRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    moveReservationHotel: MoveReservationHotel;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationLockOperationRequest {
-    lockHandle?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    extendReservationLock?: PutReservationLockRequest;
+export interface PutReservationLockRequest {
+    lockHandle: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    extendReservationLock: ExtendReservationLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationPackageOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationPackagesInfo?: PutReservationPackageRequest;
+export interface PutReservationPackageRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationPackagesInfo: ReservationPackagesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutReservationPreferenceRequest {
-    preferenceCode?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationPreferenceInfo?: PostReservationPreferenceRequest;
+    preferenceCode: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationPreferenceInfo: ReservationPreferenceInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationsUpgradeEligibilityOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationsUpgradeEligibility?: PutReservationsUpgradeEligibilityRequest;
+export interface PutReservationsUpgradeEligibilityRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationsUpgradeEligibility: ReservationsUpgradeEligibility;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservedInventoryItemsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservedInventoryItemsInfo?: PutReservedInventoryItemsRequest;
+export interface PutReservedInventoryItemsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservedInventoryItemsInfo: ReservedInventoryItemsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutResvGuestMessagesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeResvGuestMessages?: PutResvGuestMessagesRequest;
+export interface PutResvGuestMessagesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeResvGuestMessages: ChangeResvGuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructionsInfo?: PutRoutingInstructionsByExtIdRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructionsInfo: RoutingInstructionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoutingInstructionsByExtIdOperationRequest {
-    reservationExternalId?: string;
-    externalSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructionsInfo?: PutRoutingInstructionsByExtIdRequest;
+export interface PutRoutingInstructionsByExtIdRequest {
+    reservationExternalId: string;
+    externalSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructionsInfo: RoutingInstructionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutSellMessageConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellMessageConfig?: PutSellMessageConfigRequest;
+export interface PutSellMessageConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutSellMessageConfigByChainRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellMessageConfig?: PutSellMessageConfigRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellMessageConfig: SellMessageConfig;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutShareRateAmountOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeShareRateAmount?: PutShareRateAmountRequest;
+export interface PutShareRateAmountRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeShareRateAmount: ChangeShareRateAmount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutSharingGuestsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeSharingGuests?: PutSharingGuestsRequest;
+export interface PutSharingGuestsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeSharingGuests: ChangeSharingGuests;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutSplitMultiRoomReservationOperationRequest {
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    splitMultiRoomReservation?: PutSplitMultiRoomReservationRequest;
+export interface PutSplitMultiRoomReservationRequest {
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    splitMultiRoomReservation: SplitMultiRoomReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTicketsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ticketsInfo?: PutTicketsRequest;
+export interface PutTicketsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ticketsInfo: TicketsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTransactionDiversionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionDiversionsInfo?: PutTransactionDiversionsRequest;
+export interface PutTransactionDiversionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionDiversionsInfo: TransactionDiversionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutValidateOverlappingStayOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    overlappingStay?: PutValidateOverlappingStayRequest;
+export interface PutValidateOverlappingStayRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    overlappingStay: OverlappingStay;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutValidateOverlappingStaysRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    overlappingStay?: PutValidateOverlappingStayRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    overlappingStay: OverlappingStay;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutValidateReservationChangesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    validateReservationChanges?: PutValidateReservationChangesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    validateReservationChanges: PutValidateReservationChangesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ValidateRateInfoOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    validateRateInfo?: ValidateRateInfoRequest;
+export interface ValidateRateInfoRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    validateRateInfo: ValidateRateInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2188,12 +2188,12 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Change a list of Guest Locater for a Reservation. <p><strong>OperationId:</strong>changeReservationLocators</p>
      * Change Reservation Guest Locators
      */
-    changeReservationLocatorsRaw(requestParameters: ChangeReservationLocatorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationLocatorsStatus>>;
+    changeReservationLocatorsRaw(requestParameters: ChangeReservationLocatorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationLocatorsStatus>>;
     /**
      * Change a list of Guest Locater for a Reservation. <p><strong>OperationId:</strong>changeReservationLocators</p>
      * Change Reservation Guest Locators
      */
-    changeReservationLocators(requestParameters: ChangeReservationLocatorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationLocatorsStatus>;
+    changeReservationLocators(requestParameters: ChangeReservationLocatorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationLocatorsStatus>;
     /**
      * Delete an existing cancellation policy for a specific hotel. <p><strong>OperationId:</strong>deleteCancellationPolicy</p>
      * Delete a Cancellation policy
@@ -2387,11 +2387,13 @@ export declare class ReservationApi extends runtime.BaseAPI {
     /**
      * You can use this API to delete routing instructions from a reservation. <p><strong>OperationId:</strong>deleteRoutingInstructions</p>
      * Delete routing instructions
+     * @deprecated
      */
     deleteRoutingInstructionsRaw(requestParameters: DeleteRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to delete routing instructions from a reservation. <p><strong>OperationId:</strong>deleteRoutingInstructions</p>
      * Delete routing instructions
+     * @deprecated
      */
     deleteRoutingInstructions(requestParameters: DeleteRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -2978,12 +2980,12 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Use this API to merge multiple reservations. <p><strong>OperationId:</strong>mergeReservations</p>
      * Merge multiple Reservations
      */
-    mergeReservationsRaw(requestParameters: MergeReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MergeReservationsStatus>>;
+    mergeReservationsRaw(requestParameters: MergeReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MergeReservationsStatus>>;
     /**
      * Use this API to merge multiple reservations. <p><strong>OperationId:</strong>mergeReservations</p>
      * Merge multiple Reservations
      */
-    mergeReservations(requestParameters: MergeReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MergeReservationsStatus>;
+    mergeReservations(requestParameters: MergeReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MergeReservationsStatus>;
     /**
      * Break Reservation lock on a reservation. <p><strong>OperationId:</strong>postBreakReservationLock</p>
      * Break Reservation lock
@@ -2998,22 +3000,22 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Create or updates multiple alerts for multiple reservations in bulk. <p><strong>OperationId:</strong>postBulkReservationAlerts</p>
      * Create Bulk Reservation Alerts
      */
-    postBulkReservationAlertsRaw(requestParameters: PostBulkReservationAlertsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBulkReservationAlertsRaw(requestParameters: PostBulkReservationAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create or updates multiple alerts for multiple reservations in bulk. <p><strong>OperationId:</strong>postBulkReservationAlerts</p>
      * Create Bulk Reservation Alerts
      */
-    postBulkReservationAlerts(requestParameters: PostBulkReservationAlertsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBulkReservationAlerts(requestParameters: PostBulkReservationAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to request a new call or make updates to an existing call.<p><strong>OperationId:</strong>postCall</p>
      * Register calls
      */
-    postCallRaw(requestParameters: PostCallOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegisterCall>>;
+    postCallRaw(requestParameters: PostCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegisterCall>>;
     /**
      * Use this API to request a new call or make updates to an existing call.<p><strong>OperationId:</strong>postCall</p>
      * Register calls
      */
-    postCall(requestParameters: PostCallOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RegisterCall>;
+    postCall(requestParameters: PostCallRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RegisterCall>;
     /**
      * Use this if a guest would like to cancel their reservation.  You will receive a cancellation number in the response. <p><strong>OperationId:</strong>postCancelReservation</p>
      * Cancel Reservation by ID
@@ -3028,22 +3030,22 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Use this if a guest would like to cancel their reservation.  You will receive a cancellation number in the response. <p><strong>OperationId:</strong>postCancelReservationByExtId</p>
      * Cancel Reservation by ID
      */
-    postCancelReservationByExtIdRaw(requestParameters: PostCancelReservationByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancelReservationDetails>>;
+    postCancelReservationByExtIdRaw(requestParameters: PostCancelReservationByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancelReservationDetails>>;
     /**
      * Use this if a guest would like to cancel their reservation.  You will receive a cancellation number in the response. <p><strong>OperationId:</strong>postCancelReservationByExtId</p>
      * Cancel Reservation by ID
      */
-    postCancelReservationByExtId(requestParameters: PostCancelReservationByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CancelReservationDetails>;
+    postCancelReservationByExtId(requestParameters: PostCancelReservationByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CancelReservationDetails>;
     /**
      * This API can be used to  cancel multiple reservations. <p><strong>OperationId:</strong>postCancelReservations</p>
      * Cancel Reservations
      */
-    postCancelReservationsRaw(requestParameters: PostCancelReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCancelReservationsRaw(requestParameters: PostCancelReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API can be used to  cancel multiple reservations. <p><strong>OperationId:</strong>postCancelReservations</p>
      * Cancel Reservations
      */
-    postCancelReservations(requestParameters: PostCancelReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCancelReservations(requestParameters: PostCancelReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to cancel reservations including multiple share reservations with single request. You will receive cancellation numbers in the response. <p><strong>OperationId:</strong>postCancelShareReservation</p>
      * Cancel reservations
@@ -3078,22 +3080,22 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Combine share reservation for a given reservation id <p><strong>OperationId:</strong>postCombineShareReservationsByExtId</p>
      * Combine Share Reservations
      */
-    postCombineShareReservationsByExtIdRaw(requestParameters: PostCombineShareReservationsByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CombineShareReservationsDetails>>;
+    postCombineShareReservationsByExtIdRaw(requestParameters: PostCombineShareReservationsByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CombineShareReservationsDetails>>;
     /**
      * Combine share reservation for a given reservation id <p><strong>OperationId:</strong>postCombineShareReservationsByExtId</p>
      * Combine Share Reservations
      */
-    postCombineShareReservationsByExtId(requestParameters: PostCombineShareReservationsByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CombineShareReservationsDetails>;
+    postCombineShareReservationsByExtId(requestParameters: PostCombineShareReservationsByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CombineShareReservationsDetails>;
     /**
      * Create a confirmation letter for a property. <p><strong>OperationId:</strong>postConfirmationLetters</p>
      * Create the confirmation letters
      */
-    postConfirmationLettersRaw(requestParameters: PostConfirmationLettersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConfirmationLettersDetails>>;
+    postConfirmationLettersRaw(requestParameters: PostConfirmationLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConfirmationLettersDetails>>;
     /**
      * Create a confirmation letter for a property. <p><strong>OperationId:</strong>postConfirmationLetters</p>
      * Create the confirmation letters
      */
-    postConfirmationLetters(requestParameters: PostConfirmationLettersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConfirmationLettersDetails>;
+    postConfirmationLetters(requestParameters: PostConfirmationLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConfirmationLettersDetails>;
     /**
      * Create deposit policy for a property. This policy can then be used for reservations. <p><strong>OperationId:</strong>postDepositPolicy</p>
      * Create deposit policy
@@ -3118,12 +3120,12 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Create guest message for a guest reservation. <p><strong>OperationId:</strong>postGuestMessages</p>
      * Create guest messages
      */
-    postGuestMessagesRaw(requestParameters: PostGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestMessagesDetails>>;
+    postGuestMessagesRaw(requestParameters: PostGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestMessagesDetails>>;
     /**
      * Create guest message for a guest reservation. <p><strong>OperationId:</strong>postGuestMessages</p>
      * Create guest messages
      */
-    postGuestMessages(requestParameters: PostGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestMessagesDetails>;
+    postGuestMessages(requestParameters: PostGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestMessagesDetails>;
     /**
      * You can use this API to issue Reservation tickets. <p><strong>OperationId:</strong>postIssueTickets</p>
      * Issue Reservation tickets
@@ -3188,22 +3190,22 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Attach a certificate to Reservation. <p><strong>OperationId:</strong>postReservationCertificate</p>
      * Attach Certificate
      */
-    postReservationCertificateRaw(requestParameters: PostReservationCertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReservationCertificateRaw(requestParameters: PostReservationCertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Attach a certificate to Reservation. <p><strong>OperationId:</strong>postReservationCertificate</p>
      * Attach Certificate
      */
-    postReservationCertificate(requestParameters: PostReservationCertificateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReservationCertificate(requestParameters: PostReservationCertificateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy a Reservation. <p><strong>OperationId:</strong>postReservationCopy</p>
      * Copy a Reservation
      */
-    postReservationCopyRaw(requestParameters: PostReservationCopyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReservationCopyRaw(requestParameters: PostReservationCopyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy a Reservation. <p><strong>OperationId:</strong>postReservationCopy</p>
      * Copy a Reservation
      */
-    postReservationCopy(requestParameters: PostReservationCopyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReservationCopy(requestParameters: PostReservationCopyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This will allow you to link 1 or more reservations to an existing reservation.  <p><strong>OperationId:</strong>postReservationLinks</p>
      * Link Reservations
@@ -3228,32 +3230,32 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * This will allow you to link 1 or more reservations to an existing reservation.  <p><strong>OperationId:</strong>postReservationLinksByExtId</p>
      * Link Reservations
      */
-    postReservationLinksByExtIdRaw(requestParameters: PostReservationLinksByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReservationLinksByExtIdRaw(requestParameters: PostReservationLinksByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This will allow you to link 1 or more reservations to an existing reservation.  <p><strong>OperationId:</strong>postReservationLinksByExtId</p>
      * Link Reservations
      */
-    postReservationLinksByExtId(requestParameters: PostReservationLinksByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReservationLinksByExtId(requestParameters: PostReservationLinksByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create Guest Locater for a list of Reservations. <p><strong>OperationId:</strong>postReservationLocators</p>
      * Create Reservation Guest Locator
      */
-    postReservationLocatorsRaw(requestParameters: PostReservationLocatorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationLocatorsDetails>>;
+    postReservationLocatorsRaw(requestParameters: PostReservationLocatorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationLocatorsDetails>>;
     /**
      * Create Guest Locater for a list of Reservations. <p><strong>OperationId:</strong>postReservationLocators</p>
      * Create Reservation Guest Locator
      */
-    postReservationLocators(requestParameters: PostReservationLocatorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationLocatorsDetails>;
+    postReservationLocators(requestParameters: PostReservationLocatorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationLocatorsDetails>;
     /**
      * Add a membership to an existing reservation. <p><strong>OperationId:</strong>postReservationMembership</p>
      * Create a Reservation membership
      */
-    postReservationMembershipRaw(requestParameters: PostReservationMembershipOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReservationMembershipRaw(requestParameters: PostReservationMembershipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Add a membership to an existing reservation. <p><strong>OperationId:</strong>postReservationMembership</p>
      * Create a Reservation membership
      */
-    postReservationMembership(requestParameters: PostReservationMembershipOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReservationMembership(requestParameters: PostReservationMembershipRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to add packages to a reservation. <p><strong>OperationId:</strong>postReservationPackage</p>
      * Add a package to a Reservation
@@ -3268,32 +3270,32 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * This API will add a preference to a Reservation.  <p><strong>OperationId:</strong>postReservationPreference</p>
      * Add a preference to a Reservation
      */
-    postReservationPreferenceRaw(requestParameters: PostReservationPreferenceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReservationPreferenceRaw(requestParameters: PostReservationPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will add a preference to a Reservation.  <p><strong>OperationId:</strong>postReservationPreference</p>
      * Add a preference to a Reservation
      */
-    postReservationPreference(requestParameters: PostReservationPreferenceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReservationPreference(requestParameters: PostReservationPreferenceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Reserve Reservation inventory items. <p><strong>OperationId:</strong>postReserveInventoryItems</p>
      * Reserve Reservation inventory items
      */
-    postReserveInventoryItemsRaw(requestParameters: PostReserveInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReserveInventoryItemsRaw(requestParameters: PostReserveInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Reserve Reservation inventory items. <p><strong>OperationId:</strong>postReserveInventoryItems</p>
      * Reserve Reservation inventory items
      */
-    postReserveInventoryItems(requestParameters: PostReserveInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReserveInventoryItems(requestParameters: PostReserveInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to reverse a deposit policy on a specified reservation. <p><strong>OperationId:</strong>postReverseDepositPolicy</p>
      * Reverse a deposit policy
      */
-    postReverseDepositPolicyRaw(requestParameters: PostReverseDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReverseDepositPolicyRaw(requestParameters: PostReverseDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to reverse a deposit policy on a specified reservation. <p><strong>OperationId:</strong>postReverseDepositPolicy</p>
      * Reverse a deposit policy
      */
-    postReverseDepositPolicy(requestParameters: PostReverseDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReverseDepositPolicy(requestParameters: PostReverseDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create routing instructions on a reservation. It requires a reservation ID, which can be fetched using getReservations. <p><strong>OperationId:</strong>postRoutingInstructions</p>
      * Create routing instructions for a reservation
@@ -3308,12 +3310,12 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * You can use this API to create routing instructions on a reservation. <p><strong>OperationId:</strong>postRoutingInstructionsByExtId</p>
      * Create routing instructions
      */
-    postRoutingInstructionsByExtIdRaw(requestParameters: PostRoutingInstructionsByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoutingInstructionsByExtIdRaw(requestParameters: PostRoutingInstructionsByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create routing instructions on a reservation. <p><strong>OperationId:</strong>postRoutingInstructionsByExtId</p>
      * Create routing instructions
      */
-    postRoutingInstructionsByExtId(requestParameters: PostRoutingInstructionsByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoutingInstructionsByExtId(requestParameters: PostRoutingInstructionsByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create sell message configuration for a property. <p><strong>OperationId:</strong>postSellMessageConfig</p>
      * Create sell message
@@ -3358,12 +3360,12 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Register turnaways for a property. <p><strong>OperationId:</strong>postTurnawayReservation</p>
      * Register Turnaway
      */
-    postTurnawayReservationRaw(requestParameters: PostTurnawayReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTurnawayReservationRaw(requestParameters: PostTurnawayReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Register turnaways for a property. <p><strong>OperationId:</strong>postTurnawayReservation</p>
      * Register Turnaway
      */
-    postTurnawayReservation(requestParameters: PostTurnawayReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTurnawayReservation(requestParameters: PostTurnawayReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to upsell a reservation in OPERA.  You would need to already know the upsell rules that are available for this reservation - you can do this by using the getUpsell API. <p><strong>OperationId:</strong>postUpsellReservation</p>
      * Upsell a Reservation
@@ -3378,112 +3380,112 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Acquire Reservation Lock. <p><strong>OperationId:</strong>putAcquireReservationLock</p>
      * Acquire Reservation Lock
      */
-    putAcquireReservationLockRaw(requestParameters: PutAcquireReservationLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationLockDetails>>;
+    putAcquireReservationLockRaw(requestParameters: PutAcquireReservationLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationLockDetails>>;
     /**
      * Acquire Reservation Lock. <p><strong>OperationId:</strong>putAcquireReservationLock</p>
      * Acquire Reservation Lock
      */
-    putAcquireReservationLock(requestParameters: PutAcquireReservationLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationLockDetails>;
+    putAcquireReservationLock(requestParameters: PutAcquireReservationLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationLockDetails>;
     /**
      * This API performs a validation before separating share reservations. <p><strong>OperationId:</strong>putBreakShareValidations</p>
      * Validate before breaking a share Reservation
      */
-    putBreakShareValidationsRaw(requestParameters: PutBreakShareValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BreakShareValidationsDetails>>;
+    putBreakShareValidationsRaw(requestParameters: PutBreakShareValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BreakShareValidationsDetails>>;
     /**
      * This API performs a validation before separating share reservations. <p><strong>OperationId:</strong>putBreakShareValidations</p>
      * Validate before breaking a share Reservation
      */
-    putBreakShareValidations(requestParameters: PutBreakShareValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BreakShareValidationsDetails>;
+    putBreakShareValidations(requestParameters: PutBreakShareValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BreakShareValidationsDetails>;
     /**
      * Change cancellation policy that is configured for a property. <p><strong>OperationId:</strong>putCancellationPolicy</p>
      * Change a Cancellation policy
      */
-    putCancellationPolicyRaw(requestParameters: PutCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationCancellationPolicyCriteria>>;
+    putCancellationPolicyRaw(requestParameters: PutCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationCancellationPolicyCriteria>>;
     /**
      * Change cancellation policy that is configured for a property. <p><strong>OperationId:</strong>putCancellationPolicy</p>
      * Change a Cancellation policy
      */
-    putCancellationPolicy(requestParameters: PutCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationCancellationPolicyCriteria>;
+    putCancellationPolicy(requestParameters: PutCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationCancellationPolicyCriteria>;
     /**
      * Validate before combining Reservations for shares. <p><strong>OperationId:</strong>putCombineShareValidations</p>
      * Combine Share Validations
      */
-    putCombineShareValidationsRaw(requestParameters: PutCombineShareValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CombineShareValidationsDetails>>;
+    putCombineShareValidationsRaw(requestParameters: PutCombineShareValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CombineShareValidationsDetails>>;
     /**
      * Validate before combining Reservations for shares. <p><strong>OperationId:</strong>putCombineShareValidations</p>
      * Combine Share Validations
      */
-    putCombineShareValidations(requestParameters: PutCombineShareValidationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CombineShareValidationsDetails>;
+    putCombineShareValidations(requestParameters: PutCombineShareValidationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CombineShareValidationsDetails>;
     /**
      * Compute the cancellation policies for a reservation. <p><strong>OperationId:</strong>putComputeCancellationPolicies</p>
      * Compute the cancellation policies
      */
-    putComputeCancellationPoliciesRaw(requestParameters: PutComputeCancellationPoliciesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ComputeCancellationPoliciesDetails>>;
+    putComputeCancellationPoliciesRaw(requestParameters: PutComputeCancellationPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ComputeCancellationPoliciesDetails>>;
     /**
      * Compute the cancellation policies for a reservation. <p><strong>OperationId:</strong>putComputeCancellationPolicies</p>
      * Compute the cancellation policies
      */
-    putComputeCancellationPolicies(requestParameters: PutComputeCancellationPoliciesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ComputeCancellationPoliciesDetails>;
+    putComputeCancellationPolicies(requestParameters: PutComputeCancellationPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ComputeCancellationPoliciesDetails>;
     /**
      * Computes the deposit policies. <p><strong>OperationId:</strong>putComputeDepositPolicies</p>
      * Computes the deposit policies
      */
-    putComputeDepositPoliciesRaw(requestParameters: PutComputeDepositPoliciesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ComputeDepositPoliciesDetails>>;
+    putComputeDepositPoliciesRaw(requestParameters: PutComputeDepositPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ComputeDepositPoliciesDetails>>;
     /**
      * Computes the deposit policies. <p><strong>OperationId:</strong>putComputeDepositPolicies</p>
      * Computes the deposit policies
      */
-    putComputeDepositPolicies(requestParameters: PutComputeDepositPoliciesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ComputeDepositPoliciesDetails>;
+    putComputeDepositPolicies(requestParameters: PutComputeDepositPoliciesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ComputeDepositPoliciesDetails>;
     /**
      * Change deposit policy which already exists for a property. <p><strong>OperationId:</strong>putDepositPolicy</p>
      * Change deposit policy
      */
-    putDepositPolicyRaw(requestParameters: PutDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeDepositPolicyDetails>>;
+    putDepositPolicyRaw(requestParameters: PutDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeDepositPolicyDetails>>;
     /**
      * Change deposit policy which already exists for a property. <p><strong>OperationId:</strong>putDepositPolicy</p>
      * Change deposit policy
      */
-    putDepositPolicy(requestParameters: PutDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeDepositPolicyDetails>;
+    putDepositPolicy(requestParameters: PutDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeDepositPolicyDetails>;
     /**
      * Change the Reservation Ecoupons. <p><strong>OperationId:</strong>putECoupons</p>
      * Change Reservation Ecoupon
      */
-    putECouponsRaw(requestParameters: PutECouponsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ECoupons>>;
+    putECouponsRaw(requestParameters: PutECouponsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ECoupons>>;
     /**
      * Change the Reservation Ecoupons. <p><strong>OperationId:</strong>putECoupons</p>
      * Change Reservation Ecoupon
      */
-    putECoupons(requestParameters: PutECouponsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ECoupons>;
+    putECoupons(requestParameters: PutECouponsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ECoupons>;
     /**
      * Change guest Message on a reservation. <p><strong>OperationId:</strong>putGuestMessages</p>
      * Change guest Message
      */
-    putGuestMessagesRaw(requestParameters: PutGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeGuestMessages>>;
+    putGuestMessagesRaw(requestParameters: PutGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeGuestMessages>>;
     /**
      * Change guest Message on a reservation. <p><strong>OperationId:</strong>putGuestMessages</p>
      * Change guest Message
      */
-    putGuestMessages(requestParameters: PutGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeGuestMessages>;
+    putGuestMessages(requestParameters: PutGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeGuestMessages>;
     /**
      * Change a master account on a reservation. <p><strong>OperationId:</strong>putMasterAccount</p>
      * Change a Master Account
      */
-    putMasterAccountRaw(requestParameters: PutMasterAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MasterAccountSummary>>;
+    putMasterAccountRaw(requestParameters: PutMasterAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MasterAccountSummary>>;
     /**
      * Change a master account on a reservation. <p><strong>OperationId:</strong>putMasterAccount</p>
      * Change a Master Account
      */
-    putMasterAccount(requestParameters: PutMasterAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MasterAccountSummary>;
+    putMasterAccount(requestParameters: PutMasterAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MasterAccountSummary>;
     /**
      * This API will update an existing payment method on a reservation. <p><strong>OperationId:</strong>putPaymentMethods</p>
      * Change a payment method
      */
-    putPaymentMethodsRaw(requestParameters: PutPaymentMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationPaymentMethods>>;
+    putPaymentMethodsRaw(requestParameters: PutPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationPaymentMethods>>;
     /**
      * This API will update an existing payment method on a reservation. <p><strong>OperationId:</strong>putPaymentMethods</p>
      * Change a payment method
      */
-    putPaymentMethods(requestParameters: PutPaymentMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationPaymentMethods>;
+    putPaymentMethods(requestParameters: PutPaymentMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationPaymentMethods>;
     /**
      * Use this API to reinstate a cancelled reservation. <p><strong>OperationId:</strong>putReinstateReservation</p>
      * Reinstate a Reservation
@@ -3498,12 +3500,12 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Use this API to reinstate a cancelled reservation. <p><strong>OperationId:</strong>putReinstateReservationByExtId</p>
      * Reinstate a Reservation
      */
-    putReinstateReservationByExtIdRaw(requestParameters: PutReinstateReservationByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReinstateReservationDetails>>;
+    putReinstateReservationByExtIdRaw(requestParameters: PutReinstateReservationByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReinstateReservationDetails>>;
     /**
      * Use this API to reinstate a cancelled reservation. <p><strong>OperationId:</strong>putReinstateReservationByExtId</p>
      * Reinstate a Reservation
      */
-    putReinstateReservationByExtId(requestParameters: PutReinstateReservationByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReinstateReservationDetails>;
+    putReinstateReservationByExtId(requestParameters: PutReinstateReservationByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReinstateReservationDetails>;
     /**
      * Use this to update an existing reservation for a hotel, such as adding comments, changing the number of guests.   There are many fields in putReservation defined by ListOfValues; ensure you have reviewed ListOfValues APIs in order successfully to use putReservation. <p><strong>OperationId:</strong>putReservation</p>
      * Update Reservation by ID
@@ -3518,22 +3520,22 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Use this to update an existing reservation for a hotel, such as adding comments, changing the number of guests.   There are many fields in putReservation defined by ListOfValues; ensure you have reviewed ListOfValues APIs in order successfully to use putReservation. <p><strong>OperationId:</strong>putReservationByExtId</p>
      * Update Reservation by ID
      */
-    putReservationByExtIdRaw(requestParameters: PutReservationByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeReservationDetails>>;
+    putReservationByExtIdRaw(requestParameters: PutReservationByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeReservationDetails>>;
     /**
      * Use this to update an existing reservation for a hotel, such as adding comments, changing the number of guests.   There are many fields in putReservation defined by ListOfValues; ensure you have reviewed ListOfValues APIs in order successfully to use putReservation. <p><strong>OperationId:</strong>putReservationByExtId</p>
      * Update Reservation by ID
      */
-    putReservationByExtId(requestParameters: PutReservationByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeReservationDetails>;
+    putReservationByExtId(requestParameters: PutReservationByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeReservationDetails>;
     /**
      * Validate daily rate details change. <p><strong>OperationId:</strong>putReservationDailyRateDetailValidation</p>
      * Validate daily rate details change
      */
-    putReservationDailyRateDetailValidationRaw(requestParameters: PutReservationDailyRateDetailValidationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationDailyRateDetailDetails>>;
+    putReservationDailyRateDetailValidationRaw(requestParameters: PutReservationDailyRateDetailValidationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationDailyRateDetailDetails>>;
     /**
      * Validate daily rate details change. <p><strong>OperationId:</strong>putReservationDailyRateDetailValidation</p>
      * Validate daily rate details change
      */
-    putReservationDailyRateDetailValidation(requestParameters: PutReservationDailyRateDetailValidationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationDailyRateDetailDetails>;
+    putReservationDailyRateDetailValidation(requestParameters: PutReservationDailyRateDetailValidationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationDailyRateDetailDetails>;
     /**
      * Validate Reservation header change. <p><strong>OperationId:</strong>putReservationHeaderValidation</p>
      * Validate Reservation header change
@@ -3548,32 +3550,32 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * This API can be used to move a reservation to a different hotel. <p><strong>OperationId:</strong>putReservationHotelMove</p>
      * Move the Reservation
      */
-    putReservationHotelMoveRaw(requestParameters: PutReservationHotelMoveOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveReservationHotelDetails>>;
+    putReservationHotelMoveRaw(requestParameters: PutReservationHotelMoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MoveReservationHotelDetails>>;
     /**
      * This API can be used to move a reservation to a different hotel. <p><strong>OperationId:</strong>putReservationHotelMove</p>
      * Move the Reservation
      */
-    putReservationHotelMove(requestParameters: PutReservationHotelMoveOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MoveReservationHotelDetails>;
+    putReservationHotelMove(requestParameters: PutReservationHotelMoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MoveReservationHotelDetails>;
     /**
      * Extend Reservation Lock. <p><strong>OperationId:</strong>putReservationLock</p>
      * Extend Reservation Lock
      */
-    putReservationLockRaw(requestParameters: PutReservationLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExtendReservationLockDetails>>;
+    putReservationLockRaw(requestParameters: PutReservationLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExtendReservationLockDetails>>;
     /**
      * Extend Reservation Lock. <p><strong>OperationId:</strong>putReservationLock</p>
      * Extend Reservation Lock
      */
-    putReservationLock(requestParameters: PutReservationLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExtendReservationLockDetails>;
+    putReservationLock(requestParameters: PutReservationLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExtendReservationLockDetails>;
     /**
      * This API will allow you to update existing packages on a reservation. <p><strong>OperationId:</strong>putReservationPackage</p>
      * Update a package on a Reservation
      */
-    putReservationPackageRaw(requestParameters: PutReservationPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationPackagesInfo>>;
+    putReservationPackageRaw(requestParameters: PutReservationPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationPackagesInfo>>;
     /**
      * This API will allow you to update existing packages on a reservation. <p><strong>OperationId:</strong>putReservationPackage</p>
      * Update a package on a Reservation
      */
-    putReservationPackage(requestParameters: PutReservationPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationPackagesInfo>;
+    putReservationPackage(requestParameters: PutReservationPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationPackagesInfo>;
     /**
      * You can use this API to update the preferences that exist on a reservation. <p><strong>OperationId:</strong>putReservationPreference</p>
      * Change a Reservation Preference
@@ -3588,32 +3590,32 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * You can use this API to set Upgrade Eligibility for Reservations. <p><strong>OperationId:</strong>putReservationsUpgradeEligibility</p>
      * Set Upgrade Eligibility for Reservations
      */
-    putReservationsUpgradeEligibilityRaw(requestParameters: PutReservationsUpgradeEligibilityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationsUpgradeEligibilityDetails>>;
+    putReservationsUpgradeEligibilityRaw(requestParameters: PutReservationsUpgradeEligibilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationsUpgradeEligibilityDetails>>;
     /**
      * You can use this API to set Upgrade Eligibility for Reservations. <p><strong>OperationId:</strong>putReservationsUpgradeEligibility</p>
      * Set Upgrade Eligibility for Reservations
      */
-    putReservationsUpgradeEligibility(requestParameters: PutReservationsUpgradeEligibilityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationsUpgradeEligibilityDetails>;
+    putReservationsUpgradeEligibility(requestParameters: PutReservationsUpgradeEligibilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationsUpgradeEligibilityDetails>;
     /**
      * Change the Inventory Items reserved for the Reservation. <p><strong>OperationId:</strong>putReservedInventoryItems</p>
      * Change reserved Inventory Items
      */
-    putReservedInventoryItemsRaw(requestParameters: PutReservedInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservedInventoryItemsInfo>>;
+    putReservedInventoryItemsRaw(requestParameters: PutReservedInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservedInventoryItemsInfo>>;
     /**
      * Change the Inventory Items reserved for the Reservation. <p><strong>OperationId:</strong>putReservedInventoryItems</p>
      * Change reserved Inventory Items
      */
-    putReservedInventoryItems(requestParameters: PutReservedInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservedInventoryItemsInfo>;
+    putReservedInventoryItems(requestParameters: PutReservedInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservedInventoryItemsInfo>;
     /**
      * Change guest messages for Reservation. <p><strong>OperationId:</strong>putResvGuestMessages</p>
      * Change Reservation Guest Messages
      */
-    putResvGuestMessagesRaw(requestParameters: PutResvGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeResvGuestMessages>>;
+    putResvGuestMessagesRaw(requestParameters: PutResvGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeResvGuestMessages>>;
     /**
      * Change guest messages for Reservation. <p><strong>OperationId:</strong>putResvGuestMessages</p>
      * Change Reservation Guest Messages
      */
-    putResvGuestMessages(requestParameters: PutResvGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeResvGuestMessages>;
+    putResvGuestMessages(requestParameters: PutResvGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeResvGuestMessages>;
     /**
      * Change routing instructions on an existing reservation. <p><strong>OperationId:</strong>putRoutingInstructions</p>
      * Change routing instructions
@@ -3628,22 +3630,22 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Change routing instructions on an existing reservation. <p><strong>OperationId:</strong>putRoutingInstructionsByExtId</p>
      * Change routing instructions
      */
-    putRoutingInstructionsByExtIdRaw(requestParameters: PutRoutingInstructionsByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoutingInstructionsByExtIdRaw(requestParameters: PutRoutingInstructionsByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Change routing instructions on an existing reservation. <p><strong>OperationId:</strong>putRoutingInstructionsByExtId</p>
      * Change routing instructions
      */
-    putRoutingInstructionsByExtId(requestParameters: PutRoutingInstructionsByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoutingInstructionsByExtId(requestParameters: PutRoutingInstructionsByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Update the existing sell message configuration for a property. <p><strong>OperationId:</strong>putSellMessageConfig</p>
      * Change sell message
      */
-    putSellMessageConfigRaw(requestParameters: PutSellMessageConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellMessageConfig>>;
+    putSellMessageConfigRaw(requestParameters: PutSellMessageConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellMessageConfig>>;
     /**
      * Update the existing sell message configuration for a property. <p><strong>OperationId:</strong>putSellMessageConfig</p>
      * Change sell message
      */
-    putSellMessageConfig(requestParameters: PutSellMessageConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellMessageConfig>;
+    putSellMessageConfig(requestParameters: PutSellMessageConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellMessageConfig>;
     /**
      * Update the existing sell message configuration. <p><strong>OperationId:</strong>putSellMessageConfigByChain</p>
      * Change sell message by chain
@@ -3658,62 +3660,62 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Change the share amounts of a reservation <p><strong>OperationId:</strong>putShareRateAmount</p>
      * Change Share Rate Amount
      */
-    putShareRateAmountRaw(requestParameters: PutShareRateAmountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareReservations>>;
+    putShareRateAmountRaw(requestParameters: PutShareRateAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShareReservations>>;
     /**
      * Change the share amounts of a reservation <p><strong>OperationId:</strong>putShareRateAmount</p>
      * Change Share Rate Amount
      */
-    putShareRateAmount(requestParameters: PutShareRateAmountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareReservations>;
+    putShareRateAmount(requestParameters: PutShareRateAmountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShareReservations>;
     /**
      * Change the guest counts(adults or children) for a Sharing Reservation <p><strong>OperationId:</strong>putSharingGuests</p>
      * Change Sharing Guests
      */
-    putSharingGuestsRaw(requestParameters: PutSharingGuestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeSharingGuests>>;
+    putSharingGuestsRaw(requestParameters: PutSharingGuestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeSharingGuests>>;
     /**
      * Change the guest counts(adults or children) for a Sharing Reservation <p><strong>OperationId:</strong>putSharingGuests</p>
      * Change Sharing Guests
      */
-    putSharingGuests(requestParameters: PutSharingGuestsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeSharingGuests>;
+    putSharingGuests(requestParameters: PutSharingGuestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeSharingGuests>;
     /**
      * You can use this API to split a multi room reservation.  This will create a new confirmation number for the split reservation. <p><strong>OperationId:</strong>putSplitMultiRoomReservation</p>
      * Split multi room Reservation
      */
-    putSplitMultiRoomReservationRaw(requestParameters: PutSplitMultiRoomReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SplitMultiRoomReservationDetails>>;
+    putSplitMultiRoomReservationRaw(requestParameters: PutSplitMultiRoomReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SplitMultiRoomReservationDetails>>;
     /**
      * You can use this API to split a multi room reservation.  This will create a new confirmation number for the split reservation. <p><strong>OperationId:</strong>putSplitMultiRoomReservation</p>
      * Split multi room Reservation
      */
-    putSplitMultiRoomReservation(requestParameters: PutSplitMultiRoomReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SplitMultiRoomReservationDetails>;
+    putSplitMultiRoomReservation(requestParameters: PutSplitMultiRoomReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SplitMultiRoomReservationDetails>;
     /**
      * Use this API to change tickets on a reservation. <p><strong>OperationId:</strong>putTickets</p>
      * Change tickets
      */
-    putTicketsRaw(requestParameters: PutTicketsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Tickets>>;
+    putTicketsRaw(requestParameters: PutTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Tickets>>;
     /**
      * Use this API to change tickets on a reservation. <p><strong>OperationId:</strong>putTickets</p>
      * Change tickets
      */
-    putTickets(requestParameters: PutTicketsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Tickets>;
+    putTickets(requestParameters: PutTicketsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Tickets>;
     /**
      * You can use this API to change Transaction Diversions. <p><strong>OperationId:</strong>putTransactionDiversions</p>
      * Change Transaction Diversions
      */
-    putTransactionDiversionsRaw(requestParameters: PutTransactionDiversionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransactionDiversionsDetails>>;
+    putTransactionDiversionsRaw(requestParameters: PutTransactionDiversionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransactionDiversionsDetails>>;
     /**
      * You can use this API to change Transaction Diversions. <p><strong>OperationId:</strong>putTransactionDiversions</p>
      * Change Transaction Diversions
      */
-    putTransactionDiversions(requestParameters: PutTransactionDiversionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransactionDiversionsDetails>;
+    putTransactionDiversions(requestParameters: PutTransactionDiversionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransactionDiversionsDetails>;
     /**
      * Validate overlapping stay for a reservation <p><strong>OperationId:</strong>putValidateOverlappingStay</p>
      * Check overlapping stay
      */
-    putValidateOverlappingStayRaw(requestParameters: PutValidateOverlappingStayOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OverlappingStayDetails>>;
+    putValidateOverlappingStayRaw(requestParameters: PutValidateOverlappingStayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OverlappingStayDetails>>;
     /**
      * Validate overlapping stay for a reservation <p><strong>OperationId:</strong>putValidateOverlappingStay</p>
      * Check overlapping stay
      */
-    putValidateOverlappingStay(requestParameters: PutValidateOverlappingStayOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OverlappingStayDetails>;
+    putValidateOverlappingStay(requestParameters: PutValidateOverlappingStayRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OverlappingStayDetails>;
     /**
      * Validate overlapping stays <p><strong>OperationId:</strong>putValidateOverlappingStays</p>
      * Check overlapping stay
@@ -3738,12 +3740,12 @@ export declare class ReservationApi extends runtime.BaseAPI {
      * Validate the rate plan information for a reservation. <p><strong>OperationId:</strong>validateRateInfo</p>
      * Validate rate information
      */
-    validateRateInfoRaw(requestParameters: ValidateRateInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateInfo>>;
+    validateRateInfoRaw(requestParameters: ValidateRateInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateInfo>>;
     /**
      * Validate the rate plan information for a reservation. <p><strong>OperationId:</strong>validateRateInfo</p>
      * Validate rate information
      */
-    validateRateInfo(requestParameters: ValidateRateInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RateInfo>;
+    validateRateInfo(requestParameters: ValidateRateInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RateInfo>;
 }
 /**
  * @export

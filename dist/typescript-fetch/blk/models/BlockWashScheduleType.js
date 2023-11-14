@@ -51,7 +51,7 @@ function BlockWashScheduleTypeToJSON(value) {
         'roomTypes': value.roomTypes,
         'washByPercent': value.washByPercent,
         'washByRooms': (0, BlockGridInvType_1.BlockGridInvTypeToJSON)(value.washByRooms),
-        'washDate': value.washDate === undefined ? undefined : (value.washDate.toISOString().substr(0, 10)),
+        'washDate': value.washDate === undefined ? undefined : (value.washDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockWashScheduleTypeToJSON = BlockWashScheduleTypeToJSON;

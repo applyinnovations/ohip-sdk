@@ -10,111 +10,111 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockCateringPackageDetails, BlockPostingAccountReservationsInfo, CateringEventChanges, CateringEventPostings, CateringEventPostingsDetail, CateringEventsBulkUpdateRequest, CateringEventsBulkUpdateStatus, CateringPackageRevenue, CateringPackages, ChangeCateringPackageRevenueRequest, ChangeCateringPackagesRequest, ChangeEventResourceByMenuRequest, ChangeEventsRequest, ChangeEventsResourcesByChainRequest, ChangeEventsResourcesRequest, CopyCateringEventsRequest, CopyCateringEventsResponse, CopyCateringPackageRequest, CopyCateringPackageResponse, CopyEventResourcesRequest, Event, EventCalendar, EventResource, EventResourcesResponse, Events, EventsResources, FunctionSpaceAvailabilityDetails, FunctionSpaceEvents, ManageAlternateEventsRequest, ManageAlternateEventsStatus, ManageCateringEventPostingsRequest, ManageEventsResources, ManageWaitlistedEventsRequest, PostCateringPackageRequest, PostCateringPackageRevenueRequest, PostEventsRequest, PostOpportunityEventsRequest, PostQuickInsertResourcesRequest, QuickInsertResourceStatus, Status, WaitlistedEvents } from '../models';
-export interface CateringEventsBulkUpdateOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringEventsBulkUpdate?: CateringEventsBulkUpdateRequest;
+import type { BlockCateringPackage, BlockCateringPackageDetails, BlockPostingAccountReservationsInfo, CateringEventChanges, CateringEventPostings, CateringEventPostingsDetail, CateringEventsBulkUpdate, CateringEventsBulkUpdateStatus, CateringPackageRevenue, CateringPackages, ChangeCateringPackageRevenueRequest, ChangeEventResourceByMenuRequest, ChangeEventsRequest, ChangeEventsResourcesRequest, CopyCateringEvents, CopyCateringEventsResponse, CopyCateringPackage, CopyCateringPackageResponse, CopyEventResourcesRequest, Event, EventCalendar, EventResource, EventResourcesResponse, Events, EventsResources, FunctionSpaceAvailabilityDetails, FunctionSpaceEvents, ManageAlternateEventsRequest, ManageAlternateEventsStatus, ManageCateringEventPostingsRequest, ManageEventsResources, ManageWaitlistedEventsRequest, OpportunityEvents, PostEventsRequest, QuickInsertResourceStatus, QuickInsertResources, Status, WaitlistedEvents } from '../models/index';
+export interface CateringEventsBulkUpdateRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringEventsBulkUpdate: CateringEventsBulkUpdate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeCateringPackageRevenueOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringPackageRevenue?: ChangeCateringPackageRevenueRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringPackageRevenue: ChangeCateringPackageRevenueRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCateringPackagesOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringPackages?: ChangeCateringPackagesRequest;
+export interface ChangeCateringPackagesRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringPackages: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventResourceByMenuOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventResource?: ChangeEventResourceByMenuRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventResource: ChangeEventResourceByMenuRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventsOperationRequest {
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    event?: ChangeEventsRequest;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    event: ChangeEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventsResourcesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    manageEventsResources?: ChangeEventsResourcesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    manageEventsResources: ChangeEventsResourcesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeEventsResourcesByChainOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    manageEventsResources?: ChangeEventsResourcesByChainRequest;
+export interface ChangeEventsResourcesByChainRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    manageEventsResources: ManageEventsResources;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyCateringEventsOperationRequest {
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyCateringEvents?: CopyCateringEventsRequest;
+export interface CopyCateringEventsRequest {
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyCateringEvents: CopyCateringEvents;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyCateringPackageOperationRequest {
-    cateringpackageId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyCateringPackage?: CopyCateringPackageRequest;
+export interface CopyCateringPackageRequest {
+    cateringpackageId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyCateringPackage: CopyCateringPackage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyEventResourcesOperationRequest {
-    eventId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventResources?: CopyEventResourcesRequest;
+    eventId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventResources: CopyEventResourcesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageRequest {
-    cateringPackageId?: string;
-    blockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringPackageId: string;
+    blockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageRevenueRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     cateringPackageEventId?: string;
     cateringPackageRevenueType?: string;
@@ -122,39 +122,39 @@ export interface DeleteCateringPackageRevenueRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackagesRequest {
-    blockId?: string;
-    hotelId?: string;
-    cateringPackageId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    hotelId: string;
+    cateringPackageId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteEventsRequest {
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeSubEvents?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockPostingAccountReservationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCateringEventChangesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     fetchInstructions?: GetCateringEventChangesFetchInstructionsEnum;
@@ -179,11 +179,11 @@ export interface GetCateringEventChangesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringEventPostingsRequest {
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeSubEvents?: boolean;
     blockId?: Array<string>;
     blockIdContext?: Array<string>;
@@ -193,11 +193,11 @@ export interface GetCateringEventPostingsRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRevenueRequest {
-    cateringpackageId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringpackageId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     idExtension?: number;
     blockIdContext?: string;
@@ -209,10 +209,10 @@ export interface GetCateringPackageRevenueRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagesRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     blockIdContext?: string;
     blockIdType?: string;
@@ -220,20 +220,20 @@ export interface GetCateringPackagesRequest {
     acceptLanguage?: string;
 }
 export interface GetEventRequest {
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetEventFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetEventCalendarRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eventEndDate?: Date;
     includeHidden?: boolean;
     includeOpportunities?: boolean;
@@ -267,9 +267,9 @@ export interface GetEventCalendarRequest {
     acceptLanguage?: string;
 }
 export interface GetEventCalendarMultipleHotelIdsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eventEndDate?: Date;
     includeHidden?: boolean;
     includeOpportunities?: boolean;
@@ -304,10 +304,10 @@ export interface GetEventCalendarMultipleHotelIdsRequest {
     acceptLanguage?: string;
 }
 export interface GetEventItemSplitQuantityRequest {
-    eventId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eventPrimaryHotelId?: string;
     eventItemId?: string;
     eventEndDate?: string;
@@ -319,12 +319,12 @@ export interface GetEventItemSplitQuantityRequest {
     acceptLanguage?: string;
 }
 export interface GetEventResourceByMenuRequest {
-    resourceId?: string;
-    eventId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    resourceId: string;
+    eventId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     blockIdContext?: string;
     blockIdType?: string;
@@ -337,9 +337,9 @@ export interface GetEventResourceByMenuRequest {
     acceptLanguage?: string;
 }
 export interface GetEventsMultipleHotelsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     eventStartDate?: Date;
     eventEndDate?: Date;
@@ -364,10 +364,10 @@ export interface GetEventsMultipleHotelsRequest {
     acceptLanguage?: string;
 }
 export interface GetEventsOneHotelRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     eventStartDate?: Date;
     eventEndDate?: Date;
     blockId?: Array<string>;
@@ -389,20 +389,20 @@ export interface GetEventsOneHotelRequest {
     acceptLanguage?: string;
 }
 export interface GetEventsResourcesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockId?: string;
     eventIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceAvailabilityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     checkInventory?: boolean;
     eventEndDate?: string;
     limit?: number;
@@ -436,10 +436,10 @@ export interface GetFunctionSpaceAvailabilityRequest {
     acceptLanguage?: string;
 }
 export interface GetSharedFunctionSpaceEventsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     functionSpaceCode?: string;
     startDateTime?: string;
     endDateTime?: string;
@@ -447,10 +447,10 @@ export interface GetSharedFunctionSpaceEventsRequest {
     acceptLanguage?: string;
 }
 export interface GetWaitlistedEventsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     functionSpaceCode?: Array<string>;
     accountName?: string;
     blockName?: string;
@@ -463,85 +463,85 @@ export interface GetWaitlistedEventsRequest {
     acceptLanguage?: string;
 }
 export interface ManageAlternateEventsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    manageAlternateEvents?: ManageAlternateEventsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    manageAlternateEvents: ManageAlternateEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ManageCateringEventPostingsOperationRequest {
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringEventPostings?: ManageCateringEventPostingsRequest;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringEventPostings: ManageCateringEventPostingsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ManageWaitlistedEventsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    manageWaitlistedEvents?: ManageWaitlistedEventsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    manageWaitlistedEvents: ManageWaitlistedEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface MoveEventResourcesRequest {
-    eventId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventResources?: CopyEventResourcesRequest;
+    eventId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventResources: CopyEventResourcesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringPackageOperationRequest {
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCateringPackage?: PostCateringPackageRequest;
+export interface PostCateringPackageRequest {
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCateringPackage: BlockCateringPackage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringPackageRevenueOperationRequest {
-    cateringpackageId?: string;
-    blockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringPackageRevenue?: PostCateringPackageRevenueRequest;
+export interface PostCateringPackageRevenueRequest {
+    cateringpackageId: string;
+    blockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringPackageRevenue: CateringPackageRevenue;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostEventsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    event?: PostEventsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    event: PostEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostOpportunityEventsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    opportunityEvents?: PostOpportunityEventsRequest;
+export interface PostOpportunityEventsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    opportunityEvents: OpportunityEvents;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostQuickInsertResourcesOperationRequest {
-    quickInsertId?: string;
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    quickInsertResources?: PostQuickInsertResourcesRequest;
+export interface PostQuickInsertResourcesRequest {
+    quickInsertId: string;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    quickInsertResources: QuickInsertResources;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -553,12 +553,12 @@ export declare class EventManagementApi extends runtime.BaseAPI {
      * You can use this API to update one/more catering events for the same block <p><strong>OperationId:</strong>cateringEventsBulkUpdate</p>
      * Update multiple catering events
      */
-    cateringEventsBulkUpdateRaw(requestParameters: CateringEventsBulkUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringEventsBulkUpdateStatus>>;
+    cateringEventsBulkUpdateRaw(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringEventsBulkUpdateStatus>>;
     /**
      * You can use this API to update one/more catering events for the same block <p><strong>OperationId:</strong>cateringEventsBulkUpdate</p>
      * Update multiple catering events
      */
-    cateringEventsBulkUpdate(requestParameters: CateringEventsBulkUpdateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CateringEventsBulkUpdateStatus>;
+    cateringEventsBulkUpdate(requestParameters: CateringEventsBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CateringEventsBulkUpdateStatus>;
     /**
      * Update the catering package revenue on a block. <p><strong>OperationId:</strong>changeCateringPackageRevenue</p>
      * Update Catering package revenue
@@ -573,12 +573,12 @@ export declare class EventManagementApi extends runtime.BaseAPI {
      * Update a Catering Package which already exists on the block. <p><strong>OperationId:</strong>changeCateringPackages</p>
      * Update a Catering packages
      */
-    changeCateringPackagesRaw(requestParameters: ChangeCateringPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringPackages>>;
+    changeCateringPackagesRaw(requestParameters: ChangeCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringPackages>>;
     /**
      * Update a Catering Package which already exists on the block. <p><strong>OperationId:</strong>changeCateringPackages</p>
      * Update a Catering packages
      */
-    changeCateringPackages(requestParameters: ChangeCateringPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CateringPackages>;
+    changeCateringPackages(requestParameters: ChangeCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CateringPackages>;
     /**
      * Use this API to update the Event Resources by specifying the block ID, and event ID in the request. <p><strong>OperationId:</strong>changeEventResourceByMenu</p>
      * Update Event Resource
@@ -613,32 +613,32 @@ export declare class EventManagementApi extends runtime.BaseAPI {
      * Update the details of an existing event resource on an event in OPERA Cloud. <p><strong>OperationId:</strong>changeEventsResourcesByChain</p>
      * Update Events Resources by chain
      */
-    changeEventsResourcesByChainRaw(requestParameters: ChangeEventsResourcesByChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ManageEventsResources>>;
+    changeEventsResourcesByChainRaw(requestParameters: ChangeEventsResourcesByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ManageEventsResources>>;
     /**
      * Update the details of an existing event resource on an event in OPERA Cloud. <p><strong>OperationId:</strong>changeEventsResourcesByChain</p>
      * Update Events Resources by chain
      */
-    changeEventsResourcesByChain(requestParameters: ChangeEventsResourcesByChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ManageEventsResources>;
+    changeEventsResourcesByChain(requestParameters: ChangeEventsResourcesByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ManageEventsResources>;
     /**
      * Copy an existing catering event on a block to new dates on that block.  For example there is a catering Event called Lunch for 1st May, select this event, and copy it to a new date within the block date range.  This will result in a second catering event existing on this block.  You can choose to copy certain elements such as event notes, event resources and so on. <p><strong>OperationId:</strong>copyCateringEvents</p>
      * Copy Catering Event
      */
-    copyCateringEventsRaw(requestParameters: CopyCateringEventsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyCateringEventsResponse>>;
+    copyCateringEventsRaw(requestParameters: CopyCateringEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyCateringEventsResponse>>;
     /**
      * Copy an existing catering event on a block to new dates on that block.  For example there is a catering Event called Lunch for 1st May, select this event, and copy it to a new date within the block date range.  This will result in a second catering event existing on this block.  You can choose to copy certain elements such as event notes, event resources and so on. <p><strong>OperationId:</strong>copyCateringEvents</p>
      * Copy Catering Event
      */
-    copyCateringEvents(requestParameters: CopyCateringEventsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyCateringEventsResponse>;
+    copyCateringEvents(requestParameters: CopyCateringEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyCateringEventsResponse>;
     /**
      * Use this API to copy an existing Catering Package one the block to another date on the same block. <p><strong>OperationId:</strong>copyCateringPackage</p>
      * Copy a Catering package
      */
-    copyCateringPackageRaw(requestParameters: CopyCateringPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyCateringPackageResponse>>;
+    copyCateringPackageRaw(requestParameters: CopyCateringPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CopyCateringPackageResponse>>;
     /**
      * Use this API to copy an existing Catering Package one the block to another date on the same block. <p><strong>OperationId:</strong>copyCateringPackage</p>
      * Copy a Catering package
      */
-    copyCateringPackage(requestParameters: CopyCateringPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyCateringPackageResponse>;
+    copyCateringPackage(requestParameters: CopyCateringPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CopyCateringPackageResponse>;
     /**
      * You can use this API to copy one/more existing event resources to one/more events for the same/different block. <p><strong>OperationId:</strong>copyEventResources</p>
      * Copy event resources
@@ -893,22 +893,22 @@ export declare class EventManagementApi extends runtime.BaseAPI {
      * Add an available catering package onto your block. <p><strong>OperationId:</strong>postCateringPackage</p>
      * Add catering packages to a block
      */
-    postCateringPackageRaw(requestParameters: PostCateringPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockCateringPackageDetails>>;
+    postCateringPackageRaw(requestParameters: PostCateringPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockCateringPackageDetails>>;
     /**
      * Add an available catering package onto your block. <p><strong>OperationId:</strong>postCateringPackage</p>
      * Add catering packages to a block
      */
-    postCateringPackage(requestParameters: PostCateringPackageOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockCateringPackageDetails>;
+    postCateringPackage(requestParameters: PostCateringPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockCateringPackageDetails>;
     /**
      * Add catering package revenue to a block <p><strong>OperationId:</strong>postCateringPackageRevenue</p>
      * Add catering package revenue to a block
      */
-    postCateringPackageRevenueRaw(requestParameters: PostCateringPackageRevenueOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringPackageRevenueRaw(requestParameters: PostCateringPackageRevenueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Add catering package revenue to a block <p><strong>OperationId:</strong>postCateringPackageRevenue</p>
      * Add catering package revenue to a block
      */
-    postCateringPackageRevenue(requestParameters: PostCateringPackageRevenueOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringPackageRevenue(requestParameters: PostCateringPackageRevenueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows the creation of a catering event with event type, description, start date / time. end date / time, attendees, function space, setup style, rate, and more. A catering event must always be linked to a block. It cannot exist on its own. <p><strong>OperationId:</strong>postEvents</p>
      * Create an Event
@@ -923,22 +923,22 @@ export declare class EventManagementApi extends runtime.BaseAPI {
      * You can use this API to add Events for an Opportunity Block. <p><strong>OperationId:</strong>postOpportunityEvents</p>
      * Create Events for Opportunity Block
      */
-    postOpportunityEventsRaw(requestParameters: PostOpportunityEventsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postOpportunityEventsRaw(requestParameters: PostOpportunityEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to add Events for an Opportunity Block. <p><strong>OperationId:</strong>postOpportunityEvents</p>
      * Create Events for Opportunity Block
      */
-    postOpportunityEvents(requestParameters: PostOpportunityEventsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postOpportunityEvents(requestParameters: PostOpportunityEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this to add a configured resource to a Catering Event. The Catering Event ID and Quick Insert number of a Catering Menu or Miscellaneous Item or a Template name must be provided. <p><strong>OperationId:</strong>postQuickInsertResources</p>
      * Add Resource to an Event in a hotel by ID
      */
-    postQuickInsertResourcesRaw(requestParameters: PostQuickInsertResourcesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QuickInsertResourceStatus>>;
+    postQuickInsertResourcesRaw(requestParameters: PostQuickInsertResourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QuickInsertResourceStatus>>;
     /**
      * Use this to add a configured resource to a Catering Event. The Catering Event ID and Quick Insert number of a Catering Menu or Miscellaneous Item or a Template name must be provided. <p><strong>OperationId:</strong>postQuickInsertResources</p>
      * Add Resource to an Event in a hotel by ID
      */
-    postQuickInsertResources(requestParameters: PostQuickInsertResourcesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QuickInsertResourceStatus>;
+    postQuickInsertResources(requestParameters: PostQuickInsertResourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QuickInsertResourceStatus>;
 }
 /**
  * @export

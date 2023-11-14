@@ -74,7 +74,7 @@ export function HousekeepingAttendantScheduleTypeToJSON(value?: HousekeepingAtte
     return {
         
         'attendantId': value.attendantId,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'name': value.name,
     };
 }

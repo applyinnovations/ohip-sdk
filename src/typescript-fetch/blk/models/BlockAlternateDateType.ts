@@ -87,7 +87,7 @@ export function BlockAlternateDateTypeToJSON(value?: BlockAlternateDateType | nu
     }
     return {
         
-        'alternateBeginDate': value.alternateBeginDate === undefined ? undefined : (value.alternateBeginDate.toISOString().substr(0,10)),
+        'alternateBeginDate': value.alternateBeginDate === undefined ? undefined : (value.alternateBeginDate.toISOString().substring(0,10)),
         'blockRates': BlockGridRatesTypeToJSON(value.blockRates),
         'priority': value.priority,
         'roomCategory': value.roomCategory,

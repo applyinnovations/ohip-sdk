@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { PostMembershipNumberRequest, Status } from '../models';
-export interface PostMembershipNumberOperationRequest {
-    extSystemCode?: string;
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    membershipNumber?: PostMembershipNumberRequest;
+import type { MembershipNumber, Status } from '../models/index';
+export interface PostMembershipNumberRequest {
+    extSystemCode: string;
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
+    membershipNumber: MembershipNumber;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
@@ -28,10 +28,10 @@ export declare class ProfileApi extends runtime.BaseAPI {
      * This API will generate a new membership number. <p><strong>OperationId:</strong>postMembershipNumber</p>
      * Generate membership number
      */
-    postMembershipNumberRaw(requestParameters: PostMembershipNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMembershipNumberRaw(requestParameters: PostMembershipNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will generate a new membership number. <p><strong>OperationId:</strong>postMembershipNumber</p>
      * Generate membership number
      */
-    postMembershipNumber(requestParameters: PostMembershipNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMembershipNumber(requestParameters: PostMembershipNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }

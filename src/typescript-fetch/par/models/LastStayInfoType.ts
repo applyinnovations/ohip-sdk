@@ -89,7 +89,7 @@ export function LastStayInfoTypeToJSON(value?: LastStayInfoType | null): any {
         
         'lastRate': CurrencyAmountTypeToJSON(value.lastRate),
         'lastRoom': value.lastRoom,
-        'lastVisit': value.lastVisit === undefined ? undefined : (value.lastVisit.toISOString().substr(0,10)),
+        'lastVisit': value.lastVisit === undefined ? undefined : (value.lastVisit.toISOString().substring(0,10)),
         'totalStay': value.totalStay,
     };
 }

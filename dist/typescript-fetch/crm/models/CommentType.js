@@ -60,7 +60,7 @@ function CommentTypeToJSON(value) {
         return null;
     }
     return {
-        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substr(0, 10)),
+        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substring(0, 10)),
         'actionType': value.actionType,
         'commentTitle': value.commentTitle,
         'confidential': value.confidential,

@@ -10,65 +10,65 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockCancellationReasonsDetails, BlockLostBookingCodesDetails, BlockRateOverrideReasonsDetails, BlockRefusedReasonsDetails, DestinationCodesDetails, PostBlockCancellationReasonsRequest, PostBlockLostBookingCodesRequest, PostBlockRateOverrideReasonsRequest, PostBlockRefusedReasonspostBloRequest, PostDestinationCodesRequest, PostReservationMethodsRequest, PutBlockCancellationReasonsRequest, PutBlockLostBookingCodesRequest, PutBlockRateOverrideReasonsRequest, PutBlockRefusedReasonsRequest, PutDestinationCodesRequest, PutReservationMethodsRequest, ReservationMethodsDetails, Status } from '../models';
+import type { BlockCancellationReasonsCriteria, BlockCancellationReasonsDetails, BlockCancellationReasonsToBeChanged, BlockLostBookingCodesCriteria, BlockLostBookingCodesDetails, BlockLostBookingCodesToBeChanged, BlockRateOverrideReasonsCriteria, BlockRateOverrideReasonsDetails, BlockRateOverrideReasonsToBeChanged, BlockRefusedReasonsCriteria, BlockRefusedReasonsDetails, BlockRefusedReasonsToBeChanged, DestinationCodesCriteria, DestinationCodesDetails, DestinationCodesToBeChanged, ReservationMethodsCriteria, ReservationMethodsDetails, ReservationMethodsToBeChanged, Status } from '../models/index';
 export interface DeleteBlockCancellationReasonsRequest {
-    blockCancellationReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockCancellationReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockCancellationReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockLostBookingCodesRequest {
-    blockLostBookingCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockLostBookingCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockLostBookingCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockRateOverrideReasonsRequest {
-    blockRateOverrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockRateOverrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockRateOverrideReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBlockRefusedReasonsRequest {
-    blockRefusedReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockRefusedReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockRefusedReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteDestinationCodesRequest {
-    destinationCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    destinationCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     destinationCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationMethodsRequest {
-    reservationMethodsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationMethodsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationMethodsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockCancellationReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -77,9 +77,9 @@ export interface GetBlockCancellationReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockLostBookingCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -88,9 +88,9 @@ export interface GetBlockLostBookingCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRateOverrideReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -99,9 +99,9 @@ export interface GetBlockRateOverrideReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRefusedReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -110,9 +110,9 @@ export interface GetBlockRefusedReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetDestinationCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -121,9 +121,9 @@ export interface GetDestinationCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -131,105 +131,105 @@ export interface GetReservationMethodsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockCancellationReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCancellationReasonsCriteria?: PostBlockCancellationReasonsRequest;
+export interface PostBlockCancellationReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCancellationReasonsCriteria: BlockCancellationReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockLostBookingCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockLostBookingCodesCriteria?: PostBlockLostBookingCodesRequest;
+export interface PostBlockLostBookingCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockLostBookingCodesCriteria: BlockLostBookingCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockRateOverrideReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRateOverrideReasonsCriteria?: PostBlockRateOverrideReasonsRequest;
+export interface PostBlockRateOverrideReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRateOverrideReasonsCriteria: BlockRateOverrideReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockRefusedReasonspostBloOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRefusedReasonsCriteria?: PostBlockRefusedReasonspostBloRequest;
+export interface PostBlockRefusedReasonspostBloRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRefusedReasonsCriteria: BlockRefusedReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDestinationCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    destinationCodesCriteria?: PostDestinationCodesRequest;
+export interface PostDestinationCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    destinationCodesCriteria: DestinationCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReservationMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationMethodsCriteria?: PostReservationMethodsRequest;
+export interface PostReservationMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationMethodsCriteria: ReservationMethodsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockCancellationReasonsOperationRequest {
-    blockCancellationReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCancellationReasonsToBeChanged?: PutBlockCancellationReasonsRequest;
+export interface PutBlockCancellationReasonsRequest {
+    blockCancellationReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCancellationReasonsToBeChanged: BlockCancellationReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockLostBookingCodesOperationRequest {
-    blockLostBookingCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockLostBookingCodesToBeChanged?: PutBlockLostBookingCodesRequest;
+export interface PutBlockLostBookingCodesRequest {
+    blockLostBookingCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockLostBookingCodesToBeChanged: BlockLostBookingCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockRateOverrideReasonsOperationRequest {
-    blockRateOverrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRateOverrideReasonsToBeChanged?: PutBlockRateOverrideReasonsRequest;
+export interface PutBlockRateOverrideReasonsRequest {
+    blockRateOverrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRateOverrideReasonsToBeChanged: BlockRateOverrideReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBlockRefusedReasonsOperationRequest {
-    blockRefusedReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRefusedReasonsToBeChanged?: PutBlockRefusedReasonsRequest;
+export interface PutBlockRefusedReasonsRequest {
+    blockRefusedReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRefusedReasonsToBeChanged: BlockRefusedReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDestinationCodesOperationRequest {
-    destinationCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    destinationCodesToBeChanged?: PutDestinationCodesRequest;
+export interface PutDestinationCodesRequest {
+    destinationCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    destinationCodesToBeChanged: DestinationCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationMethodsOperationRequest {
-    reservationMethodsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationMethodsToBeChanged?: PutReservationMethodsRequest;
+export interface PutReservationMethodsRequest {
+    reservationMethodsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationMethodsToBeChanged: ReservationMethodsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -361,120 +361,120 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Cancellation Reasons. <p><strong>OperationId:</strong>postBlockCancellationReasons</p>
      * Create Block Cancellation Reasons
      */
-    postBlockCancellationReasonsRaw(requestParameters: PostBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockCancellationReasonsRaw(requestParameters: PostBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Block Cancellation Reasons. <p><strong>OperationId:</strong>postBlockCancellationReasons</p>
      * Create Block Cancellation Reasons
      */
-    postBlockCancellationReasons(requestParameters: PostBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockCancellationReasons(requestParameters: PostBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Block Lost Booking Codes. <p><strong>OperationId:</strong>postBlockLostBookingCodes</p>
      * Create Block Lost Booking Codes
      */
-    postBlockLostBookingCodesRaw(requestParameters: PostBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockLostBookingCodesRaw(requestParameters: PostBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Block Lost Booking Codes. <p><strong>OperationId:</strong>postBlockLostBookingCodes</p>
      * Create Block Lost Booking Codes
      */
-    postBlockLostBookingCodes(requestParameters: PostBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockLostBookingCodes(requestParameters: PostBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Block Rate Override Reasons. <p><strong>OperationId:</strong>postBlockRateOverrideReasons</p>
      * Create Block Rate Override Reasons
      */
-    postBlockRateOverrideReasonsRaw(requestParameters: PostBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockRateOverrideReasonsRaw(requestParameters: PostBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Block Rate Override Reasons. <p><strong>OperationId:</strong>postBlockRateOverrideReasons</p>
      * Create Block Rate Override Reasons
      */
-    postBlockRateOverrideReasons(requestParameters: PostBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockRateOverrideReasons(requestParameters: PostBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Block Refused Reasons. <p><strong>OperationId:</strong>postBlockRefusedReasonspostBlo</p>
      * Create Block Refused Reasons
      */
-    postBlockRefusedReasonspostBloRaw(requestParameters: PostBlockRefusedReasonspostBloOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockRefusedReasonspostBloRaw(requestParameters: PostBlockRefusedReasonspostBloRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Block Refused Reasons. <p><strong>OperationId:</strong>postBlockRefusedReasonspostBlo</p>
      * Create Block Refused Reasons
      */
-    postBlockRefusedReasonspostBlo(requestParameters: PostBlockRefusedReasonspostBloOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockRefusedReasonspostBlo(requestParameters: PostBlockRefusedReasonspostBloRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows creation on Destination Codes. Destination Codes are used in OPERA Cloud during the block cancellation process, and they usually represent either a competitor hotel / chain, or a geographic destination that a specific block has been lost to.  <p><strong>OperationId:</strong>postDestinationCodes</p>
      * Create Destination Codes
      */
-    postDestinationCodesRaw(requestParameters: PostDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDestinationCodesRaw(requestParameters: PostDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows creation on Destination Codes. Destination Codes are used in OPERA Cloud during the block cancellation process, and they usually represent either a competitor hotel / chain, or a geographic destination that a specific block has been lost to.  <p><strong>OperationId:</strong>postDestinationCodes</p>
      * Create Destination Codes
      */
-    postDestinationCodes(requestParameters: PostDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDestinationCodes(requestParameters: PostDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Reservation Methods. <p><strong>OperationId:</strong>postReservationMethods</p>
      * Create Reservation Methods
      */
-    postReservationMethodsRaw(requestParameters: PostReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReservationMethodsRaw(requestParameters: PostReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Reservation Methods. <p><strong>OperationId:</strong>postReservationMethods</p>
      * Create Reservation Methods
      */
-    postReservationMethods(requestParameters: PostReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReservationMethods(requestParameters: PostReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Block Cancellation Reason. <p><strong>OperationId:</strong>putBlockCancellationReasons</p>
      * Change Block Cancellation Reason
      */
-    putBlockCancellationReasonsRaw(requestParameters: PutBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockCancellationReasonsRaw(requestParameters: PutBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Block Cancellation Reason. <p><strong>OperationId:</strong>putBlockCancellationReasons</p>
      * Change Block Cancellation Reason
      */
-    putBlockCancellationReasons(requestParameters: PutBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockCancellationReasons(requestParameters: PutBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Block Lost Booking Code. <p><strong>OperationId:</strong>putBlockLostBookingCodes</p>
      * Change Block Lost Booking Code
      */
-    putBlockLostBookingCodesRaw(requestParameters: PutBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockLostBookingCodesRaw(requestParameters: PutBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Block Lost Booking Code. <p><strong>OperationId:</strong>putBlockLostBookingCodes</p>
      * Change Block Lost Booking Code
      */
-    putBlockLostBookingCodes(requestParameters: PutBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockLostBookingCodes(requestParameters: PutBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Block Rate Override Reason. <p><strong>OperationId:</strong>putBlockRateOverrideReasons</p>
      * Change Block Rate Override Reason
      */
-    putBlockRateOverrideReasonsRaw(requestParameters: PutBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockRateOverrideReasonsRaw(requestParameters: PutBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Block Rate Override Reason. <p><strong>OperationId:</strong>putBlockRateOverrideReasons</p>
      * Change Block Rate Override Reason
      */
-    putBlockRateOverrideReasons(requestParameters: PutBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockRateOverrideReasons(requestParameters: PutBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Block Refused Reason. <p><strong>OperationId:</strong>putBlockRefusedReasons</p>
      * Change Block Refused Reason
      */
-    putBlockRefusedReasonsRaw(requestParameters: PutBlockRefusedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBlockRefusedReasonsRaw(requestParameters: PutBlockRefusedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Block Refused Reason. <p><strong>OperationId:</strong>putBlockRefusedReasons</p>
      * Change Block Refused Reason
      */
-    putBlockRefusedReasons(requestParameters: PutBlockRefusedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBlockRefusedReasons(requestParameters: PutBlockRefusedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Destination Codes. <p><strong>OperationId:</strong>putDestinationCodes</p>
      * Change Destination Codes
      */
-    putDestinationCodesRaw(requestParameters: PutDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDestinationCodesRaw(requestParameters: PutDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Destination Codes. <p><strong>OperationId:</strong>putDestinationCodes</p>
      * Change Destination Codes
      */
-    putDestinationCodes(requestParameters: PutDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDestinationCodes(requestParameters: PutDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Reservation Methods. <p><strong>OperationId:</strong>putReservationMethods</p>
      * Change Reservation Methods
      */
-    putReservationMethodsRaw(requestParameters: PutReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putReservationMethodsRaw(requestParameters: PutReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Reservation Methods. <p><strong>OperationId:</strong>putReservationMethods</p>
      * Change Reservation Methods
      */
-    putReservationMethods(requestParameters: PutReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putReservationMethods(requestParameters: PutReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }

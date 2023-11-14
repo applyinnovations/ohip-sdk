@@ -68,13 +68,13 @@ function AuthorizationHistoryTypeToJSON(value) {
     }
     return {
         'approvalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.approvalAmount),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0, 10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
         'cardPaymentInformation': (0, AuthorizationHistoryTypeCardPaymentInformation_1.AuthorizationHistoryTypeCardPaymentInformationToJSON)(value.cardPaymentInformation),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'status': (0, AuthorizationHistoryTypeStatus_1.AuthorizationHistoryTypeStatusToJSON)(value.status),
         'transactionType': (0, CardAuthorizationTransactionType_1.CardAuthorizationTransactionTypeToJSON)(value.transactionType),
         'type': value.type,

@@ -61,7 +61,7 @@ function CCAuthorizationInstructionTypeToJSON(value) {
     }
     return {
         'authorizationSetup': (0, CCAuthorizationInstructionTypeAuthorizationSetup_1.CCAuthorizationInstructionTypeAuthorizationSetupToJSON)(value.authorizationSetup),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0, 10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
         'currentApprovalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.currentApprovalAmount),
         'incidentalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.incidentalAmount),
         'initialAuthorizationRequired': value.initialAuthorizationRequired,

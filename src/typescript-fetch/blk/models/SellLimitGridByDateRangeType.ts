@@ -122,12 +122,12 @@ export function SellLimitGridByDateRangeTypeToJSON(value?: SellLimitGridByDateRa
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'friday': value.friday,
         'monday': value.monday,
         'saturday': value.saturday,
         'sellLimit': value.sellLimit,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

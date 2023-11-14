@@ -57,7 +57,7 @@ function ShiftBlockCriteriaTypeToJSON(value) {
         'hotelId': value.hotelId,
         'ignorePreAllocatedRooms': value.ignorePreAllocatedRooms,
         'ignoreTraces': value.ignoreTraces,
-        'newStartDate': value.newStartDate === undefined ? undefined : (value.newStartDate.toISOString().substr(0, 10)),
+        'newStartDate': value.newStartDate === undefined ? undefined : (value.newStartDate.toISOString().substring(0, 10)),
         'overbookAll': value.overbookAll,
         'overrideEventsProcessingWarnings': value.overrideEventsProcessingWarnings,
         'removeAlternateDates': value.removeAlternateDates,

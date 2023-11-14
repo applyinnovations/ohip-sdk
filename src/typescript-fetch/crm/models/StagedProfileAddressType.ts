@@ -126,7 +126,7 @@ export function StagedProfileAddressTypeToJSON(value?: StagedProfileAddressType 
         'cleansStatus': StagedAddressCleansStatusToJSON(value.cleansStatus),
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'postalCodeExtension': value.postalCodeExtension,
         'type': value.type,
     };

@@ -60,7 +60,7 @@ function PostForeignCurrencyExchangeTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substr(0, 10)),
+        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0, 10)),
         'exchangeReference': value.exchangeReference,
         'exchangeType': (0, CurrencyExchangeType_1.CurrencyExchangeTypeToJSON)(value.exchangeType),
         'fromCurrencyAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.fromCurrencyAmount),

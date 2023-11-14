@@ -87,9 +87,9 @@ export function ActivityStatSetTypeToJSON(value?: ActivityStatSetType | null): a
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'owner': value.owner,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'stat': value.stat === undefined ? undefined : ((value.stat as Array<any>).map(ActivityStatTypeToJSON)),
     };
 }

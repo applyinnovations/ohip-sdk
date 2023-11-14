@@ -15,134 +15,134 @@
 
 import * as runtime from '../runtime';
 import type {
+  BlockCancellationReasonsCriteria,
   BlockCancellationReasonsDetails,
+  BlockCancellationReasonsToBeChanged,
+  BlockLostBookingCodesCriteria,
   BlockLostBookingCodesDetails,
+  BlockLostBookingCodesToBeChanged,
+  BlockRateOverrideReasonsCriteria,
   BlockRateOverrideReasonsDetails,
+  BlockRateOverrideReasonsToBeChanged,
+  BlockRefusedReasonsCriteria,
   BlockRefusedReasonsDetails,
+  BlockRefusedReasonsToBeChanged,
+  DestinationCodesCriteria,
   DestinationCodesDetails,
+  DestinationCodesToBeChanged,
   ExceptionDetailType,
-  PostBlockCancellationReasonsRequest,
-  PostBlockLostBookingCodesRequest,
-  PostBlockRateOverrideReasonsRequest,
-  PostBlockRefusedReasonspostBloRequest,
-  PostDestinationCodesRequest,
-  PostReservationMethodsRequest,
-  PutBlockCancellationReasonsRequest,
-  PutBlockLostBookingCodesRequest,
-  PutBlockRateOverrideReasonsRequest,
-  PutBlockRefusedReasonsRequest,
-  PutDestinationCodesRequest,
-  PutReservationMethodsRequest,
+  ReservationMethodsCriteria,
   ReservationMethodsDetails,
+  ReservationMethodsToBeChanged,
   Status,
-} from '../models';
+} from '../models/index';
 import {
+    BlockCancellationReasonsCriteriaFromJSON,
+    BlockCancellationReasonsCriteriaToJSON,
     BlockCancellationReasonsDetailsFromJSON,
     BlockCancellationReasonsDetailsToJSON,
+    BlockCancellationReasonsToBeChangedFromJSON,
+    BlockCancellationReasonsToBeChangedToJSON,
+    BlockLostBookingCodesCriteriaFromJSON,
+    BlockLostBookingCodesCriteriaToJSON,
     BlockLostBookingCodesDetailsFromJSON,
     BlockLostBookingCodesDetailsToJSON,
+    BlockLostBookingCodesToBeChangedFromJSON,
+    BlockLostBookingCodesToBeChangedToJSON,
+    BlockRateOverrideReasonsCriteriaFromJSON,
+    BlockRateOverrideReasonsCriteriaToJSON,
     BlockRateOverrideReasonsDetailsFromJSON,
     BlockRateOverrideReasonsDetailsToJSON,
+    BlockRateOverrideReasonsToBeChangedFromJSON,
+    BlockRateOverrideReasonsToBeChangedToJSON,
+    BlockRefusedReasonsCriteriaFromJSON,
+    BlockRefusedReasonsCriteriaToJSON,
     BlockRefusedReasonsDetailsFromJSON,
     BlockRefusedReasonsDetailsToJSON,
+    BlockRefusedReasonsToBeChangedFromJSON,
+    BlockRefusedReasonsToBeChangedToJSON,
+    DestinationCodesCriteriaFromJSON,
+    DestinationCodesCriteriaToJSON,
     DestinationCodesDetailsFromJSON,
     DestinationCodesDetailsToJSON,
+    DestinationCodesToBeChangedFromJSON,
+    DestinationCodesToBeChangedToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostBlockCancellationReasonsRequestFromJSON,
-    PostBlockCancellationReasonsRequestToJSON,
-    PostBlockLostBookingCodesRequestFromJSON,
-    PostBlockLostBookingCodesRequestToJSON,
-    PostBlockRateOverrideReasonsRequestFromJSON,
-    PostBlockRateOverrideReasonsRequestToJSON,
-    PostBlockRefusedReasonspostBloRequestFromJSON,
-    PostBlockRefusedReasonspostBloRequestToJSON,
-    PostDestinationCodesRequestFromJSON,
-    PostDestinationCodesRequestToJSON,
-    PostReservationMethodsRequestFromJSON,
-    PostReservationMethodsRequestToJSON,
-    PutBlockCancellationReasonsRequestFromJSON,
-    PutBlockCancellationReasonsRequestToJSON,
-    PutBlockLostBookingCodesRequestFromJSON,
-    PutBlockLostBookingCodesRequestToJSON,
-    PutBlockRateOverrideReasonsRequestFromJSON,
-    PutBlockRateOverrideReasonsRequestToJSON,
-    PutBlockRefusedReasonsRequestFromJSON,
-    PutBlockRefusedReasonsRequestToJSON,
-    PutDestinationCodesRequestFromJSON,
-    PutDestinationCodesRequestToJSON,
-    PutReservationMethodsRequestFromJSON,
-    PutReservationMethodsRequestToJSON,
+    ReservationMethodsCriteriaFromJSON,
+    ReservationMethodsCriteriaToJSON,
     ReservationMethodsDetailsFromJSON,
     ReservationMethodsDetailsToJSON,
+    ReservationMethodsToBeChangedFromJSON,
+    ReservationMethodsToBeChangedToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteBlockCancellationReasonsRequest {
-    blockCancellationReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockCancellationReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockCancellationReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockLostBookingCodesRequest {
-    blockLostBookingCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockLostBookingCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockLostBookingCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockRateOverrideReasonsRequest {
-    blockRateOverrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockRateOverrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockRateOverrideReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBlockRefusedReasonsRequest {
-    blockRefusedReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockRefusedReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockRefusedReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteDestinationCodesRequest {
-    destinationCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    destinationCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     destinationCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteReservationMethodsRequest {
-    reservationMethodsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationMethodsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationMethodsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockCancellationReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -152,9 +152,9 @@ export interface GetBlockCancellationReasonsRequest {
 }
 
 export interface GetBlockLostBookingCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -164,9 +164,9 @@ export interface GetBlockLostBookingCodesRequest {
 }
 
 export interface GetBlockRateOverrideReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -176,9 +176,9 @@ export interface GetBlockRateOverrideReasonsRequest {
 }
 
 export interface GetBlockRefusedReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -188,9 +188,9 @@ export interface GetBlockRefusedReasonsRequest {
 }
 
 export interface GetDestinationCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -200,9 +200,9 @@ export interface GetDestinationCodesRequest {
 }
 
 export interface GetReservationMethodsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -211,116 +211,116 @@ export interface GetReservationMethodsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostBlockCancellationReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCancellationReasonsCriteria?: PostBlockCancellationReasonsRequest;
+export interface PostBlockCancellationReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCancellationReasonsCriteria: BlockCancellationReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockLostBookingCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockLostBookingCodesCriteria?: PostBlockLostBookingCodesRequest;
+export interface PostBlockLostBookingCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockLostBookingCodesCriteria: BlockLostBookingCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockRateOverrideReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRateOverrideReasonsCriteria?: PostBlockRateOverrideReasonsRequest;
+export interface PostBlockRateOverrideReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRateOverrideReasonsCriteria: BlockRateOverrideReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBlockRefusedReasonspostBloOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRefusedReasonsCriteria?: PostBlockRefusedReasonspostBloRequest;
+export interface PostBlockRefusedReasonspostBloRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRefusedReasonsCriteria: BlockRefusedReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostDestinationCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    destinationCodesCriteria?: PostDestinationCodesRequest;
+export interface PostDestinationCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    destinationCodesCriteria: DestinationCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostReservationMethodsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationMethodsCriteria?: PostReservationMethodsRequest;
+export interface PostReservationMethodsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationMethodsCriteria: ReservationMethodsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockCancellationReasonsOperationRequest {
-    blockCancellationReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockCancellationReasonsToBeChanged?: PutBlockCancellationReasonsRequest;
+export interface PutBlockCancellationReasonsRequest {
+    blockCancellationReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockCancellationReasonsToBeChanged: BlockCancellationReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockLostBookingCodesOperationRequest {
-    blockLostBookingCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockLostBookingCodesToBeChanged?: PutBlockLostBookingCodesRequest;
+export interface PutBlockLostBookingCodesRequest {
+    blockLostBookingCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockLostBookingCodesToBeChanged: BlockLostBookingCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockRateOverrideReasonsOperationRequest {
-    blockRateOverrideReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRateOverrideReasonsToBeChanged?: PutBlockRateOverrideReasonsRequest;
+export interface PutBlockRateOverrideReasonsRequest {
+    blockRateOverrideReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRateOverrideReasonsToBeChanged: BlockRateOverrideReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutBlockRefusedReasonsOperationRequest {
-    blockRefusedReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRefusedReasonsToBeChanged?: PutBlockRefusedReasonsRequest;
+export interface PutBlockRefusedReasonsRequest {
+    blockRefusedReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRefusedReasonsToBeChanged: BlockRefusedReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutDestinationCodesOperationRequest {
-    destinationCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    destinationCodesToBeChanged?: PutDestinationCodesRequest;
+export interface PutDestinationCodesRequest {
+    destinationCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    destinationCodesToBeChanged: DestinationCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutReservationMethodsOperationRequest {
-    reservationMethodsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationMethodsToBeChanged?: PutReservationMethodsRequest;
+export interface PutReservationMethodsRequest {
+    reservationMethodsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationMethodsToBeChanged: ReservationMethodsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -335,6 +335,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Block Cancellation Reason
      */
     async deleteBlockCancellationReasonsRaw(requestParameters: DeleteBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockCancellationReasonsId === null || requestParameters.blockCancellationReasonsId === undefined) {
+            throw new runtime.RequiredError('blockCancellationReasonsId','Required parameter requestParameters.blockCancellationReasonsId was null or undefined when calling deleteBlockCancellationReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockCancellationReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.blockCancellationReasonsCodes) {
@@ -387,6 +403,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Block Lost Booking Code
      */
     async deleteBlockLostBookingCodesRaw(requestParameters: DeleteBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockLostBookingCodesId === null || requestParameters.blockLostBookingCodesId === undefined) {
+            throw new runtime.RequiredError('blockLostBookingCodesId','Required parameter requestParameters.blockLostBookingCodesId was null or undefined when calling deleteBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockLostBookingCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.blockLostBookingCodes) {
@@ -439,6 +471,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Block Rate Override Reason
      */
     async deleteBlockRateOverrideReasonsRaw(requestParameters: DeleteBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockRateOverrideReasonsId === null || requestParameters.blockRateOverrideReasonsId === undefined) {
+            throw new runtime.RequiredError('blockRateOverrideReasonsId','Required parameter requestParameters.blockRateOverrideReasonsId was null or undefined when calling deleteBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockRateOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.blockRateOverrideReasonsCodes) {
@@ -491,6 +539,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Block Refused Reason
      */
     async deleteBlockRefusedReasonsRaw(requestParameters: DeleteBlockRefusedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockRefusedReasonsId === null || requestParameters.blockRefusedReasonsId === undefined) {
+            throw new runtime.RequiredError('blockRefusedReasonsId','Required parameter requestParameters.blockRefusedReasonsId was null or undefined when calling deleteBlockRefusedReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteBlockRefusedReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteBlockRefusedReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteBlockRefusedReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.blockRefusedReasonsCodes) {
@@ -543,6 +607,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Destination Codes
      */
     async deleteDestinationCodesRaw(requestParameters: DeleteDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.destinationCodesId === null || requestParameters.destinationCodesId === undefined) {
+            throw new runtime.RequiredError('destinationCodesId','Required parameter requestParameters.destinationCodesId was null or undefined when calling deleteDestinationCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteDestinationCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteDestinationCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteDestinationCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.destinationCodes) {
@@ -595,6 +675,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Reservation Methods
      */
     async deleteReservationMethodsRaw(requestParameters: DeleteReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationMethodsId === null || requestParameters.reservationMethodsId === undefined) {
+            throw new runtime.RequiredError('reservationMethodsId','Required parameter requestParameters.reservationMethodsId was null or undefined when calling deleteReservationMethods.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteReservationMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteReservationMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteReservationMethods.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationMethodsCodes) {
@@ -647,6 +743,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Block Cancellation Reasons
      */
     async getBlockCancellationReasonsRaw(requestParameters: GetBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockCancellationReasonsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockCancellationReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -711,6 +819,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Block Lost Booking Codes
      */
     async getBlockLostBookingCodesRaw(requestParameters: GetBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockLostBookingCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockLostBookingCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -775,6 +895,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Block Rate Override Reasons
      */
     async getBlockRateOverrideReasonsRaw(requestParameters: GetBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRateOverrideReasonsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRateOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -839,6 +971,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Block Refused Reasons
      */
     async getBlockRefusedReasonsRaw(requestParameters: GetBlockRefusedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockRefusedReasonsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBlockRefusedReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBlockRefusedReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBlockRefusedReasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -903,6 +1047,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Destination Codes
      */
     async getDestinationCodesRaw(requestParameters: GetDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DestinationCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDestinationCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDestinationCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDestinationCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -967,6 +1123,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Reservation Methods
      */
     async getReservationMethodsRaw(requestParameters: GetReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationMethodsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationMethods.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -1030,7 +1198,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Cancellation Reasons. <p><strong>OperationId:</strong>postBlockCancellationReasons</p>
      * Create Block Cancellation Reasons
      */
-    async postBlockCancellationReasonsRaw(requestParameters: PostBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockCancellationReasonsRaw(requestParameters: PostBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockCancellationReasons.');
+        }
+
+        if (requestParameters.blockCancellationReasonsCriteria === null || requestParameters.blockCancellationReasonsCriteria === undefined) {
+            throw new runtime.RequiredError('blockCancellationReasonsCriteria','Required parameter requestParameters.blockCancellationReasonsCriteria was null or undefined when calling postBlockCancellationReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1062,7 +1246,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockCancellationReasonsRequestToJSON(requestParameters.blockCancellationReasonsCriteria),
+            body: BlockCancellationReasonsCriteriaToJSON(requestParameters.blockCancellationReasonsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1072,7 +1256,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Cancellation Reasons. <p><strong>OperationId:</strong>postBlockCancellationReasons</p>
      * Create Block Cancellation Reasons
      */
-    async postBlockCancellationReasons(requestParameters: PostBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockCancellationReasons(requestParameters: PostBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockCancellationReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1081,7 +1265,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Lost Booking Codes. <p><strong>OperationId:</strong>postBlockLostBookingCodes</p>
      * Create Block Lost Booking Codes
      */
-    async postBlockLostBookingCodesRaw(requestParameters: PostBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockLostBookingCodesRaw(requestParameters: PostBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.blockLostBookingCodesCriteria === null || requestParameters.blockLostBookingCodesCriteria === undefined) {
+            throw new runtime.RequiredError('blockLostBookingCodesCriteria','Required parameter requestParameters.blockLostBookingCodesCriteria was null or undefined when calling postBlockLostBookingCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1113,7 +1313,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockLostBookingCodesRequestToJSON(requestParameters.blockLostBookingCodesCriteria),
+            body: BlockLostBookingCodesCriteriaToJSON(requestParameters.blockLostBookingCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1123,7 +1323,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Lost Booking Codes. <p><strong>OperationId:</strong>postBlockLostBookingCodes</p>
      * Create Block Lost Booking Codes
      */
-    async postBlockLostBookingCodes(requestParameters: PostBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockLostBookingCodes(requestParameters: PostBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockLostBookingCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1132,7 +1332,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Rate Override Reasons. <p><strong>OperationId:</strong>postBlockRateOverrideReasons</p>
      * Create Block Rate Override Reasons
      */
-    async postBlockRateOverrideReasonsRaw(requestParameters: PostBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockRateOverrideReasonsRaw(requestParameters: PostBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.blockRateOverrideReasonsCriteria === null || requestParameters.blockRateOverrideReasonsCriteria === undefined) {
+            throw new runtime.RequiredError('blockRateOverrideReasonsCriteria','Required parameter requestParameters.blockRateOverrideReasonsCriteria was null or undefined when calling postBlockRateOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1164,7 +1380,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockRateOverrideReasonsRequestToJSON(requestParameters.blockRateOverrideReasonsCriteria),
+            body: BlockRateOverrideReasonsCriteriaToJSON(requestParameters.blockRateOverrideReasonsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1174,7 +1390,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Rate Override Reasons. <p><strong>OperationId:</strong>postBlockRateOverrideReasons</p>
      * Create Block Rate Override Reasons
      */
-    async postBlockRateOverrideReasons(requestParameters: PostBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockRateOverrideReasons(requestParameters: PostBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockRateOverrideReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1183,7 +1399,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Refused Reasons. <p><strong>OperationId:</strong>postBlockRefusedReasonspostBlo</p>
      * Create Block Refused Reasons
      */
-    async postBlockRefusedReasonspostBloRaw(requestParameters: PostBlockRefusedReasonspostBloOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBlockRefusedReasonspostBloRaw(requestParameters: PostBlockRefusedReasonspostBloRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBlockRefusedReasonspostBlo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBlockRefusedReasonspostBlo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBlockRefusedReasonspostBlo.');
+        }
+
+        if (requestParameters.blockRefusedReasonsCriteria === null || requestParameters.blockRefusedReasonsCriteria === undefined) {
+            throw new runtime.RequiredError('blockRefusedReasonsCriteria','Required parameter requestParameters.blockRefusedReasonsCriteria was null or undefined when calling postBlockRefusedReasonspostBlo.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1215,7 +1447,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBlockRefusedReasonspostBloRequestToJSON(requestParameters.blockRefusedReasonsCriteria),
+            body: BlockRefusedReasonsCriteriaToJSON(requestParameters.blockRefusedReasonsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1225,7 +1457,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Refused Reasons. <p><strong>OperationId:</strong>postBlockRefusedReasonspostBlo</p>
      * Create Block Refused Reasons
      */
-    async postBlockRefusedReasonspostBlo(requestParameters: PostBlockRefusedReasonspostBloOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBlockRefusedReasonspostBlo(requestParameters: PostBlockRefusedReasonspostBloRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBlockRefusedReasonspostBloRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1234,7 +1466,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * This API allows creation on Destination Codes. Destination Codes are used in OPERA Cloud during the block cancellation process, and they usually represent either a competitor hotel / chain, or a geographic destination that a specific block has been lost to.  <p><strong>OperationId:</strong>postDestinationCodes</p>
      * Create Destination Codes
      */
-    async postDestinationCodesRaw(requestParameters: PostDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postDestinationCodesRaw(requestParameters: PostDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postDestinationCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postDestinationCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postDestinationCodes.');
+        }
+
+        if (requestParameters.destinationCodesCriteria === null || requestParameters.destinationCodesCriteria === undefined) {
+            throw new runtime.RequiredError('destinationCodesCriteria','Required parameter requestParameters.destinationCodesCriteria was null or undefined when calling postDestinationCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1266,7 +1514,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostDestinationCodesRequestToJSON(requestParameters.destinationCodesCriteria),
+            body: DestinationCodesCriteriaToJSON(requestParameters.destinationCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1276,7 +1524,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * This API allows creation on Destination Codes. Destination Codes are used in OPERA Cloud during the block cancellation process, and they usually represent either a competitor hotel / chain, or a geographic destination that a specific block has been lost to.  <p><strong>OperationId:</strong>postDestinationCodes</p>
      * Create Destination Codes
      */
-    async postDestinationCodes(requestParameters: PostDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postDestinationCodes(requestParameters: PostDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postDestinationCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1285,7 +1533,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Reservation Methods. <p><strong>OperationId:</strong>postReservationMethods</p>
      * Create Reservation Methods
      */
-    async postReservationMethodsRaw(requestParameters: PostReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postReservationMethodsRaw(requestParameters: PostReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postReservationMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postReservationMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postReservationMethods.');
+        }
+
+        if (requestParameters.reservationMethodsCriteria === null || requestParameters.reservationMethodsCriteria === undefined) {
+            throw new runtime.RequiredError('reservationMethodsCriteria','Required parameter requestParameters.reservationMethodsCriteria was null or undefined when calling postReservationMethods.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1317,7 +1581,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostReservationMethodsRequestToJSON(requestParameters.reservationMethodsCriteria),
+            body: ReservationMethodsCriteriaToJSON(requestParameters.reservationMethodsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1327,7 +1591,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Reservation Methods. <p><strong>OperationId:</strong>postReservationMethods</p>
      * Create Reservation Methods
      */
-    async postReservationMethods(requestParameters: PostReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postReservationMethods(requestParameters: PostReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postReservationMethodsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1336,7 +1600,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Cancellation Reason. <p><strong>OperationId:</strong>putBlockCancellationReasons</p>
      * Change Block Cancellation Reason
      */
-    async putBlockCancellationReasonsRaw(requestParameters: PutBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockCancellationReasonsRaw(requestParameters: PutBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockCancellationReasonsId === null || requestParameters.blockCancellationReasonsId === undefined) {
+            throw new runtime.RequiredError('blockCancellationReasonsId','Required parameter requestParameters.blockCancellationReasonsId was null or undefined when calling putBlockCancellationReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockCancellationReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockCancellationReasons.');
+        }
+
+        if (requestParameters.blockCancellationReasonsToBeChanged === null || requestParameters.blockCancellationReasonsToBeChanged === undefined) {
+            throw new runtime.RequiredError('blockCancellationReasonsToBeChanged','Required parameter requestParameters.blockCancellationReasonsToBeChanged was null or undefined when calling putBlockCancellationReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1368,7 +1652,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockCancellationReasonsRequestToJSON(requestParameters.blockCancellationReasonsToBeChanged),
+            body: BlockCancellationReasonsToBeChangedToJSON(requestParameters.blockCancellationReasonsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1378,7 +1662,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Cancellation Reason. <p><strong>OperationId:</strong>putBlockCancellationReasons</p>
      * Change Block Cancellation Reason
      */
-    async putBlockCancellationReasons(requestParameters: PutBlockCancellationReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockCancellationReasons(requestParameters: PutBlockCancellationReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockCancellationReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1387,7 +1671,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Lost Booking Code. <p><strong>OperationId:</strong>putBlockLostBookingCodes</p>
      * Change Block Lost Booking Code
      */
-    async putBlockLostBookingCodesRaw(requestParameters: PutBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockLostBookingCodesRaw(requestParameters: PutBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockLostBookingCodesId === null || requestParameters.blockLostBookingCodesId === undefined) {
+            throw new runtime.RequiredError('blockLostBookingCodesId','Required parameter requestParameters.blockLostBookingCodesId was null or undefined when calling putBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockLostBookingCodes.');
+        }
+
+        if (requestParameters.blockLostBookingCodesToBeChanged === null || requestParameters.blockLostBookingCodesToBeChanged === undefined) {
+            throw new runtime.RequiredError('blockLostBookingCodesToBeChanged','Required parameter requestParameters.blockLostBookingCodesToBeChanged was null or undefined when calling putBlockLostBookingCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1419,7 +1723,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockLostBookingCodesRequestToJSON(requestParameters.blockLostBookingCodesToBeChanged),
+            body: BlockLostBookingCodesToBeChangedToJSON(requestParameters.blockLostBookingCodesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1429,7 +1733,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Lost Booking Code. <p><strong>OperationId:</strong>putBlockLostBookingCodes</p>
      * Change Block Lost Booking Code
      */
-    async putBlockLostBookingCodes(requestParameters: PutBlockLostBookingCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockLostBookingCodes(requestParameters: PutBlockLostBookingCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockLostBookingCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1438,7 +1742,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Rate Override Reason. <p><strong>OperationId:</strong>putBlockRateOverrideReasons</p>
      * Change Block Rate Override Reason
      */
-    async putBlockRateOverrideReasonsRaw(requestParameters: PutBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockRateOverrideReasonsRaw(requestParameters: PutBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockRateOverrideReasonsId === null || requestParameters.blockRateOverrideReasonsId === undefined) {
+            throw new runtime.RequiredError('blockRateOverrideReasonsId','Required parameter requestParameters.blockRateOverrideReasonsId was null or undefined when calling putBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockRateOverrideReasons.');
+        }
+
+        if (requestParameters.blockRateOverrideReasonsToBeChanged === null || requestParameters.blockRateOverrideReasonsToBeChanged === undefined) {
+            throw new runtime.RequiredError('blockRateOverrideReasonsToBeChanged','Required parameter requestParameters.blockRateOverrideReasonsToBeChanged was null or undefined when calling putBlockRateOverrideReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1470,7 +1794,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockRateOverrideReasonsRequestToJSON(requestParameters.blockRateOverrideReasonsToBeChanged),
+            body: BlockRateOverrideReasonsToBeChangedToJSON(requestParameters.blockRateOverrideReasonsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1480,7 +1804,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Rate Override Reason. <p><strong>OperationId:</strong>putBlockRateOverrideReasons</p>
      * Change Block Rate Override Reason
      */
-    async putBlockRateOverrideReasons(requestParameters: PutBlockRateOverrideReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockRateOverrideReasons(requestParameters: PutBlockRateOverrideReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockRateOverrideReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1489,7 +1813,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Refused Reason. <p><strong>OperationId:</strong>putBlockRefusedReasons</p>
      * Change Block Refused Reason
      */
-    async putBlockRefusedReasonsRaw(requestParameters: PutBlockRefusedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putBlockRefusedReasonsRaw(requestParameters: PutBlockRefusedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.blockRefusedReasonsId === null || requestParameters.blockRefusedReasonsId === undefined) {
+            throw new runtime.RequiredError('blockRefusedReasonsId','Required parameter requestParameters.blockRefusedReasonsId was null or undefined when calling putBlockRefusedReasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putBlockRefusedReasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putBlockRefusedReasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putBlockRefusedReasons.');
+        }
+
+        if (requestParameters.blockRefusedReasonsToBeChanged === null || requestParameters.blockRefusedReasonsToBeChanged === undefined) {
+            throw new runtime.RequiredError('blockRefusedReasonsToBeChanged','Required parameter requestParameters.blockRefusedReasonsToBeChanged was null or undefined when calling putBlockRefusedReasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1521,7 +1865,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutBlockRefusedReasonsRequestToJSON(requestParameters.blockRefusedReasonsToBeChanged),
+            body: BlockRefusedReasonsToBeChangedToJSON(requestParameters.blockRefusedReasonsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1531,7 +1875,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Refused Reason. <p><strong>OperationId:</strong>putBlockRefusedReasons</p>
      * Change Block Refused Reason
      */
-    async putBlockRefusedReasons(requestParameters: PutBlockRefusedReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putBlockRefusedReasons(requestParameters: PutBlockRefusedReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putBlockRefusedReasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1540,7 +1884,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Destination Codes. <p><strong>OperationId:</strong>putDestinationCodes</p>
      * Change Destination Codes
      */
-    async putDestinationCodesRaw(requestParameters: PutDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putDestinationCodesRaw(requestParameters: PutDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.destinationCodesId === null || requestParameters.destinationCodesId === undefined) {
+            throw new runtime.RequiredError('destinationCodesId','Required parameter requestParameters.destinationCodesId was null or undefined when calling putDestinationCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putDestinationCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putDestinationCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putDestinationCodes.');
+        }
+
+        if (requestParameters.destinationCodesToBeChanged === null || requestParameters.destinationCodesToBeChanged === undefined) {
+            throw new runtime.RequiredError('destinationCodesToBeChanged','Required parameter requestParameters.destinationCodesToBeChanged was null or undefined when calling putDestinationCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1572,7 +1936,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutDestinationCodesRequestToJSON(requestParameters.destinationCodesToBeChanged),
+            body: DestinationCodesToBeChangedToJSON(requestParameters.destinationCodesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1582,7 +1946,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Destination Codes. <p><strong>OperationId:</strong>putDestinationCodes</p>
      * Change Destination Codes
      */
-    async putDestinationCodes(requestParameters: PutDestinationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putDestinationCodes(requestParameters: PutDestinationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putDestinationCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1591,7 +1955,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Reservation Methods. <p><strong>OperationId:</strong>putReservationMethods</p>
      * Change Reservation Methods
      */
-    async putReservationMethodsRaw(requestParameters: PutReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putReservationMethodsRaw(requestParameters: PutReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.reservationMethodsId === null || requestParameters.reservationMethodsId === undefined) {
+            throw new runtime.RequiredError('reservationMethodsId','Required parameter requestParameters.reservationMethodsId was null or undefined when calling putReservationMethods.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putReservationMethods.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putReservationMethods.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putReservationMethods.');
+        }
+
+        if (requestParameters.reservationMethodsToBeChanged === null || requestParameters.reservationMethodsToBeChanged === undefined) {
+            throw new runtime.RequiredError('reservationMethodsToBeChanged','Required parameter requestParameters.reservationMethodsToBeChanged was null or undefined when calling putReservationMethods.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1623,7 +2007,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutReservationMethodsRequestToJSON(requestParameters.reservationMethodsToBeChanged),
+            body: ReservationMethodsToBeChangedToJSON(requestParameters.reservationMethodsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1633,7 +2017,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Reservation Methods. <p><strong>OperationId:</strong>putReservationMethods</p>
      * Change Reservation Methods
      */
-    async putReservationMethods(requestParameters: PutReservationMethodsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putReservationMethods(requestParameters: PutReservationMethodsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putReservationMethodsRaw(requestParameters, initOverrides);
         return await response.value();
     }

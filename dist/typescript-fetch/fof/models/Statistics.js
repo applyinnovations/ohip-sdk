@@ -52,7 +52,7 @@ function StatisticsToJSON(value) {
         return null;
     }
     return {
-        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substr(0, 10)),
+        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0, 10)),
         'links': (0, Links_1.LinksToJSON)(value.links),
         'metricSet': value.metricSet === undefined ? undefined : (value.metricSet.map(StatisticsMetricSetInner_1.StatisticsMetricSetInnerToJSON)),
         'statisticsCode': (0, HSKStatReportCodeType_1.HSKStatReportCodeTypeToJSON)(value.statisticsCode),

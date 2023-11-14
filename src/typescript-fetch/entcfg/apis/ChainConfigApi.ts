@@ -15,392 +15,392 @@
 
 import * as runtime from '../runtime';
 import type {
+  AttractionClassesCriteria,
   AttractionClassesDetails,
+  AttractionClassesToBeChanged,
+  BrandCodesCriteria,
   BrandCodesDetails,
+  BrandCodesToBeChanged,
   ChainDetails,
-  ChangeBrandCodesRequest,
-  ChangeCorporateBusinessUnitsRequest,
-  ChangeCorporateDepartmentCodesRequest,
-  ChangeCorporateDivisionsRequest,
-  ChangeCorporateOperatingUnitsRequest,
-  ChangeCountryGuestTypesRequest,
-  ChangeCountryMainGroupsRequest,
-  ChangeHotelCategoriesRequest,
-  ChangeNoteTypesRequest,
-  ChangePropertyDetailCategoriesRequest,
-  ChangeRegionsCodeRequest,
-  ChangeTemplateCodesRequest,
-  ChangeUserDefinedFieldGroupsRequest,
-  ChangeUserDefinedFieldValuesRequest,
+  ChainToBeChanged,
+  CommunicationMethodsEntDetailsCriteria,
   CommunicationMethodsEntDetailsDetails,
+  CommunicationMethodsEntDetailsToBeChanged,
+  CorporateBusinessUnitsCriteria,
   CorporateBusinessUnitsDetails,
+  CorporateBusinessUnitsToBeChanged,
+  CorporateDepartmentCodesCriteria,
   CorporateDepartmentCodesDetails,
+  CorporateDepartmentCodesToBeChanged,
+  CorporateDivisionsCriteria,
   CorporateDivisionsDetails,
+  CorporateDivisionsToBeChanged,
+  CorporateOperatingUnitsCriteria,
   CorporateOperatingUnitsDetails,
+  CorporateOperatingUnitsToBeChanged,
+  CountryGuestTypesCriteria,
   CountryGuestTypesDetails,
+  CountryGuestTypesToBeChanged,
+  CountryMainGroupsCriteria,
   CountryMainGroupsDetails,
+  CountryMainGroupsToBeChanged,
   DefaultNoteDetails,
   ExceptionDetailType,
+  HotelCategoriesCriteria,
   HotelCategoriesDetails,
+  HotelCategoriesToBeChanged,
   MarketingCitiesByRegionDetails,
+  MarketingRegionsCriteria,
   MarketingRegionsDetails,
+  MarketingRegionsToBeChanged,
+  NoteTypesCriteria,
   NoteTypesDetails,
-  PostAttractionClassesRequest,
-  PostBrandCodesRequest,
-  PostCommunicationMethodsEntDetailsRequest,
-  PostCorporateBusinessUnitsRequest,
-  PostCorporateDepartmentCodesRequest,
-  PostCorporateDivisionsRequest,
-  PostCorporateOperatingUnitsRequest,
-  PostCountryGuestTypesRequest,
-  PostCountryMainGroupsRequest,
-  PostHotelCategoriesRequest,
-  PostMarketingRegionsRequest,
-  PostNoteTypesRequest,
-  PostPropertyDetailCategoriesRequest,
-  PostPropertyTypesRequest,
-  PostRegionsCodeRequest,
-  PostRoomAmenitiesRequest,
-  PostTemplateCodesRequest,
-  PostUserDefinedFieldGroupsRequest,
-  PostUserDefinedFieldValuesRequest,
+  NoteTypesToBeChanged,
+  PropertyDetailCategoriesCriteria,
   PropertyDetailCategoriesDetails,
+  PropertyDetailCategoriesToBeChanged,
+  PropertyTypesCriteria,
   PropertyTypesDetails,
-  PutAttractionClassesRequest,
-  PutChainRequest,
-  PutCommunicationMethodsEntDetailsRequest,
-  PutMarketingRegionsRequest,
-  PutPropertyTypesRequest,
-  PutRoomAmenitiesRequest,
+  PropertyTypesToBeChanged,
+  RegionsCodeCriteria,
   RegionsCodeDetails,
+  RegionsCodeToBeChanged,
+  RoomAmenitiesCriteria,
   RoomAmenitiesDetails,
+  RoomAmenitiesToBeChanged,
   Status,
+  TemplateCodesCriteria,
   TemplateCodesDetails,
+  TemplateCodesToBeChanged,
+  UserDefinedFieldGroupsCriteria,
   UserDefinedFieldGroupsDetails,
+  UserDefinedFieldGroupsToBeChanged,
+  UserDefinedFieldValuesCriteria,
   UserDefinedFieldValuesDetails,
-} from '../models';
+  UserDefinedFieldValuesToBeChanged,
+} from '../models/index';
 import {
+    AttractionClassesCriteriaFromJSON,
+    AttractionClassesCriteriaToJSON,
     AttractionClassesDetailsFromJSON,
     AttractionClassesDetailsToJSON,
+    AttractionClassesToBeChangedFromJSON,
+    AttractionClassesToBeChangedToJSON,
+    BrandCodesCriteriaFromJSON,
+    BrandCodesCriteriaToJSON,
     BrandCodesDetailsFromJSON,
     BrandCodesDetailsToJSON,
+    BrandCodesToBeChangedFromJSON,
+    BrandCodesToBeChangedToJSON,
     ChainDetailsFromJSON,
     ChainDetailsToJSON,
-    ChangeBrandCodesRequestFromJSON,
-    ChangeBrandCodesRequestToJSON,
-    ChangeCorporateBusinessUnitsRequestFromJSON,
-    ChangeCorporateBusinessUnitsRequestToJSON,
-    ChangeCorporateDepartmentCodesRequestFromJSON,
-    ChangeCorporateDepartmentCodesRequestToJSON,
-    ChangeCorporateDivisionsRequestFromJSON,
-    ChangeCorporateDivisionsRequestToJSON,
-    ChangeCorporateOperatingUnitsRequestFromJSON,
-    ChangeCorporateOperatingUnitsRequestToJSON,
-    ChangeCountryGuestTypesRequestFromJSON,
-    ChangeCountryGuestTypesRequestToJSON,
-    ChangeCountryMainGroupsRequestFromJSON,
-    ChangeCountryMainGroupsRequestToJSON,
-    ChangeHotelCategoriesRequestFromJSON,
-    ChangeHotelCategoriesRequestToJSON,
-    ChangeNoteTypesRequestFromJSON,
-    ChangeNoteTypesRequestToJSON,
-    ChangePropertyDetailCategoriesRequestFromJSON,
-    ChangePropertyDetailCategoriesRequestToJSON,
-    ChangeRegionsCodeRequestFromJSON,
-    ChangeRegionsCodeRequestToJSON,
-    ChangeTemplateCodesRequestFromJSON,
-    ChangeTemplateCodesRequestToJSON,
-    ChangeUserDefinedFieldGroupsRequestFromJSON,
-    ChangeUserDefinedFieldGroupsRequestToJSON,
-    ChangeUserDefinedFieldValuesRequestFromJSON,
-    ChangeUserDefinedFieldValuesRequestToJSON,
+    ChainToBeChangedFromJSON,
+    ChainToBeChangedToJSON,
+    CommunicationMethodsEntDetailsCriteriaFromJSON,
+    CommunicationMethodsEntDetailsCriteriaToJSON,
     CommunicationMethodsEntDetailsDetailsFromJSON,
     CommunicationMethodsEntDetailsDetailsToJSON,
+    CommunicationMethodsEntDetailsToBeChangedFromJSON,
+    CommunicationMethodsEntDetailsToBeChangedToJSON,
+    CorporateBusinessUnitsCriteriaFromJSON,
+    CorporateBusinessUnitsCriteriaToJSON,
     CorporateBusinessUnitsDetailsFromJSON,
     CorporateBusinessUnitsDetailsToJSON,
+    CorporateBusinessUnitsToBeChangedFromJSON,
+    CorporateBusinessUnitsToBeChangedToJSON,
+    CorporateDepartmentCodesCriteriaFromJSON,
+    CorporateDepartmentCodesCriteriaToJSON,
     CorporateDepartmentCodesDetailsFromJSON,
     CorporateDepartmentCodesDetailsToJSON,
+    CorporateDepartmentCodesToBeChangedFromJSON,
+    CorporateDepartmentCodesToBeChangedToJSON,
+    CorporateDivisionsCriteriaFromJSON,
+    CorporateDivisionsCriteriaToJSON,
     CorporateDivisionsDetailsFromJSON,
     CorporateDivisionsDetailsToJSON,
+    CorporateDivisionsToBeChangedFromJSON,
+    CorporateDivisionsToBeChangedToJSON,
+    CorporateOperatingUnitsCriteriaFromJSON,
+    CorporateOperatingUnitsCriteriaToJSON,
     CorporateOperatingUnitsDetailsFromJSON,
     CorporateOperatingUnitsDetailsToJSON,
+    CorporateOperatingUnitsToBeChangedFromJSON,
+    CorporateOperatingUnitsToBeChangedToJSON,
+    CountryGuestTypesCriteriaFromJSON,
+    CountryGuestTypesCriteriaToJSON,
     CountryGuestTypesDetailsFromJSON,
     CountryGuestTypesDetailsToJSON,
+    CountryGuestTypesToBeChangedFromJSON,
+    CountryGuestTypesToBeChangedToJSON,
+    CountryMainGroupsCriteriaFromJSON,
+    CountryMainGroupsCriteriaToJSON,
     CountryMainGroupsDetailsFromJSON,
     CountryMainGroupsDetailsToJSON,
+    CountryMainGroupsToBeChangedFromJSON,
+    CountryMainGroupsToBeChangedToJSON,
     DefaultNoteDetailsFromJSON,
     DefaultNoteDetailsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
+    HotelCategoriesCriteriaFromJSON,
+    HotelCategoriesCriteriaToJSON,
     HotelCategoriesDetailsFromJSON,
     HotelCategoriesDetailsToJSON,
+    HotelCategoriesToBeChangedFromJSON,
+    HotelCategoriesToBeChangedToJSON,
     MarketingCitiesByRegionDetailsFromJSON,
     MarketingCitiesByRegionDetailsToJSON,
+    MarketingRegionsCriteriaFromJSON,
+    MarketingRegionsCriteriaToJSON,
     MarketingRegionsDetailsFromJSON,
     MarketingRegionsDetailsToJSON,
+    MarketingRegionsToBeChangedFromJSON,
+    MarketingRegionsToBeChangedToJSON,
+    NoteTypesCriteriaFromJSON,
+    NoteTypesCriteriaToJSON,
     NoteTypesDetailsFromJSON,
     NoteTypesDetailsToJSON,
-    PostAttractionClassesRequestFromJSON,
-    PostAttractionClassesRequestToJSON,
-    PostBrandCodesRequestFromJSON,
-    PostBrandCodesRequestToJSON,
-    PostCommunicationMethodsEntDetailsRequestFromJSON,
-    PostCommunicationMethodsEntDetailsRequestToJSON,
-    PostCorporateBusinessUnitsRequestFromJSON,
-    PostCorporateBusinessUnitsRequestToJSON,
-    PostCorporateDepartmentCodesRequestFromJSON,
-    PostCorporateDepartmentCodesRequestToJSON,
-    PostCorporateDivisionsRequestFromJSON,
-    PostCorporateDivisionsRequestToJSON,
-    PostCorporateOperatingUnitsRequestFromJSON,
-    PostCorporateOperatingUnitsRequestToJSON,
-    PostCountryGuestTypesRequestFromJSON,
-    PostCountryGuestTypesRequestToJSON,
-    PostCountryMainGroupsRequestFromJSON,
-    PostCountryMainGroupsRequestToJSON,
-    PostHotelCategoriesRequestFromJSON,
-    PostHotelCategoriesRequestToJSON,
-    PostMarketingRegionsRequestFromJSON,
-    PostMarketingRegionsRequestToJSON,
-    PostNoteTypesRequestFromJSON,
-    PostNoteTypesRequestToJSON,
-    PostPropertyDetailCategoriesRequestFromJSON,
-    PostPropertyDetailCategoriesRequestToJSON,
-    PostPropertyTypesRequestFromJSON,
-    PostPropertyTypesRequestToJSON,
-    PostRegionsCodeRequestFromJSON,
-    PostRegionsCodeRequestToJSON,
-    PostRoomAmenitiesRequestFromJSON,
-    PostRoomAmenitiesRequestToJSON,
-    PostTemplateCodesRequestFromJSON,
-    PostTemplateCodesRequestToJSON,
-    PostUserDefinedFieldGroupsRequestFromJSON,
-    PostUserDefinedFieldGroupsRequestToJSON,
-    PostUserDefinedFieldValuesRequestFromJSON,
-    PostUserDefinedFieldValuesRequestToJSON,
+    NoteTypesToBeChangedFromJSON,
+    NoteTypesToBeChangedToJSON,
+    PropertyDetailCategoriesCriteriaFromJSON,
+    PropertyDetailCategoriesCriteriaToJSON,
     PropertyDetailCategoriesDetailsFromJSON,
     PropertyDetailCategoriesDetailsToJSON,
+    PropertyDetailCategoriesToBeChangedFromJSON,
+    PropertyDetailCategoriesToBeChangedToJSON,
+    PropertyTypesCriteriaFromJSON,
+    PropertyTypesCriteriaToJSON,
     PropertyTypesDetailsFromJSON,
     PropertyTypesDetailsToJSON,
-    PutAttractionClassesRequestFromJSON,
-    PutAttractionClassesRequestToJSON,
-    PutChainRequestFromJSON,
-    PutChainRequestToJSON,
-    PutCommunicationMethodsEntDetailsRequestFromJSON,
-    PutCommunicationMethodsEntDetailsRequestToJSON,
-    PutMarketingRegionsRequestFromJSON,
-    PutMarketingRegionsRequestToJSON,
-    PutPropertyTypesRequestFromJSON,
-    PutPropertyTypesRequestToJSON,
-    PutRoomAmenitiesRequestFromJSON,
-    PutRoomAmenitiesRequestToJSON,
+    PropertyTypesToBeChangedFromJSON,
+    PropertyTypesToBeChangedToJSON,
+    RegionsCodeCriteriaFromJSON,
+    RegionsCodeCriteriaToJSON,
     RegionsCodeDetailsFromJSON,
     RegionsCodeDetailsToJSON,
+    RegionsCodeToBeChangedFromJSON,
+    RegionsCodeToBeChangedToJSON,
+    RoomAmenitiesCriteriaFromJSON,
+    RoomAmenitiesCriteriaToJSON,
     RoomAmenitiesDetailsFromJSON,
     RoomAmenitiesDetailsToJSON,
+    RoomAmenitiesToBeChangedFromJSON,
+    RoomAmenitiesToBeChangedToJSON,
     StatusFromJSON,
     StatusToJSON,
+    TemplateCodesCriteriaFromJSON,
+    TemplateCodesCriteriaToJSON,
     TemplateCodesDetailsFromJSON,
     TemplateCodesDetailsToJSON,
+    TemplateCodesToBeChangedFromJSON,
+    TemplateCodesToBeChangedToJSON,
+    UserDefinedFieldGroupsCriteriaFromJSON,
+    UserDefinedFieldGroupsCriteriaToJSON,
     UserDefinedFieldGroupsDetailsFromJSON,
     UserDefinedFieldGroupsDetailsToJSON,
+    UserDefinedFieldGroupsToBeChangedFromJSON,
+    UserDefinedFieldGroupsToBeChangedToJSON,
+    UserDefinedFieldValuesCriteriaFromJSON,
+    UserDefinedFieldValuesCriteriaToJSON,
     UserDefinedFieldValuesDetailsFromJSON,
     UserDefinedFieldValuesDetailsToJSON,
-} from '../models';
+    UserDefinedFieldValuesToBeChangedFromJSON,
+    UserDefinedFieldValuesToBeChangedToJSON,
+} from '../models/index';
 
-export interface ChangeBrandCodesOperationRequest {
-    brandCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    brandCodesToBeChanged?: ChangeBrandCodesRequest;
+export interface ChangeBrandCodesRequest {
+    brandCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    brandCodesToBeChanged: BrandCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCorporateBusinessUnitsOperationRequest {
-    businessUnitCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateBusinessUnitsToBeChanged?: ChangeCorporateBusinessUnitsRequest;
+export interface ChangeCorporateBusinessUnitsRequest {
+    businessUnitCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateBusinessUnitsToBeChanged: CorporateBusinessUnitsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCorporateDepartmentCodesOperationRequest {
-    departmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateDepartmentCodesToBeChanged?: ChangeCorporateDepartmentCodesRequest;
+export interface ChangeCorporateDepartmentCodesRequest {
+    departmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateDepartmentCodesToBeChanged: CorporateDepartmentCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCorporateDivisionsOperationRequest {
-    divisionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateDivisionsToBeChanged?: ChangeCorporateDivisionsRequest;
+export interface ChangeCorporateDivisionsRequest {
+    divisionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateDivisionsToBeChanged: CorporateDivisionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCorporateOperatingUnitsOperationRequest {
-    operatingUnitCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateOperatingUnitsToBeChanged?: ChangeCorporateOperatingUnitsRequest;
+export interface ChangeCorporateOperatingUnitsRequest {
+    operatingUnitCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateOperatingUnitsToBeChanged: CorporateOperatingUnitsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCountryGuestTypesOperationRequest {
-    guestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    countryGuestTypesToBeChanged?: ChangeCountryGuestTypesRequest;
+export interface ChangeCountryGuestTypesRequest {
+    guestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    countryGuestTypesToBeChanged: CountryGuestTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeCountryMainGroupsOperationRequest {
-    groupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    countryMainGroupsToBeChanged?: ChangeCountryMainGroupsRequest;
+export interface ChangeCountryMainGroupsRequest {
+    groupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    countryMainGroupsToBeChanged: CountryMainGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeHotelCategoriesOperationRequest {
-    categoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelCategoriesToBeChanged?: ChangeHotelCategoriesRequest;
+export interface ChangeHotelCategoriesRequest {
+    categoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelCategoriesToBeChanged: HotelCategoriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeNoteTypesOperationRequest {
-    noteTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    noteTypesToBeChanged?: ChangeNoteTypesRequest;
+export interface ChangeNoteTypesRequest {
+    noteTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    noteTypesToBeChanged: NoteTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangePropertyDetailCategoriesOperationRequest {
-    categoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyDetailCategoriesToBeChanged?: ChangePropertyDetailCategoriesRequest;
+export interface ChangePropertyDetailCategoriesRequest {
+    categoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyDetailCategoriesToBeChanged: PropertyDetailCategoriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeRegionsCodeOperationRequest {
-    regionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    regionsCodeToBeChanged?: ChangeRegionsCodeRequest;
+export interface ChangeRegionsCodeRequest {
+    regionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    regionsCodeToBeChanged: RegionsCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateCodesOperationRequest {
-    code?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCodesToBeChanged?: ChangeTemplateCodesRequest;
+export interface ChangeTemplateCodesRequest {
+    code: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCodesToBeChanged: TemplateCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeUserDefinedFieldGroupsOperationRequest {
-    udfGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    userDefinedFieldGroupsToBeChanged?: ChangeUserDefinedFieldGroupsRequest;
+export interface ChangeUserDefinedFieldGroupsRequest {
+    udfGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    userDefinedFieldGroupsToBeChanged: UserDefinedFieldGroupsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeUserDefinedFieldValuesOperationRequest {
-    udfValue?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    userDefinedFieldValuesToBeChanged?: ChangeUserDefinedFieldValuesRequest;
+export interface ChangeUserDefinedFieldValuesRequest {
+    udfValue: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    userDefinedFieldValuesToBeChanged: UserDefinedFieldValuesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAttractionClassesRequest {
-    attractionClassCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    attractionClassCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCommunicationMethodsEntDetailsRequest {
-    communicationMethodsEntDetailsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    communicationMethodsEntDetailsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     communicationMethodsEntDetailsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMarketingRegionsRequest {
-    marketingRegionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketingRegionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     marketingRegionsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeletePropertyTypesRequest {
-    propertyTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    propertyTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     propertyTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomAmenitiesRequest {
-    roomAmenitiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomAmenitiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomAmenitiesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAttractionClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -410,9 +410,9 @@ export interface GetAttractionClassesRequest {
 }
 
 export interface GetBrandCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -422,9 +422,9 @@ export interface GetBrandCodesRequest {
 }
 
 export interface GetChainRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     enforceSecurity?: boolean;
     includeActive?: boolean;
     includeInactive?: boolean;
@@ -436,9 +436,9 @@ export interface GetChainRequest {
 }
 
 export interface GetCommunicationMethodsEntDetailsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -448,9 +448,9 @@ export interface GetCommunicationMethodsEntDetailsRequest {
 }
 
 export interface GetCorporateBusinessUnitsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -460,9 +460,9 @@ export interface GetCorporateBusinessUnitsRequest {
 }
 
 export interface GetCorporateDepartmentCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -472,9 +472,9 @@ export interface GetCorporateDepartmentCodesRequest {
 }
 
 export interface GetCorporateDivisionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -484,9 +484,9 @@ export interface GetCorporateDivisionsRequest {
 }
 
 export interface GetCorporateOperatingUnitsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -496,9 +496,9 @@ export interface GetCorporateOperatingUnitsRequest {
 }
 
 export interface GetCountryGuestTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -508,9 +508,9 @@ export interface GetCountryGuestTypesRequest {
 }
 
 export interface GetCountryMainGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -520,9 +520,9 @@ export interface GetCountryMainGroupsRequest {
 }
 
 export interface GetDefaultNoteRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     noteType?: string;
     noteCode?: string;
@@ -531,9 +531,9 @@ export interface GetDefaultNoteRequest {
 }
 
 export interface GetHotelCategoriesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -543,9 +543,9 @@ export interface GetHotelCategoriesRequest {
 }
 
 export interface GetMarketingCitiesByRegionRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     regionCode?: string;
     marketingCity?: string;
     xExternalsystem?: string;
@@ -553,9 +553,9 @@ export interface GetMarketingCitiesByRegionRequest {
 }
 
 export interface GetMarketingRegionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -565,9 +565,9 @@ export interface GetMarketingRegionsRequest {
 }
 
 export interface GetNoteTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     noteGroup?: string;
     includeInactive?: boolean;
     includeDepartmentDetails?: boolean;
@@ -578,9 +578,9 @@ export interface GetNoteTypesRequest {
 }
 
 export interface GetPropertyDetailCategoriesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -590,9 +590,9 @@ export interface GetPropertyDetailCategoriesRequest {
 }
 
 export interface GetPropertyTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -602,9 +602,9 @@ export interface GetPropertyTypesRequest {
 }
 
 export interface GetRegionsCodeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -614,9 +614,9 @@ export interface GetRegionsCodeRequest {
 }
 
 export interface GetRoomAmenitiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -626,9 +626,9 @@ export interface GetRoomAmenitiesRequest {
 }
 
 export interface GetTemplateCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -638,9 +638,9 @@ export interface GetTemplateCodesRequest {
 }
 
 export interface GetUserDefinedFieldGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     groupCodes?: Array<string>;
     descriptionWildCard?: string;
     xExternalsystem?: string;
@@ -648,9 +648,9 @@ export interface GetUserDefinedFieldGroupsRequest {
 }
 
 export interface GetUserDefinedFieldValuesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     groupCode?: string;
     valueCodes?: Array<string>;
     descriptionWildCard?: string;
@@ -658,368 +658,368 @@ export interface GetUserDefinedFieldValuesRequest {
     acceptLanguage?: string;
 }
 
-export interface PostAttractionClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attractionClassesCriteria?: PostAttractionClassesRequest;
+export interface PostAttractionClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attractionClassesCriteria: AttractionClassesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostBrandCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    brandCodesCriteria?: PostBrandCodesRequest;
+export interface PostBrandCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    brandCodesCriteria: BrandCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCommunicationMethodsEntDetailsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    communicationMethodsEntDetailsCriteria?: PostCommunicationMethodsEntDetailsRequest;
+export interface PostCommunicationMethodsEntDetailsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    communicationMethodsEntDetailsCriteria: CommunicationMethodsEntDetailsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCorporateBusinessUnitsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateBusinessUnitsCriteria?: PostCorporateBusinessUnitsRequest;
+export interface PostCorporateBusinessUnitsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateBusinessUnitsCriteria: CorporateBusinessUnitsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCorporateDepartmentCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateDepartmentCodesCriteria?: PostCorporateDepartmentCodesRequest;
+export interface PostCorporateDepartmentCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateDepartmentCodesCriteria: CorporateDepartmentCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCorporateDivisionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateDivisionsCriteria?: PostCorporateDivisionsRequest;
+export interface PostCorporateDivisionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateDivisionsCriteria: CorporateDivisionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCorporateOperatingUnitsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    corporateOperatingUnitsCriteria?: PostCorporateOperatingUnitsRequest;
+export interface PostCorporateOperatingUnitsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    corporateOperatingUnitsCriteria: CorporateOperatingUnitsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCountryGuestTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    countryGuestTypesCriteria?: PostCountryGuestTypesRequest;
+export interface PostCountryGuestTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    countryGuestTypesCriteria: CountryGuestTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCountryMainGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    countryMainGroupsCriteria?: PostCountryMainGroupsRequest;
+export interface PostCountryMainGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    countryMainGroupsCriteria: CountryMainGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostHotelCategoriesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelCategoriesCriteria?: PostHotelCategoriesRequest;
+export interface PostHotelCategoriesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelCategoriesCriteria: HotelCategoriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostMarketingRegionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketingRegionsCriteria?: PostMarketingRegionsRequest;
+export interface PostMarketingRegionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketingRegionsCriteria: MarketingRegionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostNoteTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    noteTypesCriteria?: PostNoteTypesRequest;
+export interface PostNoteTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    noteTypesCriteria: NoteTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostPropertyDetailCategoriesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyDetailCategoriesCriteria?: PostPropertyDetailCategoriesRequest;
+export interface PostPropertyDetailCategoriesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyDetailCategoriesCriteria: PropertyDetailCategoriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostPropertyTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyTypesCriteria?: PostPropertyTypesRequest;
+export interface PostPropertyTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyTypesCriteria: PropertyTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRegionsCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    regionsCodeCriteria?: PostRegionsCodeRequest;
+export interface PostRegionsCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    regionsCodeCriteria: RegionsCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRoomAmenitiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomAmenitiesCriteria?: PostRoomAmenitiesRequest;
+export interface PostRoomAmenitiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomAmenitiesCriteria: RoomAmenitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCodesCriteria?: PostTemplateCodesRequest;
+export interface PostTemplateCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCodesCriteria: TemplateCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostUserDefinedFieldGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    userDefinedFieldGroupsCriteria?: PostUserDefinedFieldGroupsRequest;
+export interface PostUserDefinedFieldGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    userDefinedFieldGroupsCriteria: UserDefinedFieldGroupsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostUserDefinedFieldValuesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    userDefinedFieldValuesCriteria?: PostUserDefinedFieldValuesRequest;
+export interface PostUserDefinedFieldValuesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    userDefinedFieldValuesCriteria: UserDefinedFieldValuesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutAttractionClassesOperationRequest {
-    attractionClassCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attractionClassesToBeChanged?: PutAttractionClassesRequest;
+export interface PutAttractionClassesRequest {
+    attractionClassCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attractionClassesToBeChanged: AttractionClassesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutChainOperationRequest {
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    chainToBeChanged?: PutChainRequest;
+export interface PutChainRequest {
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    chainToBeChanged: ChainToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutCommunicationMethodsEntDetailsOperationRequest {
-    communicationMethodsEntDetailsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    communicationMethodsEntDetailsToBeChanged?: PutCommunicationMethodsEntDetailsRequest;
+export interface PutCommunicationMethodsEntDetailsRequest {
+    communicationMethodsEntDetailsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    communicationMethodsEntDetailsToBeChanged: CommunicationMethodsEntDetailsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutMarketingRegionsOperationRequest {
-    marketingRegionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketingRegionsToBeChanged?: PutMarketingRegionsRequest;
+export interface PutMarketingRegionsRequest {
+    marketingRegionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketingRegionsToBeChanged: MarketingRegionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutPropertyTypesOperationRequest {
-    propertyTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    propertyTypesToBeChanged?: PutPropertyTypesRequest;
+export interface PutPropertyTypesRequest {
+    propertyTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    propertyTypesToBeChanged: PropertyTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutRoomAmenitiesOperationRequest {
-    roomAmenitiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomAmenitiesToBeChanged?: PutRoomAmenitiesRequest;
+export interface PutRoomAmenitiesRequest {
+    roomAmenitiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomAmenitiesToBeChanged: RoomAmenitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveBrandCodesRequest {
-    brandCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    brandCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     brandCodesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCorporateBusinessUnitsRequest {
-    businessUnitCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    businessUnitCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     corporateBusinessUnitsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCorporateDepartmentCodesRequest {
-    departmentCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    departmentCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCorporateDivisionsRequest {
-    divisionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    divisionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     corporateDivisionsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCorporateOperatingUnitsRequest {
-    operatingUnitCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    operatingUnitCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     corporateOperatingUnitsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCountryGuestTypesRequest {
-    guestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     countryGuestTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCountryMainGroupsRequest {
-    groupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    groupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     countryMainGroupsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveHotelCategoriesRequest {
-    categoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    categoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveNoteTypesRequest {
-    noteTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    noteTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     noteGroup?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemovePropertyDetailCategoriesRequest {
-    categoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    categoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     propertyDetailCategoriesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveRegionsCodeRequest {
-    regionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    regionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateCodesRequest {
-    code?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveUserDefinedFieldGroupsRequest {
-    udfGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    udfGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveUserDefinedFieldValuesRequest {
-    udfValue?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    udfValue: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     groupCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1034,7 +1034,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update brand codes based on brandCode, brandCodesToBeChanged. Brand codes are used for different hotel brands within a hotel corporation. <p><strong>OperationId:</strong>changeBrandCodes</p>
      * Change Brand Code
      */
-    async changeBrandCodesRaw(requestParameters: ChangeBrandCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeBrandCodesRaw(requestParameters: ChangeBrandCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.brandCode === null || requestParameters.brandCode === undefined) {
+            throw new runtime.RequiredError('brandCode','Required parameter requestParameters.brandCode was null or undefined when calling changeBrandCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeBrandCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeBrandCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeBrandCodes.');
+        }
+
+        if (requestParameters.brandCodesToBeChanged === null || requestParameters.brandCodesToBeChanged === undefined) {
+            throw new runtime.RequiredError('brandCodesToBeChanged','Required parameter requestParameters.brandCodesToBeChanged was null or undefined when calling changeBrandCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1066,7 +1086,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeBrandCodesRequestToJSON(requestParameters.brandCodesToBeChanged),
+            body: BrandCodesToBeChangedToJSON(requestParameters.brandCodesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1076,7 +1096,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update brand codes based on brandCode, brandCodesToBeChanged. Brand codes are used for different hotel brands within a hotel corporation. <p><strong>OperationId:</strong>changeBrandCodes</p>
      * Change Brand Code
      */
-    async changeBrandCodes(requestParameters: ChangeBrandCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeBrandCodes(requestParameters: ChangeBrandCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeBrandCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1085,7 +1105,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Corporate Business Units based on businessUnitCode, corporateBusinessUnitsToBeChanged. <p><strong>OperationId:</strong>changeCorporateBusinessUnits</p>
      * Change Corporate Business Units
      */
-    async changeCorporateBusinessUnitsRaw(requestParameters: ChangeCorporateBusinessUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCorporateBusinessUnitsRaw(requestParameters: ChangeCorporateBusinessUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.businessUnitCode === null || requestParameters.businessUnitCode === undefined) {
+            throw new runtime.RequiredError('businessUnitCode','Required parameter requestParameters.businessUnitCode was null or undefined when calling changeCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.corporateBusinessUnitsToBeChanged === null || requestParameters.corporateBusinessUnitsToBeChanged === undefined) {
+            throw new runtime.RequiredError('corporateBusinessUnitsToBeChanged','Required parameter requestParameters.corporateBusinessUnitsToBeChanged was null or undefined when calling changeCorporateBusinessUnits.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1117,7 +1157,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCorporateBusinessUnitsRequestToJSON(requestParameters.corporateBusinessUnitsToBeChanged),
+            body: CorporateBusinessUnitsToBeChangedToJSON(requestParameters.corporateBusinessUnitsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1127,7 +1167,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Corporate Business Units based on businessUnitCode, corporateBusinessUnitsToBeChanged. <p><strong>OperationId:</strong>changeCorporateBusinessUnits</p>
      * Change Corporate Business Units
      */
-    async changeCorporateBusinessUnits(requestParameters: ChangeCorporateBusinessUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCorporateBusinessUnits(requestParameters: ChangeCorporateBusinessUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCorporateBusinessUnitsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1136,7 +1176,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update corporate department codes based on departmentCode, corporateDepartmentCodesToBeChanged. <p><strong>OperationId:</strong>changeCorporateDepartmentCodes</p>
      * Change Corporate Department Codes
      */
-    async changeCorporateDepartmentCodesRaw(requestParameters: ChangeCorporateDepartmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCorporateDepartmentCodesRaw(requestParameters: ChangeCorporateDepartmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.departmentCode === null || requestParameters.departmentCode === undefined) {
+            throw new runtime.RequiredError('departmentCode','Required parameter requestParameters.departmentCode was null or undefined when calling changeCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.corporateDepartmentCodesToBeChanged === null || requestParameters.corporateDepartmentCodesToBeChanged === undefined) {
+            throw new runtime.RequiredError('corporateDepartmentCodesToBeChanged','Required parameter requestParameters.corporateDepartmentCodesToBeChanged was null or undefined when calling changeCorporateDepartmentCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1168,7 +1228,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCorporateDepartmentCodesRequestToJSON(requestParameters.corporateDepartmentCodesToBeChanged),
+            body: CorporateDepartmentCodesToBeChangedToJSON(requestParameters.corporateDepartmentCodesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1178,7 +1238,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update corporate department codes based on departmentCode, corporateDepartmentCodesToBeChanged. <p><strong>OperationId:</strong>changeCorporateDepartmentCodes</p>
      * Change Corporate Department Codes
      */
-    async changeCorporateDepartmentCodes(requestParameters: ChangeCorporateDepartmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCorporateDepartmentCodes(requestParameters: ChangeCorporateDepartmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCorporateDepartmentCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1187,7 +1247,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update corporate divisions based on divisionCode, corporateDivisionsToBeChanged. <p><strong>OperationId:</strong>changeCorporateDivisions</p>
      * Change Corporate Divisions
      */
-    async changeCorporateDivisionsRaw(requestParameters: ChangeCorporateDivisionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCorporateDivisionsRaw(requestParameters: ChangeCorporateDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.divisionCode === null || requestParameters.divisionCode === undefined) {
+            throw new runtime.RequiredError('divisionCode','Required parameter requestParameters.divisionCode was null or undefined when calling changeCorporateDivisions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCorporateDivisions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCorporateDivisions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCorporateDivisions.');
+        }
+
+        if (requestParameters.corporateDivisionsToBeChanged === null || requestParameters.corporateDivisionsToBeChanged === undefined) {
+            throw new runtime.RequiredError('corporateDivisionsToBeChanged','Required parameter requestParameters.corporateDivisionsToBeChanged was null or undefined when calling changeCorporateDivisions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1219,7 +1299,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCorporateDivisionsRequestToJSON(requestParameters.corporateDivisionsToBeChanged),
+            body: CorporateDivisionsToBeChangedToJSON(requestParameters.corporateDivisionsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1229,7 +1309,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update corporate divisions based on divisionCode, corporateDivisionsToBeChanged. <p><strong>OperationId:</strong>changeCorporateDivisions</p>
      * Change Corporate Divisions
      */
-    async changeCorporateDivisions(requestParameters: ChangeCorporateDivisionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCorporateDivisions(requestParameters: ChangeCorporateDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCorporateDivisionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1238,7 +1318,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update corporate operating units based on operatingUnitCode, corporateOperatingUnitsToBeChanged. <p><strong>OperationId:</strong>changeCorporateOperatingUnits</p>
      * Change Corporate Operating Units
      */
-    async changeCorporateOperatingUnitsRaw(requestParameters: ChangeCorporateOperatingUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCorporateOperatingUnitsRaw(requestParameters: ChangeCorporateOperatingUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.operatingUnitCode === null || requestParameters.operatingUnitCode === undefined) {
+            throw new runtime.RequiredError('operatingUnitCode','Required parameter requestParameters.operatingUnitCode was null or undefined when calling changeCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.corporateOperatingUnitsToBeChanged === null || requestParameters.corporateOperatingUnitsToBeChanged === undefined) {
+            throw new runtime.RequiredError('corporateOperatingUnitsToBeChanged','Required parameter requestParameters.corporateOperatingUnitsToBeChanged was null or undefined when calling changeCorporateOperatingUnits.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1270,7 +1370,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCorporateOperatingUnitsRequestToJSON(requestParameters.corporateOperatingUnitsToBeChanged),
+            body: CorporateOperatingUnitsToBeChangedToJSON(requestParameters.corporateOperatingUnitsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1280,7 +1380,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update corporate operating units based on operatingUnitCode, corporateOperatingUnitsToBeChanged. <p><strong>OperationId:</strong>changeCorporateOperatingUnits</p>
      * Change Corporate Operating Units
      */
-    async changeCorporateOperatingUnits(requestParameters: ChangeCorporateOperatingUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCorporateOperatingUnits(requestParameters: ChangeCorporateOperatingUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCorporateOperatingUnitsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1289,7 +1389,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update country guest types based on guestTypeCode, countryGuestTypesToBeChanged. <p><strong>OperationId:</strong>changeCountryGuestTypes</p>
      * Change Country Guest Types
      */
-    async changeCountryGuestTypesRaw(requestParameters: ChangeCountryGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCountryGuestTypesRaw(requestParameters: ChangeCountryGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.guestTypeCode === null || requestParameters.guestTypeCode === undefined) {
+            throw new runtime.RequiredError('guestTypeCode','Required parameter requestParameters.guestTypeCode was null or undefined when calling changeCountryGuestTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCountryGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCountryGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCountryGuestTypes.');
+        }
+
+        if (requestParameters.countryGuestTypesToBeChanged === null || requestParameters.countryGuestTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('countryGuestTypesToBeChanged','Required parameter requestParameters.countryGuestTypesToBeChanged was null or undefined when calling changeCountryGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1321,7 +1441,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCountryGuestTypesRequestToJSON(requestParameters.countryGuestTypesToBeChanged),
+            body: CountryGuestTypesToBeChangedToJSON(requestParameters.countryGuestTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1331,7 +1451,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update country guest types based on guestTypeCode, countryGuestTypesToBeChanged. <p><strong>OperationId:</strong>changeCountryGuestTypes</p>
      * Change Country Guest Types
      */
-    async changeCountryGuestTypes(requestParameters: ChangeCountryGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCountryGuestTypes(requestParameters: ChangeCountryGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCountryGuestTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1340,7 +1460,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update country main groups based on groupCode, countryMainGroupsToBeChanged. <p><strong>OperationId:</strong>changeCountryMainGroups</p>
      * Change Country Main Groups
      */
-    async changeCountryMainGroupsRaw(requestParameters: ChangeCountryMainGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCountryMainGroupsRaw(requestParameters: ChangeCountryMainGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.groupCode === null || requestParameters.groupCode === undefined) {
+            throw new runtime.RequiredError('groupCode','Required parameter requestParameters.groupCode was null or undefined when calling changeCountryMainGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCountryMainGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCountryMainGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCountryMainGroups.');
+        }
+
+        if (requestParameters.countryMainGroupsToBeChanged === null || requestParameters.countryMainGroupsToBeChanged === undefined) {
+            throw new runtime.RequiredError('countryMainGroupsToBeChanged','Required parameter requestParameters.countryMainGroupsToBeChanged was null or undefined when calling changeCountryMainGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1372,7 +1512,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCountryMainGroupsRequestToJSON(requestParameters.countryMainGroupsToBeChanged),
+            body: CountryMainGroupsToBeChangedToJSON(requestParameters.countryMainGroupsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1382,7 +1522,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update country main groups based on groupCode, countryMainGroupsToBeChanged. <p><strong>OperationId:</strong>changeCountryMainGroups</p>
      * Change Country Main Groups
      */
-    async changeCountryMainGroups(requestParameters: ChangeCountryMainGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCountryMainGroups(requestParameters: ChangeCountryMainGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCountryMainGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1391,7 +1531,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update hotel categories based on categoryCode, hotelCategoriesToBeChanged. <p><strong>OperationId:</strong>changeHotelCategories</p>
      * Change Hotel Categories
      */
-    async changeHotelCategoriesRaw(requestParameters: ChangeHotelCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeHotelCategoriesRaw(requestParameters: ChangeHotelCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.categoryCode === null || requestParameters.categoryCode === undefined) {
+            throw new runtime.RequiredError('categoryCode','Required parameter requestParameters.categoryCode was null or undefined when calling changeHotelCategories.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeHotelCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeHotelCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeHotelCategories.');
+        }
+
+        if (requestParameters.hotelCategoriesToBeChanged === null || requestParameters.hotelCategoriesToBeChanged === undefined) {
+            throw new runtime.RequiredError('hotelCategoriesToBeChanged','Required parameter requestParameters.hotelCategoriesToBeChanged was null or undefined when calling changeHotelCategories.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1423,7 +1583,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeHotelCategoriesRequestToJSON(requestParameters.hotelCategoriesToBeChanged),
+            body: HotelCategoriesToBeChangedToJSON(requestParameters.hotelCategoriesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1433,7 +1593,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update hotel categories based on categoryCode, hotelCategoriesToBeChanged. <p><strong>OperationId:</strong>changeHotelCategories</p>
      * Change Hotel Categories
      */
-    async changeHotelCategories(requestParameters: ChangeHotelCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeHotelCategories(requestParameters: ChangeHotelCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeHotelCategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1442,7 +1602,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update note types based on noteTypeCode, noteTypesToBeChanged. <p><strong>OperationId:</strong>changeNoteTypes</p>
      * Change Note Types
      */
-    async changeNoteTypesRaw(requestParameters: ChangeNoteTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeNoteTypesRaw(requestParameters: ChangeNoteTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.noteTypeCode === null || requestParameters.noteTypeCode === undefined) {
+            throw new runtime.RequiredError('noteTypeCode','Required parameter requestParameters.noteTypeCode was null or undefined when calling changeNoteTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeNoteTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeNoteTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeNoteTypes.');
+        }
+
+        if (requestParameters.noteTypesToBeChanged === null || requestParameters.noteTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('noteTypesToBeChanged','Required parameter requestParameters.noteTypesToBeChanged was null or undefined when calling changeNoteTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1474,7 +1654,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeNoteTypesRequestToJSON(requestParameters.noteTypesToBeChanged),
+            body: NoteTypesToBeChangedToJSON(requestParameters.noteTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1484,7 +1664,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update note types based on noteTypeCode, noteTypesToBeChanged. <p><strong>OperationId:</strong>changeNoteTypes</p>
      * Change Note Types
      */
-    async changeNoteTypes(requestParameters: ChangeNoteTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeNoteTypes(requestParameters: ChangeNoteTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeNoteTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1493,7 +1673,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update property detail categories based on categoryCode, propertyDetailCategoriesToBeChanged. <p><strong>OperationId:</strong>changePropertyDetailCategories</p>
      * Change Property Detail Categories
      */
-    async changePropertyDetailCategoriesRaw(requestParameters: ChangePropertyDetailCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changePropertyDetailCategoriesRaw(requestParameters: ChangePropertyDetailCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.categoryCode === null || requestParameters.categoryCode === undefined) {
+            throw new runtime.RequiredError('categoryCode','Required parameter requestParameters.categoryCode was null or undefined when calling changePropertyDetailCategories.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changePropertyDetailCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changePropertyDetailCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changePropertyDetailCategories.');
+        }
+
+        if (requestParameters.propertyDetailCategoriesToBeChanged === null || requestParameters.propertyDetailCategoriesToBeChanged === undefined) {
+            throw new runtime.RequiredError('propertyDetailCategoriesToBeChanged','Required parameter requestParameters.propertyDetailCategoriesToBeChanged was null or undefined when calling changePropertyDetailCategories.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1525,7 +1725,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangePropertyDetailCategoriesRequestToJSON(requestParameters.propertyDetailCategoriesToBeChanged),
+            body: PropertyDetailCategoriesToBeChangedToJSON(requestParameters.propertyDetailCategoriesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1535,7 +1735,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update property detail categories based on categoryCode, propertyDetailCategoriesToBeChanged. <p><strong>OperationId:</strong>changePropertyDetailCategories</p>
      * Change Property Detail Categories
      */
-    async changePropertyDetailCategories(requestParameters: ChangePropertyDetailCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changePropertyDetailCategories(requestParameters: ChangePropertyDetailCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changePropertyDetailCategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1544,7 +1744,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update region codes based on regionCode, regionsCodeToBeChanged. <p><strong>OperationId:</strong>changeRegionsCode</p>
      * Change Regions Code
      */
-    async changeRegionsCodeRaw(requestParameters: ChangeRegionsCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeRegionsCodeRaw(requestParameters: ChangeRegionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.regionCode === null || requestParameters.regionCode === undefined) {
+            throw new runtime.RequiredError('regionCode','Required parameter requestParameters.regionCode was null or undefined when calling changeRegionsCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeRegionsCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeRegionsCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeRegionsCode.');
+        }
+
+        if (requestParameters.regionsCodeToBeChanged === null || requestParameters.regionsCodeToBeChanged === undefined) {
+            throw new runtime.RequiredError('regionsCodeToBeChanged','Required parameter requestParameters.regionsCodeToBeChanged was null or undefined when calling changeRegionsCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1576,7 +1796,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeRegionsCodeRequestToJSON(requestParameters.regionsCodeToBeChanged),
+            body: RegionsCodeToBeChangedToJSON(requestParameters.regionsCodeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1586,7 +1806,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update region codes based on regionCode, regionsCodeToBeChanged. <p><strong>OperationId:</strong>changeRegionsCode</p>
      * Change Regions Code
      */
-    async changeRegionsCode(requestParameters: ChangeRegionsCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeRegionsCode(requestParameters: ChangeRegionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeRegionsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1595,7 +1815,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update template codes based on code, templateCodesToBeChanged. <p><strong>OperationId:</strong>changeTemplateCodes</p>
      * Change Template Codes
      */
-    async changeTemplateCodesRaw(requestParameters: ChangeTemplateCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateCodesRaw(requestParameters: ChangeTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.code === null || requestParameters.code === undefined) {
+            throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling changeTemplateCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateCodes.');
+        }
+
+        if (requestParameters.templateCodesToBeChanged === null || requestParameters.templateCodesToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateCodesToBeChanged','Required parameter requestParameters.templateCodesToBeChanged was null or undefined when calling changeTemplateCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1627,7 +1867,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateCodesRequestToJSON(requestParameters.templateCodesToBeChanged),
+            body: TemplateCodesToBeChangedToJSON(requestParameters.templateCodesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1637,7 +1877,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update template codes based on code, templateCodesToBeChanged. <p><strong>OperationId:</strong>changeTemplateCodes</p>
      * Change Template Codes
      */
-    async changeTemplateCodes(requestParameters: ChangeTemplateCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateCodes(requestParameters: ChangeTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1646,7 +1886,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update user defined field groups based on udfGroupCode, userDefinedFieldGroupsToBeChanged. <p><strong>OperationId:</strong>changeUserDefinedFieldGroups</p>
      * Change User Defined Field Groups
      */
-    async changeUserDefinedFieldGroupsRaw(requestParameters: ChangeUserDefinedFieldGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeUserDefinedFieldGroupsRaw(requestParameters: ChangeUserDefinedFieldGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.udfGroupCode === null || requestParameters.udfGroupCode === undefined) {
+            throw new runtime.RequiredError('udfGroupCode','Required parameter requestParameters.udfGroupCode was null or undefined when calling changeUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.userDefinedFieldGroupsToBeChanged === null || requestParameters.userDefinedFieldGroupsToBeChanged === undefined) {
+            throw new runtime.RequiredError('userDefinedFieldGroupsToBeChanged','Required parameter requestParameters.userDefinedFieldGroupsToBeChanged was null or undefined when calling changeUserDefinedFieldGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1678,7 +1938,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeUserDefinedFieldGroupsRequestToJSON(requestParameters.userDefinedFieldGroupsToBeChanged),
+            body: UserDefinedFieldGroupsToBeChangedToJSON(requestParameters.userDefinedFieldGroupsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1688,7 +1948,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update user defined field groups based on udfGroupCode, userDefinedFieldGroupsToBeChanged. <p><strong>OperationId:</strong>changeUserDefinedFieldGroups</p>
      * Change User Defined Field Groups
      */
-    async changeUserDefinedFieldGroups(requestParameters: ChangeUserDefinedFieldGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeUserDefinedFieldGroups(requestParameters: ChangeUserDefinedFieldGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeUserDefinedFieldGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1697,7 +1957,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update user defined field values based on udfValue, userDefinedFieldValuesToBeChanged. The LOV group and LOV values functionality allows a property create a custom group of values to be used in a specified user defined field (UDF). This functionality provides added flexibility in allowing a site to track information or details that are specific to their business and outside of the standard fields offered in the OPERA Cloud. <p><strong>OperationId:</strong>changeUserDefinedFieldValues</p>
      * Change a User Defined Field Value 
      */
-    async changeUserDefinedFieldValuesRaw(requestParameters: ChangeUserDefinedFieldValuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeUserDefinedFieldValuesRaw(requestParameters: ChangeUserDefinedFieldValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.udfValue === null || requestParameters.udfValue === undefined) {
+            throw new runtime.RequiredError('udfValue','Required parameter requestParameters.udfValue was null or undefined when calling changeUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.userDefinedFieldValuesToBeChanged === null || requestParameters.userDefinedFieldValuesToBeChanged === undefined) {
+            throw new runtime.RequiredError('userDefinedFieldValuesToBeChanged','Required parameter requestParameters.userDefinedFieldValuesToBeChanged was null or undefined when calling changeUserDefinedFieldValues.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1729,7 +2009,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeUserDefinedFieldValuesRequestToJSON(requestParameters.userDefinedFieldValuesToBeChanged),
+            body: UserDefinedFieldValuesToBeChangedToJSON(requestParameters.userDefinedFieldValuesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1739,7 +2019,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update user defined field values based on udfValue, userDefinedFieldValuesToBeChanged. The LOV group and LOV values functionality allows a property create a custom group of values to be used in a specified user defined field (UDF). This functionality provides added flexibility in allowing a site to track information or details that are specific to their business and outside of the standard fields offered in the OPERA Cloud. <p><strong>OperationId:</strong>changeUserDefinedFieldValues</p>
      * Change a User Defined Field Value 
      */
-    async changeUserDefinedFieldValues(requestParameters: ChangeUserDefinedFieldValuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeUserDefinedFieldValues(requestParameters: ChangeUserDefinedFieldValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeUserDefinedFieldValuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1749,6 +2029,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Attraction Classes
      */
     async deleteAttractionClassesRaw(requestParameters: DeleteAttractionClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.attractionClassCode === null || requestParameters.attractionClassCode === undefined) {
+            throw new runtime.RequiredError('attractionClassCode','Required parameter requestParameters.attractionClassCode was null or undefined when calling deleteAttractionClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAttractionClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAttractionClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAttractionClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1797,6 +2093,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Communication Methods Ent Details
      */
     async deleteCommunicationMethodsEntDetailsRaw(requestParameters: DeleteCommunicationMethodsEntDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.communicationMethodsEntDetailsId === null || requestParameters.communicationMethodsEntDetailsId === undefined) {
+            throw new runtime.RequiredError('communicationMethodsEntDetailsId','Required parameter requestParameters.communicationMethodsEntDetailsId was null or undefined when calling deleteCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCommunicationMethodsEntDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.communicationMethodsEntDetailsCodes) {
@@ -1849,6 +2161,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Marketing Regions
      */
     async deleteMarketingRegionsRaw(requestParameters: DeleteMarketingRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketingRegionCode === null || requestParameters.marketingRegionCode === undefined) {
+            throw new runtime.RequiredError('marketingRegionCode','Required parameter requestParameters.marketingRegionCode was null or undefined when calling deleteMarketingRegions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteMarketingRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteMarketingRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteMarketingRegions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.marketingRegionsCodes) {
@@ -1901,6 +2229,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Property Types
      */
     async deletePropertyTypesRaw(requestParameters: DeletePropertyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.propertyTypeCode === null || requestParameters.propertyTypeCode === undefined) {
+            throw new runtime.RequiredError('propertyTypeCode','Required parameter requestParameters.propertyTypeCode was null or undefined when calling deletePropertyTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deletePropertyTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deletePropertyTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deletePropertyTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.propertyTypesCodes) {
@@ -1953,6 +2297,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Room Amenities
      */
     async deleteRoomAmenitiesRaw(requestParameters: DeleteRoomAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomAmenitiesId === null || requestParameters.roomAmenitiesId === undefined) {
+            throw new runtime.RequiredError('roomAmenitiesId','Required parameter requestParameters.roomAmenitiesId was null or undefined when calling deleteRoomAmenities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRoomAmenities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRoomAmenities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRoomAmenities.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.roomAmenitiesCodes) {
@@ -2005,6 +2365,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Attraction Classes
      */
     async getAttractionClassesRaw(requestParameters: GetAttractionClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttractionClassesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAttractionClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAttractionClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAttractionClasses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2069,6 +2441,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get brand codes
      */
     async getBrandCodesRaw(requestParameters: GetBrandCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BrandCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBrandCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBrandCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBrandCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2133,6 +2517,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Chains
      */
     async getChainRaw(requestParameters: GetChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChainDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChain.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChain.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChain.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.enforceSecurity !== undefined) {
@@ -2205,6 +2601,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Communication Methods Ent Details
      */
     async getCommunicationMethodsEntDetailsRaw(requestParameters: GetCommunicationMethodsEntDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommunicationMethodsEntDetailsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommunicationMethodsEntDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2269,6 +2677,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Corporate Business Units
      */
     async getCorporateBusinessUnitsRaw(requestParameters: GetCorporateBusinessUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CorporateBusinessUnitsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCorporateBusinessUnits.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2333,6 +2753,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Corporate Department Codes
      */
     async getCorporateDepartmentCodesRaw(requestParameters: GetCorporateDepartmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CorporateDepartmentCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCorporateDepartmentCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2397,6 +2829,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Corporate Divisions
      */
     async getCorporateDivisionsRaw(requestParameters: GetCorporateDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CorporateDivisionsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCorporateDivisions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCorporateDivisions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCorporateDivisions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2461,6 +2905,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Corporate Operating Units
      */
     async getCorporateOperatingUnitsRaw(requestParameters: GetCorporateOperatingUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CorporateOperatingUnitsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCorporateOperatingUnits.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2525,6 +2981,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Country Guest Types
      */
     async getCountryGuestTypesRaw(requestParameters: GetCountryGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryGuestTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCountryGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCountryGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCountryGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2589,6 +3057,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Country Main Groups
      */
     async getCountryMainGroupsRaw(requestParameters: GetCountryMainGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CountryMainGroupsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCountryMainGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCountryMainGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCountryMainGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2653,6 +3133,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Default Note text
      */
     async getDefaultNoteRaw(requestParameters: GetDefaultNoteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DefaultNoteDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDefaultNote.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDefaultNote.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDefaultNote.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -2713,6 +3205,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Hotel Categories
      */
     async getHotelCategoriesRaw(requestParameters: GetHotelCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelCategoriesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelCategories.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2777,6 +3281,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get marketing cities by region
      */
     async getMarketingCitiesByRegionRaw(requestParameters: GetMarketingCitiesByRegionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MarketingCitiesByRegionDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMarketingCitiesByRegion.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMarketingCitiesByRegion.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMarketingCitiesByRegion.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.regionCode !== undefined) {
@@ -2833,6 +3349,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Marketing Regions
      */
     async getMarketingRegionsRaw(requestParameters: GetMarketingRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MarketingRegionsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMarketingRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMarketingRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getMarketingRegions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2897,6 +3425,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Note Types
      */
     async getNoteTypesRaw(requestParameters: GetNoteTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NoteTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getNoteTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getNoteTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getNoteTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.noteGroup !== undefined) {
@@ -2965,6 +3505,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Property Detail Categories
      */
     async getPropertyDetailCategoriesRaw(requestParameters: GetPropertyDetailCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PropertyDetailCategoriesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPropertyDetailCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPropertyDetailCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPropertyDetailCategories.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3029,6 +3581,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get property types
      */
     async getPropertyTypesRaw(requestParameters: GetPropertyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PropertyTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPropertyTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPropertyTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getPropertyTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3093,6 +3657,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Regions Code
      */
     async getRegionsCodeRaw(requestParameters: GetRegionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RegionsCodeDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRegionsCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRegionsCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRegionsCode.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3157,6 +3733,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get Room Amenities
      */
     async getRoomAmenitiesRaw(requestParameters: GetRoomAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomAmenitiesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRoomAmenities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRoomAmenities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRoomAmenities.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3221,6 +3809,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      *  Get Template Codes
      */
     async getTemplateCodesRaw(requestParameters: GetTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3285,6 +3885,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get User Defined Field Groups
      */
     async getUserDefinedFieldGroupsRaw(requestParameters: GetUserDefinedFieldGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserDefinedFieldGroupsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUserDefinedFieldGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.groupCodes) {
@@ -3341,6 +3953,18 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Get user defined field (UDF) values
      */
     async getUserDefinedFieldValuesRaw(requestParameters: GetUserDefinedFieldValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserDefinedFieldValuesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getUserDefinedFieldValues.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.groupCode !== undefined) {
@@ -3400,7 +4024,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Attraction Classes. <p><strong>OperationId:</strong>postAttractionClasses</p>
      * Create Attraction Classes
      */
-    async postAttractionClassesRaw(requestParameters: PostAttractionClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAttractionClassesRaw(requestParameters: PostAttractionClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAttractionClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAttractionClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAttractionClasses.');
+        }
+
+        if (requestParameters.attractionClassesCriteria === null || requestParameters.attractionClassesCriteria === undefined) {
+            throw new runtime.RequiredError('attractionClassesCriteria','Required parameter requestParameters.attractionClassesCriteria was null or undefined when calling postAttractionClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3432,7 +4072,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAttractionClassesRequestToJSON(requestParameters.attractionClassesCriteria),
+            body: AttractionClassesCriteriaToJSON(requestParameters.attractionClassesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3442,7 +4082,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Attraction Classes. <p><strong>OperationId:</strong>postAttractionClasses</p>
      * Create Attraction Classes
      */
-    async postAttractionClasses(requestParameters: PostAttractionClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAttractionClasses(requestParameters: PostAttractionClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAttractionClassesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3451,7 +4091,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Brand Codes. <p><strong>OperationId:</strong>postBrandCodes</p>
      * Create Brand Codes
      */
-    async postBrandCodesRaw(requestParameters: PostBrandCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postBrandCodesRaw(requestParameters: PostBrandCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postBrandCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postBrandCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postBrandCodes.');
+        }
+
+        if (requestParameters.brandCodesCriteria === null || requestParameters.brandCodesCriteria === undefined) {
+            throw new runtime.RequiredError('brandCodesCriteria','Required parameter requestParameters.brandCodesCriteria was null or undefined when calling postBrandCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3483,7 +4139,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostBrandCodesRequestToJSON(requestParameters.brandCodesCriteria),
+            body: BrandCodesCriteriaToJSON(requestParameters.brandCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3493,7 +4149,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Brand Codes. <p><strong>OperationId:</strong>postBrandCodes</p>
      * Create Brand Codes
      */
-    async postBrandCodes(requestParameters: PostBrandCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postBrandCodes(requestParameters: PostBrandCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postBrandCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3502,7 +4158,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Communication Methods Ent Details. <p><strong>OperationId:</strong>postCommunicationMethodsEntDetails</p>
      * Create Communication Methods Ent Details
      */
-    async postCommunicationMethodsEntDetailsRaw(requestParameters: PostCommunicationMethodsEntDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCommunicationMethodsEntDetailsRaw(requestParameters: PostCommunicationMethodsEntDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.communicationMethodsEntDetailsCriteria === null || requestParameters.communicationMethodsEntDetailsCriteria === undefined) {
+            throw new runtime.RequiredError('communicationMethodsEntDetailsCriteria','Required parameter requestParameters.communicationMethodsEntDetailsCriteria was null or undefined when calling postCommunicationMethodsEntDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3534,7 +4206,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCommunicationMethodsEntDetailsRequestToJSON(requestParameters.communicationMethodsEntDetailsCriteria),
+            body: CommunicationMethodsEntDetailsCriteriaToJSON(requestParameters.communicationMethodsEntDetailsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3544,7 +4216,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Communication Methods Ent Details. <p><strong>OperationId:</strong>postCommunicationMethodsEntDetails</p>
      * Create Communication Methods Ent Details
      */
-    async postCommunicationMethodsEntDetails(requestParameters: PostCommunicationMethodsEntDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCommunicationMethodsEntDetails(requestParameters: PostCommunicationMethodsEntDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCommunicationMethodsEntDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3553,7 +4225,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Business Units. <p><strong>OperationId:</strong>postCorporateBusinessUnits</p>
      * Create Corporate Business Units
      */
-    async postCorporateBusinessUnitsRaw(requestParameters: PostCorporateBusinessUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCorporateBusinessUnitsRaw(requestParameters: PostCorporateBusinessUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.corporateBusinessUnitsCriteria === null || requestParameters.corporateBusinessUnitsCriteria === undefined) {
+            throw new runtime.RequiredError('corporateBusinessUnitsCriteria','Required parameter requestParameters.corporateBusinessUnitsCriteria was null or undefined when calling postCorporateBusinessUnits.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3585,7 +4273,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCorporateBusinessUnitsRequestToJSON(requestParameters.corporateBusinessUnitsCriteria),
+            body: CorporateBusinessUnitsCriteriaToJSON(requestParameters.corporateBusinessUnitsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3595,7 +4283,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Business Units. <p><strong>OperationId:</strong>postCorporateBusinessUnits</p>
      * Create Corporate Business Units
      */
-    async postCorporateBusinessUnits(requestParameters: PostCorporateBusinessUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCorporateBusinessUnits(requestParameters: PostCorporateBusinessUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCorporateBusinessUnitsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3604,7 +4292,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Department Codes. <p><strong>OperationId:</strong>postCorporateDepartmentCodes</p>
      * Create Corporate Department Codes
      */
-    async postCorporateDepartmentCodesRaw(requestParameters: PostCorporateDepartmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCorporateDepartmentCodesRaw(requestParameters: PostCorporateDepartmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.corporateDepartmentCodesCriteria === null || requestParameters.corporateDepartmentCodesCriteria === undefined) {
+            throw new runtime.RequiredError('corporateDepartmentCodesCriteria','Required parameter requestParameters.corporateDepartmentCodesCriteria was null or undefined when calling postCorporateDepartmentCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3636,7 +4340,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCorporateDepartmentCodesRequestToJSON(requestParameters.corporateDepartmentCodesCriteria),
+            body: CorporateDepartmentCodesCriteriaToJSON(requestParameters.corporateDepartmentCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3646,7 +4350,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Department Codes. <p><strong>OperationId:</strong>postCorporateDepartmentCodes</p>
      * Create Corporate Department Codes
      */
-    async postCorporateDepartmentCodes(requestParameters: PostCorporateDepartmentCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCorporateDepartmentCodes(requestParameters: PostCorporateDepartmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCorporateDepartmentCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3655,7 +4359,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Divisions. <p><strong>OperationId:</strong>postCorporateDivisions</p>
      * Create Corporate Divisions
      */
-    async postCorporateDivisionsRaw(requestParameters: PostCorporateDivisionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCorporateDivisionsRaw(requestParameters: PostCorporateDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCorporateDivisions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCorporateDivisions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCorporateDivisions.');
+        }
+
+        if (requestParameters.corporateDivisionsCriteria === null || requestParameters.corporateDivisionsCriteria === undefined) {
+            throw new runtime.RequiredError('corporateDivisionsCriteria','Required parameter requestParameters.corporateDivisionsCriteria was null or undefined when calling postCorporateDivisions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3687,7 +4407,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCorporateDivisionsRequestToJSON(requestParameters.corporateDivisionsCriteria),
+            body: CorporateDivisionsCriteriaToJSON(requestParameters.corporateDivisionsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3697,7 +4417,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Divisions. <p><strong>OperationId:</strong>postCorporateDivisions</p>
      * Create Corporate Divisions
      */
-    async postCorporateDivisions(requestParameters: PostCorporateDivisionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCorporateDivisions(requestParameters: PostCorporateDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCorporateDivisionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3706,7 +4426,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Operating Units. <p><strong>OperationId:</strong>postCorporateOperatingUnits</p>
      * Create Corporate Operating Units
      */
-    async postCorporateOperatingUnitsRaw(requestParameters: PostCorporateOperatingUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCorporateOperatingUnitsRaw(requestParameters: PostCorporateOperatingUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.corporateOperatingUnitsCriteria === null || requestParameters.corporateOperatingUnitsCriteria === undefined) {
+            throw new runtime.RequiredError('corporateOperatingUnitsCriteria','Required parameter requestParameters.corporateOperatingUnitsCriteria was null or undefined when calling postCorporateOperatingUnits.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3738,7 +4474,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCorporateOperatingUnitsRequestToJSON(requestParameters.corporateOperatingUnitsCriteria),
+            body: CorporateOperatingUnitsCriteriaToJSON(requestParameters.corporateOperatingUnitsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3748,7 +4484,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Corporate Operating Units. <p><strong>OperationId:</strong>postCorporateOperatingUnits</p>
      * Create Corporate Operating Units
      */
-    async postCorporateOperatingUnits(requestParameters: PostCorporateOperatingUnitsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCorporateOperatingUnits(requestParameters: PostCorporateOperatingUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCorporateOperatingUnitsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3757,7 +4493,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Country Guest Types. <p><strong>OperationId:</strong>postCountryGuestTypes</p>
      * Create Country Guest Types
      */
-    async postCountryGuestTypesRaw(requestParameters: PostCountryGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCountryGuestTypesRaw(requestParameters: PostCountryGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCountryGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCountryGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCountryGuestTypes.');
+        }
+
+        if (requestParameters.countryGuestTypesCriteria === null || requestParameters.countryGuestTypesCriteria === undefined) {
+            throw new runtime.RequiredError('countryGuestTypesCriteria','Required parameter requestParameters.countryGuestTypesCriteria was null or undefined when calling postCountryGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3789,7 +4541,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCountryGuestTypesRequestToJSON(requestParameters.countryGuestTypesCriteria),
+            body: CountryGuestTypesCriteriaToJSON(requestParameters.countryGuestTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3799,7 +4551,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Country Guest Types. <p><strong>OperationId:</strong>postCountryGuestTypes</p>
      * Create Country Guest Types
      */
-    async postCountryGuestTypes(requestParameters: PostCountryGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCountryGuestTypes(requestParameters: PostCountryGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCountryGuestTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3808,7 +4560,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Country Main Groups. <p><strong>OperationId:</strong>postCountryMainGroups</p>
      * Create Country Main Groups
      */
-    async postCountryMainGroupsRaw(requestParameters: PostCountryMainGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCountryMainGroupsRaw(requestParameters: PostCountryMainGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCountryMainGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCountryMainGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCountryMainGroups.');
+        }
+
+        if (requestParameters.countryMainGroupsCriteria === null || requestParameters.countryMainGroupsCriteria === undefined) {
+            throw new runtime.RequiredError('countryMainGroupsCriteria','Required parameter requestParameters.countryMainGroupsCriteria was null or undefined when calling postCountryMainGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3840,7 +4608,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCountryMainGroupsRequestToJSON(requestParameters.countryMainGroupsCriteria),
+            body: CountryMainGroupsCriteriaToJSON(requestParameters.countryMainGroupsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3850,7 +4618,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Country Main Groups. <p><strong>OperationId:</strong>postCountryMainGroups</p>
      * Create Country Main Groups
      */
-    async postCountryMainGroups(requestParameters: PostCountryMainGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCountryMainGroups(requestParameters: PostCountryMainGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCountryMainGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3859,7 +4627,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * . <p><strong>OperationId:</strong>postHotelCategories</p>
      * Create Hotel Categories
      */
-    async postHotelCategoriesRaw(requestParameters: PostHotelCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postHotelCategoriesRaw(requestParameters: PostHotelCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postHotelCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postHotelCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postHotelCategories.');
+        }
+
+        if (requestParameters.hotelCategoriesCriteria === null || requestParameters.hotelCategoriesCriteria === undefined) {
+            throw new runtime.RequiredError('hotelCategoriesCriteria','Required parameter requestParameters.hotelCategoriesCriteria was null or undefined when calling postHotelCategories.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3891,7 +4675,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostHotelCategoriesRequestToJSON(requestParameters.hotelCategoriesCriteria),
+            body: HotelCategoriesCriteriaToJSON(requestParameters.hotelCategoriesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3901,7 +4685,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * . <p><strong>OperationId:</strong>postHotelCategories</p>
      * Create Hotel Categories
      */
-    async postHotelCategories(requestParameters: PostHotelCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postHotelCategories(requestParameters: PostHotelCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postHotelCategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3910,7 +4694,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Marketing Regions. <p><strong>OperationId:</strong>postMarketingRegions</p>
      * Create Marketing Regions
      */
-    async postMarketingRegionsRaw(requestParameters: PostMarketingRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMarketingRegionsRaw(requestParameters: PostMarketingRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMarketingRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMarketingRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postMarketingRegions.');
+        }
+
+        if (requestParameters.marketingRegionsCriteria === null || requestParameters.marketingRegionsCriteria === undefined) {
+            throw new runtime.RequiredError('marketingRegionsCriteria','Required parameter requestParameters.marketingRegionsCriteria was null or undefined when calling postMarketingRegions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3942,7 +4742,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMarketingRegionsRequestToJSON(requestParameters.marketingRegionsCriteria),
+            body: MarketingRegionsCriteriaToJSON(requestParameters.marketingRegionsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -3952,7 +4752,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Marketing Regions. <p><strong>OperationId:</strong>postMarketingRegions</p>
      * Create Marketing Regions
      */
-    async postMarketingRegions(requestParameters: PostMarketingRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMarketingRegions(requestParameters: PostMarketingRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMarketingRegionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -3961,7 +4761,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Note Types. <p><strong>OperationId:</strong>postNoteTypes</p>
      * Create Note Types
      */
-    async postNoteTypesRaw(requestParameters: PostNoteTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postNoteTypesRaw(requestParameters: PostNoteTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postNoteTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postNoteTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postNoteTypes.');
+        }
+
+        if (requestParameters.noteTypesCriteria === null || requestParameters.noteTypesCriteria === undefined) {
+            throw new runtime.RequiredError('noteTypesCriteria','Required parameter requestParameters.noteTypesCriteria was null or undefined when calling postNoteTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3993,7 +4809,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostNoteTypesRequestToJSON(requestParameters.noteTypesCriteria),
+            body: NoteTypesCriteriaToJSON(requestParameters.noteTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4003,7 +4819,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Note Types. <p><strong>OperationId:</strong>postNoteTypes</p>
      * Create Note Types
      */
-    async postNoteTypes(requestParameters: PostNoteTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postNoteTypes(requestParameters: PostNoteTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postNoteTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4012,7 +4828,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Property Detail Categories. <p><strong>OperationId:</strong>postPropertyDetailCategories</p>
      * Create Property Detail Categories
      */
-    async postPropertyDetailCategoriesRaw(requestParameters: PostPropertyDetailCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postPropertyDetailCategoriesRaw(requestParameters: PostPropertyDetailCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPropertyDetailCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPropertyDetailCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPropertyDetailCategories.');
+        }
+
+        if (requestParameters.propertyDetailCategoriesCriteria === null || requestParameters.propertyDetailCategoriesCriteria === undefined) {
+            throw new runtime.RequiredError('propertyDetailCategoriesCriteria','Required parameter requestParameters.propertyDetailCategoriesCriteria was null or undefined when calling postPropertyDetailCategories.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4044,7 +4876,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPropertyDetailCategoriesRequestToJSON(requestParameters.propertyDetailCategoriesCriteria),
+            body: PropertyDetailCategoriesCriteriaToJSON(requestParameters.propertyDetailCategoriesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4054,7 +4886,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Property Detail Categories. <p><strong>OperationId:</strong>postPropertyDetailCategories</p>
      * Create Property Detail Categories
      */
-    async postPropertyDetailCategories(requestParameters: PostPropertyDetailCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postPropertyDetailCategories(requestParameters: PostPropertyDetailCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postPropertyDetailCategoriesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4063,7 +4895,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Property Types. <p><strong>OperationId:</strong>postPropertyTypes</p>
      * Create Property Types
      */
-    async postPropertyTypesRaw(requestParameters: PostPropertyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postPropertyTypesRaw(requestParameters: PostPropertyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postPropertyTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postPropertyTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postPropertyTypes.');
+        }
+
+        if (requestParameters.propertyTypesCriteria === null || requestParameters.propertyTypesCriteria === undefined) {
+            throw new runtime.RequiredError('propertyTypesCriteria','Required parameter requestParameters.propertyTypesCriteria was null or undefined when calling postPropertyTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4095,7 +4943,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostPropertyTypesRequestToJSON(requestParameters.propertyTypesCriteria),
+            body: PropertyTypesCriteriaToJSON(requestParameters.propertyTypesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4105,7 +4953,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Property Types. <p><strong>OperationId:</strong>postPropertyTypes</p>
      * Create Property Types
      */
-    async postPropertyTypes(requestParameters: PostPropertyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postPropertyTypes(requestParameters: PostPropertyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postPropertyTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4114,7 +4962,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create region codes. <p><strong>OperationId:</strong>postRegionsCode</p>
      * Create Regions Code
      */
-    async postRegionsCodeRaw(requestParameters: PostRegionsCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRegionsCodeRaw(requestParameters: PostRegionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRegionsCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRegionsCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRegionsCode.');
+        }
+
+        if (requestParameters.regionsCodeCriteria === null || requestParameters.regionsCodeCriteria === undefined) {
+            throw new runtime.RequiredError('regionsCodeCriteria','Required parameter requestParameters.regionsCodeCriteria was null or undefined when calling postRegionsCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4146,7 +5010,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRegionsCodeRequestToJSON(requestParameters.regionsCodeCriteria),
+            body: RegionsCodeCriteriaToJSON(requestParameters.regionsCodeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4156,7 +5020,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create region codes. <p><strong>OperationId:</strong>postRegionsCode</p>
      * Create Regions Code
      */
-    async postRegionsCode(requestParameters: PostRegionsCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRegionsCode(requestParameters: PostRegionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRegionsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4165,7 +5029,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Amenities. <p><strong>OperationId:</strong>postRoomAmenities</p>
      * Create Room Amenities
      */
-    async postRoomAmenitiesRaw(requestParameters: PostRoomAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRoomAmenitiesRaw(requestParameters: PostRoomAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRoomAmenities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRoomAmenities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRoomAmenities.');
+        }
+
+        if (requestParameters.roomAmenitiesCriteria === null || requestParameters.roomAmenitiesCriteria === undefined) {
+            throw new runtime.RequiredError('roomAmenitiesCriteria','Required parameter requestParameters.roomAmenitiesCriteria was null or undefined when calling postRoomAmenities.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4197,7 +5077,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRoomAmenitiesRequestToJSON(requestParameters.roomAmenitiesCriteria),
+            body: RoomAmenitiesCriteriaToJSON(requestParameters.roomAmenitiesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4207,7 +5087,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Room Amenities. <p><strong>OperationId:</strong>postRoomAmenities</p>
      * Create Room Amenities
      */
-    async postRoomAmenities(requestParameters: PostRoomAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRoomAmenities(requestParameters: PostRoomAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRoomAmenitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4216,7 +5096,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Template Codes. <p><strong>OperationId:</strong>postTemplateCodes</p>
      * Create Template Codes
      */
-    async postTemplateCodesRaw(requestParameters: PostTemplateCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateCodesRaw(requestParameters: PostTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateCodes.');
+        }
+
+        if (requestParameters.templateCodesCriteria === null || requestParameters.templateCodesCriteria === undefined) {
+            throw new runtime.RequiredError('templateCodesCriteria','Required parameter requestParameters.templateCodesCriteria was null or undefined when calling postTemplateCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4248,7 +5144,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateCodesRequestToJSON(requestParameters.templateCodesCriteria),
+            body: TemplateCodesCriteriaToJSON(requestParameters.templateCodesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4258,7 +5154,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Template Codes. <p><strong>OperationId:</strong>postTemplateCodes</p>
      * Create Template Codes
      */
-    async postTemplateCodes(requestParameters: PostTemplateCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateCodes(requestParameters: PostTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4267,7 +5163,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create User Defined Field Groups. <p><strong>OperationId:</strong>postUserDefinedFieldGroups</p>
      * Create User Defined Field Groups
      */
-    async postUserDefinedFieldGroupsRaw(requestParameters: PostUserDefinedFieldGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postUserDefinedFieldGroupsRaw(requestParameters: PostUserDefinedFieldGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.userDefinedFieldGroupsCriteria === null || requestParameters.userDefinedFieldGroupsCriteria === undefined) {
+            throw new runtime.RequiredError('userDefinedFieldGroupsCriteria','Required parameter requestParameters.userDefinedFieldGroupsCriteria was null or undefined when calling postUserDefinedFieldGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4299,7 +5211,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostUserDefinedFieldGroupsRequestToJSON(requestParameters.userDefinedFieldGroupsCriteria),
+            body: UserDefinedFieldGroupsCriteriaToJSON(requestParameters.userDefinedFieldGroupsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4309,7 +5221,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create User Defined Field Groups. <p><strong>OperationId:</strong>postUserDefinedFieldGroups</p>
      * Create User Defined Field Groups
      */
-    async postUserDefinedFieldGroups(requestParameters: PostUserDefinedFieldGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postUserDefinedFieldGroups(requestParameters: PostUserDefinedFieldGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postUserDefinedFieldGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4318,7 +5230,23 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create a new User Defined Field (UDF) Value. The LOV Group and LOV Values functionality allows a property create a custom group of values to be used in a specified user defined field (UDF).  This functionality provides added flexibility in allowing a site to track information or details that are specific to their business and outside of the standard fields offered in the OPERA Cloud. <p><strong>OperationId:</strong>postUserDefinedFieldValues</p>
      * Create User Defined Field (UDF) Values
      */
-    async postUserDefinedFieldValuesRaw(requestParameters: PostUserDefinedFieldValuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postUserDefinedFieldValuesRaw(requestParameters: PostUserDefinedFieldValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.userDefinedFieldValuesCriteria === null || requestParameters.userDefinedFieldValuesCriteria === undefined) {
+            throw new runtime.RequiredError('userDefinedFieldValuesCriteria','Required parameter requestParameters.userDefinedFieldValuesCriteria was null or undefined when calling postUserDefinedFieldValues.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4350,7 +5278,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostUserDefinedFieldValuesRequestToJSON(requestParameters.userDefinedFieldValuesCriteria),
+            body: UserDefinedFieldValuesCriteriaToJSON(requestParameters.userDefinedFieldValuesCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4360,7 +5288,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create a new User Defined Field (UDF) Value. The LOV Group and LOV Values functionality allows a property create a custom group of values to be used in a specified user defined field (UDF).  This functionality provides added flexibility in allowing a site to track information or details that are specific to their business and outside of the standard fields offered in the OPERA Cloud. <p><strong>OperationId:</strong>postUserDefinedFieldValues</p>
      * Create User Defined Field (UDF) Values
      */
-    async postUserDefinedFieldValues(requestParameters: PostUserDefinedFieldValuesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postUserDefinedFieldValues(requestParameters: PostUserDefinedFieldValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postUserDefinedFieldValuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4369,7 +5297,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Attraction Classes. <p><strong>OperationId:</strong>putAttractionClasses</p>
      * Change Attraction Classes
      */
-    async putAttractionClassesRaw(requestParameters: PutAttractionClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putAttractionClassesRaw(requestParameters: PutAttractionClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.attractionClassCode === null || requestParameters.attractionClassCode === undefined) {
+            throw new runtime.RequiredError('attractionClassCode','Required parameter requestParameters.attractionClassCode was null or undefined when calling putAttractionClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAttractionClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAttractionClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAttractionClasses.');
+        }
+
+        if (requestParameters.attractionClassesToBeChanged === null || requestParameters.attractionClassesToBeChanged === undefined) {
+            throw new runtime.RequiredError('attractionClassesToBeChanged','Required parameter requestParameters.attractionClassesToBeChanged was null or undefined when calling putAttractionClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4401,7 +5349,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutAttractionClassesRequestToJSON(requestParameters.attractionClassesToBeChanged),
+            body: AttractionClassesToBeChangedToJSON(requestParameters.attractionClassesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4411,7 +5359,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Attraction Classes. <p><strong>OperationId:</strong>putAttractionClasses</p>
      * Change Attraction Classes
      */
-    async putAttractionClasses(requestParameters: PutAttractionClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putAttractionClasses(requestParameters: PutAttractionClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putAttractionClassesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4420,7 +5368,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Chain. <p><strong>OperationId:</strong>putChain</p>
      * Change Chain
      */
-    async putChainRaw(requestParameters: PutChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putChainRaw(requestParameters: PutChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
+            throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling putChain.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putChain.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putChain.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putChain.');
+        }
+
+        if (requestParameters.chainToBeChanged === null || requestParameters.chainToBeChanged === undefined) {
+            throw new runtime.RequiredError('chainToBeChanged','Required parameter requestParameters.chainToBeChanged was null or undefined when calling putChain.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4452,7 +5420,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutChainRequestToJSON(requestParameters.chainToBeChanged),
+            body: ChainToBeChangedToJSON(requestParameters.chainToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4462,7 +5430,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Chain. <p><strong>OperationId:</strong>putChain</p>
      * Change Chain
      */
-    async putChain(requestParameters: PutChainOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putChain(requestParameters: PutChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putChainRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4471,7 +5439,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Communication Methods Ent Details. <p><strong>OperationId:</strong>putCommunicationMethodsEntDetails</p>
      * Change Communication Methods Ent Details
      */
-    async putCommunicationMethodsEntDetailsRaw(requestParameters: PutCommunicationMethodsEntDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putCommunicationMethodsEntDetailsRaw(requestParameters: PutCommunicationMethodsEntDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.communicationMethodsEntDetailsId === null || requestParameters.communicationMethodsEntDetailsId === undefined) {
+            throw new runtime.RequiredError('communicationMethodsEntDetailsId','Required parameter requestParameters.communicationMethodsEntDetailsId was null or undefined when calling putCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCommunicationMethodsEntDetails.');
+        }
+
+        if (requestParameters.communicationMethodsEntDetailsToBeChanged === null || requestParameters.communicationMethodsEntDetailsToBeChanged === undefined) {
+            throw new runtime.RequiredError('communicationMethodsEntDetailsToBeChanged','Required parameter requestParameters.communicationMethodsEntDetailsToBeChanged was null or undefined when calling putCommunicationMethodsEntDetails.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4503,7 +5491,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutCommunicationMethodsEntDetailsRequestToJSON(requestParameters.communicationMethodsEntDetailsToBeChanged),
+            body: CommunicationMethodsEntDetailsToBeChangedToJSON(requestParameters.communicationMethodsEntDetailsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4513,7 +5501,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Communication Methods Ent Details. <p><strong>OperationId:</strong>putCommunicationMethodsEntDetails</p>
      * Change Communication Methods Ent Details
      */
-    async putCommunicationMethodsEntDetails(requestParameters: PutCommunicationMethodsEntDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putCommunicationMethodsEntDetails(requestParameters: PutCommunicationMethodsEntDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putCommunicationMethodsEntDetailsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4522,7 +5510,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Marketing Regions. <p><strong>OperationId:</strong>putMarketingRegions</p>
      * Change Marketing Regions
      */
-    async putMarketingRegionsRaw(requestParameters: PutMarketingRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putMarketingRegionsRaw(requestParameters: PutMarketingRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.marketingRegionCode === null || requestParameters.marketingRegionCode === undefined) {
+            throw new runtime.RequiredError('marketingRegionCode','Required parameter requestParameters.marketingRegionCode was null or undefined when calling putMarketingRegions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putMarketingRegions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putMarketingRegions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putMarketingRegions.');
+        }
+
+        if (requestParameters.marketingRegionsToBeChanged === null || requestParameters.marketingRegionsToBeChanged === undefined) {
+            throw new runtime.RequiredError('marketingRegionsToBeChanged','Required parameter requestParameters.marketingRegionsToBeChanged was null or undefined when calling putMarketingRegions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4554,7 +5562,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutMarketingRegionsRequestToJSON(requestParameters.marketingRegionsToBeChanged),
+            body: MarketingRegionsToBeChangedToJSON(requestParameters.marketingRegionsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4564,7 +5572,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Marketing Regions. <p><strong>OperationId:</strong>putMarketingRegions</p>
      * Change Marketing Regions
      */
-    async putMarketingRegions(requestParameters: PutMarketingRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putMarketingRegions(requestParameters: PutMarketingRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putMarketingRegionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4573,7 +5581,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Property Types. <p><strong>OperationId:</strong>putPropertyTypes</p>
      * Change Property Types
      */
-    async putPropertyTypesRaw(requestParameters: PutPropertyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putPropertyTypesRaw(requestParameters: PutPropertyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.propertyTypeCode === null || requestParameters.propertyTypeCode === undefined) {
+            throw new runtime.RequiredError('propertyTypeCode','Required parameter requestParameters.propertyTypeCode was null or undefined when calling putPropertyTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putPropertyTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putPropertyTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putPropertyTypes.');
+        }
+
+        if (requestParameters.propertyTypesToBeChanged === null || requestParameters.propertyTypesToBeChanged === undefined) {
+            throw new runtime.RequiredError('propertyTypesToBeChanged','Required parameter requestParameters.propertyTypesToBeChanged was null or undefined when calling putPropertyTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4605,7 +5633,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutPropertyTypesRequestToJSON(requestParameters.propertyTypesToBeChanged),
+            body: PropertyTypesToBeChangedToJSON(requestParameters.propertyTypesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4615,7 +5643,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Property Types. <p><strong>OperationId:</strong>putPropertyTypes</p>
      * Change Property Types
      */
-    async putPropertyTypes(requestParameters: PutPropertyTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putPropertyTypes(requestParameters: PutPropertyTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putPropertyTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4624,7 +5652,27 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Amenities. <p><strong>OperationId:</strong>putRoomAmenities</p>
      * Change Room Amenities
      */
-    async putRoomAmenitiesRaw(requestParameters: PutRoomAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putRoomAmenitiesRaw(requestParameters: PutRoomAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.roomAmenitiesId === null || requestParameters.roomAmenitiesId === undefined) {
+            throw new runtime.RequiredError('roomAmenitiesId','Required parameter requestParameters.roomAmenitiesId was null or undefined when calling putRoomAmenities.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRoomAmenities.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRoomAmenities.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRoomAmenities.');
+        }
+
+        if (requestParameters.roomAmenitiesToBeChanged === null || requestParameters.roomAmenitiesToBeChanged === undefined) {
+            throw new runtime.RequiredError('roomAmenitiesToBeChanged','Required parameter requestParameters.roomAmenitiesToBeChanged was null or undefined when calling putRoomAmenities.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4656,7 +5704,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutRoomAmenitiesRequestToJSON(requestParameters.roomAmenitiesToBeChanged),
+            body: RoomAmenitiesToBeChangedToJSON(requestParameters.roomAmenitiesToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4666,7 +5714,7 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Room Amenities. <p><strong>OperationId:</strong>putRoomAmenities</p>
      * Change Room Amenities
      */
-    async putRoomAmenities(requestParameters: PutRoomAmenitiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putRoomAmenities(requestParameters: PutRoomAmenitiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putRoomAmenitiesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4676,6 +5724,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Brand Code
      */
     async removeBrandCodesRaw(requestParameters: RemoveBrandCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.brandCode === null || requestParameters.brandCode === undefined) {
+            throw new runtime.RequiredError('brandCode','Required parameter requestParameters.brandCode was null or undefined when calling removeBrandCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeBrandCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeBrandCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeBrandCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.brandCodesCodes) {
@@ -4728,6 +5792,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Corporate Business Units
      */
     async removeCorporateBusinessUnitsRaw(requestParameters: RemoveCorporateBusinessUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.businessUnitCode === null || requestParameters.businessUnitCode === undefined) {
+            throw new runtime.RequiredError('businessUnitCode','Required parameter requestParameters.businessUnitCode was null or undefined when calling removeCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCorporateBusinessUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCorporateBusinessUnits.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.corporateBusinessUnitsCodes) {
@@ -4780,6 +5860,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Corporate Department Codes
      */
     async removeCorporateDepartmentCodesRaw(requestParameters: RemoveCorporateDepartmentCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.departmentCode === null || requestParameters.departmentCode === undefined) {
+            throw new runtime.RequiredError('departmentCode','Required parameter requestParameters.departmentCode was null or undefined when calling removeCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCorporateDepartmentCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCorporateDepartmentCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4828,6 +5924,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Corporate Divisions
      */
     async removeCorporateDivisionsRaw(requestParameters: RemoveCorporateDivisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.divisionCode === null || requestParameters.divisionCode === undefined) {
+            throw new runtime.RequiredError('divisionCode','Required parameter requestParameters.divisionCode was null or undefined when calling removeCorporateDivisions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCorporateDivisions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCorporateDivisions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCorporateDivisions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.corporateDivisionsCodes) {
@@ -4880,6 +5992,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Corporate Operating Units
      */
     async removeCorporateOperatingUnitsRaw(requestParameters: RemoveCorporateOperatingUnitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.operatingUnitCode === null || requestParameters.operatingUnitCode === undefined) {
+            throw new runtime.RequiredError('operatingUnitCode','Required parameter requestParameters.operatingUnitCode was null or undefined when calling removeCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCorporateOperatingUnits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCorporateOperatingUnits.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.corporateOperatingUnitsCodes) {
@@ -4932,6 +6060,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Country Guest Types
      */
     async removeCountryGuestTypesRaw(requestParameters: RemoveCountryGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.guestTypeCode === null || requestParameters.guestTypeCode === undefined) {
+            throw new runtime.RequiredError('guestTypeCode','Required parameter requestParameters.guestTypeCode was null or undefined when calling removeCountryGuestTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCountryGuestTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCountryGuestTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCountryGuestTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.countryGuestTypesCodes) {
@@ -4984,6 +6128,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Country Main Groups
      */
     async removeCountryMainGroupsRaw(requestParameters: RemoveCountryMainGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.groupCode === null || requestParameters.groupCode === undefined) {
+            throw new runtime.RequiredError('groupCode','Required parameter requestParameters.groupCode was null or undefined when calling removeCountryMainGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCountryMainGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCountryMainGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCountryMainGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.countryMainGroupsCodes) {
@@ -5036,6 +6196,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Hotel Categories
      */
     async removeHotelCategoriesRaw(requestParameters: RemoveHotelCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.categoryCode === null || requestParameters.categoryCode === undefined) {
+            throw new runtime.RequiredError('categoryCode','Required parameter requestParameters.categoryCode was null or undefined when calling removeHotelCategories.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeHotelCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeHotelCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeHotelCategories.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5084,6 +6260,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Note Types
      */
     async removeNoteTypesRaw(requestParameters: RemoveNoteTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.noteTypeCode === null || requestParameters.noteTypeCode === undefined) {
+            throw new runtime.RequiredError('noteTypeCode','Required parameter requestParameters.noteTypeCode was null or undefined when calling removeNoteTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeNoteTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeNoteTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeNoteTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.noteGroup !== undefined) {
@@ -5136,6 +6328,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Property Detail Categories
      */
     async removePropertyDetailCategoriesRaw(requestParameters: RemovePropertyDetailCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.categoryCode === null || requestParameters.categoryCode === undefined) {
+            throw new runtime.RequiredError('categoryCode','Required parameter requestParameters.categoryCode was null or undefined when calling removePropertyDetailCategories.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removePropertyDetailCategories.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removePropertyDetailCategories.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removePropertyDetailCategories.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.propertyDetailCategoriesCodes) {
@@ -5188,6 +6396,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Regions Code
      */
     async removeRegionsCodeRaw(requestParameters: RemoveRegionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.regionCode === null || requestParameters.regionCode === undefined) {
+            throw new runtime.RequiredError('regionCode','Required parameter requestParameters.regionCode was null or undefined when calling removeRegionsCode.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeRegionsCode.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeRegionsCode.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeRegionsCode.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5236,6 +6460,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete Template Codes
      */
     async removeTemplateCodesRaw(requestParameters: RemoveTemplateCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.code === null || requestParameters.code === undefined) {
+            throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling removeTemplateCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.templateCodes) {
@@ -5288,6 +6528,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete User Defined Field Groups
      */
     async removeUserDefinedFieldGroupsRaw(requestParameters: RemoveUserDefinedFieldGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.udfGroupCode === null || requestParameters.udfGroupCode === undefined) {
+            throw new runtime.RequiredError('udfGroupCode','Required parameter requestParameters.udfGroupCode was null or undefined when calling removeUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeUserDefinedFieldGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeUserDefinedFieldGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5336,6 +6592,22 @@ export class ChainConfigApi extends runtime.BaseAPI {
      * Delete a User Defined Field Value 
      */
     async removeUserDefinedFieldValuesRaw(requestParameters: RemoveUserDefinedFieldValuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.udfValue === null || requestParameters.udfValue === undefined) {
+            throw new runtime.RequiredError('udfValue','Required parameter requestParameters.udfValue was null or undefined when calling removeUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeUserDefinedFieldValues.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeUserDefinedFieldValues.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.groupCode !== undefined) {

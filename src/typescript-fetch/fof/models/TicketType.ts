@@ -150,9 +150,9 @@ export function TicketTypeToJSON(value?: TicketType | null): any {
     }
     return {
         
-        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substr(0,10)),
+        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substring(0,10)),
         'description': value.description,
-        'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substr(0,10)),
+        'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substring(0,10)),
         'packageCode': value.packageCode,
         'price': value.price,
         'quantity': value.quantity,

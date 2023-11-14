@@ -171,10 +171,10 @@ export function CommissionPaymentActivityTypeToJSON(value?: CommissionPaymentAct
         'hotelId': value.hotelId,
         'onCommission': value.onCommission,
         'payee': value.payee,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substr(0,10)),
+        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0,10)),
         'paymentId': UniqueIDTypeToJSON(value.paymentId),
         'status': CommissionPaymentActivityStatusTypeToJSON(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substr(0,10)),
+        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0,10)),
     };
 }
 

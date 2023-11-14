@@ -19,9 +19,7 @@ import type {
   Enrollment,
   ExceptionDetailType,
   MemberInformation,
-  PostEnrollmentRequest,
-  RedeemAwardRequest,
-} from '../models';
+} from '../models/index';
 import {
     AwardFromJSON,
     AwardToJSON,
@@ -31,17 +29,13 @@ import {
     ExceptionDetailTypeToJSON,
     MemberInformationFromJSON,
     MemberInformationToJSON,
-    PostEnrollmentRequestFromJSON,
-    PostEnrollmentRequestToJSON,
-    RedeemAwardRequestFromJSON,
-    RedeemAwardRequestToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetMembershipDetailsRequest {
-    extSystemCode?: string;
-    externalProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
+    extSystemCode: string;
+    externalProfileId: string;
+    authorization: string;
+    xAppKey: string;
     operaProfileId?: Array<string>;
     membershipType?: string;
     membershipId?: string;
@@ -53,22 +47,22 @@ export interface GetMembershipDetailsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostEnrollmentOperationRequest {
-    extSystemCode?: string;
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    enrollment?: PostEnrollmentRequest;
+export interface PostEnrollmentRequest {
+    extSystemCode: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    enrollment: Enrollment;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
 
-export interface RedeemAwardOperationRequest {
-    extSystemCode?: string;
-    externalProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    award?: RedeemAwardRequest;
+export interface RedeemAwardRequest {
+    extSystemCode: string;
+    externalProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    award: Award;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
@@ -83,6 +77,22 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
      * Get membership information on a profile
      */
     async getMembershipDetailsRaw(requestParameters: GetMembershipDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberInformation>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getMembershipDetails.');
+        }
+
+        if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
+            throw new runtime.RequiredError('externalProfileId','Required parameter requestParameters.externalProfileId was null or undefined when calling getMembershipDetails.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getMembershipDetails.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getMembershipDetails.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.operaProfileId) {
@@ -102,11 +112,11 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.mode !== undefined) {
@@ -154,7 +164,27 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
      * Use this API when you have a guest profile and you want to enroll that guest profile into a membership program in an external system. <p><strong>OperationId:</strong>postEnrollment</p>
      * Create an Enrollment
      */
-    async postEnrollmentRaw(requestParameters: PostEnrollmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Enrollment>> {
+    async postEnrollmentRaw(requestParameters: PostEnrollmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Enrollment>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling postEnrollment.');
+        }
+
+        if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
+            throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling postEnrollment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postEnrollment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postEnrollment.');
+        }
+
+        if (requestParameters.enrollment === null || requestParameters.enrollment === undefined) {
+            throw new runtime.RequiredError('enrollment','Required parameter requestParameters.enrollment was null or undefined when calling postEnrollment.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -182,7 +212,7 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostEnrollmentRequestToJSON(requestParameters.enrollment),
+            body: EnrollmentToJSON(requestParameters.enrollment),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EnrollmentFromJSON(jsonValue));
@@ -192,7 +222,7 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
      * Use this API when you have a guest profile and you want to enroll that guest profile into a membership program in an external system. <p><strong>OperationId:</strong>postEnrollment</p>
      * Create an Enrollment
      */
-    async postEnrollment(requestParameters: PostEnrollmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Enrollment> {
+    async postEnrollment(requestParameters: PostEnrollmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Enrollment> {
         const response = await this.postEnrollmentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -201,7 +231,27 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
      * Redeem an award that exists on a profile. <p><strong>OperationId:</strong>redeemAward</p>
      * Redeem an award
      */
-    async redeemAwardRaw(requestParameters: RedeemAwardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Award>> {
+    async redeemAwardRaw(requestParameters: RedeemAwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Award>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling redeemAward.');
+        }
+
+        if (requestParameters.externalProfileId === null || requestParameters.externalProfileId === undefined) {
+            throw new runtime.RequiredError('externalProfileId','Required parameter requestParameters.externalProfileId was null or undefined when calling redeemAward.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling redeemAward.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling redeemAward.');
+        }
+
+        if (requestParameters.award === null || requestParameters.award === undefined) {
+            throw new runtime.RequiredError('award','Required parameter requestParameters.award was null or undefined when calling redeemAward.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -229,7 +279,7 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: RedeemAwardRequestToJSON(requestParameters.award),
+            body: AwardToJSON(requestParameters.award),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AwardFromJSON(jsonValue));
@@ -239,7 +289,7 @@ export class ProfileMembershipApi extends runtime.BaseAPI {
      * Redeem an award that exists on a profile. <p><strong>OperationId:</strong>redeemAward</p>
      * Redeem an award
      */
-    async redeemAward(requestParameters: RedeemAwardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Award> {
+    async redeemAward(requestParameters: RedeemAwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Award> {
         const response = await this.redeemAwardRaw(requestParameters, initOverrides);
         return await response.value();
     }

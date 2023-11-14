@@ -58,13 +58,13 @@ function BlockRangeInfoTypeBlockInfoToJSON(value) {
         'blockCode': value.blockCode,
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
         'blockStatus': value.blockStatus,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
         'inventoryControl': (0, BlockInventoryControlType_1.BlockInventoryControlTypeToJSON)(value.inventoryControl),
         'rateCode': value.rateCode,
-        'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substr(0, 10)),
-        'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substr(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0, 10)),
+        'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockRangeInfoTypeBlockInfoToJSON = BlockRangeInfoTypeBlockInfoToJSON;

@@ -17,6 +17,5 @@ export * from './ParametersNameType';
 export * from './ParametersType';
 export * from './ValidateListOfValues';
 export * from './ValidateListOfValuesDetails';
-export * from './ValidateListOfValuesRequest';
 export * from './WarningType';
 export * from './WarningsType';

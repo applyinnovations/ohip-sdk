@@ -52,7 +52,7 @@ function EnrollmentPaymentDetailsTypeToJSON(value) {
         'amount': value.amount,
         'amountCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.amountCode),
         'comments': value.comments,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substr(0, 10)),
+        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0, 10)),
         'paymentMethod': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.paymentMethod),
     };
 }

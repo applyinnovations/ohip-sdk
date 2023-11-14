@@ -49,7 +49,7 @@ function ExtendMemberPointsToExpireToJSON(value) {
         return null;
     }
     return {
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substr(0, 10)),
+        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0, 10)),
         'links': (0, Links_1.LinksToJSON)(value.links),
         'membershipId': value.membershipId,
         'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),

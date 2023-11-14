@@ -81,12 +81,12 @@ function RoomStayTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0, 10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
         'availableUpsellOfferCount': value.availableUpsellOfferCount,
         'bookingMedium': value.bookingMedium,
         'bookingMediumDescription': value.bookingMediumDescription,
         'currentRoomInfo': (0, CurrentRoomInfoType_1.CurrentRoomInfoTypeToJSON)(value.currentRoomInfo),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0, 10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
         'expectedTimes': (0, ResExpectedTimesType_1.ResExpectedTimesTypeToJSON)(value.expectedTimes),
         'guarantee': (0, ResGuaranteeType_1.ResGuaranteeTypeToJSON)(value.guarantee),
         'guestCounts': (0, GuestCountsType_1.GuestCountsTypeToJSON)(value.guestCounts),

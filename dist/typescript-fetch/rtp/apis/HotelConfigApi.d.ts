@@ -10,102 +10,102 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeRateCategoryRequest, ChangeRateClassRequest, ChangeRateSeasonsRequest, ChangeTemplateRateCategoryRequest, ChangeTemplateRateClassRequest, ChangeTemplateRateSeasonsRequest, PostRateCategoryRequest, PostRateClassRequest, PostRateSeasonsRequest, PostTemplateRateCategoryRequest, PostTemplateRateClassRequest, PostTemplateRateSeasonsRequest, RateCategoryDetails, RateClassDetails, RateSeasonsDetails, Status, TemplateRateCategoryDetails, TemplateRateClassDetails, TemplateRateSeasonsDetails } from '../models';
-export interface ChangeRateCategoryOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateCategoryToBeChanged?: ChangeRateCategoryRequest;
+import type { RateCategoryCriteria, RateCategoryDetails, RateCategoryToBeChanged, RateClassCriteria, RateClassDetails, RateClassToBeChanged, RateSeasonsCriteria, RateSeasonsDetails, RateSeasonsToBeChanged, Status, TemplateRateCategoryCriteria, TemplateRateCategoryDetails, TemplateRateCategoryToBeChanged, TemplateRateClassCriteria, TemplateRateClassDetails, TemplateRateClassToBeChanged, TemplateRateSeasonsCriteria, TemplateRateSeasonsDetails, TemplateRateSeasonsToBeChanged } from '../models/index';
+export interface ChangeRateCategoryRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateCategoryToBeChanged: RateCategoryToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRateClassOperationRequest {
-    rateClassCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateClassToBeChanged?: ChangeRateClassRequest;
+export interface ChangeRateClassRequest {
+    rateClassCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateClassToBeChanged: RateClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRateSeasonsOperationRequest {
-    seasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateSeasonsToBeChanged?: ChangeRateSeasonsRequest;
+export interface ChangeRateSeasonsRequest {
+    seasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateSeasonsToBeChanged: RateSeasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateRateCategoryOperationRequest {
-    rateCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateCategoryToBeChanged?: ChangeTemplateRateCategoryRequest;
+export interface ChangeTemplateRateCategoryRequest {
+    rateCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateCategoryToBeChanged: TemplateRateCategoryToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateRateClassOperationRequest {
-    rateClassCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateClassToBeChanged?: ChangeTemplateRateClassRequest;
+export interface ChangeTemplateRateClassRequest {
+    rateClassCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateClassToBeChanged: TemplateRateClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateRateSeasonsOperationRequest {
-    seasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateSeasonsToBeChanged?: ChangeTemplateRateSeasonsRequest;
+export interface ChangeTemplateRateSeasonsRequest {
+    seasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateSeasonsToBeChanged: TemplateRateSeasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRateCategoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateCategory?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRateClassRequest {
-    rateClassCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateClassCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateRateCategoryRequest {
-    rateCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateRateClassRequest {
-    rateClassCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateClassCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRateCategoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -116,10 +116,10 @@ export interface GetRateCategoryRequest {
     acceptLanguage?: string;
 }
 export interface GetRateClassRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -130,10 +130,10 @@ export interface GetRateClassRequest {
     acceptLanguage?: string;
 }
 export interface GetRateSeasonsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -142,9 +142,9 @@ export interface GetRateSeasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateRateCategoryRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateCategoryListCodes?: Array<string>;
     rateCategoryDescription?: string;
     includeInactive?: boolean;
@@ -152,9 +152,9 @@ export interface GetTemplateRateCategoryRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateRateClassRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -165,78 +165,78 @@ export interface GetTemplateRateClassRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateRateSeasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     seasonCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRateCategoryOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateCategoryCriteria?: PostRateCategoryRequest;
+export interface PostRateCategoryRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateCategoryCriteria: RateCategoryCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRateClassOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateClassCriteria?: PostRateClassRequest;
+export interface PostRateClassRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateClassCriteria: RateClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRateSeasonsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateSeasonsCriteria?: PostRateSeasonsRequest;
+export interface PostRateSeasonsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateSeasonsCriteria: RateSeasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateRateCategoryOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateCategoryCriteria?: PostTemplateRateCategoryRequest;
+export interface PostTemplateRateCategoryRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateCategoryCriteria: TemplateRateCategoryCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateRateClassOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateClassCriteria?: PostTemplateRateClassRequest;
+export interface PostTemplateRateClassRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateClassCriteria: TemplateRateClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateRateSeasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateSeasonsCriteria?: PostTemplateRateSeasonsRequest;
+export interface PostTemplateRateSeasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateSeasonsCriteria: TemplateRateSeasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveRateSeasonsRequest {
-    seasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    seasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateRateSeasonsRequest {
-    seasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    seasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -248,62 +248,62 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * This API can be used to Modify a Rate Category e.g.  RACK. Only one rate category can be modified at a time. <p><strong>OperationId:</strong>changeRateCategory</p>
      * Change Rate Category
      */
-    changeRateCategoryRaw(requestParameters: ChangeRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRateCategoryRaw(requestParameters: ChangeRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API can be used to Modify a Rate Category e.g.  RACK. Only one rate category can be modified at a time. <p><strong>OperationId:</strong>changeRateCategory</p>
      * Change Rate Category
      */
-    changeRateCategory(requestParameters: ChangeRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRateCategory(requestParameters: ChangeRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to updates to rate class. <p><strong>OperationId:</strong>changeRateClass</p>
      * Changes to rate class
      */
-    changeRateClassRaw(requestParameters: ChangeRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRateClassRaw(requestParameters: ChangeRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to updates to rate class. <p><strong>OperationId:</strong>changeRateClass</p>
      * Changes to rate class
      */
-    changeRateClass(requestParameters: ChangeRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRateClass(requestParameters: ChangeRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Hotel Rate Seasons. <p><strong>OperationId:</strong>changeRateSeasons</p>
      * Change Hotel Rate Seasons
      */
-    changeRateSeasonsRaw(requestParameters: ChangeRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeRateSeasonsRaw(requestParameters: ChangeRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Hotel Rate Seasons. <p><strong>OperationId:</strong>changeRateSeasons</p>
      * Change Hotel Rate Seasons
      */
-    changeRateSeasons(requestParameters: ChangeRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeRateSeasons(requestParameters: ChangeRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to Modify a Template Rate Category. Only one template can be updated at a time. <p><strong>OperationId:</strong>changeTemplateRateCategory</p>
      * Change Template Rate Category
      */
-    changeTemplateRateCategoryRaw(requestParameters: ChangeTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateRateCategoryRaw(requestParameters: ChangeTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to Modify a Template Rate Category. Only one template can be updated at a time. <p><strong>OperationId:</strong>changeTemplateRateCategory</p>
      * Change Template Rate Category
      */
-    changeTemplateRateCategory(requestParameters: ChangeTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateRateCategory(requestParameters: ChangeTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to modify template rate class. <p><strong>OperationId:</strong>changeTemplateRateClass</p>
      * Change template rate class
      */
-    changeTemplateRateClassRaw(requestParameters: ChangeTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateRateClassRaw(requestParameters: ChangeTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to modify template rate class. <p><strong>OperationId:</strong>changeTemplateRateClass</p>
      * Change template rate class
      */
-    changeTemplateRateClass(requestParameters: ChangeTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateRateClass(requestParameters: ChangeTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Template Rate Seasons. <p><strong>OperationId:</strong>changeTemplateRateSeasons</p>
      * Change Template Rate Seasons
      */
-    changeTemplateRateSeasonsRaw(requestParameters: ChangeTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateRateSeasonsRaw(requestParameters: ChangeTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Template Rate Seasons. <p><strong>OperationId:</strong>changeTemplateRateSeasons</p>
      * Change Template Rate Seasons
      */
-    changeTemplateRateSeasons(requestParameters: ChangeTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateRateSeasons(requestParameters: ChangeTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this  delete a Rate Category e.g. RACK. <p><strong>OperationId:</strong>deleteRateCategory</p>
      * Delete Rate Category
@@ -408,62 +408,62 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * This API can be used to Use this API to create a Rate Category e.g.  RACK. Only one rate category can be Use this API to created at a time. <p><strong>OperationId:</strong>postRateCategory</p>
      * Create Rate Category
      */
-    postRateCategoryRaw(requestParameters: PostRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRateCategoryRaw(requestParameters: PostRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API can be used to Use this API to create a Rate Category e.g.  RACK. Only one rate category can be Use this API to created at a time. <p><strong>OperationId:</strong>postRateCategory</p>
      * Create Rate Category
      */
-    postRateCategory(requestParameters: PostRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRateCategory(requestParameters: PostRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new rate class. <p><strong>OperationId:</strong>postRateClass</p>
      * Create new rate class
      */
-    postRateClassRaw(requestParameters: PostRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRateClassRaw(requestParameters: PostRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new rate class. <p><strong>OperationId:</strong>postRateClass</p>
      * Create new rate class
      */
-    postRateClass(requestParameters: PostRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRateClass(requestParameters: PostRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Hotel Rate Seasons. <p><strong>OperationId:</strong>postRateSeasons</p>
      * Create Hotel Rate Seasons
      */
-    postRateSeasonsRaw(requestParameters: PostRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRateSeasonsRaw(requestParameters: PostRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Hotel Rate Seasons. <p><strong>OperationId:</strong>postRateSeasons</p>
      * Create Hotel Rate Seasons
      */
-    postRateSeasons(requestParameters: PostRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRateSeasons(requestParameters: PostRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Template Rate Category. <p><strong>OperationId:</strong>postTemplateRateCategory</p>
      * Create a Template Rate Category
      */
-    postTemplateRateCategoryRaw(requestParameters: PostTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateRateCategoryRaw(requestParameters: PostTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Template Rate Category. <p><strong>OperationId:</strong>postTemplateRateCategory</p>
      * Create a Template Rate Category
      */
-    postTemplateRateCategory(requestParameters: PostTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateRateCategory(requestParameters: PostTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create new template rate class. <p><strong>OperationId:</strong>postTemplateRateClass</p>
      * Create new template rate class
      */
-    postTemplateRateClassRaw(requestParameters: PostTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateRateClassRaw(requestParameters: PostTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create new template rate class. <p><strong>OperationId:</strong>postTemplateRateClass</p>
      * Create new template rate class
      */
-    postTemplateRateClass(requestParameters: PostTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateRateClass(requestParameters: PostTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Template Rate Seasons. <p><strong>OperationId:</strong>postTemplateRateSeasons</p>
      * Create Template Rate Seasons
      */
-    postTemplateRateSeasonsRaw(requestParameters: PostTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateRateSeasonsRaw(requestParameters: PostTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Template Rate Seasons. <p><strong>OperationId:</strong>postTemplateRateSeasons</p>
      * Create Template Rate Seasons
      */
-    postTemplateRateSeasons(requestParameters: PostTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateRateSeasons(requestParameters: PostTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Hotel Rate Seasons. <p><strong>OperationId:</strong>removeRateSeasons</p>
      * Delete Hotel Rate Seasons

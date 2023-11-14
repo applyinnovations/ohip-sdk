@@ -56,13 +56,13 @@ function AllocationGridByDateRangeTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'friday': value.friday,
         'inventory': (0, SetBlockGridInvType_1.SetBlockGridInvTypeToJSON)(value.inventory),
         'monday': value.monday,
         'rate': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.rate),
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

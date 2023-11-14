@@ -10,42 +10,42 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { Account, AccountsInfo, ArAgingCycles, ArCreditCardPayments, ArFolioPrinters, ArInvoiceDetails, ArPayments, ArTransactions, CompressARInvoicesRequest, CompressedARInvoices, CopyARAccountRequest, InvoiceAppliedPayments, InvoicePayment, InvoicePostings, InvoicesOnHold, InvoicesPayments, PostAROldBalancesRequest, PostARPaymentsRequest, PostAccountFixedChargeRequest, PostAccountRequest, PostBatchChargesRequest, PostChargesToARRequest, PostCreditToInvoicesRequest, PostInvoiceRequest, PostRemindersRequest, PostReversePaymentRequest, PostStatementsRequest, ProfileAging, ProfileYearView, PutARInvoicesAccountRequest, PutAccountCommentRequest, PutAccountRequest, PutAccountTraceRequest, PutInvoicesRequest, Reminders, RemindersHistory, StatementHistory, Statements, Status, TransferARCreditCardPaymentsRequest, TransferDirectBillsToArRequest, TransferInvoicesAndPaymentsRequest, TransferPostingsRequest, UncompressARInvoicesRequest, UnlinkInvoiceFromStatementRequest } from '../models';
-export interface CompressARInvoicesOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arCompressInvoices?: CompressARInvoicesRequest;
+import type { Account, AccountComment, AccountCriteria, AccountFixedCharge, AccountTrace, AccountsInfo, ArAccountCopy, ArAgingCycles, ArChargesPostingCriteria, ArCompressInvoices, ArCreditCardPayments, ArCreditCardPaymentsToTransfer, ArFolioPrinters, ArInvoice, ArInvoiceDetails, ArInvoicesAccount, ArOldBalances, ArPayments, ArPaymentsToBeCreated, ArTransactions, BatchChargesToPost, CompressedARInvoices, CreditToInvoices, Invoice, InvoiceAppliedPayments, InvoicePayment, InvoicePostings, Invoices, InvoicesAndPaymentsToTransfer, InvoicesOnHold, InvoicesPayments, ProfileAging, ProfileYearView, Reminders, RemindersHistory, ReversePayment, StatementHistory, Statements, StatementsToBeGenerated, Status, TransferDirectBillsToAr, TransferPostings, UnlinkInvoiceFromStatement } from '../models/index';
+export interface CompressARInvoicesRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arCompressInvoices: ArCompressInvoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyARAccountOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arAccountCopy?: CopyARAccountRequest;
+export interface CopyARAccountRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arAccountCopy: ArAccountCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAccountRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAccountCommentRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     value?: string;
     hotel?: string;
@@ -53,21 +53,21 @@ export interface DeleteAccountCommentRequest {
     acceptLanguage?: string;
 }
 export interface DeleteAccountFixedChargeRequest {
-    fixedChargeId?: string;
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fixedChargeId: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAccountTraceRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     traceID?: string;
     traceOn?: string;
     traceText?: string;
@@ -75,33 +75,33 @@ export interface DeleteAccountTraceRequest {
     acceptLanguage?: string;
 }
 export interface DeletePaymentsFromInvoiceRequest {
-    transactionId?: string;
-    invoiceId?: string;
-    hotelId?: string;
-    trxNo?: Array<number>;
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    invoiceId: string;
+    hotelId: string;
+    trxNo: Array<number>;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierID?: number;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetARAgingCyclesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetARCreditCardPaymentsRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     endDate?: Date;
     startDate?: Date;
     limit?: number;
@@ -110,11 +110,11 @@ export interface GetARCreditCardPaymentsRequest {
     acceptLanguage?: string;
 }
 export interface GetARFolioPrintersRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     balance?: number;
     overrideCreditHoldCheck?: boolean;
     cashierId?: number;
@@ -150,9 +150,9 @@ export interface GetARFolioPrintersRequest {
     acceptLanguage?: string;
 }
 export interface GetARStatementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     profileId?: Array<string>;
     profileIdContext?: string;
@@ -284,10 +284,10 @@ export interface GetARStatementsRequest {
     acceptLanguage?: string;
 }
 export interface GetARTransactionsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accounts?: string;
     endDate?: Date;
     startDate?: Date;
@@ -305,11 +305,11 @@ export interface GetARTransactionsRequest {
     acceptLanguage?: string;
 }
 export interface GetAccountRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountNo?: string;
     profileId?: string;
     profileIdContext?: string;
@@ -319,9 +319,9 @@ export interface GetAccountRequest {
     acceptLanguage?: string;
 }
 export interface GetAccountsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     balance?: GetAccountsBalanceEnum;
     batchStatement?: boolean;
     limit?: number;
@@ -346,35 +346,35 @@ export interface GetAccountsRequest {
     acceptLanguage?: string;
 }
 export interface GetAppliedInvoicePaymentsRequest {
-    accountId?: string;
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetInvoiceAppliedPaymentsRequest {
-    accountId?: string;
-    transactionId?: string;
-    invoiceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    transactionId: string;
+    invoiceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetInvoicePaymentDetailRequest {
-    transactionId?: string;
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileId?: string;
     profileIdContext?: string;
     profileType?: string;
@@ -384,9 +384,9 @@ export interface GetInvoicePaymentDetailRequest {
     acceptLanguage?: string;
 }
 export interface GetInvoicePostingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     canBeModified?: boolean;
     closeDate?: Date;
     fiscalBillNo?: string;
@@ -520,10 +520,10 @@ export interface GetInvoicePostingsRequest {
     acceptLanguage?: string;
 }
 export interface GetInvoicesOnHoldRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileId?: string;
     profileIdContext?: string;
     profileType?: string;
@@ -542,10 +542,10 @@ export interface GetInvoicesOnHoldRequest {
     acceptLanguage?: string;
 }
 export interface GetInvoicesPaymentsRequest {
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inclDetails?: boolean;
     inclZeroBalance?: boolean;
     limit?: number;
@@ -571,30 +571,30 @@ export interface GetInvoicesPaymentsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileAgingRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currency?: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetProfileYearViewRequest {
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     currency?: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRemindersRequest {
-    accounts?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accounts: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     profiles?: Array<string>;
     accountNo?: Array<string>;
@@ -603,10 +603,10 @@ export interface GetRemindersRequest {
     acceptLanguage?: string;
 }
 export interface GetRemindersHistoryRequest {
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     profileId?: string;
     accountIdContext?: string;
@@ -619,10 +619,10 @@ export interface GetRemindersHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetStatementsRequest {
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     profileId?: string;
     profileIdContext?: string;
@@ -753,12 +753,12 @@ export interface GetStatementsRequest {
     acceptLanguage?: string;
 }
 export interface GetStatementsHistoryRequest {
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     accountNo?: string;
     accountName?: string;
     dateSent?: Date;
@@ -767,291 +767,291 @@ export interface GetStatementsHistoryRequest {
     acceptLanguage?: string;
 }
 export interface PostARChargesRequest {
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arChargesPostingCriteria?: PostChargesToARRequest;
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arChargesPostingCriteria: ArChargesPostingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAROldBalancesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arOldBalances?: PostAROldBalancesRequest;
+export interface PostAROldBalancesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arOldBalances: ArOldBalances;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostARPaymentsOperationRequest {
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arPaymentsToBeCreated?: PostARPaymentsRequest;
+export interface PostARPaymentsRequest {
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arPaymentsToBeCreated: ArPaymentsToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAccountOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountCriteria?: PostAccountRequest;
+export interface PostAccountRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountCriteria: AccountCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAccountCommentRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountComment?: PutAccountCommentRequest;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountComment: AccountComment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAccountFixedChargeOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountFixedCharge?: PostAccountFixedChargeRequest;
+export interface PostAccountFixedChargeRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountFixedCharge: AccountFixedCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAccountTraceRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountTrace?: PutAccountTraceRequest;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountTrace: AccountTrace;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBatchChargesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchChargesToPost?: PostBatchChargesRequest;
+export interface PostBatchChargesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchChargesToPost: BatchChargesToPost;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostChargesToAROperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arChargesPostingCriteria?: PostChargesToARRequest;
+export interface PostChargesToARRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arChargesPostingCriteria: ArChargesPostingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCreditToInvoicesOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditToInvoices?: PostCreditToInvoicesRequest;
+export interface PostCreditToInvoicesRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditToInvoices: CreditToInvoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostInvoiceOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arInvoice?: PostInvoiceRequest;
+export interface PostInvoiceRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arInvoice: ArInvoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRemindersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reminders?: PostRemindersRequest;
+export interface PostRemindersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reminders: Reminders;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReversePaymentOperationRequest {
-    transactionId?: string;
-    accountId?: string;
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reversePayment?: PostReversePaymentRequest;
+export interface PostReversePaymentRequest {
+    transactionId: string;
+    accountId: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reversePayment: ReversePayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostStatementsOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    statementsToBeGenerated?: PostStatementsRequest;
+export interface PostStatementsRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    statementsToBeGenerated: StatementsToBeGenerated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutARInvoicesAccountOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arInvoicesAccount?: PutARInvoicesAccountRequest;
+export interface PutARInvoicesAccountRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arInvoicesAccount: ArInvoicesAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAccountOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    account?: PutAccountRequest;
+export interface PutAccountRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    account: Account;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAccountCommentOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountComment?: PutAccountCommentRequest;
+export interface PutAccountCommentRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountComment: AccountComment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAccountFixedChargeRequest {
-    fixedChargeId?: string;
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountFixedCharge?: PostAccountFixedChargeRequest;
+    fixedChargeId: string;
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountFixedCharge: AccountFixedCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAccountTraceOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    accountTrace?: PutAccountTraceRequest;
+export interface PutAccountTraceRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    accountTrace: AccountTrace;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutInvoiceRequest {
-    invoiceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoice?: UncompressARInvoicesRequest;
+    invoiceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoice: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutInvoiceDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoice?: UncompressARInvoicesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoice: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutInvoicesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoices?: PutInvoicesRequest;
+export interface PutInvoicesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoices: Invoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemovePaymentsFromInvoiceRequest {
-    transactionId?: string;
-    hotelId?: string;
-    trxNo?: Array<number>;
-    accountId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    trxNo: Array<number>;
+    accountId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierID?: number;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReopenInvoicesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoices?: PutInvoicesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoices: Invoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferARCreditCardPaymentsOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    arCreditCardPaymentsToTransfer?: TransferARCreditCardPaymentsRequest;
+export interface TransferARCreditCardPaymentsRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    arCreditCardPaymentsToTransfer: ArCreditCardPaymentsToTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferDirectBillsToArOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transferDirectBillsToAr?: TransferDirectBillsToArRequest;
+export interface TransferDirectBillsToArRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transferDirectBillsToAr: TransferDirectBillsToAr;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferInvoicesAndPaymentsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoicesAndPaymentsToTransfer?: TransferInvoicesAndPaymentsRequest;
+export interface TransferInvoicesAndPaymentsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoicesAndPaymentsToTransfer: InvoicesAndPaymentsToTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferPostingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transferPostings?: TransferPostingsRequest;
+export interface TransferPostingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transferPostings: TransferPostings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface UncompressARInvoicesOperationRequest {
-    accountId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    invoice?: UncompressARInvoicesRequest;
+export interface UncompressARInvoicesRequest {
+    accountId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    invoice: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface UnlinkInvoiceFromStatementOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    unlinkInvoiceFromStatement?: UnlinkInvoiceFromStatementRequest;
+export interface UnlinkInvoiceFromStatementRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    unlinkInvoiceFromStatement: UnlinkInvoiceFromStatement;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1063,22 +1063,22 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to combine two or more invoices into one invoice <p><strong>OperationId:</strong>compressARInvoices</p>
      * Combines Account receivable invoices
      */
-    compressARInvoicesRaw(requestParameters: CompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompressedARInvoices>>;
+    compressARInvoicesRaw(requestParameters: CompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompressedARInvoices>>;
     /**
      * Use this API to combine two or more invoices into one invoice <p><strong>OperationId:</strong>compressARInvoices</p>
      * Combines Account receivable invoices
      */
-    compressARInvoices(requestParameters: CompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompressedARInvoices>;
+    compressARInvoices(requestParameters: CompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompressedARInvoices>;
     /**
      * Use this API to create account receivable to multiple hotels by copying from source hotel. <p><strong>OperationId:</strong>copyARAccount</p>
      * Copy account receivable account
      */
-    copyARAccountRaw(requestParameters: CopyARAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyARAccountRaw(requestParameters: CopyARAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create account receivable to multiple hotels by copying from source hotel. <p><strong>OperationId:</strong>copyARAccount</p>
      * Copy account receivable account
      */
-    copyARAccount(requestParameters: CopyARAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyARAccount(requestParameters: CopyARAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete account detail for given unique account id. Use get accounts to find account id. <p><strong>OperationId:</strong>deleteAccount</p>
      * Delete Account
@@ -1122,11 +1122,13 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Delete payments from invoice.<br><p><strong><mark>This API is deprecated. Please use removePaymentsFromInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>deletePaymentsFromInvoice</p>
      * Delete payments from invoice
+     * @deprecated
      */
     deletePaymentsFromInvoiceRaw(requestParameters: DeletePaymentsFromInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Delete payments from invoice.<br><p><strong><mark>This API is deprecated. Please use removePaymentsFromInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>deletePaymentsFromInvoice</p>
      * Delete payments from invoice
+     * @deprecated
      */
     deletePaymentsFromInvoice(requestParameters: DeletePaymentsFromInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -1212,11 +1214,13 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to get applied payment details for AR invoices.<br><p><strong><mark>This API is deprecated. Please use getAppliedInvoicePayments instead</mark></strong></p> <p><strong>OperationId:</strong>getInvoiceAppliedPayments</p>
      * Get account receivable invoice\'s payment history
+     * @deprecated
      */
     getInvoiceAppliedPaymentsRaw(requestParameters: GetInvoiceAppliedPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InvoiceAppliedPayments>>;
     /**
      * Use this API to get applied payment details for AR invoices.<br><p><strong><mark>This API is deprecated. Please use getAppliedInvoicePayments instead</mark></strong></p> <p><strong>OperationId:</strong>getInvoiceAppliedPayments</p>
      * Get account receivable invoice\'s payment history
+     * @deprecated
      */
     getInvoiceAppliedPayments(requestParameters: GetInvoiceAppliedPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InvoiceAppliedPayments>;
     /**
@@ -1302,11 +1306,13 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to prepare statement for an AR account holders. It is typically prepared for billing purposes.<br><p><strong><mark>This API is deprecated. Please use getARStatements instead</mark></strong></p> <p><strong>OperationId:</strong>getStatements</p>
      * Get given profile\'s account receivable statements
+     * @deprecated
      */
     getStatementsRaw(requestParameters: GetStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Statements>>;
     /**
      * Use this API to prepare statement for an AR account holders. It is typically prepared for billing purposes.<br><p><strong><mark>This API is deprecated. Please use getARStatements instead</mark></strong></p> <p><strong>OperationId:</strong>getStatements</p>
      * Get given profile\'s account receivable statements
+     * @deprecated
      */
     getStatements(requestParameters: GetStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Statements>;
     /**
@@ -1322,43 +1328,45 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
     /**
      * Use this API to post charges to account receivable account.<br><p><strong><mark>This API is deprecated. Please use postChargesToAR instead</mark></strong></p> <p><strong>OperationId:</strong>postARCharges</p>
      * Add charges to account receivable
+     * @deprecated
      */
     postARChargesRaw(requestParameters: PostARChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to post charges to account receivable account.<br><p><strong><mark>This API is deprecated. Please use postChargesToAR instead</mark></strong></p> <p><strong>OperationId:</strong>postARCharges</p>
      * Add charges to account receivable
+     * @deprecated
      */
     postARCharges(requestParameters: PostARChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add old balances from external accounting systems into OPERA Accounts Receivable. <p><strong>OperationId:</strong>postAROldBalances</p>
      * Add old balances from external accounting systems
      */
-    postAROldBalancesRaw(requestParameters: PostAROldBalancesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAROldBalancesRaw(requestParameters: PostAROldBalancesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to add old balances from external accounting systems into OPERA Accounts Receivable. <p><strong>OperationId:</strong>postAROldBalances</p>
      * Add old balances from external accounting systems
      */
-    postAROldBalances(requestParameters: PostAROldBalancesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAROldBalances(requestParameters: PostAROldBalancesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to make payment to AR accounts for a list of reservations. <p><strong>OperationId:</strong>postARPayments</p>
      * Add payment to an account receivable account for a list of reservations
      */
-    postARPaymentsRaw(requestParameters: PostARPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArPayments>>;
+    postARPaymentsRaw(requestParameters: PostARPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArPayments>>;
     /**
      * Use this API to make payment to AR accounts for a list of reservations. <p><strong>OperationId:</strong>postARPayments</p>
      * Add payment to an account receivable account for a list of reservations
      */
-    postARPayments(requestParameters: PostARPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArPayments>;
+    postARPayments(requestParameters: PostARPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArPayments>;
     /**
      * Use this API to create a new account receivable type account for given OPERA profile id. Prior creating account, need to use getProfile to find OPERA profile\'s id.  <p><strong>OperationId:</strong>postAccount</p>
      * Create an account receivable account
      */
-    postAccountRaw(requestParameters: PostAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAccountRaw(requestParameters: PostAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new account receivable type account for given OPERA profile id. Prior creating account, need to use getProfile to find OPERA profile\'s id.  <p><strong>OperationId:</strong>postAccount</p>
      * Create an account receivable account
      */
-    postAccount(requestParameters: PostAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAccount(requestParameters: PostAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add a note for a given account id. Use get accounts to find account id. <p><strong>OperationId:</strong>postAccountComment</p>
      * Create Account Comment
@@ -1373,12 +1381,12 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create fixed charges for a given account id of account receivable. Use get accounts to find an account id. <p><strong>OperationId:</strong>postAccountFixedCharge</p>
      * Create fixed charges
      */
-    postAccountFixedChargeRaw(requestParameters: PostAccountFixedChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAccountFixedChargeRaw(requestParameters: PostAccountFixedChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create fixed charges for a given account id of account receivable. Use get accounts to find an account id. <p><strong>OperationId:</strong>postAccountFixedCharge</p>
      * Create fixed charges
      */
-    postAccountFixedCharge(requestParameters: PostAccountFixedChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAccountFixedCharge(requestParameters: PostAccountFixedChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add a trace for a given account id. Use getaccounts to find account id. <p><strong>OperationId:</strong>postAccountTrace</p>
      * Add a trace to an account receivable account
@@ -1393,102 +1401,102 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to create a batch process for simultaneously post a one-time charge to multiple account receivable accounts. <p><strong>OperationId:</strong>postBatchCharges</p>
      * Create process to charge on multiple account receivables
      */
-    postBatchChargesRaw(requestParameters: PostBatchChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBatchChargesRaw(requestParameters: PostBatchChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a batch process for simultaneously post a one-time charge to multiple account receivable accounts. <p><strong>OperationId:</strong>postBatchCharges</p>
      * Create process to charge on multiple account receivables
      */
-    postBatchCharges(requestParameters: PostBatchChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBatchCharges(requestParameters: PostBatchChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to post charges to account receivable account. <p><strong>OperationId:</strong>postChargesToAR</p>
      * Add charges to account receivable
      */
-    postChargesToARRaw(requestParameters: PostChargesToAROperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postChargesToARRaw(requestParameters: PostChargesToARRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to post charges to account receivable account. <p><strong>OperationId:</strong>postChargesToAR</p>
      * Add charges to account receivable
      */
-    postChargesToAR(requestParameters: PostChargesToAROperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postChargesToAR(requestParameters: PostChargesToARRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add credits to account receivable invoices. <p><strong>OperationId:</strong>postCreditToInvoices</p>
      * Add credits to AR invoices
      */
-    postCreditToInvoicesRaw(requestParameters: PostCreditToInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCreditToInvoicesRaw(requestParameters: PostCreditToInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to add credits to account receivable invoices. <p><strong>OperationId:</strong>postCreditToInvoices</p>
      * Add credits to AR invoices
      */
-    postCreditToInvoices(requestParameters: PostCreditToInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCreditToInvoices(requestParameters: PostCreditToInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new invoice for an AR account. <p><strong>OperationId:</strong>postInvoice</p>
      * Create account receivable invoices
      */
-    postInvoiceRaw(requestParameters: PostInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArInvoiceDetails>>;
+    postInvoiceRaw(requestParameters: PostInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArInvoiceDetails>>;
     /**
      * Use this API to create a new invoice for an AR account. <p><strong>OperationId:</strong>postInvoice</p>
      * Create account receivable invoices
      */
-    postInvoice(requestParameters: PostInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArInvoiceDetails>;
+    postInvoice(requestParameters: PostInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArInvoiceDetails>;
     /**
      * Use this API to generate a reminder statement which includes payment due,  current account balance, and etc. of account receivable account holder. <p><strong>OperationId:</strong>postReminders</p>
      * Generate reminders
      */
-    postRemindersRaw(requestParameters: PostRemindersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRemindersRaw(requestParameters: PostRemindersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to generate a reminder statement which includes payment due,  current account balance, and etc. of account receivable account holder. <p><strong>OperationId:</strong>postReminders</p>
      * Generate reminders
      */
-    postReminders(requestParameters: PostRemindersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReminders(requestParameters: PostRemindersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to reverse payment that occurred accidently or via user error. <p><strong>OperationId:</strong>postReversePayment</p>
      * Reverse Payment
      */
-    postReversePaymentRaw(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReversePaymentRaw(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to reverse payment that occurred accidently or via user error. <p><strong>OperationId:</strong>postReversePayment</p>
      * Reverse Payment
      */
-    postReversePayment(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReversePayment(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to generate statement for a given account receivable id. It includes the account balance as of the current business date, an aging summary that shows how long outstanding balances have been \"on the books\" for each aging level set up for given property. <p><strong>OperationId:</strong>postStatements</p>
      * Generate a statement for a given account receivable
      */
-    postStatementsRaw(requestParameters: PostStatementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postStatementsRaw(requestParameters: PostStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to generate statement for a given account receivable id. It includes the account balance as of the current business date, an aging summary that shows how long outstanding balances have been \"on the books\" for each aging level set up for given property. <p><strong>OperationId:</strong>postStatements</p>
      * Generate a statement for a given account receivable
      */
-    postStatements(requestParameters: PostStatementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postStatements(requestParameters: PostStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update existing AR invoice for a given profile and/or a reservation. <p><strong>OperationId:</strong>putARInvoicesAccount</p>
      * Change Account receivable invoice for an AR account
      */
-    putARInvoicesAccountRaw(requestParameters: PutARInvoicesAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putARInvoicesAccountRaw(requestParameters: PutARInvoicesAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update existing AR invoice for a given profile and/or a reservation. <p><strong>OperationId:</strong>putARInvoicesAccount</p>
      * Change Account receivable invoice for an AR account
      */
-    putARInvoicesAccount(requestParameters: PutARInvoicesAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putARInvoicesAccount(requestParameters: PutARInvoicesAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update existing account using account id and further detail. Use get account to get account detail prior updating. <p><strong>OperationId:</strong>putAccount</p>
      * Update a account receivable account
      */
-    putAccountRaw(requestParameters: PutAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAccountRaw(requestParameters: PutAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update existing account using account id and further detail. Use get account to get account detail prior updating. <p><strong>OperationId:</strong>putAccount</p>
      * Update a account receivable account
      */
-    putAccount(requestParameters: PutAccountOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAccount(requestParameters: PutAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update existing account note. Use get account to find noteid <p><strong>OperationId:</strong>putAccountComment</p>
      * Change Account Comment
      */
-    putAccountCommentRaw(requestParameters: PutAccountCommentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAccountCommentRaw(requestParameters: PutAccountCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update existing account note. Use get account to find noteid <p><strong>OperationId:</strong>putAccountComment</p>
      * Change Account Comment
      */
-    putAccountComment(requestParameters: PutAccountCommentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAccountComment(requestParameters: PutAccountCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update existing fixed charges for a given account receivable. <p><strong>OperationId:</strong>putAccountFixedCharge</p>
      * Update fixed charge detail
@@ -1503,20 +1511,22 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putAccountTrace</p>
      * This API facilitates modification of account traces.
      */
-    putAccountTraceRaw(requestParameters: PutAccountTraceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAccountTraceRaw(requestParameters: PutAccountTraceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putAccountTrace</p>
      * This API facilitates modification of account traces.
      */
-    putAccountTrace(requestParameters: PutAccountTraceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAccountTrace(requestParameters: PutAccountTraceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update or transfer invoice detail such as amount, transaction code, etc.<br><p><strong><mark>This API is deprecated. Please use putInvoiceDetails instead</mark></strong></p> <p><strong>OperationId:</strong>putInvoice</p>
      * Update invoice detail.
+     * @deprecated
      */
     putInvoiceRaw(requestParameters: PutInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update or transfer invoice detail such as amount, transaction code, etc.<br><p><strong><mark>This API is deprecated. Please use putInvoiceDetails instead</mark></strong></p> <p><strong>OperationId:</strong>putInvoice</p>
      * Update invoice detail.
+     * @deprecated
      */
     putInvoice(requestParameters: PutInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -1533,12 +1543,12 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to close (\"freeze\") one or more selected invoices at any point after they have been created. When an invoice has been closed, no new postings to the invoice can be made, transaction reference or supplemental information can be edited, or adjustments to transaction codes can be made. However, payments can be posted to an invoice after it has been closed. <p><strong>OperationId:</strong>putInvoices</p>
      * Close account receivable invoices
      */
-    putInvoicesRaw(requestParameters: PutInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putInvoicesRaw(requestParameters: PutInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to close (\"freeze\") one or more selected invoices at any point after they have been created. When an invoice has been closed, no new postings to the invoice can be made, transaction reference or supplemental information can be edited, or adjustments to transaction codes can be made. However, payments can be posted to an invoice after it has been closed. <p><strong>OperationId:</strong>putInvoices</p>
      * Close account receivable invoices
      */
-    putInvoices(requestParameters: PutInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putInvoices(requestParameters: PutInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Delete payments from invoice. <p><strong>OperationId:</strong>removePaymentsFromInvoice</p>
      * Delete payments from invoice
@@ -1563,62 +1573,62 @@ export declare class AccountsReceivablesApi extends runtime.BaseAPI {
      * Use this API to transfer credit card payment transactions to Accounts Receivable. <p><strong>OperationId:</strong>transferARCreditCardPayments</p>
      * Move credit card payment to account receivable
      */
-    transferARCreditCardPaymentsRaw(requestParameters: TransferARCreditCardPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transferARCreditCardPaymentsRaw(requestParameters: TransferARCreditCardPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to transfer credit card payment transactions to Accounts Receivable. <p><strong>OperationId:</strong>transferARCreditCardPayments</p>
      * Move credit card payment to account receivable
      */
-    transferARCreditCardPayments(requestParameters: TransferARCreditCardPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transferARCreditCardPayments(requestParameters: TransferARCreditCardPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to transfer direct bills to account receivable account <p><strong>OperationId:</strong>transferDirectBillsToAr</p>
      * Move direct bills to account receivable
      */
-    transferDirectBillsToArRaw(requestParameters: TransferDirectBillsToArOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transferDirectBillsToArRaw(requestParameters: TransferDirectBillsToArRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to transfer direct bills to account receivable account <p><strong>OperationId:</strong>transferDirectBillsToAr</p>
      * Move direct bills to account receivable
      */
-    transferDirectBillsToAr(requestParameters: TransferDirectBillsToArOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transferDirectBillsToAr(requestParameters: TransferDirectBillsToArRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to move all or a portion of an invoice or a payment from one AR account to another AR account <p><strong>OperationId:</strong>transferInvoicesAndPayments</p>
      * Move an invoice or a payment to another AR account
      */
-    transferInvoicesAndPaymentsRaw(requestParameters: TransferInvoicesAndPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transferInvoicesAndPaymentsRaw(requestParameters: TransferInvoicesAndPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to move all or a portion of an invoice or a payment from one AR account to another AR account <p><strong>OperationId:</strong>transferInvoicesAndPayments</p>
      * Move an invoice or a payment to another AR account
      */
-    transferInvoicesAndPayments(requestParameters: TransferInvoicesAndPaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transferInvoicesAndPayments(requestParameters: TransferInvoicesAndPaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to transfer postings from one account receivable invoice to another account receivable invoice. <p><strong>OperationId:</strong>transferPostings</p>
      * Transfer postings
      */
-    transferPostingsRaw(requestParameters: TransferPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transferPostingsRaw(requestParameters: TransferPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to transfer postings from one account receivable invoice to another account receivable invoice. <p><strong>OperationId:</strong>transferPostings</p>
      * Transfer postings
      */
-    transferPostings(requestParameters: TransferPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transferPostings(requestParameters: TransferPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to reverse compressing account receivable invoices and break single combined invoice into individual invoices. <p><strong>OperationId:</strong>uncompressARInvoices</p>
      * Reverse the compressing invoice process
      */
-    uncompressARInvoicesRaw(requestParameters: UncompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    uncompressARInvoicesRaw(requestParameters: UncompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to reverse compressing account receivable invoices and break single combined invoice into individual invoices. <p><strong>OperationId:</strong>uncompressARInvoices</p>
      * Reverse the compressing invoice process
      */
-    uncompressARInvoices(requestParameters: UncompressARInvoicesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    uncompressARInvoices(requestParameters: UncompressARInvoicesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to remove the invoice from the statement before that invoice can be included in a different statement. <p><strong>OperationId:</strong>unlinkInvoiceFromStatement</p>
      * Unlink invoices from a statement
      */
-    unlinkInvoiceFromStatementRaw(requestParameters: UnlinkInvoiceFromStatementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    unlinkInvoiceFromStatementRaw(requestParameters: UnlinkInvoiceFromStatementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to remove the invoice from the statement before that invoice can be included in a different statement. <p><strong>OperationId:</strong>unlinkInvoiceFromStatement</p>
      * Unlink invoices from a statement
      */
-    unlinkInvoiceFromStatement(requestParameters: UnlinkInvoiceFromStatementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    unlinkInvoiceFromStatement(requestParameters: UnlinkInvoiceFromStatementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

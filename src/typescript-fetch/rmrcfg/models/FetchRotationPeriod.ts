@@ -113,11 +113,11 @@ export function FetchRotationPeriodToJSON(value?: FetchRotationPeriod | null): a
     }
     return {
         
-        'currentPeriodStartDate': value.currentPeriodStartDate === undefined ? undefined : (value.currentPeriodStartDate.toISOString().substr(0,10)),
+        'currentPeriodStartDate': value.currentPeriodStartDate === undefined ? undefined : (value.currentPeriodStartDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
         'links': LinksToJSON(value.links),
         'periodFrequency': RotationPeriodFrequencyTypeToJSON(value.periodFrequency),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
         'warnings': WarningsTypeToJSON(value.warnings),
     };
 }

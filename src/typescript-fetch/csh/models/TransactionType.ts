@@ -88,7 +88,7 @@ export function TransactionTypeToJSON(value?: TransactionType | null): any {
     return {
         
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0,10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
         'transactionDescription': value.transactionDescription,
         'transactionNo': CodeDescriptionTypeToJSON(value.transactionNo),
     };

@@ -51,7 +51,7 @@ function StatisticSetTypeToJSON(value) {
     return {
         'numericCategorySummariesType': value.numericCategorySummariesType === undefined ? undefined : (value.numericCategorySummariesType.map(NumericCategorySummaryType_1.NumericCategorySummaryTypeToJSON)),
         'revenueCategorySummariesType': value.revenueCategorySummariesType === undefined ? undefined : (value.revenueCategorySummariesType.map(RevenueCategorySummaryType_1.RevenueCategorySummaryTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substr(0, 10)),
+        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
         'weekendDate': value.weekendDate,
     };
 }

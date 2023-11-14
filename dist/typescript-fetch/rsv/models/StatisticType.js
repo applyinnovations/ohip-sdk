@@ -57,7 +57,7 @@ function StatisticTypeToJSON(value) {
         'chainCode': value.chainCode,
         'chainName': value.chainName,
         'description': value.description,
-        'fiscalDate': value.fiscalDate === undefined ? undefined : (value.fiscalDate.toISOString().substr(0, 10)),
+        'fiscalDate': value.fiscalDate === undefined ? undefined : (value.fiscalDate.toISOString().substring(0, 10)),
         'hotelCityCode': value.hotelCityCode,
         'hotelCodeContext': value.hotelCodeContext,
         'hotelId': value.hotelId,

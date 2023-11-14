@@ -80,7 +80,7 @@ function PrepaidCardTypeToJSON(value) {
         'name': value.name,
         'pinCode': value.pinCode,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
     };
 }

@@ -138,8 +138,8 @@ export function SearchPropertyRequestTypeToJSON(value?: SearchPropertyRequestTyp
     return {
         
         'accountId': value.accountId,
-        'arrivalDate': (value.arrivalDate.toISOString().substr(0,10)),
-        'departureDate': (value.departureDate.toISOString().substr(0,10)),
+        'arrivalDate': (value.arrivalDate.toISOString().substring(0,10)),
+        'departureDate': (value.departureDate.toISOString().substring(0,10)),
         'hotelIds': value.hotelIds,
         'includePublicRates': value.includePublicRates,
         'limit': value.limit,

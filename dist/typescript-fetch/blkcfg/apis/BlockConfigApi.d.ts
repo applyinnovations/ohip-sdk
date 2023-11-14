@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockSalesAllowance, NextBlockStatusCodeDetails, PostBlockStatusCodeRequest, PostSalesManagerGoalsRequest, PostWashScheduleRequest, PutNextBlockStatusCodesRequest, PutSalesManagerGoalsRequest, SalesManagerGoalsInfo, SalesManagersInfo, SetBlockSalesAllowanceRangeRequest, Status, StatusCodeDetails, WashScheduleDetails } from '../models';
+import type { BlockSalesAllowance, BlockSalesAllowanceRange, BlockStatusCodeDetails, CreateSalesManagerGoals, NextBlockStatusCode, NextBlockStatusCodeDetails, SalesManagerGoalsInfo, SalesManagersInfo, Status, StatusCodeDetails, WashScheduleCriteria, WashScheduleDetails } from '../models/index';
 export interface DeleteBlockSalesAllowanceRangeRequest {
-    hotelId?: string;
-    endDate?: Date;
-    startDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    endDate: Date;
+    startDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -29,27 +29,27 @@ export interface DeleteBlockSalesAllowanceRangeRequest {
     acceptLanguage?: string;
 }
 export interface DeleteBlockStatusCodeRequest {
-    blockStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteWashScheduleRequest {
-    washScheduleCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    washScheduleCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockSalesAllowanceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     endDateRange?: Date;
     startDateRange?: Date;
     includeRestricted?: boolean;
@@ -58,28 +58,28 @@ export interface GetBlockSalesAllowanceRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockStatusCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockStatusCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetNextBlockStatusCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     configuredOnly?: boolean;
     blockStatusCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetSalesManagerGoalsRequest {
-    salesManagerId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesManagerId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     future?: boolean;
@@ -88,10 +88,10 @@ export interface GetSalesManagerGoalsRequest {
     acceptLanguage?: string;
 }
 export interface GetSalesManagerGoalsMultipleHotelIdsRequest {
-    salesManagerId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesManagerId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -101,10 +101,10 @@ export interface GetSalesManagerGoalsMultipleHotelIdsRequest {
     acceptLanguage?: string;
 }
 export interface GetSalesManagersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     ownerCodes?: Array<string>;
@@ -114,10 +114,10 @@ export interface GetSalesManagersRequest {
     acceptLanguage?: string;
 }
 export interface GetSalesManagersMultipleHotelIdsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     ownerCodes?: Array<string>;
@@ -127,105 +127,105 @@ export interface GetSalesManagersMultipleHotelIdsRequest {
     acceptLanguage?: string;
 }
 export interface GetWashScheduleRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     washCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockStatusCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusCodeDetails?: PostBlockStatusCodeRequest;
+export interface PostBlockStatusCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusCodeDetails: BlockStatusCodeDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSalesManagerGoalsOperationRequest {
-    salesManagerId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createSalesManagerGoals?: PostSalesManagerGoalsRequest;
+export interface PostSalesManagerGoalsRequest {
+    salesManagerId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createSalesManagerGoals: CreateSalesManagerGoals;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostWashScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    washScheduleCriteria?: PostWashScheduleRequest;
+export interface PostWashScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    washScheduleCriteria: WashScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBlockStatusCodeRequest {
-    blockStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockStatusCodeDetails?: PostBlockStatusCodeRequest;
+    blockStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockStatusCodeDetails: BlockStatusCodeDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutNextBlockStatusCodesOperationRequest {
-    srcBlockStatusCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    nextBlockStatusCode?: PutNextBlockStatusCodesRequest;
+export interface PutNextBlockStatusCodesRequest {
+    srcBlockStatusCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    nextBlockStatusCode: NextBlockStatusCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutSalesManagerGoalsOperationRequest {
-    salesGoalId?: string;
-    salesManagerId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    salesManagerGoalsInfo?: PutSalesManagerGoalsRequest;
+export interface PutSalesManagerGoalsRequest {
+    salesGoalId: string;
+    salesManagerId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    salesManagerGoalsInfo: SalesManagerGoalsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutWashScheduleRequest {
-    washScheduleCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    washScheduleCriteria?: PostWashScheduleRequest;
+    washScheduleCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    washScheduleCriteria: WashScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveSalesManagerGoalRequest {
-    salesGoalId?: string;
-    salesManagerId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesGoalId: string;
+    salesManagerId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveSalesManagerGoalsRequest {
-    salesManagerId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    salesManagerId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     salesGoalId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetBlockSalesAllowanceRangeOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockSalesAllowanceRange?: SetBlockSalesAllowanceRangeRequest;
+export interface SetBlockSalesAllowanceRangeRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockSalesAllowanceRange: BlockSalesAllowanceRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -347,32 +347,32 @@ export declare class BlockConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new block status code. <p><strong>OperationId:</strong>postBlockStatusCode</p>
      * Create a block status code
      */
-    postBlockStatusCodeRaw(requestParameters: PostBlockStatusCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockStatusCodeRaw(requestParameters: PostBlockStatusCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create a new block status code. <p><strong>OperationId:</strong>postBlockStatusCode</p>
      * Create a block status code
      */
-    postBlockStatusCode(requestParameters: PostBlockStatusCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockStatusCode(requestParameters: PostBlockStatusCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to Create Sales Manager Goals for a Sales Manager ID.You must know the OPERA Sales Manager ID for this API. <p><strong>OperationId:</strong>postSalesManagerGoals</p>
      * Create Sales Manager Goals
      */
-    postSalesManagerGoalsRaw(requestParameters: PostSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postSalesManagerGoalsRaw(requestParameters: PostSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to Create Sales Manager Goals for a Sales Manager ID.You must know the OPERA Sales Manager ID for this API. <p><strong>OperationId:</strong>postSalesManagerGoals</p>
      * Create Sales Manager Goals
      */
-    postSalesManagerGoals(requestParameters: PostSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postSalesManagerGoals(requestParameters: PostSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a block wash schedule. <p><strong>OperationId:</strong>postWashSchedule</p>
      * Create block wash schedule
      */
-    postWashScheduleRaw(requestParameters: PostWashScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postWashScheduleRaw(requestParameters: PostWashScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a block wash schedule. <p><strong>OperationId:</strong>postWashSchedule</p>
      * Create block wash schedule
      */
-    postWashSchedule(requestParameters: PostWashScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postWashSchedule(requestParameters: PostWashScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change block status code. <p><strong>OperationId:</strong>putBlockStatusCode</p>
      * Change block status code
@@ -387,22 +387,22 @@ export declare class BlockConfigApi extends runtime.BaseAPI {
      * Update the next Block status. <p><strong>OperationId:</strong>putNextBlockStatusCodes</p>
      * Change next block status codes
      */
-    putNextBlockStatusCodesRaw(requestParameters: PutNextBlockStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putNextBlockStatusCodesRaw(requestParameters: PutNextBlockStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update the next Block status. <p><strong>OperationId:</strong>putNextBlockStatusCodes</p>
      * Change next block status codes
      */
-    putNextBlockStatusCodes(requestParameters: PutNextBlockStatusCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putNextBlockStatusCodes(requestParameters: PutNextBlockStatusCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Sales Manager Goal.You must know the OPERA Sales Manager ID and Goal ID for this API. <p><strong>OperationId:</strong>putSalesManagerGoals</p>
      * Update Sales Manager Goal in a hotel by ID
      */
-    putSalesManagerGoalsRaw(requestParameters: PutSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putSalesManagerGoalsRaw(requestParameters: PutSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Sales Manager Goal.You must know the OPERA Sales Manager ID and Goal ID for this API. <p><strong>OperationId:</strong>putSalesManagerGoals</p>
      * Update Sales Manager Goal in a hotel by ID
      */
-    putSalesManagerGoals(requestParameters: PutSalesManagerGoalsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putSalesManagerGoals(requestParameters: PutSalesManagerGoalsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Change a block wash schedule. <p><strong>OperationId:</strong>putWashSchedule</p>
      * Change block wash schedule
@@ -437,12 +437,12 @@ export declare class BlockConfigApi extends runtime.BaseAPI {
      * You can use this API to set block sales allowance range. <p><strong>OperationId:</strong>setBlockSalesAllowanceRange</p>
      * Set block sales allowance range
      */
-    setBlockSalesAllowanceRangeRaw(requestParameters: SetBlockSalesAllowanceRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    setBlockSalesAllowanceRangeRaw(requestParameters: SetBlockSalesAllowanceRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to set block sales allowance range. <p><strong>OperationId:</strong>setBlockSalesAllowanceRange</p>
      * Set block sales allowance range
      */
-    setBlockSalesAllowanceRange(requestParameters: SetBlockSalesAllowanceRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    setBlockSalesAllowanceRange(requestParameters: SetBlockSalesAllowanceRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

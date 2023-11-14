@@ -174,7 +174,7 @@ export function PromotionCodeDetailsTypeToJSON(value?: PromotionCodeDetailsType 
         'categoryDesc': value.categoryDesc,
         'checkInOutTime': DateTimeSpanTypeToJSON(value.checkInOutTime),
         'description': value.description,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'promoInformation': value.promoInformation,
         'promoInstructions': value.promoInstructions,
         'promotionGroup': value.promotionGroup,

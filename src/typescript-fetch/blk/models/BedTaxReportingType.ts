@@ -89,8 +89,8 @@ export function BedTaxReportingTypeToJSON(value?: BedTaxReportingType | null): a
         
         'taxRegistrationNo': value.taxRegistrationNo,
         'taxableDays': value.taxableDays,
-        'visaExpiryDate': value.visaExpiryDate === undefined ? undefined : (value.visaExpiryDate.toISOString().substr(0,10)),
-        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substr(0,10)),
+        'visaExpiryDate': value.visaExpiryDate === undefined ? undefined : (value.visaExpiryDate.toISOString().substring(0,10)),
+        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substring(0,10)),
         'visaNumber': value.visaNumber,
     };
 }

@@ -10,89 +10,89 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CateringContainersInfo, CateringItemRatesInfo, CateringMenuClassesInfo, CateringMenuItemClassesInfo, CateringMenuItemsInfo, CateringMenusInfo, CateringPackage, CateringPackagesInfo, CateringServingsInfo, CheckedDiscountAvailable, CopyCateringMenuItemClassesRequest, CopyCateringMenuItemsRequest, CopyCateringMenusRequest, CopyEventForecastsRequest, CopyInventoryItemsRequest, DailyInventoryItems, EventForecastsInfo, InventoryItemTemplates, InventoryItems, InventoryItemsCreated, ItemClassesCopy, ItemClassesInfo, ItemPoolsInfo, PostCateringContainersRequest, PostCateringItemRatesRequest, PostCateringMenuItemClassesRequest, PostCateringMenuItemsRequest, PostCateringMenusRequest, PostCateringPackagesRequest, PostInventoryItemTemplatesRequest, PostInventoryItemsRequest, PostItemClassesRequest, PostItemPoolsRequest, PostRevenueGroupsRequest, PostRevenueTypesRequest, PutCateringMenuClassesRequest, PutCateringServingsRequest, PutEventForecastsRequest, RevenueGroupsInfo, RevenueTypesInfo, Status } from '../models';
+import type { CateringContainers, CateringContainersInfo, CateringItemRates, CateringItemRatesInfo, CateringMenuClasses, CateringMenuClassesInfo, CateringMenuItemClasses, CateringMenuItemClassesCopy, CateringMenuItemClassesInfo, CateringMenuItems, CateringMenuItemsCopy, CateringMenuItemsInfo, CateringMenus, CateringMenusCopy, CateringMenusInfo, CateringPackage, CateringPackages, CateringPackagesInfo, CateringServings, CateringServingsInfo, CheckedDiscountAvailable, DailyInventoryItems, EventForecasts, EventForecastsCopy, EventForecastsInfo, InventoryItemTemplates, InventoryItems, InventoryItemsCopy, InventoryItemsCreated, ItemClasses, ItemClassesCopy, ItemClassesInfo, ItemPools, ItemPoolsInfo, RevenueGroups, RevenueGroupsInfo, RevenueTypes, RevenueTypesInfo, Status } from '../models/index';
 export interface CheckDiscountAvailableRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyCateringMenuItemClassesOperationRequest {
-    cateringMenuItemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemClassesCopy?: CopyCateringMenuItemClassesRequest;
+export interface CopyCateringMenuItemClassesRequest {
+    cateringMenuItemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemClassesCopy: CateringMenuItemClassesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyCateringMenuItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemsCopy?: CopyCateringMenuItemsRequest;
+export interface CopyCateringMenuItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemsCopy: CateringMenuItemsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyCateringMenusOperationRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenusCopy?: CopyCateringMenusRequest;
+export interface CopyCateringMenusRequest {
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenusCopy: CateringMenusCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyEventForecastsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventForecastsCopy?: CopyEventForecastsRequest;
+export interface CopyEventForecastsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventForecastsCopy: EventForecastsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyInventoryItemsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItemsCopy?: CopyInventoryItemsRequest;
+export interface CopyInventoryItemsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItemsCopy: InventoryItemsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyItemClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemClassesCopy?: ItemClassesCopy;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemClassesCopy: ItemClassesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringContainersRequest {
-    cateringContainersCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringContainersCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringItemRatesRequest {
-    cateringItemRatesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringItemRatesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuClassesRequest {
-    menuClassesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    menuClassesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     menuClassListIDExtension?: Array<number>;
     menuClassListIdContext?: Array<string>;
     menuClassListUniqueIdType?: Array<string>;
@@ -100,10 +100,10 @@ export interface DeleteCateringMenuClassesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuItemClassesRequest {
-    cateringMenuItemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuItemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     menuItemClassesIdExtension?: Array<number>;
     menuItemClassesIdContext?: Array<string>;
     menuItemClassesUniqueIdType?: Array<string>;
@@ -111,29 +111,29 @@ export interface DeleteCateringMenuItemClassesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuItemsRequest {
-    cateringMenuItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuItemsByChainRequest {
-    cateringMenuItemId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuItemId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuMultiCoursesRequest {
-    coursesId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    coursesId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     courseIdListUniqueIdExtension?: Array<number>;
     courseIdListUniqueIdContext?: Array<string>;
     courseIdListUniqueIdType?: Array<string>;
@@ -141,21 +141,21 @@ export interface DeleteCateringMenuMultiCoursesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenusRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageEventNotesRequest {
-    notedId?: string;
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    notedId: string;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventIdType?: string;
@@ -166,11 +166,11 @@ export interface DeleteCateringPackageEventNotesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageEventsRequest {
-    packageEventsId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageEventsId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventIdType?: string;
@@ -178,11 +178,11 @@ export interface DeleteCateringPackageEventsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackagePricesRequest {
-    pricesId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    pricesId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packagPriceIdExtension?: number;
     packagPriceIdContext?: string;
     packagPriceIdType?: string;
@@ -190,22 +190,22 @@ export interface DeleteCateringPackagePricesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageResourceNotesRequest {
-    notesId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    notesId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageResourcesRequest {
-    hotelId?: Array<string>;
-    pkgEventId?: Array<string>;
-    pkgEventIdType?: Array<string>;
-    resourceId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    pkgEventId: Array<string>;
+    pkgEventIdType: Array<string>;
+    resourceId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventType?: Array<string>;
@@ -213,13 +213,13 @@ export interface DeleteCateringPackageResourcesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageRevenuesRequest {
-    priceId?: string;
-    revenueType?: string;
-    eventsId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    priceId: string;
+    revenueType: string;
+    eventsId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packagePriceIdExtension?: number;
     packagePriceIdContext?: string;
     packagePriceIdType?: string;
@@ -230,20 +230,20 @@ export interface DeleteCateringPackageRevenuesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackagesRequest {
-    cateringPackageId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringPackageId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteEventForecastsRequest {
-    eventTypesCode?: string;
-    forecastsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventTypesCode: string;
+    forecastsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     forecastIdExtension?: number;
     forecastIdContext?: string;
     forecastIdType?: string;
@@ -257,10 +257,10 @@ export interface DeleteEventForecastsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteInventoryItemTemplatesRequest {
-    inventoryItemId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    inventoryItemId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inventoryItemTemplatesIdExtension?: Array<number>;
     inventoryItemTemplatesContext?: Array<string>;
     inventoryItemTemplatesType?: Array<string>;
@@ -268,11 +268,11 @@ export interface DeleteInventoryItemTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteInventoryItemsRequest {
-    inventoryItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    inventoryItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemIDExtension?: number;
     idContext?: string;
     itemIDType?: string;
@@ -280,34 +280,34 @@ export interface DeleteInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteItemClassesRequest {
-    itemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteItemPoolsRequest {
-    itemPoolsCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemPoolsCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRevenueGroupsRequest {
-    revenueGroupsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    revenueGroupsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCateringContainersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -316,9 +316,9 @@ export interface GetCateringContainersRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringItemRatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -327,21 +327,21 @@ export interface GetCateringItemRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenuRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     fetchInstructions?: Set<GetCateringMenuFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCateringMenuClassesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     className?: string;
@@ -352,10 +352,10 @@ export interface GetCateringMenuClassesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenuItemClassesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     className?: string;
@@ -367,10 +367,10 @@ export interface GetCateringMenuItemClassesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenuItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     name?: string;
@@ -383,10 +383,10 @@ export interface GetCateringMenuItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenusRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     menuId?: string;
@@ -408,11 +408,11 @@ export interface GetCateringMenusRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRequest {
-    cateringPackageId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringPackageId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     pkgIDType?: string;
@@ -421,10 +421,10 @@ export interface GetCateringPackageRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageByChainRequest {
-    cateringPackageId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringPackageId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     idExtension?: number;
     idContext?: string;
@@ -434,10 +434,10 @@ export interface GetCateringPackageByChainRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     packageCode?: Array<string>;
@@ -458,9 +458,9 @@ export interface GetCateringPackagesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagesMultiPropertiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -482,9 +482,9 @@ export interface GetCateringPackagesMultiPropertiesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringServingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     servingCodes?: Array<string>;
     wildCard?: string;
@@ -493,10 +493,10 @@ export interface GetCateringServingsRequest {
     acceptLanguage?: string;
 }
 export interface GetDailyInventoryItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemClassCode?: string;
     itemName?: string;
     friday?: boolean;
@@ -513,11 +513,11 @@ export interface GetDailyInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetEventForecastsRequest {
-    hotelId?: string;
-    fetchInstructions?: Set<GetEventForecastsFetchInstructionsEnum>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    fetchInstructions: Set<GetEventForecastsFetchInstructionsEnum>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     eventTypeCodes?: Array<string>;
@@ -531,19 +531,19 @@ export interface GetEventForecastsRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     inventoryItemTemplateName?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetInventoryItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemClassCode?: string;
     itemName?: string;
     itemCode?: string;
@@ -556,9 +556,9 @@ export interface GetInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetItemClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     itemClassesCode?: Array<string>;
     wildCard?: string;
@@ -568,10 +568,10 @@ export interface GetItemClassesRequest {
     acceptLanguage?: string;
 }
 export interface GetItemPoolsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     itemClasseCodes?: Array<string>;
     wildCard?: string;
@@ -581,9 +581,9 @@ export interface GetItemPoolsRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     revenueGroupCodes?: Array<string>;
     wildCard?: string;
@@ -593,9 +593,9 @@ export interface GetRevenueGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     revenueGroupCodes?: Array<string>;
     revenueGroupWildCard?: string;
     revenueTypeCodes?: Array<string>;
@@ -605,256 +605,256 @@ export interface GetRevenueTypesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringContainersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringContainers?: PostCateringContainersRequest;
+export interface PostCateringContainersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringContainers: CateringContainers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringItemRatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringItemRates?: PostCateringItemRatesRequest;
+export interface PostCateringItemRatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringItemRates: CateringItemRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringMenuClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuClasses?: PutCateringMenuClassesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuClasses: CateringMenuClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringMenuItemClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemClasses?: PostCateringMenuItemClassesRequest;
+export interface PostCateringMenuItemClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemClasses: CateringMenuItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringMenuItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItems?: PostCateringMenuItemsRequest;
+export interface PostCateringMenuItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItems: CateringMenuItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringMenusOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenus?: PostCateringMenusRequest;
+export interface PostCateringMenusRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenus: CateringMenus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCateringPackagesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringPackages?: PostCateringPackagesRequest;
+export interface PostCateringPackagesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringPackages: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostEventForecastsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventForecasts?: PutEventForecastsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventForecasts: EventForecasts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostInventoryItemTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItemTemplates?: PostInventoryItemTemplatesRequest;
+export interface PostInventoryItemTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItemTemplates: InventoryItemTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostInventoryItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItems?: PostInventoryItemsRequest;
+export interface PostInventoryItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItems: InventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostItemClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemClasses?: PostItemClassesRequest;
+export interface PostItemClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemClasses: ItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostItemPoolsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemPools?: PostItemPoolsRequest;
+export interface PostItemPoolsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemPools: ItemPools;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRevenueGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueGroups?: PostRevenueGroupsRequest;
+export interface PostRevenueGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueGroups: RevenueGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRevenueTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueTypes?: PostRevenueTypesRequest;
+export interface PostRevenueTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueTypes: RevenueTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringContainersRequest {
-    cateringContainersCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringContainers?: PostCateringContainersRequest;
+    cateringContainersCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringContainers: CateringContainers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringItemRatesRequest {
-    cateringItemRatesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringItemRates?: PostCateringItemRatesRequest;
+    cateringItemRatesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringItemRates: CateringItemRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCateringMenuClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuClasses?: PutCateringMenuClassesRequest;
+export interface PutCateringMenuClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuClasses: CateringMenuClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringMenuItemClassesRequest {
-    cateringMenuItemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemClasses?: PostCateringMenuItemClassesRequest;
+    cateringMenuItemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemClasses: CateringMenuItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringMenuItemsRequest {
-    cateringMenuItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItems?: PostCateringMenuItemsRequest;
+    cateringMenuItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItems: CateringMenuItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringMenusRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenus?: PostCateringMenusRequest;
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenus: CateringMenus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringPackagesRequest {
-    cateringPackageId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringPackages?: PostCateringPackagesRequest;
+    cateringPackageId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringPackages: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCateringServingsOperationRequest {
-    cateringServingsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringServings?: PutCateringServingsRequest;
+export interface PutCateringServingsRequest {
+    cateringServingsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringServings: CateringServings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutEventForecastsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventForecasts?: PutEventForecastsRequest;
+export interface PutEventForecastsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventForecasts: EventForecasts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutInventoryItemTemplatesRequest {
-    inventoryItemId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItemTemplates?: PostInventoryItemTemplatesRequest;
+    inventoryItemId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItemTemplates: InventoryItemTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutInventoryItemsRequest {
-    inventoryItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItems?: PostInventoryItemsRequest;
+    inventoryItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItems: InventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutItemClassesRequest {
-    itemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemClasses?: PostItemClassesRequest;
+    itemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemClasses: ItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutItemPoolsRequest {
-    itemPoolsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemPools?: PostItemPoolsRequest;
+    itemPoolsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemPools: ItemPools;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRevenueGroupsRequest {
-    revenueGroupsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueGroups?: PostRevenueGroupsRequest;
+    revenueGroupsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueGroups: RevenueGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRevenueTypesRequest {
-    revenueTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueTypes?: PostRevenueTypesRequest;
+    revenueTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueTypes: RevenueTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -876,52 +876,52 @@ export declare class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to copy menu item classes. <p><strong>OperationId:</strong>copyCateringMenuItemClasses</p>
      * Copy menu item classes
      */
-    copyCateringMenuItemClassesRaw(requestParameters: CopyCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyCateringMenuItemClassesRaw(requestParameters: CopyCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to copy menu item classes. <p><strong>OperationId:</strong>copyCateringMenuItemClasses</p>
      * Copy menu item classes
      */
-    copyCateringMenuItemClasses(requestParameters: CopyCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyCateringMenuItemClasses(requestParameters: CopyCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>copyCateringMenuItems</p>
      * Operation to copy catering menu items.
      */
-    copyCateringMenuItemsRaw(requestParameters: CopyCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyCateringMenuItemsRaw(requestParameters: CopyCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>copyCateringMenuItems</p>
      * Operation to copy catering menu items.
      */
-    copyCateringMenuItems(requestParameters: CopyCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyCateringMenuItems(requestParameters: CopyCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy a menu for a property. <p><strong>OperationId:</strong>copyCateringMenus</p>
      * Copy a menu
      */
-    copyCateringMenusRaw(requestParameters: CopyCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyCateringMenusRaw(requestParameters: CopyCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy a menu for a property. <p><strong>OperationId:</strong>copyCateringMenus</p>
      * Copy a menu
      */
-    copyCateringMenus(requestParameters: CopyCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyCateringMenus(requestParameters: CopyCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to copy an Event Forecast from a property to another. <p><strong>OperationId:</strong>copyEventForecasts</p>
      * Copy event forecasts
      */
-    copyEventForecastsRaw(requestParameters: CopyEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyEventForecastsRaw(requestParameters: CopyEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to copy an Event Forecast from a property to another. <p><strong>OperationId:</strong>copyEventForecasts</p>
      * Copy event forecasts
      */
-    copyEventForecasts(requestParameters: CopyEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyEventForecasts(requestParameters: CopyEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to select multiple Item Inventories from the Source Property and copy to the Target Property. <p><strong>OperationId:</strong>copyInventoryItems</p>
      * Copy Item Inventories
      */
-    copyInventoryItemsRaw(requestParameters: CopyInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyInventoryItemsRaw(requestParameters: CopyInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to select multiple Item Inventories from the Source Property and copy to the Target Property. <p><strong>OperationId:</strong>copyInventoryItems</p>
      * Copy Item Inventories
      */
-    copyInventoryItems(requestParameters: CopyInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyInventoryItems(requestParameters: CopyInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to copy item classes. <p><strong>OperationId:</strong>copyItemClasses</p>
      * Copy item classes
@@ -1346,22 +1346,22 @@ export declare class ResourceConfigApi extends runtime.BaseAPI {
      * Menu Item Catering Containers describe how individual menu item are sold (for example, per piece, per dozen, or each) when they are not included in the price of the menu. The description prints on reports such as the Banquet Event Order (BEO) and Proforma Invoice.  This API allows you to create a new Menu Item Catering Container code and description. <p><strong>OperationId:</strong>postCateringContainers</p>
      * Create catering containers
      */
-    postCateringContainersRaw(requestParameters: PostCateringContainersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringContainersRaw(requestParameters: PostCateringContainersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Menu Item Catering Containers describe how individual menu item are sold (for example, per piece, per dozen, or each) when they are not included in the price of the menu. The description prints on reports such as the Banquet Event Order (BEO) and Proforma Invoice.  This API allows you to create a new Menu Item Catering Container code and description. <p><strong>OperationId:</strong>postCateringContainers</p>
      * Create catering containers
      */
-    postCateringContainers(requestParameters: PostCateringContainersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringContainers(requestParameters: PostCateringContainersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create Catering Item rates <p><strong>OperationId:</strong>postCateringItemRates</p>
      * Create Catering Item rates
      */
-    postCateringItemRatesRaw(requestParameters: PostCateringItemRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringItemRatesRaw(requestParameters: PostCateringItemRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create Catering Item rates <p><strong>OperationId:</strong>postCateringItemRates</p>
      * Create Catering Item rates
      */
-    postCateringItemRates(requestParameters: PostCateringItemRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringItemRates(requestParameters: PostCateringItemRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create menu classes. <p><strong>OperationId:</strong>postCateringMenuClasses</p>
      * Create menu classes
@@ -1376,42 +1376,42 @@ export declare class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create menu item classes. <p><strong>OperationId:</strong>postCateringMenuItemClasses</p>
      * Create menu item classes
      */
-    postCateringMenuItemClassesRaw(requestParameters: PostCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringMenuItemClassesRaw(requestParameters: PostCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create menu item classes. <p><strong>OperationId:</strong>postCateringMenuItemClasses</p>
      * Create menu item classes
      */
-    postCateringMenuItemClasses(requestParameters: PostCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringMenuItemClasses(requestParameters: PostCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create menu items. <p><strong>OperationId:</strong>postCateringMenuItems</p>
      * Create menu items
      */
-    postCateringMenuItemsRaw(requestParameters: PostCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringMenuItemsRaw(requestParameters: PostCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create menu items. <p><strong>OperationId:</strong>postCateringMenuItems</p>
      * Create menu items
      */
-    postCateringMenuItems(requestParameters: PostCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringMenuItems(requestParameters: PostCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create menus for a property. <p><strong>OperationId:</strong>postCateringMenus</p>
      * Create menus
      */
-    postCateringMenusRaw(requestParameters: PostCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringMenusRaw(requestParameters: PostCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create menus for a property. <p><strong>OperationId:</strong>postCateringMenus</p>
      * Create menus
      */
-    postCateringMenus(requestParameters: PostCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringMenus(requestParameters: PostCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Catering packages and templates are designed to make it easier for you to set up Events. They provide pre-configured resources typically used for Events. Templates and packages are similar except that templates do not include prices. <p><strong>OperationId:</strong>postCateringPackages</p>
      * Create catering packages
      */
-    postCateringPackagesRaw(requestParameters: PostCateringPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCateringPackagesRaw(requestParameters: PostCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Catering packages and templates are designed to make it easier for you to set up Events. They provide pre-configured resources typically used for Events. Templates and packages are similar except that templates do not include prices. <p><strong>OperationId:</strong>postCateringPackages</p>
      * Create catering packages
      */
-    postCateringPackages(requestParameters: PostCateringPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCateringPackages(requestParameters: PostCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can define Event Forecasts, with or without a market code or a block type, to manage different revenue forecasts for different types of bookings, such as corporate versus social. This API will allow you to create a new Event Forecast. <p><strong>OperationId:</strong>postEventForecasts</p>
      * Create event forecasts
@@ -1426,62 +1426,62 @@ export declare class ResourceConfigApi extends runtime.BaseAPI {
      * Create an Item Inventory template. <p><strong>OperationId:</strong>postInventoryItemTemplates</p>
      * Create Item Inventory template
      */
-    postInventoryItemTemplatesRaw(requestParameters: PostInventoryItemTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postInventoryItemTemplatesRaw(requestParameters: PostInventoryItemTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create an Item Inventory template. <p><strong>OperationId:</strong>postInventoryItemTemplates</p>
      * Create Item Inventory template
      */
-    postInventoryItemTemplates(requestParameters: PostInventoryItemTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postInventoryItemTemplates(requestParameters: PostInventoryItemTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create a new Item Inventory Code for a property. <p><strong>OperationId:</strong>postInventoryItems</p>
      * Create an Item Inventory
      */
-    postInventoryItemsRaw(requestParameters: PostInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryItemsCreated>>;
+    postInventoryItemsRaw(requestParameters: PostInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryItemsCreated>>;
     /**
      * You can use this API to create a new Item Inventory Code for a property. <p><strong>OperationId:</strong>postInventoryItems</p>
      * Create an Item Inventory
      */
-    postInventoryItems(requestParameters: PostInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InventoryItemsCreated>;
+    postInventoryItems(requestParameters: PostInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InventoryItemsCreated>;
     /**
      * You can use this API to create item classes. <p><strong>OperationId:</strong>postItemClasses</p>
      * Create item classes
      */
-    postItemClassesRaw(requestParameters: PostItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postItemClassesRaw(requestParameters: PostItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create item classes. <p><strong>OperationId:</strong>postItemClasses</p>
      * Create item classes
      */
-    postItemClasses(requestParameters: PostItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postItemClasses(requestParameters: PostItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can create Item Pools, whereby you are grouping Item Inventories into a group.  For example you might have a Item Pool for a Promotional Package where the guest receives a number of Item Inventories; thus creating a group enables you to easily manage this. <p><strong>OperationId:</strong>postItemPools</p>
      * Create Item Pools
      */
-    postItemPoolsRaw(requestParameters: PostItemPoolsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postItemPoolsRaw(requestParameters: PostItemPoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can create Item Pools, whereby you are grouping Item Inventories into a group.  For example you might have a Item Pool for a Promotional Package where the guest receives a number of Item Inventories; thus creating a group enables you to easily manage this. <p><strong>OperationId:</strong>postItemPools</p>
      * Create Item Pools
      */
-    postItemPools(requestParameters: PostItemPoolsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postItemPools(requestParameters: PostItemPoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create a new catering revenue group code. <p><strong>OperationId:</strong>postRevenueGroups</p>
      * Create Catering Revenue Groups
      */
-    postRevenueGroupsRaw(requestParameters: PostRevenueGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRevenueGroupsRaw(requestParameters: PostRevenueGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create a new catering revenue group code. <p><strong>OperationId:</strong>postRevenueGroups</p>
      * Create Catering Revenue Groups
      */
-    postRevenueGroups(requestParameters: PostRevenueGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRevenueGroups(requestParameters: PostRevenueGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create a new Catering Revenue Type code. <p><strong>OperationId:</strong>postRevenueTypes</p>
      * Create Catering Revenue Types
      */
-    postRevenueTypesRaw(requestParameters: PostRevenueTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRevenueTypesRaw(requestParameters: PostRevenueTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create a new Catering Revenue Type code. <p><strong>OperationId:</strong>postRevenueTypes</p>
      * Create Catering Revenue Types
      */
-    postRevenueTypes(requestParameters: PostRevenueTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRevenueTypes(requestParameters: PostRevenueTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to update an existing Menu Item Catering Container code. <p><strong>OperationId:</strong>putCateringContainers</p>
      * Change catering containers
@@ -1506,12 +1506,12 @@ export declare class ResourceConfigApi extends runtime.BaseAPI {
      * Update catering menu classes <p><strong>OperationId:</strong>putCateringMenuClasses</p>
      * Update catering menu classes
      */
-    putCateringMenuClassesRaw(requestParameters: PutCateringMenuClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCateringMenuClassesRaw(requestParameters: PutCateringMenuClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update catering menu classes <p><strong>OperationId:</strong>putCateringMenuClasses</p>
      * Update catering menu classes
      */
-    putCateringMenuClasses(requestParameters: PutCateringMenuClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCateringMenuClasses(requestParameters: PutCateringMenuClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to update menu item classes. <p><strong>OperationId:</strong>putCateringMenuItemClasses</p>
      * Update menu item classes
@@ -1556,22 +1556,22 @@ export declare class ResourceConfigApi extends runtime.BaseAPI {
      * Update catering servings <p><strong>OperationId:</strong>putCateringServings</p>
      * Update catering servings
      */
-    putCateringServingsRaw(requestParameters: PutCateringServingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCateringServingsRaw(requestParameters: PutCateringServingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update catering servings <p><strong>OperationId:</strong>putCateringServings</p>
      * Update catering servings
      */
-    putCateringServings(requestParameters: PutCateringServingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCateringServings(requestParameters: PutCateringServingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to update an Event Forecast for a property. <p><strong>OperationId:</strong>putEventForecasts</p>
      * Update Event forecasts
      */
-    putEventForecastsRaw(requestParameters: PutEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putEventForecastsRaw(requestParameters: PutEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to update an Event Forecast for a property. <p><strong>OperationId:</strong>putEventForecasts</p>
      * Update Event forecasts
      */
-    putEventForecasts(requestParameters: PutEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putEventForecasts(requestParameters: PutEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Change Item Inventory template. <p><strong>OperationId:</strong>putInventoryItemTemplates</p>
      * Change Item Inventory templates

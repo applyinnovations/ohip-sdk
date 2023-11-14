@@ -53,10 +53,10 @@ function NegRateAccessTypeToJSON(value) {
     return {
         'commissionCode': value.commissionCode,
         'discounts': value.discounts === undefined ? undefined : (value.discounts.map(ProfileDiscountType_1.ProfileDiscountTypeToJSON)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'negotiatedRateOrder': value.negotiatedRateOrder,
         'newTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.newTimeSpan),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
     };
 }
 exports.NegRateAccessTypeToJSON = NegRateAccessTypeToJSON;

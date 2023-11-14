@@ -10,113 +10,113 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BestAvailableRatePlans, BestAvailableRatePlansStatus, DailyRatePlanSchedules, DailyRatePlanSchedulesStatus, HurdleRates, HurdleRatesStatus, StartSetRatePlansHeadersProcessRequest } from '../models';
+import type { BestAvailableRatePlans, BestAvailableRatePlansStatus, DailyRatePlanSchedules, DailyRatePlanSchedulesStatus, HurdleRates, HurdleRatesStatus, RatePlans } from '../models/index';
 export interface GetBestAvailableRatePlansRequest {
-    requestId?: string;
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetBestAvailableRatePlansProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetDailyRatePlanSchedulesRequest {
-    requestId?: string;
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetDailyRatePlanSchedulesProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetHurdleRatesRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    requestId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    extSystemCode: string;
+    requestId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetHurdleRatesProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetRatePlansHeadersRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    requestId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    extSystemCode: string;
+    requestId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface GetRatePlansHeadersProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 export interface StartHurdleRatesProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hurdleRates?: HurdleRates;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hurdleRates: HurdleRates;
     acceptLanguage?: string;
 }
 export interface StartSetBestAvailableRatePlansProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bestAvailableRatePlans?: BestAvailableRatePlans;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bestAvailableRatePlans: BestAvailableRatePlans;
     acceptLanguage?: string;
 }
 export interface StartSetDailyRatePlanSchedulesProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    dailyRatePlanSchedules?: DailyRatePlanSchedules;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    dailyRatePlanSchedules: DailyRatePlanSchedules;
     acceptLanguage?: string;
 }
-export interface StartSetRatePlansHeadersProcessOperationRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlan?: StartSetRatePlansHeadersProcessRequest;
+export interface StartSetRatePlansHeadersProcessRequest {
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlan: RatePlans;
     acceptLanguage?: string;
 }
 /**
@@ -237,10 +237,10 @@ export declare class RatePlanAsyncApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>startSetRatePlansHeadersProcess</p>
      * Operation to start the update of rate header flags. Recommendation is not to exceed 250 rate codes in one request.
      */
-    startSetRatePlansHeadersProcessRaw(requestParameters: StartSetRatePlansHeadersProcessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    startSetRatePlansHeadersProcessRaw(requestParameters: StartSetRatePlansHeadersProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
      *  <p><strong>OperationId:</strong>startSetRatePlansHeadersProcess</p>
      * Operation to start the update of rate header flags. Recommendation is not to exceed 250 rate codes in one request.
      */
-    startSetRatePlansHeadersProcess(requestParameters: StartSetRatePlansHeadersProcessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    startSetRatePlansHeadersProcess(requestParameters: StartSetRatePlansHeadersProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }

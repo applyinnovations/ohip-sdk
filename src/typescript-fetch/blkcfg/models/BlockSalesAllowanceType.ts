@@ -110,12 +110,12 @@ export function BlockSalesAllowanceTypeToJSON(value?: BlockSalesAllowanceType | 
         
         'allowance': value.allowance,
         'booked': value.booked,
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substr(0,10)),
+        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
         'hotelId': value.hotelId,
         'overBooked': value.overBooked,
         'roomPool': value.roomPool,
         'roomType': value.roomType,
-        'salesAllowanceDate': value.salesAllowanceDate === undefined ? undefined : (value.salesAllowanceDate.toISOString().substr(0,10)),
+        'salesAllowanceDate': value.salesAllowanceDate === undefined ? undefined : (value.salesAllowanceDate.toISOString().substring(0,10)),
     };
 }
 

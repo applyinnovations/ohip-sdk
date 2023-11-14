@@ -142,13 +142,13 @@ export function ReceiptSummaryTypeToJSON(value?: ReceiptSummaryType | null): any
     return {
         
         'customNumbers': value.customNumbers,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'payeeInfo': PayeeInfoTypeToJSON(value.payeeInfo),
         'receiptAmount': CurrencyAmountTypeToJSON(value.receiptAmount),
         'receiptNo': value.receiptNo,
         'receiptType': ReceiptTypeToJSON(value.receiptType),
         'receiptTypeDescription': value.receiptTypeDescription,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'taxInvoice': value.taxInvoice,
         'transactionNo': value.transactionNo,
     };

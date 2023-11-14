@@ -103,7 +103,7 @@ export function StagedProfilePhoneTypeToJSON(value?: StagedProfilePhoneType | nu
         
         'telephone': TelephoneTypeToJSON(value.telephone),
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'defaultConfirmation': value.defaultConfirmation,
         'id': value.id,
         'type': value.type,

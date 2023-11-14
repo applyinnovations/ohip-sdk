@@ -89,7 +89,7 @@ export function AssociatedBillInfoTypeToJSON(value?: AssociatedBillInfoType | nu
         
         'associatedBillFiscalBillNumber': value.associatedBillFiscalBillNumber,
         'associatedBillFolioType': value.associatedBillFolioType,
-        'associatedBillGenerationDate': value.associatedBillGenerationDate === undefined ? undefined : (value.associatedBillGenerationDate.toISOString().substr(0,10)),
+        'associatedBillGenerationDate': value.associatedBillGenerationDate === undefined ? undefined : (value.associatedBillGenerationDate.toISOString().substring(0,10)),
         'associatedBillNumber': value.associatedBillNumber,
         'associatedBillQueueName': value.associatedBillQueueName,
     };

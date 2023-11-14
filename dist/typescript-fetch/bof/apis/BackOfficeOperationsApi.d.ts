@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BusinessDate } from '../models';
+import type { BusinessDate } from '../models/index';
 export interface GetBusinessDateRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

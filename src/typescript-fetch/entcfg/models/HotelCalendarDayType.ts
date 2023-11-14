@@ -86,7 +86,7 @@ export function HotelCalendarDayTypeToJSON(value?: HotelCalendarDayType | null):
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'dayType': HotelCalendarDayTypeTypeToJSON(value.dayType),
         'events': HotelCalendarEventsTypeToJSON(value.events),
     };

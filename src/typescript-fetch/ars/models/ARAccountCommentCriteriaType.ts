@@ -165,7 +165,7 @@ export function ARAccountCommentCriteriaTypeToJSON(value?: ARAccountCommentCrite
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'profileId': ProfileIdToJSON(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'type': value.type,
     };
 }

@@ -96,9 +96,9 @@ export function ReservationHousekeepingScheduleTypeToJSON(value?: ReservationHou
         
         'customized': value.customized,
         'cycleStartDay': value.cycleStartDay,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'facilityHousekeepingTasks': FacilityHousekeepingTasksTypeToJSON(value.facilityHousekeepingTasks),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
     };
 }
 

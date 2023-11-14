@@ -89,7 +89,7 @@ export function FiscalPeriodEditTypeToJSON(value?: FiscalPeriodEditType | null):
         
         'hotelId': value.hotelId,
         'newPeriod': FiscalPeriodTypeToJSON(value.newPeriod),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0,10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
         'yearId': value.yearId,
     };
 }

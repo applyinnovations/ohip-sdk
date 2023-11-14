@@ -53,7 +53,7 @@ function MembershipAwardPointsTypeToJSON(value) {
         'bonusPoints': value.bonusPoints,
         'miscPoints': value.miscPoints,
         'totalPoints': value.totalPoints,
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substr(0, 10)),
+        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0, 10)),
         'ruleCode': value.ruleCode,
     };
 }

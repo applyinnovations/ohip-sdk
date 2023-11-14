@@ -204,7 +204,7 @@ export function ResCashieringTypeToJSON(value?: ResCashieringType | null): any {
         'compAccounting': ResCompAccountingTypeToJSON(value.compAccounting),
         'financiallyResponsible': value.financiallyResponsible,
         'folioTexts': FolioTextsTypeToJSON(value.folioTexts),
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substr(0,10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0,10)),
         'periodicFolio': ResPeriodicFolioTypeToJSON(value.periodicFolio),
         'proratedBilling': value.proratedBilling,
         'reservationPreConfiguredRoutingInstruction': ResPreConfiguredRoutingInstrTypeToJSON(value.reservationPreConfiguredRoutingInstruction),

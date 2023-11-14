@@ -10,148 +10,148 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AlertCodeTemplates, AlertCodes, AutoAttachElementsConfig, CopyAutoAttachElementsRequest, CopyECouponCodesRequest, CopyGlobalAlertsRequest, CopyTraceTextsRequest, CopyUpsellRulesRequest, DeleteAutoAttachElementsRequest, DeleteGlobalAlertsRequest, ECouponCodes, GlobalAlertsInfo, GuestMessageTemplates, HotelTurnAwayCodes, LocatorCodesInfo, LocatorCodesTemplateInfo, MembershipLevelRatingsInfo, PostTraceTextsRequest, PutAlertCodeTemplatesRequest, PutAlertCodesRequest, PutECouponCodesRequest, PutGuestMessageTemplatesRequest, PutGuestMessagesRequest, PutHotelTurnAwayCodesRequest, PutLocatorCodesRequest, PutLocatorCodesTemplateRequest, PutMembershipLevelRatingsRequest, PutRatePlanRatingsRequest, PutReservationColorsRequest, PutRoomFeatureRatingsRequest, PutRoomRatingsRequest, PutRoomSpecialRatingsRequest, PutTemplateTurnAwayCodesRequest, PutTraceTextsRequest, PutUpsellRulesRequest, RatePlanRatings, ReservationColorsResponse, RetrievedGuestMessages, RoomFeatureRatingsInfo, RoomRatings, RoomSpecialRatingsInfo, Status, TemplateTurnAwayCodes, TestUpsellRulesRequest, TraceTextsToBeFetched, UpsellRules, UpsellRulesToTestDetails } from '../models';
-export interface CopyAutoAttachElementsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoAttachElementsCopy?: CopyAutoAttachElementsRequest;
+import type { AlertCodeTemplates, AlertCodes, AlertTemplates, AutoAttachElements, AutoAttachElementsConfig, AutoAttachElementsCopy, ECouponCodes, ECouponCodesCopy, GlobalAlerts, GlobalAlertsCopy, GlobalAlertsInfo, GuestMessageTemplates, GuestMessages, HotelTurnAwayCodes, LocatorCodes, LocatorCodesInfo, LocatorCodesTemplate, LocatorCodesTemplateInfo, MembershipLevelRatings, MembershipLevelRatingsInfo, RatePlanRatings, RatePlanRatingsInfo, ReservationColorsResponse, ReservationColorsToChange, RetrievedGuestMessages, RoomFeatureRatings, RoomFeatureRatingsInfo, RoomRatings, RoomRatingsInfo, RoomSpecialRatings, RoomSpecialRatingsInfo, Status, TemplateTurnAwayCodes, TraceTextChanges, TraceTextsCopy, TraceTextsToBeCreated, TraceTextsToBeFetched, UpsellRules, UpsellRulesCopy, UpsellRulesToTest, UpsellRulesToTestDetails } from '../models/index';
+export interface CopyAutoAttachElementsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoAttachElementsCopy: AutoAttachElementsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyECouponCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCouponCodesCopy?: CopyECouponCodesRequest;
+export interface CopyECouponCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCouponCodesCopy: ECouponCodesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyGlobalAlertsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    globalAlertsCopy?: CopyGlobalAlertsRequest;
+export interface CopyGlobalAlertsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    globalAlertsCopy: GlobalAlertsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTraceTextsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    traceTextsCopy?: CopyTraceTextsRequest;
+export interface CopyTraceTextsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    traceTextsCopy: TraceTextsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyUpsellRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    upsellRulesCopy?: CopyUpsellRulesRequest;
+export interface CopyUpsellRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    upsellRulesCopy: UpsellRulesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAlertCodeTemplatesRequest {
-    alertCodeTemplateCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    alertCodeTemplateCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAlertCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DeleteAutoAttachElementsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoAttachElements?: DeleteAutoAttachElementsRequest;
+export interface DeleteAutoAttachElementsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoAttachElements: AutoAttachElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteECouponCodesRequest {
-    ecouponCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ecouponCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DeleteGlobalAlertsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    globalAlerts?: DeleteGlobalAlertsRequest;
+export interface DeleteGlobalAlertsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    globalAlerts: GlobalAlerts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGuestMessageTemplatesRequest {
-    guestMessageTemplateCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guestMessageTemplateCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGuestMessagesRequest {
-    messageCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    messageCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteHotelTurnAwayCodesRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteLocatorCodesRequest {
-    locatorCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    locatorCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteLocatorCodesTemplateRequest {
-    locatorCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    locatorCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateTurnAwayCodesRequest {
-    turnawayCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    turnawayCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTraceTextsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     departmentCode?: Array<string>;
     traceText?: Array<string>;
@@ -161,28 +161,28 @@ export interface DeleteTraceTextsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteUpsellRulesRequest {
-    ruleCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ruleCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAlertCodeTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     alertCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAlertCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: Array<string>;
     alertCodes?: Array<string>;
     wildCard?: string;
@@ -190,10 +190,10 @@ export interface GetAlertCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoAttachElementsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     code?: Array<string>;
     criteriaCode?: string;
@@ -204,9 +204,9 @@ export interface GetAutoAttachElementsRequest {
     acceptLanguage?: string;
 }
 export interface GetECouponCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -219,9 +219,9 @@ export interface GetECouponCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalAlertsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     alertCodes?: Array<string>;
     wildCard?: string;
@@ -230,19 +230,19 @@ export interface GetGlobalAlertsRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestMessageTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     guestMessageCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetGuestMessagesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -252,10 +252,10 @@ export interface GetGuestMessagesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelTurnAwayCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     code?: Array<string>;
@@ -266,10 +266,10 @@ export interface GetHotelTurnAwayCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetLocatorCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -280,9 +280,9 @@ export interface GetLocatorCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetLocatorCodesTemplateRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     locatorCodes?: Array<string>;
     wildCard?: string;
     includeInactive?: boolean;
@@ -290,10 +290,10 @@ export interface GetLocatorCodesTemplateRequest {
     acceptLanguage?: string;
 }
 export interface GetMembershipLevelRatingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     membershipTypeCodes?: Array<string>;
@@ -305,10 +305,10 @@ export interface GetMembershipLevelRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetRatePlanRatingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     ratePlanCodes?: Array<string>;
@@ -318,20 +318,20 @@ export interface GetRatePlanRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationColorsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     description?: string;
     includeInactive?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetRoomFeatureRatingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     featureCodes?: Array<string>;
@@ -342,10 +342,10 @@ export interface GetRoomFeatureRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomRatingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     roomNumberCodes?: Array<string>;
@@ -356,10 +356,10 @@ export interface GetRoomRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomSpecialRatingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     specialCodes?: Array<string>;
@@ -370,9 +370,9 @@ export interface GetRoomSpecialRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateTurnAwayCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     wildCard?: string;
     includeInactive?: boolean;
@@ -380,9 +380,9 @@ export interface GetTemplateTurnAwayCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTraceTextsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     excludeGlobal?: boolean;
     departmentCodes?: Array<string>;
     hotelIds?: Array<string>;
@@ -390,10 +390,10 @@ export interface GetTraceTextsRequest {
     acceptLanguage?: string;
 }
 export interface GetUpsellRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     stayDate?: Date;
     rule?: string;
     searchByRoomType?: boolean;
@@ -408,293 +408,293 @@ export interface GetUpsellRulesRequest {
     acceptLanguage?: string;
 }
 export interface PostAlertCodeTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alertTemplates?: PutAlertCodeTemplatesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alertTemplates: AlertTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAlertCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alertCodes?: PutAlertCodesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alertCodes: AlertCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAutoAttachElementsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoAttachElements?: DeleteAutoAttachElementsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoAttachElements: AutoAttachElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostECouponCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCouponCodes?: PutECouponCodesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCouponCodes: ECouponCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostGlobalAlertsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    globalAlerts?: DeleteGlobalAlertsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    globalAlerts: GlobalAlerts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostGuestMessageTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestMessageTemplates?: PutGuestMessageTemplatesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestMessageTemplates: GuestMessageTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostGuestMessagesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestMessages?: PutGuestMessagesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestMessages: GuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHotelTurnAwayCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTurnAwayCodes?: PutHotelTurnAwayCodesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTurnAwayCodes: HotelTurnAwayCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostLocatorCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    locatorCodes?: PutLocatorCodesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    locatorCodes: LocatorCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostLocatorCodesTemplateRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    locatorCodesTemplate?: PutLocatorCodesTemplateRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    locatorCodesTemplate: LocatorCodesTemplate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateTurnAwayCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTurnAwayCodes?: PutTemplateTurnAwayCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTurnAwayCodes: TemplateTurnAwayCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTraceTextsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    traceTextsToBeCreated?: PostTraceTextsRequest;
+export interface PostTraceTextsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    traceTextsToBeCreated: TraceTextsToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostUpsellRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    upsellRules?: PutUpsellRulesRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    upsellRules: UpsellRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAlertCodeTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alertTemplates?: PutAlertCodeTemplatesRequest;
+export interface PutAlertCodeTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alertTemplates: AlertTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAlertCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    alertCodes?: PutAlertCodesRequest;
+export interface PutAlertCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    alertCodes: AlertCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoAttachElementsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoAttachElements?: DeleteAutoAttachElementsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoAttachElements: AutoAttachElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutECouponCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eCouponCodes?: PutECouponCodesRequest;
+export interface PutECouponCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eCouponCodes: ECouponCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutGlobalAlertsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    globalAlerts?: DeleteGlobalAlertsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    globalAlerts: GlobalAlerts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGuestMessageTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestMessageTemplates?: PutGuestMessageTemplatesRequest;
+export interface PutGuestMessageTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestMessageTemplates: GuestMessageTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGuestMessagesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestMessages?: PutGuestMessagesRequest;
+export interface PutGuestMessagesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestMessages: GuestMessages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutHotelTurnAwayCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    hotelTurnAwayCodes?: PutHotelTurnAwayCodesRequest;
+export interface PutHotelTurnAwayCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    hotelTurnAwayCodes: HotelTurnAwayCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutLocatorCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    locatorCodes?: PutLocatorCodesRequest;
+export interface PutLocatorCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    locatorCodes: LocatorCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutLocatorCodesTemplateOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    locatorCodesTemplate?: PutLocatorCodesTemplateRequest;
+export interface PutLocatorCodesTemplateRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    locatorCodesTemplate: LocatorCodesTemplate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutMembershipLevelRatingsOperationRequest {
-    membershipLevel?: string;
-    membershipType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    membershipLevelRatings?: PutMembershipLevelRatingsRequest;
+export interface PutMembershipLevelRatingsRequest {
+    membershipLevel: string;
+    membershipType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    membershipLevelRatings: MembershipLevelRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRatePlanRatingsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ratePlanRatingsInfo?: PutRatePlanRatingsRequest;
+export interface PutRatePlanRatingsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ratePlanRatingsInfo: RatePlanRatingsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationColorsOperationRequest {
-    code?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationColorsToChange?: PutReservationColorsRequest;
+export interface PutReservationColorsRequest {
+    code: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationColorsToChange: ReservationColorsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomFeatureRatingsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomFeatureRatings?: PutRoomFeatureRatingsRequest;
+export interface PutRoomFeatureRatingsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomFeatureRatings: RoomFeatureRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomRatingsOperationRequest {
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRatingsInfo?: PutRoomRatingsRequest;
+export interface PutRoomRatingsRequest {
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRatingsInfo: RoomRatingsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomSpecialRatingsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomSpecialRatings?: PutRoomSpecialRatingsRequest;
+export interface PutRoomSpecialRatingsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomSpecialRatings: RoomSpecialRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTemplateTurnAwayCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateTurnAwayCodes?: PutTemplateTurnAwayCodesRequest;
+export interface PutTemplateTurnAwayCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateTurnAwayCodes: TemplateTurnAwayCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTraceTextsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    traceTextChanges?: PutTraceTextsRequest;
+export interface PutTraceTextsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    traceTextChanges: TraceTextChanges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutUpsellRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    upsellRules?: PutUpsellRulesRequest;
+export interface PutUpsellRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    upsellRules: UpsellRules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TestUpsellRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    upsellRulesToTest?: TestUpsellRulesRequest;
+export interface TestUpsellRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    upsellRulesToTest: UpsellRulesToTest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -706,52 +706,52 @@ export declare class ReservationConfigApi extends runtime.BaseAPI {
      * You can use this API to copy Auto Attach Elements. <p><strong>OperationId:</strong>copyAutoAttachElements</p>
      * Copy Auto Attach Elements
      */
-    copyAutoAttachElementsRaw(requestParameters: CopyAutoAttachElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyAutoAttachElementsRaw(requestParameters: CopyAutoAttachElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to copy Auto Attach Elements. <p><strong>OperationId:</strong>copyAutoAttachElements</p>
      * Copy Auto Attach Elements
      */
-    copyAutoAttachElements(requestParameters: CopyAutoAttachElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyAutoAttachElements(requestParameters: CopyAutoAttachElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy an existing property eCoupon Codes to create a new one. <p><strong>OperationId:</strong>copyECouponCodes</p>
      * Copy eCoupon Codes
      */
-    copyECouponCodesRaw(requestParameters: CopyECouponCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyECouponCodesRaw(requestParameters: CopyECouponCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy an existing property eCoupon Codes to create a new one. <p><strong>OperationId:</strong>copyECouponCodes</p>
      * Copy eCoupon Codes
      */
-    copyECouponCodes(requestParameters: CopyECouponCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyECouponCodes(requestParameters: CopyECouponCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy a Global Alert for a property. <p><strong>OperationId:</strong>copyGlobalAlerts</p>
      * Copy Global Alerts
      */
-    copyGlobalAlertsRaw(requestParameters: CopyGlobalAlertsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyGlobalAlertsRaw(requestParameters: CopyGlobalAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy a Global Alert for a property. <p><strong>OperationId:</strong>copyGlobalAlerts</p>
      * Copy Global Alerts
      */
-    copyGlobalAlerts(requestParameters: CopyGlobalAlertsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyGlobalAlerts(requestParameters: CopyGlobalAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy an existing Trace Text to create a new one. <p><strong>OperationId:</strong>copyTraceTexts</p>
      * Copy trace text
      */
-    copyTraceTextsRaw(requestParameters: CopyTraceTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTraceTextsRaw(requestParameters: CopyTraceTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy an existing Trace Text to create a new one. <p><strong>OperationId:</strong>copyTraceTexts</p>
      * Copy trace text
      */
-    copyTraceTexts(requestParameters: CopyTraceTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTraceTexts(requestParameters: CopyTraceTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy an existing upsell rule, to create a new one. <p><strong>OperationId:</strong>copyUpsellRules</p>
      * Copy upsell rules
      */
-    copyUpsellRulesRaw(requestParameters: CopyUpsellRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyUpsellRulesRaw(requestParameters: CopyUpsellRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy an existing upsell rule, to create a new one. <p><strong>OperationId:</strong>copyUpsellRules</p>
      * Copy upsell rules
      */
-    copyUpsellRules(requestParameters: CopyUpsellRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyUpsellRules(requestParameters: CopyUpsellRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Delete an existing alert code template. <p><strong>OperationId:</strong>deleteAlertCodeTemplates</p>
      * Delete Alert Code Template
@@ -776,12 +776,12 @@ export declare class ReservationConfigApi extends runtime.BaseAPI {
      * Delete an Auto Attach Element Rule on a property. <p><strong>OperationId:</strong>deleteAutoAttachElements</p>
      * Delete Auto Attach Elements
      */
-    deleteAutoAttachElementsRaw(requestParameters: DeleteAutoAttachElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    deleteAutoAttachElementsRaw(requestParameters: DeleteAutoAttachElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Delete an Auto Attach Element Rule on a property. <p><strong>OperationId:</strong>deleteAutoAttachElements</p>
      * Delete Auto Attach Elements
      */
-    deleteAutoAttachElements(requestParameters: DeleteAutoAttachElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    deleteAutoAttachElements(requestParameters: DeleteAutoAttachElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Delete an existing eCoupon Code. <p><strong>OperationId:</strong>deleteECouponCodes</p>
      * Delete an eCoupon Code
@@ -796,12 +796,12 @@ export declare class ReservationConfigApi extends runtime.BaseAPI {
      * Delete a Global Alert for a property. <p><strong>OperationId:</strong>deleteGlobalAlerts</p>
      * Delete a Global Alert Code
      */
-    deleteGlobalAlertsRaw(requestParameters: DeleteGlobalAlertsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    deleteGlobalAlertsRaw(requestParameters: DeleteGlobalAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Delete a Global Alert for a property. <p><strong>OperationId:</strong>deleteGlobalAlerts</p>
      * Delete a Global Alert Code
      */
-    deleteGlobalAlerts(requestParameters: DeleteGlobalAlertsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    deleteGlobalAlerts(requestParameters: DeleteGlobalAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Delete an existing Guest Message Template. <p><strong>OperationId:</strong>deleteGuestMessageTemplates</p>
      * Delete an existing guest message template
@@ -1186,12 +1186,12 @@ export declare class ReservationConfigApi extends runtime.BaseAPI {
      * When you create traces for reservation, blocks, or AR accounts, you must first set up the standard messages that are available. When you create a trace, these texts can be selected and used as-is, or they can be modified as necessary. When you create a trace text, it must be associated with a department, like Reservations. <p><strong>OperationId:</strong>postTraceTexts</p>
      * Create new trace texts
      */
-    postTraceTextsRaw(requestParameters: PostTraceTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTraceTextsRaw(requestParameters: PostTraceTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * When you create traces for reservation, blocks, or AR accounts, you must first set up the standard messages that are available. When you create a trace, these texts can be selected and used as-is, or they can be modified as necessary. When you create a trace text, it must be associated with a department, like Reservations. <p><strong>OperationId:</strong>postTraceTexts</p>
      * Create new trace texts
      */
-    postTraceTexts(requestParameters: PostTraceTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTraceTexts(requestParameters: PostTraceTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Upgrade rule for a property.  You can upgrade a reservation during the check-in process, but it must match the date ranges, the room types, and the formulas defined in the upgrade rules for the property. A message alerts you to available upgrades and prices. <p><strong>OperationId:</strong>postUpsellRules</p>
      * Create Upsell Rules
@@ -1206,22 +1206,22 @@ export declare class ReservationConfigApi extends runtime.BaseAPI {
      * Update an existing alert code template. <p><strong>OperationId:</strong>putAlertCodeTemplates</p>
      * Change Alert Code Template
      */
-    putAlertCodeTemplatesRaw(requestParameters: PutAlertCodeTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAlertCodeTemplatesRaw(requestParameters: PutAlertCodeTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update an existing alert code template. <p><strong>OperationId:</strong>putAlertCodeTemplates</p>
      * Change Alert Code Template
      */
-    putAlertCodeTemplates(requestParameters: PutAlertCodeTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAlertCodeTemplates(requestParameters: PutAlertCodeTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Alert Codes. <p><strong>OperationId:</strong>putAlertCodes</p>
      * Change Alert Codes
      */
-    putAlertCodesRaw(requestParameters: PutAlertCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAlertCodesRaw(requestParameters: PutAlertCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Alert Codes. <p><strong>OperationId:</strong>putAlertCodes</p>
      * Change Alert Codes
      */
-    putAlertCodes(requestParameters: PutAlertCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAlertCodes(requestParameters: PutAlertCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Modify the configuration of an Auto Attach Element Rule that exists on a property. <p><strong>OperationId:</strong>putAutoAttachElements</p>
      * Update Auto Attach Elements
@@ -1236,12 +1236,12 @@ export declare class ReservationConfigApi extends runtime.BaseAPI {
      * Update an existing eCoupon Code. <p><strong>OperationId:</strong>putECouponCodes</p>
      * Change an eCoupon Code
      */
-    putECouponCodesRaw(requestParameters: PutECouponCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putECouponCodesRaw(requestParameters: PutECouponCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update an existing eCoupon Code. <p><strong>OperationId:</strong>putECouponCodes</p>
      * Change an eCoupon Code
      */
-    putECouponCodes(requestParameters: PutECouponCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putECouponCodes(requestParameters: PutECouponCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to change Global Alerts for a property. <p><strong>OperationId:</strong>putGlobalAlerts</p>
      * Change Global Alerts
@@ -1256,152 +1256,152 @@ export declare class ReservationConfigApi extends runtime.BaseAPI {
      * Update an existing Guest Message Template. <p><strong>OperationId:</strong>putGuestMessageTemplates</p>
      * Change Guest Message Templates
      */
-    putGuestMessageTemplatesRaw(requestParameters: PutGuestMessageTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putGuestMessageTemplatesRaw(requestParameters: PutGuestMessageTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update an existing Guest Message Template. <p><strong>OperationId:</strong>putGuestMessageTemplates</p>
      * Change Guest Message Templates
      */
-    putGuestMessageTemplates(requestParameters: PutGuestMessageTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putGuestMessageTemplates(requestParameters: PutGuestMessageTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change a Guest messages. <p><strong>OperationId:</strong>putGuestMessages</p>
      * Change a Guest messages
      */
-    putGuestMessagesRaw(requestParameters: PutGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putGuestMessagesRaw(requestParameters: PutGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change a Guest messages. <p><strong>OperationId:</strong>putGuestMessages</p>
      * Change a Guest messages
      */
-    putGuestMessages(requestParameters: PutGuestMessagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putGuestMessages(requestParameters: PutGuestMessagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Update an existing Turnaway code for a property. <p><strong>OperationId:</strong>putHotelTurnAwayCodes</p>
      * Change TurnAway Codes
      */
-    putHotelTurnAwayCodesRaw(requestParameters: PutHotelTurnAwayCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putHotelTurnAwayCodesRaw(requestParameters: PutHotelTurnAwayCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update an existing Turnaway code for a property. <p><strong>OperationId:</strong>putHotelTurnAwayCodes</p>
      * Change TurnAway Codes
      */
-    putHotelTurnAwayCodes(requestParameters: PutHotelTurnAwayCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putHotelTurnAwayCodes(requestParameters: PutHotelTurnAwayCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change the existing Locator Code. <p><strong>OperationId:</strong>putLocatorCodes</p>
      * Change the existing Locator Code
      */
-    putLocatorCodesRaw(requestParameters: PutLocatorCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putLocatorCodesRaw(requestParameters: PutLocatorCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change the existing Locator Code. <p><strong>OperationId:</strong>putLocatorCodes</p>
      * Change the existing Locator Code
      */
-    putLocatorCodes(requestParameters: PutLocatorCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putLocatorCodes(requestParameters: PutLocatorCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Change an existing Locator Code <p><strong>OperationId:</strong>putLocatorCodesTemplate</p>
      * Change a Locator Code
      */
-    putLocatorCodesTemplateRaw(requestParameters: PutLocatorCodesTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putLocatorCodesTemplateRaw(requestParameters: PutLocatorCodesTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Change an existing Locator Code <p><strong>OperationId:</strong>putLocatorCodesTemplate</p>
      * Change a Locator Code
      */
-    putLocatorCodesTemplate(requestParameters: PutLocatorCodesTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putLocatorCodesTemplate(requestParameters: PutLocatorCodesTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Membership Level Ratings. <p><strong>OperationId:</strong>putMembershipLevelRatings</p>
      * Change Membership Level Ratings
      */
-    putMembershipLevelRatingsRaw(requestParameters: PutMembershipLevelRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putMembershipLevelRatingsRaw(requestParameters: PutMembershipLevelRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Membership Level Ratings. <p><strong>OperationId:</strong>putMembershipLevelRatings</p>
      * Change Membership Level Ratings
      */
-    putMembershipLevelRatings(requestParameters: PutMembershipLevelRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putMembershipLevelRatings(requestParameters: PutMembershipLevelRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Rate Plan Ratings. <p><strong>OperationId:</strong>putRatePlanRatings</p>
      * Change Rate Plan Ratings
      */
-    putRatePlanRatingsRaw(requestParameters: PutRatePlanRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRatePlanRatingsRaw(requestParameters: PutRatePlanRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Rate Plan Ratings. <p><strong>OperationId:</strong>putRatePlanRatings</p>
      * Change Rate Plan Ratings
      */
-    putRatePlanRatings(requestParameters: PutRatePlanRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRatePlanRatings(requestParameters: PutRatePlanRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to put Reservation Colors. <p><strong>OperationId:</strong>putReservationColors</p>
      * Change Reservation Colors
      */
-    putReservationColorsRaw(requestParameters: PutReservationColorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putReservationColorsRaw(requestParameters: PutReservationColorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to put Reservation Colors. <p><strong>OperationId:</strong>putReservationColors</p>
      * Change Reservation Colors
      */
-    putReservationColors(requestParameters: PutReservationColorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putReservationColors(requestParameters: PutReservationColorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Room Feature Ratings. <p><strong>OperationId:</strong>putRoomFeatureRatings</p>
      * Change Room Feature Ratings
      */
-    putRoomFeatureRatingsRaw(requestParameters: PutRoomFeatureRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomFeatureRatingsRaw(requestParameters: PutRoomFeatureRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Room Feature Ratings. <p><strong>OperationId:</strong>putRoomFeatureRatings</p>
      * Change Room Feature Ratings
      */
-    putRoomFeatureRatings(requestParameters: PutRoomFeatureRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomFeatureRatings(requestParameters: PutRoomFeatureRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Room Ratings. <p><strong>OperationId:</strong>putRoomRatings</p>
      * Change Room Ratings
      */
-    putRoomRatingsRaw(requestParameters: PutRoomRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomRatingsRaw(requestParameters: PutRoomRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Room Ratings. <p><strong>OperationId:</strong>putRoomRatings</p>
      * Change Room Ratings
      */
-    putRoomRatings(requestParameters: PutRoomRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomRatings(requestParameters: PutRoomRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Room Special Ratings. <p><strong>OperationId:</strong>putRoomSpecialRatings</p>
      * Change Room Special Ratings
      */
-    putRoomSpecialRatingsRaw(requestParameters: PutRoomSpecialRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomSpecialRatingsRaw(requestParameters: PutRoomSpecialRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Room Special Ratings. <p><strong>OperationId:</strong>putRoomSpecialRatings</p>
      * Change Room Special Ratings
      */
-    putRoomSpecialRatings(requestParameters: PutRoomSpecialRatingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomSpecialRatings(requestParameters: PutRoomSpecialRatingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Update an existing Turnaway Code Template. <p><strong>OperationId:</strong>putTemplateTurnAwayCodes</p>
      * Change a Turnaway code template
      */
-    putTemplateTurnAwayCodesRaw(requestParameters: PutTemplateTurnAwayCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTemplateTurnAwayCodesRaw(requestParameters: PutTemplateTurnAwayCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update an existing Turnaway Code Template. <p><strong>OperationId:</strong>putTemplateTurnAwayCodes</p>
      * Change a Turnaway code template
      */
-    putTemplateTurnAwayCodes(requestParameters: PutTemplateTurnAwayCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTemplateTurnAwayCodes(requestParameters: PutTemplateTurnAwayCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Update an existing Trace Text for a property. <p><strong>OperationId:</strong>putTraceTexts</p>
      * Change trace text
      */
-    putTraceTextsRaw(requestParameters: PutTraceTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTraceTextsRaw(requestParameters: PutTraceTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Update an existing Trace Text for a property. <p><strong>OperationId:</strong>putTraceTexts</p>
      * Change trace text
      */
-    putTraceTexts(requestParameters: PutTraceTextsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTraceTexts(requestParameters: PutTraceTextsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to modify an existing Upgrade rule for a property. <p><strong>OperationId:</strong>putUpsellRules</p>
      * Modify Upsell Rule
      */
-    putUpsellRulesRaw(requestParameters: PutUpsellRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putUpsellRulesRaw(requestParameters: PutUpsellRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to modify an existing Upgrade rule for a property. <p><strong>OperationId:</strong>putUpsellRules</p>
      * Modify Upsell Rule
      */
-    putUpsellRules(requestParameters: PutUpsellRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putUpsellRules(requestParameters: PutUpsellRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to test and see if the rule that you have created works.  E.g. you can test by giving a rate code and dates, and see that the rule returns the correct upsell details. <p><strong>OperationId:</strong>testUpsellRules</p>
      * Test upsell rules
      */
-    testUpsellRulesRaw(requestParameters: TestUpsellRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpsellRulesToTestDetails>>;
+    testUpsellRulesRaw(requestParameters: TestUpsellRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpsellRulesToTestDetails>>;
     /**
      * Use this API to test and see if the rule that you have created works.  E.g. you can test by giving a rate code and dates, and see that the rule returns the correct upsell details. <p><strong>OperationId:</strong>testUpsellRules</p>
      * Test upsell rules
      */
-    testUpsellRules(requestParameters: TestUpsellRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpsellRulesToTestDetails>;
+    testUpsellRules(requestParameters: TestUpsellRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpsellRulesToTestDetails>;
 }
 /**
  * @export

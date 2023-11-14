@@ -507,7 +507,7 @@ export function RatePlanTypeToJSON(value?: RatePlanType | null): any {
         'ownerRate': value.ownerRate,
         'primaryDetails': RatePlanPrimaryDetailsTypeToJSON(value.primaryDetails),
         'printRate': value.printRate,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'rateCommission': RatePlanCommissionTypeToJSON(value.rateCommission),
         'rateDeposit': RatePlanDepositTypeToJSON(value.rateDeposit),
         'ratePackages': RatePackagesTypeToJSON(value.ratePackages),

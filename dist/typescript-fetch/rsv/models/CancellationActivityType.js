@@ -51,7 +51,7 @@ function CancellationActivityTypeToJSON(value) {
     }
     return {
         'cancellationIdList': (0, UniqueIDListType_1.UniqueIDListTypeToJSON)(value.cancellationIdList),
-        'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substr(0, 10)),
+        'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substring(0, 10)),
         'reason': (0, CancellationReasonType_1.CancellationReasonTypeToJSON)(value.reason),
         'userId': value.userId,
         'userName': value.userName,

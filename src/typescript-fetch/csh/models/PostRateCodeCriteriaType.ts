@@ -206,7 +206,7 @@ export function PostRateCodeCriteriaTypeToJSON(value?: PostRateCodeCriteriaType 
         'reference': value.reference,
         'remark': value.remark,
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substr(0,10)),
+        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
     };
 }
 

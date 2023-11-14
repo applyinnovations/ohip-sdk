@@ -112,7 +112,7 @@ export function ReservationQueueInformationTypeToJSON(value?: ReservationQueueIn
         'priority': value.priority,
         'avgQueueTimeToCheckIn': value.avgQueueTimeToCheckIn,
         'avgQueueTimeCurrentReservations': value.avgQueueTimeCurrentReservations,
-        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substr(0,10)),
+        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substring(0,10)),
     };
 }
 

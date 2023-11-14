@@ -62,7 +62,7 @@ function ResGuaranteeSearchTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0, 10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
         'fetchInstruction': (0, ResGuaranteeFetchInstructionsType_1.ResGuaranteeFetchInstructionsTypeToJSON)(value.fetchInstruction),
         'guaranteeCode': value.guaranteeCode,

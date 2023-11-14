@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockReservationStatistics, ReservationPace, ReservationStatistics } from '../models';
+import type { BlockReservationStatistics, ReservationPace, ReservationStatistics } from '../models/index';
 export interface GetBlockReservationStatisticsByDateAndRoomPoolRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     excludeBlocksWithoutQuoteID?: boolean;
     startDate?: Date;
     endDate?: Date;
@@ -23,9 +23,9 @@ export interface GetBlockReservationStatisticsByDateAndRoomPoolRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPaceRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     stayDate?: Date;
     leadDays?: number;
@@ -34,9 +34,9 @@ export interface GetReservationPaceRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationStatisticsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     chainName?: Array<string>;
     hotelCityCode?: Array<string>;
     hotelId?: Array<string>;

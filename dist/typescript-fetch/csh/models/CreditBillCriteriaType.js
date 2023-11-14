@@ -68,7 +68,7 @@ function CreditBillCriteriaTypeToJSON(value) {
         'folioNameValue': value.folioNameValue === undefined ? undefined : (value.folioNameValue.map(NameValueHeaderDetailType_1.NameValueHeaderDetailTypeToJSON)),
         'fullCredit': value.fullCredit,
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substr(0, 10)),
+        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0, 10)),
         'originalFolio': (0, FolioType_1.FolioTypeToJSON)(value.originalFolio),
         'payments': value.payments === undefined ? undefined : (value.payments.map(PaymentCriteriaType_1.PaymentCriteriaTypeToJSON)),
         'reason': (0, FolioReasonType_1.FolioReasonTypeToJSON)(value.reason),

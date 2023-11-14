@@ -114,7 +114,7 @@ export function BorrowCandidateTypeToJSON(value?: BorrowCandidateType | null): a
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substr(0,10)),
+        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0,10)),
         'borrowableInventoryList': value.borrowableInventoryList === undefined ? undefined : ((value.borrowableInventoryList as Array<any>).map(BorrowableInventoryTypeToJSON)),
         'existingReservationId': UniqueIDTypeToJSON(value.existingReservationId),
         'hotelId': value.hotelId,

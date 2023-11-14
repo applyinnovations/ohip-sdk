@@ -48,7 +48,7 @@ function CalendarTaskTypeStatusToJSON(value) {
     return {
         'completed': value.completed,
         'completedBy': value.completedBy,
-        'completedOn': value.completedOn === undefined ? undefined : (value.completedOn.toISOString().substr(0, 10)),
+        'completedOn': value.completedOn === undefined ? undefined : (value.completedOn.toISOString().substring(0, 10)),
     };
 }
 exports.CalendarTaskTypeStatusToJSON = CalendarTaskTypeStatusToJSON;

@@ -49,7 +49,7 @@ function MembershipPointsCalculationTypeToJSON(value) {
     }
     return {
         'awardCode': value.awardCode,
-        'calculateUntilDate': value.calculateUntilDate === undefined ? undefined : (value.calculateUntilDate.toISOString().substr(0, 10)),
+        'calculateUntilDate': value.calculateUntilDate === undefined ? undefined : (value.calculateUntilDate.toISOString().substring(0, 10)),
         'membershipType': value.membershipType,
         'processType': (0, MembershipPointsCalculationProcessType_1.MembershipPointsCalculationProcessTypeToJSON)(value.processType),
     };

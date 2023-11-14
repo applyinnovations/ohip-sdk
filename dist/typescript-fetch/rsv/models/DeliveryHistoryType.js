@@ -62,7 +62,7 @@ function DeliveryHistoryTypeToJSON(value) {
     return {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'deliveryDate': value.deliveryDate === undefined ? undefined : (value.deliveryDate.toISOString().substr(0, 10)),
+        'deliveryDate': value.deliveryDate === undefined ? undefined : (value.deliveryDate.toISOString().substring(0, 10)),
         'deliveryId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.deliveryId),
         'deliveryMethod': (0, DeliveryMethodType_1.DeliveryMethodTypeToJSON)(value.deliveryMethod),
         'deliveryStatus': (0, StatusType_1.StatusTypeToJSON)(value.deliveryStatus),
@@ -71,7 +71,7 @@ function DeliveryHistoryTypeToJSON(value) {
         'interfaceId': value.interfaceId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'resvNameId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.resvNameId),
         'retryCount': value.retryCount,
     };

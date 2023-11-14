@@ -46,7 +46,7 @@ function DepositDetailPostingTypeUpdateInfoToJSON(value) {
     }
     return {
         'updateBy': value.updateBy,
-        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substr(0, 10)),
+        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0, 10)),
     };
 }
 exports.DepositDetailPostingTypeUpdateInfoToJSON = DepositDetailPostingTypeUpdateInfoToJSON;

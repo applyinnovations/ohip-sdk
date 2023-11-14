@@ -76,7 +76,7 @@ function ARAccountTraceCriteriaTypeToJSON(value) {
         'instance': value.instance,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'resolveInfo': (0, TraceResolveType_1.TraceResolveTypeToJSON)(value.resolveInfo),
         'timeInfo': (0, TraceTimeInfoType_1.TraceTimeInfoTypeToJSON)(value.timeInfo),

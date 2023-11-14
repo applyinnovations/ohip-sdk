@@ -53,12 +53,12 @@ function WebUserHistoryTypeToJSON(value) {
     return {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0, 10)),
-        'lastLogin': value.lastLogin === undefined ? undefined : (value.lastLogin.toISOString().substr(0, 10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'lastLogin': value.lastLogin === undefined ? undefined : (value.lastLogin.toISOString().substring(0, 10)),
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPasswordChange': value.lastPasswordChange === undefined ? undefined : (value.lastPasswordChange.toISOString().substr(0, 10)),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'lastPasswordChange': value.lastPasswordChange === undefined ? undefined : (value.lastPasswordChange.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
     };
 }
 exports.WebUserHistoryTypeToJSON = WebUserHistoryTypeToJSON;

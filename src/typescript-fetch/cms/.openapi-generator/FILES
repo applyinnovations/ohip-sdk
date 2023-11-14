@@ -42,10 +42,8 @@ models/ParameterType.ts
 models/ParametersType.ts
 models/PersonNameType.ts
 models/PersonNameTypeType.ts
-models/PostCalendarTaskRequest.ts
 models/PriorityColorType.ts
 models/ProfileIdList.ts
-models/PutTrackItItemsRequest.ts
 models/ResAccompanyGuestInfoType.ts
 models/ResAccompanyGuestListType.ts
 models/ResGuaranteeType.ts

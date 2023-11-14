@@ -217,7 +217,7 @@ export function ValidateRateInfoCriteriaToJSON(value?: ValidateRateInfoCriteria 
         'currencyCode': value.currencyCode,
         'currencySymbol': value.currencySymbol,
         'decimalPlaces': value.decimalPlaces,
-        'detailDate': value.detailDate === undefined ? undefined : (value.detailDate.toISOString().substr(0,10)),
+        'detailDate': value.detailDate === undefined ? undefined : (value.detailDate.toISOString().substring(0,10)),
         'effectiveRates': EffectiveRatesTypeToJSON(value.effectiveRates),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),
         'quantity': value.quantity,

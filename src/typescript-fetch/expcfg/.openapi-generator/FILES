@@ -4,7 +4,6 @@ apis/index.ts
 index.ts
 models/ActivityLogListType.ts
 models/ActivityLogType.ts
-models/ChangeExportSchedulesByChainRequest.ts
 models/ErrorInstance.ts
 models/ExceptionDetailType.ts
 models/ExpDataSourceColumnType.ts
@@ -80,10 +79,6 @@ models/GeneratedExportType.ts
 models/GeneratedExports.ts
 models/InstanceLink.ts
 models/Links.ts
-models/PostExportSchedulesRequest.ts
-models/PutExportMappingCodesRequest.ts
-models/PutExportMappingLinkedTypesRequest.ts
-models/PutExportMappingsRequest.ts
 models/ScheduleExportGroupType.ts
 models/Status.ts
 models/TransportMethodType.ts

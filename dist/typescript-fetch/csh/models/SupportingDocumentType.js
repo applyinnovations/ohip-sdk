@@ -59,7 +59,7 @@ function SupportingDocumentTypeToJSON(value) {
         'confirmationNo': value.confirmationNo,
         'createDateTime': value.createDateTime,
         'documentCategory': (0, FiscalSupportingDocumentCategory_1.FiscalSupportingDocumentCategoryToJSON)(value.documentCategory),
-        'documentDate': value.documentDate === undefined ? undefined : (value.documentDate.toISOString().substr(0, 10)),
+        'documentDate': value.documentDate === undefined ? undefined : (value.documentDate.toISOString().substring(0, 10)),
         'documentNo': value.documentNo,
         'documentType': (0, FiscalSupportingDocumentType_1.FiscalSupportingDocumentTypeToJSON)(value.documentType),
         'fiscalStatus': value.fiscalStatus,

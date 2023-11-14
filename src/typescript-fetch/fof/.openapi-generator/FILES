@@ -14,7 +14,6 @@ models/ActivityLog.ts
 models/ActivityLogListType.ts
 models/ActivityLogType.ts
 models/ActivityLookUpList.ts
-models/AddReservationToQueueRequest.ts
 models/AdditionalGuestAmountType.ts
 models/AddressInfoType.ts
 models/AddressSearchType.ts
@@ -38,13 +37,11 @@ models/AnonymizationType.ts
 models/ApplicationUserType.ts
 models/ArticleInfoType.ts
 models/ArticlePostItType.ts
-models/AssignRoomsAIRequest.ts
 models/AssignedRoom.ts
 models/AssignedRoomsSummaryType.ts
 models/AssignedTaskType.ts
 models/AssignedTasksType.ts
 models/AssociateCommissionAgentToReservations.ts
-models/AssociateCommissionAgentToReservationsRequest.ts
 models/AssociateCommissionAgentToReservationsStatus.ts
 models/AssociatedResType.ts
 models/AttachmentType.ts
@@ -53,7 +50,6 @@ models/AttendantType.ts
 models/AuthorizationRuleType.ts
 models/AuthorizerInfoType.ts
 models/AutoAssignRoom.ts
-models/AutoAssignRoomRequest.ts
 models/AutoAssignedRoom.ts
 models/AutoRoomAssignType.ts
 models/AwardId.ts
@@ -78,7 +74,6 @@ models/BlockId.ts
 models/BlockIdList.ts
 models/BlockResvSummaryType.ts
 models/CalculateCommissions.ts
-models/CalculateCommissionsRequest.ts
 models/CalculateCommissionsStatus.ts
 models/CallHistoryType.ts
 models/CallType.ts
@@ -90,10 +85,7 @@ models/CardReIssueType.ts
 models/CardTypeType.ts
 models/CateringResInfoType.ts
 models/ChangeCommissionCheckCriteriaType.ts
-models/ChangeCommissionCheckRequest.ts
-models/ChangeCommissionPaymentActivityByRangeRequest.ts
 models/ChangeCommissionPaymentActivityRangeCriteriaType.ts
-models/ChangeCommissionRequest.ts
 models/ChangeHistoryType.ts
 models/ChangeInterfaceStatusType.ts
 models/ChangeRelationsType.ts
@@ -193,9 +185,7 @@ models/DateTimeSpanType.ts
 models/DateTimeStampGroupType.ts
 models/DateUDFType.ts
 models/DateUDFsType.ts
-models/DeleteAssignRoomRequest.ts
 models/DeliverQueueRoomsTextMessage.ts
-models/DeliverQueueRoomsTextMessageRequest.ts
 models/DepositCancelRevenueType.ts
 models/DepositPolicyType.ts
 models/DirectBillingType.ts
@@ -338,7 +328,6 @@ models/MessageStatusType.ts
 models/MessageType.ts
 models/MoveInHouseGuest.ts
 models/MoveInHouseGuestCriteria.ts
-models/MoveInHouseGuestRequest.ts
 models/MovedInHouseGuest.ts
 models/NameTypeType.ts
 models/NameValueDataTypeType.ts
@@ -377,17 +366,11 @@ models/PaymentMethodsSummaryType.ts
 models/PersonNameType.ts
 models/PersonNameTypeType.ts
 models/PkgInventoryItemType.ts
-models/PlaceRoomsOnHoldRequest.ts
 models/PointsType.ts
 models/PolicyAmountPercentType.ts
 models/PolicyBasisTypeType.ts
 models/PolicyDeadlineType.ts
-models/PostAdvanceCheckInRequest.ts
 models/PostCheckInRequest.ts
-models/PostMassAdvanceCheckInRequest.ts
-models/PostMassCheckInRequest.ts
-models/PostRoomAssignmentRequest.ts
-models/PostRoomKeyRequest.ts
 models/PostingRhythmType.ts
 models/PreferenceType.ts
 models/PreferenceTypeType.ts
@@ -398,10 +381,8 @@ models/PrepaidCardType.ts
 models/PrepaidCardsType.ts
 models/PrimaryShareTypeType.ts
 models/PrivacyInfoType.ts
-models/ProcessBatchCCAuthRequest.ts
 models/ProcessCommissionPayments.ts
 models/ProcessCommissionPaymentsCriteriaType.ts
-models/ProcessCommissionPaymentsRequest.ts
 models/ProcessCommissionPaymentsStatus.ts
 models/ProductSourceType.ts
 models/ProfileAccessType.ts
@@ -439,11 +420,6 @@ models/ProfileTypeTelephones.ts
 models/ProfileTypeType.ts
 models/ProfileTypeURLs.ts
 models/PromotionType.ts
-models/PutDailyDocketRequest.ts
-models/PutReservationQueuePriorityRequest.ts
-models/PutRoomInterfaceStatusRequest.ts
-models/PutServiceRequestsRequest.ts
-models/PutWakeUpCallRequest.ts
 models/QueueReservation.ts
 models/QueueRoomsTextCriteriaType.ts
 models/QueueRoomsTextMessage.ts
@@ -458,7 +434,6 @@ models/RatePlanRatingType.ts
 models/RateRangeType.ts
 models/RatesType.ts
 models/RecalculateCommissionOnCodeChange.ts
-models/RecalculateCommissionOnCodeChangeRequest.ts
 models/RecalculateCommissionOnCodeChangeStatus.ts
 models/RelationshipAddressType.ts
 models/RelationshipInfoSummaryType.ts
@@ -466,7 +441,6 @@ models/RelationshipInfoType.ts
 models/RelationshipProfileSummaryType.ts
 models/RelationshipProfileType.ts
 models/ReprintCommissionCheckByRange.ts
-models/ReprintCommissionCheckByRangeRequest.ts
 models/ReprintCommissionCheckByRangeStatus.ts
 models/ReprintCommissionCheckRangeCriteriaType.ts
 models/RequestActionType.ts
@@ -641,10 +615,8 @@ models/ServiceRequests.ts
 models/ServiceRequestsInfo.ts
 models/ServicingAttendantStatusType.ts
 models/SetProcessingInstructions.ts
-models/SetProcessingInstructionsRequest.ts
 models/ShareDistributionInstructionType.ts
 models/ShiftRooms.ts
-models/ShiftRoomsRequest.ts
 models/ShortReservation.ts
 models/SitePlanSectionType.ts
 models/SourceOfSaleType.ts
@@ -661,7 +633,6 @@ models/StayRoominfo.ts
 models/SuggestedRoomType.ts
 models/SuggestedRooms.ts
 models/SwapRooms.ts
-models/SwapRoomsRequest.ts
 models/TaskSheetStatistics.ts
 models/TaskSheetType.ts
 models/TaxType.ts

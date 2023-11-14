@@ -15,62 +15,62 @@
 
 import * as runtime from '../runtime';
 import type {
-  ChangeChannelSellLimitsByDateRangeRequest,
-  ChangeChannelSellLimitsByDateRequest,
   ChannelSellLimits,
+  ChannelSellLimitsByDate,
+  ChannelSellLimitsByDateRange,
   ExceptionDetailType,
   Status,
-} from '../models';
+} from '../models/index';
 import {
-    ChangeChannelSellLimitsByDateRangeRequestFromJSON,
-    ChangeChannelSellLimitsByDateRangeRequestToJSON,
-    ChangeChannelSellLimitsByDateRequestFromJSON,
-    ChangeChannelSellLimitsByDateRequestToJSON,
     ChannelSellLimitsFromJSON,
     ChannelSellLimitsToJSON,
+    ChannelSellLimitsByDateFromJSON,
+    ChannelSellLimitsByDateToJSON,
+    ChannelSellLimitsByDateRangeFromJSON,
+    ChannelSellLimitsByDateRangeToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ChangeChannelSellLimitsByDateOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelSellLimitsByDate?: ChangeChannelSellLimitsByDateRequest;
+export interface ChangeChannelSellLimitsByDateRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelSellLimitsByDate: ChannelSellLimitsByDate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeChannelSellLimitsByDateRangeOperationRequest {
-    channelId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelSellLimitsByDateRange?: ChangeChannelSellLimitsByDateRangeRequest;
+export interface ChangeChannelSellLimitsByDateRangeRequest {
+    channelId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelSellLimitsByDateRange: ChannelSellLimitsByDateRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteChannelSellLimitsRequest {
-    id?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    id: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetChannelSellLimitsRequest {
-    hotelId?: string;
-    fromDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    fromDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bookingChannelCode?: string;
     channelRoomType?: string;
     xExternalsystem?: string;
@@ -86,7 +86,27 @@ export class InventoryApi extends runtime.BaseAPI {
      * Use this API to update channel property sell limit mapping by given dates. <p><strong>OperationId:</strong>changeChannelSellLimitsByDate</p>
      * Updates channel sell limits by date
      */
-    async changeChannelSellLimitsByDateRaw(requestParameters: ChangeChannelSellLimitsByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeChannelSellLimitsByDateRaw(requestParameters: ChangeChannelSellLimitsByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeChannelSellLimitsByDate.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeChannelSellLimitsByDate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeChannelSellLimitsByDate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeChannelSellLimitsByDate.');
+        }
+
+        if (requestParameters.channelSellLimitsByDate === null || requestParameters.channelSellLimitsByDate === undefined) {
+            throw new runtime.RequiredError('channelSellLimitsByDate','Required parameter requestParameters.channelSellLimitsByDate was null or undefined when calling changeChannelSellLimitsByDate.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -118,7 +138,7 @@ export class InventoryApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeChannelSellLimitsByDateRequestToJSON(requestParameters.channelSellLimitsByDate),
+            body: ChannelSellLimitsByDateToJSON(requestParameters.channelSellLimitsByDate),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -128,7 +148,7 @@ export class InventoryApi extends runtime.BaseAPI {
      * Use this API to update channel property sell limit mapping by given dates. <p><strong>OperationId:</strong>changeChannelSellLimitsByDate</p>
      * Updates channel sell limits by date
      */
-    async changeChannelSellLimitsByDate(requestParameters: ChangeChannelSellLimitsByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeChannelSellLimitsByDate(requestParameters: ChangeChannelSellLimitsByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeChannelSellLimitsByDateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -137,7 +157,31 @@ export class InventoryApi extends runtime.BaseAPI {
      * Use this API to update channel property sell limit mapping by given date range. <p><strong>OperationId:</strong>changeChannelSellLimitsByDateRange</p>
      * Updates channel sell limits by daterange
      */
-    async changeChannelSellLimitsByDateRangeRaw(requestParameters: ChangeChannelSellLimitsByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeChannelSellLimitsByDateRangeRaw(requestParameters: ChangeChannelSellLimitsByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.channelId === null || requestParameters.channelId === undefined) {
+            throw new runtime.RequiredError('channelId','Required parameter requestParameters.channelId was null or undefined when calling changeChannelSellLimitsByDateRange.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeChannelSellLimitsByDateRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeChannelSellLimitsByDateRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeChannelSellLimitsByDateRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeChannelSellLimitsByDateRange.');
+        }
+
+        if (requestParameters.channelSellLimitsByDateRange === null || requestParameters.channelSellLimitsByDateRange === undefined) {
+            throw new runtime.RequiredError('channelSellLimitsByDateRange','Required parameter requestParameters.channelSellLimitsByDateRange was null or undefined when calling changeChannelSellLimitsByDateRange.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -169,7 +213,7 @@ export class InventoryApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeChannelSellLimitsByDateRangeRequestToJSON(requestParameters.channelSellLimitsByDateRange),
+            body: ChannelSellLimitsByDateRangeToJSON(requestParameters.channelSellLimitsByDateRange),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -179,7 +223,7 @@ export class InventoryApi extends runtime.BaseAPI {
      * Use this API to update channel property sell limit mapping by given date range. <p><strong>OperationId:</strong>changeChannelSellLimitsByDateRange</p>
      * Updates channel sell limits by daterange
      */
-    async changeChannelSellLimitsByDateRange(requestParameters: ChangeChannelSellLimitsByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeChannelSellLimitsByDateRange(requestParameters: ChangeChannelSellLimitsByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeChannelSellLimitsByDateRangeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -189,6 +233,26 @@ export class InventoryApi extends runtime.BaseAPI {
      * Deletes channel sell limits
      */
     async deleteChannelSellLimitsRaw(requestParameters: DeleteChannelSellLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteChannelSellLimits.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteChannelSellLimits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteChannelSellLimits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteChannelSellLimits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteChannelSellLimits.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -237,10 +301,30 @@ export class InventoryApi extends runtime.BaseAPI {
      * Gets sell limit detail for a given channel hotel combination
      */
     async getChannelSellLimitsRaw(requestParameters: GetChannelSellLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelSellLimits>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getChannelSellLimits.');
+        }
+
+        if (requestParameters.fromDate === null || requestParameters.fromDate === undefined) {
+            throw new runtime.RequiredError('fromDate','Required parameter requestParameters.fromDate was null or undefined when calling getChannelSellLimits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getChannelSellLimits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getChannelSellLimits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getChannelSellLimits.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substr(0,10);
+            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.bookingChannelCode !== undefined) {

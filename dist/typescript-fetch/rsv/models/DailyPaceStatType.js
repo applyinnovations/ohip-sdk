@@ -47,7 +47,7 @@ function DailyPaceStatTypeToJSON(value) {
     }
     return {
         'channel': value.channel,
-        'consideredDate': value.consideredDate === undefined ? undefined : (value.consideredDate.toISOString().substr(0, 10)),
+        'consideredDate': value.consideredDate === undefined ? undefined : (value.consideredDate.toISOString().substring(0, 10)),
         'rooms': value.rooms,
     };
 }

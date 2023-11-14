@@ -59,14 +59,14 @@ function ECertificateConsumptionTypeToJSON(value) {
     }
     return {
         'authorizationCode': value.authorizationCode,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'email': value.email,
         'firstName': value.firstName,
         'hotelId': value.hotelId,
         'locationType': value.locationType,
         'middleName': value.middleName,
         'referenceId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.referenceId),
-        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substr(0, 10)),
+        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substring(0, 10)),
         'source': (0, ECertificateConsumeSourceType_1.ECertificateConsumeSourceTypeToJSON)(value.source),
         'surname': value.surname,
         'userName': value.userName,

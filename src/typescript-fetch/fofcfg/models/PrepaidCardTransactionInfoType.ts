@@ -135,7 +135,7 @@ export function PrepaidCardTransactionInfoTypeToJSON(value?: PrepaidCardTransact
         
         'amount': CurrencyAmountTypeToJSON(value.amount),
         'cancellable': value.cancellable,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'source': PrepaidCardTransactionSourceTypeToJSON(value.source),
         'transactionNo': value.transactionNo,

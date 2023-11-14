@@ -109,10 +109,10 @@ export function ReservationPackageScheduleTypeToJSON(value?: ReservationPackageS
     return {
         
         'computedResvPrice': value.computedResvPrice,
-        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substr(0,10)),
+        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substring(0,10)),
         'originalUnitAllowance': value.originalUnitAllowance,
         'originalUnitPrice': value.originalUnitPrice,
-        'reservationDate': value.reservationDate === undefined ? undefined : (value.reservationDate.toISOString().substr(0,10)),
+        'reservationDate': value.reservationDate === undefined ? undefined : (value.reservationDate.toISOString().substring(0,10)),
         'totalQuantity': value.totalQuantity,
         'unitAllowance': value.unitAllowance,
         'unitPrice': value.unitPrice,

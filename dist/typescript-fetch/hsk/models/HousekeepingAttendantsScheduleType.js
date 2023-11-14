@@ -49,7 +49,7 @@ function HousekeepingAttendantsScheduleTypeToJSON(value) {
     return {
         'attendantsSchedule': value.attendantsSchedule === undefined ? undefined : (value.attendantsSchedule.map(HousekeepingAttendantScheduleType_1.HousekeepingAttendantScheduleTypeToJSON)),
         'hotelId': value.hotelId,
-        'scheduleDate': value.scheduleDate === undefined ? undefined : (value.scheduleDate.toISOString().substr(0, 10)),
+        'scheduleDate': value.scheduleDate === undefined ? undefined : (value.scheduleDate.toISOString().substring(0, 10)),
     };
 }
 exports.HousekeepingAttendantsScheduleTypeToJSON = HousekeepingAttendantsScheduleTypeToJSON;

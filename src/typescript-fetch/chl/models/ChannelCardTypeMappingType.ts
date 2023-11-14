@@ -98,7 +98,7 @@ export function ChannelCardTypeMappingTypeToJSON(value?: ChannelCardTypeMappingT
         'cardType': value.cardType,
         'channelCardType': value.channelCardType,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'newChannelCardType': value.newChannelCardType,
     };
 }

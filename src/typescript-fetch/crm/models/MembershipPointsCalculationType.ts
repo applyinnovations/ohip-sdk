@@ -88,7 +88,7 @@ export function MembershipPointsCalculationTypeToJSON(value?: MembershipPointsCa
     return {
         
         'awardCode': value.awardCode,
-        'calculateUntilDate': value.calculateUntilDate === undefined ? undefined : (value.calculateUntilDate.toISOString().substr(0,10)),
+        'calculateUntilDate': value.calculateUntilDate === undefined ? undefined : (value.calculateUntilDate.toISOString().substring(0,10)),
         'membershipType': value.membershipType,
         'processType': MembershipPointsCalculationProcessTypeToJSON(value.processType),
     };

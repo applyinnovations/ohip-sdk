@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AlternateAvailability, AvailabilityRatePlanInfo, AvailableUpsells, ChangeHurdleRatesDetails, ClearAllRestrictions, ClearAllRestrictionsRequest, GuaranteeablePreferences, HotelAvailability, HurdleRates, PostHurdleRatesRequest, PostRestrictionRequest, PutHurdleRatesRequest, RateAnalysisDetails, ReservationGuaranteesPolicies, RestrictionsByDateRange, RestrictionsHistory, SearchHotelsDetails, Status, ValidateReservationGuaranteesRequest } from '../models';
+import type { AlternateAvailability, AvailabilityRatePlanInfo, AvailableUpsells, ChangeHurdleRates, ChangeHurdleRatesDetails, ClearAllRestrictions, CreateHurdleRates, CreateRestriction, GuaranteeablePreferences, HotelAvailability, HurdleRates, RateAnalysisDetails, ReservationGuaranteesPolicies, RestrictionsByDateRange, RestrictionsHistory, SearchHotelsDetails, Status, ValidateReservationGuarantees } from '../models/index';
 export interface AnalyzeRateAvailabilityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     roomType?: string;
     startDate?: Date;
@@ -37,20 +37,20 @@ export interface AnalyzeRateAvailabilityRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ClearAllRestrictionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    clearAllRestrictions?: ClearAllRestrictionsRequest;
+export interface ClearAllRestrictionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    clearAllRestrictions: ClearAllRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteHurdleRatesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hurdleDate?: Array<Date>;
     roomType?: Array<string>;
     roomCategory?: Array<string>;
@@ -61,11 +61,11 @@ export interface DeleteHurdleRatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRestrictionRequest {
-    restrictionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    restrictionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     restrictionEndDate?: Date;
     restrictionStartDate?: Date;
     bookingChannelCode?: string;
@@ -77,10 +77,10 @@ export interface DeleteRestrictionRequest {
     acceptLanguage?: string;
 }
 export interface GetAlternateAvailabilityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     redemption?: boolean;
     roomType?: string;
@@ -110,29 +110,29 @@ export interface GetAlternateAvailabilityRequest {
     acceptLanguage?: string;
 }
 export interface GetAvailabilityRatePlanInfoRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCodeList?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAvailabilityRatePlanInfoByMultipleRatePlansRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCodeList?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAvailableUpsellsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     profileId?: string;
     reservationStatus?: GetAvailableUpsellsReservationStatusEnum;
@@ -156,10 +156,10 @@ export interface GetAvailableUpsellsRequest {
     acceptLanguage?: string;
 }
 export interface GetGuaranteeablePreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     roomType?: string;
@@ -169,10 +169,10 @@ export interface GetGuaranteeablePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelAvailabilityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cro?: Array<string>;
     includeClosedRates?: Array<boolean>;
     includeDefaultRatePlanSet?: Array<boolean>;
@@ -222,9 +222,9 @@ export interface GetHotelAvailabilityRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelAvailabilityCRORequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cro?: Array<string>;
     hotelIds?: Array<string>;
     includeClosedRates?: Array<boolean>;
@@ -277,9 +277,9 @@ export interface GetHotelAvailabilityCRORequest {
     acceptLanguage?: string;
 }
 export interface GetHotelsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cro?: string;
     limit?: number;
     startDate?: Date;
@@ -320,11 +320,11 @@ export interface GetHotelsRequest {
     acceptLanguage?: string;
 }
 export interface GetHurdleRatesRequest {
-    hotelId?: string;
-    hurdleDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    hurdleDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     roomTypesCode?: Array<string>;
@@ -333,11 +333,11 @@ export interface GetHurdleRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationGuaranteesRequest {
-    hotelId?: string;
-    arrivalDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    arrivalDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     blockId?: string;
     reservationGuestId?: string;
@@ -357,10 +357,10 @@ export interface GetReservationGuaranteesRequest {
     acceptLanguage?: string;
 }
 export interface GetRestrictionsByDateRangeRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     chainName?: string;
     end?: Date;
     fetchSizeByDay?: number;
@@ -378,10 +378,10 @@ export interface GetRestrictionsByDateRangeRequest {
     acceptLanguage?: string;
 }
 export interface GetRestrictionsHistoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     chainName?: string;
     date?: Date;
     bookingChannelCode?: string;
@@ -394,39 +394,39 @@ export interface GetRestrictionsHistoryRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHurdleRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createHurdleRates?: PostHurdleRatesRequest;
+export interface PostHurdleRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createHurdleRates: CreateHurdleRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRestrictionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createRestriction?: PostRestrictionRequest;
+export interface PostRestrictionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createRestriction: CreateRestriction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutHurdleRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeHurdleRates?: PutHurdleRatesRequest;
+export interface PutHurdleRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeHurdleRates: ChangeHurdleRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ValidateReservationGuaranteesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    validateReservationGuarantees?: ValidateReservationGuaranteesRequest;
+export interface ValidateReservationGuaranteesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    validateReservationGuarantees: ValidateReservationGuarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -448,12 +448,12 @@ export declare class AvailabilityApi extends runtime.BaseAPI {
      * Use this API to clear all Restrictions for a hotel on given date. The hotel code and the date will need to be passed as part of the request.<p><strong>OperationId:</strong>clearAllRestrictions</p>
      * Clear all restrictions
      */
-    clearAllRestrictionsRaw(requestParameters: ClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClearAllRestrictions>>;
+    clearAllRestrictionsRaw(requestParameters: ClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClearAllRestrictions>>;
     /**
      * Use this API to clear all Restrictions for a hotel on given date. The hotel code and the date will need to be passed as part of the request.<p><strong>OperationId:</strong>clearAllRestrictions</p>
      * Clear all restrictions
      */
-    clearAllRestrictions(requestParameters: ClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClearAllRestrictions>;
+    clearAllRestrictions(requestParameters: ClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClearAllRestrictions>;
     /**
      * This API allows to delete hurdles rates. <p><strong>OperationId:</strong>deleteHurdleRates</p>
      * Delete Hurdle Rates
@@ -598,42 +598,42 @@ export declare class AvailabilityApi extends runtime.BaseAPI {
      * This API allows to create hurdle rates. <p><strong>OperationId:</strong>postHurdleRates</p>
      * Create Hurdle Rates
      */
-    postHurdleRatesRaw(requestParameters: PostHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHurdleRatesRaw(requestParameters: PostHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows to create hurdle rates. <p><strong>OperationId:</strong>postHurdleRates</p>
      * Create Hurdle Rates
      */
-    postHurdleRates(requestParameters: PostHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHurdleRates(requestParameters: PostHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create restrictions on various levels such as house level, rate class, rate category, rate plan, room class, room type, and booking channel code.<p><strong>OperationId:</strong>postRestriction</p>
      * Create a restriction
      */
-    postRestrictionRaw(requestParameters: PostRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRestrictionRaw(requestParameters: PostRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create restrictions on various levels such as house level, rate class, rate category, rate plan, room class, room type, and booking channel code.<p><strong>OperationId:</strong>postRestriction</p>
      * Create a restriction
      */
-    postRestriction(requestParameters: PostRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRestriction(requestParameters: PostRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows to update an existing Hurdle Rate. <p><strong>OperationId:</strong>putHurdleRates</p>
      * Change Hurdle Rates
      */
-    putHurdleRatesRaw(requestParameters: PutHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeHurdleRatesDetails>>;
+    putHurdleRatesRaw(requestParameters: PutHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeHurdleRatesDetails>>;
     /**
      * This API allows to update an existing Hurdle Rate. <p><strong>OperationId:</strong>putHurdleRates</p>
      * Change Hurdle Rates
      */
-    putHurdleRates(requestParameters: PutHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeHurdleRatesDetails>;
+    putHurdleRates(requestParameters: PutHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeHurdleRatesDetails>;
     /**
      * This API allows to Fetch Reservation Guarantee. The criteria can include the rate plan code, arrival date, guarantee code and the profile information.  <p><strong>OperationId:</strong>validateReservationGuarantees</p>
      * Get Reservation Guarantee
      */
-    validateReservationGuaranteesRaw(requestParameters: ValidateReservationGuaranteesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationGuaranteesPolicies>>;
+    validateReservationGuaranteesRaw(requestParameters: ValidateReservationGuaranteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationGuaranteesPolicies>>;
     /**
      * This API allows to Fetch Reservation Guarantee. The criteria can include the rate plan code, arrival date, guarantee code and the profile information.  <p><strong>OperationId:</strong>validateReservationGuarantees</p>
      * Get Reservation Guarantee
      */
-    validateReservationGuarantees(requestParameters: ValidateReservationGuaranteesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationGuaranteesPolicies>;
+    validateReservationGuarantees(requestParameters: ValidateReservationGuaranteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationGuaranteesPolicies>;
 }
 /**
  * @export

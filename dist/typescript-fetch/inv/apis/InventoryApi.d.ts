@@ -10,42 +10,42 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChangeSellLimitByDateRangeRequest, ChangeSellLimitByDateRequest, HoldItemInventory, HoldItemsInventory, HotelInventory, ItemInventory, PutHoldItemsInventoryRequest, PutItemInventoryHoldRequest, ReleasedItemInventoryHeld, SellLimitByDateResponse, SellLimitResponse, Status } from '../models';
-export interface ChangeSellLimitByDateOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellLimit?: ChangeSellLimitByDateRequest;
+import type { HoldItemInventory, HoldItemsInventory, HotelInventory, ItemInventory, ReleaseItemInventoryHold, ReleasedItemInventoryHeld, SellLimit, SellLimitByDateResponse, SellLimitByRange, SellLimitResponse, Status } from '../models/index';
+export interface ChangeSellLimitByDateRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellLimit: SellLimit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeSellLimitByDateRangeOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellLimitByRange?: ChangeSellLimitByDateRangeRequest;
+export interface ChangeSellLimitByDateRangeRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellLimitByRange: SellLimitByRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHoldItemsInventoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemHoldId?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelInventoryRequest {
-    hotelId?: string;
-    dateRangeStart?: Date;
-    dateRangeEnd?: Date;
-    roomCountRequested?: number;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    dateRangeStart: Date;
+    dateRangeEnd: Date;
+    roomCountRequested: number;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTentativeInventory?: boolean;
     dailyInventory?: boolean;
     houseLevel?: boolean;
@@ -55,10 +55,10 @@ export interface GetHotelInventoryRequest {
     acceptLanguage?: string;
 }
 export interface GetItemInventoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -79,28 +79,28 @@ export interface GetItemInventoryRequest {
     acceptLanguage?: string;
 }
 export interface PostHoldItemInventoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdItemInventory?: PutHoldItemsInventoryRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutHoldItemsInventoryOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    holdItemInventory?: PutHoldItemsInventoryRequest;
+export interface PutHoldItemsInventoryRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    holdItemInventory: HoldItemInventory;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutItemInventoryHoldOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    releaseItemInventoryHold?: PutItemInventoryHoldRequest;
+export interface PutItemInventoryHoldRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    releaseItemInventoryHold: ReleaseItemInventoryHold;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -112,22 +112,22 @@ export declare class InventoryApi extends runtime.BaseAPI {
      * You can use this API to create sell limits in OPERA by date. <p><strong>OperationId:</strong>changeSellLimitByDate</p>
      * Set sell limits by date
      */
-    changeSellLimitByDateRaw(requestParameters: ChangeSellLimitByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitResponse>>;
+    changeSellLimitByDateRaw(requestParameters: ChangeSellLimitByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitResponse>>;
     /**
      * You can use this API to create sell limits in OPERA by date. <p><strong>OperationId:</strong>changeSellLimitByDate</p>
      * Set sell limits by date
      */
-    changeSellLimitByDate(requestParameters: ChangeSellLimitByDateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitResponse>;
+    changeSellLimitByDate(requestParameters: ChangeSellLimitByDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitResponse>;
     /**
      * You can use this API to create sell limits in OPERA by date range. <p><strong>OperationId:</strong>changeSellLimitByDateRange</p>
      * Set sell limits by date range
      */
-    changeSellLimitByDateRangeRaw(requestParameters: ChangeSellLimitByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitByDateResponse>>;
+    changeSellLimitByDateRangeRaw(requestParameters: ChangeSellLimitByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitByDateResponse>>;
     /**
      * You can use this API to create sell limits in OPERA by date range. <p><strong>OperationId:</strong>changeSellLimitByDateRange</p>
      * Set sell limits by date range
      */
-    changeSellLimitByDateRange(requestParameters: ChangeSellLimitByDateRangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitByDateResponse>;
+    changeSellLimitByDateRange(requestParameters: ChangeSellLimitByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SellLimitByDateResponse>;
     /**
      * Fetch item inventory that is currently being held. <p><strong>OperationId:</strong>getHoldItemsInventory</p>
      * Get items inventory that are held
@@ -172,20 +172,20 @@ export declare class InventoryApi extends runtime.BaseAPI {
      * You can update item inventory that is being held using this API. <p><strong>OperationId:</strong>putHoldItemsInventory</p>
      * update items inventory that are held
      */
-    putHoldItemsInventoryRaw(requestParameters: PutHoldItemsInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HoldItemInventory>>;
+    putHoldItemsInventoryRaw(requestParameters: PutHoldItemsInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HoldItemInventory>>;
     /**
      * You can update item inventory that is being held using this API. <p><strong>OperationId:</strong>putHoldItemsInventory</p>
      * update items inventory that are held
      */
-    putHoldItemsInventory(requestParameters: PutHoldItemsInventoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HoldItemInventory>;
+    putHoldItemsInventory(requestParameters: PutHoldItemsInventoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HoldItemInventory>;
     /**
      * This API will release item inventory that has been held. <p><strong>OperationId:</strong>putItemInventoryHold</p>
      * Release item inventory held
      */
-    putItemInventoryHoldRaw(requestParameters: PutItemInventoryHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReleasedItemInventoryHeld>>;
+    putItemInventoryHoldRaw(requestParameters: PutItemInventoryHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReleasedItemInventoryHeld>>;
     /**
      * This API will release item inventory that has been held. <p><strong>OperationId:</strong>putItemInventoryHold</p>
      * Release item inventory held
      */
-    putItemInventoryHold(requestParameters: PutItemInventoryHoldOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReleasedItemInventoryHeld>;
+    putItemInventoryHold(requestParameters: PutItemInventoryHoldRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReleasedItemInventoryHeld>;
 }

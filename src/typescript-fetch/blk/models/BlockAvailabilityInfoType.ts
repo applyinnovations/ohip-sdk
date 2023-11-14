@@ -82,7 +82,7 @@ export function BlockAvailabilityInfoTypeToJSON(value?: BlockAvailabilityInfoTyp
         
         'extendedStay': value.extendedStay,
         'roomInfo': value.roomInfo === undefined ? undefined : ((value.roomInfo as Array<any>).map(BlockAvailabilityRoomInfoTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0,10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
     };
 }
 

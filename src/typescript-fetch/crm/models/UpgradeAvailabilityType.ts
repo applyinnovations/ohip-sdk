@@ -183,7 +183,7 @@ export function UpgradeAvailabilityTypeToJSON(value?: UpgradeAvailabilityType | 
         'hotelId': value.hotelId,
         'pointsRequired': value.pointsRequired,
         'rawIssueKey': value.rawIssueKey,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0,10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
         'toRoom': value.toRoom,
         'toRoomCategory': value.toRoomCategory,
         'toRoomDescription': value.toRoomDescription,

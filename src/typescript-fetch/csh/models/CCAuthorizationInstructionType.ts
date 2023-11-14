@@ -169,7 +169,7 @@ export function CCAuthorizationInstructionTypeToJSON(value?: CCAuthorizationInst
     return {
         
         'authorizationSetup': CCAuthorizationInstructionTypeAuthorizationSetupToJSON(value.authorizationSetup),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0,10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
         'currentApprovalAmount': CurrencyAmountTypeToJSON(value.currentApprovalAmount),
         'incidentalAmount': CurrencyAmountTypeToJSON(value.incidentalAmount),
         'initialAuthorizationRequired': value.initialAuthorizationRequired,

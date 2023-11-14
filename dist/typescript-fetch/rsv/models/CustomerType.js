@@ -63,7 +63,7 @@ function CustomerTypeToJSON(value) {
     }
     return {
         'anonymization': (0, AnonymizationType_1.AnonymizationTypeToJSON)(value.anonymization),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substr(0, 10)),
+        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0, 10)),
         'birthDateMasked': value.birthDateMasked,
         'birthPlace': value.birthPlace,
         'blacklist': value.blacklist,

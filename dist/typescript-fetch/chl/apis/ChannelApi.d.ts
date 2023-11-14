@@ -10,35 +10,35 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AmenitiesMapping, Channel, ChannelAccount, ChannelAccountContractElements, ChannelAccountContractsDetailsCopy, ChannelAccountsSummary, ChannelAccountsToChange, ChannelBillingStatement, ChannelBillingStatementDetails, ChannelBillingStatementSummaries, ChannelCardTypeMappingDetails, ChannelEnhancedGlobalDescription, ChannelGlobalDescriptions, ChannelGuaranteeCodeMappingDetails, ChannelHotelCodeMapping, ChannelMarketingTextsInfo, ChannelNegotiatedRateDetails, ChannelOrgMappingsDetails, ChannelParameterMapping, ChannelPolicies, ChannelRateMappings, ChannelRateRoomSequenceDetails, ChannelRoomMapping, ChannelRoomMappingsSummary, Channels, CopyChannelAccountContractsRequest, CopyChannelMarketingTextRequest, CopyTotalPricingElementsRequest, CreditCardsMapping, CurrenciesMapping, DistributionTemplates, FetchedChannelHotelLetters, GuaranteesMapping, ManageChannelRoomMappingRequest, PostChannelAccountsRequest, PostChannelHotelLettersRequest, PostChannelMarketingTextRequest, PostChannelOrgMappingRequest, PostChannelRatesRequest, PropertiesMapping, PublishChannelAvailabilityRequest, PublishChannelRatePlansRequest, PublishChannelRestrictionsRequest, PutAmenitiesMappingRequest, PutChannelAccountContractsRequest, PutChannelBillingStatementsRequest, PutChannelCardTypeMappingRequest, PutChannelCarriersRequest, PutChannelErrorsRequest, PutChannelGuaranteeCodeMappingRequest, PutChannelHotelLettersRequest, PutChannelMarketingTextRequest, PutChannelNegotiatedRateRequest, PutChannelParametersRequest, PutChannelRateCategoriesRequest, PutChannelRateLevelsRequest, PutChannelRateMappingRequest, PutChannelRateRoomSeqRequest, PutChannelRatesGlobalDescriptionsRequest, PutChannelRoomMappingRequest, PutChannelRoomTypesRequest, PutChannelsRequest, PutCreditCardsMappingRequest, PutCurrenciesMappingRequest, PutDistributionTemplatesRequest, PutGuaranteesMappingRequest, PutHotelsMappingRequest, PutRoomDescriptionRequest, PutTotalPricingElementsRequest, StatementDetailsStatistics, Status, TotalPricingElements } from '../models';
-export interface CopyChannelAccountContractsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelAccountContractsCopy?: CopyChannelAccountContractsRequest;
+import type { Amenities, AmenitiesMapping, ChangeChannelParameters, Channel, ChannelAccount, ChannelAccountContractElements, ChannelAccountContracts, ChannelAccountContractsCopy, ChannelAccountContractsDetailsCopy, ChannelAccounts, ChannelAccountsSummary, ChannelAccountsToChange, ChannelAvailability, ChannelBillingStatement, ChannelBillingStatementDetails, ChannelBillingStatementSummaries, ChannelBillingStatements, ChannelCardTypeMappingDetails, ChannelCardTypeMappings, ChannelCarriers, ChannelEnhancedGlobalDescription, ChannelErrors, ChannelGlobalDescription, ChannelGlobalDescriptions, ChannelGuaranteeCodeMappingDetails, ChannelGuaranteeCodeMappings, ChannelHotelCodeMapping, ChannelHotelLettersToBeChanged, ChannelHotelLettersToBeCreated, ChannelMarketingText, ChannelMarketingTextCopy, ChannelMarketingTextToChange, ChannelMarketingTextsInfo, ChannelNegotiatedRateDetails, ChannelNegotiatedRates, ChannelOrgMapping, ChannelOrgMappingsDetails, ChannelParameterMapping, ChannelPolicies, ChannelRateCategories, ChannelRateLevels, ChannelRateMapping, ChannelRateMappings, ChannelRatePlans, ChannelRateRoomSequence, ChannelRateRoomSequenceDetails, ChannelRates, ChannelRestrictions, ChannelRoomMapping, ChannelRoomMappings, ChannelRoomMappingsSummary, ChannelRoomTypes, Channels, CreditCards, CreditCardsMapping, Currencies, CurrenciesMapping, DistributionTemplates, FetchedChannelHotelLetters, Guarantees, GuaranteesMapping, Properties, PropertiesMapping, StatementDetailsStatistics, Status, TotalPricingElements, TotalPricingElementsCopy } from '../models/index';
+export interface CopyChannelAccountContractsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelAccountContractsCopy: ChannelAccountContractsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyChannelMarketingTextOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelMarketingTextCopy?: CopyChannelMarketingTextRequest;
+export interface CopyChannelMarketingTextRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelMarketingTextCopy: ChannelMarketingTextCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyTotalPricingElementsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    totalPricingElementsCopy?: CopyTotalPricingElementsRequest;
+export interface CopyTotalPricingElementsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    totalPricingElementsCopy: TotalPricingElementsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAmenitiesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     systemCode?: string;
     systemSubType?: string;
@@ -57,9 +57,9 @@ export interface DeleteAmenitiesMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelAccountContractsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idExtension?: number;
     idContext?: string;
@@ -72,9 +72,9 @@ export interface DeleteChannelAccountContractsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelBillingStatementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idExtension?: Array<number>;
     idContext?: Array<string>;
@@ -83,48 +83,48 @@ export interface DeleteChannelBillingStatementsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     channelCardType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelCarriersRequest {
-    bookingChannelCodes?: Array<string>;
-    carriers?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCodes: Array<string>;
+    carriers: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelErrorsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bookingChannelCode?: Array<string>;
     error?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelHotelLettersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     code?: string;
     description?: string;
     hotelId?: Array<string>;
@@ -135,9 +135,9 @@ export interface DeleteChannelHotelLettersRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelMarketingTextRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     beginDate?: Array<Date>;
     bookingChannelCode?: Array<string>;
     endDate?: Array<Date>;
@@ -156,9 +156,9 @@ export interface DeleteChannelMarketingTextRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelNegotiatedRateRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bookingChannelCode?: string;
     channelRatePlanCode?: string;
     hotelId?: string;
@@ -189,37 +189,37 @@ export interface DeleteChannelNegotiatedRateRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    tenantCode: string;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     chainCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelRateCategoriesRequest {
-    bookingChannelCodes?: Array<string>;
-    rateCategories?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCodes: Array<string>;
+    rateCategories: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelRateLevelsRequest {
-    bookingChannelCodes?: Array<string>;
-    rateLevels?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCodes: Array<string>;
+    rateLevels: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelRateMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bookingChannelCode?: Array<string>;
     channelRatePlanCode?: Array<string>;
     hasChannelNegotiatedRates?: Array<boolean>;
@@ -230,9 +230,9 @@ export interface DeleteChannelRateMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelRatesGlobalDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     code?: string;
     description?: string;
@@ -243,12 +243,12 @@ export interface DeleteChannelRatesGlobalDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelRoomMappingRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     beginDate?: Date;
     channelRoomType?: string;
     endDate?: Date;
@@ -256,18 +256,18 @@ export interface DeleteChannelRoomMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteChannelRoomTypesRequest {
-    bookingChannelCodes?: Array<string>;
-    roomTypes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingChannelCodes: Array<string>;
+    roomTypes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelRoomsGlobalDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     code?: string;
     description?: string;
@@ -278,9 +278,9 @@ export interface DeleteChannelRoomsGlobalDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCreditCardsMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     systemCode?: string;
     systemSubType?: string;
@@ -298,9 +298,9 @@ export interface DeleteCreditCardsMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCurrenciesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     systemCode?: string;
     systemSubType?: string;
@@ -320,9 +320,9 @@ export interface DeleteCurrenciesMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteDistributionTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     code?: Array<string>;
     hotelId?: Array<string>;
@@ -330,9 +330,9 @@ export interface DeleteDistributionTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteGuaranteesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     systemCode?: string;
     systemSubType?: string;
@@ -351,9 +351,9 @@ export interface DeleteGuaranteesMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteHotelsMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     systemCode?: string;
     systemSubType?: string;
@@ -384,9 +384,9 @@ export interface DeleteHotelsMappingRequest {
     acceptLanguage?: string;
 }
 export interface DeleteTotalPricingElementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     code?: string;
     description?: string;
@@ -394,17 +394,17 @@ export interface DeleteTotalPricingElementsRequest {
     acceptLanguage?: string;
 }
 export interface GenerateChannelBillingStatementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelBillingStatements?: PutChannelBillingStatementsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAmenitiesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     limit?: number;
     offset?: number;
@@ -417,31 +417,31 @@ export interface GetAmenitiesMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeInactive?: Array<boolean>;
     fetchInstructions?: Set<GetChannelFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelAccountRequest {
-    accountProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    accountProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetChannelAccountFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelAccountContractElementsRequest {
-    contractId?: string;
-    accountProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    contractId: string;
+    accountProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     attributeName?: Array<string>;
@@ -450,9 +450,9 @@ export interface GetChannelAccountContractElementsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelAccountsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     excludeInactive?: boolean;
     limit?: number;
     offset?: number;
@@ -467,20 +467,20 @@ export interface GetChannelAccountsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelBillingStatementRequest {
-    statementId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    statementId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     idType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelBillingStatementDetailsRequest {
-    statementId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    statementId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     contractId?: string;
@@ -491,9 +491,9 @@ export interface GetChannelBillingStatementDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelBillingStatementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeLocked?: boolean;
     limit?: number;
     offset?: number;
@@ -507,10 +507,10 @@ export interface GetChannelBillingStatementsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelCardTypeMappingsRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     bookingChannelCodes?: Array<string>;
@@ -523,10 +523,10 @@ export interface GetChannelCardTypeMappingsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelGuaranteeCodeMappingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -540,19 +540,19 @@ export interface GetChannelGuaranteeCodeMappingsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelHotelCodeMappingRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     channelHotelCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelHotelLettersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     channelCode?: Array<string>;
     hotelIds?: Array<string>;
     language?: string;
@@ -561,9 +561,9 @@ export interface GetChannelHotelLettersRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelMarketingTextRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     transactionType?: string;
     policyType?: string;
     policyDetail?: string;
@@ -582,9 +582,9 @@ export interface GetChannelMarketingTextRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelNegotiatedRateRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     hotelId?: string;
     bookingChannelCode?: string;
@@ -596,31 +596,31 @@ export interface GetChannelNegotiatedRateRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    tenantCode: string;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     chainCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelParametersRequest {
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     parameterNameWildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelPoliciesRequest {
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     requestType?: string;
     startDate?: Date;
     endDate?: Date;
@@ -635,18 +635,18 @@ export interface GetChannelPoliciesRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRateCodeGlobalDescRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelRateMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelId?: Array<string>;
@@ -663,10 +663,10 @@ export interface GetChannelRateMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRateRoomSeqRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     ratePlanCode?: string;
     roomType?: string;
@@ -678,9 +678,9 @@ export interface GetChannelRateRoomSeqRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRatesGlobalDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     ratePlanCodes?: Array<string>;
     roomTypes?: Array<string>;
@@ -689,10 +689,10 @@ export interface GetChannelRatesGlobalDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRoomMappingRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -706,30 +706,30 @@ export interface GetChannelRoomMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelRoomMappingByIdRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     beginDate?: Date;
     channelRoomType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelRoomTypeGlobalDescRequest {
-    roomType?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomType: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelRoomsGlobalDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     ratePlanCodes?: Array<string>;
     roomTypes?: Array<string>;
@@ -738,9 +738,9 @@ export interface GetChannelRoomsGlobalDescriptionsRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     limit?: number;
     offset?: number;
@@ -753,9 +753,9 @@ export interface GetChannelsRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditCardsMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     limit?: number;
     offset?: number;
@@ -769,9 +769,9 @@ export interface GetCreditCardsMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetCurrenciesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     limit?: number;
     offset?: number;
@@ -785,9 +785,9 @@ export interface GetCurrenciesMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetDistributionTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     isChain?: boolean;
     hotelIds?: Array<string>;
     codes?: Array<string>;
@@ -797,9 +797,9 @@ export interface GetDistributionTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface GetGuaranteesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     limit?: number;
     offset?: number;
@@ -813,9 +813,9 @@ export interface GetGuaranteesMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelsMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     limit?: number;
     offset?: number;
@@ -829,10 +829,10 @@ export interface GetHotelsMappingRequest {
     acceptLanguage?: string;
 }
 export interface GetStatementDetailsStatisticsRequest {
-    statementId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    statementId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     contractId?: string;
     contractIdType?: string;
     fetchInstructions?: Set<GetStatementDetailsStatisticsFetchInstructionsEnum>;
@@ -840,10 +840,10 @@ export interface GetStatementDetailsStatisticsRequest {
     acceptLanguage?: string;
 }
 export interface GetTotalPricingElementsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -852,546 +852,546 @@ export interface GetTotalPricingElementsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ManageChannelRoomMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRoomMappings?: ManageChannelRoomMappingRequest;
+export interface ManageChannelRoomMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRoomMappings: ChannelRoomMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAmenitiesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    amenities?: PutAmenitiesMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    amenities: Amenities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelAccountContractsRequest {
-    accountProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelAccountContracts?: PutChannelAccountContractsRequest;
+    accountProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelAccountContracts: ChannelAccountContracts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostChannelAccountsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelAccounts?: PostChannelAccountsRequest;
+export interface PostChannelAccountsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelAccounts: ChannelAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelBillingStatementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelBillingStatements?: PutChannelBillingStatementsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelCardTypeMappingRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelCardTypeMappings?: PutChannelCardTypeMappingRequest;
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelCardTypeMappings: ChannelCardTypeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelCarriersRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelCarriers?: PutChannelCarriersRequest;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelCarriers: ChannelCarriers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelErrorsRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelErrors?: PutChannelErrorsRequest;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelErrors: ChannelErrors;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelGuaranteeCodeMappingRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGuaranteeCodeMappings?: PutChannelGuaranteeCodeMappingRequest;
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGuaranteeCodeMappings: ChannelGuaranteeCodeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostChannelHotelLettersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelHotelLettersToBeCreated?: PostChannelHotelLettersRequest;
+export interface PostChannelHotelLettersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelHotelLettersToBeCreated: ChannelHotelLettersToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostChannelMarketingTextOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelMarketingText?: PostChannelMarketingTextRequest;
+export interface PostChannelMarketingTextRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelMarketingText: ChannelMarketingText;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelNegotiatedRateRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelNegotiatedRates?: PutChannelNegotiatedRateRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelNegotiatedRates: ChannelNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostChannelOrgMappingOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelOrgMapping?: PostChannelOrgMappingRequest;
+export interface PostChannelOrgMappingRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelOrgMapping: ChannelOrgMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRateCategoriesRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRateCategories?: PutChannelRateCategoriesRequest;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRateCategories: ChannelRateCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRateLevelsRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRateLevels?: PutChannelRateLevelsRequest;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRateLevels: ChannelRateLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRateMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRateMapping?: PutChannelRateMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRateMapping: ChannelRateMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostChannelRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRates?: PostChannelRatesRequest;
+export interface PostChannelRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRates: ChannelRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRatesGlobalDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGlobalDescriptions?: PutChannelRatesGlobalDescriptionsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRoomMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRoomMappings?: ManageChannelRoomMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRoomMappings: ChannelRoomMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRoomTypeRateRequest {
-    channelRoomType?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRates?: PostChannelRatesRequest;
+    channelRoomType: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRates: ChannelRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRoomTypesRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRoomTypes?: PutChannelRoomTypesRequest;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRoomTypes: ChannelRoomTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelRoomsGlobalDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGlobalDescriptions?: PutChannelRatesGlobalDescriptionsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostChannelsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channels?: PutChannelsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channels: Channels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCreditCardsMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditCards?: PutCreditCardsMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditCards: CreditCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCurrenciesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    currencies?: PutCurrenciesMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    currencies: Currencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDistributionTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    distributionTemplates?: PutDistributionTemplatesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    distributionTemplates: DistributionTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostGuaranteesMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guarantees?: PutGuaranteesMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guarantees: Guarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostHotelsMappingRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    properties?: PutHotelsMappingRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    properties: Properties;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTotalPricingElementsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    totalPricingElements?: PutTotalPricingElementsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    totalPricingElements: TotalPricingElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PublishChannelAvailabilityOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelAvailability?: PublishChannelAvailabilityRequest;
+export interface PublishChannelAvailabilityRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelAvailability: ChannelAvailability;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PublishChannelRatePlansOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRatePlans?: PublishChannelRatePlansRequest;
+export interface PublishChannelRatePlansRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRatePlans: ChannelRatePlans;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PublishChannelRestrictionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRestrictions?: PublishChannelRestrictionsRequest;
+export interface PublishChannelRestrictionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRestrictions: ChannelRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PublishHotelChannelRatePlansRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRatePlans?: PublishChannelRatePlansRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRatePlans: ChannelRatePlans;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAmenitiesMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    amenities?: PutAmenitiesMappingRequest;
+export interface PutAmenitiesMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    amenities: Amenities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelAccountContractsOperationRequest {
-    accountProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelAccountContracts?: PutChannelAccountContractsRequest;
+export interface PutChannelAccountContractsRequest {
+    accountProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelAccountContracts: ChannelAccountContracts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelAccountsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelAccountsToChange?: ChannelAccountsToChange;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelAccountsToChange: ChannelAccountsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelBillingStatementsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelBillingStatements?: PutChannelBillingStatementsRequest;
+export interface PutChannelBillingStatementsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelBillingStatements: ChannelBillingStatements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelCardTypeMappingOperationRequest {
-    cardTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelCardTypeMappings?: PutChannelCardTypeMappingRequest;
+export interface PutChannelCardTypeMappingRequest {
+    cardTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelCardTypeMappings: ChannelCardTypeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelCarriersOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelCarriers?: PutChannelCarriersRequest;
+export interface PutChannelCarriersRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelCarriers: ChannelCarriers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelErrorsOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelErrors?: PutChannelErrorsRequest;
+export interface PutChannelErrorsRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelErrors: ChannelErrors;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelGuaranteeCodeMappingOperationRequest {
-    guaranteeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGuaranteeCodeMappings?: PutChannelGuaranteeCodeMappingRequest;
+export interface PutChannelGuaranteeCodeMappingRequest {
+    guaranteeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGuaranteeCodeMappings: ChannelGuaranteeCodeMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelHotelLettersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelHotelLettersToBeChanged?: PutChannelHotelLettersRequest;
+export interface PutChannelHotelLettersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelHotelLettersToBeChanged: ChannelHotelLettersToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelMarketingTextOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelMarketingTextToChange?: PutChannelMarketingTextRequest;
+export interface PutChannelMarketingTextRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelMarketingTextToChange: ChannelMarketingTextToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelNegotiatedRateOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelNegotiatedRates?: PutChannelNegotiatedRateRequest;
+export interface PutChannelNegotiatedRateRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelNegotiatedRates: ChannelNegotiatedRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelOrgMappingRequest {
-    tenantCode?: string;
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelOrgMapping?: PostChannelOrgMappingRequest;
+    tenantCode: string;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelOrgMapping: ChannelOrgMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelParametersOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeChannelParameters?: PutChannelParametersRequest;
+export interface PutChannelParametersRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeChannelParameters: ChangeChannelParameters;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelRateCategoriesOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRateCategories?: PutChannelRateCategoriesRequest;
+export interface PutChannelRateCategoriesRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRateCategories: ChannelRateCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelRateLevelsOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRateLevels?: PutChannelRateLevelsRequest;
+export interface PutChannelRateLevelsRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRateLevels: ChannelRateLevels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelRateMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRateMapping?: PutChannelRateMappingRequest;
+export interface PutChannelRateMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRateMapping: ChannelRateMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelRateRoomSeqOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRateRoomSequence?: PutChannelRateRoomSeqRequest;
+export interface PutChannelRateRoomSeqRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRateRoomSequence: ChannelRateRoomSequence;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelRatesGlobalDescriptionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGlobalDescriptions?: PutChannelRatesGlobalDescriptionsRequest;
+export interface PutChannelRatesGlobalDescriptionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelRoomMappingOperationRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRoomMapping?: PutChannelRoomMappingRequest;
+export interface PutChannelRoomMappingRequest {
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRoomMapping: ChannelRoomMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelRoomTypesOperationRequest {
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelRoomTypes?: PutChannelRoomTypesRequest;
+export interface PutChannelRoomTypesRequest {
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelRoomTypes: ChannelRoomTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutChannelRoomsGlobalDescriptionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGlobalDescriptions?: PutChannelRatesGlobalDescriptionsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGlobalDescriptions: ChannelGlobalDescriptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutChannelsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channels?: PutChannelsRequest;
+export interface PutChannelsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channels: Channels;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCreditCardsMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditCards?: PutCreditCardsMappingRequest;
+export interface PutCreditCardsMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditCards: CreditCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCurrenciesMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    currencies?: PutCurrenciesMappingRequest;
+export interface PutCurrenciesMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    currencies: Currencies;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDistributionTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    distributionTemplates?: PutDistributionTemplatesRequest;
+export interface PutDistributionTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    distributionTemplates: DistributionTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutGuaranteesMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guarantees?: PutGuaranteesMappingRequest;
+export interface PutGuaranteesMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guarantees: Guarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutHotelsMappingOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    properties?: PutHotelsMappingRequest;
+export interface PutHotelsMappingRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    properties: Properties;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRateGlobalDescriptionRequest {
-    channelRateCode?: string;
-    channelCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGlobalDescription?: PutRoomDescriptionRequest;
+    channelRateCode: string;
+    channelCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGlobalDescription: ChannelGlobalDescription;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoomDescriptionOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    channelGlobalDescription?: PutRoomDescriptionRequest;
+export interface PutRoomDescriptionRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    channelGlobalDescription: ChannelGlobalDescription;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTotalPricingElementsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    totalPricingElements?: PutTotalPricingElementsRequest;
+export interface PutTotalPricingElementsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    totalPricingElements: TotalPricingElements;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1403,32 +1403,32 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * This API creates copy of channel account contracts. <p><strong>OperationId:</strong>copyChannelAccountContracts</p>
      * Creates copy of channel account contracts
      */
-    copyChannelAccountContractsRaw(requestParameters: CopyChannelAccountContractsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelAccountContractsDetailsCopy>>;
+    copyChannelAccountContractsRaw(requestParameters: CopyChannelAccountContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelAccountContractsDetailsCopy>>;
     /**
      * This API creates copy of channel account contracts. <p><strong>OperationId:</strong>copyChannelAccountContracts</p>
      * Creates copy of channel account contracts
      */
-    copyChannelAccountContracts(requestParameters: CopyChannelAccountContractsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelAccountContractsDetailsCopy>;
+    copyChannelAccountContracts(requestParameters: CopyChannelAccountContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelAccountContractsDetailsCopy>;
     /**
      * Use this API to copy one channel\'s mapping for marketing messages to another channel and hotel mapping. <p><strong>OperationId:</strong>copyChannelMarketingText</p>
      * Allows to copy marketing message to another channel and hotel
      */
-    copyChannelMarketingTextRaw(requestParameters: CopyChannelMarketingTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyChannelMarketingTextRaw(requestParameters: CopyChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to copy one channel\'s mapping for marketing messages to another channel and hotel mapping. <p><strong>OperationId:</strong>copyChannelMarketingText</p>
      * Allows to copy marketing message to another channel and hotel
      */
-    copyChannelMarketingText(requestParameters: CopyChannelMarketingTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyChannelMarketingText(requestParameters: CopyChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to copy global distribution system\'s fee and tax configurations from one hotel to another hotel within same chain/tenant <p><strong>OperationId:</strong>copyTotalPricingElements</p>
      * Allows to copy total pricing tax and fees to another hotel id
      */
-    copyTotalPricingElementsRaw(requestParameters: CopyTotalPricingElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyTotalPricingElementsRaw(requestParameters: CopyTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to copy global distribution system\'s fee and tax configurations from one hotel to another hotel within same chain/tenant <p><strong>OperationId:</strong>copyTotalPricingElements</p>
      * Allows to copy total pricing tax and fees to another hotel id
      */
-    copyTotalPricingElements(requestParameters: CopyTotalPricingElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyTotalPricingElements(requestParameters: CopyTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete channel amenities mapping <p><strong>OperationId:</strong>deleteAmenitiesMapping</p>
      * Deletes channel amenities configuration
@@ -2013,12 +2013,12 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to update channel room description <p><strong>OperationId:</strong>manageChannelRoomMapping</p>
      * Updates channel room configuration
      */
-    manageChannelRoomMappingRaw(requestParameters: ManageChannelRoomMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    manageChannelRoomMappingRaw(requestParameters: ManageChannelRoomMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel room description <p><strong>OperationId:</strong>manageChannelRoomMapping</p>
      * Updates channel room configuration
      */
-    manageChannelRoomMapping(requestParameters: ManageChannelRoomMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    manageChannelRoomMapping(requestParameters: ManageChannelRoomMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add channel amenities mapping <p><strong>OperationId:</strong>postAmenitiesMapping</p>
      * Adds channel amenities configuration
@@ -2043,12 +2043,12 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * This API adds channel accounts. <p><strong>OperationId:</strong>postChannelAccounts</p>
      * Adds channel accounts.
      */
-    postChannelAccountsRaw(requestParameters: PostChannelAccountsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postChannelAccountsRaw(requestParameters: PostChannelAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API adds channel accounts. <p><strong>OperationId:</strong>postChannelAccounts</p>
      * Adds channel accounts.
      */
-    postChannelAccounts(requestParameters: PostChannelAccountsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postChannelAccounts(requestParameters: PostChannelAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API adds channel billing statements. <p><strong>OperationId:</strong>postChannelBillingStatements</p>
      * Adds channel billing statements.
@@ -2103,22 +2103,22 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to add channel property confirmation letter configuration <p><strong>OperationId:</strong>postChannelHotelLetters</p>
      * Adds channel property confirmation letter mapping
      */
-    postChannelHotelLettersRaw(requestParameters: PostChannelHotelLettersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postChannelHotelLettersRaw(requestParameters: PostChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to add channel property confirmation letter configuration <p><strong>OperationId:</strong>postChannelHotelLetters</p>
      * Adds channel property confirmation letter mapping
      */
-    postChannelHotelLetters(requestParameters: PostChannelHotelLettersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postChannelHotelLetters(requestParameters: PostChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add channel mapping for marketing messages <p><strong>OperationId:</strong>postChannelMarketingText</p>
      * Adds channel marketing messages
      */
-    postChannelMarketingTextRaw(requestParameters: PostChannelMarketingTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postChannelMarketingTextRaw(requestParameters: PostChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to add channel mapping for marketing messages <p><strong>OperationId:</strong>postChannelMarketingText</p>
      * Adds channel marketing messages
      */
-    postChannelMarketingText(requestParameters: PostChannelMarketingTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postChannelMarketingText(requestParameters: PostChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add channel\'s negotiated rate code mapping with an OPERA profile for a given hotel id <p><strong>OperationId:</strong>postChannelNegotiatedRate</p>
      * Adds channel negotiate rate
@@ -2133,12 +2133,12 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * This API adds channel tenants. <p><strong>OperationId:</strong>postChannelOrgMapping</p>
      * Adds channel tenants.
      */
-    postChannelOrgMappingRaw(requestParameters: PostChannelOrgMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postChannelOrgMappingRaw(requestParameters: PostChannelOrgMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API adds channel tenants. <p><strong>OperationId:</strong>postChannelOrgMapping</p>
      * Adds channel tenants.
      */
-    postChannelOrgMapping(requestParameters: PostChannelOrgMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postChannelOrgMapping(requestParameters: PostChannelOrgMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to add channel rate categories for a given channel. <p><strong>OperationId:</strong>postChannelRateCategories</p>
      * Adds given channel\'s rate categories
@@ -2173,12 +2173,12 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to link (distribute) channel a rate code to channel room types. <p><strong>OperationId:</strong>postChannelRates</p>
      * Distributes channel rate mappings to channel room types
      */
-    postChannelRatesRaw(requestParameters: PostChannelRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postChannelRatesRaw(requestParameters: PostChannelRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to link (distribute) channel a rate code to channel room types. <p><strong>OperationId:</strong>postChannelRates</p>
      * Distributes channel rate mappings to channel room types
      */
-    postChannelRates(requestParameters: PostChannelRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postChannelRates(requestParameters: PostChannelRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to adds global room description for given hotel id and room type code <p><strong>OperationId:</strong>postChannelRatesGlobalDescriptions</p>
      * Adds global room descriptions
@@ -2303,32 +2303,32 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * This API changes publishes channel availability. <p><strong>OperationId:</strong>publishChannelAvailability</p>
      * Publishes channel availability.
      */
-    publishChannelAvailabilityRaw(requestParameters: PublishChannelAvailabilityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    publishChannelAvailabilityRaw(requestParameters: PublishChannelAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API changes publishes channel availability. <p><strong>OperationId:</strong>publishChannelAvailability</p>
      * Publishes channel availability.
      */
-    publishChannelAvailability(requestParameters: PublishChannelAvailabilityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    publishChannelAvailability(requestParameters: PublishChannelAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API changes the channel rate plans for given channel code. <p><strong>OperationId:</strong>publishChannelRatePlans</p>
      * Publishes channel rate plan codes
      */
-    publishChannelRatePlansRaw(requestParameters: PublishChannelRatePlansOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    publishChannelRatePlansRaw(requestParameters: PublishChannelRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API changes the channel rate plans for given channel code. <p><strong>OperationId:</strong>publishChannelRatePlans</p>
      * Publishes channel rate plan codes
      */
-    publishChannelRatePlans(requestParameters: PublishChannelRatePlansOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    publishChannelRatePlans(requestParameters: PublishChannelRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API changes the channel restrictions. <p><strong>OperationId:</strong>publishChannelRestrictions</p>
      * Publishes channel restrictions
      */
-    publishChannelRestrictionsRaw(requestParameters: PublishChannelRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    publishChannelRestrictionsRaw(requestParameters: PublishChannelRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API changes the channel restrictions. <p><strong>OperationId:</strong>publishChannelRestrictions</p>
      * Publishes channel restrictions
      */
-    publishChannelRestrictions(requestParameters: PublishChannelRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    publishChannelRestrictions(requestParameters: PublishChannelRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API changes the channel rate plans for given Hotel Id. <p><strong>OperationId:</strong>publishHotelChannelRatePlans</p>
      * Publishes channel hotel rate plan codes
@@ -2343,22 +2343,22 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to update channel amenities mapping <p><strong>OperationId:</strong>putAmenitiesMapping</p>
      * Updates channel amenities configuration
      */
-    putAmenitiesMappingRaw(requestParameters: PutAmenitiesMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAmenitiesMappingRaw(requestParameters: PutAmenitiesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel amenities mapping <p><strong>OperationId:</strong>putAmenitiesMapping</p>
      * Updates channel amenities configuration
      */
-    putAmenitiesMapping(requestParameters: PutAmenitiesMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAmenitiesMapping(requestParameters: PutAmenitiesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update existing cannel account contract for a given OPERA profile id <p><strong>OperationId:</strong>putChannelAccountContracts</p>
      * Updates channel account contracts for given profile Id.
      */
-    putChannelAccountContractsRaw(requestParameters: PutChannelAccountContractsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelAccountContractsRaw(requestParameters: PutChannelAccountContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update existing cannel account contract for a given OPERA profile id <p><strong>OperationId:</strong>putChannelAccountContracts</p>
      * Updates channel account contracts for given profile Id.
      */
-    putChannelAccountContracts(requestParameters: PutChannelAccountContractsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelAccountContracts(requestParameters: PutChannelAccountContractsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update existing channel account for a given OPERA profile id <p><strong>OperationId:</strong>putChannelAccounts</p>
      * Updates channel accounts
@@ -2373,82 +2373,82 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to update channels billing statements for a given OPERA statement id <p><strong>OperationId:</strong>putChannelBillingStatements</p>
      * Updates channel billing statement details
      */
-    putChannelBillingStatementsRaw(requestParameters: PutChannelBillingStatementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelBillingStatementsRaw(requestParameters: PutChannelBillingStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channels billing statements for a given OPERA statement id <p><strong>OperationId:</strong>putChannelBillingStatements</p>
      * Updates channel billing statement details
      */
-    putChannelBillingStatements(requestParameters: PutChannelBillingStatementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelBillingStatements(requestParameters: PutChannelBillingStatementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel mapping for OPERA credit cards to channel for a given hotel id <p><strong>OperationId:</strong>putChannelCardTypeMapping</p>
      * Updates channel credit card mapping for a hotel
      */
-    putChannelCardTypeMappingRaw(requestParameters: PutChannelCardTypeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelCardTypeMappingRaw(requestParameters: PutChannelCardTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel mapping for OPERA credit cards to channel for a given hotel id <p><strong>OperationId:</strong>putChannelCardTypeMapping</p>
      * Updates channel credit card mapping for a hotel
      */
-    putChannelCardTypeMapping(requestParameters: PutChannelCardTypeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelCardTypeMapping(requestParameters: PutChannelCardTypeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update sub-channel (carrier) configuration for a given channel code <p><strong>OperationId:</strong>putChannelCarriers</p>
      * Updates sub channel configuration
      */
-    putChannelCarriersRaw(requestParameters: PutChannelCarriersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelCarriersRaw(requestParameters: PutChannelCarriersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update sub-channel (carrier) configuration for a given channel code <p><strong>OperationId:</strong>putChannelCarriers</p>
      * Updates sub channel configuration
      */
-    putChannelCarriers(requestParameters: PutChannelCarriersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelCarriers(requestParameters: PutChannelCarriersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel error code mapping configurations <p><strong>OperationId:</strong>putChannelErrors</p>
      * Updates channel error codes
      */
-    putChannelErrorsRaw(requestParameters: PutChannelErrorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelErrorsRaw(requestParameters: PutChannelErrorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel error code mapping configurations <p><strong>OperationId:</strong>putChannelErrors</p>
      * Updates channel error codes
      */
-    putChannelErrors(requestParameters: PutChannelErrorsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelErrors(requestParameters: PutChannelErrorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel guarantee code mapping to OPERA guarantee code for a given hotel <p><strong>OperationId:</strong>putChannelGuaranteeCodeMapping</p>
      * Updates channel guarantee code mapping for a hotel
      */
-    putChannelGuaranteeCodeMappingRaw(requestParameters: PutChannelGuaranteeCodeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelGuaranteeCodeMappingRaw(requestParameters: PutChannelGuaranteeCodeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel guarantee code mapping to OPERA guarantee code for a given hotel <p><strong>OperationId:</strong>putChannelGuaranteeCodeMapping</p>
      * Updates channel guarantee code mapping for a hotel
      */
-    putChannelGuaranteeCodeMapping(requestParameters: PutChannelGuaranteeCodeMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelGuaranteeCodeMapping(requestParameters: PutChannelGuaranteeCodeMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel property confirmation letter configuration <p><strong>OperationId:</strong>putChannelHotelLetters</p>
      * Updates channel property confirmation letter mapping
      */
-    putChannelHotelLettersRaw(requestParameters: PutChannelHotelLettersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelHotelLettersRaw(requestParameters: PutChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel property confirmation letter configuration <p><strong>OperationId:</strong>putChannelHotelLetters</p>
      * Updates channel property confirmation letter mapping
      */
-    putChannelHotelLetters(requestParameters: PutChannelHotelLettersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelHotelLetters(requestParameters: PutChannelHotelLettersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel mapping for marketing messages <p><strong>OperationId:</strong>putChannelMarketingText</p>
      * Updates channel marketing messages
      */
-    putChannelMarketingTextRaw(requestParameters: PutChannelMarketingTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelMarketingTextRaw(requestParameters: PutChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel mapping for marketing messages <p><strong>OperationId:</strong>putChannelMarketingText</p>
      * Updates channel marketing messages
      */
-    putChannelMarketingText(requestParameters: PutChannelMarketingTextOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelMarketingText(requestParameters: PutChannelMarketingTextRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel\'s negotiated rate code mapping including negotiated profile, negotiate rate access code, start date, end date, and sequence. <p><strong>OperationId:</strong>putChannelNegotiatedRate</p>
      * Updates channel negotiate rate
      */
-    putChannelNegotiatedRateRaw(requestParameters: PutChannelNegotiatedRateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelNegotiatedRateRaw(requestParameters: PutChannelNegotiatedRateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel\'s negotiated rate code mapping including negotiated profile, negotiate rate access code, start date, end date, and sequence. <p><strong>OperationId:</strong>putChannelNegotiatedRate</p>
      * Updates channel negotiate rate
      */
-    putChannelNegotiatedRate(requestParameters: PutChannelNegotiatedRateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelNegotiatedRate(requestParameters: PutChannelNegotiatedRateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API changes channel tenants mapping. <p><strong>OperationId:</strong>putChannelOrgMapping</p>
      * Updates channel tenants mapping.
@@ -2463,82 +2463,82 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to active/inactive channel controls. It also allows to update channel control settings. <p><strong>OperationId:</strong>putChannelParameters</p>
      * Updates channel control settings
      */
-    putChannelParametersRaw(requestParameters: PutChannelParametersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelParametersRaw(requestParameters: PutChannelParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to active/inactive channel controls. It also allows to update channel control settings. <p><strong>OperationId:</strong>putChannelParameters</p>
      * Updates channel control settings
      */
-    putChannelParameters(requestParameters: PutChannelParametersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelParameters(requestParameters: PutChannelParametersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel rate categories for a given channel. <p><strong>OperationId:</strong>putChannelRateCategories</p>
      * Updates given channel\'s rate categories
      */
-    putChannelRateCategoriesRaw(requestParameters: PutChannelRateCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelRateCategoriesRaw(requestParameters: PutChannelRateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel rate categories for a given channel. <p><strong>OperationId:</strong>putChannelRateCategories</p>
      * Updates given channel\'s rate categories
      */
-    putChannelRateCategories(requestParameters: PutChannelRateCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelRateCategories(requestParameters: PutChannelRateCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel rate level code\'s description <p><strong>OperationId:</strong>putChannelRateLevels</p>
      * Updates channel rate level
      */
-    putChannelRateLevelsRaw(requestParameters: PutChannelRateLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelRateLevelsRaw(requestParameters: PutChannelRateLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel rate level code\'s description <p><strong>OperationId:</strong>putChannelRateLevels</p>
      * Updates channel rate level
      */
-    putChannelRateLevels(requestParameters: PutChannelRateLevelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelRateLevels(requestParameters: PutChannelRateLevelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel property rate mapping including channel rate code, start date, end date, rate level, channel rate description. <p><strong>OperationId:</strong>putChannelRateMapping</p>
      * Updates channel property rate mapping
      */
-    putChannelRateMappingRaw(requestParameters: PutChannelRateMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelRateMappingRaw(requestParameters: PutChannelRateMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel property rate mapping including channel rate code, start date, end date, rate level, channel rate description. <p><strong>OperationId:</strong>putChannelRateMapping</p>
      * Updates channel property rate mapping
      */
-    putChannelRateMapping(requestParameters: PutChannelRateMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelRateMapping(requestParameters: PutChannelRateMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update sequence for given channel property rate room mapping  <p><strong>OperationId:</strong>putChannelRateRoomSeq</p>
      * Updates channel property rateroom sequence
      */
-    putChannelRateRoomSeqRaw(requestParameters: PutChannelRateRoomSeqOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelRateRoomSeqRaw(requestParameters: PutChannelRateRoomSeqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update sequence for given channel property rate room mapping  <p><strong>OperationId:</strong>putChannelRateRoomSeq</p>
      * Updates channel property rateroom sequence
      */
-    putChannelRateRoomSeq(requestParameters: PutChannelRateRoomSeqOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelRateRoomSeq(requestParameters: PutChannelRateRoomSeqRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update global rate description for given hotel id and rate code <p><strong>OperationId:</strong>putChannelRatesGlobalDescriptions</p>
      * Updates global rate descriptions
      */
-    putChannelRatesGlobalDescriptionsRaw(requestParameters: PutChannelRatesGlobalDescriptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelRatesGlobalDescriptionsRaw(requestParameters: PutChannelRatesGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update global rate description for given hotel id and rate code <p><strong>OperationId:</strong>putChannelRatesGlobalDescriptions</p>
      * Updates global rate descriptions
      */
-    putChannelRatesGlobalDescriptions(requestParameters: PutChannelRatesGlobalDescriptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelRatesGlobalDescriptions(requestParameters: PutChannelRatesGlobalDescriptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel room mapping to OPERA hotel\'s room mapping including channel room type code, start date, end date, room order. <p><strong>OperationId:</strong>putChannelRoomMapping</p>
      * Updates channel property room mapping
      */
-    putChannelRoomMappingRaw(requestParameters: PutChannelRoomMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelRoomMappingRaw(requestParameters: PutChannelRoomMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel room mapping to OPERA hotel\'s room mapping including channel room type code, start date, end date, room order. <p><strong>OperationId:</strong>putChannelRoomMapping</p>
      * Updates channel property room mapping
      */
-    putChannelRoomMapping(requestParameters: PutChannelRoomMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelRoomMapping(requestParameters: PutChannelRoomMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel room description <p><strong>OperationId:</strong>putChannelRoomTypes</p>
      * Updates channel room
      */
-    putChannelRoomTypesRaw(requestParameters: PutChannelRoomTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelRoomTypesRaw(requestParameters: PutChannelRoomTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel room description <p><strong>OperationId:</strong>putChannelRoomTypes</p>
      * Updates channel room
      */
-    putChannelRoomTypes(requestParameters: PutChannelRoomTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannelRoomTypes(requestParameters: PutChannelRoomTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update global room description for given hotel id and room type code <p><strong>OperationId:</strong>putChannelRoomsGlobalDescriptions</p>
      * Updates global room descriptions
@@ -2553,62 +2553,62 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to update channel configuration <p><strong>OperationId:</strong>putChannels</p>
      * Update channel configuration
      */
-    putChannelsRaw(requestParameters: PutChannelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putChannelsRaw(requestParameters: PutChannelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel configuration <p><strong>OperationId:</strong>putChannels</p>
      * Update channel configuration
      */
-    putChannels(requestParameters: PutChannelsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putChannels(requestParameters: PutChannelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel credit card code mapping to OPERA credit card code <p><strong>OperationId:</strong>putCreditCardsMapping</p>
      * Updates channel credit card mapping
      */
-    putCreditCardsMappingRaw(requestParameters: PutCreditCardsMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCreditCardsMappingRaw(requestParameters: PutCreditCardsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel credit card code mapping to OPERA credit card code <p><strong>OperationId:</strong>putCreditCardsMapping</p>
      * Updates channel credit card mapping
      */
-    putCreditCardsMapping(requestParameters: PutCreditCardsMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCreditCardsMapping(requestParameters: PutCreditCardsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel mapping to OPERA currency codes <p><strong>OperationId:</strong>putCurrenciesMapping</p>
      * Updates channel currency code mapping
      */
-    putCurrenciesMappingRaw(requestParameters: PutCurrenciesMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCurrenciesMappingRaw(requestParameters: PutCurrenciesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel mapping to OPERA currency codes <p><strong>OperationId:</strong>putCurrenciesMapping</p>
      * Updates channel currency code mapping
      */
-    putCurrenciesMapping(requestParameters: PutCurrenciesMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCurrenciesMapping(requestParameters: PutCurrenciesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update existing distribution rate template <p><strong>OperationId:</strong>putDistributionTemplates</p>
      * Updates rate templates configurations
      */
-    putDistributionTemplatesRaw(requestParameters: PutDistributionTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDistributionTemplatesRaw(requestParameters: PutDistributionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update existing distribution rate template <p><strong>OperationId:</strong>putDistributionTemplates</p>
      * Updates rate templates configurations
      */
-    putDistributionTemplates(requestParameters: PutDistributionTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDistributionTemplates(requestParameters: PutDistributionTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel\'s guarantee codes mapping to OPERA guarantee codes <p><strong>OperationId:</strong>putGuaranteesMapping</p>
      * Updates channel guarantee code mapping
      */
-    putGuaranteesMappingRaw(requestParameters: PutGuaranteesMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putGuaranteesMappingRaw(requestParameters: PutGuaranteesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel\'s guarantee codes mapping to OPERA guarantee codes <p><strong>OperationId:</strong>putGuaranteesMapping</p>
      * Updates channel guarantee code mapping
      */
-    putGuaranteesMapping(requestParameters: PutGuaranteesMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putGuaranteesMapping(requestParameters: PutGuaranteesMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update channel mapping to OPERA hotel id including channel hotel code, room sell limit per reservation, city code, end date <p><strong>OperationId:</strong>putHotelsMapping</p>
      * Updates channel hotel mapping
      */
-    putHotelsMappingRaw(requestParameters: PutHotelsMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putHotelsMappingRaw(requestParameters: PutHotelsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update channel mapping to OPERA hotel id including channel hotel code, room sell limit per reservation, city code, end date <p><strong>OperationId:</strong>putHotelsMapping</p>
      * Updates channel hotel mapping
      */
-    putHotelsMapping(requestParameters: PutHotelsMappingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putHotelsMapping(requestParameters: PutHotelsMappingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update OPERA rate\'s global description for global distribution type channels <p><strong>OperationId:</strong>putRateGlobalDescription</p>
      * Updates global descriptions for a rate
@@ -2623,22 +2623,22 @@ export declare class ChannelApi extends runtime.BaseAPI {
      * Use this API to update OPERA room\'s global description for global distribution type channels <p><strong>OperationId:</strong>putRoomDescription</p>
      * Update global descriptions for a room
      */
-    putRoomDescriptionRaw(requestParameters: PutRoomDescriptionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putRoomDescriptionRaw(requestParameters: PutRoomDescriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update OPERA room\'s global description for global distribution type channels <p><strong>OperationId:</strong>putRoomDescription</p>
      * Update global descriptions for a room
      */
-    putRoomDescription(requestParameters: PutRoomDescriptionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putRoomDescription(requestParameters: PutRoomDescriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update global distribution channels tax and fee configurations <p><strong>OperationId:</strong>putTotalPricingElements</p>
      * Updates total pricing tax and fee types
      */
-    putTotalPricingElementsRaw(requestParameters: PutTotalPricingElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTotalPricingElementsRaw(requestParameters: PutTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update global distribution channels tax and fee configurations <p><strong>OperationId:</strong>putTotalPricingElements</p>
      * Updates total pricing tax and fee types
      */
-    putTotalPricingElements(requestParameters: PutTotalPricingElementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTotalPricingElements(requestParameters: PutTotalPricingElementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
 }
 /**
  * @export

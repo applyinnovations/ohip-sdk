@@ -203,7 +203,7 @@ export function ResPaymentCardTypeToJSON(value?: ResPaymentCardType | null): any
         'cardNumber': value.cardNumber,
         'cardNumberMasked': value.cardNumberMasked,
         'cardNumberLast4Digits': value.cardNumberLast4Digits,
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substr(0,10)),
+        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
         'expirationDateMasked': value.expirationDateMasked,
         'expirationDateExpired': value.expirationDateExpired,
         'cardHolderName': value.cardHolderName,

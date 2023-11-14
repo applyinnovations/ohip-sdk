@@ -122,7 +122,7 @@ export function AROldBalanceChargeTypeToJSON(value?: AROldBalanceChargeType | nu
     return {
         
         'amount': CurrencyAmountTypeToJSON(value.amount),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0,10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
         'fiscalBillNo': value.fiscalBillNo,
         'folioNo': value.folioNo,
         'paid': CurrencyAmountTypeToJSON(value.paid),

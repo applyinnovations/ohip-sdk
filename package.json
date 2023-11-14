@@ -6,7 +6,7 @@
   "scripts": {
     "reset-docs": "cd hospitality-api-docs && git reset --hard && cd ..",
     "patch-docs": "./patch-docs.sh",
-    "clean": "rm -rf src && rm -rf dist",
+    "clean": "find src -type f ! -name '*authenticationMiddleware.*' -exec rm {} + && find src -type d -empty -delete && rm -rf dist",
     "build": "yarn patch-docs && openapi-generator-cli generate > build.log",
     "compile": "yarn tsc -p tsconfig.typescript-fetch.json"
   },

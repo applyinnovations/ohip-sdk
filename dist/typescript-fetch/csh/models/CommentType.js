@@ -63,7 +63,7 @@ function CommentTypeToJSON(value) {
         return null;
     }
     return {
-        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substr(0, 10)),
+        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substring(0, 10)),
         'actionType': value.actionType,
         'commentTitle': value.commentTitle,
         'confidential': value.confidential,
@@ -77,7 +77,7 @@ function CommentTypeToJSON(value) {
         'notificationLocation': value.notificationLocation,
         'overrideInternal': value.overrideInternal,
         'protectDescription': value.protectDescription,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'text': (0, FormattedTextTextType_1.FormattedTextTextTypeToJSON)(value.text),
         'type': value.type,
         'typeDescription': value.typeDescription,

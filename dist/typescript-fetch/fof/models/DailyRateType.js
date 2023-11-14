@@ -69,10 +69,10 @@ function DailyRateTypeToJSON(value) {
         'decimalPlaces': value.decimalPlaces,
         'description': value.description,
         'discount': (0, DiscountType_1.DiscountTypeToJSON)(value.discount),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'fees': (0, FeesType_1.FeesTypeToJSON)(value.fees),
         'rateOverride': value.rateOverride,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
         'taxes': (0, TaxesType_1.TaxesTypeToJSON)(value.taxes),
     };
 }

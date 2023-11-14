@@ -10,90 +10,90 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AutoFolioSettlementTypesDetails, CashierShiftDropLocationsDetails, ChangeCashierShiftDropLocationsRequest, ChangeCustomTaxTypesRequest, ChangeFiscalGuestTypesRequest, ChangeFiscalRegionsRequest, ChangeTaxOfficesRequest, ChangeTemplateCashierShiftDropLocationsRequest, ContractBillingInstructionsDetails, CustomTaxTypesDetails, FiscalGuestTypesDetails, FiscalRegionsDetails, PostAutoFolioSettlementTypesRequest, PostCashierShiftDropLocationsRequest, PostContractBillingInstructionsRequest, PostCustomTaxTypesRequest, PostFiscalGuestTypesRequest, PostFiscalRegionsRequest, PostTaxCategoryCodesRequest, PostTaxOfficesRequest, PostTemplateCashierShiftDropLocationsRequest, PutAutoFolioSettlementTypesRequest, PutContractBillingInstructionsRequest, PutTaxCategoryCodesRequest, Status, TaxCategoryCodesDetails, TaxOfficesDetails, TemplateCashierShiftDropLocationsDetails } from '../models';
-export interface ChangeCashierShiftDropLocationsOperationRequest {
-    dropLocationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierShiftDropLocationsToBeChanged?: ChangeCashierShiftDropLocationsRequest;
+import type { AutoFolioSettlementTypesCriteria, AutoFolioSettlementTypesDetails, AutoFolioSettlementTypesToBeChanged, CashierShiftDropLocationsCriteria, CashierShiftDropLocationsDetails, CashierShiftDropLocationsToBeChanged, ContractBillingInstructionsCriteria, ContractBillingInstructionsDetails, ContractBillingInstructionsToBeChanged, CustomTaxTypesCriteria, CustomTaxTypesDetails, CustomTaxTypesToBeChanged, FiscalGuestTypesCriteria, FiscalGuestTypesDetails, FiscalGuestTypesToBeChanged, FiscalRegionsCriteria, FiscalRegionsDetails, FiscalRegionsToBeChanged, Status, TaxCategoryCodesCriteria, TaxCategoryCodesDetails, TaxCategoryCodesToBeChanged, TaxOfficesCriteria, TaxOfficesDetails, TaxOfficesToBeChanged, TemplateCashierShiftDropLocationsCriteria, TemplateCashierShiftDropLocationsDetails, TemplateCashierShiftDropLocationsToBeChanged } from '../models/index';
+export interface ChangeCashierShiftDropLocationsRequest {
+    dropLocationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierShiftDropLocationsToBeChanged: CashierShiftDropLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeCustomTaxTypesOperationRequest {
-    taxTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customTaxTypesToBeChanged?: ChangeCustomTaxTypesRequest;
+export interface ChangeCustomTaxTypesRequest {
+    taxTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customTaxTypesToBeChanged: CustomTaxTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFiscalGuestTypesOperationRequest {
-    fiscalGuestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalGuestTypesToBeChanged?: ChangeFiscalGuestTypesRequest;
+export interface ChangeFiscalGuestTypesRequest {
+    fiscalGuestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalGuestTypesToBeChanged: FiscalGuestTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeFiscalRegionsOperationRequest {
-    regionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalRegionsToBeChanged?: ChangeFiscalRegionsRequest;
+export interface ChangeFiscalRegionsRequest {
+    regionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalRegionsToBeChanged: FiscalRegionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTaxOfficesOperationRequest {
-    taxOfficeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxOfficesToBeChanged?: ChangeTaxOfficesRequest;
+export interface ChangeTaxOfficesRequest {
+    taxOfficeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxOfficesToBeChanged: TaxOfficesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateCashierShiftDropLocationsOperationRequest {
-    dropLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCashierShiftDropLocationsToBeChanged?: ChangeTemplateCashierShiftDropLocationsRequest;
+export interface ChangeTemplateCashierShiftDropLocationsRequest {
+    dropLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCashierShiftDropLocationsToBeChanged: TemplateCashierShiftDropLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAutoFolioSettlementTypesRequest {
-    code?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    code: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteContractBillingInstructionsRequest {
-    contractBillingInstructionsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    contractBillingInstructionsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTaxCategoryCodesRequest {
-    taxCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAutoFolioSettlementTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -102,10 +102,10 @@ export interface GetAutoFolioSettlementTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierShiftDropLocationsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     fetchInactive?: boolean;
     codes?: Array<string>;
@@ -115,9 +115,9 @@ export interface GetCashierShiftDropLocationsRequest {
     acceptLanguage?: string;
 }
 export interface GetContractBillingInstructionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -126,9 +126,9 @@ export interface GetContractBillingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCustomTaxTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -137,9 +137,9 @@ export interface GetCustomTaxTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetFetchTaxCategoryCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -148,9 +148,9 @@ export interface GetFetchTaxCategoryCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalGuestTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -159,9 +159,9 @@ export interface GetFiscalGuestTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalRegionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -170,9 +170,9 @@ export interface GetFiscalRegionsRequest {
     acceptLanguage?: string;
 }
 export interface GetTaxOfficesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -181,9 +181,9 @@ export interface GetTaxOfficesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateCashierShiftDropLocationsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -191,152 +191,152 @@ export interface GetTemplateCashierShiftDropLocationsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAutoFolioSettlementTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoFolioSettlementTypesCriteria?: PostAutoFolioSettlementTypesRequest;
+export interface PostAutoFolioSettlementTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoFolioSettlementTypesCriteria: AutoFolioSettlementTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCashierShiftDropLocationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierShiftDropLocationsCriteria?: PostCashierShiftDropLocationsRequest;
+export interface PostCashierShiftDropLocationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierShiftDropLocationsCriteria: CashierShiftDropLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostContractBillingInstructionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    contractBillingInstructionsCriteria?: PostContractBillingInstructionsRequest;
+export interface PostContractBillingInstructionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    contractBillingInstructionsCriteria: ContractBillingInstructionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCustomTaxTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    customTaxTypesCriteria?: PostCustomTaxTypesRequest;
+export interface PostCustomTaxTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    customTaxTypesCriteria: CustomTaxTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFiscalGuestTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalGuestTypesCriteria?: PostFiscalGuestTypesRequest;
+export interface PostFiscalGuestTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalGuestTypesCriteria: FiscalGuestTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFiscalRegionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalRegionsCriteria?: PostFiscalRegionsRequest;
+export interface PostFiscalRegionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalRegionsCriteria: FiscalRegionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTaxCategoryCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxCategoryCodesCriteria?: PostTaxCategoryCodesRequest;
+export interface PostTaxCategoryCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxCategoryCodesCriteria: TaxCategoryCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTaxOfficesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxOfficesCriteria?: PostTaxOfficesRequest;
+export interface PostTaxOfficesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxOfficesCriteria: TaxOfficesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateCashierShiftDropLocationsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCashierShiftDropLocationsCriteria?: PostTemplateCashierShiftDropLocationsRequest;
+export interface PostTemplateCashierShiftDropLocationsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCashierShiftDropLocationsCriteria: TemplateCashierShiftDropLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutAutoFolioSettlementTypesOperationRequest {
-    code?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoFolioSettlementTypesToBeChanged?: PutAutoFolioSettlementTypesRequest;
+export interface PutAutoFolioSettlementTypesRequest {
+    code: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoFolioSettlementTypesToBeChanged: AutoFolioSettlementTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutContractBillingInstructionsOperationRequest {
-    contractBillingInstructionsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    contractBillingInstructionsToBeChanged?: PutContractBillingInstructionsRequest;
+export interface PutContractBillingInstructionsRequest {
+    contractBillingInstructionsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    contractBillingInstructionsToBeChanged: ContractBillingInstructionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTaxCategoryCodesOperationRequest {
-    taxCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taxCategoryCodesToBeChanged?: PutTaxCategoryCodesRequest;
+export interface PutTaxCategoryCodesRequest {
+    taxCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taxCategoryCodesToBeChanged: TaxCategoryCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    dropLocationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCustomTaxTypesRequest {
-    taxTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFiscalGuestTypesRequest {
-    fiscalGuestTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    fiscalGuestTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFiscalRegionsRequest {
-    regionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    regionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTaxOfficesRequest {
-    taxOfficeId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxOfficeId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateCashierShiftDropLocationsRequest {
-    dropLocationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    dropLocationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -348,62 +348,62 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeCashierShiftDropLocations</p>
      * Change Cashier Shift Drop Locations
      */
-    changeCashierShiftDropLocationsRaw(requestParameters: ChangeCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCashierShiftDropLocationsRaw(requestParameters: ChangeCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeCashierShiftDropLocations</p>
      * Change Cashier Shift Drop Locations
      */
-    changeCashierShiftDropLocations(requestParameters: ChangeCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCashierShiftDropLocations(requestParameters: ChangeCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Custom Tax Types. <p><strong>OperationId:</strong>changeCustomTaxTypes</p>
      * Change Custom Tax Types
      */
-    changeCustomTaxTypesRaw(requestParameters: ChangeCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCustomTaxTypesRaw(requestParameters: ChangeCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Custom Tax Types. <p><strong>OperationId:</strong>changeCustomTaxTypes</p>
      * Change Custom Tax Types
      */
-    changeCustomTaxTypes(requestParameters: ChangeCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCustomTaxTypes(requestParameters: ChangeCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Fiscal Guest Types. <p><strong>OperationId:</strong>changeFiscalGuestTypes</p>
      * Change Fiscal Guest Types
      */
-    changeFiscalGuestTypesRaw(requestParameters: ChangeFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFiscalGuestTypesRaw(requestParameters: ChangeFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Fiscal Guest Types. <p><strong>OperationId:</strong>changeFiscalGuestTypes</p>
      * Change Fiscal Guest Types
      */
-    changeFiscalGuestTypes(requestParameters: ChangeFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFiscalGuestTypes(requestParameters: ChangeFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Fiscal Regions. <p><strong>OperationId:</strong>changeFiscalRegions</p>
      * Change Fiscal Regions
      */
-    changeFiscalRegionsRaw(requestParameters: ChangeFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeFiscalRegionsRaw(requestParameters: ChangeFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Fiscal Regions. <p><strong>OperationId:</strong>changeFiscalRegions</p>
      * Change Fiscal Regions
      */
-    changeFiscalRegions(requestParameters: ChangeFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeFiscalRegions(requestParameters: ChangeFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Tax Offices. <p><strong>OperationId:</strong>changeTaxOffices</p>
      * Change Tax Offices
      */
-    changeTaxOfficesRaw(requestParameters: ChangeTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTaxOfficesRaw(requestParameters: ChangeTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Tax Offices. <p><strong>OperationId:</strong>changeTaxOffices</p>
      * Change Tax Offices
      */
-    changeTaxOffices(requestParameters: ChangeTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTaxOffices(requestParameters: ChangeTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeTemplateCashierShiftDropLocations</p>
      * Change Template Cashier Shift Drop Locations
      */
-    changeTemplateCashierShiftDropLocationsRaw(requestParameters: ChangeTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateCashierShiftDropLocationsRaw(requestParameters: ChangeTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>changeTemplateCashierShiftDropLocations</p>
      * Change Template Cashier Shift Drop Locations
      */
-    changeTemplateCashierShiftDropLocations(requestParameters: ChangeTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateCashierShiftDropLocations(requestParameters: ChangeTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Auto Folio Settlement Types. <p><strong>OperationId:</strong>deleteAutoFolioSettlementTypes</p>
      * Delete Auto Folio Settlement Types
@@ -528,122 +528,122 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Auto Folio Settlement Types. <p><strong>OperationId:</strong>postAutoFolioSettlementTypes</p>
      * Create Auto Folio Settlement Types
      */
-    postAutoFolioSettlementTypesRaw(requestParameters: PostAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAutoFolioSettlementTypesRaw(requestParameters: PostAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Auto Folio Settlement Types. <p><strong>OperationId:</strong>postAutoFolioSettlementTypes</p>
      * Create Auto Folio Settlement Types
      */
-    postAutoFolioSettlementTypes(requestParameters: PostAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAutoFolioSettlementTypes(requestParameters: PostAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postCashierShiftDropLocations</p>
      * Create Cashier Shift Drop Locations
      */
-    postCashierShiftDropLocationsRaw(requestParameters: PostCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCashierShiftDropLocationsRaw(requestParameters: PostCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postCashierShiftDropLocations</p>
      * Create Cashier Shift Drop Locations
      */
-    postCashierShiftDropLocations(requestParameters: PostCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCashierShiftDropLocations(requestParameters: PostCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Contract Billing Instructions. <p><strong>OperationId:</strong>postContractBillingInstructions</p>
      * Create Contract Billing Instructions
      */
-    postContractBillingInstructionsRaw(requestParameters: PostContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postContractBillingInstructionsRaw(requestParameters: PostContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Contract Billing Instructions. <p><strong>OperationId:</strong>postContractBillingInstructions</p>
      * Create Contract Billing Instructions
      */
-    postContractBillingInstructions(requestParameters: PostContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postContractBillingInstructions(requestParameters: PostContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Custom Tax Types. <p><strong>OperationId:</strong>postCustomTaxTypes</p>
      * Create Custom Tax Types
      */
-    postCustomTaxTypesRaw(requestParameters: PostCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCustomTaxTypesRaw(requestParameters: PostCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Custom Tax Types. <p><strong>OperationId:</strong>postCustomTaxTypes</p>
      * Create Custom Tax Types
      */
-    postCustomTaxTypes(requestParameters: PostCustomTaxTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCustomTaxTypes(requestParameters: PostCustomTaxTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Fiscal Guest Types. <p><strong>OperationId:</strong>postFiscalGuestTypes</p>
      * Create Fiscal Guest Types
      */
-    postFiscalGuestTypesRaw(requestParameters: PostFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFiscalGuestTypesRaw(requestParameters: PostFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Fiscal Guest Types. <p><strong>OperationId:</strong>postFiscalGuestTypes</p>
      * Create Fiscal Guest Types
      */
-    postFiscalGuestTypes(requestParameters: PostFiscalGuestTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFiscalGuestTypes(requestParameters: PostFiscalGuestTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Fiscal Regions. <p><strong>OperationId:</strong>postFiscalRegions</p>
      * Create Fiscal Regions
      */
-    postFiscalRegionsRaw(requestParameters: PostFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFiscalRegionsRaw(requestParameters: PostFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Fiscal Regions. <p><strong>OperationId:</strong>postFiscalRegions</p>
      * Create Fiscal Regions
      */
-    postFiscalRegions(requestParameters: PostFiscalRegionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFiscalRegions(requestParameters: PostFiscalRegionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Tax Category Codes. <p><strong>OperationId:</strong>postTaxCategoryCodes</p>
      * Create Tax Category Codes
      */
-    postTaxCategoryCodesRaw(requestParameters: PostTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTaxCategoryCodesRaw(requestParameters: PostTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Tax Category Codes. <p><strong>OperationId:</strong>postTaxCategoryCodes</p>
      * Create Tax Category Codes
      */
-    postTaxCategoryCodes(requestParameters: PostTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTaxCategoryCodes(requestParameters: PostTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Tax Offices. <p><strong>OperationId:</strong>postTaxOffices</p>
      * Create Tax Offices
      */
-    postTaxOfficesRaw(requestParameters: PostTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTaxOfficesRaw(requestParameters: PostTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Tax Offices. <p><strong>OperationId:</strong>postTaxOffices</p>
      * Create Tax Offices
      */
-    postTaxOffices(requestParameters: PostTaxOfficesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTaxOffices(requestParameters: PostTaxOfficesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postTemplateCashierShiftDropLocations</p>
      * Create Template Cashier Shift Drop Locations
      */
-    postTemplateCashierShiftDropLocationsRaw(requestParameters: PostTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateCashierShiftDropLocationsRaw(requestParameters: PostTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Template Cashier Shift Drop Locations. <p><strong>OperationId:</strong>postTemplateCashierShiftDropLocations</p>
      * Create Template Cashier Shift Drop Locations
      */
-    postTemplateCashierShiftDropLocations(requestParameters: PostTemplateCashierShiftDropLocationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateCashierShiftDropLocations(requestParameters: PostTemplateCashierShiftDropLocationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Auto Folio Settlement Types. <p><strong>OperationId:</strong>putAutoFolioSettlementTypes</p>
      * Change Auto Folio Settlement Types
      */
-    putAutoFolioSettlementTypesRaw(requestParameters: PutAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putAutoFolioSettlementTypesRaw(requestParameters: PutAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Auto Folio Settlement Types. <p><strong>OperationId:</strong>putAutoFolioSettlementTypes</p>
      * Change Auto Folio Settlement Types
      */
-    putAutoFolioSettlementTypes(requestParameters: PutAutoFolioSettlementTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putAutoFolioSettlementTypes(requestParameters: PutAutoFolioSettlementTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Contract Billing Instructions. <p><strong>OperationId:</strong>putContractBillingInstructions</p>
      * Change Contract Billing Instructions
      */
-    putContractBillingInstructionsRaw(requestParameters: PutContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putContractBillingInstructionsRaw(requestParameters: PutContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Contract Billing Instructions. <p><strong>OperationId:</strong>putContractBillingInstructions</p>
      * Change Contract Billing Instructions
      */
-    putContractBillingInstructions(requestParameters: PutContractBillingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putContractBillingInstructions(requestParameters: PutContractBillingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Tax Category Codes. <p><strong>OperationId:</strong>putTaxCategoryCodes</p>
      * Change Tax Category Codes
      */
-    putTaxCategoryCodesRaw(requestParameters: PutTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putTaxCategoryCodesRaw(requestParameters: PutTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Tax Category Codes. <p><strong>OperationId:</strong>putTaxCategoryCodes</p>
      * Change Tax Category Codes
      */
-    putTaxCategoryCodes(requestParameters: PutTaxCategoryCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putTaxCategoryCodes(requestParameters: PutTaxCategoryCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Cashier Shift Drop Locations. <p><strong>OperationId:</strong>removeCashierShiftDropLocations</p>
      * Delete Cashier Shift Drop Locations

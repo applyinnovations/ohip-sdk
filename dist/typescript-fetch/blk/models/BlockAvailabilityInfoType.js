@@ -49,7 +49,7 @@ function BlockAvailabilityInfoTypeToJSON(value) {
     return {
         'extendedStay': value.extendedStay,
         'roomInfo': value.roomInfo === undefined ? undefined : (value.roomInfo.map(BlockAvailabilityRoomInfoType_1.BlockAvailabilityRoomInfoTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0, 10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockAvailabilityInfoTypeToJSON = BlockAvailabilityInfoTypeToJSON;

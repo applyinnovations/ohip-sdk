@@ -10,70 +10,70 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ActivityResultsConfigDetails, ActivityTypesConfigDetails, AutoTraceCodesDetails, AutoTraceDefinitionsDetails, AutoTraceDefinitionsStatus, AutoTraceOwnerAssignmentsDetails, AutoTraceOwnerAssignmentsStatus, CopyActivityTypesConfigRequest, CopyAutoTraceDefinitionsRequest, PostActivityResultsConfigRequest, PostActivityTypesRequest, PostAutoTraceCodesRequest, PostAutoTraceDefinitionsRequest, PostAutoTraceOwnerAssignmentsRequest, Status } from '../models';
-export interface CopyActivityTypesConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityTypesConfigCopy?: CopyActivityTypesConfigRequest;
+import type { ActivityResultsConfigDetails, ActivityResultsConfigInfo, ActivityTypesConfigCopy, ActivityTypesConfigDetails, ActivityTypesConfigInfo, AutoTraceCodesDetails, AutoTraceCodesInfo, AutoTraceDefinitionCopy, AutoTraceDefinitionsDetails, AutoTraceDefinitionsInfo, AutoTraceDefinitionsStatus, AutoTraceOwnerAssignmentsDetails, AutoTraceOwnerAssignmentsInfo, AutoTraceOwnerAssignmentsStatus, Status } from '../models/index';
+export interface CopyActivityTypesConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityTypesConfigCopy: ActivityTypesConfigCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyAutoTraceDefinitionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceDefinitionCopy?: CopyAutoTraceDefinitionsRequest;
+export interface CopyAutoTraceDefinitionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceDefinitionCopy: AutoTraceDefinitionCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityResultsConfigRequest {
-    activityResultCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityResultCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityTypeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAutoTraceCodesRequest {
-    autoTraceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    autoTraceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    autoTraceDefinitionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    autoTraceOwnerAssignmentID: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityResultsConfigRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     fetchInactive?: boolean;
@@ -84,10 +84,10 @@ export interface GetActivityResultsConfigRequest {
     acceptLanguage?: string;
 }
 export interface GetActivityTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     activityType?: Array<string>;
@@ -97,9 +97,9 @@ export interface GetActivityTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoTraceCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     codes?: Array<string>;
@@ -109,10 +109,10 @@ export interface GetAutoTraceCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoTraceDefinitionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     codes?: Array<string>;
@@ -122,10 +122,10 @@ export interface GetAutoTraceDefinitionsRequest {
     acceptLanguage?: string;
 }
 export interface GetAutoTraceOwnerAssignmentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     codes?: Array<string>;
@@ -133,94 +133,94 @@ export interface GetAutoTraceOwnerAssignmentsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostActivityResultsConfigOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityResultsConfigInfo?: PostActivityResultsConfigRequest;
+export interface PostActivityResultsConfigRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostActivityTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityTypesConfigInfo?: PostActivityTypesRequest;
+export interface PostActivityTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAutoTraceCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceCodesInfo?: PostAutoTraceCodesRequest;
+export interface PostAutoTraceCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAutoTraceDefinitionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceDefinitionsInfo?: PostAutoTraceDefinitionsRequest;
+export interface PostAutoTraceDefinitionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAutoTraceOwnerAssignmentsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: PostAutoTraceOwnerAssignmentsRequest;
+export interface PostAutoTraceOwnerAssignmentsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityResultsConfigRequest {
-    activityResultCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityResultsConfigInfo?: PostActivityResultsConfigRequest;
+    activityResultCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityTypesConfigInfo?: PostActivityTypesRequest;
+    activityTypeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoTraceCodesRequest {
-    autoTraceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceCodesInfo?: PostAutoTraceCodesRequest;
+    autoTraceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceDefinitionsInfo?: PostAutoTraceDefinitionsRequest;
+    autoTraceDefinitionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: PostAutoTraceOwnerAssignmentsRequest;
+    autoTraceOwnerAssignmentID: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -232,22 +232,22 @@ export declare class ActivityManagementApi extends runtime.BaseAPI {
      * With this API you can select  existing Activity Type Codes from the source property and copy them to another (target) property. <p><strong>OperationId:</strong>copyActivityTypesConfig</p>
      * Copy Activity Types configuration codes
      */
-    copyActivityTypesConfigRaw(requestParameters: CopyActivityTypesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyActivityTypesConfigRaw(requestParameters: CopyActivityTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * With this API you can select  existing Activity Type Codes from the source property and copy them to another (target) property. <p><strong>OperationId:</strong>copyActivityTypesConfig</p>
      * Copy Activity Types configuration codes
      */
-    copyActivityTypesConfig(requestParameters: CopyActivityTypesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyActivityTypesConfig(requestParameters: CopyActivityTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy an existing auto trace definition code to another property. <p><strong>OperationId:</strong>copyAutoTraceDefinitions</p>
      * Copy an Auto Trace definition Code
      */
-    copyAutoTraceDefinitionsRaw(requestParameters: CopyAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyAutoTraceDefinitionsRaw(requestParameters: CopyAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy an existing auto trace definition code to another property. <p><strong>OperationId:</strong>copyAutoTraceDefinitions</p>
      * Copy an Auto Trace definition Code
      */
-    copyAutoTraceDefinitions(requestParameters: CopyAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyAutoTraceDefinitions(requestParameters: CopyAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Delete an Activity Result Code from OPERA Cloud. <p><strong>OperationId:</strong>deleteActivityResultsConfig</p>
      * Delete an Activity results code
@@ -352,52 +352,52 @@ export declare class ActivityManagementApi extends runtime.BaseAPI {
      * Create a new Activity Results Code, for example SUCCESS, END, CALLAGAIN.  These codes are used when you complete an activity.  You need to specify an Activity Result Code as part of that completion process. <p><strong>OperationId:</strong>postActivityResultsConfig</p>
      * Create an Activity results code
      */
-    postActivityResultsConfigRaw(requestParameters: PostActivityResultsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postActivityResultsConfigRaw(requestParameters: PostActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a new Activity Results Code, for example SUCCESS, END, CALLAGAIN.  These codes are used when you complete an activity.  You need to specify an Activity Result Code as part of that completion process. <p><strong>OperationId:</strong>postActivityResultsConfig</p>
      * Create an Activity results code
      */
-    postActivityResultsConfig(requestParameters: PostActivityResultsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postActivityResultsConfig(requestParameters: PostActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a new Activity Type for a specified hotel. Examples could be  MEETING, LUNCH, EXTMEETING. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create a new Activity type in configuration
      */
-    postActivityTypesRaw(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postActivityTypesRaw(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a new Activity Type for a specified hotel. Examples could be  MEETING, LUNCH, EXTMEETING. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create a new Activity type in configuration
      */
-    postActivityTypes(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postActivityTypes(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create an Auto trace code. <p><strong>OperationId:</strong>postAutoTraceCodes</p>
      * Create an Auto Trace code
      */
-    postAutoTraceCodesRaw(requestParameters: PostAutoTraceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAutoTraceCodesRaw(requestParameters: PostAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create an Auto trace code. <p><strong>OperationId:</strong>postAutoTraceCodes</p>
      * Create an Auto Trace code
      */
-    postAutoTraceCodes(requestParameters: PostAutoTraceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAutoTraceCodes(requestParameters: PostAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Create a new Auto Trace Definition code for a specified property. <p><strong>OperationId:</strong>postAutoTraceDefinitions</p>
      * Create an Auto Trace Definition Code
      */
-    postAutoTraceDefinitionsRaw(requestParameters: PostAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAutoTraceDefinitionsRaw(requestParameters: PostAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Create a new Auto Trace Definition code for a specified property. <p><strong>OperationId:</strong>postAutoTraceDefinitions</p>
      * Create an Auto Trace Definition Code
      */
-    postAutoTraceDefinitions(requestParameters: PostAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAutoTraceDefinitions(requestParameters: PostAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can create Auto traces so that activities are created automatically under certain configured conditions. You first need a Trace code configured, and then using this API you can link the Owner code and Trace Code to a Trace Group (account, contact, activity, or block). <p><strong>OperationId:</strong>postAutoTraceOwnerAssignments</p>
      * Create an Auto Trace owner assignment
      */
-    postAutoTraceOwnerAssignmentsRaw(requestParameters: PostAutoTraceOwnerAssignmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAutoTraceOwnerAssignmentsRaw(requestParameters: PostAutoTraceOwnerAssignmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can create Auto traces so that activities are created automatically under certain configured conditions. You first need a Trace code configured, and then using this API you can link the Owner code and Trace Code to a Trace Group (account, contact, activity, or block). <p><strong>OperationId:</strong>postAutoTraceOwnerAssignments</p>
      * Create an Auto Trace owner assignment
      */
-    postAutoTraceOwnerAssignments(requestParameters: PostAutoTraceOwnerAssignmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAutoTraceOwnerAssignments(requestParameters: PostAutoTraceOwnerAssignmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Change or update details of an existing Activity Results Code. <p><strong>OperationId:</strong>putActivityResultsConfig</p>
      * Change an Activity Result Code

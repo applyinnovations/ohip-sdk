@@ -10,65 +10,65 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankAccountsInfo, CommissionCodeDetail, CommissionCodesSummary, PutCommissionCodesRequest, PutConfigBankAccountsRequest, PutStopProcessingReasonsRequest, Status, StopProcessingReasons } from '../models';
+import type { BankAccounts, BankAccountsInfo, CommissionCodeDetail, CommissionCodes, CommissionCodesSummary, Status, StopProcessingReasons } from '../models/index';
 export interface DeleteCommissionCodesRequest {
-    hotelIds?: Array<string>;
-    commissionCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    commissionCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteConfigBankAccountsRequest {
-    hotelId?: Array<string>;
-    bankAccountID?: Array<number>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    bankAccountID: Array<number>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteStopProcessingReasonsRequest {
-    codes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    codes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCommissionCodeRequest {
-    commissionCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    commissionCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCommissionCodesRequest {
-    hotelIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     commissionCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetConfigBankAccountsRequest {
-    hotels?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotels: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bankCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetStopProcessingReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -77,50 +77,50 @@ export interface GetStopProcessingReasonsRequest {
     acceptLanguage?: string;
 }
 export interface PostCommissionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionCodes?: PutCommissionCodesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionCodes: CommissionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostConfigBankAccountsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bankAccounts?: PutConfigBankAccountsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bankAccounts: BankAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostStopProcessingReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    stopProcessingReasons?: PutStopProcessingReasonsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    stopProcessingReasons: StopProcessingReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCommissionCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    commissionCodes?: PutCommissionCodesRequest;
+export interface PutCommissionCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    commissionCodes: CommissionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutConfigBankAccountsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bankAccounts?: PutConfigBankAccountsRequest;
+export interface PutConfigBankAccountsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bankAccounts: BankAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutStopProcessingReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    stopProcessingReasons?: PutStopProcessingReasonsRequest;
+export interface PutStopProcessingReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    stopProcessingReasons: StopProcessingReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -232,30 +232,30 @@ export declare class CommissionConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>putCommissionCodes</p>
      * Operation to change commission codes.
      */
-    putCommissionCodesRaw(requestParameters: PutCommissionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCommissionCodesRaw(requestParameters: PutCommissionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putCommissionCodes</p>
      * Operation to change commission codes.
      */
-    putCommissionCodes(requestParameters: PutCommissionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCommissionCodes(requestParameters: PutCommissionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putConfigBankAccounts</p>
      * Operation to change config bank accounts.
      */
-    putConfigBankAccountsRaw(requestParameters: PutConfigBankAccountsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putConfigBankAccountsRaw(requestParameters: PutConfigBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      *  <p><strong>OperationId:</strong>putConfigBankAccounts</p>
      * Operation to change config bank accounts.
      */
-    putConfigBankAccounts(requestParameters: PutConfigBankAccountsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putConfigBankAccounts(requestParameters: PutConfigBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      *  <p><strong>OperationId:</strong>putStopProcessingReasons</p>
      * Operation to change stop processing reasons.
      */
-    putStopProcessingReasonsRaw(requestParameters: PutStopProcessingReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StopProcessingReasons>>;
+    putStopProcessingReasonsRaw(requestParameters: PutStopProcessingReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StopProcessingReasons>>;
     /**
      *  <p><strong>OperationId:</strong>putStopProcessingReasons</p>
      * Operation to change stop processing reasons.
      */
-    putStopProcessingReasons(requestParameters: PutStopProcessingReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StopProcessingReasons>;
+    putStopProcessingReasons(requestParameters: PutStopProcessingReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StopProcessingReasons>;
 }

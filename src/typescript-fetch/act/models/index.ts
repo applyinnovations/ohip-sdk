@@ -64,7 +64,6 @@ export * from './PMSResStatusType';
 export * from './PersonNameType';
 export * from './PointsType';
 export * from './PostActivitiesRequest';
-export * from './PostLinkedActivitiesRequest';
 export * from './PostMultipleActivitiesCompletionRequest';
 export * from './PostSingleActivityCompletionRequest';
 export * from './ProfileDeliveryMethod';

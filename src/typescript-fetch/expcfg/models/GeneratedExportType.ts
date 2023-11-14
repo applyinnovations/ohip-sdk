@@ -191,11 +191,11 @@ export function GeneratedExportTypeToJSON(value?: GeneratedExportType | null): a
     return {
         
         'checksumEnabled': value.checksumEnabled,
-        'dataFromDate': value.dataFromDate === undefined ? undefined : (value.dataFromDate.toISOString().substr(0,10)),
+        'dataFromDate': value.dataFromDate === undefined ? undefined : (value.dataFromDate.toISOString().substring(0,10)),
         'dataHeader': ExportHeaderSummaryTypeToJSON(value.dataHeader),
-        'dataToDate': value.dataToDate === undefined ? undefined : (value.dataToDate.toISOString().substr(0,10)),
+        'dataToDate': value.dataToDate === undefined ? undefined : (value.dataToDate.toISOString().substring(0,10)),
         'exportDataId': UniqueIDTypeToJSON(value.exportDataId),
-        'generatedDate': value.generatedDate === undefined ? undefined : (value.generatedDate.toISOString().substr(0,10)),
+        'generatedDate': value.generatedDate === undefined ? undefined : (value.generatedDate.toISOString().substring(0,10)),
         'generatedErrors': value.generatedErrors,
         'generatedFileExtension': value.generatedFileExtension,
         'generatedFileLocation': value.generatedFileLocation,

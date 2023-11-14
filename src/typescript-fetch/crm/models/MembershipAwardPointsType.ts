@@ -97,7 +97,7 @@ export function MembershipAwardPointsTypeToJSON(value?: MembershipAwardPointsTyp
         'basePoints': value.basePoints,
         'bonusPoints': value.bonusPoints,
         'miscPoints': value.miscPoints,
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substr(0,10)),
+        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0,10)),
         'ruleCode': value.ruleCode,
         'totalPoints': value.totalPoints,
     };

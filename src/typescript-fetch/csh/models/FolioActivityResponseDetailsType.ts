@@ -87,7 +87,7 @@ export function FolioActivityResponseDetailsTypeToJSON(value?: FolioActivityResp
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substr(0,10)),
+        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
         'responseAttemptNo': value.responseAttemptNo,
         'responseName': value.responseName,
         'responseType': value.responseType,

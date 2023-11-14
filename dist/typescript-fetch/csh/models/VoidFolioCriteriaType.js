@@ -67,7 +67,7 @@ function VoidFolioCriteriaTypeToJSON(value) {
         'fiscalBillNo': value.fiscalBillNo,
         'fiscalCreditBillQueueName': value.fiscalCreditBillQueueName,
         'fiscalFolioInfo': (0, FiscalServiceType_1.FiscalServiceTypeToJSON)(value.fiscalFolioInfo),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substr(0, 10)),
+        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0, 10)),
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,

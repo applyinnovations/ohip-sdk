@@ -16,24 +16,24 @@
 import * as runtime from '../runtime';
 import type {
   ExceptionDetailType,
-  PostMembershipNumberRequest,
+  MembershipNumber,
   Status,
-} from '../models';
+} from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostMembershipNumberRequestFromJSON,
-    PostMembershipNumberRequestToJSON,
+    MembershipNumberFromJSON,
+    MembershipNumberToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface PostMembershipNumberOperationRequest {
-    extSystemCode?: string;
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    membershipNumber?: PostMembershipNumberRequest;
+export interface PostMembershipNumberRequest {
+    extSystemCode: string;
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
+    membershipNumber: MembershipNumber;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
@@ -47,7 +47,27 @@ export class ProfileApi extends runtime.BaseAPI {
      * This API will generate a new membership number. <p><strong>OperationId:</strong>postMembershipNumber</p>
      * Generate membership number
      */
-    async postMembershipNumberRaw(requestParameters: PostMembershipNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postMembershipNumberRaw(requestParameters: PostMembershipNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling postMembershipNumber.');
+        }
+
+        if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
+            throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling postMembershipNumber.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postMembershipNumber.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postMembershipNumber.');
+        }
+
+        if (requestParameters.membershipNumber === null || requestParameters.membershipNumber === undefined) {
+            throw new runtime.RequiredError('membershipNumber','Required parameter requestParameters.membershipNumber was null or undefined when calling postMembershipNumber.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -75,7 +95,7 @@ export class ProfileApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostMembershipNumberRequestToJSON(requestParameters.membershipNumber),
+            body: MembershipNumberToJSON(requestParameters.membershipNumber),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -85,7 +105,7 @@ export class ProfileApi extends runtime.BaseAPI {
      * This API will generate a new membership number. <p><strong>OperationId:</strong>postMembershipNumber</p>
      * Generate membership number
      */
-    async postMembershipNumber(requestParameters: PostMembershipNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postMembershipNumber(requestParameters: PostMembershipNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postMembershipNumberRaw(requestParameters, initOverrides);
         return await response.value();
     }

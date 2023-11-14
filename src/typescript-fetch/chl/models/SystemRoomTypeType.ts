@@ -73,7 +73,7 @@ export function SystemRoomTypeTypeToJSON(value?: SystemRoomTypeType | null): any
     }
     return {
         
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substr(0,10)),
+        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
         'roomTypeCode': CodeDescriptionTypeToJSON(value.roomTypeCode),
     };
 }

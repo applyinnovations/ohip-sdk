@@ -49,7 +49,7 @@ function FiscalFolioCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substr(0, 10)),
+        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0, 10)),
         'folioCommand': (0, FolioCommandType_1.FolioCommandTypeToJSON)(value.folioCommand),
         'folios': (0, FiscalInvoiceSummaryType_1.FiscalInvoiceSummaryTypeToJSON)(value.folios),
         'hotelId': value.hotelId,

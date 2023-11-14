@@ -52,7 +52,7 @@ function HousekeepingTaskAssignmentTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'taskCodes': value.taskCodes === undefined ? undefined : (value.taskCodes.map(HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0, 10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
         'taskSheets': value.taskSheets === undefined ? undefined : (value.taskSheets.map(HousekeepingTaskType_1.HousekeepingTaskTypeToJSON)),
         'taskSheetsCount': value.taskSheetsCount,
     };

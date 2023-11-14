@@ -16,127 +16,127 @@
 import * as runtime from '../runtime';
 import type {
   ActivityResultsConfigDetails,
+  ActivityResultsConfigInfo,
+  ActivityTypesConfigCopy,
   ActivityTypesConfigDetails,
+  ActivityTypesConfigInfo,
   AutoTraceCodesDetails,
+  AutoTraceCodesInfo,
+  AutoTraceDefinitionCopy,
   AutoTraceDefinitionsDetails,
+  AutoTraceDefinitionsInfo,
   AutoTraceDefinitionsStatus,
   AutoTraceOwnerAssignmentsDetails,
+  AutoTraceOwnerAssignmentsInfo,
   AutoTraceOwnerAssignmentsStatus,
-  CopyActivityTypesConfigRequest,
-  CopyAutoTraceDefinitionsRequest,
   ExceptionDetailType,
-  PostActivityResultsConfigRequest,
-  PostActivityTypesRequest,
-  PostAutoTraceCodesRequest,
-  PostAutoTraceDefinitionsRequest,
-  PostAutoTraceOwnerAssignmentsRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
     ActivityResultsConfigDetailsFromJSON,
     ActivityResultsConfigDetailsToJSON,
+    ActivityResultsConfigInfoFromJSON,
+    ActivityResultsConfigInfoToJSON,
+    ActivityTypesConfigCopyFromJSON,
+    ActivityTypesConfigCopyToJSON,
     ActivityTypesConfigDetailsFromJSON,
     ActivityTypesConfigDetailsToJSON,
+    ActivityTypesConfigInfoFromJSON,
+    ActivityTypesConfigInfoToJSON,
     AutoTraceCodesDetailsFromJSON,
     AutoTraceCodesDetailsToJSON,
+    AutoTraceCodesInfoFromJSON,
+    AutoTraceCodesInfoToJSON,
+    AutoTraceDefinitionCopyFromJSON,
+    AutoTraceDefinitionCopyToJSON,
     AutoTraceDefinitionsDetailsFromJSON,
     AutoTraceDefinitionsDetailsToJSON,
+    AutoTraceDefinitionsInfoFromJSON,
+    AutoTraceDefinitionsInfoToJSON,
     AutoTraceDefinitionsStatusFromJSON,
     AutoTraceDefinitionsStatusToJSON,
     AutoTraceOwnerAssignmentsDetailsFromJSON,
     AutoTraceOwnerAssignmentsDetailsToJSON,
+    AutoTraceOwnerAssignmentsInfoFromJSON,
+    AutoTraceOwnerAssignmentsInfoToJSON,
     AutoTraceOwnerAssignmentsStatusFromJSON,
     AutoTraceOwnerAssignmentsStatusToJSON,
-    CopyActivityTypesConfigRequestFromJSON,
-    CopyActivityTypesConfigRequestToJSON,
-    CopyAutoTraceDefinitionsRequestFromJSON,
-    CopyAutoTraceDefinitionsRequestToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostActivityResultsConfigRequestFromJSON,
-    PostActivityResultsConfigRequestToJSON,
-    PostActivityTypesRequestFromJSON,
-    PostActivityTypesRequestToJSON,
-    PostAutoTraceCodesRequestFromJSON,
-    PostAutoTraceCodesRequestToJSON,
-    PostAutoTraceDefinitionsRequestFromJSON,
-    PostAutoTraceDefinitionsRequestToJSON,
-    PostAutoTraceOwnerAssignmentsRequestFromJSON,
-    PostAutoTraceOwnerAssignmentsRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface CopyActivityTypesConfigOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityTypesConfigCopy?: CopyActivityTypesConfigRequest;
+export interface CopyActivityTypesConfigRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityTypesConfigCopy: ActivityTypesConfigCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyAutoTraceDefinitionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceDefinitionCopy?: CopyAutoTraceDefinitionsRequest;
+export interface CopyAutoTraceDefinitionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceDefinitionCopy: AutoTraceDefinitionCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteActivityResultsConfigRequest {
-    activityResultCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityResultCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityTypeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAutoTraceCodesRequest {
-    autoTraceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    autoTraceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    autoTraceDefinitionId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    autoTraceOwnerAssignmentID: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetActivityResultsConfigRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     fetchInactive?: boolean;
@@ -148,10 +148,10 @@ export interface GetActivityResultsConfigRequest {
 }
 
 export interface GetActivityTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     activityType?: Array<string>;
@@ -162,9 +162,9 @@ export interface GetActivityTypesRequest {
 }
 
 export interface GetAutoTraceCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     codes?: Array<string>;
@@ -175,10 +175,10 @@ export interface GetAutoTraceCodesRequest {
 }
 
 export interface GetAutoTraceDefinitionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     codes?: Array<string>;
@@ -189,10 +189,10 @@ export interface GetAutoTraceDefinitionsRequest {
 }
 
 export interface GetAutoTraceOwnerAssignmentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     codes?: Array<string>;
@@ -201,103 +201,103 @@ export interface GetAutoTraceOwnerAssignmentsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostActivityResultsConfigOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityResultsConfigInfo?: PostActivityResultsConfigRequest;
+export interface PostActivityResultsConfigRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostActivityTypesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityTypesConfigInfo?: PostActivityTypesRequest;
+export interface PostActivityTypesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAutoTraceCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceCodesInfo?: PostAutoTraceCodesRequest;
+export interface PostAutoTraceCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAutoTraceDefinitionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceDefinitionsInfo?: PostAutoTraceDefinitionsRequest;
+export interface PostAutoTraceDefinitionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostAutoTraceOwnerAssignmentsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: PostAutoTraceOwnerAssignmentsRequest;
+export interface PostAutoTraceOwnerAssignmentsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutActivityResultsConfigRequest {
-    activityResultCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityResultsConfigInfo?: PostActivityResultsConfigRequest;
+    activityResultCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityResultsConfigInfo: ActivityResultsConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutActivityTypesRequest {
-    activityTypeCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activityTypesConfigInfo?: PostActivityTypesRequest;
+    activityTypeCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activityTypesConfigInfo: ActivityTypesConfigInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAutoTraceCodesRequest {
-    autoTraceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceCodesInfo?: PostAutoTraceCodesRequest;
+    autoTraceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceCodesInfo: AutoTraceCodesInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAutoTraceDefinitionsRequest {
-    autoTraceDefinitionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceDefinitionsInfo?: PostAutoTraceDefinitionsRequest;
+    autoTraceDefinitionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceDefinitionsInfo: AutoTraceDefinitionsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAutoTraceOwnerAssignmentsRequest {
-    autoTraceOwnerAssignmentID?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoTraceOwnerAssignmentsInfo?: PostAutoTraceOwnerAssignmentsRequest;
+    autoTraceOwnerAssignmentID: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoTraceOwnerAssignmentsInfo: AutoTraceOwnerAssignmentsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -311,7 +311,27 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * With this API you can select  existing Activity Type Codes from the source property and copy them to another (target) property. <p><strong>OperationId:</strong>copyActivityTypesConfig</p>
      * Copy Activity Types configuration codes
      */
-    async copyActivityTypesConfigRaw(requestParameters: CopyActivityTypesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyActivityTypesConfigRaw(requestParameters: CopyActivityTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyActivityTypesConfig.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyActivityTypesConfig.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyActivityTypesConfig.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyActivityTypesConfig.');
+        }
+
+        if (requestParameters.activityTypesConfigCopy === null || requestParameters.activityTypesConfigCopy === undefined) {
+            throw new runtime.RequiredError('activityTypesConfigCopy','Required parameter requestParameters.activityTypesConfigCopy was null or undefined when calling copyActivityTypesConfig.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -343,7 +363,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyActivityTypesConfigRequestToJSON(requestParameters.activityTypesConfigCopy),
+            body: ActivityTypesConfigCopyToJSON(requestParameters.activityTypesConfigCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -353,7 +373,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * With this API you can select  existing Activity Type Codes from the source property and copy them to another (target) property. <p><strong>OperationId:</strong>copyActivityTypesConfig</p>
      * Copy Activity Types configuration codes
      */
-    async copyActivityTypesConfig(requestParameters: CopyActivityTypesConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyActivityTypesConfig(requestParameters: CopyActivityTypesConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyActivityTypesConfigRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -362,7 +382,27 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Copy an existing auto trace definition code to another property. <p><strong>OperationId:</strong>copyAutoTraceDefinitions</p>
      * Copy an Auto Trace definition Code
      */
-    async copyAutoTraceDefinitionsRaw(requestParameters: CopyAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyAutoTraceDefinitionsRaw(requestParameters: CopyAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.autoTraceDefinitionCopy === null || requestParameters.autoTraceDefinitionCopy === undefined) {
+            throw new runtime.RequiredError('autoTraceDefinitionCopy','Required parameter requestParameters.autoTraceDefinitionCopy was null or undefined when calling copyAutoTraceDefinitions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -394,7 +434,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyAutoTraceDefinitionsRequestToJSON(requestParameters.autoTraceDefinitionCopy),
+            body: AutoTraceDefinitionCopyToJSON(requestParameters.autoTraceDefinitionCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -404,7 +444,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Copy an existing auto trace definition code to another property. <p><strong>OperationId:</strong>copyAutoTraceDefinitions</p>
      * Copy an Auto Trace definition Code
      */
-    async copyAutoTraceDefinitions(requestParameters: CopyAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyAutoTraceDefinitions(requestParameters: CopyAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyAutoTraceDefinitionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -414,6 +454,22 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Delete an Activity results code
      */
     async deleteActivityResultsConfigRaw(requestParameters: DeleteActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityResultCode === null || requestParameters.activityResultCode === undefined) {
+            throw new runtime.RequiredError('activityResultCode','Required parameter requestParameters.activityResultCode was null or undefined when calling deleteActivityResultsConfig.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityResultsConfig.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityResultsConfig.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityResultsConfig.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -462,6 +518,26 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Delete an Activity Type Code
      */
     async deleteActivityTypesRaw(requestParameters: DeleteActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityTypeCode === null || requestParameters.activityTypeCode === undefined) {
+            throw new runtime.RequiredError('activityTypeCode','Required parameter requestParameters.activityTypeCode was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -510,6 +586,22 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Delete an Auto Trace code
      */
     async deleteAutoTraceCodesRaw(requestParameters: DeleteAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.autoTraceCode === null || requestParameters.autoTraceCode === undefined) {
+            throw new runtime.RequiredError('autoTraceCode','Required parameter requestParameters.autoTraceCode was null or undefined when calling deleteAutoTraceCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAutoTraceCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoTraceCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoTraceCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -558,6 +650,22 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Delete an Auto Trace definitions Code
      */
     async deleteAutoTraceDefinitionsRaw(requestParameters: DeleteAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.autoTraceDefinitionId === null || requestParameters.autoTraceDefinitionId === undefined) {
+            throw new runtime.RequiredError('autoTraceDefinitionId','Required parameter requestParameters.autoTraceDefinitionId was null or undefined when calling deleteAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoTraceDefinitions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -606,6 +714,22 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Delete an Auto Trace owner assignment 
      */
     async deleteAutoTraceOwnerAssignmentsRaw(requestParameters: DeleteAutoTraceOwnerAssignmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.autoTraceOwnerAssignmentID === null || requestParameters.autoTraceOwnerAssignmentID === undefined) {
+            throw new runtime.RequiredError('autoTraceOwnerAssignmentID','Required parameter requestParameters.autoTraceOwnerAssignmentID was null or undefined when calling deleteAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteAutoTraceOwnerAssignments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -654,6 +778,18 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Get all Configured Activity Result Codes 
      */
     async getActivityResultsConfigRaw(requestParameters: GetActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivityResultsConfigDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityResultsConfig.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityResultsConfig.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityResultsConfig.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -726,6 +862,22 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Get all Activity Type Codes
      */
     async getActivityTypesRaw(requestParameters: GetActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivityTypesConfigDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -794,6 +946,18 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Get Auto Trace codes
      */
     async getAutoTraceCodesRaw(requestParameters: GetAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoTraceCodesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoTraceCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoTraceCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoTraceCodes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -862,6 +1026,22 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Get a list of Auto Trace definition Codes
      */
     async getAutoTraceDefinitionsRaw(requestParameters: GetAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoTraceDefinitionsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoTraceDefinitions.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -930,6 +1110,22 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Get an Auto Trace owner mappings
      */
     async getAutoTraceOwnerAssignmentsRaw(requestParameters: GetAutoTraceOwnerAssignmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoTraceOwnerAssignmentsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAutoTraceOwnerAssignments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -993,7 +1189,23 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create a new Activity Results Code, for example SUCCESS, END, CALLAGAIN.  These codes are used when you complete an activity.  You need to specify an Activity Result Code as part of that completion process. <p><strong>OperationId:</strong>postActivityResultsConfig</p>
      * Create an Activity results code
      */
-    async postActivityResultsConfigRaw(requestParameters: PostActivityResultsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postActivityResultsConfigRaw(requestParameters: PostActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityResultsConfig.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityResultsConfig.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityResultsConfig.');
+        }
+
+        if (requestParameters.activityResultsConfigInfo === null || requestParameters.activityResultsConfigInfo === undefined) {
+            throw new runtime.RequiredError('activityResultsConfigInfo','Required parameter requestParameters.activityResultsConfigInfo was null or undefined when calling postActivityResultsConfig.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1025,7 +1237,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostActivityResultsConfigRequestToJSON(requestParameters.activityResultsConfigInfo),
+            body: ActivityResultsConfigInfoToJSON(requestParameters.activityResultsConfigInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1035,7 +1247,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create a new Activity Results Code, for example SUCCESS, END, CALLAGAIN.  These codes are used when you complete an activity.  You need to specify an Activity Result Code as part of that completion process. <p><strong>OperationId:</strong>postActivityResultsConfig</p>
      * Create an Activity results code
      */
-    async postActivityResultsConfig(requestParameters: PostActivityResultsConfigOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postActivityResultsConfig(requestParameters: PostActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postActivityResultsConfigRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1044,7 +1256,27 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create a new Activity Type for a specified hotel. Examples could be  MEETING, LUNCH, EXTMEETING. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create a new Activity type in configuration
      */
-    async postActivityTypesRaw(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postActivityTypesRaw(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postActivityTypes.');
+        }
+
+        if (requestParameters.activityTypesConfigInfo === null || requestParameters.activityTypesConfigInfo === undefined) {
+            throw new runtime.RequiredError('activityTypesConfigInfo','Required parameter requestParameters.activityTypesConfigInfo was null or undefined when calling postActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1076,7 +1308,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostActivityTypesRequestToJSON(requestParameters.activityTypesConfigInfo),
+            body: ActivityTypesConfigInfoToJSON(requestParameters.activityTypesConfigInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1086,7 +1318,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create a new Activity Type for a specified hotel. Examples could be  MEETING, LUNCH, EXTMEETING. <p><strong>OperationId:</strong>postActivityTypes</p>
      * Create a new Activity type in configuration
      */
-    async postActivityTypes(requestParameters: PostActivityTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postActivityTypes(requestParameters: PostActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postActivityTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1095,7 +1327,23 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create an Auto trace code. <p><strong>OperationId:</strong>postAutoTraceCodes</p>
      * Create an Auto Trace code
      */
-    async postAutoTraceCodesRaw(requestParameters: PostAutoTraceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAutoTraceCodesRaw(requestParameters: PostAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoTraceCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoTraceCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoTraceCodes.');
+        }
+
+        if (requestParameters.autoTraceCodesInfo === null || requestParameters.autoTraceCodesInfo === undefined) {
+            throw new runtime.RequiredError('autoTraceCodesInfo','Required parameter requestParameters.autoTraceCodesInfo was null or undefined when calling postAutoTraceCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1127,7 +1375,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoTraceCodesRequestToJSON(requestParameters.autoTraceCodesInfo),
+            body: AutoTraceCodesInfoToJSON(requestParameters.autoTraceCodesInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1137,7 +1385,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create an Auto trace code. <p><strong>OperationId:</strong>postAutoTraceCodes</p>
      * Create an Auto Trace code
      */
-    async postAutoTraceCodes(requestParameters: PostAutoTraceCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAutoTraceCodes(requestParameters: PostAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAutoTraceCodesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1146,7 +1394,27 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create a new Auto Trace Definition code for a specified property. <p><strong>OperationId:</strong>postAutoTraceDefinitions</p>
      * Create an Auto Trace Definition Code
      */
-    async postAutoTraceDefinitionsRaw(requestParameters: PostAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAutoTraceDefinitionsRaw(requestParameters: PostAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.autoTraceDefinitionsInfo === null || requestParameters.autoTraceDefinitionsInfo === undefined) {
+            throw new runtime.RequiredError('autoTraceDefinitionsInfo','Required parameter requestParameters.autoTraceDefinitionsInfo was null or undefined when calling postAutoTraceDefinitions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1178,7 +1446,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoTraceDefinitionsRequestToJSON(requestParameters.autoTraceDefinitionsInfo),
+            body: AutoTraceDefinitionsInfoToJSON(requestParameters.autoTraceDefinitionsInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1188,7 +1456,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Create a new Auto Trace Definition code for a specified property. <p><strong>OperationId:</strong>postAutoTraceDefinitions</p>
      * Create an Auto Trace Definition Code
      */
-    async postAutoTraceDefinitions(requestParameters: PostAutoTraceDefinitionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAutoTraceDefinitions(requestParameters: PostAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAutoTraceDefinitionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1197,7 +1465,27 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * You can create Auto traces so that activities are created automatically under certain configured conditions. You first need a Trace code configured, and then using this API you can link the Owner code and Trace Code to a Trace Group (account, contact, activity, or block). <p><strong>OperationId:</strong>postAutoTraceOwnerAssignments</p>
      * Create an Auto Trace owner assignment
      */
-    async postAutoTraceOwnerAssignmentsRaw(requestParameters: PostAutoTraceOwnerAssignmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postAutoTraceOwnerAssignmentsRaw(requestParameters: PostAutoTraceOwnerAssignmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.autoTraceOwnerAssignmentsInfo === null || requestParameters.autoTraceOwnerAssignmentsInfo === undefined) {
+            throw new runtime.RequiredError('autoTraceOwnerAssignmentsInfo','Required parameter requestParameters.autoTraceOwnerAssignmentsInfo was null or undefined when calling postAutoTraceOwnerAssignments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1229,7 +1517,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoTraceOwnerAssignmentsRequestToJSON(requestParameters.autoTraceOwnerAssignmentsInfo),
+            body: AutoTraceOwnerAssignmentsInfoToJSON(requestParameters.autoTraceOwnerAssignmentsInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1239,7 +1527,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * You can create Auto traces so that activities are created automatically under certain configured conditions. You first need a Trace code configured, and then using this API you can link the Owner code and Trace Code to a Trace Group (account, contact, activity, or block). <p><strong>OperationId:</strong>postAutoTraceOwnerAssignments</p>
      * Create an Auto Trace owner assignment
      */
-    async postAutoTraceOwnerAssignments(requestParameters: PostAutoTraceOwnerAssignmentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postAutoTraceOwnerAssignments(requestParameters: PostAutoTraceOwnerAssignmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postAutoTraceOwnerAssignmentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1249,6 +1537,26 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Change an Activity Result Code
      */
     async putActivityResultsConfigRaw(requestParameters: PutActivityResultsConfigRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityResultCode === null || requestParameters.activityResultCode === undefined) {
+            throw new runtime.RequiredError('activityResultCode','Required parameter requestParameters.activityResultCode was null or undefined when calling putActivityResultsConfig.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityResultsConfig.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityResultsConfig.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityResultsConfig.');
+        }
+
+        if (requestParameters.activityResultsConfigInfo === null || requestParameters.activityResultsConfigInfo === undefined) {
+            throw new runtime.RequiredError('activityResultsConfigInfo','Required parameter requestParameters.activityResultsConfigInfo was null or undefined when calling putActivityResultsConfig.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1280,7 +1588,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostActivityResultsConfigRequestToJSON(requestParameters.activityResultsConfigInfo),
+            body: ActivityResultsConfigInfoToJSON(requestParameters.activityResultsConfigInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1300,6 +1608,30 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Update Activity Types
      */
     async putActivityTypesRaw(requestParameters: PutActivityTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityTypeCode === null || requestParameters.activityTypeCode === undefined) {
+            throw new runtime.RequiredError('activityTypeCode','Required parameter requestParameters.activityTypeCode was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putActivityTypes.');
+        }
+
+        if (requestParameters.activityTypesConfigInfo === null || requestParameters.activityTypesConfigInfo === undefined) {
+            throw new runtime.RequiredError('activityTypesConfigInfo','Required parameter requestParameters.activityTypesConfigInfo was null or undefined when calling putActivityTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1331,7 +1663,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostActivityTypesRequestToJSON(requestParameters.activityTypesConfigInfo),
+            body: ActivityTypesConfigInfoToJSON(requestParameters.activityTypesConfigInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1351,6 +1683,26 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Change an Auto Trace code
      */
     async putAutoTraceCodesRaw(requestParameters: PutAutoTraceCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.autoTraceCode === null || requestParameters.autoTraceCode === undefined) {
+            throw new runtime.RequiredError('autoTraceCode','Required parameter requestParameters.autoTraceCode was null or undefined when calling putAutoTraceCodes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAutoTraceCodes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAutoTraceCodes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAutoTraceCodes.');
+        }
+
+        if (requestParameters.autoTraceCodesInfo === null || requestParameters.autoTraceCodesInfo === undefined) {
+            throw new runtime.RequiredError('autoTraceCodesInfo','Required parameter requestParameters.autoTraceCodesInfo was null or undefined when calling putAutoTraceCodes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1382,7 +1734,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoTraceCodesRequestToJSON(requestParameters.autoTraceCodesInfo),
+            body: AutoTraceCodesInfoToJSON(requestParameters.autoTraceCodesInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1402,6 +1754,30 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Change an Auto Trace definition Code
      */
     async putAutoTraceDefinitionsRaw(requestParameters: PutAutoTraceDefinitionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoTraceDefinitionsStatus>> {
+        if (requestParameters.autoTraceDefinitionId === null || requestParameters.autoTraceDefinitionId === undefined) {
+            throw new runtime.RequiredError('autoTraceDefinitionId','Required parameter requestParameters.autoTraceDefinitionId was null or undefined when calling putAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAutoTraceDefinitions.');
+        }
+
+        if (requestParameters.autoTraceDefinitionsInfo === null || requestParameters.autoTraceDefinitionsInfo === undefined) {
+            throw new runtime.RequiredError('autoTraceDefinitionsInfo','Required parameter requestParameters.autoTraceDefinitionsInfo was null or undefined when calling putAutoTraceDefinitions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1433,7 +1809,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoTraceDefinitionsRequestToJSON(requestParameters.autoTraceDefinitionsInfo),
+            body: AutoTraceDefinitionsInfoToJSON(requestParameters.autoTraceDefinitionsInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AutoTraceDefinitionsStatusFromJSON(jsonValue));
@@ -1453,6 +1829,30 @@ export class ActivityManagementApi extends runtime.BaseAPI {
      * Change Trace owner assignments
      */
     async putAutoTraceOwnerAssignmentsRaw(requestParameters: PutAutoTraceOwnerAssignmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoTraceOwnerAssignmentsStatus>> {
+        if (requestParameters.autoTraceOwnerAssignmentID === null || requestParameters.autoTraceOwnerAssignmentID === undefined) {
+            throw new runtime.RequiredError('autoTraceOwnerAssignmentID','Required parameter requestParameters.autoTraceOwnerAssignmentID was null or undefined when calling putAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putAutoTraceOwnerAssignments.');
+        }
+
+        if (requestParameters.autoTraceOwnerAssignmentsInfo === null || requestParameters.autoTraceOwnerAssignmentsInfo === undefined) {
+            throw new runtime.RequiredError('autoTraceOwnerAssignmentsInfo','Required parameter requestParameters.autoTraceOwnerAssignmentsInfo was null or undefined when calling putAutoTraceOwnerAssignments.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1484,7 +1884,7 @@ export class ActivityManagementApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAutoTraceOwnerAssignmentsRequestToJSON(requestParameters.autoTraceOwnerAssignmentsInfo),
+            body: AutoTraceOwnerAssignmentsInfoToJSON(requestParameters.autoTraceOwnerAssignmentsInfo),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AutoTraceOwnerAssignmentsStatusFromJSON(jsonValue));

@@ -15,82 +15,96 @@
 
 import * as runtime from '../runtime';
 import type {
+  CateringContainers,
   CateringContainersInfo,
+  CateringItemRates,
   CateringItemRatesInfo,
+  CateringMenuClasses,
   CateringMenuClassesInfo,
+  CateringMenuItemClasses,
+  CateringMenuItemClassesCopy,
   CateringMenuItemClassesInfo,
+  CateringMenuItems,
+  CateringMenuItemsCopy,
   CateringMenuItemsInfo,
+  CateringMenus,
+  CateringMenusCopy,
   CateringMenusInfo,
   CateringPackage,
+  CateringPackages,
   CateringPackagesInfo,
+  CateringServings,
   CateringServingsInfo,
   CheckedDiscountAvailable,
-  CopyCateringMenuItemClassesRequest,
-  CopyCateringMenuItemsRequest,
-  CopyCateringMenusRequest,
-  CopyEventForecastsRequest,
-  CopyInventoryItemsRequest,
   DailyInventoryItems,
+  EventForecasts,
+  EventForecastsCopy,
   EventForecastsInfo,
   ExceptionDetailType,
   InventoryItemTemplates,
   InventoryItems,
+  InventoryItemsCopy,
   InventoryItemsCreated,
+  ItemClasses,
   ItemClassesCopy,
   ItemClassesInfo,
+  ItemPools,
   ItemPoolsInfo,
-  PostCateringContainersRequest,
-  PostCateringItemRatesRequest,
-  PostCateringMenuItemClassesRequest,
-  PostCateringMenuItemsRequest,
-  PostCateringMenusRequest,
-  PostCateringPackagesRequest,
-  PostInventoryItemTemplatesRequest,
-  PostInventoryItemsRequest,
-  PostItemClassesRequest,
-  PostItemPoolsRequest,
-  PostRevenueGroupsRequest,
-  PostRevenueTypesRequest,
-  PutCateringMenuClassesRequest,
-  PutCateringServingsRequest,
-  PutEventForecastsRequest,
+  RevenueGroups,
   RevenueGroupsInfo,
+  RevenueTypes,
   RevenueTypesInfo,
   Status,
-} from '../models';
+} from '../models/index';
 import {
+    CateringContainersFromJSON,
+    CateringContainersToJSON,
     CateringContainersInfoFromJSON,
     CateringContainersInfoToJSON,
+    CateringItemRatesFromJSON,
+    CateringItemRatesToJSON,
     CateringItemRatesInfoFromJSON,
     CateringItemRatesInfoToJSON,
+    CateringMenuClassesFromJSON,
+    CateringMenuClassesToJSON,
     CateringMenuClassesInfoFromJSON,
     CateringMenuClassesInfoToJSON,
+    CateringMenuItemClassesFromJSON,
+    CateringMenuItemClassesToJSON,
+    CateringMenuItemClassesCopyFromJSON,
+    CateringMenuItemClassesCopyToJSON,
     CateringMenuItemClassesInfoFromJSON,
     CateringMenuItemClassesInfoToJSON,
+    CateringMenuItemsFromJSON,
+    CateringMenuItemsToJSON,
+    CateringMenuItemsCopyFromJSON,
+    CateringMenuItemsCopyToJSON,
     CateringMenuItemsInfoFromJSON,
     CateringMenuItemsInfoToJSON,
+    CateringMenusFromJSON,
+    CateringMenusToJSON,
+    CateringMenusCopyFromJSON,
+    CateringMenusCopyToJSON,
     CateringMenusInfoFromJSON,
     CateringMenusInfoToJSON,
     CateringPackageFromJSON,
     CateringPackageToJSON,
+    CateringPackagesFromJSON,
+    CateringPackagesToJSON,
     CateringPackagesInfoFromJSON,
     CateringPackagesInfoToJSON,
+    CateringServingsFromJSON,
+    CateringServingsToJSON,
     CateringServingsInfoFromJSON,
     CateringServingsInfoToJSON,
     CheckedDiscountAvailableFromJSON,
     CheckedDiscountAvailableToJSON,
-    CopyCateringMenuItemClassesRequestFromJSON,
-    CopyCateringMenuItemClassesRequestToJSON,
-    CopyCateringMenuItemsRequestFromJSON,
-    CopyCateringMenuItemsRequestToJSON,
-    CopyCateringMenusRequestFromJSON,
-    CopyCateringMenusRequestToJSON,
-    CopyEventForecastsRequestFromJSON,
-    CopyEventForecastsRequestToJSON,
-    CopyInventoryItemsRequestFromJSON,
-    CopyInventoryItemsRequestToJSON,
     DailyInventoryItemsFromJSON,
     DailyInventoryItemsToJSON,
+    EventForecastsFromJSON,
+    EventForecastsToJSON,
+    EventForecastsCopyFromJSON,
+    EventForecastsCopyToJSON,
     EventForecastsInfoFromJSON,
     EventForecastsInfoToJSON,
     ExceptionDetailTypeFromJSON,
@@ -99,143 +113,123 @@ import {
     InventoryItemTemplatesToJSON,
     InventoryItemsFromJSON,
     InventoryItemsToJSON,
+    InventoryItemsCopyFromJSON,
+    InventoryItemsCopyToJSON,
     InventoryItemsCreatedFromJSON,
     InventoryItemsCreatedToJSON,
+    ItemClassesFromJSON,
+    ItemClassesToJSON,
     ItemClassesCopyFromJSON,
     ItemClassesCopyToJSON,
     ItemClassesInfoFromJSON,
     ItemClassesInfoToJSON,
+    ItemPoolsFromJSON,
+    ItemPoolsToJSON,
     ItemPoolsInfoFromJSON,
     ItemPoolsInfoToJSON,
-    PostCateringContainersRequestFromJSON,
-    PostCateringContainersRequestToJSON,
-    PostCateringItemRatesRequestFromJSON,
-    PostCateringItemRatesRequestToJSON,
-    PostCateringMenuItemClassesRequestFromJSON,
-    PostCateringMenuItemClassesRequestToJSON,
-    PostCateringMenuItemsRequestFromJSON,
-    PostCateringMenuItemsRequestToJSON,
-    PostCateringMenusRequestFromJSON,
-    PostCateringMenusRequestToJSON,
-    PostCateringPackagesRequestFromJSON,
-    PostCateringPackagesRequestToJSON,
-    PostInventoryItemTemplatesRequestFromJSON,
-    PostInventoryItemTemplatesRequestToJSON,
-    PostInventoryItemsRequestFromJSON,
-    PostInventoryItemsRequestToJSON,
-    PostItemClassesRequestFromJSON,
-    PostItemClassesRequestToJSON,
-    PostItemPoolsRequestFromJSON,
-    PostItemPoolsRequestToJSON,
-    PostRevenueGroupsRequestFromJSON,
-    PostRevenueGroupsRequestToJSON,
-    PostRevenueTypesRequestFromJSON,
-    PostRevenueTypesRequestToJSON,
-    PutCateringMenuClassesRequestFromJSON,
-    PutCateringMenuClassesRequestToJSON,
-    PutCateringServingsRequestFromJSON,
-    PutCateringServingsRequestToJSON,
-    PutEventForecastsRequestFromJSON,
-    PutEventForecastsRequestToJSON,
+    RevenueGroupsFromJSON,
+    RevenueGroupsToJSON,
     RevenueGroupsInfoFromJSON,
     RevenueGroupsInfoToJSON,
+    RevenueTypesFromJSON,
+    RevenueTypesToJSON,
     RevenueTypesInfoFromJSON,
     RevenueTypesInfoToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface CheckDiscountAvailableRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyCateringMenuItemClassesOperationRequest {
-    cateringMenuItemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemClassesCopy?: CopyCateringMenuItemClassesRequest;
+export interface CopyCateringMenuItemClassesRequest {
+    cateringMenuItemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemClassesCopy: CateringMenuItemClassesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyCateringMenuItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemsCopy?: CopyCateringMenuItemsRequest;
+export interface CopyCateringMenuItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemsCopy: CateringMenuItemsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyCateringMenusOperationRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenusCopy?: CopyCateringMenusRequest;
+export interface CopyCateringMenusRequest {
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenusCopy: CateringMenusCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyEventForecastsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventForecastsCopy?: CopyEventForecastsRequest;
+export interface CopyEventForecastsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventForecastsCopy: EventForecastsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface CopyInventoryItemsOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItemsCopy?: CopyInventoryItemsRequest;
+export interface CopyInventoryItemsRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItemsCopy: InventoryItemsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyItemClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemClassesCopy?: ItemClassesCopy;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemClassesCopy: ItemClassesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCateringContainersRequest {
-    cateringContainersCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringContainersCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCateringItemRatesRequest {
-    cateringItemRatesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringItemRatesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCateringMenuClassesRequest {
-    menuClassesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    menuClassesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     menuClassListIDExtension?: Array<number>;
     menuClassListIdContext?: Array<string>;
     menuClassListUniqueIdType?: Array<string>;
@@ -244,10 +238,10 @@ export interface DeleteCateringMenuClassesRequest {
 }
 
 export interface DeleteCateringMenuItemClassesRequest {
-    cateringMenuItemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuItemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     menuItemClassesIdExtension?: Array<number>;
     menuItemClassesIdContext?: Array<string>;
     menuItemClassesUniqueIdType?: Array<string>;
@@ -256,31 +250,31 @@ export interface DeleteCateringMenuItemClassesRequest {
 }
 
 export interface DeleteCateringMenuItemsRequest {
-    cateringMenuItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCateringMenuItemsByChainRequest {
-    cateringMenuItemId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuItemId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCateringMenuMultiCoursesRequest {
-    coursesId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    coursesId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     courseIdListUniqueIdExtension?: Array<number>;
     courseIdListUniqueIdContext?: Array<string>;
     courseIdListUniqueIdType?: Array<string>;
@@ -289,22 +283,22 @@ export interface DeleteCateringMenuMultiCoursesRequest {
 }
 
 export interface DeleteCateringMenusRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCateringPackageEventNotesRequest {
-    notedId?: string;
-    eventId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    notedId: string;
+    eventId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventIdType?: string;
@@ -316,11 +310,11 @@ export interface DeleteCateringPackageEventNotesRequest {
 }
 
 export interface DeleteCateringPackageEventsRequest {
-    packageEventsId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    packageEventsId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventIdType?: string;
@@ -329,11 +323,11 @@ export interface DeleteCateringPackageEventsRequest {
 }
 
 export interface DeleteCateringPackagePricesRequest {
-    pricesId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    pricesId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packagPriceIdExtension?: number;
     packagPriceIdContext?: string;
     packagPriceIdType?: string;
@@ -342,23 +336,23 @@ export interface DeleteCateringPackagePricesRequest {
 }
 
 export interface DeleteCateringPackageResourceNotesRequest {
-    notesId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    notesId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCateringPackageResourcesRequest {
-    hotelId?: Array<string>;
-    pkgEventId?: Array<string>;
-    pkgEventIdType?: Array<string>;
-    resourceId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: Array<string>;
+    pkgEventId: Array<string>;
+    pkgEventIdType: Array<string>;
+    resourceId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventType?: Array<string>;
@@ -367,13 +361,13 @@ export interface DeleteCateringPackageResourcesRequest {
 }
 
 export interface DeleteCateringPackageRevenuesRequest {
-    priceId?: string;
-    revenueType?: string;
-    eventsId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    priceId: string;
+    revenueType: string;
+    eventsId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     packagePriceIdExtension?: number;
     packagePriceIdContext?: string;
     packagePriceIdType?: string;
@@ -385,21 +379,21 @@ export interface DeleteCateringPackageRevenuesRequest {
 }
 
 export interface DeleteCateringPackagesRequest {
-    cateringPackageId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringPackageId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteEventForecastsRequest {
-    eventTypesCode?: string;
-    forecastsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    eventTypesCode: string;
+    forecastsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     forecastIdExtension?: number;
     forecastIdContext?: string;
     forecastIdType?: string;
@@ -414,10 +408,10 @@ export interface DeleteEventForecastsRequest {
 }
 
 export interface DeleteInventoryItemTemplatesRequest {
-    inventoryItemId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    inventoryItemId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inventoryItemTemplatesIdExtension?: Array<number>;
     inventoryItemTemplatesContext?: Array<string>;
     inventoryItemTemplatesType?: Array<string>;
@@ -426,11 +420,11 @@ export interface DeleteInventoryItemTemplatesRequest {
 }
 
 export interface DeleteInventoryItemsRequest {
-    inventoryItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    inventoryItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemIDExtension?: number;
     idContext?: string;
     itemIDType?: string;
@@ -439,37 +433,37 @@ export interface DeleteInventoryItemsRequest {
 }
 
 export interface DeleteItemClassesRequest {
-    itemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteItemPoolsRequest {
-    itemPoolsCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    itemPoolsCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRevenueGroupsRequest {
-    revenueGroupsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    revenueGroupsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCateringContainersRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -479,9 +473,9 @@ export interface GetCateringContainersRequest {
 }
 
 export interface GetCateringItemRatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -491,11 +485,11 @@ export interface GetCateringItemRatesRequest {
 }
 
 export interface GetCateringMenuRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     inactive?: boolean;
     fetchInstructions?: Set<GetCateringMenuFetchInstructionsEnum>;
     xExternalsystem?: string;
@@ -503,10 +497,10 @@ export interface GetCateringMenuRequest {
 }
 
 export interface GetCateringMenuClassesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     className?: string;
@@ -518,10 +512,10 @@ export interface GetCateringMenuClassesRequest {
 }
 
 export interface GetCateringMenuItemClassesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     className?: string;
@@ -534,10 +528,10 @@ export interface GetCateringMenuItemClassesRequest {
 }
 
 export interface GetCateringMenuItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     name?: string;
@@ -551,10 +545,10 @@ export interface GetCateringMenuItemsRequest {
 }
 
 export interface GetCateringMenusRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     menuId?: string;
@@ -577,11 +571,11 @@ export interface GetCateringMenusRequest {
 }
 
 export interface GetCateringPackageRequest {
-    cateringPackageId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringPackageId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idExtension?: number;
     idContext?: string;
     pkgIDType?: string;
@@ -591,10 +585,10 @@ export interface GetCateringPackageRequest {
 }
 
 export interface GetCateringPackageByChainRequest {
-    cateringPackageId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cateringPackageId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     idExtension?: number;
     idContext?: string;
@@ -605,10 +599,10 @@ export interface GetCateringPackageByChainRequest {
 }
 
 export interface GetCateringPackagesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     packageCode?: Array<string>;
@@ -630,9 +624,9 @@ export interface GetCateringPackagesRequest {
 }
 
 export interface GetCateringPackagesMultiPropertiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -655,9 +649,9 @@ export interface GetCateringPackagesMultiPropertiesRequest {
 }
 
 export interface GetCateringServingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     servingCodes?: Array<string>;
     wildCard?: string;
@@ -667,10 +661,10 @@ export interface GetCateringServingsRequest {
 }
 
 export interface GetDailyInventoryItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemClassCode?: string;
     itemName?: string;
     friday?: boolean;
@@ -688,11 +682,11 @@ export interface GetDailyInventoryItemsRequest {
 }
 
 export interface GetEventForecastsRequest {
-    hotelId?: string;
-    fetchInstructions?: Set<GetEventForecastsFetchInstructionsEnum>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    fetchInstructions: Set<GetEventForecastsFetchInstructionsEnum>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     eventTypeCodes?: Array<string>;
@@ -707,9 +701,9 @@ export interface GetEventForecastsRequest {
 }
 
 export interface GetInventoryItemTemplatesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     inventoryItemTemplateName?: string;
     xExternalsystem?: string;
@@ -717,10 +711,10 @@ export interface GetInventoryItemTemplatesRequest {
 }
 
 export interface GetInventoryItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     itemClassCode?: string;
     itemName?: string;
     itemCode?: string;
@@ -734,9 +728,9 @@ export interface GetInventoryItemsRequest {
 }
 
 export interface GetItemClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     itemClassesCode?: Array<string>;
     wildCard?: string;
@@ -747,10 +741,10 @@ export interface GetItemClassesRequest {
 }
 
 export interface GetItemPoolsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     itemClasseCodes?: Array<string>;
     wildCard?: string;
@@ -761,9 +755,9 @@ export interface GetItemPoolsRequest {
 }
 
 export interface GetRevenueGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     revenueGroupCodes?: Array<string>;
     wildCard?: string;
@@ -774,9 +768,9 @@ export interface GetRevenueGroupsRequest {
 }
 
 export interface GetRevenueTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     revenueGroupCodes?: Array<string>;
     revenueGroupWildCard?: string;
     revenueTypeCodes?: Array<string>;
@@ -787,284 +781,284 @@ export interface GetRevenueTypesRequest {
     acceptLanguage?: string;
 }
 
-export interface PostCateringContainersOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringContainers?: PostCateringContainersRequest;
+export interface PostCateringContainersRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringContainers: CateringContainers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCateringItemRatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringItemRates?: PostCateringItemRatesRequest;
+export interface PostCateringItemRatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringItemRates: CateringItemRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCateringMenuClassesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuClasses?: PutCateringMenuClassesRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuClasses: CateringMenuClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCateringMenuItemClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemClasses?: PostCateringMenuItemClassesRequest;
+export interface PostCateringMenuItemClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemClasses: CateringMenuItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCateringMenuItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItems?: PostCateringMenuItemsRequest;
+export interface PostCateringMenuItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItems: CateringMenuItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCateringMenusOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenus?: PostCateringMenusRequest;
+export interface PostCateringMenusRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenus: CateringMenus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostCateringPackagesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringPackages?: PostCateringPackagesRequest;
+export interface PostCateringPackagesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringPackages: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostEventForecastsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventForecasts?: PutEventForecastsRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventForecasts: EventForecasts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostInventoryItemTemplatesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItemTemplates?: PostInventoryItemTemplatesRequest;
+export interface PostInventoryItemTemplatesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItemTemplates: InventoryItemTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostInventoryItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItems?: PostInventoryItemsRequest;
+export interface PostInventoryItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItems: InventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostItemClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemClasses?: PostItemClassesRequest;
+export interface PostItemClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemClasses: ItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostItemPoolsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemPools?: PostItemPoolsRequest;
+export interface PostItemPoolsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemPools: ItemPools;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRevenueGroupsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueGroups?: PostRevenueGroupsRequest;
+export interface PostRevenueGroupsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueGroups: RevenueGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRevenueTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueTypes?: PostRevenueTypesRequest;
+export interface PostRevenueTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueTypes: RevenueTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCateringContainersRequest {
-    cateringContainersCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringContainers?: PostCateringContainersRequest;
+    cateringContainersCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringContainers: CateringContainers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCateringItemRatesRequest {
-    cateringItemRatesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringItemRates?: PostCateringItemRatesRequest;
+    cateringItemRatesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringItemRates: CateringItemRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutCateringMenuClassesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuClasses?: PutCateringMenuClassesRequest;
+export interface PutCateringMenuClassesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuClasses: CateringMenuClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCateringMenuItemClassesRequest {
-    cateringMenuItemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItemClasses?: PostCateringMenuItemClassesRequest;
+    cateringMenuItemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItemClasses: CateringMenuItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCateringMenuItemsRequest {
-    cateringMenuItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenuItems?: PostCateringMenuItemsRequest;
+    cateringMenuItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenuItems: CateringMenuItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCateringMenusRequest {
-    cateringMenuId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringMenus?: PostCateringMenusRequest;
+    cateringMenuId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringMenus: CateringMenus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCateringPackagesRequest {
-    cateringPackageId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringPackages?: PostCateringPackagesRequest;
+    cateringPackageId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringPackages: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutCateringServingsOperationRequest {
-    cateringServingsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cateringServings?: PutCateringServingsRequest;
+export interface PutCateringServingsRequest {
+    cateringServingsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cateringServings: CateringServings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutEventForecastsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    eventForecasts?: PutEventForecastsRequest;
+export interface PutEventForecastsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    eventForecasts: EventForecasts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutInventoryItemTemplatesRequest {
-    inventoryItemId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItemTemplates?: PostInventoryItemTemplatesRequest;
+    inventoryItemId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItemTemplates: InventoryItemTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutInventoryItemsRequest {
-    inventoryItemId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    inventoryItems?: PostInventoryItemsRequest;
+    inventoryItemId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    inventoryItems: InventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutItemClassesRequest {
-    itemClassesCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemClasses?: PostItemClassesRequest;
+    itemClassesCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemClasses: ItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutItemPoolsRequest {
-    itemPoolsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    itemPools?: PostItemPoolsRequest;
+    itemPoolsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    itemPools: ItemPools;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRevenueGroupsRequest {
-    revenueGroupsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueGroups?: PostRevenueGroupsRequest;
+    revenueGroupsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueGroups: RevenueGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRevenueTypesRequest {
-    revenueTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    revenueTypes?: PostRevenueTypesRequest;
+    revenueTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    revenueTypes: RevenueTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1079,6 +1073,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Check if discount is available
      */
     async checkDiscountAvailableRaw(requestParameters: CheckDiscountAvailableRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CheckedDiscountAvailable>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling checkDiscountAvailable.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling checkDiscountAvailable.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling checkDiscountAvailable.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling checkDiscountAvailable.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1126,7 +1136,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to copy menu item classes. <p><strong>OperationId:</strong>copyCateringMenuItemClasses</p>
      * Copy menu item classes
      */
-    async copyCateringMenuItemClassesRaw(requestParameters: CopyCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyCateringMenuItemClassesRaw(requestParameters: CopyCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuItemClassesCode === null || requestParameters.cateringMenuItemClassesCode === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemClassesCode','Required parameter requestParameters.cateringMenuItemClassesCode was null or undefined when calling copyCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.cateringMenuItemClassesCopy === null || requestParameters.cateringMenuItemClassesCopy === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemClassesCopy','Required parameter requestParameters.cateringMenuItemClassesCopy was null or undefined when calling copyCateringMenuItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1158,7 +1188,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyCateringMenuItemClassesRequestToJSON(requestParameters.cateringMenuItemClassesCopy),
+            body: CateringMenuItemClassesCopyToJSON(requestParameters.cateringMenuItemClassesCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1168,7 +1198,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to copy menu item classes. <p><strong>OperationId:</strong>copyCateringMenuItemClasses</p>
      * Copy menu item classes
      */
-    async copyCateringMenuItemClasses(requestParameters: CopyCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyCateringMenuItemClasses(requestParameters: CopyCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyCateringMenuItemClassesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1177,7 +1207,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>copyCateringMenuItems</p>
      * Operation to copy catering menu items.
      */
-    async copyCateringMenuItemsRaw(requestParameters: CopyCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyCateringMenuItemsRaw(requestParameters: CopyCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyCateringMenuItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyCateringMenuItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyCateringMenuItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyCateringMenuItems.');
+        }
+
+        if (requestParameters.cateringMenuItemsCopy === null || requestParameters.cateringMenuItemsCopy === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemsCopy','Required parameter requestParameters.cateringMenuItemsCopy was null or undefined when calling copyCateringMenuItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1209,7 +1259,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyCateringMenuItemsRequestToJSON(requestParameters.cateringMenuItemsCopy),
+            body: CateringMenuItemsCopyToJSON(requestParameters.cateringMenuItemsCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1219,7 +1269,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      *  <p><strong>OperationId:</strong>copyCateringMenuItems</p>
      * Operation to copy catering menu items.
      */
-    async copyCateringMenuItems(requestParameters: CopyCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyCateringMenuItems(requestParameters: CopyCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyCateringMenuItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1228,7 +1278,31 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Copy a menu for a property. <p><strong>OperationId:</strong>copyCateringMenus</p>
      * Copy a menu
      */
-    async copyCateringMenusRaw(requestParameters: CopyCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyCateringMenusRaw(requestParameters: CopyCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuId === null || requestParameters.cateringMenuId === undefined) {
+            throw new runtime.RequiredError('cateringMenuId','Required parameter requestParameters.cateringMenuId was null or undefined when calling copyCateringMenus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling copyCateringMenus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyCateringMenus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyCateringMenus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyCateringMenus.');
+        }
+
+        if (requestParameters.cateringMenusCopy === null || requestParameters.cateringMenusCopy === undefined) {
+            throw new runtime.RequiredError('cateringMenusCopy','Required parameter requestParameters.cateringMenusCopy was null or undefined when calling copyCateringMenus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1260,7 +1334,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyCateringMenusRequestToJSON(requestParameters.cateringMenusCopy),
+            body: CateringMenusCopyToJSON(requestParameters.cateringMenusCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1270,7 +1344,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Copy a menu for a property. <p><strong>OperationId:</strong>copyCateringMenus</p>
      * Copy a menu
      */
-    async copyCateringMenus(requestParameters: CopyCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyCateringMenus(requestParameters: CopyCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyCateringMenusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1279,7 +1353,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * This API will allow you to copy an Event Forecast from a property to another. <p><strong>OperationId:</strong>copyEventForecasts</p>
      * Copy event forecasts
      */
-    async copyEventForecastsRaw(requestParameters: CopyEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyEventForecastsRaw(requestParameters: CopyEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyEventForecasts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyEventForecasts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyEventForecasts.');
+        }
+
+        if (requestParameters.eventForecastsCopy === null || requestParameters.eventForecastsCopy === undefined) {
+            throw new runtime.RequiredError('eventForecastsCopy','Required parameter requestParameters.eventForecastsCopy was null or undefined when calling copyEventForecasts.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1311,7 +1401,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyEventForecastsRequestToJSON(requestParameters.eventForecastsCopy),
+            body: EventForecastsCopyToJSON(requestParameters.eventForecastsCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1321,7 +1411,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * This API will allow you to copy an Event Forecast from a property to another. <p><strong>OperationId:</strong>copyEventForecasts</p>
      * Copy event forecasts
      */
-    async copyEventForecasts(requestParameters: CopyEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyEventForecasts(requestParameters: CopyEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyEventForecastsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1330,7 +1420,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * This API will allow you to select multiple Item Inventories from the Source Property and copy to the Target Property. <p><strong>OperationId:</strong>copyInventoryItems</p>
      * Copy Item Inventories
      */
-    async copyInventoryItemsRaw(requestParameters: CopyInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async copyInventoryItemsRaw(requestParameters: CopyInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.sourceHotelId === null || requestParameters.sourceHotelId === undefined) {
+            throw new runtime.RequiredError('sourceHotelId','Required parameter requestParameters.sourceHotelId was null or undefined when calling copyInventoryItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyInventoryItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyInventoryItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyInventoryItems.');
+        }
+
+        if (requestParameters.inventoryItemsCopy === null || requestParameters.inventoryItemsCopy === undefined) {
+            throw new runtime.RequiredError('inventoryItemsCopy','Required parameter requestParameters.inventoryItemsCopy was null or undefined when calling copyInventoryItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1362,7 +1472,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CopyInventoryItemsRequestToJSON(requestParameters.inventoryItemsCopy),
+            body: InventoryItemsCopyToJSON(requestParameters.inventoryItemsCopy),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1372,7 +1482,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * This API will allow you to select multiple Item Inventories from the Source Property and copy to the Target Property. <p><strong>OperationId:</strong>copyInventoryItems</p>
      * Copy Item Inventories
      */
-    async copyInventoryItems(requestParameters: CopyInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async copyInventoryItems(requestParameters: CopyInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.copyInventoryItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1382,6 +1492,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Copy item classes
      */
     async copyItemClassesRaw(requestParameters: CopyItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling copyItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling copyItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling copyItemClasses.');
+        }
+
+        if (requestParameters.itemClassesCopy === null || requestParameters.itemClassesCopy === undefined) {
+            throw new runtime.RequiredError('itemClassesCopy','Required parameter requestParameters.itemClassesCopy was null or undefined when calling copyItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1433,6 +1559,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete Catering container
      */
     async deleteCateringContainersRaw(requestParameters: DeleteCateringContainersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringContainersCode === null || requestParameters.cateringContainersCode === undefined) {
+            throw new runtime.RequiredError('cateringContainersCode','Required parameter requestParameters.cateringContainersCode was null or undefined when calling deleteCateringContainers.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringContainers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringContainers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringContainers.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1481,6 +1623,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Remove catering item rates
      */
     async deleteCateringItemRatesRaw(requestParameters: DeleteCateringItemRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringItemRatesCode === null || requestParameters.cateringItemRatesCode === undefined) {
+            throw new runtime.RequiredError('cateringItemRatesCode','Required parameter requestParameters.cateringItemRatesCode was null or undefined when calling deleteCateringItemRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringItemRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringItemRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringItemRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1529,6 +1687,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete menu classes
      */
     async deleteCateringMenuClassesRaw(requestParameters: DeleteCateringMenuClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.menuClassesId === null || requestParameters.menuClassesId === undefined) {
+            throw new runtime.RequiredError('menuClassesId','Required parameter requestParameters.menuClassesId was null or undefined when calling deleteCateringMenuClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringMenuClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringMenuClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringMenuClasses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.menuClassListIDExtension) {
@@ -1589,6 +1763,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete menu item classes
      */
     async deleteCateringMenuItemClassesRaw(requestParameters: DeleteCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuItemClassesCode === null || requestParameters.cateringMenuItemClassesCode === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemClassesCode','Required parameter requestParameters.cateringMenuItemClassesCode was null or undefined when calling deleteCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringMenuItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.menuItemClassesIdExtension) {
@@ -1649,6 +1839,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Operation to remove catering menu items.
      */
     async deleteCateringMenuItemsRaw(requestParameters: DeleteCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuItemId === null || requestParameters.cateringMenuItemId === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemId','Required parameter requestParameters.cateringMenuItemId was null or undefined when calling deleteCateringMenuItems.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringMenuItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringMenuItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringMenuItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringMenuItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1697,6 +1907,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Operation to remove catering menu items by chain.
      */
     async deleteCateringMenuItemsByChainRaw(requestParameters: DeleteCateringMenuItemsByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuItemId === null || requestParameters.cateringMenuItemId === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemId','Required parameter requestParameters.cateringMenuItemId was null or undefined when calling deleteCateringMenuItemsByChain.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringMenuItemsByChain.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringMenuItemsByChain.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringMenuItemsByChain.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -1749,6 +1975,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Remove menu multi courses
      */
     async deleteCateringMenuMultiCoursesRaw(requestParameters: DeleteCateringMenuMultiCoursesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.coursesId === null || requestParameters.coursesId === undefined) {
+            throw new runtime.RequiredError('coursesId','Required parameter requestParameters.coursesId was null or undefined when calling deleteCateringMenuMultiCourses.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringMenuMultiCourses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringMenuMultiCourses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringMenuMultiCourses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringMenuMultiCourses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.courseIdListUniqueIdExtension) {
@@ -1809,6 +2055,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete a menu
      */
     async deleteCateringMenusRaw(requestParameters: DeleteCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuId === null || requestParameters.cateringMenuId === undefined) {
+            throw new runtime.RequiredError('cateringMenuId','Required parameter requestParameters.cateringMenuId was null or undefined when calling deleteCateringMenus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringMenus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringMenus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringMenus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringMenus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1857,6 +2123,30 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete catering package event notes
      */
     async deleteCateringPackageEventNotesRaw(requestParameters: DeleteCateringPackageEventNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.notedId === null || requestParameters.notedId === undefined) {
+            throw new runtime.RequiredError('notedId','Required parameter requestParameters.notedId was null or undefined when calling deleteCateringPackageEventNotes.');
+        }
+
+        if (requestParameters.eventId === null || requestParameters.eventId === undefined) {
+            throw new runtime.RequiredError('eventId','Required parameter requestParameters.eventId was null or undefined when calling deleteCateringPackageEventNotes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringPackageEventNotes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringPackageEventNotes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringPackageEventNotes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringPackageEventNotes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.pkgEventIdExtension !== undefined) {
@@ -1929,6 +2219,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete catering package events
      */
     async deleteCateringPackageEventsRaw(requestParameters: DeleteCateringPackageEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.packageEventsId === null || requestParameters.packageEventsId === undefined) {
+            throw new runtime.RequiredError('packageEventsId','Required parameter requestParameters.packageEventsId was null or undefined when calling deleteCateringPackageEvents.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringPackageEvents.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringPackageEvents.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringPackageEvents.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringPackageEvents.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.pkgEventIdExtension !== undefined) {
@@ -1989,6 +2299,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete Catering package prices
      */
     async deleteCateringPackagePricesRaw(requestParameters: DeleteCateringPackagePricesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.pricesId === null || requestParameters.pricesId === undefined) {
+            throw new runtime.RequiredError('pricesId','Required parameter requestParameters.pricesId was null or undefined when calling deleteCateringPackagePrices.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringPackagePrices.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringPackagePrices.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringPackagePrices.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringPackagePrices.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.packagPriceIdExtension !== undefined) {
@@ -2049,6 +2379,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete catering package resource notes
      */
     async deleteCateringPackageResourceNotesRaw(requestParameters: DeleteCateringPackageResourceNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.notesId === null || requestParameters.notesId === undefined) {
+            throw new runtime.RequiredError('notesId','Required parameter requestParameters.notesId was null or undefined when calling deleteCateringPackageResourceNotes.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringPackageResourceNotes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringPackageResourceNotes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringPackageResourceNotes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringPackageResourceNotes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2097,6 +2447,34 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete catering package resources
      */
     async deleteCateringPackageResourcesRaw(requestParameters: DeleteCateringPackageResourcesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringPackageResources.');
+        }
+
+        if (requestParameters.pkgEventId === null || requestParameters.pkgEventId === undefined) {
+            throw new runtime.RequiredError('pkgEventId','Required parameter requestParameters.pkgEventId was null or undefined when calling deleteCateringPackageResources.');
+        }
+
+        if (requestParameters.pkgEventIdType === null || requestParameters.pkgEventIdType === undefined) {
+            throw new runtime.RequiredError('pkgEventIdType','Required parameter requestParameters.pkgEventIdType was null or undefined when calling deleteCateringPackageResources.');
+        }
+
+        if (requestParameters.resourceId === null || requestParameters.resourceId === undefined) {
+            throw new runtime.RequiredError('resourceId','Required parameter requestParameters.resourceId was null or undefined when calling deleteCateringPackageResources.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringPackageResources.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringPackageResources.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringPackageResources.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -2173,6 +2551,34 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete catering package revenues
      */
     async deleteCateringPackageRevenuesRaw(requestParameters: DeleteCateringPackageRevenuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.priceId === null || requestParameters.priceId === undefined) {
+            throw new runtime.RequiredError('priceId','Required parameter requestParameters.priceId was null or undefined when calling deleteCateringPackageRevenues.');
+        }
+
+        if (requestParameters.revenueType === null || requestParameters.revenueType === undefined) {
+            throw new runtime.RequiredError('revenueType','Required parameter requestParameters.revenueType was null or undefined when calling deleteCateringPackageRevenues.');
+        }
+
+        if (requestParameters.eventsId === null || requestParameters.eventsId === undefined) {
+            throw new runtime.RequiredError('eventsId','Required parameter requestParameters.eventsId was null or undefined when calling deleteCateringPackageRevenues.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringPackageRevenues.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringPackageRevenues.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringPackageRevenues.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringPackageRevenues.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.packagePriceIdExtension !== undefined) {
@@ -2245,6 +2651,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete catering packages
      */
     async deleteCateringPackagesRaw(requestParameters: DeleteCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringPackageId === null || requestParameters.cateringPackageId === undefined) {
+            throw new runtime.RequiredError('cateringPackageId','Required parameter requestParameters.cateringPackageId was null or undefined when calling deleteCateringPackages.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCateringPackages.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCateringPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCateringPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCateringPackages.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2293,6 +2719,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete event forecasts
      */
     async deleteEventForecastsRaw(requestParameters: DeleteEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.eventTypesCode === null || requestParameters.eventTypesCode === undefined) {
+            throw new runtime.RequiredError('eventTypesCode','Required parameter requestParameters.eventTypesCode was null or undefined when calling deleteEventForecasts.');
+        }
+
+        if (requestParameters.forecastsId === null || requestParameters.forecastsId === undefined) {
+            throw new runtime.RequiredError('forecastsId','Required parameter requestParameters.forecastsId was null or undefined when calling deleteEventForecasts.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteEventForecasts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteEventForecasts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteEventForecasts.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.forecastIdExtension !== undefined) {
@@ -2377,6 +2823,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete Item Inventory templates
      */
     async deleteInventoryItemTemplatesRaw(requestParameters: DeleteInventoryItemTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.inventoryItemId === null || requestParameters.inventoryItemId === undefined) {
+            throw new runtime.RequiredError('inventoryItemId','Required parameter requestParameters.inventoryItemId was null or undefined when calling deleteInventoryItemTemplates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteInventoryItemTemplates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.inventoryItemTemplatesIdExtension) {
@@ -2437,6 +2899,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete Item Inventory
      */
     async deleteInventoryItemsRaw(requestParameters: DeleteInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.inventoryItemId === null || requestParameters.inventoryItemId === undefined) {
+            throw new runtime.RequiredError('inventoryItemId','Required parameter requestParameters.inventoryItemId was null or undefined when calling deleteInventoryItems.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteInventoryItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteInventoryItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteInventoryItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteInventoryItems.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.itemIDExtension !== undefined) {
@@ -2497,6 +2979,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete Item classes
      */
     async deleteItemClassesRaw(requestParameters: DeleteItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.itemClassesCode === null || requestParameters.itemClassesCode === undefined) {
+            throw new runtime.RequiredError('itemClassesCode','Required parameter requestParameters.itemClassesCode was null or undefined when calling deleteItemClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2545,6 +3043,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete Item Pools
      */
     async deleteItemPoolsRaw(requestParameters: DeleteItemPoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.itemPoolsCode === null || requestParameters.itemPoolsCode === undefined) {
+            throw new runtime.RequiredError('itemPoolsCode','Required parameter requestParameters.itemPoolsCode was null or undefined when calling deleteItemPools.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteItemPools.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteItemPools.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteItemPools.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteItemPools.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2593,6 +3111,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Delete Catering Revenue Groups
      */
     async deleteRevenueGroupsRaw(requestParameters: DeleteRevenueGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.revenueGroupsCode === null || requestParameters.revenueGroupsCode === undefined) {
+            throw new runtime.RequiredError('revenueGroupsCode','Required parameter requestParameters.revenueGroupsCode was null or undefined when calling deleteRevenueGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRevenueGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRevenueGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRevenueGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2641,6 +3175,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get catering containers
      */
     async getCateringContainersRaw(requestParameters: GetCateringContainersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringContainersInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringContainers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringContainers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringContainers.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2705,6 +3251,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get catering item rates
      */
     async getCateringItemRatesRaw(requestParameters: GetCateringItemRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringItemRatesInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringItemRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringItemRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringItemRates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -2769,6 +3327,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get menu
      */
     async getCateringMenuRaw(requestParameters: GetCateringMenuRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringMenusInfo>> {
+        if (requestParameters.cateringMenuId === null || requestParameters.cateringMenuId === undefined) {
+            throw new runtime.RequiredError('cateringMenuId','Required parameter requestParameters.cateringMenuId was null or undefined when calling getCateringMenu.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringMenu.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringMenu.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringMenu.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringMenu.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.inactive !== undefined) {
@@ -2825,6 +3403,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get menu classes
      */
     async getCateringMenuClassesRaw(requestParameters: GetCateringMenuClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringMenuClassesInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringMenuClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringMenuClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringMenuClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringMenuClasses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2897,6 +3491,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get menu item classes
      */
     async getCateringMenuItemClassesRaw(requestParameters: GetCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringMenuItemClassesInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringMenuItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -2973,6 +3583,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Menu items
      */
     async getCateringMenuItemsRaw(requestParameters: GetCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringMenuItemsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringMenuItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringMenuItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringMenuItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringMenuItems.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3053,6 +3679,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get menus
      */
     async getCateringMenusRaw(requestParameters: GetCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringMenusInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringMenus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringMenus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringMenus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringMenus.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3112,11 +3754,11 @@ export class ResourceConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substr(0,10);
+            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fetchInstructions) {
@@ -3169,6 +3811,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get catering package
      */
     async getCateringPackageRaw(requestParameters: GetCateringPackageRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringPackage>> {
+        if (requestParameters.cateringPackageId === null || requestParameters.cateringPackageId === undefined) {
+            throw new runtime.RequiredError('cateringPackageId','Required parameter requestParameters.cateringPackageId was null or undefined when calling getCateringPackage.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringPackage.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackage.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackage.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackage.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idExtension !== undefined) {
@@ -3233,6 +3895,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get catering package by chain
      */
     async getCateringPackageByChainRaw(requestParameters: GetCateringPackageByChainRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringPackage>> {
+        if (requestParameters.cateringPackageId === null || requestParameters.cateringPackageId === undefined) {
+            throw new runtime.RequiredError('cateringPackageId','Required parameter requestParameters.cateringPackageId was null or undefined when calling getCateringPackageByChain.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackageByChain.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackageByChain.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackageByChain.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3301,6 +3979,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Fetch catering packages for a property.
      */
     async getCateringPackagesRaw(requestParameters: GetCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringPackagesInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCateringPackages.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackages.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3348,7 +4042,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.sellDate !== undefined) {
-            queryParameters['sellDate'] = (requestParameters.sellDate as any).toISOString().substr(0,10);
+            queryParameters['sellDate'] = (requestParameters.sellDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDateTime !== undefined) {
@@ -3413,6 +4107,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Fetch catering packages
      */
     async getCateringPackagesMultiPropertiesRaw(requestParameters: GetCateringPackagesMultiPropertiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringPackagesInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringPackagesMultiProperties.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringPackagesMultiProperties.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringPackagesMultiProperties.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -3464,7 +4170,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.sellDate !== undefined) {
-            queryParameters['sellDate'] = (requestParameters.sellDate as any).toISOString().substr(0,10);
+            queryParameters['sellDate'] = (requestParameters.sellDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.startDateTime !== undefined) {
@@ -3529,6 +4235,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get catering servings
      */
     async getCateringServingsRaw(requestParameters: GetCateringServingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CateringServingsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCateringServings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCateringServings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCateringServings.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -3593,6 +4311,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Daily Item Inventory
      */
     async getDailyInventoryItemsRaw(requestParameters: GetDailyInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DailyInventoryItems>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getDailyInventoryItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getDailyInventoryItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getDailyInventoryItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getDailyInventoryItems.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.itemClassCode !== undefined) {
@@ -3632,11 +4366,11 @@ export class ResourceConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3689,6 +4423,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Event Forecasts
      */
     async getEventForecastsRaw(requestParameters: GetEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EventForecastsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getEventForecasts.');
+        }
+
+        if (requestParameters.fetchInstructions === null || requestParameters.fetchInstructions === undefined) {
+            throw new runtime.RequiredError('fetchInstructions','Required parameter requestParameters.fetchInstructions was null or undefined when calling getEventForecasts.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getEventForecasts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getEventForecasts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getEventForecasts.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInstructions) {
@@ -3720,7 +4474,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.eventDate !== undefined) {
-            queryParameters['eventDate'] = (requestParameters.eventDate as any).toISOString().substr(0,10);
+            queryParameters['eventDate'] = (requestParameters.eventDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.blockTypeCodes) {
@@ -3777,6 +4531,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Item Inventory templates
      */
     async getInventoryItemTemplatesRaw(requestParameters: GetInventoryItemTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryItemTemplates>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryItemTemplates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -3833,6 +4599,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Item Inventory
      */
     async getInventoryItemsRaw(requestParameters: GetInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryItems>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getInventoryItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getInventoryItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getInventoryItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getInventoryItems.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.itemClassCode !== undefined) {
@@ -3913,6 +4695,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get item classes
      */
     async getItemClassesRaw(requestParameters: GetItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemClassesInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId) {
@@ -3981,6 +4775,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Item Pools
      */
     async getItemPoolsRaw(requestParameters: GetItemPoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ItemPoolsInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getItemPools.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getItemPools.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getItemPools.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getItemPools.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -4049,6 +4859,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Catering Revenue Groups
      */
     async getRevenueGroupsRaw(requestParameters: GetRevenueGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RevenueGroupsInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueGroups.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.fetchInactive !== undefined) {
@@ -4117,6 +4939,18 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Get Catering Revenue Types
      */
     async getRevenueTypesRaw(requestParameters: GetRevenueTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RevenueTypesInfo>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.revenueGroupCodes) {
@@ -4188,7 +5022,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Menu Item Catering Containers describe how individual menu item are sold (for example, per piece, per dozen, or each) when they are not included in the price of the menu. The description prints on reports such as the Banquet Event Order (BEO) and Proforma Invoice.  This API allows you to create a new Menu Item Catering Container code and description. <p><strong>OperationId:</strong>postCateringContainers</p>
      * Create catering containers
      */
-    async postCateringContainersRaw(requestParameters: PostCateringContainersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCateringContainersRaw(requestParameters: PostCateringContainersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCateringContainers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCateringContainers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCateringContainers.');
+        }
+
+        if (requestParameters.cateringContainers === null || requestParameters.cateringContainers === undefined) {
+            throw new runtime.RequiredError('cateringContainers','Required parameter requestParameters.cateringContainers was null or undefined when calling postCateringContainers.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4220,7 +5070,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringContainersRequestToJSON(requestParameters.cateringContainers),
+            body: CateringContainersToJSON(requestParameters.cateringContainers),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4230,7 +5080,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Menu Item Catering Containers describe how individual menu item are sold (for example, per piece, per dozen, or each) when they are not included in the price of the menu. The description prints on reports such as the Banquet Event Order (BEO) and Proforma Invoice.  This API allows you to create a new Menu Item Catering Container code and description. <p><strong>OperationId:</strong>postCateringContainers</p>
      * Create catering containers
      */
-    async postCateringContainers(requestParameters: PostCateringContainersOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCateringContainers(requestParameters: PostCateringContainersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCateringContainersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4239,7 +5089,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create Catering Item rates <p><strong>OperationId:</strong>postCateringItemRates</p>
      * Create Catering Item rates
      */
-    async postCateringItemRatesRaw(requestParameters: PostCateringItemRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCateringItemRatesRaw(requestParameters: PostCateringItemRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCateringItemRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCateringItemRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCateringItemRates.');
+        }
+
+        if (requestParameters.cateringItemRates === null || requestParameters.cateringItemRates === undefined) {
+            throw new runtime.RequiredError('cateringItemRates','Required parameter requestParameters.cateringItemRates was null or undefined when calling postCateringItemRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4271,7 +5137,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringItemRatesRequestToJSON(requestParameters.cateringItemRates),
+            body: CateringItemRatesToJSON(requestParameters.cateringItemRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4281,7 +5147,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create Catering Item rates <p><strong>OperationId:</strong>postCateringItemRates</p>
      * Create Catering Item rates
      */
-    async postCateringItemRates(requestParameters: PostCateringItemRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCateringItemRates(requestParameters: PostCateringItemRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCateringItemRatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4291,6 +5157,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create menu classes
      */
     async postCateringMenuClassesRaw(requestParameters: PostCateringMenuClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCateringMenuClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCateringMenuClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCateringMenuClasses.');
+        }
+
+        if (requestParameters.cateringMenuClasses === null || requestParameters.cateringMenuClasses === undefined) {
+            throw new runtime.RequiredError('cateringMenuClasses','Required parameter requestParameters.cateringMenuClasses was null or undefined when calling postCateringMenuClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4322,7 +5204,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutCateringMenuClassesRequestToJSON(requestParameters.cateringMenuClasses),
+            body: CateringMenuClassesToJSON(requestParameters.cateringMenuClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4341,7 +5223,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create menu item classes. <p><strong>OperationId:</strong>postCateringMenuItemClasses</p>
      * Create menu item classes
      */
-    async postCateringMenuItemClassesRaw(requestParameters: PostCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCateringMenuItemClassesRaw(requestParameters: PostCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.cateringMenuItemClasses === null || requestParameters.cateringMenuItemClasses === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemClasses','Required parameter requestParameters.cateringMenuItemClasses was null or undefined when calling postCateringMenuItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4373,7 +5271,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringMenuItemClassesRequestToJSON(requestParameters.cateringMenuItemClasses),
+            body: CateringMenuItemClassesToJSON(requestParameters.cateringMenuItemClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4383,7 +5281,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create menu item classes. <p><strong>OperationId:</strong>postCateringMenuItemClasses</p>
      * Create menu item classes
      */
-    async postCateringMenuItemClasses(requestParameters: PostCateringMenuItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCateringMenuItemClasses(requestParameters: PostCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCateringMenuItemClassesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4392,7 +5290,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create menu items. <p><strong>OperationId:</strong>postCateringMenuItems</p>
      * Create menu items
      */
-    async postCateringMenuItemsRaw(requestParameters: PostCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCateringMenuItemsRaw(requestParameters: PostCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCateringMenuItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCateringMenuItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCateringMenuItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCateringMenuItems.');
+        }
+
+        if (requestParameters.cateringMenuItems === null || requestParameters.cateringMenuItems === undefined) {
+            throw new runtime.RequiredError('cateringMenuItems','Required parameter requestParameters.cateringMenuItems was null or undefined when calling postCateringMenuItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4424,7 +5342,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringMenuItemsRequestToJSON(requestParameters.cateringMenuItems),
+            body: CateringMenuItemsToJSON(requestParameters.cateringMenuItems),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4434,7 +5352,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create menu items. <p><strong>OperationId:</strong>postCateringMenuItems</p>
      * Create menu items
      */
-    async postCateringMenuItems(requestParameters: PostCateringMenuItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCateringMenuItems(requestParameters: PostCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCateringMenuItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4443,7 +5361,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create menus for a property. <p><strong>OperationId:</strong>postCateringMenus</p>
      * Create menus
      */
-    async postCateringMenusRaw(requestParameters: PostCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCateringMenusRaw(requestParameters: PostCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCateringMenus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCateringMenus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCateringMenus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCateringMenus.');
+        }
+
+        if (requestParameters.cateringMenus === null || requestParameters.cateringMenus === undefined) {
+            throw new runtime.RequiredError('cateringMenus','Required parameter requestParameters.cateringMenus was null or undefined when calling postCateringMenus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4475,7 +5413,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringMenusRequestToJSON(requestParameters.cateringMenus),
+            body: CateringMenusToJSON(requestParameters.cateringMenus),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4485,7 +5423,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create menus for a property. <p><strong>OperationId:</strong>postCateringMenus</p>
      * Create menus
      */
-    async postCateringMenus(requestParameters: PostCateringMenusOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCateringMenus(requestParameters: PostCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCateringMenusRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4494,7 +5432,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Catering packages and templates are designed to make it easier for you to set up Events. They provide pre-configured resources typically used for Events. Templates and packages are similar except that templates do not include prices. <p><strong>OperationId:</strong>postCateringPackages</p>
      * Create catering packages
      */
-    async postCateringPackagesRaw(requestParameters: PostCateringPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCateringPackagesRaw(requestParameters: PostCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCateringPackages.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCateringPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCateringPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCateringPackages.');
+        }
+
+        if (requestParameters.cateringPackages === null || requestParameters.cateringPackages === undefined) {
+            throw new runtime.RequiredError('cateringPackages','Required parameter requestParameters.cateringPackages was null or undefined when calling postCateringPackages.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4526,7 +5484,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringPackagesRequestToJSON(requestParameters.cateringPackages),
+            body: CateringPackagesToJSON(requestParameters.cateringPackages),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4536,7 +5494,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Catering packages and templates are designed to make it easier for you to set up Events. They provide pre-configured resources typically used for Events. Templates and packages are similar except that templates do not include prices. <p><strong>OperationId:</strong>postCateringPackages</p>
      * Create catering packages
      */
-    async postCateringPackages(requestParameters: PostCateringPackagesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCateringPackages(requestParameters: PostCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCateringPackagesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4546,6 +5504,22 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create event forecasts
      */
     async postEventForecastsRaw(requestParameters: PostEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postEventForecasts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postEventForecasts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postEventForecasts.');
+        }
+
+        if (requestParameters.eventForecasts === null || requestParameters.eventForecasts === undefined) {
+            throw new runtime.RequiredError('eventForecasts','Required parameter requestParameters.eventForecasts was null or undefined when calling postEventForecasts.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4577,7 +5551,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutEventForecastsRequestToJSON(requestParameters.eventForecasts),
+            body: EventForecastsToJSON(requestParameters.eventForecasts),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4596,7 +5570,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create an Item Inventory template. <p><strong>OperationId:</strong>postInventoryItemTemplates</p>
      * Create Item Inventory template
      */
-    async postInventoryItemTemplatesRaw(requestParameters: PostInventoryItemTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postInventoryItemTemplatesRaw(requestParameters: PostInventoryItemTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postInventoryItemTemplates.');
+        }
+
+        if (requestParameters.inventoryItemTemplates === null || requestParameters.inventoryItemTemplates === undefined) {
+            throw new runtime.RequiredError('inventoryItemTemplates','Required parameter requestParameters.inventoryItemTemplates was null or undefined when calling postInventoryItemTemplates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4628,7 +5618,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostInventoryItemTemplatesRequestToJSON(requestParameters.inventoryItemTemplates),
+            body: InventoryItemTemplatesToJSON(requestParameters.inventoryItemTemplates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4638,7 +5628,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Create an Item Inventory template. <p><strong>OperationId:</strong>postInventoryItemTemplates</p>
      * Create Item Inventory template
      */
-    async postInventoryItemTemplates(requestParameters: PostInventoryItemTemplatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postInventoryItemTemplates(requestParameters: PostInventoryItemTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postInventoryItemTemplatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4647,7 +5637,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new Item Inventory Code for a property. <p><strong>OperationId:</strong>postInventoryItems</p>
      * Create an Item Inventory
      */
-    async postInventoryItemsRaw(requestParameters: PostInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryItemsCreated>> {
+    async postInventoryItemsRaw(requestParameters: PostInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InventoryItemsCreated>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postInventoryItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postInventoryItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postInventoryItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postInventoryItems.');
+        }
+
+        if (requestParameters.inventoryItems === null || requestParameters.inventoryItems === undefined) {
+            throw new runtime.RequiredError('inventoryItems','Required parameter requestParameters.inventoryItems was null or undefined when calling postInventoryItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4679,7 +5689,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostInventoryItemsRequestToJSON(requestParameters.inventoryItems),
+            body: InventoryItemsToJSON(requestParameters.inventoryItems),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InventoryItemsCreatedFromJSON(jsonValue));
@@ -4689,7 +5699,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new Item Inventory Code for a property. <p><strong>OperationId:</strong>postInventoryItems</p>
      * Create an Item Inventory
      */
-    async postInventoryItems(requestParameters: PostInventoryItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InventoryItemsCreated> {
+    async postInventoryItems(requestParameters: PostInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InventoryItemsCreated> {
         const response = await this.postInventoryItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4698,7 +5708,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create item classes. <p><strong>OperationId:</strong>postItemClasses</p>
      * Create item classes
      */
-    async postItemClassesRaw(requestParameters: PostItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postItemClassesRaw(requestParameters: PostItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postItemClasses.');
+        }
+
+        if (requestParameters.itemClasses === null || requestParameters.itemClasses === undefined) {
+            throw new runtime.RequiredError('itemClasses','Required parameter requestParameters.itemClasses was null or undefined when calling postItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4730,7 +5756,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostItemClassesRequestToJSON(requestParameters.itemClasses),
+            body: ItemClassesToJSON(requestParameters.itemClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4740,7 +5766,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create item classes. <p><strong>OperationId:</strong>postItemClasses</p>
      * Create item classes
      */
-    async postItemClasses(requestParameters: PostItemClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postItemClasses(requestParameters: PostItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postItemClassesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4749,7 +5775,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can create Item Pools, whereby you are grouping Item Inventories into a group.  For example you might have a Item Pool for a Promotional Package where the guest receives a number of Item Inventories; thus creating a group enables you to easily manage this. <p><strong>OperationId:</strong>postItemPools</p>
      * Create Item Pools
      */
-    async postItemPoolsRaw(requestParameters: PostItemPoolsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postItemPoolsRaw(requestParameters: PostItemPoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postItemPools.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postItemPools.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postItemPools.');
+        }
+
+        if (requestParameters.itemPools === null || requestParameters.itemPools === undefined) {
+            throw new runtime.RequiredError('itemPools','Required parameter requestParameters.itemPools was null or undefined when calling postItemPools.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4781,7 +5823,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostItemPoolsRequestToJSON(requestParameters.itemPools),
+            body: ItemPoolsToJSON(requestParameters.itemPools),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4791,7 +5833,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can create Item Pools, whereby you are grouping Item Inventories into a group.  For example you might have a Item Pool for a Promotional Package where the guest receives a number of Item Inventories; thus creating a group enables you to easily manage this. <p><strong>OperationId:</strong>postItemPools</p>
      * Create Item Pools
      */
-    async postItemPools(requestParameters: PostItemPoolsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postItemPools(requestParameters: PostItemPoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postItemPoolsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4800,7 +5842,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new catering revenue group code. <p><strong>OperationId:</strong>postRevenueGroups</p>
      * Create Catering Revenue Groups
      */
-    async postRevenueGroupsRaw(requestParameters: PostRevenueGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRevenueGroupsRaw(requestParameters: PostRevenueGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRevenueGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRevenueGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRevenueGroups.');
+        }
+
+        if (requestParameters.revenueGroups === null || requestParameters.revenueGroups === undefined) {
+            throw new runtime.RequiredError('revenueGroups','Required parameter requestParameters.revenueGroups was null or undefined when calling postRevenueGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4832,7 +5890,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRevenueGroupsRequestToJSON(requestParameters.revenueGroups),
+            body: RevenueGroupsToJSON(requestParameters.revenueGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4842,7 +5900,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new catering revenue group code. <p><strong>OperationId:</strong>postRevenueGroups</p>
      * Create Catering Revenue Groups
      */
-    async postRevenueGroups(requestParameters: PostRevenueGroupsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRevenueGroups(requestParameters: PostRevenueGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRevenueGroupsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4851,7 +5909,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new Catering Revenue Type code. <p><strong>OperationId:</strong>postRevenueTypes</p>
      * Create Catering Revenue Types
      */
-    async postRevenueTypesRaw(requestParameters: PostRevenueTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRevenueTypesRaw(requestParameters: PostRevenueTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRevenueTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRevenueTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRevenueTypes.');
+        }
+
+        if (requestParameters.revenueTypes === null || requestParameters.revenueTypes === undefined) {
+            throw new runtime.RequiredError('revenueTypes','Required parameter requestParameters.revenueTypes was null or undefined when calling postRevenueTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4883,7 +5957,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRevenueTypesRequestToJSON(requestParameters.revenueTypes),
+            body: RevenueTypesToJSON(requestParameters.revenueTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4893,7 +5967,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * You can use this API to create a new Catering Revenue Type code. <p><strong>OperationId:</strong>postRevenueTypes</p>
      * Create Catering Revenue Types
      */
-    async postRevenueTypes(requestParameters: PostRevenueTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRevenueTypes(requestParameters: PostRevenueTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRevenueTypesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -4903,6 +5977,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Change catering containers
      */
     async putCateringContainersRaw(requestParameters: PutCateringContainersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringContainersCode === null || requestParameters.cateringContainersCode === undefined) {
+            throw new runtime.RequiredError('cateringContainersCode','Required parameter requestParameters.cateringContainersCode was null or undefined when calling putCateringContainers.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringContainers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringContainers.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringContainers.');
+        }
+
+        if (requestParameters.cateringContainers === null || requestParameters.cateringContainers === undefined) {
+            throw new runtime.RequiredError('cateringContainers','Required parameter requestParameters.cateringContainers was null or undefined when calling putCateringContainers.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4934,7 +6028,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringContainersRequestToJSON(requestParameters.cateringContainers),
+            body: CateringContainersToJSON(requestParameters.cateringContainers),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -4954,6 +6048,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Change catering item rates
      */
     async putCateringItemRatesRaw(requestParameters: PutCateringItemRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringItemRatesCode === null || requestParameters.cateringItemRatesCode === undefined) {
+            throw new runtime.RequiredError('cateringItemRatesCode','Required parameter requestParameters.cateringItemRatesCode was null or undefined when calling putCateringItemRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringItemRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringItemRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringItemRates.');
+        }
+
+        if (requestParameters.cateringItemRates === null || requestParameters.cateringItemRates === undefined) {
+            throw new runtime.RequiredError('cateringItemRates','Required parameter requestParameters.cateringItemRates was null or undefined when calling putCateringItemRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4985,7 +6099,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringItemRatesRequestToJSON(requestParameters.cateringItemRates),
+            body: CateringItemRatesToJSON(requestParameters.cateringItemRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5004,7 +6118,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update catering menu classes <p><strong>OperationId:</strong>putCateringMenuClasses</p>
      * Update catering menu classes
      */
-    async putCateringMenuClassesRaw(requestParameters: PutCateringMenuClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putCateringMenuClassesRaw(requestParameters: PutCateringMenuClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringMenuClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringMenuClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringMenuClasses.');
+        }
+
+        if (requestParameters.cateringMenuClasses === null || requestParameters.cateringMenuClasses === undefined) {
+            throw new runtime.RequiredError('cateringMenuClasses','Required parameter requestParameters.cateringMenuClasses was null or undefined when calling putCateringMenuClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5036,7 +6166,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutCateringMenuClassesRequestToJSON(requestParameters.cateringMenuClasses),
+            body: CateringMenuClassesToJSON(requestParameters.cateringMenuClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5046,7 +6176,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update catering menu classes <p><strong>OperationId:</strong>putCateringMenuClasses</p>
      * Update catering menu classes
      */
-    async putCateringMenuClasses(requestParameters: PutCateringMenuClassesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putCateringMenuClasses(requestParameters: PutCateringMenuClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putCateringMenuClassesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5056,6 +6186,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update menu item classes
      */
     async putCateringMenuItemClassesRaw(requestParameters: PutCateringMenuItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuItemClassesCode === null || requestParameters.cateringMenuItemClassesCode === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemClassesCode','Required parameter requestParameters.cateringMenuItemClassesCode was null or undefined when calling putCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringMenuItemClasses.');
+        }
+
+        if (requestParameters.cateringMenuItemClasses === null || requestParameters.cateringMenuItemClasses === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemClasses','Required parameter requestParameters.cateringMenuItemClasses was null or undefined when calling putCateringMenuItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5087,7 +6237,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringMenuItemClassesRequestToJSON(requestParameters.cateringMenuItemClasses),
+            body: CateringMenuItemClassesToJSON(requestParameters.cateringMenuItemClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5107,6 +6257,30 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update menu items
      */
     async putCateringMenuItemsRaw(requestParameters: PutCateringMenuItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuItemId === null || requestParameters.cateringMenuItemId === undefined) {
+            throw new runtime.RequiredError('cateringMenuItemId','Required parameter requestParameters.cateringMenuItemId was null or undefined when calling putCateringMenuItems.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCateringMenuItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringMenuItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringMenuItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringMenuItems.');
+        }
+
+        if (requestParameters.cateringMenuItems === null || requestParameters.cateringMenuItems === undefined) {
+            throw new runtime.RequiredError('cateringMenuItems','Required parameter requestParameters.cateringMenuItems was null or undefined when calling putCateringMenuItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5138,7 +6312,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringMenuItemsRequestToJSON(requestParameters.cateringMenuItems),
+            body: CateringMenuItemsToJSON(requestParameters.cateringMenuItems),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5158,6 +6332,30 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Operation to change catering menus.
      */
     async putCateringMenusRaw(requestParameters: PutCateringMenusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringMenuId === null || requestParameters.cateringMenuId === undefined) {
+            throw new runtime.RequiredError('cateringMenuId','Required parameter requestParameters.cateringMenuId was null or undefined when calling putCateringMenus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCateringMenus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringMenus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringMenus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringMenus.');
+        }
+
+        if (requestParameters.cateringMenus === null || requestParameters.cateringMenus === undefined) {
+            throw new runtime.RequiredError('cateringMenus','Required parameter requestParameters.cateringMenus was null or undefined when calling putCateringMenus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5189,7 +6387,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringMenusRequestToJSON(requestParameters.cateringMenus),
+            body: CateringMenusToJSON(requestParameters.cateringMenus),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5209,6 +6407,30 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update Catering packages
      */
     async putCateringPackagesRaw(requestParameters: PutCateringPackagesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringPackageId === null || requestParameters.cateringPackageId === undefined) {
+            throw new runtime.RequiredError('cateringPackageId','Required parameter requestParameters.cateringPackageId was null or undefined when calling putCateringPackages.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCateringPackages.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringPackages.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringPackages.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringPackages.');
+        }
+
+        if (requestParameters.cateringPackages === null || requestParameters.cateringPackages === undefined) {
+            throw new runtime.RequiredError('cateringPackages','Required parameter requestParameters.cateringPackages was null or undefined when calling putCateringPackages.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5240,7 +6462,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCateringPackagesRequestToJSON(requestParameters.cateringPackages),
+            body: CateringPackagesToJSON(requestParameters.cateringPackages),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5259,7 +6481,27 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update catering servings <p><strong>OperationId:</strong>putCateringServings</p>
      * Update catering servings
      */
-    async putCateringServingsRaw(requestParameters: PutCateringServingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putCateringServingsRaw(requestParameters: PutCateringServingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.cateringServingsCode === null || requestParameters.cateringServingsCode === undefined) {
+            throw new runtime.RequiredError('cateringServingsCode','Required parameter requestParameters.cateringServingsCode was null or undefined when calling putCateringServings.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCateringServings.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCateringServings.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCateringServings.');
+        }
+
+        if (requestParameters.cateringServings === null || requestParameters.cateringServings === undefined) {
+            throw new runtime.RequiredError('cateringServings','Required parameter requestParameters.cateringServings was null or undefined when calling putCateringServings.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5291,7 +6533,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutCateringServingsRequestToJSON(requestParameters.cateringServings),
+            body: CateringServingsToJSON(requestParameters.cateringServings),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5301,7 +6543,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update catering servings <p><strong>OperationId:</strong>putCateringServings</p>
      * Update catering servings
      */
-    async putCateringServings(requestParameters: PutCateringServingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putCateringServings(requestParameters: PutCateringServingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putCateringServingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5310,7 +6552,23 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * This API will allow you to update an Event Forecast for a property. <p><strong>OperationId:</strong>putEventForecasts</p>
      * Update Event forecasts
      */
-    async putEventForecastsRaw(requestParameters: PutEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async putEventForecastsRaw(requestParameters: PutEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putEventForecasts.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putEventForecasts.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putEventForecasts.');
+        }
+
+        if (requestParameters.eventForecasts === null || requestParameters.eventForecasts === undefined) {
+            throw new runtime.RequiredError('eventForecasts','Required parameter requestParameters.eventForecasts was null or undefined when calling putEventForecasts.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5342,7 +6600,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutEventForecastsRequestToJSON(requestParameters.eventForecasts),
+            body: EventForecastsToJSON(requestParameters.eventForecasts),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5352,7 +6610,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * This API will allow you to update an Event Forecast for a property. <p><strong>OperationId:</strong>putEventForecasts</p>
      * Update Event forecasts
      */
-    async putEventForecasts(requestParameters: PutEventForecastsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async putEventForecasts(requestParameters: PutEventForecastsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.putEventForecastsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -5362,6 +6620,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Change Item Inventory templates
      */
     async putInventoryItemTemplatesRaw(requestParameters: PutInventoryItemTemplatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.inventoryItemId === null || requestParameters.inventoryItemId === undefined) {
+            throw new runtime.RequiredError('inventoryItemId','Required parameter requestParameters.inventoryItemId was null or undefined when calling putInventoryItemTemplates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putInventoryItemTemplates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putInventoryItemTemplates.');
+        }
+
+        if (requestParameters.inventoryItemTemplates === null || requestParameters.inventoryItemTemplates === undefined) {
+            throw new runtime.RequiredError('inventoryItemTemplates','Required parameter requestParameters.inventoryItemTemplates was null or undefined when calling putInventoryItemTemplates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5393,7 +6671,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostInventoryItemTemplatesRequestToJSON(requestParameters.inventoryItemTemplates),
+            body: InventoryItemTemplatesToJSON(requestParameters.inventoryItemTemplates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5413,6 +6691,30 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update Item Inventory
      */
     async putInventoryItemsRaw(requestParameters: PutInventoryItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.inventoryItemId === null || requestParameters.inventoryItemId === undefined) {
+            throw new runtime.RequiredError('inventoryItemId','Required parameter requestParameters.inventoryItemId was null or undefined when calling putInventoryItems.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putInventoryItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putInventoryItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putInventoryItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putInventoryItems.');
+        }
+
+        if (requestParameters.inventoryItems === null || requestParameters.inventoryItems === undefined) {
+            throw new runtime.RequiredError('inventoryItems','Required parameter requestParameters.inventoryItems was null or undefined when calling putInventoryItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5444,7 +6746,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostInventoryItemsRequestToJSON(requestParameters.inventoryItems),
+            body: InventoryItemsToJSON(requestParameters.inventoryItems),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5464,6 +6766,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update item classes
      */
     async putItemClassesRaw(requestParameters: PutItemClassesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.itemClassesCode === null || requestParameters.itemClassesCode === undefined) {
+            throw new runtime.RequiredError('itemClassesCode','Required parameter requestParameters.itemClassesCode was null or undefined when calling putItemClasses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putItemClasses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putItemClasses.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putItemClasses.');
+        }
+
+        if (requestParameters.itemClasses === null || requestParameters.itemClasses === undefined) {
+            throw new runtime.RequiredError('itemClasses','Required parameter requestParameters.itemClasses was null or undefined when calling putItemClasses.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5495,7 +6817,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostItemClassesRequestToJSON(requestParameters.itemClasses),
+            body: ItemClassesToJSON(requestParameters.itemClasses),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5515,6 +6837,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Change Item Pools
      */
     async putItemPoolsRaw(requestParameters: PutItemPoolsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.itemPoolsCode === null || requestParameters.itemPoolsCode === undefined) {
+            throw new runtime.RequiredError('itemPoolsCode','Required parameter requestParameters.itemPoolsCode was null or undefined when calling putItemPools.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putItemPools.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putItemPools.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putItemPools.');
+        }
+
+        if (requestParameters.itemPools === null || requestParameters.itemPools === undefined) {
+            throw new runtime.RequiredError('itemPools','Required parameter requestParameters.itemPools was null or undefined when calling putItemPools.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5546,7 +6888,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostItemPoolsRequestToJSON(requestParameters.itemPools),
+            body: ItemPoolsToJSON(requestParameters.itemPools),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5566,6 +6908,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update Catering Revenue Groups
      */
     async putRevenueGroupsRaw(requestParameters: PutRevenueGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.revenueGroupsCode === null || requestParameters.revenueGroupsCode === undefined) {
+            throw new runtime.RequiredError('revenueGroupsCode','Required parameter requestParameters.revenueGroupsCode was null or undefined when calling putRevenueGroups.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRevenueGroups.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRevenueGroups.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRevenueGroups.');
+        }
+
+        if (requestParameters.revenueGroups === null || requestParameters.revenueGroups === undefined) {
+            throw new runtime.RequiredError('revenueGroups','Required parameter requestParameters.revenueGroups was null or undefined when calling putRevenueGroups.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5597,7 +6959,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRevenueGroupsRequestToJSON(requestParameters.revenueGroups),
+            body: RevenueGroupsToJSON(requestParameters.revenueGroups),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -5617,6 +6979,26 @@ export class ResourceConfigApi extends runtime.BaseAPI {
      * Update Catering Revenue Types
      */
     async putRevenueTypesRaw(requestParameters: PutRevenueTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.revenueTypesId === null || requestParameters.revenueTypesId === undefined) {
+            throw new runtime.RequiredError('revenueTypesId','Required parameter requestParameters.revenueTypesId was null or undefined when calling putRevenueTypes.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putRevenueTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putRevenueTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putRevenueTypes.');
+        }
+
+        if (requestParameters.revenueTypes === null || requestParameters.revenueTypes === undefined) {
+            throw new runtime.RequiredError('revenueTypes','Required parameter requestParameters.revenueTypes was null or undefined when calling putRevenueTypes.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -5648,7 +7030,7 @@ export class ResourceConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRevenueTypesRequestToJSON(requestParameters.revenueTypes),
+            body: RevenueTypesToJSON(requestParameters.revenueTypes),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));

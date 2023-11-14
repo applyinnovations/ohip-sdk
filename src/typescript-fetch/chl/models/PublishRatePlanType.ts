@@ -107,10 +107,10 @@ export function PublishRatePlanTypeToJSON(value?: PublishRatePlanType | null): a
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'channel': value.channel,
         'channelCodes': PublishRatePlanTypeChannelCodesToJSON(value.channelCodes),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'hotelCodes': PublishRatePlanTypeHotelCodesToJSON(value.hotelCodes),
         'hotelId': value.hotelId,
     };

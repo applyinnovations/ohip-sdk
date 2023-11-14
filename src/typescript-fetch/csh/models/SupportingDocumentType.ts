@@ -145,7 +145,7 @@ export function SupportingDocumentTypeToJSON(value?: SupportingDocumentType | nu
         'confirmationNo': value.confirmationNo,
         'createDateTime': value.createDateTime,
         'documentCategory': FiscalSupportingDocumentCategoryToJSON(value.documentCategory),
-        'documentDate': value.documentDate === undefined ? undefined : (value.documentDate.toISOString().substr(0,10)),
+        'documentDate': value.documentDate === undefined ? undefined : (value.documentDate.toISOString().substring(0,10)),
         'documentNo': value.documentNo,
         'documentType': FiscalSupportingDocumentTypeToJSON(value.documentType),
         'fiscalStatus': value.fiscalStatus,

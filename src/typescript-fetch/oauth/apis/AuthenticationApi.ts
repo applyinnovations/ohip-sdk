@@ -16,11 +16,11 @@
 import * as runtime from '../runtime';
 import type {
   OAuth2TokenResponse,
-} from '../models';
+} from '../models/index';
 import {
     OAuth2TokenResponseFromJSON,
     OAuth2TokenResponseToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetTokenRequest {
     xAppKey: string;

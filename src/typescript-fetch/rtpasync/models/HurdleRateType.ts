@@ -139,7 +139,7 @@ export function HurdleRateTypeToJSON(value?: HurdleRateType | null): any {
         'ceiling': value.ceiling,
         'delta': value.delta,
         'hurdle': value.hurdle,
-        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substr(0,10)),
+        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substring(0,10)),
         'lengthOfStay': value.lengthOfStay,
         'maximumSolds': value.maximumSolds,
         'override': value.override,

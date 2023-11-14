@@ -195,13 +195,13 @@ export function BlockAllocationRangeTypeToJSON(value?: BlockAllocationRangeType 
     return {
         
         'allocationType': AllocationTypeToJSON(value.allocationType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substr(0,10)),
+        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
         'blockId': BlockIdToJSON(value.blockId),
         'blockInventory': BlockGridInvTypeToJSON(value.blockInventory),
         'blockRates': BlockGridRatesTypeToJSON(value.blockRates),
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substr(0,10)),
+        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
         'cutoffDays': value.cutoffDays,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0,10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
         'genericRoomType': value.genericRoomType,
         'hotelId': value.hotelId,
         'includedDays': value.includedDays,

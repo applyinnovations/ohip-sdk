@@ -57,8 +57,8 @@ function BusinessEventDetailTypeToJSON(value) {
         'elementType': value.elementType,
         'newValue': value.newValue,
         'oldValue': value.oldValue,
-        'scopeFrom': value.scopeFrom === undefined ? undefined : (value.scopeFrom.toISOString().substr(0, 10)),
-        'scopeTo': value.scopeTo === undefined ? undefined : (value.scopeTo.toISOString().substr(0, 10)),
+        'scopeFrom': value.scopeFrom === undefined ? undefined : (value.scopeFrom.toISOString().substring(0, 10)),
+        'scopeTo': value.scopeTo === undefined ? undefined : (value.scopeTo.toISOString().substring(0, 10)),
     };
 }
 exports.BusinessEventDetailTypeToJSON = BusinessEventDetailTypeToJSON;

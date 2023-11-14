@@ -97,7 +97,7 @@ export function GamingRequestStatusTypeToJSON(value?: GamingRequestStatusType | 
         'hotelId': value.hotelId,
         'messageId': value.messageId,
         'messageText': value.messageText,
-        'requestDate': value.requestDate === undefined ? undefined : (value.requestDate.toISOString().substr(0,10)),
+        'requestDate': value.requestDate === undefined ? undefined : (value.requestDate.toISOString().substring(0,10)),
         'status': value.status,
         'statusCode': value.statusCode,
     };

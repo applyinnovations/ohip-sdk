@@ -104,7 +104,7 @@ export function RoomAllocationInfoTypeToJSON(value?: RoomAllocationInfoType | nu
         'extendedStay': value.extendedStay,
         'roomGridDetails': value.roomGridDetails === undefined ? undefined : ((value.roomGridDetails as Array<any>).map(RoomGridDetailsTypeToJSON)),
         'roomGridInvSummary': value.roomGridInvSummary === undefined ? undefined : ((value.roomGridInvSummary as Array<any>).map(BlockGridInvTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0,10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
     };
 }
 

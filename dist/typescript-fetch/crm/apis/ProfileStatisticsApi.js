@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetProfileStatisticsContactProfileRoleTypeEnum = exports.GetProfileStatisticsReportTypeEnum = exports.ProfileStatisticsApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,24 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
      */
     getProfileMembershipStatisticsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling getProfileMembershipStatistics.');
+            }
+            if (requestParameters.membershipCardNo === null || requestParameters.membershipCardNo === undefined) {
+                throw new runtime.RequiredError('membershipCardNo', 'Required parameter requestParameters.membershipCardNo was null or undefined when calling getProfileMembershipStatistics.');
+            }
+            if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
+                throw new runtime.RequiredError('membershipType', 'Required parameter requestParameters.membershipType was null or undefined when calling getProfileMembershipStatistics.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileMembershipStatistics.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileMembershipStatistics.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileMembershipStatistics.');
+            }
             const queryParameters = {};
             if (requestParameters.profileId) {
                 queryParameters['profileId'] = requestParameters.profileId;
@@ -69,10 +87,10 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
                 queryParameters['membershipType'] = requestParameters.membershipType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -102,7 +120,7 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ProfileMembershipStatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ProfileMembershipStatisticsFromJSON)(jsonValue));
         });
     }
     /**
@@ -121,6 +139,24 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
      */
     getProfileStatisticsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+                throw new runtime.RequiredError('profileId', 'Required parameter requestParameters.profileId was null or undefined when calling getProfileStatistics.');
+            }
+            if (requestParameters.hotelIds === null || requestParameters.hotelIds === undefined) {
+                throw new runtime.RequiredError('hotelIds', 'Required parameter requestParameters.hotelIds was null or undefined when calling getProfileStatistics.');
+            }
+            if (requestParameters.reportType === null || requestParameters.reportType === undefined) {
+                throw new runtime.RequiredError('reportType', 'Required parameter requestParameters.reportType was null or undefined when calling getProfileStatistics.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getProfileStatistics.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getProfileStatistics.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getProfileStatistics.');
+            }
             const queryParameters = {};
             if (requestParameters.profileId) {
                 queryParameters['profileId'] = requestParameters.profileId;
@@ -132,10 +168,10 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
                 queryParameters['reportType'] = requestParameters.reportType;
             }
             if (requestParameters.stayFrom !== undefined) {
-                queryParameters['stayFrom'] = requestParameters.stayFrom.toISOString().substr(0, 10);
+                queryParameters['stayFrom'] = requestParameters.stayFrom.toISOString().substring(0, 10);
             }
             if (requestParameters.stayTo !== undefined) {
-                queryParameters['stayTo'] = requestParameters.stayTo.toISOString().substr(0, 10);
+                queryParameters['stayTo'] = requestParameters.stayTo.toISOString().substring(0, 10);
             }
             if (requestParameters.summary !== undefined) {
                 queryParameters['summary'] = requestParameters.summary;
@@ -186,7 +222,7 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ProfileStatisticsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ProfileStatisticsFromJSON)(jsonValue));
         });
     }
     /**

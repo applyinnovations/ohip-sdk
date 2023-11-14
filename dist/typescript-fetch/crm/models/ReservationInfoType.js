@@ -146,7 +146,7 @@ function ReservationInfoTypeToJSON(value) {
         'keyCount': value.keyCount,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substr(0, 10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0, 10)),
         'mobileNotifications': (0, ResMobileNotificationsType_1.ResMobileNotificationsTypeToJSON)(value.mobileNotifications),
         'openFolio': value.openFolio,
         'optedForCommunication': value.optedForCommunication,

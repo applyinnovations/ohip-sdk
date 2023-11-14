@@ -53,7 +53,7 @@ function AdvanceRoomChargesCriteriaTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'endDateToCharge': value.endDateToCharge === undefined ? undefined : (value.endDateToCharge.toISOString().substr(0, 10)),
+        'endDateToCharge': value.endDateToCharge === undefined ? undefined : (value.endDateToCharge.toISOString().substring(0, 10)),
         'eventType': (0, CashieringEventType_1.CashieringEventTypeToJSON)(value.eventType),
         'hotelId': value.hotelId,
         'postForEntireStay': value.postForEntireStay,

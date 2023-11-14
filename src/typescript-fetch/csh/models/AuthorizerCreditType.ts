@@ -150,7 +150,7 @@ export function AuthorizerCreditTypeToJSON(value?: AuthorizerCreditType | null):
         'creditLimit': CurrencyAmountTypeToJSON(value.creditLimit),
         'hotelId': value.hotelId,
         'inheritAuthorizerRateCode': value.inheritAuthorizerRateCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substr(0,10)),
+        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
     };
 }
 

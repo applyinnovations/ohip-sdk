@@ -49,7 +49,7 @@ function DailyRatePlanScheduleTypeToJSON(value) {
     }
     return {
         'rateAmounts': (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeToJSON)(value.rateAmounts),
-        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substr(0, 10)),
+        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0, 10)),
         'ratePlanCode': value.ratePlanCode,
         'roomType': value.roomType,
     };

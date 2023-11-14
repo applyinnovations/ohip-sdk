@@ -49,8 +49,8 @@ function HSKStatSetTypeToJSON(value) {
     }
     return {
         'code': value.code,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
         'stat': value.stat === undefined ? undefined : (value.stat.map(HSKStatType_1.HSKStatTypeToJSON)),
     };
 }

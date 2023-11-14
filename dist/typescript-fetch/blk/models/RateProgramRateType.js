@@ -57,7 +57,7 @@ function RateProgramRateTypeToJSON(value) {
     }
     return {
         'commissionable': value.commissionable,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'mobileCheckout': value.mobileCheckout,
         'primary': value.primary,
         'rateAmounts': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.rateAmounts),
@@ -65,7 +65,7 @@ function RateProgramRateTypeToJSON(value) {
         'rateMarketCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.rateMarketCode),
         'roomTypes': (0, RateProgramRoomType_1.RateProgramRoomTypeToJSON)(value.roomTypes),
         'sequence': value.sequence,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.RateProgramRateTypeToJSON = RateProgramRateTypeToJSON;

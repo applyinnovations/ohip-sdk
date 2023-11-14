@@ -20,7 +20,7 @@ import type {
   RevenueInventoryStatisticsSearchType,
   SellLimitByDateStatus,
   SellLimitsByDate,
-} from '../models';
+} from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
@@ -32,65 +32,65 @@ import {
     SellLimitByDateStatusToJSON,
     SellLimitsByDateFromJSON,
     SellLimitsByDateToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetRevenueInventoryStatisticsRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface GetRevenueInventoryStatisticsProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface GetSellLimitsRequest {
-    requestId?: string;
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface GetSellLimitsProcessStatusRequest {
-    requestId?: string;
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    requestId: string;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     acceptLanguage?: string;
 }
 
 export interface PostSellLimitsProcessRequest {
-    hotelId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sellLimitsByDate?: SellLimitsByDate;
+    hotelId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sellLimitsByDate: SellLimitsByDate;
     acceptLanguage?: string;
 }
 
 export interface StartRevenueInventoryStatisticsProcessRequest {
-    extSystemCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    criteria?: RevenueInventoryStatisticsSearchType;
+    extSystemCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    criteria: RevenueInventoryStatisticsSearchType;
     acceptLanguage?: string;
 }
 
@@ -104,6 +104,30 @@ export class InventoryAsyncApi extends runtime.BaseAPI {
      * Get results of a revenue inventory statistics process
      */
     async getRevenueInventoryStatisticsRaw(requestParameters: GetRevenueInventoryStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RevenueInventoryStatisticsDetails>> {
+        if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+            throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getRevenueInventoryStatistics.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getRevenueInventoryStatistics.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRevenueInventoryStatistics.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueInventoryStatistics.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueInventoryStatistics.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueInventoryStatistics.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -148,6 +172,30 @@ export class InventoryAsyncApi extends runtime.BaseAPI {
      * Check status of Inventory Revenue Statistic process
      */
     async getRevenueInventoryStatisticsProcessStatusRaw(requestParameters: GetRevenueInventoryStatisticsProcessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+            throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getRevenueInventoryStatisticsProcessStatus.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getRevenueInventoryStatisticsProcessStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRevenueInventoryStatisticsProcessStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRevenueInventoryStatisticsProcessStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRevenueInventoryStatisticsProcessStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRevenueInventoryStatisticsProcessStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -191,6 +239,30 @@ export class InventoryAsyncApi extends runtime.BaseAPI {
      * Get status for sell limits for a property.
      */
     async getSellLimitsRaw(requestParameters: GetSellLimitsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SellLimitByDateStatus>> {
+        if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+            throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getSellLimits.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSellLimits.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getSellLimits.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSellLimits.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSellLimits.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSellLimits.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -235,6 +307,30 @@ export class InventoryAsyncApi extends runtime.BaseAPI {
      * Get the status for sell limits asynchronous process
      */
     async getSellLimitsProcessStatusRaw(requestParameters: GetSellLimitsProcessStatusRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+            throw new runtime.RequiredError('requestId','Required parameter requestParameters.requestId was null or undefined when calling getSellLimitsProcessStatus.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getSellLimitsProcessStatus.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getSellLimitsProcessStatus.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getSellLimitsProcessStatus.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getSellLimitsProcessStatus.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getSellLimitsProcessStatus.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -278,6 +374,30 @@ export class InventoryAsyncApi extends runtime.BaseAPI {
      * Create sell limit by date.
      */
     async postSellLimitsProcessRaw(requestParameters: PostSellLimitsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postSellLimitsProcess.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling postSellLimitsProcess.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postSellLimitsProcess.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postSellLimitsProcess.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postSellLimitsProcess.');
+        }
+
+        if (requestParameters.sellLimitsByDate === null || requestParameters.sellLimitsByDate === undefined) {
+            throw new runtime.RequiredError('sellLimitsByDate','Required parameter requestParameters.sellLimitsByDate was null or undefined when calling postSellLimitsProcess.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -324,6 +444,30 @@ export class InventoryAsyncApi extends runtime.BaseAPI {
      * Start process to get hotel inventory revenue statistics
      */
     async startRevenueInventoryStatisticsProcessRaw(requestParameters: StartRevenueInventoryStatisticsProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling startRevenueInventoryStatisticsProcess.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling startRevenueInventoryStatisticsProcess.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling startRevenueInventoryStatisticsProcess.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling startRevenueInventoryStatisticsProcess.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling startRevenueInventoryStatisticsProcess.');
+        }
+
+        if (requestParameters.criteria === null || requestParameters.criteria === undefined) {
+            throw new runtime.RequiredError('criteria','Required parameter requestParameters.criteria was null or undefined when calling startRevenueInventoryStatisticsProcess.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

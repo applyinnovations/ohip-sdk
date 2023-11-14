@@ -71,7 +71,7 @@ function UpsellInfoTypeUpsellInfoToJSON(value) {
         'totalUpsellCharge': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalUpsellCharge),
         'totalUpsellMoneyAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalUpsellMoneyAmount),
         'totalUpsellPoints': value.totalUpsellPoints,
-        'upsellDate': value.upsellDate === undefined ? undefined : (value.upsellDate.toISOString().substr(0, 10)),
+        'upsellDate': value.upsellDate === undefined ? undefined : (value.upsellDate.toISOString().substring(0, 10)),
         'upsellUser': value.upsellUser,
     };
 }

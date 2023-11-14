@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RatePlanAsyncApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getBestAvailableRatePlansRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getBestAvailableRatePlans.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getBestAvailableRatePlans.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getBestAvailableRatePlans.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getBestAvailableRatePlans.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getBestAvailableRatePlans.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getBestAvailableRatePlans.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -78,7 +96,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.BestAvailableRatePlansStatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BestAvailableRatePlansStatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -97,6 +115,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getBestAvailableRatePlansProcessStatusRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getBestAvailableRatePlansProcessStatus.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getBestAvailableRatePlansProcessStatus.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getBestAvailableRatePlansProcessStatus.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getBestAvailableRatePlansProcessStatus.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getBestAvailableRatePlansProcessStatus.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getBestAvailableRatePlansProcessStatus.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -135,6 +171,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getDailyRatePlanSchedulesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getDailyRatePlanSchedules.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getDailyRatePlanSchedules.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getDailyRatePlanSchedules.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getDailyRatePlanSchedules.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getDailyRatePlanSchedules.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getDailyRatePlanSchedules.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -155,7 +209,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.DailyRatePlanSchedulesStatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.DailyRatePlanSchedulesStatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -174,6 +228,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getDailyRatePlanSchedulesProcessStatusRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getDailyRatePlanSchedulesProcessStatus.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getDailyRatePlanSchedulesProcessStatus.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getDailyRatePlanSchedulesProcessStatus.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getDailyRatePlanSchedulesProcessStatus.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getDailyRatePlanSchedulesProcessStatus.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getDailyRatePlanSchedulesProcessStatus.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -212,6 +284,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getHurdleRatesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getHurdleRates.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getHurdleRates.');
+            }
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getHurdleRates.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getHurdleRates.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getHurdleRates.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getHurdleRates.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -232,7 +322,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.HurdleRatesStatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.HurdleRatesStatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -251,6 +341,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getHurdleRatesProcessStatusRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getHurdleRatesProcessStatus.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getHurdleRatesProcessStatus.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getHurdleRatesProcessStatus.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getHurdleRatesProcessStatus.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getHurdleRatesProcessStatus.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getHurdleRatesProcessStatus.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -289,6 +397,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getRatePlansHeadersRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getRatePlansHeaders.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getRatePlansHeaders.');
+            }
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getRatePlansHeaders.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRatePlansHeaders.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlansHeaders.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlansHeaders.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -309,7 +435,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.HurdleRatesStatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.HurdleRatesStatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -328,6 +454,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     getRatePlansHeadersProcessStatusRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.requestId === null || requestParameters.requestId === undefined) {
+                throw new runtime.RequiredError('requestId', 'Required parameter requestParameters.requestId was null or undefined when calling getRatePlansHeadersProcessStatus.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling getRatePlansHeadersProcessStatus.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getRatePlansHeadersProcessStatus.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getRatePlansHeadersProcessStatus.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getRatePlansHeadersProcessStatus.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getRatePlansHeadersProcessStatus.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -366,6 +510,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     startHurdleRatesProcessRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling startHurdleRatesProcess.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling startHurdleRatesProcess.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling startHurdleRatesProcess.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling startHurdleRatesProcess.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling startHurdleRatesProcess.');
+            }
+            if (requestParameters.hurdleRates === null || requestParameters.hurdleRates === undefined) {
+                throw new runtime.RequiredError('hurdleRates', 'Required parameter requestParameters.hurdleRates was null or undefined when calling startHurdleRatesProcess.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -386,7 +548,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.HurdleRatesToJSON)(requestParameters.hurdleRates),
+                body: (0, index_1.HurdleRatesToJSON)(requestParameters.hurdleRates),
             }, initOverrides);
             return new runtime.VoidApiResponse(response);
         });
@@ -406,6 +568,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     startSetBestAvailableRatePlansProcessRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling startSetBestAvailableRatePlansProcess.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling startSetBestAvailableRatePlansProcess.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling startSetBestAvailableRatePlansProcess.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling startSetBestAvailableRatePlansProcess.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling startSetBestAvailableRatePlansProcess.');
+            }
+            if (requestParameters.bestAvailableRatePlans === null || requestParameters.bestAvailableRatePlans === undefined) {
+                throw new runtime.RequiredError('bestAvailableRatePlans', 'Required parameter requestParameters.bestAvailableRatePlans was null or undefined when calling startSetBestAvailableRatePlansProcess.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -426,7 +606,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.BestAvailableRatePlansToJSON)(requestParameters.bestAvailableRatePlans),
+                body: (0, index_1.BestAvailableRatePlansToJSON)(requestParameters.bestAvailableRatePlans),
             }, initOverrides);
             return new runtime.VoidApiResponse(response);
         });
@@ -446,6 +626,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     startSetDailyRatePlanSchedulesProcessRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling startSetDailyRatePlanSchedulesProcess.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling startSetDailyRatePlanSchedulesProcess.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling startSetDailyRatePlanSchedulesProcess.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling startSetDailyRatePlanSchedulesProcess.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling startSetDailyRatePlanSchedulesProcess.');
+            }
+            if (requestParameters.dailyRatePlanSchedules === null || requestParameters.dailyRatePlanSchedules === undefined) {
+                throw new runtime.RequiredError('dailyRatePlanSchedules', 'Required parameter requestParameters.dailyRatePlanSchedules was null or undefined when calling startSetDailyRatePlanSchedulesProcess.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -466,7 +664,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.DailyRatePlanSchedulesToJSON)(requestParameters.dailyRatePlanSchedules),
+                body: (0, index_1.DailyRatePlanSchedulesToJSON)(requestParameters.dailyRatePlanSchedules),
             }, initOverrides);
             return new runtime.VoidApiResponse(response);
         });
@@ -486,6 +684,24 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
      */
     startSetRatePlansHeadersProcessRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling startSetRatePlansHeadersProcess.');
+            }
+            if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+                throw new runtime.RequiredError('extSystemCode', 'Required parameter requestParameters.extSystemCode was null or undefined when calling startSetRatePlansHeadersProcess.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling startSetRatePlansHeadersProcess.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling startSetRatePlansHeadersProcess.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling startSetRatePlansHeadersProcess.');
+            }
+            if (requestParameters.ratePlan === null || requestParameters.ratePlan === undefined) {
+                throw new runtime.RequiredError('ratePlan', 'Required parameter requestParameters.ratePlan was null or undefined when calling startSetRatePlansHeadersProcess.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -506,7 +722,7 @@ class RatePlanAsyncApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.StartSetRatePlansHeadersProcessRequestToJSON)(requestParameters.ratePlan),
+                body: (0, index_1.RatePlansToJSON)(requestParameters.ratePlan),
             }, initOverrides);
             return new runtime.VoidApiResponse(response);
         });

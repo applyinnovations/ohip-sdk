@@ -18,7 +18,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable */
 __exportStar(require("./ActivityLogListType"), exports);
 __exportStar(require("./ActivityLogType"), exports);
-__exportStar(require("./ChangeExportSchedulesByChainRequest"), exports);
 __exportStar(require("./ErrorInstance"), exports);
 __exportStar(require("./ExceptionDetailType"), exports);
 __exportStar(require("./ExpDataSourceColumnType"), exports);
@@ -94,10 +93,6 @@ __exportStar(require("./GeneratedExportType"), exports);
 __exportStar(require("./GeneratedExports"), exports);
 __exportStar(require("./InstanceLink"), exports);
 __exportStar(require("./Links"), exports);
-__exportStar(require("./PostExportSchedulesRequest"), exports);
-__exportStar(require("./PutExportMappingCodesRequest"), exports);
-__exportStar(require("./PutExportMappingLinkedTypesRequest"), exports);
-__exportStar(require("./PutExportMappingsRequest"), exports);
 __exportStar(require("./ScheduleExportGroupType"), exports);
 __exportStar(require("./Status"), exports);
 __exportStar(require("./TransportMethodType"), exports);

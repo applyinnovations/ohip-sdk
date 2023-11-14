@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChannelInventorySnapshot, GeneralAvailabilitySimulator, RateParity, RegionalRateParity } from '../models';
+import type { ChannelInventorySnapshot, GeneralAvailabilitySimulator, RateParity, RegionalRateParity } from '../models/index';
 export interface GetChannelInventorySnapshotRequest {
-    hotelId?: string;
-    fromDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    fromDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -33,13 +33,13 @@ export interface GetChannelInventorySnapshotRequest {
     acceptLanguage?: string;
 }
 export interface GetChannelInventorySnapshotByRoomTypeRequest {
-    roomTypeCode?: string;
-    channelCode?: string;
-    hotelId?: string;
-    fromDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    roomTypeCode: string;
+    channelCode: string;
+    hotelId: string;
+    fromDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -54,10 +54,10 @@ export interface GetChannelInventorySnapshotByRoomTypeRequest {
     acceptLanguage?: string;
 }
 export interface GetGeneralAvailabilitySimulatorRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     bookingChannelCode?: string;
     arrival?: Date;
@@ -76,10 +76,10 @@ export interface GetGeneralAvailabilitySimulatorRequest {
     acceptLanguage?: string;
 }
 export interface GetRateParityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     comparisonType?: string;
     language?: string;
     limit?: number;
@@ -99,9 +99,9 @@ export interface GetRateParityRequest {
     acceptLanguage?: string;
 }
 export interface GetRegionalRateParityRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     language?: string;
     limit?: number;
     numberOfDays?: number;

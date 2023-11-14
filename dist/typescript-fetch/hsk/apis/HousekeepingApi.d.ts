@@ -10,81 +10,81 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AttendantSchedule, AutoGenerateTaskSheetsRequest, CancelServicingTaskRoomRequest, CanceledServicingTaskRoom, ChangedRoomMaintenance, ChangedTaskSheet, ChangedTaskSheetRooms, ChangedTaskSheetTemplate, CompleteOutOfOrderRoomsRequest, CompleteOutOfServiceRoomsRequest, CompleteRoomRepairStatus, CompletedServicingTaskRoom, EditReservationHousekeepingTasksRequest, EndedServiceBreak, FacilityForecast, GuestHousekeepingInstructions, GuestHousekeepingService, GuestHousekeepingServiceRequestStatus, HousekeepingBoard, HousekeepingRoomStatus, LockTaskSheetRequest, LockedTaskSheet, MergeTaskSheetRequest, MoveTaskRoomsRequest, MovedTaskRoomsRS, PostHousekeepingAttendantScheduleRequest, PostOutOfOrderRoomsRequest, PostOutOfServiceRoomsRequest, PostRoomMaintenanceRequest, PutRoomRelatedStatusRequest, PutTaskSheetRequest, PutTaskSheetTemplateRequest, ResetReservationHousekeepingScheduleRequest, ResolveRoomMaintenanceRequest, ResolvedRoomMaintenance, RoomCleaningPriorityRequestStatus, RoomConditionRequestStatus, RoomMaintenanceDetails, Rooms, Schedule, ScheduledSearch, ScheduledShiftRequest, ServiceTime, SetGuestHousekeepingNotesRequest, SetGuestHousekeepingServiceRequestRequest, SetRoomCleaningPriorityRequest, SetRoomConditionRequest, ShiftReservationHousekeepingScheduleRequest, SkipedServicingTaskRoom, StartedServiceBreak, Status, TaskAssignment, TaskCompanion, TaskSheetTemplate, UnlockTaskSheetRequest, UnlockedTaskSheet, UnresolvedRoomMaintenance } from '../models';
-export interface AutoGenerateTaskSheetsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheets?: AutoGenerateTaskSheetsRequest;
+import type { AttendantSchedule, CanceledServicingTaskRoom, ChangedRoomMaintenance, ChangedTaskSheet, ChangedTaskSheetRooms, ChangedTaskSheetTemplate, CompleteOutOfOrderRoomsRequest, CompleteOutOfServiceRoomsRequest, CompleteRoomRepairStatus, CompletedServicingTaskRoom, EndedServiceBreak, FacilityForecast, GuestHousekeepingInstructions, GuestHousekeepingService, GuestHousekeepingServiceRequest, GuestHousekeepingServiceRequestCriteria, GuestHousekeepingServiceRequestStatus, HousekeepingBoard, HousekeepingRoomStatus, LockedTaskSheet, MoveTaskRooms, MovedTaskRoomsRS, PostOutOfOrderRoomsRequest, PostOutOfServiceRoomsRequest, PutRoomRelatedStatusRequest, ResolvedRoomMaintenance, RoomCleaningPriority, RoomCleaningPriorityRequestStatus, RoomCondition, RoomConditionRequestStatus, RoomMaintenance, RoomMaintenanceDetails, RoomMaintenanceRequest, Rooms, Schedule, ScheduleSearch, ScheduleShiftRequest, ScheduledSearch, ScheduledShiftRequest, ServiceTime, SkipedServicingTaskRoom, StartedServiceBreak, Status, TaskAssignment, TaskCompanion, TaskRoom, TaskSheet, TaskSheetTemplate, TaskSheetToLock, TaskSheetToMerge, TaskSheetToUnlock, TaskSheets, UnlockedTaskSheet, UnresolvedRoomMaintenance } from '../models/index';
+export interface AutoGenerateTaskSheetsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheets: TaskSheets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CancelServicingTaskRoomOperationRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+export interface CancelServicingTaskRoomRequest {
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CompleteOutOfOrderRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    completeRoomRepair?: CompleteOutOfOrderRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    completeRoomRepair: CompleteOutOfOrderRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CompleteOutOfServiceRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    completeRoomRepair?: CompleteOutOfServiceRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    completeRoomRepair: CompleteOutOfServiceRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CompleteServicingTaskRoomRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteHouseKeepingTaskSheetsRequest {
-    hotelId?: string;
-    taskCodesBreakOutId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    taskCodesBreakOutId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteHousekeepingAttendantScheduleRequest {
-    hotelId?: string;
-    scheduleDate?: Date;
-    attendantId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    scheduleDate: Date;
+    attendantId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteReservationHousekeepingTasksRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     customized?: boolean;
     cycleStartDay?: number;
     endDate?: Date;
@@ -107,71 +107,71 @@ export interface DeleteReservationHousekeepingTasksRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomMaintenanceRequest {
-    mainteananceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    mainteananceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTaskSheetRequest {
-    hotelId?: string;
-    sheetNumber?: number;
-    taskCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    sheetNumber: number;
+    taskCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     date?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTaskSheetRoomsRequest {
-    hotelId?: string;
-    sheetNumber?: number;
-    taskCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    sheetNumber: number;
+    taskCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     date?: Date;
     roomId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTaskSheetTemplateRequest {
-    taskSheetTemplateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taskSheetTemplateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface EditReservationHousekeepingTasksOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    schedule?: EditReservationHousekeepingTasksRequest;
+export interface EditReservationHousekeepingTasksRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    schedule: Schedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface EndServiceBreakRequest {
-    taskSheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    taskSheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFacilityForecastRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -181,11 +181,11 @@ export interface GetFacilityForecastRequest {
     acceptLanguage?: string;
 }
 export interface GetGuestHousekeepingNotesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     room?: string;
@@ -194,11 +194,11 @@ export interface GetGuestHousekeepingNotesRequest {
     acceptLanguage?: string;
 }
 export interface GetHouseKeepingTasksRequest {
-    hotelId?: string;
-    taskDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    taskDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     attendantInRoomOnly?: boolean;
     generateCleaningSequence?: boolean;
     includeReservationInfo?: boolean;
@@ -224,20 +224,20 @@ export interface GetHouseKeepingTasksRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingAttendantsScheduleRequest {
-    hotelId?: string;
-    scheduleStartDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    scheduleStartDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     scheduleEndDate?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHousekeepingDiscrepanciesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomDiscrepancyStatus?: Set<GetHousekeepingDiscrepanciesRoomDiscrepancyStatusEnum>;
     fromRoomNumber?: string;
     toRoomNumber?: string;
@@ -250,10 +250,10 @@ export interface GetHousekeepingDiscrepanciesRequest {
     acceptLanguage?: string;
 }
 export interface GetHousekeepingOverviewRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     housekeepingRoomStatus?: Set<GetHousekeepingOverviewHousekeepingRoomStatusEnum>;
@@ -281,11 +281,11 @@ export interface GetHousekeepingOverviewRequest {
     acceptLanguage?: string;
 }
 export interface GetOutOfOrderRoomsRequest {
-    hotelId?: string;
-    startDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    startDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomId?: string;
     endDate?: Date;
     roomTypes?: Array<string>;
@@ -294,11 +294,11 @@ export interface GetOutOfOrderRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetOutOfServiceRoomsRequest {
-    hotelId?: string;
-    startDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    startDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomId?: string;
     endDate?: Date;
     roomTypes?: Array<string>;
@@ -307,11 +307,11 @@ export interface GetOutOfServiceRoomsRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationHousekeepingScheduleRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     beginDate?: Date;
@@ -321,10 +321,10 @@ export interface GetReservationHousekeepingScheduleRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomConditionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomConditionsOnly?: boolean;
     roomWithoutConditionsOnly?: boolean;
     room?: string;
@@ -347,10 +347,10 @@ export interface GetRoomConditionsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoomMaintenanceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     roomIdText?: string;
     roomId?: string;
     roomClasses?: Array<string>;
@@ -370,12 +370,12 @@ export interface GetRoomMaintenanceRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskCompanionRequest {
-    sheetNumber?: string;
-    hotelId?: string;
-    taskCodes?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sheetNumber: string;
+    hotelId: string;
+    taskCodes: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     taskDate?: Date;
     roomId?: string;
     skipRoomNumbers?: Array<string>;
@@ -384,282 +384,282 @@ export interface GetTaskCompanionRequest {
     acceptLanguage?: string;
 }
 export interface GetTaskSheetTemplateRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface LockTaskSheetOperationRequest {
-    sheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetToLock?: LockTaskSheetRequest;
+export interface LockTaskSheetRequest {
+    sheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetToLock: TaskSheetToLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface MergeTaskSheetOperationRequest {
-    toTaskSequenceNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetToMerge?: MergeTaskSheetRequest;
+export interface MergeTaskSheetRequest {
+    toTaskSequenceNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetToMerge: TaskSheetToMerge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface MoveTaskRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    moveTaskRooms?: MoveTaskRoomsRequest;
+export interface MoveTaskRoomsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    moveTaskRooms: MoveTaskRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostHousekeepingAttendantScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attendantSchedule?: PostHousekeepingAttendantScheduleRequest;
+export interface PostHousekeepingAttendantScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attendantSchedule: AttendantSchedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostOutOfOrderRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRepairOutOfOrder?: PostOutOfOrderRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRepairOutOfOrder: PostOutOfOrderRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostOutOfServiceRoomsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRepairOutOfService?: PostOutOfServiceRoomsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRepairOutOfService: PostOutOfServiceRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostReservationHousekeepingTasksRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    schedule?: EditReservationHousekeepingTasksRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    schedule: Schedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomMaintenanceOperationRequest {
-    maintenanceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenanceRequest?: PostRoomMaintenanceRequest;
+export interface PostRoomMaintenanceRequest {
+    maintenanceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenanceRequest: RoomMaintenanceRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTaskSheetRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTaskSheetRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomCleaningPriorityRequest {
-    hotelId?: string;
-    roomId?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    roomId: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomMaintenanceRequest {
-    maintenanceId?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenance?: ResolveRoomMaintenanceRequest;
+    maintenanceId: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenance: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRoomRelatedStatusOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    housekeepingRoomStatusCriteria?: PutRoomRelatedStatusRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    housekeepingRoomStatusCriteria: PutRoomRelatedStatusRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTaskSheetOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+export interface PutTaskSheetRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTaskSheetRoomsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheet?: PutTaskSheetRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheet: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutTaskSheetTemplateOperationRequest {
-    taskSheetTemplateCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetTemplate?: PutTaskSheetTemplateRequest;
+export interface PutTaskSheetTemplateRequest {
+    taskSheetTemplateCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetTemplate: TaskSheetTemplate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ResetReservationHousekeepingScheduleOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    scheduleSearch?: ResetReservationHousekeepingScheduleRequest;
+export interface ResetReservationHousekeepingScheduleRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    scheduleSearch: ScheduleSearch;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ResolveRoomMaintenanceOperationRequest {
-    mainteananceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenance?: ResolveRoomMaintenanceRequest;
+export interface ResolveRoomMaintenanceRequest {
+    mainteananceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenance: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetGuestHousekeepingNotesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestHousekeepingServiceRequest?: SetGuestHousekeepingNotesRequest;
+export interface SetGuestHousekeepingNotesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestHousekeepingServiceRequest: GuestHousekeepingServiceRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetGuestHousekeepingServiceRequestOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestHousekeepingServiceRequestCriteria?: SetGuestHousekeepingServiceRequestRequest;
+export interface SetGuestHousekeepingServiceRequestRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestHousekeepingServiceRequestCriteria: GuestHousekeepingServiceRequestCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetRoomCleaningPriorityOperationRequest {
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomCleaningPriority?: SetRoomCleaningPriorityRequest;
+export interface SetRoomCleaningPriorityRequest {
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomCleaningPriority: RoomCleaningPriority;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SetRoomConditionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomCondition?: SetRoomConditionRequest;
+export interface SetRoomConditionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomCondition: RoomCondition;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ShiftReservationHousekeepingScheduleOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    scheduleShiftRequest?: ShiftReservationHousekeepingScheduleRequest;
+export interface ShiftReservationHousekeepingScheduleRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    scheduleShiftRequest: ScheduleShiftRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface SkipServicingTaskRoomRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface StartServiceBreakRequest {
-    taskSheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    taskSheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface StartServicingTaskRoomRequest {
-    sheetNumber?: string;
-    roomId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskRoom?: CancelServicingTaskRoomRequest;
+    sheetNumber: string;
+    roomId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskRoom: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface UnResolveRoomMaintenanceRequest {
-    mainteananceId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomMaintenance?: ResolveRoomMaintenanceRequest;
+    mainteananceId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomMaintenance: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface UnlockTaskSheetOperationRequest {
-    sheetNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    taskSheetToUnlock?: UnlockTaskSheetRequest;
+export interface UnlockTaskSheetRequest {
+    sheetNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    taskSheetToUnlock: TaskSheetToUnlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -671,22 +671,22 @@ export declare class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to Auto generate the task sheets. <p><strong>OperationId:</strong>autoGenerateTaskSheets</p>
      * Auto generate the task sheets
      */
-    autoGenerateTaskSheetsRaw(requestParameters: AutoGenerateTaskSheetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    autoGenerateTaskSheetsRaw(requestParameters: AutoGenerateTaskSheetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to Auto generate the task sheets. <p><strong>OperationId:</strong>autoGenerateTaskSheets</p>
      * Auto generate the task sheets
      */
-    autoGenerateTaskSheets(requestParameters: AutoGenerateTaskSheetsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    autoGenerateTaskSheets(requestParameters: AutoGenerateTaskSheetsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to cancel servicing task room. <p><strong>OperationId:</strong>cancelServicingTaskRoom</p>
      * Cancel servicing task room
      */
-    cancelServicingTaskRoomRaw(requestParameters: CancelServicingTaskRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CanceledServicingTaskRoom>>;
+    cancelServicingTaskRoomRaw(requestParameters: CancelServicingTaskRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CanceledServicingTaskRoom>>;
     /**
      * This API will allow you to cancel servicing task room. <p><strong>OperationId:</strong>cancelServicingTaskRoom</p>
      * Cancel servicing task room
      */
-    cancelServicingTaskRoom(requestParameters: CancelServicingTaskRoomOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CanceledServicingTaskRoom>;
+    cancelServicingTaskRoom(requestParameters: CancelServicingTaskRoomRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CanceledServicingTaskRoom>;
     /**
      * Use this API when one or more rooms are no longer Out Of Order, and can now be available for a guest to stay in.  Specify in the request what status the room(s) should be returned to, such as clean, Inspected, dirty or Pickup. <p><strong>OperationId:</strong>completeOutOfOrderRooms</p>
      * Complete rooms Out Of Order
@@ -791,12 +791,12 @@ export declare class HousekeepingApi extends runtime.BaseAPI {
      * This API will allow you to update reservation housekeeping tasks. <p><strong>OperationId:</strong>editReservationHousekeepingTasks</p>
      * Update reservation housekeeping tasks
      */
-    editReservationHousekeepingTasksRaw(requestParameters: EditReservationHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Schedule>>;
+    editReservationHousekeepingTasksRaw(requestParameters: EditReservationHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Schedule>>;
     /**
      * This API will allow you to update reservation housekeeping tasks. <p><strong>OperationId:</strong>editReservationHousekeepingTasks</p>
      * Update reservation housekeeping tasks
      */
-    editReservationHousekeepingTasks(requestParameters: EditReservationHousekeepingTasksOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Schedule>;
+    editReservationHousekeepingTasks(requestParameters: EditReservationHousekeepingTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Schedule>;
     /**
      * This API allows you to end the Attendant\'s service break. <p><strong>OperationId:</strong>endServiceBreak</p>
      * End the service break
@@ -941,42 +941,42 @@ export declare class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Lock the task sheet. <p><strong>OperationId:</strong>lockTaskSheet</p>
      * Lock the task sheet
      */
-    lockTaskSheetRaw(requestParameters: LockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LockedTaskSheet>>;
+    lockTaskSheetRaw(requestParameters: LockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LockedTaskSheet>>;
     /**
      * This API allows you to Lock the task sheet. <p><strong>OperationId:</strong>lockTaskSheet</p>
      * Lock the task sheet
      */
-    lockTaskSheet(requestParameters: LockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LockedTaskSheet>;
+    lockTaskSheet(requestParameters: LockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LockedTaskSheet>;
     /**
      * This API allows you to merge task sheet. <p><strong>OperationId:</strong>mergeTaskSheet</p>
      * Merge task sheet
      */
-    mergeTaskSheetRaw(requestParameters: MergeTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    mergeTaskSheetRaw(requestParameters: MergeTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API allows you to merge task sheet. <p><strong>OperationId:</strong>mergeTaskSheet</p>
      * Merge task sheet
      */
-    mergeTaskSheet(requestParameters: MergeTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    mergeTaskSheet(requestParameters: MergeTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will allow you to Move the tasksheet rooms. <p><strong>OperationId:</strong>moveTaskRooms</p>
      * Move the task rooms
      */
-    moveTaskRoomsRaw(requestParameters: MoveTaskRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedTaskRoomsRS>>;
+    moveTaskRoomsRaw(requestParameters: MoveTaskRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MovedTaskRoomsRS>>;
     /**
      * This API will allow you to Move the tasksheet rooms. <p><strong>OperationId:</strong>moveTaskRooms</p>
      * Move the task rooms
      */
-    moveTaskRooms(requestParameters: MoveTaskRoomsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedTaskRoomsRS>;
+    moveTaskRooms(requestParameters: MoveTaskRoomsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MovedTaskRoomsRS>;
     /**
      * This API will allow you to create housekeeping attendant schedule. <p><strong>OperationId:</strong>postHousekeepingAttendantSchedule</p>
      * Create housekeeping attendant schedule
      */
-    postHousekeepingAttendantScheduleRaw(requestParameters: PostHousekeepingAttendantScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postHousekeepingAttendantScheduleRaw(requestParameters: PostHousekeepingAttendantScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will allow you to create housekeeping attendant schedule. <p><strong>OperationId:</strong>postHousekeepingAttendantSchedule</p>
      * Create housekeeping attendant schedule
      */
-    postHousekeepingAttendantSchedule(requestParameters: PostHousekeepingAttendantScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postHousekeepingAttendantSchedule(requestParameters: PostHousekeepingAttendantScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to initially set rooms to \'Out Of Order\' housekeeping status and update existing outOfOrderRooms. <p><strong>OperationId:</strong>postOutOfOrderRooms</p>
      * Set multiple rooms to Out Of Order
@@ -1011,12 +1011,12 @@ export declare class HousekeepingApi extends runtime.BaseAPI {
      * Use this API to create maintenances for rooms. <p><strong>OperationId:</strong>postRoomMaintenance</p>
      * Create maintenances for rooms
      */
-    postRoomMaintenanceRaw(requestParameters: PostRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomMaintenanceRaw(requestParameters: PostRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create maintenances for rooms. <p><strong>OperationId:</strong>postRoomMaintenance</p>
      * Create maintenances for rooms
      */
-    postRoomMaintenance(requestParameters: PostRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomMaintenance(requestParameters: PostRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API allows you to create the task sheet. <p><strong>OperationId:</strong>postTaskSheet</p>
      * Create the task sheet
@@ -1071,12 +1071,12 @@ export declare class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to change the task sheet. <p><strong>OperationId:</strong>putTaskSheet</p>
      * Change the task sheet
      */
-    putTaskSheetRaw(requestParameters: PutTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheet>>;
+    putTaskSheetRaw(requestParameters: PutTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheet>>;
     /**
      * This API allows you to change the task sheet. <p><strong>OperationId:</strong>putTaskSheet</p>
      * Change the task sheet
      */
-    putTaskSheet(requestParameters: PutTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheet>;
+    putTaskSheet(requestParameters: PutTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheet>;
     /**
      * This API allows you to change the task sheet rooms. <p><strong>OperationId:</strong>putTaskSheetRooms</p>
      * Change the task sheet rooms
@@ -1091,82 +1091,82 @@ export declare class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to change the task sheet templates. <p><strong>OperationId:</strong>putTaskSheetTemplate</p>
      * Change the task sheet templates
      */
-    putTaskSheetTemplateRaw(requestParameters: PutTaskSheetTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheetTemplate>>;
+    putTaskSheetTemplateRaw(requestParameters: PutTaskSheetTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedTaskSheetTemplate>>;
     /**
      * This API allows you to change the task sheet templates. <p><strong>OperationId:</strong>putTaskSheetTemplate</p>
      * Change the task sheet templates
      */
-    putTaskSheetTemplate(requestParameters: PutTaskSheetTemplateOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheetTemplate>;
+    putTaskSheetTemplate(requestParameters: PutTaskSheetTemplateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedTaskSheetTemplate>;
     /**
      * This API will allow you to reset reservation housekeeping schedule. <p><strong>OperationId:</strong>resetReservationHousekeepingSchedule</p>
      * Reset reservation housekeeping schedule
      */
-    resetReservationHousekeepingScheduleRaw(requestParameters: ResetReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledSearch>>;
+    resetReservationHousekeepingScheduleRaw(requestParameters: ResetReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledSearch>>;
     /**
      * This API will allow you to reset reservation housekeeping schedule. <p><strong>OperationId:</strong>resetReservationHousekeepingSchedule</p>
      * Reset reservation housekeeping schedule
      */
-    resetReservationHousekeepingSchedule(requestParameters: ResetReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledSearch>;
+    resetReservationHousekeepingSchedule(requestParameters: ResetReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledSearch>;
     /**
      * Use this API to Resolve maintenances for rooms. <p><strong>OperationId:</strong>resolveRoomMaintenance</p>
      * Resolve maintenances for rooms
      */
-    resolveRoomMaintenanceRaw(requestParameters: ResolveRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolvedRoomMaintenance>>;
+    resolveRoomMaintenanceRaw(requestParameters: ResolveRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ResolvedRoomMaintenance>>;
     /**
      * Use this API to Resolve maintenances for rooms. <p><strong>OperationId:</strong>resolveRoomMaintenance</p>
      * Resolve maintenances for rooms
      */
-    resolveRoomMaintenance(requestParameters: ResolveRoomMaintenanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolvedRoomMaintenance>;
+    resolveRoomMaintenance(requestParameters: ResolveRoomMaintenanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResolvedRoomMaintenance>;
     /**
      * This API will allow you to Set guest housekeeping instructions. <p><strong>OperationId:</strong>setGuestHousekeepingNotes</p>
      * Set guest housekeeping instructions
      */
-    setGuestHousekeepingNotesRaw(requestParameters: SetGuestHousekeepingNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingService>>;
+    setGuestHousekeepingNotesRaw(requestParameters: SetGuestHousekeepingNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingService>>;
     /**
      * This API will allow you to Set guest housekeeping instructions. <p><strong>OperationId:</strong>setGuestHousekeepingNotes</p>
      * Set guest housekeeping instructions
      */
-    setGuestHousekeepingNotes(requestParameters: SetGuestHousekeepingNotesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingService>;
+    setGuestHousekeepingNotes(requestParameters: SetGuestHousekeepingNotesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingService>;
     /**
      * This API allows you to Set the guest housekeeping service requests <p><strong>OperationId:</strong>setGuestHousekeepingServiceRequest</p>
      * Set the Guest housekeeping service requests
      */
-    setGuestHousekeepingServiceRequestRaw(requestParameters: SetGuestHousekeepingServiceRequestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingServiceRequestStatus>>;
+    setGuestHousekeepingServiceRequestRaw(requestParameters: SetGuestHousekeepingServiceRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuestHousekeepingServiceRequestStatus>>;
     /**
      * This API allows you to Set the guest housekeeping service requests <p><strong>OperationId:</strong>setGuestHousekeepingServiceRequest</p>
      * Set the Guest housekeeping service requests
      */
-    setGuestHousekeepingServiceRequest(requestParameters: SetGuestHousekeepingServiceRequestOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingServiceRequestStatus>;
+    setGuestHousekeepingServiceRequest(requestParameters: SetGuestHousekeepingServiceRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GuestHousekeepingServiceRequestStatus>;
     /**
      * This API will allow you to set the room cleaning priority. <p><strong>OperationId:</strong>setRoomCleaningPriority</p>
      * Set the room cleaning priority
      */
-    setRoomCleaningPriorityRaw(requestParameters: SetRoomCleaningPriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomCleaningPriorityRequestStatus>>;
+    setRoomCleaningPriorityRaw(requestParameters: SetRoomCleaningPriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomCleaningPriorityRequestStatus>>;
     /**
      * This API will allow you to set the room cleaning priority. <p><strong>OperationId:</strong>setRoomCleaningPriority</p>
      * Set the room cleaning priority
      */
-    setRoomCleaningPriority(requestParameters: SetRoomCleaningPriorityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomCleaningPriorityRequestStatus>;
+    setRoomCleaningPriority(requestParameters: SetRoomCleaningPriorityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomCleaningPriorityRequestStatus>;
     /**
      * This API will allow you to set, change, or delete a condition on rooms. A condition is used to designate rooms that are available for show, set aside for special housekeeping attention, or are to be treated differently for any other reason. <p><strong>OperationId:</strong>setRoomCondition</p>
      * Set rooms condition
      */
-    setRoomConditionRaw(requestParameters: SetRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomConditionRequestStatus>>;
+    setRoomConditionRaw(requestParameters: SetRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoomConditionRequestStatus>>;
     /**
      * This API will allow you to set, change, or delete a condition on rooms. A condition is used to designate rooms that are available for show, set aside for special housekeeping attention, or are to be treated differently for any other reason. <p><strong>OperationId:</strong>setRoomCondition</p>
      * Set rooms condition
      */
-    setRoomCondition(requestParameters: SetRoomConditionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomConditionRequestStatus>;
+    setRoomCondition(requestParameters: SetRoomConditionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoomConditionRequestStatus>;
     /**
      * This API will allow you to shift reservation housekeeping schedule. <p><strong>OperationId:</strong>shiftReservationHousekeepingSchedule</p>
      * Shift reservation housekeeping schedule
      */
-    shiftReservationHousekeepingScheduleRaw(requestParameters: ShiftReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledShiftRequest>>;
+    shiftReservationHousekeepingScheduleRaw(requestParameters: ShiftReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScheduledShiftRequest>>;
     /**
      * This API will allow you to shift reservation housekeeping schedule. <p><strong>OperationId:</strong>shiftReservationHousekeepingSchedule</p>
      * Shift reservation housekeeping schedule
      */
-    shiftReservationHousekeepingSchedule(requestParameters: ShiftReservationHousekeepingScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledShiftRequest>;
+    shiftReservationHousekeepingSchedule(requestParameters: ShiftReservationHousekeepingScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScheduledShiftRequest>;
     /**
      * This API will allow you to Skip servicing task room. <p><strong>OperationId:</strong>skipServicingTaskRoom</p>
      * Skip servicing task room
@@ -1211,12 +1211,12 @@ export declare class HousekeepingApi extends runtime.BaseAPI {
      * This API allows you to Unlock the task sheet. <p><strong>OperationId:</strong>unlockTaskSheet</p>
      * Unlock the task sheet
      */
-    unlockTaskSheetRaw(requestParameters: UnlockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnlockedTaskSheet>>;
+    unlockTaskSheetRaw(requestParameters: UnlockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UnlockedTaskSheet>>;
     /**
      * This API allows you to Unlock the task sheet. <p><strong>OperationId:</strong>unlockTaskSheet</p>
      * Unlock the task sheet
      */
-    unlockTaskSheet(requestParameters: UnlockTaskSheetOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnlockedTaskSheet>;
+    unlockTaskSheet(requestParameters: UnlockTaskSheetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UnlockedTaskSheet>;
 }
 /**
  * @export

@@ -64,13 +64,13 @@ function BaseRatePlanScheduleDetailTypeToJSON(value) {
         'adjustmentDetails': (0, ScheduleAdjustmentDetailsType_1.ScheduleAdjustmentDetailsTypeToJSON)(value.adjustmentDetails),
         'advancedBaseRateOffset': (0, AdvancedBaseRateOffsetType_1.AdvancedBaseRateOffsetTypeToJSON)(value.advancedBaseRateOffset),
         'classifications': (0, RatePlanScheduleClassificationsType_1.RatePlanScheduleClassificationsTypeToJSON)(value.classifications),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0, 10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
         'occupantThresholdPricing': (0, OccupantThresholdPricingType_1.OccupantThresholdPricingTypeToJSON)(value.occupantThresholdPricing),
         'rateAmountBoundaries': (0, RateAmountBoundariesType_1.RateAmountBoundariesTypeToJSON)(value.rateAmountBoundaries),
         'rateAmounts': (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeToJSON)(value.rateAmounts),
         'rateSchedulePackages': (0, RatePackagesType_1.RatePackagesTypeToJSON)(value.rateSchedulePackages),
         'seasonCode': value.seasonCode,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0, 10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
         'tierID': value.tierID,
     };
 }

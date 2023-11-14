@@ -68,7 +68,7 @@ function RoomMaintenanceTypeToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'maintenanceCode': value.maintenanceCode,
         'maintenanceId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.maintenanceId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0, 10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
         'remarks': value.remarks,
         'resolveInfo': (0, ResolveRoomMaintenanceType_1.ResolveRoomMaintenanceTypeToJSON)(value.resolveInfo),
         'roomInfo': (0, RoomType_1.RoomTypeToJSON)(value.roomInfo),

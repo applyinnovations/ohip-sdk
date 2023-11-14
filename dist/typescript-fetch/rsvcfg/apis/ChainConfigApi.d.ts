@@ -10,127 +10,127 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlockConversionsDetails, BlockRankingsDetails, BookingTypesDetails, CancellationCodesDetails, ChangeBlockConversionsRequest, ChangeBlockRankingsRequest, ChangeGlobalActionCodesRequest, ChangeScriptsRequest, DiscountReasonsDetails, EntryPointsDetails, GlobalActionCodesDetails, MoveReasonCodesDetails, OriginCodesDetails, PostBlockConversionsRequest, PostBlockRankingsRequest, PostBookingTypesRequest, PostCancellationCodesRequest, PostDiscountReasonsRequest, PostEntryPointsRequest, PostGlobalActionCodesRequest, PostMoveReasonCodesRequest, PostOriginCodesRequest, PostPurposeOfStaysRequest, PostScriptsRequest, PostWaitlistCodesRequest, PostWaitlistPrioritiesRequest, PurposeOfStaysDetails, PutBookingTypesRequest, PutCancellationCodesRequest, PutDiscountReasonsRequest, PutEntryPointsRequest, PutMoveReasonCodesRequest, PutOriginCodesRequest, PutPurposeOfStaysRequest, PutWaitlistCodesRequest, PutWaitlistPrioritiesRequest, ScriptsDetails, Status, WaitlistCodesDetails, WaitlistPrioritiesDetails } from '../models';
-export interface ChangeBlockConversionsOperationRequest {
-    blockConversionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockConversionsToBeChanged?: ChangeBlockConversionsRequest;
+import type { BlockConversionsCriteria, BlockConversionsDetails, BlockConversionsToBeChanged, BlockRankingsCriteria, BlockRankingsDetails, BlockRankingsToBeChanged, BookingTypesCriteria, BookingTypesDetails, BookingTypesToBeChanged, CancellationCodesCriteria, CancellationCodesDetails, CancellationCodesToBeChanged, DiscountReasonsCriteria, DiscountReasonsDetails, DiscountReasonsToBeChanged, EntryPointsCriteria, EntryPointsDetails, EntryPointsToBeChanged, GlobalActionCodesCriteria, GlobalActionCodesDetails, GlobalActionCodesToBeChanged, MoveReasonCodesCriteria, MoveReasonCodesDetails, MoveReasonCodesToBeChanged, OriginCodesCriteria, OriginCodesDetails, OriginCodesToBeChanged, PurposeOfStaysCriteria, PurposeOfStaysDetails, PurposeOfStaysToBeChanged, ScriptsCriteria, ScriptsDetails, ScriptsToBeChanged, Status, WaitlistCodesCriteria, WaitlistCodesDetails, WaitlistCodesToBeChanged, WaitlistPrioritiesCriteria, WaitlistPrioritiesDetails, WaitlistPrioritiesToBeChanged } from '../models/index';
+export interface ChangeBlockConversionsRequest {
+    blockConversionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockConversionsToBeChanged: BlockConversionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeBlockRankingsOperationRequest {
-    blockRankingsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRankingsToBeChanged?: ChangeBlockRankingsRequest;
+export interface ChangeBlockRankingsRequest {
+    blockRankingsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRankingsToBeChanged: BlockRankingsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeGlobalActionCodesOperationRequest {
-    actionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    globalActionCodesToBeChanged?: ChangeGlobalActionCodesRequest;
+export interface ChangeGlobalActionCodesRequest {
+    actionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    globalActionCodesToBeChanged: GlobalActionCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeScriptsOperationRequest {
-    scriptCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    scriptsToBeChanged?: ChangeScriptsRequest;
+export interface ChangeScriptsRequest {
+    scriptCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    scriptsToBeChanged: ScriptsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteBookingTypesRequest {
-    bookingTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    bookingTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     bookingTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCancellationCodesRequest {
-    cancellationCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cancellationCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cancellationCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteDiscountReasonsRequest {
-    discountReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    discountReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteEntryPointsRequest {
-    entryPointsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    entryPointsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     entryPointsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteMoveReasonCodesRequest {
-    moveReasonCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    moveReasonCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     moveReasonCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteOriginCodesRequest {
-    originCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    originCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     originCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePurposeOfStaysRequest {
-    purposeOfStaysId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    purposeOfStaysId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     purposeOfStaysCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteWaitlistCodesRequest {
-    waitlistCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    waitlistCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     waitlistCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteWaitlistPrioritiesRequest {
-    waitlistPrioritiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    waitlistPrioritiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     waitlistPrioritiesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockConversionsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -139,9 +139,9 @@ export interface GetBlockConversionsRequest {
     acceptLanguage?: string;
 }
 export interface GetBlockRankingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -150,9 +150,9 @@ export interface GetBlockRankingsRequest {
     acceptLanguage?: string;
 }
 export interface GetBookingTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -161,9 +161,9 @@ export interface GetBookingTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetCancellationCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -172,9 +172,9 @@ export interface GetCancellationCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetDiscountReasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchAdvanced?: boolean;
     fetchInactive?: boolean;
     fetchNonAdvanced?: boolean;
@@ -185,9 +185,9 @@ export interface GetDiscountReasonsRequest {
     acceptLanguage?: string;
 }
 export interface GetEntryPointsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -196,9 +196,9 @@ export interface GetEntryPointsRequest {
     acceptLanguage?: string;
 }
 export interface GetGlobalActionCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -207,9 +207,9 @@ export interface GetGlobalActionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetMoveReasonCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -218,9 +218,9 @@ export interface GetMoveReasonCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetOriginCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -229,9 +229,9 @@ export interface GetOriginCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetPurposeOfStaysRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -240,9 +240,9 @@ export interface GetPurposeOfStaysRequest {
     acceptLanguage?: string;
 }
 export interface GetScriptsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     croCodes?: Array<string>;
     hotelIds?: Array<string>;
@@ -253,9 +253,9 @@ export interface GetScriptsRequest {
     acceptLanguage?: string;
 }
 export interface GetWaitlistCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -264,9 +264,9 @@ export interface GetWaitlistCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetWaitlistPrioritiesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -274,223 +274,223 @@ export interface GetWaitlistPrioritiesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockConversionsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockConversionsCriteria?: PostBlockConversionsRequest;
+export interface PostBlockConversionsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockConversionsCriteria: BlockConversionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBlockRankingsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    blockRankingsCriteria?: PostBlockRankingsRequest;
+export interface PostBlockRankingsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    blockRankingsCriteria: BlockRankingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBookingTypesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bookingTypesCriteria?: PostBookingTypesRequest;
+export interface PostBookingTypesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bookingTypesCriteria: BookingTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCancellationCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancellationCodesCriteria?: PostCancellationCodesRequest;
+export interface PostCancellationCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancellationCodesCriteria: CancellationCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDiscountReasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    discountReasonsCriteria?: PostDiscountReasonsRequest;
+export interface PostDiscountReasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    discountReasonsCriteria: DiscountReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostEntryPointsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    entryPointsCriteria?: PostEntryPointsRequest;
+export interface PostEntryPointsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    entryPointsCriteria: EntryPointsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGlobalActionCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    globalActionCodesCriteria?: PostGlobalActionCodesRequest;
+export interface PostGlobalActionCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    globalActionCodesCriteria: GlobalActionCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMoveReasonCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    moveReasonCodesCriteria?: PostMoveReasonCodesRequest;
+export interface PostMoveReasonCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    moveReasonCodesCriteria: MoveReasonCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostOriginCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    originCodesCriteria?: PostOriginCodesRequest;
+export interface PostOriginCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    originCodesCriteria: OriginCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostPurposeOfStaysOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    purposeOfStaysCriteria?: PostPurposeOfStaysRequest;
+export interface PostPurposeOfStaysRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    purposeOfStaysCriteria: PurposeOfStaysCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostScriptsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    scriptsCriteria?: PostScriptsRequest;
+export interface PostScriptsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    scriptsCriteria: ScriptsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostWaitlistCodesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    waitlistCodesCriteria?: PostWaitlistCodesRequest;
+export interface PostWaitlistCodesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    waitlistCodesCriteria: WaitlistCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostWaitlistPrioritiesOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    waitlistPrioritiesCriteria?: PostWaitlistPrioritiesRequest;
+export interface PostWaitlistPrioritiesRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    waitlistPrioritiesCriteria: WaitlistPrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBookingTypesOperationRequest {
-    bookingTypesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bookingTypesToBeChanged?: PutBookingTypesRequest;
+export interface PutBookingTypesRequest {
+    bookingTypesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bookingTypesToBeChanged: BookingTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCancellationCodesOperationRequest {
-    cancellationCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancellationCodesToBeChanged?: PutCancellationCodesRequest;
+export interface PutCancellationCodesRequest {
+    cancellationCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancellationCodesToBeChanged: CancellationCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutDiscountReasonsOperationRequest {
-    discountReasonsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    discountReasonsToBeChanged?: PutDiscountReasonsRequest;
+export interface PutDiscountReasonsRequest {
+    discountReasonsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    discountReasonsToBeChanged: DiscountReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutEntryPointsOperationRequest {
-    entryPointsId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    entryPointsToBeChanged?: PutEntryPointsRequest;
+export interface PutEntryPointsRequest {
+    entryPointsId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    entryPointsToBeChanged: EntryPointsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutMoveReasonCodesOperationRequest {
-    moveReasonCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    moveReasonCodesToBeChanged?: PutMoveReasonCodesRequest;
+export interface PutMoveReasonCodesRequest {
+    moveReasonCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    moveReasonCodesToBeChanged: MoveReasonCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutOriginCodesOperationRequest {
-    originCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    originCodesToBeChanged?: PutOriginCodesRequest;
+export interface PutOriginCodesRequest {
+    originCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    originCodesToBeChanged: OriginCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPurposeOfStaysOperationRequest {
-    purposeOfStaysId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    purposeOfStaysToBeChanged?: PutPurposeOfStaysRequest;
+export interface PutPurposeOfStaysRequest {
+    purposeOfStaysId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    purposeOfStaysToBeChanged: PurposeOfStaysToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutWaitlistCodesOperationRequest {
-    waitlistCodesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    waitlistCodesToBeChanged?: PutWaitlistCodesRequest;
+export interface PutWaitlistCodesRequest {
+    waitlistCodesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    waitlistCodesToBeChanged: WaitlistCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutWaitlistPrioritiesOperationRequest {
-    waitlistPrioritiesId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    waitlistPrioritiesToBeChanged?: PutWaitlistPrioritiesRequest;
+export interface PutWaitlistPrioritiesRequest {
+    waitlistPrioritiesId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    waitlistPrioritiesToBeChanged: WaitlistPrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveBlockConversionsRequest {
-    blockConversionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockConversionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockConversionsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveBlockRankingsRequest {
-    blockRankingsCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    blockRankingsCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     blockRankingsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveGlobalActionCodesRequest {
-    actionCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    actionCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     globalActionCodesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveScriptsRequest {
-    scriptCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    scriptCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: Array<string>;
     type?: Array<string>;
     xExternalsystem?: string;
@@ -504,42 +504,42 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to update Block Conversions. <p><strong>OperationId:</strong>changeBlockConversions</p>
      * Change Block Conversions
      */
-    changeBlockConversionsRaw(requestParameters: ChangeBlockConversionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeBlockConversionsRaw(requestParameters: ChangeBlockConversionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Block Conversions. <p><strong>OperationId:</strong>changeBlockConversions</p>
      * Change Block Conversions
      */
-    changeBlockConversions(requestParameters: ChangeBlockConversionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeBlockConversions(requestParameters: ChangeBlockConversionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Block Ranking. <p><strong>OperationId:</strong>changeBlockRankings</p>
      * Change Block Ranking
      */
-    changeBlockRankingsRaw(requestParameters: ChangeBlockRankingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeBlockRankingsRaw(requestParameters: ChangeBlockRankingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Block Ranking. <p><strong>OperationId:</strong>changeBlockRankings</p>
      * Change Block Ranking
      */
-    changeBlockRankings(requestParameters: ChangeBlockRankingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeBlockRankings(requestParameters: ChangeBlockRankingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Global Action Codes. <p><strong>OperationId:</strong>changeGlobalActionCodes</p>
      * Change Global Action Codes
      */
-    changeGlobalActionCodesRaw(requestParameters: ChangeGlobalActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeGlobalActionCodesRaw(requestParameters: ChangeGlobalActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Global Action Codes. <p><strong>OperationId:</strong>changeGlobalActionCodes</p>
      * Change Global Action Codes
      */
-    changeGlobalActionCodes(requestParameters: ChangeGlobalActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeGlobalActionCodes(requestParameters: ChangeGlobalActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Scripts. <p><strong>OperationId:</strong>changeScripts</p>
      * Change Scripts
      */
-    changeScriptsRaw(requestParameters: ChangeScriptsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeScriptsRaw(requestParameters: ChangeScriptsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Scripts. <p><strong>OperationId:</strong>changeScripts</p>
      * Change Scripts
      */
-    changeScripts(requestParameters: ChangeScriptsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeScripts(requestParameters: ChangeScriptsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Booking Type. <p><strong>OperationId:</strong>deleteBookingTypes</p>
      * Delete Booking Type
@@ -764,222 +764,222 @@ export declare class ChainConfigApi extends runtime.BaseAPI {
      * Use this API to create Block Conversions. <p><strong>OperationId:</strong>postBlockConversions</p>
      * Create Block Conversions
      */
-    postBlockConversionsRaw(requestParameters: PostBlockConversionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockConversionsRaw(requestParameters: PostBlockConversionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Block Conversions. <p><strong>OperationId:</strong>postBlockConversions</p>
      * Create Block Conversions
      */
-    postBlockConversions(requestParameters: PostBlockConversionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockConversions(requestParameters: PostBlockConversionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Block Rankings. <p><strong>OperationId:</strong>postBlockRankings</p>
      * Create Block Rankings
      */
-    postBlockRankingsRaw(requestParameters: PostBlockRankingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBlockRankingsRaw(requestParameters: PostBlockRankingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Block Rankings. <p><strong>OperationId:</strong>postBlockRankings</p>
      * Create Block Rankings
      */
-    postBlockRankings(requestParameters: PostBlockRankingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBlockRankings(requestParameters: PostBlockRankingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Booking Types. <p><strong>OperationId:</strong>postBookingTypes</p>
      * Create Booking Types
      */
-    postBookingTypesRaw(requestParameters: PostBookingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBookingTypesRaw(requestParameters: PostBookingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Booking Types. <p><strong>OperationId:</strong>postBookingTypes</p>
      * Create Booking Types
      */
-    postBookingTypes(requestParameters: PostBookingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBookingTypes(requestParameters: PostBookingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Cancellation Codes. <p><strong>OperationId:</strong>postCancellationCodes</p>
      * Create Cancellation Codes
      */
-    postCancellationCodesRaw(requestParameters: PostCancellationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCancellationCodesRaw(requestParameters: PostCancellationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Cancellation Codes. <p><strong>OperationId:</strong>postCancellationCodes</p>
      * Create Cancellation Codes
      */
-    postCancellationCodes(requestParameters: PostCancellationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCancellationCodes(requestParameters: PostCancellationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Discount Reasons. <p><strong>OperationId:</strong>postDiscountReasons</p>
      * Create Discount Reasons
      */
-    postDiscountReasonsRaw(requestParameters: PostDiscountReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDiscountReasonsRaw(requestParameters: PostDiscountReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Discount Reasons. <p><strong>OperationId:</strong>postDiscountReasons</p>
      * Create Discount Reasons
      */
-    postDiscountReasons(requestParameters: PostDiscountReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDiscountReasons(requestParameters: PostDiscountReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Entry Points. <p><strong>OperationId:</strong>postEntryPoints</p>
      * Create Entry Points
      */
-    postEntryPointsRaw(requestParameters: PostEntryPointsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postEntryPointsRaw(requestParameters: PostEntryPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Entry Points. <p><strong>OperationId:</strong>postEntryPoints</p>
      * Create Entry Points
      */
-    postEntryPoints(requestParameters: PostEntryPointsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postEntryPoints(requestParameters: PostEntryPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Global Action Codes. <p><strong>OperationId:</strong>postGlobalActionCodes</p>
      * Create Global Action Codes
      */
-    postGlobalActionCodesRaw(requestParameters: PostGlobalActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGlobalActionCodesRaw(requestParameters: PostGlobalActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Global Action Codes. <p><strong>OperationId:</strong>postGlobalActionCodes</p>
      * Create Global Action Codes
      */
-    postGlobalActionCodes(requestParameters: PostGlobalActionCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGlobalActionCodes(requestParameters: PostGlobalActionCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Move Reason Codes. <p><strong>OperationId:</strong>postMoveReasonCodes</p>
      * Create Move Reason Codes
      */
-    postMoveReasonCodesRaw(requestParameters: PostMoveReasonCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMoveReasonCodesRaw(requestParameters: PostMoveReasonCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Move Reason Codes. <p><strong>OperationId:</strong>postMoveReasonCodes</p>
      * Create Move Reason Codes
      */
-    postMoveReasonCodes(requestParameters: PostMoveReasonCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMoveReasonCodes(requestParameters: PostMoveReasonCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Origin Codes. <p><strong>OperationId:</strong>postOriginCodes</p>
      * Create Origin Codes
      */
-    postOriginCodesRaw(requestParameters: PostOriginCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postOriginCodesRaw(requestParameters: PostOriginCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Origin Codes. <p><strong>OperationId:</strong>postOriginCodes</p>
      * Create Origin Codes
      */
-    postOriginCodes(requestParameters: PostOriginCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postOriginCodes(requestParameters: PostOriginCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Purpose Of Stays. <p><strong>OperationId:</strong>postPurposeOfStays</p>
      * Create Purpose Of Stays
      */
-    postPurposeOfStaysRaw(requestParameters: PostPurposeOfStaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postPurposeOfStaysRaw(requestParameters: PostPurposeOfStaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Purpose Of Stays. <p><strong>OperationId:</strong>postPurposeOfStays</p>
      * Create Purpose Of Stays
      */
-    postPurposeOfStays(requestParameters: PostPurposeOfStaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postPurposeOfStays(requestParameters: PostPurposeOfStaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Scripts. <p><strong>OperationId:</strong>postScripts</p>
      * Create Scripts
      */
-    postScriptsRaw(requestParameters: PostScriptsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postScriptsRaw(requestParameters: PostScriptsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Scripts. <p><strong>OperationId:</strong>postScripts</p>
      * Create Scripts
      */
-    postScripts(requestParameters: PostScriptsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postScripts(requestParameters: PostScriptsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Waitlist Codes. <p><strong>OperationId:</strong>postWaitlistCodes</p>
      * Create Waitlist Codes
      */
-    postWaitlistCodesRaw(requestParameters: PostWaitlistCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postWaitlistCodesRaw(requestParameters: PostWaitlistCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Waitlist Codes. <p><strong>OperationId:</strong>postWaitlistCodes</p>
      * Create Waitlist Codes
      */
-    postWaitlistCodes(requestParameters: PostWaitlistCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postWaitlistCodes(requestParameters: PostWaitlistCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Waitlist Priorities. <p><strong>OperationId:</strong>postWaitlistPriorities</p>
      * Create Waitlist Priorities
      */
-    postWaitlistPrioritiesRaw(requestParameters: PostWaitlistPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postWaitlistPrioritiesRaw(requestParameters: PostWaitlistPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Waitlist Priorities. <p><strong>OperationId:</strong>postWaitlistPriorities</p>
      * Create Waitlist Priorities
      */
-    postWaitlistPriorities(requestParameters: PostWaitlistPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postWaitlistPriorities(requestParameters: PostWaitlistPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Booking Type. <p><strong>OperationId:</strong>putBookingTypes</p>
      * Change Booking Type
      */
-    putBookingTypesRaw(requestParameters: PutBookingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putBookingTypesRaw(requestParameters: PutBookingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Booking Type. <p><strong>OperationId:</strong>putBookingTypes</p>
      * Change Booking Type
      */
-    putBookingTypes(requestParameters: PutBookingTypesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putBookingTypes(requestParameters: PutBookingTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Cancellation Codes. <p><strong>OperationId:</strong>putCancellationCodes</p>
      * Change Cancellation Codes
      */
-    putCancellationCodesRaw(requestParameters: PutCancellationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCancellationCodesRaw(requestParameters: PutCancellationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Cancellation Codes. <p><strong>OperationId:</strong>putCancellationCodes</p>
      * Change Cancellation Codes
      */
-    putCancellationCodes(requestParameters: PutCancellationCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCancellationCodes(requestParameters: PutCancellationCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Discount Reasons. <p><strong>OperationId:</strong>putDiscountReasons</p>
      * Change Discount Reasons
      */
-    putDiscountReasonsRaw(requestParameters: PutDiscountReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putDiscountReasonsRaw(requestParameters: PutDiscountReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Discount Reasons. <p><strong>OperationId:</strong>putDiscountReasons</p>
      * Change Discount Reasons
      */
-    putDiscountReasons(requestParameters: PutDiscountReasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putDiscountReasons(requestParameters: PutDiscountReasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Entry Points. <p><strong>OperationId:</strong>putEntryPoints</p>
      * Change Entry Points
      */
-    putEntryPointsRaw(requestParameters: PutEntryPointsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putEntryPointsRaw(requestParameters: PutEntryPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Entry Points. <p><strong>OperationId:</strong>putEntryPoints</p>
      * Change Entry Points
      */
-    putEntryPoints(requestParameters: PutEntryPointsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putEntryPoints(requestParameters: PutEntryPointsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Move Reason Codes. <p><strong>OperationId:</strong>putMoveReasonCodes</p>
      * Change Move Reason Codes
      */
-    putMoveReasonCodesRaw(requestParameters: PutMoveReasonCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putMoveReasonCodesRaw(requestParameters: PutMoveReasonCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Move Reason Codes. <p><strong>OperationId:</strong>putMoveReasonCodes</p>
      * Change Move Reason Codes
      */
-    putMoveReasonCodes(requestParameters: PutMoveReasonCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putMoveReasonCodes(requestParameters: PutMoveReasonCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Origin Codes. <p><strong>OperationId:</strong>putOriginCodes</p>
      * Change Origin Codes
      */
-    putOriginCodesRaw(requestParameters: PutOriginCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putOriginCodesRaw(requestParameters: PutOriginCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Origin Codes. <p><strong>OperationId:</strong>putOriginCodes</p>
      * Change Origin Codes
      */
-    putOriginCodes(requestParameters: PutOriginCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putOriginCodes(requestParameters: PutOriginCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Purpose Of Stays. <p><strong>OperationId:</strong>putPurposeOfStays</p>
      * Change Purpose Of Stays
      */
-    putPurposeOfStaysRaw(requestParameters: PutPurposeOfStaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPurposeOfStaysRaw(requestParameters: PutPurposeOfStaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Purpose Of Stays. <p><strong>OperationId:</strong>putPurposeOfStays</p>
      * Change Purpose Of Stays
      */
-    putPurposeOfStays(requestParameters: PutPurposeOfStaysOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPurposeOfStays(requestParameters: PutPurposeOfStaysRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Waitlist Codes. <p><strong>OperationId:</strong>putWaitlistCodes</p>
      * Change Waitlist Codes
      */
-    putWaitlistCodesRaw(requestParameters: PutWaitlistCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putWaitlistCodesRaw(requestParameters: PutWaitlistCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Waitlist Codes. <p><strong>OperationId:</strong>putWaitlistCodes</p>
      * Change Waitlist Codes
      */
-    putWaitlistCodes(requestParameters: PutWaitlistCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putWaitlistCodes(requestParameters: PutWaitlistCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Waitlist Priorities. <p><strong>OperationId:</strong>putWaitlistPriorities</p>
      * Change Waitlist Priorities
      */
-    putWaitlistPrioritiesRaw(requestParameters: PutWaitlistPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putWaitlistPrioritiesRaw(requestParameters: PutWaitlistPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Waitlist Priorities. <p><strong>OperationId:</strong>putWaitlistPriorities</p>
      * Change Waitlist Priorities
      */
-    putWaitlistPriorities(requestParameters: PutWaitlistPrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putWaitlistPriorities(requestParameters: PutWaitlistPrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Block Conversions. <p><strong>OperationId:</strong>removeBlockConversions</p>
      * Delete Block Conversions

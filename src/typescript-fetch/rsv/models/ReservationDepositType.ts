@@ -88,10 +88,10 @@ export function ReservationDepositTypeToJSON(value?: ReservationDepositType | nu
     return {
         
         'amountPaid': value.amountPaid,
-        'dueDate': value.dueDate === undefined ? undefined : (value.dueDate.toISOString().substr(0,10)),
+        'dueDate': value.dueDate === undefined ? undefined : (value.dueDate.toISOString().substring(0,10)),
         'hasOutstanding': value.hasOutstanding,
         'hasPaid': value.hasPaid,
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substr(0,10)),
+        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
     };
 }
 

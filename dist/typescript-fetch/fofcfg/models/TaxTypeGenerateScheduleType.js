@@ -47,7 +47,7 @@ function TaxTypeGenerateScheduleTypeToJSON(value) {
     }
     return {
         'rule': (0, TaxTypeCalcRuleType_1.TaxTypeCalcRuleTypeToJSON)(value.rule),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.TaxTypeGenerateScheduleTypeToJSON = TaxTypeGenerateScheduleTypeToJSON;

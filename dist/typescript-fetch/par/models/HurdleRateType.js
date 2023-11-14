@@ -60,7 +60,7 @@ function HurdleRateTypeToJSON(value) {
         'delta': value.delta,
         'hotelId': value.hotelId,
         'hurdle': value.hurdle,
-        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substr(0, 10)),
+        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substring(0, 10)),
         'lengthOfStay': value.lengthOfStay,
         'maxSolds': value.maxSolds,
         'override': value.override,

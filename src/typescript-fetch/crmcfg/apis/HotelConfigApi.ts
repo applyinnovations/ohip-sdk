@@ -16,42 +16,42 @@
 import * as runtime from '../runtime';
 import type {
   AvailablePreferencesDetails,
-  ChangeCommunicationTypeRequest,
+  CommunicationTypeCriteria,
+  CommunicationTypeToBeChanged,
   CommunicationTypesDetails,
   ExceptionDetailType,
-  PostCommunicationTypeRequest,
   Status,
-} from '../models';
+} from '../models/index';
 import {
     AvailablePreferencesDetailsFromJSON,
     AvailablePreferencesDetailsToJSON,
-    ChangeCommunicationTypeRequestFromJSON,
-    ChangeCommunicationTypeRequestToJSON,
+    CommunicationTypeCriteriaFromJSON,
+    CommunicationTypeCriteriaToJSON,
+    CommunicationTypeToBeChangedFromJSON,
+    CommunicationTypeToBeChangedToJSON,
     CommunicationTypesDetailsFromJSON,
     CommunicationTypesDetailsToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostCommunicationTypeRequestFromJSON,
-    PostCommunicationTypeRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
-} from '../models';
+} from '../models/index';
 
-export interface ChangeCommunicationTypeOperationRequest {
-    communicationTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    communicationTypeToBeChanged?: ChangeCommunicationTypeRequest;
+export interface ChangeCommunicationTypeRequest {
+    communicationTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    communicationTypeToBeChanged: CommunicationTypeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAvailablePreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     isOnlyForReservation?: boolean;
     preferenceType?: string;
     xExternalsystem?: string;
@@ -59,9 +59,9 @@ export interface GetAvailablePreferencesRequest {
 }
 
 export interface GetCommunicationTypesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     codes?: Array<string>;
     roles?: Set<GetCommunicationTypesRolesEnum>;
     description?: string;
@@ -69,20 +69,20 @@ export interface GetCommunicationTypesRequest {
     acceptLanguage?: string;
 }
 
-export interface PostCommunicationTypeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    communicationTypeCriteria?: PostCommunicationTypeRequest;
+export interface PostCommunicationTypeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    communicationTypeCriteria: CommunicationTypeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCommunicationTypeRequest {
-    communicationTypeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    communicationTypeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -96,7 +96,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update a  communication type. <p><strong>OperationId:</strong>changeCommunicationType</p>
      * Change a  communication type
      */
-    async changeCommunicationTypeRaw(requestParameters: ChangeCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeCommunicationTypeRaw(requestParameters: ChangeCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.communicationTypeCode === null || requestParameters.communicationTypeCode === undefined) {
+            throw new runtime.RequiredError('communicationTypeCode','Required parameter requestParameters.communicationTypeCode was null or undefined when calling changeCommunicationType.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeCommunicationType.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeCommunicationType.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeCommunicationType.');
+        }
+
+        if (requestParameters.communicationTypeToBeChanged === null || requestParameters.communicationTypeToBeChanged === undefined) {
+            throw new runtime.RequiredError('communicationTypeToBeChanged','Required parameter requestParameters.communicationTypeToBeChanged was null or undefined when calling changeCommunicationType.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -128,7 +148,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeCommunicationTypeRequestToJSON(requestParameters.communicationTypeToBeChanged),
+            body: CommunicationTypeToBeChangedToJSON(requestParameters.communicationTypeToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -138,7 +158,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update a  communication type. <p><strong>OperationId:</strong>changeCommunicationType</p>
      * Change a  communication type
      */
-    async changeCommunicationType(requestParameters: ChangeCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeCommunicationType(requestParameters: ChangeCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeCommunicationTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -148,6 +168,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get available Preferences
      */
     async getAvailablePreferencesRaw(requestParameters: GetAvailablePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AvailablePreferencesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailablePreferences.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailablePreferences.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailablePreferences.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailablePreferences.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -208,6 +244,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get communication types
      */
     async getCommunicationTypesRaw(requestParameters: GetCommunicationTypesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CommunicationTypesDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCommunicationTypes.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCommunicationTypes.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCommunicationTypes.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.codes) {
@@ -267,7 +315,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a  communication type. <p><strong>OperationId:</strong>postCommunicationType</p>
      * Create a  communication type
      */
-    async postCommunicationTypeRaw(requestParameters: PostCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCommunicationTypeRaw(requestParameters: PostCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCommunicationType.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCommunicationType.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCommunicationType.');
+        }
+
+        if (requestParameters.communicationTypeCriteria === null || requestParameters.communicationTypeCriteria === undefined) {
+            throw new runtime.RequiredError('communicationTypeCriteria','Required parameter requestParameters.communicationTypeCriteria was null or undefined when calling postCommunicationType.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -299,7 +363,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCommunicationTypeRequestToJSON(requestParameters.communicationTypeCriteria),
+            body: CommunicationTypeCriteriaToJSON(requestParameters.communicationTypeCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -309,7 +373,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a  communication type. <p><strong>OperationId:</strong>postCommunicationType</p>
      * Create a  communication type
      */
-    async postCommunicationType(requestParameters: PostCommunicationTypeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCommunicationType(requestParameters: PostCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCommunicationTypeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -319,6 +383,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a communication type
      */
     async removeCommunicationTypeRaw(requestParameters: RemoveCommunicationTypeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.communicationTypeCode === null || requestParameters.communicationTypeCode === undefined) {
+            throw new runtime.RequiredError('communicationTypeCode','Required parameter requestParameters.communicationTypeCode was null or undefined when calling removeCommunicationType.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeCommunicationType.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeCommunicationType.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeCommunicationType.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

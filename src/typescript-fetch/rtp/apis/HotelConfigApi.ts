@@ -15,175 +15,175 @@
 
 import * as runtime from '../runtime';
 import type {
-  ChangeRateCategoryRequest,
-  ChangeRateClassRequest,
-  ChangeRateSeasonsRequest,
-  ChangeTemplateRateCategoryRequest,
-  ChangeTemplateRateClassRequest,
-  ChangeTemplateRateSeasonsRequest,
   ExceptionDetailType,
-  PostRateCategoryRequest,
-  PostRateClassRequest,
-  PostRateSeasonsRequest,
-  PostTemplateRateCategoryRequest,
-  PostTemplateRateClassRequest,
-  PostTemplateRateSeasonsRequest,
+  RateCategoryCriteria,
   RateCategoryDetails,
+  RateCategoryToBeChanged,
+  RateClassCriteria,
   RateClassDetails,
+  RateClassToBeChanged,
+  RateSeasonsCriteria,
   RateSeasonsDetails,
+  RateSeasonsToBeChanged,
   Status,
+  TemplateRateCategoryCriteria,
   TemplateRateCategoryDetails,
+  TemplateRateCategoryToBeChanged,
+  TemplateRateClassCriteria,
   TemplateRateClassDetails,
+  TemplateRateClassToBeChanged,
+  TemplateRateSeasonsCriteria,
   TemplateRateSeasonsDetails,
-} from '../models';
+  TemplateRateSeasonsToBeChanged,
+} from '../models/index';
 import {
-    ChangeRateCategoryRequestFromJSON,
-    ChangeRateCategoryRequestToJSON,
-    ChangeRateClassRequestFromJSON,
-    ChangeRateClassRequestToJSON,
-    ChangeRateSeasonsRequestFromJSON,
-    ChangeRateSeasonsRequestToJSON,
-    ChangeTemplateRateCategoryRequestFromJSON,
-    ChangeTemplateRateCategoryRequestToJSON,
-    ChangeTemplateRateClassRequestFromJSON,
-    ChangeTemplateRateClassRequestToJSON,
-    ChangeTemplateRateSeasonsRequestFromJSON,
-    ChangeTemplateRateSeasonsRequestToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostRateCategoryRequestFromJSON,
-    PostRateCategoryRequestToJSON,
-    PostRateClassRequestFromJSON,
-    PostRateClassRequestToJSON,
-    PostRateSeasonsRequestFromJSON,
-    PostRateSeasonsRequestToJSON,
-    PostTemplateRateCategoryRequestFromJSON,
-    PostTemplateRateCategoryRequestToJSON,
-    PostTemplateRateClassRequestFromJSON,
-    PostTemplateRateClassRequestToJSON,
-    PostTemplateRateSeasonsRequestFromJSON,
-    PostTemplateRateSeasonsRequestToJSON,
+    RateCategoryCriteriaFromJSON,
+    RateCategoryCriteriaToJSON,
     RateCategoryDetailsFromJSON,
     RateCategoryDetailsToJSON,
+    RateCategoryToBeChangedFromJSON,
+    RateCategoryToBeChangedToJSON,
+    RateClassCriteriaFromJSON,
+    RateClassCriteriaToJSON,
     RateClassDetailsFromJSON,
     RateClassDetailsToJSON,
+    RateClassToBeChangedFromJSON,
+    RateClassToBeChangedToJSON,
+    RateSeasonsCriteriaFromJSON,
+    RateSeasonsCriteriaToJSON,
     RateSeasonsDetailsFromJSON,
     RateSeasonsDetailsToJSON,
+    RateSeasonsToBeChangedFromJSON,
+    RateSeasonsToBeChangedToJSON,
     StatusFromJSON,
     StatusToJSON,
+    TemplateRateCategoryCriteriaFromJSON,
+    TemplateRateCategoryCriteriaToJSON,
     TemplateRateCategoryDetailsFromJSON,
     TemplateRateCategoryDetailsToJSON,
+    TemplateRateCategoryToBeChangedFromJSON,
+    TemplateRateCategoryToBeChangedToJSON,
+    TemplateRateClassCriteriaFromJSON,
+    TemplateRateClassCriteriaToJSON,
     TemplateRateClassDetailsFromJSON,
     TemplateRateClassDetailsToJSON,
+    TemplateRateClassToBeChangedFromJSON,
+    TemplateRateClassToBeChangedToJSON,
+    TemplateRateSeasonsCriteriaFromJSON,
+    TemplateRateSeasonsCriteriaToJSON,
     TemplateRateSeasonsDetailsFromJSON,
     TemplateRateSeasonsDetailsToJSON,
-} from '../models';
+    TemplateRateSeasonsToBeChangedFromJSON,
+    TemplateRateSeasonsToBeChangedToJSON,
+} from '../models/index';
 
-export interface ChangeRateCategoryOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateCategoryToBeChanged?: ChangeRateCategoryRequest;
+export interface ChangeRateCategoryRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateCategoryToBeChanged: RateCategoryToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeRateClassOperationRequest {
-    rateClassCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateClassToBeChanged?: ChangeRateClassRequest;
+export interface ChangeRateClassRequest {
+    rateClassCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateClassToBeChanged: RateClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeRateSeasonsOperationRequest {
-    seasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateSeasonsToBeChanged?: ChangeRateSeasonsRequest;
+export interface ChangeRateSeasonsRequest {
+    seasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateSeasonsToBeChanged: RateSeasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateRateCategoryOperationRequest {
-    rateCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateCategoryToBeChanged?: ChangeTemplateRateCategoryRequest;
+export interface ChangeTemplateRateCategoryRequest {
+    rateCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateCategoryToBeChanged: TemplateRateCategoryToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateRateClassOperationRequest {
-    rateClassCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateClassToBeChanged?: ChangeTemplateRateClassRequest;
+export interface ChangeTemplateRateClassRequest {
+    rateClassCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateClassToBeChanged: TemplateRateClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ChangeTemplateRateSeasonsOperationRequest {
-    seasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateSeasonsToBeChanged?: ChangeTemplateRateSeasonsRequest;
+export interface ChangeTemplateRateSeasonsRequest {
+    seasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateSeasonsToBeChanged: TemplateRateSeasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRateCategoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateCategory?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRateClassRequest {
-    rateClassCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateClassCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateRateCategoryRequest {
-    rateCategoryCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateCategoryCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateRateClassRequest {
-    rateClassCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    rateClassCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRateCategoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -195,10 +195,10 @@ export interface GetRateCategoryRequest {
 }
 
 export interface GetRateClassRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -210,10 +210,10 @@ export interface GetRateClassRequest {
 }
 
 export interface GetRateSeasonsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -223,9 +223,9 @@ export interface GetRateSeasonsRequest {
 }
 
 export interface GetTemplateRateCategoryRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     rateCategoryListCodes?: Array<string>;
     rateCategoryDescription?: string;
     includeInactive?: boolean;
@@ -234,9 +234,9 @@ export interface GetTemplateRateCategoryRequest {
 }
 
 export interface GetTemplateRateClassRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -248,86 +248,86 @@ export interface GetTemplateRateClassRequest {
 }
 
 export interface GetTemplateRateSeasonsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     seasonCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRateCategoryOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateCategoryCriteria?: PostRateCategoryRequest;
+export interface PostRateCategoryRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateCategoryCriteria: RateCategoryCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRateClassOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateClassCriteria?: PostRateClassRequest;
+export interface PostRateClassRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateClassCriteria: RateClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRateSeasonsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    rateSeasonsCriteria?: PostRateSeasonsRequest;
+export interface PostRateSeasonsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    rateSeasonsCriteria: RateSeasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateRateCategoryOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateCategoryCriteria?: PostTemplateRateCategoryRequest;
+export interface PostTemplateRateCategoryRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateCategoryCriteria: TemplateRateCategoryCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateRateClassOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateClassCriteria?: PostTemplateRateClassRequest;
+export interface PostTemplateRateClassRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateClassCriteria: TemplateRateClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostTemplateRateSeasonsOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateRateSeasonsCriteria?: PostTemplateRateSeasonsRequest;
+export interface PostTemplateRateSeasonsRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateRateSeasonsCriteria: TemplateRateSeasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveRateSeasonsRequest {
-    seasonCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    seasonCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateRateSeasonsRequest {
-    seasonCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    seasonCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -341,7 +341,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API can be used to Modify a Rate Category e.g.  RACK. Only one rate category can be modified at a time. <p><strong>OperationId:</strong>changeRateCategory</p>
      * Change Rate Category
      */
-    async changeRateCategoryRaw(requestParameters: ChangeRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeRateCategoryRaw(requestParameters: ChangeRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeRateCategory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeRateCategory.');
+        }
+
+        if (requestParameters.rateCategoryToBeChanged === null || requestParameters.rateCategoryToBeChanged === undefined) {
+            throw new runtime.RequiredError('rateCategoryToBeChanged','Required parameter requestParameters.rateCategoryToBeChanged was null or undefined when calling changeRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -373,7 +393,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeRateCategoryRequestToJSON(requestParameters.rateCategoryToBeChanged),
+            body: RateCategoryToBeChangedToJSON(requestParameters.rateCategoryToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -383,7 +403,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API can be used to Modify a Rate Category e.g.  RACK. Only one rate category can be modified at a time. <p><strong>OperationId:</strong>changeRateCategory</p>
      * Change Rate Category
      */
-    async changeRateCategory(requestParameters: ChangeRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeRateCategory(requestParameters: ChangeRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeRateCategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -392,7 +412,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to updates to rate class. <p><strong>OperationId:</strong>changeRateClass</p>
      * Changes to rate class
      */
-    async changeRateClassRaw(requestParameters: ChangeRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeRateClassRaw(requestParameters: ChangeRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateClassCode === null || requestParameters.rateClassCode === undefined) {
+            throw new runtime.RequiredError('rateClassCode','Required parameter requestParameters.rateClassCode was null or undefined when calling changeRateClass.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeRateClass.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeRateClass.');
+        }
+
+        if (requestParameters.rateClassToBeChanged === null || requestParameters.rateClassToBeChanged === undefined) {
+            throw new runtime.RequiredError('rateClassToBeChanged','Required parameter requestParameters.rateClassToBeChanged was null or undefined when calling changeRateClass.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -424,7 +468,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeRateClassRequestToJSON(requestParameters.rateClassToBeChanged),
+            body: RateClassToBeChangedToJSON(requestParameters.rateClassToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -434,7 +478,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to updates to rate class. <p><strong>OperationId:</strong>changeRateClass</p>
      * Changes to rate class
      */
-    async changeRateClass(requestParameters: ChangeRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeRateClass(requestParameters: ChangeRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeRateClassRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -443,7 +487,31 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Hotel Rate Seasons. <p><strong>OperationId:</strong>changeRateSeasons</p>
      * Change Hotel Rate Seasons
      */
-    async changeRateSeasonsRaw(requestParameters: ChangeRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeRateSeasonsRaw(requestParameters: ChangeRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.seasonCode === null || requestParameters.seasonCode === undefined) {
+            throw new runtime.RequiredError('seasonCode','Required parameter requestParameters.seasonCode was null or undefined when calling changeRateSeasons.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling changeRateSeasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeRateSeasons.');
+        }
+
+        if (requestParameters.rateSeasonsToBeChanged === null || requestParameters.rateSeasonsToBeChanged === undefined) {
+            throw new runtime.RequiredError('rateSeasonsToBeChanged','Required parameter requestParameters.rateSeasonsToBeChanged was null or undefined when calling changeRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -475,7 +543,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeRateSeasonsRequestToJSON(requestParameters.rateSeasonsToBeChanged),
+            body: RateSeasonsToBeChangedToJSON(requestParameters.rateSeasonsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -485,7 +553,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Hotel Rate Seasons. <p><strong>OperationId:</strong>changeRateSeasons</p>
      * Change Hotel Rate Seasons
      */
-    async changeRateSeasons(requestParameters: ChangeRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeRateSeasons(requestParameters: ChangeRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeRateSeasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -494,7 +562,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to Modify a Template Rate Category. Only one template can be updated at a time. <p><strong>OperationId:</strong>changeTemplateRateCategory</p>
      * Change Template Rate Category
      */
-    async changeTemplateRateCategoryRaw(requestParameters: ChangeTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateRateCategoryRaw(requestParameters: ChangeTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateCategoryCode === null || requestParameters.rateCategoryCode === undefined) {
+            throw new runtime.RequiredError('rateCategoryCode','Required parameter requestParameters.rateCategoryCode was null or undefined when calling changeTemplateRateCategory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateRateCategory.');
+        }
+
+        if (requestParameters.templateRateCategoryToBeChanged === null || requestParameters.templateRateCategoryToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateRateCategoryToBeChanged','Required parameter requestParameters.templateRateCategoryToBeChanged was null or undefined when calling changeTemplateRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -526,7 +614,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateRateCategoryRequestToJSON(requestParameters.templateRateCategoryToBeChanged),
+            body: TemplateRateCategoryToBeChangedToJSON(requestParameters.templateRateCategoryToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -536,7 +624,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to Modify a Template Rate Category. Only one template can be updated at a time. <p><strong>OperationId:</strong>changeTemplateRateCategory</p>
      * Change Template Rate Category
      */
-    async changeTemplateRateCategory(requestParameters: ChangeTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateRateCategory(requestParameters: ChangeTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateRateCategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -545,7 +633,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to modify template rate class. <p><strong>OperationId:</strong>changeTemplateRateClass</p>
      * Change template rate class
      */
-    async changeTemplateRateClassRaw(requestParameters: ChangeTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateRateClassRaw(requestParameters: ChangeTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateClassCode === null || requestParameters.rateClassCode === undefined) {
+            throw new runtime.RequiredError('rateClassCode','Required parameter requestParameters.rateClassCode was null or undefined when calling changeTemplateRateClass.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateRateClass.');
+        }
+
+        if (requestParameters.templateRateClassToBeChanged === null || requestParameters.templateRateClassToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateRateClassToBeChanged','Required parameter requestParameters.templateRateClassToBeChanged was null or undefined when calling changeTemplateRateClass.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -577,7 +685,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateRateClassRequestToJSON(requestParameters.templateRateClassToBeChanged),
+            body: TemplateRateClassToBeChangedToJSON(requestParameters.templateRateClassToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -587,7 +695,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to modify template rate class. <p><strong>OperationId:</strong>changeTemplateRateClass</p>
      * Change template rate class
      */
-    async changeTemplateRateClass(requestParameters: ChangeTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateRateClass(requestParameters: ChangeTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateRateClassRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -596,7 +704,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Template Rate Seasons. <p><strong>OperationId:</strong>changeTemplateRateSeasons</p>
      * Change Template Rate Seasons
      */
-    async changeTemplateRateSeasonsRaw(requestParameters: ChangeTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async changeTemplateRateSeasonsRaw(requestParameters: ChangeTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.seasonCode === null || requestParameters.seasonCode === undefined) {
+            throw new runtime.RequiredError('seasonCode','Required parameter requestParameters.seasonCode was null or undefined when calling changeTemplateRateSeasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling changeTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling changeTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling changeTemplateRateSeasons.');
+        }
+
+        if (requestParameters.templateRateSeasonsToBeChanged === null || requestParameters.templateRateSeasonsToBeChanged === undefined) {
+            throw new runtime.RequiredError('templateRateSeasonsToBeChanged','Required parameter requestParameters.templateRateSeasonsToBeChanged was null or undefined when calling changeTemplateRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -628,7 +756,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ChangeTemplateRateSeasonsRequestToJSON(requestParameters.templateRateSeasonsToBeChanged),
+            body: TemplateRateSeasonsToBeChangedToJSON(requestParameters.templateRateSeasonsToBeChanged),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -638,7 +766,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Template Rate Seasons. <p><strong>OperationId:</strong>changeTemplateRateSeasons</p>
      * Change Template Rate Seasons
      */
-    async changeTemplateRateSeasons(requestParameters: ChangeTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async changeTemplateRateSeasons(requestParameters: ChangeTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.changeTemplateRateSeasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -648,6 +776,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Rate Category
      */
     async deleteRateCategoryRaw(requestParameters: DeleteRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRateCategory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.rateCategory !== undefined) {
@@ -700,6 +844,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete rate class
      */
     async deleteRateClassRaw(requestParameters: DeleteRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateClassCode === null || requestParameters.rateClassCode === undefined) {
+            throw new runtime.RequiredError('rateClassCode','Required parameter requestParameters.rateClassCode was null or undefined when calling deleteRateClass.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRateClass.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRateClass.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -748,6 +912,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete a Template Rate Category
      */
     async deleteTemplateRateCategoryRaw(requestParameters: DeleteTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateCategoryCode === null || requestParameters.rateCategoryCode === undefined) {
+            throw new runtime.RequiredError('rateCategoryCode','Required parameter requestParameters.rateCategoryCode was null or undefined when calling deleteTemplateRateCategory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -796,6 +976,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete template rate class
      */
     async deleteTemplateRateClassRaw(requestParameters: DeleteTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.rateClassCode === null || requestParameters.rateClassCode === undefined) {
+            throw new runtime.RequiredError('rateClassCode','Required parameter requestParameters.rateClassCode was null or undefined when calling deleteTemplateRateClass.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTemplateRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTemplateRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTemplateRateClass.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -844,6 +1040,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get rate category
      */
     async getRateCategoryRaw(requestParameters: GetRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateCategoryDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateCategory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -916,6 +1128,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get rate classes
      */
     async getRateClassRaw(requestParameters: GetRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateClassDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateClass.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateClass.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -988,6 +1216,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Hotel Rate Seasons
      */
     async getRateSeasonsRaw(requestParameters: GetRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateSeasonsDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRateSeasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -1052,6 +1296,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Template Rate Categories
      */
     async getTemplateRateCategoryRaw(requestParameters: GetTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateRateCategoryDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.rateCategoryListCodes) {
@@ -1112,6 +1368,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get template rate classes
      */
     async getTemplateRateClassRaw(requestParameters: GetTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateRateClassDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateRateClass.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -1184,6 +1452,18 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Get Template Rate Seasons
      */
     async getTemplateRateSeasonsRaw(requestParameters: GetTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TemplateRateSeasonsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTemplateRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.seasonCodes) {
@@ -1235,7 +1515,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API can be used to Use this API to create a Rate Category e.g.  RACK. Only one rate category can be Use this API to created at a time. <p><strong>OperationId:</strong>postRateCategory</p>
      * Create Rate Category
      */
-    async postRateCategoryRaw(requestParameters: PostRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRateCategoryRaw(requestParameters: PostRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRateCategory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRateCategory.');
+        }
+
+        if (requestParameters.rateCategoryCriteria === null || requestParameters.rateCategoryCriteria === undefined) {
+            throw new runtime.RequiredError('rateCategoryCriteria','Required parameter requestParameters.rateCategoryCriteria was null or undefined when calling postRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1267,7 +1567,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRateCategoryRequestToJSON(requestParameters.rateCategoryCriteria),
+            body: RateCategoryCriteriaToJSON(requestParameters.rateCategoryCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1277,7 +1577,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * This API can be used to Use this API to create a Rate Category e.g.  RACK. Only one rate category can be Use this API to created at a time. <p><strong>OperationId:</strong>postRateCategory</p>
      * Create Rate Category
      */
-    async postRateCategory(requestParameters: PostRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRateCategory(requestParameters: PostRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRateCategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1286,7 +1586,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create new rate class. <p><strong>OperationId:</strong>postRateClass</p>
      * Create new rate class
      */
-    async postRateClassRaw(requestParameters: PostRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRateClassRaw(requestParameters: PostRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRateClass.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRateClass.');
+        }
+
+        if (requestParameters.rateClassCriteria === null || requestParameters.rateClassCriteria === undefined) {
+            throw new runtime.RequiredError('rateClassCriteria','Required parameter requestParameters.rateClassCriteria was null or undefined when calling postRateClass.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1318,7 +1638,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRateClassRequestToJSON(requestParameters.rateClassCriteria),
+            body: RateClassCriteriaToJSON(requestParameters.rateClassCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1328,7 +1648,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create new rate class. <p><strong>OperationId:</strong>postRateClass</p>
      * Create new rate class
      */
-    async postRateClass(requestParameters: PostRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRateClass(requestParameters: PostRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRateClassRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1337,7 +1657,27 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Hotel Rate Seasons. <p><strong>OperationId:</strong>postRateSeasons</p>
      * Create Hotel Rate Seasons
      */
-    async postRateSeasonsRaw(requestParameters: PostRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRateSeasonsRaw(requestParameters: PostRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRateSeasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRateSeasons.');
+        }
+
+        if (requestParameters.rateSeasonsCriteria === null || requestParameters.rateSeasonsCriteria === undefined) {
+            throw new runtime.RequiredError('rateSeasonsCriteria','Required parameter requestParameters.rateSeasonsCriteria was null or undefined when calling postRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1369,7 +1709,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRateSeasonsRequestToJSON(requestParameters.rateSeasonsCriteria),
+            body: RateSeasonsCriteriaToJSON(requestParameters.rateSeasonsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1379,7 +1719,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Hotel Rate Seasons. <p><strong>OperationId:</strong>postRateSeasons</p>
      * Create Hotel Rate Seasons
      */
-    async postRateSeasons(requestParameters: PostRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRateSeasons(requestParameters: PostRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRateSeasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1388,7 +1728,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Template Rate Category. <p><strong>OperationId:</strong>postTemplateRateCategory</p>
      * Create a Template Rate Category
      */
-    async postTemplateRateCategoryRaw(requestParameters: PostTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateRateCategoryRaw(requestParameters: PostTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateRateCategory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateRateCategory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateRateCategory.');
+        }
+
+        if (requestParameters.templateRateCategoryCriteria === null || requestParameters.templateRateCategoryCriteria === undefined) {
+            throw new runtime.RequiredError('templateRateCategoryCriteria','Required parameter requestParameters.templateRateCategoryCriteria was null or undefined when calling postTemplateRateCategory.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1420,7 +1776,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateRateCategoryRequestToJSON(requestParameters.templateRateCategoryCriteria),
+            body: TemplateRateCategoryCriteriaToJSON(requestParameters.templateRateCategoryCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1430,7 +1786,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create a new Template Rate Category. <p><strong>OperationId:</strong>postTemplateRateCategory</p>
      * Create a Template Rate Category
      */
-    async postTemplateRateCategory(requestParameters: PostTemplateRateCategoryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateRateCategory(requestParameters: PostTemplateRateCategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateRateCategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1439,7 +1795,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create new template rate class. <p><strong>OperationId:</strong>postTemplateRateClass</p>
      * Create new template rate class
      */
-    async postTemplateRateClassRaw(requestParameters: PostTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateRateClassRaw(requestParameters: PostTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateRateClass.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateRateClass.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateRateClass.');
+        }
+
+        if (requestParameters.templateRateClassCriteria === null || requestParameters.templateRateClassCriteria === undefined) {
+            throw new runtime.RequiredError('templateRateClassCriteria','Required parameter requestParameters.templateRateClassCriteria was null or undefined when calling postTemplateRateClass.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1471,7 +1843,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateRateClassRequestToJSON(requestParameters.templateRateClassCriteria),
+            body: TemplateRateClassCriteriaToJSON(requestParameters.templateRateClassCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1481,7 +1853,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create new template rate class. <p><strong>OperationId:</strong>postTemplateRateClass</p>
      * Create new template rate class
      */
-    async postTemplateRateClass(requestParameters: PostTemplateRateClassOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateRateClass(requestParameters: PostTemplateRateClassRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateRateClassRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1490,7 +1862,23 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Template Rate Seasons. <p><strong>OperationId:</strong>postTemplateRateSeasons</p>
      * Create Template Rate Seasons
      */
-    async postTemplateRateSeasonsRaw(requestParameters: PostTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postTemplateRateSeasonsRaw(requestParameters: PostTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTemplateRateSeasons.');
+        }
+
+        if (requestParameters.templateRateSeasonsCriteria === null || requestParameters.templateRateSeasonsCriteria === undefined) {
+            throw new runtime.RequiredError('templateRateSeasonsCriteria','Required parameter requestParameters.templateRateSeasonsCriteria was null or undefined when calling postTemplateRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1522,7 +1910,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostTemplateRateSeasonsRequestToJSON(requestParameters.templateRateSeasonsCriteria),
+            body: TemplateRateSeasonsCriteriaToJSON(requestParameters.templateRateSeasonsCriteria),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -1532,7 +1920,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Template Rate Seasons. <p><strong>OperationId:</strong>postTemplateRateSeasons</p>
      * Create Template Rate Seasons
      */
-    async postTemplateRateSeasons(requestParameters: PostTemplateRateSeasonsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postTemplateRateSeasons(requestParameters: PostTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postTemplateRateSeasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1542,6 +1930,26 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Hotel Rate Seasons
      */
     async removeRateSeasonsRaw(requestParameters: RemoveRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.seasonCode === null || requestParameters.seasonCode === undefined) {
+            throw new runtime.RequiredError('seasonCode','Required parameter requestParameters.seasonCode was null or undefined when calling removeRateSeasons.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling removeRateSeasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1590,6 +1998,22 @@ export class HotelConfigApi extends runtime.BaseAPI {
      * Delete Template Rate Seasons
      */
     async removeTemplateRateSeasonsRaw(requestParameters: RemoveTemplateRateSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.seasonCode === null || requestParameters.seasonCode === undefined) {
+            throw new runtime.RequiredError('seasonCode','Required parameter requestParameters.seasonCode was null or undefined when calling removeTemplateRateSeasons.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling removeTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling removeTemplateRateSeasons.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling removeTemplateRateSeasons.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

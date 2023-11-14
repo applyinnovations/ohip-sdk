@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { OAuth2TokenResponse } from '../models';
+import type { OAuth2TokenResponse } from '../models/index';
 export interface GetTokenRequest {
     xAppKey: string;
     grantType: GetTokenGrantTypeEnum;

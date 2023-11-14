@@ -50,7 +50,7 @@ function ARStatementCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'balanceForwardDate': value.balanceForwardDate === undefined ? undefined : (value.balanceForwardDate.toISOString().substr(0, 10)),
+        'balanceForwardDate': value.balanceForwardDate === undefined ? undefined : (value.balanceForwardDate.toISOString().substring(0, 10)),
         'filterDate': (0, DateRangeType_1.DateRangeTypeToJSON)(value.filterDate),
         'inclFolios': value.inclFolios,
         'inclPrinted': value.inclPrinted,

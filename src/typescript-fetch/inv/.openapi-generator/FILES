@@ -16,8 +16,6 @@ models/BlockStatusStatisticType.ts
 models/BlockStatusStatisticsType.ts
 models/BlockSummaryStatisticType.ts
 models/BlockSummaryStatisticsType.ts
-models/ChangeSellLimitByDateRangeRequest.ts
-models/ChangeSellLimitByDateRequest.ts
 models/CodeDescriptionType.ts
 models/DailyItemInventoryCountsListType.ts
 models/DailyItemInventoryCountsType.ts
@@ -46,8 +44,6 @@ models/NumericCategorySummaryType.ts
 models/PoolItemInventoryCountsListType.ts
 models/PoolItemInventoryCountsType.ts
 models/PropertyStatisticUnitType.ts
-models/PutHoldItemsInventoryRequest.ts
-models/PutItemInventoryHoldRequest.ts
 models/RateProtectionType.ts
 models/ReleaseItemInventoryHold.ts
 models/ReleaseItemInventoryHoldType.ts

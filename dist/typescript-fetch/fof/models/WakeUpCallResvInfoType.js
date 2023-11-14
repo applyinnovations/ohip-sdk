@@ -64,10 +64,10 @@ function WakeUpCallResvInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substr(0, 10)),
+        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
         'blockCode': value.blockCode,
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substr(0, 10)),
+        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
         'extensionNumber': value.extensionNumber,
         'guestName': value.guestName,
         'hotelId': value.hotelId,

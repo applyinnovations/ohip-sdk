@@ -53,10 +53,10 @@ function BlockCodeToValidateToJSON(value) {
     }
     return {
         'blockIdList': (0, BlockIdList_1.BlockIdListToJSON)(value.blockIdList),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'hotelId': value.hotelId,
         'links': (0, Links_1.LinksToJSON)(value.links),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'warnings': (0, WarningsType_1.WarningsTypeToJSON)(value.warnings),
     };
 }

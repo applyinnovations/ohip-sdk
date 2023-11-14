@@ -18,24 +18,23 @@ import type {
   AlternateAvailability,
   AvailabilityRatePlanInfo,
   AvailableUpsells,
+  ChangeHurdleRates,
   ChangeHurdleRatesDetails,
   ClearAllRestrictions,
-  ClearAllRestrictionsRequest,
+  CreateHurdleRates,
+  CreateRestriction,
   ExceptionDetailType,
   GuaranteeablePreferences,
   HotelAvailability,
   HurdleRates,
-  PostHurdleRatesRequest,
-  PostRestrictionRequest,
-  PutHurdleRatesRequest,
   RateAnalysisDetails,
   ReservationGuaranteesPolicies,
   RestrictionsByDateRange,
   RestrictionsHistory,
   SearchHotelsDetails,
   Status,
-  ValidateReservationGuaranteesRequest,
-} from '../models';
+  ValidateReservationGuarantees,
+} from '../models/index';
 import {
     AlternateAvailabilityFromJSON,
     AlternateAvailabilityToJSON,
@@ -43,12 +42,16 @@ import {
     AvailabilityRatePlanInfoToJSON,
     AvailableUpsellsFromJSON,
     AvailableUpsellsToJSON,
+    ChangeHurdleRatesFromJSON,
+    ChangeHurdleRatesToJSON,
     ChangeHurdleRatesDetailsFromJSON,
     ChangeHurdleRatesDetailsToJSON,
     ClearAllRestrictionsFromJSON,
     ClearAllRestrictionsToJSON,
-    ClearAllRestrictionsRequestFromJSON,
-    ClearAllRestrictionsRequestToJSON,
+    CreateHurdleRatesFromJSON,
+    CreateHurdleRatesToJSON,
+    CreateRestrictionFromJSON,
+    CreateRestrictionToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
     GuaranteeablePreferencesFromJSON,
@@ -57,12 +60,6 @@ import {
     HotelAvailabilityToJSON,
     HurdleRatesFromJSON,
     HurdleRatesToJSON,
-    PostHurdleRatesRequestFromJSON,
-    PostHurdleRatesRequestToJSON,
-    PostRestrictionRequestFromJSON,
-    PostRestrictionRequestToJSON,
-    PutHurdleRatesRequestFromJSON,
-    PutHurdleRatesRequestToJSON,
     RateAnalysisDetailsFromJSON,
     RateAnalysisDetailsToJSON,
     ReservationGuaranteesPoliciesFromJSON,
@@ -75,15 +72,15 @@ import {
     SearchHotelsDetailsToJSON,
     StatusFromJSON,
     StatusToJSON,
-    ValidateReservationGuaranteesRequestFromJSON,
-    ValidateReservationGuaranteesRequestToJSON,
-} from '../models';
+    ValidateReservationGuaranteesFromJSON,
+    ValidateReservationGuaranteesToJSON,
+} from '../models/index';
 
 export interface AnalyzeRateAvailabilityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     roomType?: string;
     startDate?: Date;
@@ -106,21 +103,21 @@ export interface AnalyzeRateAvailabilityRequest {
     acceptLanguage?: string;
 }
 
-export interface ClearAllRestrictionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    clearAllRestrictions?: ClearAllRestrictionsRequest;
+export interface ClearAllRestrictionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    clearAllRestrictions: ClearAllRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteHurdleRatesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hurdleDate?: Array<Date>;
     roomType?: Array<string>;
     roomCategory?: Array<string>;
@@ -132,11 +129,11 @@ export interface DeleteHurdleRatesRequest {
 }
 
 export interface DeleteRestrictionRequest {
-    restrictionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    restrictionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     restrictionEndDate?: Date;
     restrictionStartDate?: Date;
     bookingChannelCode?: string;
@@ -149,10 +146,10 @@ export interface DeleteRestrictionRequest {
 }
 
 export interface GetAlternateAvailabilityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     redemption?: boolean;
     roomType?: string;
@@ -183,31 +180,31 @@ export interface GetAlternateAvailabilityRequest {
 }
 
 export interface GetAvailabilityRatePlanInfoRequest {
-    ratePlanCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    ratePlanCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCodeList?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAvailabilityRatePlanInfoByMultipleRatePlansRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCodeList?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAvailableUpsellsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reservationId?: string;
     profileId?: string;
     reservationStatus?: GetAvailableUpsellsReservationStatusEnum;
@@ -232,10 +229,10 @@ export interface GetAvailableUpsellsRequest {
 }
 
 export interface GetGuaranteeablePreferencesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     roomType?: string;
@@ -246,10 +243,10 @@ export interface GetGuaranteeablePreferencesRequest {
 }
 
 export interface GetHotelAvailabilityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cro?: Array<string>;
     includeClosedRates?: Array<boolean>;
     includeDefaultRatePlanSet?: Array<boolean>;
@@ -300,9 +297,9 @@ export interface GetHotelAvailabilityRequest {
 }
 
 export interface GetHotelAvailabilityCRORequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cro?: Array<string>;
     hotelIds?: Array<string>;
     includeClosedRates?: Array<boolean>;
@@ -356,9 +353,9 @@ export interface GetHotelAvailabilityCRORequest {
 }
 
 export interface GetHotelsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cro?: string;
     limit?: number;
     startDate?: Date;
@@ -400,11 +397,11 @@ export interface GetHotelsRequest {
 }
 
 export interface GetHurdleRatesRequest {
-    hotelId?: string;
-    hurdleDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    hurdleDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     roomTypesCode?: Array<string>;
@@ -414,11 +411,11 @@ export interface GetHurdleRatesRequest {
 }
 
 export interface GetReservationGuaranteesRequest {
-    hotelId?: string;
-    arrivalDate?: Date;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    arrivalDate: Date;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ratePlanCode?: string;
     blockId?: string;
     reservationGuestId?: string;
@@ -439,10 +436,10 @@ export interface GetReservationGuaranteesRequest {
 }
 
 export interface GetRestrictionsByDateRangeRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     chainName?: string;
     end?: Date;
     fetchSizeByDay?: number;
@@ -461,10 +458,10 @@ export interface GetRestrictionsByDateRangeRequest {
 }
 
 export interface GetRestrictionsHistoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     chainName?: string;
     date?: Date;
     bookingChannelCode?: string;
@@ -478,42 +475,42 @@ export interface GetRestrictionsHistoryRequest {
     acceptLanguage?: string;
 }
 
-export interface PostHurdleRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createHurdleRates?: PostHurdleRatesRequest;
+export interface PostHurdleRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createHurdleRates: CreateHurdleRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PostRestrictionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createRestriction?: PostRestrictionRequest;
+export interface PostRestrictionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createRestriction: CreateRestriction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutHurdleRatesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeHurdleRates?: PutHurdleRatesRequest;
+export interface PutHurdleRatesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeHurdleRates: ChangeHurdleRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface ValidateReservationGuaranteesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    validateReservationGuarantees?: ValidateReservationGuaranteesRequest;
+export interface ValidateReservationGuaranteesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    validateReservationGuarantees: ValidateReservationGuarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -528,6 +525,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Analyze Rate Availability 
      */
     async analyzeRateAvailabilityRaw(requestParameters: AnalyzeRateAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RateAnalysisDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling analyzeRateAvailability.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling analyzeRateAvailability.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling analyzeRateAvailability.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling analyzeRateAvailability.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ratePlanCode !== undefined) {
@@ -539,11 +552,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -647,7 +660,27 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Use this API to clear all Restrictions for a hotel on given date. The hotel code and the date will need to be passed as part of the request.<p><strong>OperationId:</strong>clearAllRestrictions</p>
      * Clear all restrictions
      */
-    async clearAllRestrictionsRaw(requestParameters: ClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClearAllRestrictions>> {
+    async clearAllRestrictionsRaw(requestParameters: ClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClearAllRestrictions>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling clearAllRestrictions.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling clearAllRestrictions.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling clearAllRestrictions.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling clearAllRestrictions.');
+        }
+
+        if (requestParameters.clearAllRestrictions === null || requestParameters.clearAllRestrictions === undefined) {
+            throw new runtime.RequiredError('clearAllRestrictions','Required parameter requestParameters.clearAllRestrictions was null or undefined when calling clearAllRestrictions.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -679,7 +712,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ClearAllRestrictionsRequestToJSON(requestParameters.clearAllRestrictions),
+            body: ClearAllRestrictionsToJSON(requestParameters.clearAllRestrictions),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ClearAllRestrictionsFromJSON(jsonValue));
@@ -689,7 +722,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Use this API to clear all Restrictions for a hotel on given date. The hotel code and the date will need to be passed as part of the request.<p><strong>OperationId:</strong>clearAllRestrictions</p>
      * Clear all restrictions
      */
-    async clearAllRestrictions(requestParameters: ClearAllRestrictionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClearAllRestrictions> {
+    async clearAllRestrictions(requestParameters: ClearAllRestrictionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClearAllRestrictions> {
         const response = await this.clearAllRestrictionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -699,6 +732,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Delete Hurdle Rates
      */
     async deleteHurdleRatesRaw(requestParameters: DeleteHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteHurdleRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteHurdleRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteHurdleRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteHurdleRates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hurdleDate) {
@@ -771,14 +820,34 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Delete a Restriction 
      */
     async deleteRestrictionRaw(requestParameters: DeleteRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.restrictionId === null || requestParameters.restrictionId === undefined) {
+            throw new runtime.RequiredError('restrictionId','Required parameter requestParameters.restrictionId was null or undefined when calling deleteRestriction.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteRestriction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteRestriction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteRestriction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteRestriction.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.restrictionEndDate !== undefined) {
-            queryParameters['restrictionEndDate'] = (requestParameters.restrictionEndDate as any).toISOString().substr(0,10);
+            queryParameters['restrictionEndDate'] = (requestParameters.restrictionEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.restrictionStartDate !== undefined) {
-            queryParameters['restrictionStartDate'] = (requestParameters.restrictionStartDate as any).toISOString().substr(0,10);
+            queryParameters['restrictionStartDate'] = (requestParameters.restrictionStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.bookingChannelCode !== undefined) {
@@ -847,6 +916,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get alternate availability
      */
     async getAlternateAvailabilityRaw(requestParameters: GetAlternateAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AlternateAvailability>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAlternateAvailability.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAlternateAvailability.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAlternateAvailability.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAlternateAvailability.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ratePlanCode !== undefined) {
@@ -866,11 +951,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -995,6 +1080,26 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get Rate Plan Information 
      */
     async getAvailabilityRatePlanInfoRaw(requestParameters: GetAvailabilityRatePlanInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AvailabilityRatePlanInfo>> {
+        if (requestParameters.ratePlanCode === null || requestParameters.ratePlanCode === undefined) {
+            throw new runtime.RequiredError('ratePlanCode','Required parameter requestParameters.ratePlanCode was null or undefined when calling getAvailabilityRatePlanInfo.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailabilityRatePlanInfo.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailabilityRatePlanInfo.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailabilityRatePlanInfo.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailabilityRatePlanInfo.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ratePlanCodeList) {
@@ -1047,6 +1152,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Use this API to get Rate Plan information such as commission codes, market codes, and rate category. 
      */
     async getAvailabilityRatePlanInfoByMultipleRatePlansRaw(requestParameters: GetAvailabilityRatePlanInfoByMultipleRatePlansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AvailabilityRatePlanInfo>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailabilityRatePlanInfoByMultipleRatePlans.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailabilityRatePlanInfoByMultipleRatePlans.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailabilityRatePlanInfoByMultipleRatePlans.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailabilityRatePlanInfoByMultipleRatePlans.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ratePlanCodeList) {
@@ -1099,6 +1220,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get for Available Up-sells
      */
     async getAvailableUpsellsRaw(requestParameters: GetAvailableUpsellsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AvailableUpsells>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getAvailableUpsells.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getAvailableUpsells.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getAvailableUpsells.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getAvailableUpsells.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.reservationId !== undefined) {
@@ -1114,11 +1251,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.ratePlanCode !== undefined) {
@@ -1223,14 +1360,30 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get Guarantee-able Preference Codes
      */
     async getGuaranteeablePreferencesRaw(requestParameters: GetGuaranteeablePreferencesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GuaranteeablePreferences>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getGuaranteeablePreferences.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGuaranteeablePreferences.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGuaranteeablePreferences.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getGuaranteeablePreferences.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomType !== undefined) {
@@ -1291,6 +1444,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get hotel availability
      */
     async getHotelAvailabilityRaw(requestParameters: GetHotelAvailabilityRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelAvailability>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHotelAvailability.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelAvailability.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelAvailability.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelAvailability.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cro) {
@@ -1326,11 +1495,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.roomStayStartDate !== undefined) {
-            queryParameters['roomStayStartDate'] = (requestParameters.roomStayStartDate as any).toISOString().substr(0,10);
+            queryParameters['roomStayStartDate'] = (requestParameters.roomStayStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomStayEndDate !== undefined) {
-            queryParameters['roomStayEndDate'] = (requestParameters.roomStayEndDate as any).toISOString().substr(0,10);
+            queryParameters['roomStayEndDate'] = (requestParameters.roomStayEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomStayQuantity !== undefined) {
@@ -1370,11 +1539,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fullStayTimeSpanStartDate !== undefined) {
-            queryParameters['fullStayTimeSpanStartDate'] = (requestParameters.fullStayTimeSpanStartDate as any).toISOString().substr(0,10);
+            queryParameters['fullStayTimeSpanStartDate'] = (requestParameters.fullStayTimeSpanStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fullStayTimeSpanEndDate !== undefined) {
-            queryParameters['fullStayTimeSpanEndDate'] = (requestParameters.fullStayTimeSpanEndDate as any).toISOString().substr(0,10);
+            queryParameters['fullStayTimeSpanEndDate'] = (requestParameters.fullStayTimeSpanEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.prevailingRate !== undefined) {
@@ -1519,6 +1688,18 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get Hotel Availability
      */
     async getHotelAvailabilityCRORaw(requestParameters: GetHotelAvailabilityCRORequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HotelAvailability>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotelAvailabilityCRO.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotelAvailabilityCRO.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotelAvailabilityCRO.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cro) {
@@ -1558,11 +1739,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.roomStayStartDate !== undefined) {
-            queryParameters['roomStayStartDate'] = (requestParameters.roomStayStartDate as any).toISOString().substr(0,10);
+            queryParameters['roomStayStartDate'] = (requestParameters.roomStayStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomStayEndDate !== undefined) {
-            queryParameters['roomStayEndDate'] = (requestParameters.roomStayEndDate as any).toISOString().substr(0,10);
+            queryParameters['roomStayEndDate'] = (requestParameters.roomStayEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.roomStayQuantity !== undefined) {
@@ -1602,11 +1783,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fullStayTimeSpanStartDate !== undefined) {
-            queryParameters['fullStayTimeSpanStartDate'] = (requestParameters.fullStayTimeSpanStartDate as any).toISOString().substr(0,10);
+            queryParameters['fullStayTimeSpanStartDate'] = (requestParameters.fullStayTimeSpanStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fullStayTimeSpanEndDate !== undefined) {
-            queryParameters['fullStayTimeSpanEndDate'] = (requestParameters.fullStayTimeSpanEndDate as any).toISOString().substr(0,10);
+            queryParameters['fullStayTimeSpanEndDate'] = (requestParameters.fullStayTimeSpanEndDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.prevailingRate !== undefined) {
@@ -1759,6 +1940,18 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Search hotels for the sales process
      */
     async getHotelsRaw(requestParameters: GetHotelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SearchHotelsDetails>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHotels.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHotels.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHotels.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.cro !== undefined) {
@@ -1770,11 +1963,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.quantity !== undefined) {
@@ -1951,6 +2144,26 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get Hurdle Rates
      */
     async getHurdleRatesRaw(requestParameters: GetHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HurdleRates>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getHurdleRates.');
+        }
+
+        if (requestParameters.hurdleDate === null || requestParameters.hurdleDate === undefined) {
+            throw new runtime.RequiredError('hurdleDate','Required parameter requestParameters.hurdleDate was null or undefined when calling getHurdleRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getHurdleRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getHurdleRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getHurdleRates.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelIds) {
@@ -1958,7 +2171,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.hurdleDate !== undefined) {
-            queryParameters['hurdleDate'] = (requestParameters.hurdleDate as any).toISOString().substr(0,10);
+            queryParameters['hurdleDate'] = (requestParameters.hurdleDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.limit !== undefined) {
@@ -2019,10 +2232,30 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get reservation guarantees
      */
     async getReservationGuaranteesRaw(requestParameters: GetReservationGuaranteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationGuaranteesPolicies>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getReservationGuarantees.');
+        }
+
+        if (requestParameters.arrivalDate === null || requestParameters.arrivalDate === undefined) {
+            throw new runtime.RequiredError('arrivalDate','Required parameter requestParameters.arrivalDate was null or undefined when calling getReservationGuarantees.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getReservationGuarantees.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getReservationGuarantees.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getReservationGuarantees.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.arrivalDate !== undefined) {
-            queryParameters['arrivalDate'] = (requestParameters.arrivalDate as any).toISOString().substr(0,10);
+            queryParameters['arrivalDate'] = (requestParameters.arrivalDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.ratePlanCode !== undefined) {
@@ -2062,11 +2295,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.numberOfRooms !== undefined) {
@@ -2131,6 +2364,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get hotel restrictions
      */
     async getRestrictionsByDateRangeRaw(requestParameters: GetRestrictionsByDateRangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestrictionsByDateRange>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRestrictionsByDateRange.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRestrictionsByDateRange.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRestrictionsByDateRange.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRestrictionsByDateRange.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.chainName !== undefined) {
@@ -2138,7 +2387,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substr(0,10);
+            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.fetchSizeByDay !== undefined) {
@@ -2154,7 +2403,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.restrictionSearchCriteriaStartDate !== undefined) {
-            queryParameters['restrictionSearchCriteriaStartDate'] = (requestParameters.restrictionSearchCriteriaStartDate as any).toISOString().substr(0,10);
+            queryParameters['restrictionSearchCriteriaStartDate'] = (requestParameters.restrictionSearchCriteriaStartDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.bookingChannelCode !== undefined) {
@@ -2231,6 +2480,22 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Get the Restriction history 
      */
     async getRestrictionsHistoryRaw(requestParameters: GetRestrictionsHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RestrictionsHistory>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getRestrictionsHistory.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getRestrictionsHistory.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getRestrictionsHistory.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getRestrictionsHistory.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.chainName !== undefined) {
@@ -2238,7 +2503,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.date !== undefined) {
-            queryParameters['date'] = (requestParameters.date as any).toISOString().substr(0,10);
+            queryParameters['date'] = (requestParameters.date as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.bookingChannelCode !== undefined) {
@@ -2314,7 +2579,27 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * This API allows to create hurdle rates. <p><strong>OperationId:</strong>postHurdleRates</p>
      * Create Hurdle Rates
      */
-    async postHurdleRatesRaw(requestParameters: PostHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postHurdleRatesRaw(requestParameters: PostHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postHurdleRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postHurdleRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postHurdleRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postHurdleRates.');
+        }
+
+        if (requestParameters.createHurdleRates === null || requestParameters.createHurdleRates === undefined) {
+            throw new runtime.RequiredError('createHurdleRates','Required parameter requestParameters.createHurdleRates was null or undefined when calling postHurdleRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2346,7 +2631,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostHurdleRatesRequestToJSON(requestParameters.createHurdleRates),
+            body: CreateHurdleRatesToJSON(requestParameters.createHurdleRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2356,7 +2641,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * This API allows to create hurdle rates. <p><strong>OperationId:</strong>postHurdleRates</p>
      * Create Hurdle Rates
      */
-    async postHurdleRates(requestParameters: PostHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postHurdleRates(requestParameters: PostHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postHurdleRatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2365,7 +2650,27 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Use this API to create restrictions on various levels such as house level, rate class, rate category, rate plan, room class, room type, and booking channel code.<p><strong>OperationId:</strong>postRestriction</p>
      * Create a restriction
      */
-    async postRestrictionRaw(requestParameters: PostRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postRestrictionRaw(requestParameters: PostRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postRestriction.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postRestriction.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postRestriction.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postRestriction.');
+        }
+
+        if (requestParameters.createRestriction === null || requestParameters.createRestriction === undefined) {
+            throw new runtime.RequiredError('createRestriction','Required parameter requestParameters.createRestriction was null or undefined when calling postRestriction.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2397,7 +2702,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostRestrictionRequestToJSON(requestParameters.createRestriction),
+            body: CreateRestrictionToJSON(requestParameters.createRestriction),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -2407,7 +2712,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * Use this API to create restrictions on various levels such as house level, rate class, rate category, rate plan, room class, room type, and booking channel code.<p><strong>OperationId:</strong>postRestriction</p>
      * Create a restriction
      */
-    async postRestriction(requestParameters: PostRestrictionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postRestriction(requestParameters: PostRestrictionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postRestrictionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2416,7 +2721,27 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * This API allows to update an existing Hurdle Rate. <p><strong>OperationId:</strong>putHurdleRates</p>
      * Change Hurdle Rates
      */
-    async putHurdleRatesRaw(requestParameters: PutHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeHurdleRatesDetails>> {
+    async putHurdleRatesRaw(requestParameters: PutHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangeHurdleRatesDetails>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putHurdleRates.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putHurdleRates.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putHurdleRates.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putHurdleRates.');
+        }
+
+        if (requestParameters.changeHurdleRates === null || requestParameters.changeHurdleRates === undefined) {
+            throw new runtime.RequiredError('changeHurdleRates','Required parameter requestParameters.changeHurdleRates was null or undefined when calling putHurdleRates.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2448,7 +2773,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutHurdleRatesRequestToJSON(requestParameters.changeHurdleRates),
+            body: ChangeHurdleRatesToJSON(requestParameters.changeHurdleRates),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangeHurdleRatesDetailsFromJSON(jsonValue));
@@ -2458,7 +2783,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * This API allows to update an existing Hurdle Rate. <p><strong>OperationId:</strong>putHurdleRates</p>
      * Change Hurdle Rates
      */
-    async putHurdleRates(requestParameters: PutHurdleRatesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeHurdleRatesDetails> {
+    async putHurdleRates(requestParameters: PutHurdleRatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangeHurdleRatesDetails> {
         const response = await this.putHurdleRatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -2467,7 +2792,27 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * This API allows to Fetch Reservation Guarantee. The criteria can include the rate plan code, arrival date, guarantee code and the profile information.  <p><strong>OperationId:</strong>validateReservationGuarantees</p>
      * Get Reservation Guarantee 
      */
-    async validateReservationGuaranteesRaw(requestParameters: ValidateReservationGuaranteesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationGuaranteesPolicies>> {
+    async validateReservationGuaranteesRaw(requestParameters: ValidateReservationGuaranteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationGuaranteesPolicies>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling validateReservationGuarantees.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateReservationGuarantees.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateReservationGuarantees.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling validateReservationGuarantees.');
+        }
+
+        if (requestParameters.validateReservationGuarantees === null || requestParameters.validateReservationGuarantees === undefined) {
+            throw new runtime.RequiredError('validateReservationGuarantees','Required parameter requestParameters.validateReservationGuarantees was null or undefined when calling validateReservationGuarantees.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2499,7 +2844,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: ValidateReservationGuaranteesRequestToJSON(requestParameters.validateReservationGuarantees),
+            body: ValidateReservationGuaranteesToJSON(requestParameters.validateReservationGuarantees),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReservationGuaranteesPoliciesFromJSON(jsonValue));
@@ -2509,7 +2854,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
      * This API allows to Fetch Reservation Guarantee. The criteria can include the rate plan code, arrival date, guarantee code and the profile information.  <p><strong>OperationId:</strong>validateReservationGuarantees</p>
      * Get Reservation Guarantee 
      */
-    async validateReservationGuarantees(requestParameters: ValidateReservationGuaranteesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationGuaranteesPolicies> {
+    async validateReservationGuarantees(requestParameters: ValidateReservationGuaranteesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationGuaranteesPolicies> {
         const response = await this.validateReservationGuaranteesRaw(requestParameters, initOverrides);
         return await response.value();
     }

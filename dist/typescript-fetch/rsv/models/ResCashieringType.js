@@ -65,7 +65,7 @@ function ResCashieringTypeToJSON(value) {
         'billingPrivileges': (0, BillingPrivilegesType_1.BillingPrivilegesTypeToJSON)(value.billingPrivileges),
         'compAccounting': (0, ResCompAccountingType_1.ResCompAccountingTypeToJSON)(value.compAccounting),
         'folioTexts': (0, FolioTextsType_1.FolioTextsTypeToJSON)(value.folioTexts),
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substr(0, 10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0, 10)),
         'reservationPreConfiguredRoutingInstruction': (0, ResPreConfiguredRoutingInstrType_1.ResPreConfiguredRoutingInstrTypeToJSON)(value.reservationPreConfiguredRoutingInstruction),
         'revenuesAndBalances': (0, ResRevenueBalanceType_1.ResRevenueBalanceTypeToJSON)(value.revenuesAndBalances),
         'reverseAdvanceCheckInAllowed': value.reverseAdvanceCheckInAllowed,

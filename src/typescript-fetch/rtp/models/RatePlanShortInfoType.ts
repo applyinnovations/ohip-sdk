@@ -171,7 +171,7 @@ export function RatePlanShortInfoTypeToJSON(value?: RatePlanShortInfoType | null
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'primaryDetails': RatePlanPrimaryDetailsTypeToJSON(value.primaryDetails),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substr(0,10)),
+        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
         'ratePlanCode': value.ratePlanCode,
     };
 }

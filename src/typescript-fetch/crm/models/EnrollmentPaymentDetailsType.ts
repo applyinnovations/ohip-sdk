@@ -97,7 +97,7 @@ export function EnrollmentPaymentDetailsTypeToJSON(value?: EnrollmentPaymentDeta
         'amount': value.amount,
         'amountCode': CodeDescriptionTypeToJSON(value.amountCode),
         'comments': value.comments,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substr(0,10)),
+        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0,10)),
         'paymentMethod': CodeDescriptionTypeToJSON(value.paymentMethod),
     };
 }

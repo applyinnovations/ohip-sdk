@@ -119,7 +119,7 @@ export function ResHousekeepingTypeToJSON(value?: ResHousekeepingType | null): a
         'instructions': value.instructions,
         'linenChange': value.linenChange,
         'roomStatus': HousekeepingRoomStatusTypeToJSON(value.roomStatus),
-        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substr(0,10)),
+        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substring(0,10)),
         'turndownRequested': value.turndownRequested,
     };
 }

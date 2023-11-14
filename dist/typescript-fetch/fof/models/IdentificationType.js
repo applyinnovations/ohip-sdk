@@ -53,12 +53,12 @@ function IdentificationTypeToJSON(value) {
         return null;
     }
     return {
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substr(0, 10)),
+        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0, 10)),
         'idNumber': value.idNumber,
         'idNumberMasked': value.idNumberMasked,
         'idType': value.idType,
         'issuedCountry': value.issuedCountry,
-        'issuedDate': value.issuedDate === undefined ? undefined : (value.issuedDate.toISOString().substr(0, 10)),
+        'issuedDate': value.issuedDate === undefined ? undefined : (value.issuedDate.toISOString().substring(0, 10)),
         'issuedPlace': value.issuedPlace,
         'orderSequence': value.orderSequence,
         'primaryInd': value.primaryInd,

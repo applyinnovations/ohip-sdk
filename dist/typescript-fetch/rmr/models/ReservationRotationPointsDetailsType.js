@@ -54,8 +54,8 @@ function ReservationRotationPointsDetailsTypeToJSON(value) {
         'adjustPointsTo': value.adjustPointsTo,
         'adjustmentReason': (0, ReservationRotationPointsAdjustmentReasonType_1.ReservationRotationPointsAdjustmentReasonTypeToJSON)(value.adjustmentReason),
         'currentPoints': value.currentPoints,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
         'type': (0, RotationRuleCalculationRuleType_1.RotationRuleCalculationRuleTypeToJSON)(value.type),
     };
 }

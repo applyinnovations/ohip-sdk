@@ -10,292 +10,292 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CancellationPolicyDetails, ChangeCancellationPolicyRequest, ChangeDepositPolicyRequest, ChangeGuaranteeCodeRequest, ChangeGuaranteeCodeScheduleRequest, ChangeMarketCodeRequest, ChangeMarketGroupRequest, ChangePolicyScheduleRequest, ChangePreCheckInRulesRequest, ChangeServiceRequestCodePrioritiesRequest, ChangeServiceRequestCodesRequest, ChangeSourceCodeRequest, ChangeSourceGroupRequest, ChangeTemplateCancellationPolicyRequest, ChangeTemplateDepositPolicyRequest, ChangeTemplateGuaranteeCodeRequest, ChangeTemplateMarketCodeRequest, ChangeTemplateMarketGroupRequest, ChangeTemplateSourceCodeRequest, ChangeTemplateSourceGroupRequest, CopyGuaranteeCodeSchedulesRequest, CopyPolicySchedulesRequest, CopyServiceRequestCodesRequest, DepositPolicyDetails, GuaranteeCodeSchedulesDetails, GuaranteeCodesDetails, MarketCodesDetails, MarketGroupsDetails, PolicySchedulesDetails, PostCancellationPolicyRequest, PostDepositPolicyRequest, PostGuaranteeCodeRequest, PostGuaranteeCodeScheduleRequest, PostMarketCodeRequest, PostMarketGroupRequest, PostNewPolicyScheduleRequest, PostPreCheckInRulesRequest, PostServiceRequestCodePrioritiesRequest, PostServiceRequestCodesRequest, PostSourceCodeRequest, PostSourceGroupRequest, PostTemplateCancellationPolicyRequest, PostTemplateDepositPolicyRequest, PostTemplateGuaranteeCodeRequest, PostTemplateMarketCodeRequest, PostTemplateMarketGroupRequest, PostTemplateSourceCodeRequest, PostTemplateSourceGroupRequest, PreCheckInRulesDetails, ServiceRequestCodePrioritiesDetails, ServiceRequestCodesDetails, SourceCodesDetails, SourceGroupsDetails, Status, TemplateCancellationPolicyDetails, TemplateDepositPolicyDetails, TemplateGuaranteeCodesDetails, TemplateMarketCodesDetails, TemplateMarketGroupsDetails, TemplateSourceCodesDetails, TemplateSourceGroupsDetails } from '../models';
-export interface ChangeCancellationPolicyOperationRequest {
-    cancelpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancellationPolicyToBeChanged?: ChangeCancellationPolicyRequest;
+import type { CancellationPolicyCriteria, CancellationPolicyDetails, CancellationPolicyToBeChanged, CopyGuaranteeCodeSchedules, CopyPolicySchedules, CopyServiceRequestCodes, DepositPolicyCriteria, DepositPolicyDetails, DepositPolicyToBeChanged, GuaranteeCodeCriteria, GuaranteeCodeScheduleCriteria, GuaranteeCodeScheduleToBeChanged, GuaranteeCodeSchedulesDetails, GuaranteeCodeToBeChanged, GuaranteeCodesDetails, MarketCodeCriteria, MarketCodeToBeChanged, MarketCodesDetails, MarketGroupCriteria, MarketGroupToBeChanged, MarketGroupsDetails, PolicyScheduleCriteria, PolicyScheduleToBeChanged, PolicySchedulesDetails, PreCheckInRulesCriteria, PreCheckInRulesDetails, PreCheckInRulesToBeChanged, ServiceRequestCodePrioritiesCriteria, ServiceRequestCodePrioritiesDetails, ServiceRequestCodePrioritiesToBeChanged, ServiceRequestCodesCriteria, ServiceRequestCodesDetails, ServiceRequestCodesToBeChanged, SourceCodeCriteria, SourceCodeToBeChanged, SourceCodesDetails, SourceGroupCriteria, SourceGroupToBeChanged, SourceGroupsDetails, Status, TemplateCancellationPolicyCriteria, TemplateCancellationPolicyDetails, TemplateCancellationPolicyToBeChanged, TemplateDepositPolicyCriteria, TemplateDepositPolicyDetails, TemplateDepositPolicyToBeChanged, TemplateGuaranteeCodeCriteria, TemplateGuaranteeCodeToBeChanged, TemplateGuaranteeCodesDetails, TemplateMarketCodeCriteria, TemplateMarketCodeToBeChanged, TemplateMarketCodesDetails, TemplateMarketGroupCriteria, TemplateMarketGroupToBeChanged, TemplateMarketGroupsDetails, TemplateSourceCodeCriteria, TemplateSourceCodeToBeChanged, TemplateSourceCodesDetails, TemplateSourceGroupCriteria, TemplateSourceGroupToBeChanged, TemplateSourceGroupsDetails } from '../models/index';
+export interface ChangeCancellationPolicyRequest {
+    cancelpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancellationPolicyToBeChanged: CancellationPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeDepositPolicyOperationRequest {
-    depositpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPolicyToBeChanged?: ChangeDepositPolicyRequest;
+export interface ChangeDepositPolicyRequest {
+    depositpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPolicyToBeChanged: DepositPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeGuaranteeCodeOperationRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeToBeChanged?: ChangeGuaranteeCodeRequest;
+export interface ChangeGuaranteeCodeRequest {
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeToBeChanged: GuaranteeCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeGuaranteeCodeScheduleOperationRequest {
-    policyScheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeScheduleToBeChanged?: ChangeGuaranteeCodeScheduleRequest;
+export interface ChangeGuaranteeCodeScheduleRequest {
+    policyScheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeScheduleToBeChanged: GuaranteeCodeScheduleToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMarketCodeOperationRequest {
-    marketcode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketCodeToBeChanged?: ChangeMarketCodeRequest;
+export interface ChangeMarketCodeRequest {
+    marketcode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketCodeToBeChanged: MarketCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketGroupToBeChanged?: ChangeMarketGroupRequest;
+export interface ChangeMarketGroupRequest {
+    marketGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketGroupToBeChanged: MarketGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangePolicyScheduleOperationRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    policyScheduleToBeChanged?: ChangePolicyScheduleRequest;
+export interface ChangePolicyScheduleRequest {
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    policyScheduleToBeChanged: PolicyScheduleToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangePreCheckInRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preCheckInRulesToBeChanged?: ChangePreCheckInRulesRequest;
+export interface ChangePreCheckInRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preCheckInRulesToBeChanged: PreCheckInRulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeServiceRequestCodePrioritiesOperationRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodePrioritiesToBeChanged?: ChangeServiceRequestCodePrioritiesRequest;
+export interface ChangeServiceRequestCodePrioritiesRequest {
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodePrioritiesToBeChanged: ServiceRequestCodePrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeServiceRequestCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodesToBeChanged?: ChangeServiceRequestCodesRequest;
+export interface ChangeServiceRequestCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodesToBeChanged: ServiceRequestCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeSourceCodeOperationRequest {
-    sourceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceCodeToBeChanged?: ChangeSourceCodeRequest;
+export interface ChangeSourceCodeRequest {
+    sourceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceCodeToBeChanged: SourceCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeSourceGroupOperationRequest {
-    sourceGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceGroupToBeChanged?: ChangeSourceGroupRequest;
+export interface ChangeSourceGroupRequest {
+    sourceGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceGroupToBeChanged: SourceGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateCancellationPolicyOperationRequest {
-    cancelpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCancellationPolicyToBeChanged?: ChangeTemplateCancellationPolicyRequest;
+export interface ChangeTemplateCancellationPolicyRequest {
+    cancelpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCancellationPolicyToBeChanged: TemplateCancellationPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateDepositPolicyOperationRequest {
-    depositpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDepositPolicyToBeChanged?: ChangeTemplateDepositPolicyRequest;
+export interface ChangeTemplateDepositPolicyRequest {
+    depositpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDepositPolicyToBeChanged: TemplateDepositPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateGuaranteeCodeOperationRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateGuaranteeCodeToBeChanged?: ChangeTemplateGuaranteeCodeRequest;
+export interface ChangeTemplateGuaranteeCodeRequest {
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateGuaranteeCodeToBeChanged: TemplateGuaranteeCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateMarketCodeOperationRequest {
-    marketcode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketCodeToBeChanged?: ChangeTemplateMarketCodeRequest;
+export interface ChangeTemplateMarketCodeRequest {
+    marketcode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketCodeToBeChanged: TemplateMarketCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketGroupToBeChanged?: ChangeTemplateMarketGroupRequest;
+export interface ChangeTemplateMarketGroupRequest {
+    marketGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketGroupToBeChanged: TemplateMarketGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateSourceCodeOperationRequest {
-    sourceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceCodeToBeChanged?: ChangeTemplateSourceCodeRequest;
+export interface ChangeTemplateSourceCodeRequest {
+    sourceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceCodeToBeChanged: TemplateSourceCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeTemplateSourceGroupOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceGroupToBeChanged?: ChangeTemplateSourceGroupRequest;
+export interface ChangeTemplateSourceGroupRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceGroupToBeChanged: TemplateSourceGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyGuaranteeCodeSchedulesOperationRequest {
-    policyScheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyGuaranteeCodeSchedules?: CopyGuaranteeCodeSchedulesRequest;
+export interface CopyGuaranteeCodeSchedulesRequest {
+    policyScheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyGuaranteeCodeSchedules: CopyGuaranteeCodeSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyPolicySchedulesOperationRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyPolicySchedules?: CopyPolicySchedulesRequest;
+export interface CopyPolicySchedulesRequest {
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyPolicySchedules: CopyPolicySchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CopyServiceRequestCodesOperationRequest {
-    sourceHotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    copyServiceRequestCodes?: CopyServiceRequestCodesRequest;
+export interface CopyServiceRequestCodesRequest {
+    sourceHotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    copyServiceRequestCodes: CopyServiceRequestCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCancellationPolicyRequest {
-    cancelpolicycode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cancelpolicycode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteDepositPolicyRequest {
-    depositpolicycode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    depositpolicycode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGuaranteeCodeRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteGuaranteeCodeScheduleRequest {
-    policyScheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    policyScheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePolicyScheduleRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateCancellationPolicyRequest {
-    cancelpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cancelpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     policyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateDepositPolicyRequest {
-    depositpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    depositpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     policyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateGuaranteeCodeRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCancellationPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -305,9 +305,9 @@ export interface GetCancellationPolicyRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -317,10 +317,10 @@ export interface GetDepositPolicyRequest {
     acceptLanguage?: string;
 }
 export interface GetGuaranteeCodeSchedulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -336,9 +336,9 @@ export interface GetGuaranteeCodeSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetGuaranteeCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -348,9 +348,9 @@ export interface GetGuaranteeCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetMarketCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -361,9 +361,9 @@ export interface GetMarketCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetMarketGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -374,10 +374,10 @@ export interface GetMarketGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetPolicySchedulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -398,19 +398,19 @@ export interface GetPolicySchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetPreCheckInRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     date?: Date;
     ruleType?: GetPreCheckInRulesRuleTypeEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetServiceRequestCodeRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -421,11 +421,11 @@ export interface GetServiceRequestCodeRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceRequestCodePrioritiesRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     wildCard?: string;
     description?: string;
@@ -433,9 +433,9 @@ export interface GetServiceRequestCodePrioritiesRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceRequestCodePriorityRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInactive?: boolean;
     serviceRequestCodes?: Array<string>;
     wildCard?: string;
@@ -445,10 +445,10 @@ export interface GetServiceRequestCodePriorityRequest {
     acceptLanguage?: string;
 }
 export interface GetServiceRequestCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     serviceRequestCodes?: Array<string>;
@@ -458,10 +458,10 @@ export interface GetServiceRequestCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetSourceCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -472,10 +472,10 @@ export interface GetSourceCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetSourceGroupsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -486,9 +486,9 @@ export interface GetSourceGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateCancellationPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -498,9 +498,9 @@ export interface GetTemplateCancellationPolicyRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateDepositPolicyRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -510,9 +510,9 @@ export interface GetTemplateDepositPolicyRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateGuaranteeCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     guaranteeCodes?: Array<string>;
@@ -521,9 +521,9 @@ export interface GetTemplateGuaranteeCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateMarketCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateMarketCodes?: Array<string>;
@@ -533,9 +533,9 @@ export interface GetTemplateMarketCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateMarketGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateMarketCodes?: Array<string>;
@@ -545,9 +545,9 @@ export interface GetTemplateMarketGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateSourceCodesRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateSourceCodes?: Array<string>;
@@ -557,9 +557,9 @@ export interface GetTemplateSourceCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplateSourceGroupsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     pageNumber?: number;
     templateSourceCodes?: Array<string>;
@@ -568,209 +568,209 @@ export interface GetTemplateSourceGroupsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCancellationPolicyOperationRequest {
-    cancelpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancellationPolicyCriteria?: PostCancellationPolicyRequest;
+export interface PostCancellationPolicyRequest {
+    cancelpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancellationPolicyCriteria: CancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDepositPolicyOperationRequest {
-    depositpolicycode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPolicyCriteria?: PostDepositPolicyRequest;
+export interface PostDepositPolicyRequest {
+    depositpolicycode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPolicyCriteria: DepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuaranteeCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeCriteria?: PostGuaranteeCodeRequest;
+export interface PostGuaranteeCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeCriteria: GuaranteeCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuaranteeCodeScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guaranteeCodeScheduleCriteria?: PostGuaranteeCodeScheduleRequest;
+export interface PostGuaranteeCodeScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guaranteeCodeScheduleCriteria: GuaranteeCodeScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMarketCodeOperationRequest {
-    marketcode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketCodeCriteria?: PostMarketCodeRequest;
+export interface PostMarketCodeRequest {
+    marketcode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketCodeCriteria: MarketCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    marketGroupCriteria?: PostMarketGroupRequest;
+export interface PostMarketGroupRequest {
+    marketGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    marketGroupCriteria: MarketGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostNewPolicyScheduleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    policyScheduleCriteria?: PostNewPolicyScheduleRequest;
+export interface PostNewPolicyScheduleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    policyScheduleCriteria: PolicyScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPolicyScheduleRequest {
-    policyscheduleId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    policyScheduleCriteria?: PostNewPolicyScheduleRequest;
+    policyscheduleId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    policyScheduleCriteria: PolicyScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostPreCheckInRulesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    preCheckInRulesCriteria?: PostPreCheckInRulesRequest;
+export interface PostPreCheckInRulesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    preCheckInRulesCriteria: PreCheckInRulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostServiceRequestCodePrioritiesOperationRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodePrioritiesCriteria?: PostServiceRequestCodePrioritiesRequest;
+export interface PostServiceRequestCodePrioritiesRequest {
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodePrioritiesCriteria: ServiceRequestCodePrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostServiceRequestCodesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    serviceRequestCodesCriteria?: PostServiceRequestCodesRequest;
+export interface PostServiceRequestCodesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    serviceRequestCodesCriteria: ServiceRequestCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSourceCodeOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceCodeCriteria?: PostSourceCodeRequest;
+export interface PostSourceCodeRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceCodeCriteria: SourceCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSourceGroupOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    sourceGroupCriteria?: PostSourceGroupRequest;
+export interface PostSourceGroupRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    sourceGroupCriteria: SourceGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateCancellationPolicyOperationRequest {
-    cancelpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateCancellationPolicyCriteria?: PostTemplateCancellationPolicyRequest;
+export interface PostTemplateCancellationPolicyRequest {
+    cancelpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateCancellationPolicyCriteria: TemplateCancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateDepositPolicyOperationRequest {
-    depositpolicytemplate?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateDepositPolicyCriteria?: PostTemplateDepositPolicyRequest;
+export interface PostTemplateDepositPolicyRequest {
+    depositpolicytemplate: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateDepositPolicyCriteria: TemplateDepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateGuaranteeCodeOperationRequest {
-    guaranteeCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateGuaranteeCodeCriteria?: PostTemplateGuaranteeCodeRequest;
+export interface PostTemplateGuaranteeCodeRequest {
+    guaranteeCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateGuaranteeCodeCriteria: TemplateGuaranteeCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateMarketCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketCodeCriteria?: PostTemplateMarketCodeRequest;
+export interface PostTemplateMarketCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketCodeCriteria: TemplateMarketCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateMarketGroupOperationRequest {
-    marketGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateMarketGroupCriteria?: PostTemplateMarketGroupRequest;
+export interface PostTemplateMarketGroupRequest {
+    marketGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateMarketGroupCriteria: TemplateMarketGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateSourceCodeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceCodeCriteria?: PostTemplateSourceCodeRequest;
+export interface PostTemplateSourceCodeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceCodeCriteria: TemplateSourceCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostTemplateSourceGroupOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    templateSourceGroupCriteria?: PostTemplateSourceGroupRequest;
+export interface PostTemplateSourceGroupRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    templateSourceGroupCriteria: TemplateSourceGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMarketCodeRequest {
-    marketcode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketcode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveMarketGroupRequest {
-    marketGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemovePreCheckInRulesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ruleType?: Set<RemovePreCheckInRulesRuleTypeEnum>;
     startDate?: Date;
     endDate?: Date;
@@ -797,72 +797,72 @@ export interface RemovePreCheckInRulesRequest {
     acceptLanguage?: string;
 }
 export interface RemoveServiceRequestCodePrioritiesRequest {
-    serviceRequestCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    serviceRequestCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveServiceRequestCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     serviceRequestCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveSourceCodeRequest {
-    sourceCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveSourceGroupRequest {
-    sourceGroupCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceGroupCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateMarketCodeRequest {
-    marketcode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketcode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateMarketCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateMarketGroupRequest {
-    marketGroupCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    marketGroupCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateMarketGroup?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateSourceCodeRequest {
-    sourceCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    sourceCode: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateSourceCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateSourceGroupRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     templateSourceGroup?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -875,222 +875,222 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to update Cancellation policies in hotel level. <p><strong>OperationId:</strong>changeCancellationPolicy</p>
      * Change Cancellation policies in hotel level
      */
-    changeCancellationPolicyRaw(requestParameters: ChangeCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeCancellationPolicyRaw(requestParameters: ChangeCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Cancellation policies in hotel level. <p><strong>OperationId:</strong>changeCancellationPolicy</p>
      * Change Cancellation policies in hotel level
      */
-    changeCancellationPolicy(requestParameters: ChangeCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeCancellationPolicy(requestParameters: ChangeCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update deposit policy in hotel level. <p><strong>OperationId:</strong>changeDepositPolicy</p>
      * Change deposit policy in hotel level
      */
-    changeDepositPolicyRaw(requestParameters: ChangeDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeDepositPolicyRaw(requestParameters: ChangeDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update deposit policy in hotel level. <p><strong>OperationId:</strong>changeDepositPolicy</p>
      * Change deposit policy in hotel level
      */
-    changeDepositPolicy(requestParameters: ChangeDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeDepositPolicy(requestParameters: ChangeDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Guarantee Code. <p><strong>OperationId:</strong>changeGuaranteeCode</p>
      * Change Guarantee Code
      */
-    changeGuaranteeCodeRaw(requestParameters: ChangeGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeGuaranteeCodeRaw(requestParameters: ChangeGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Guarantee Code. <p><strong>OperationId:</strong>changeGuaranteeCode</p>
      * Change Guarantee Code
      */
-    changeGuaranteeCode(requestParameters: ChangeGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeGuaranteeCode(requestParameters: ChangeGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update an schedule for guarantee codes. <p><strong>OperationId:</strong>changeGuaranteeCodeSchedule</p>
      * Change an schedule for guarantee codes
      */
-    changeGuaranteeCodeScheduleRaw(requestParameters: ChangeGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeGuaranteeCodeScheduleRaw(requestParameters: ChangeGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update an schedule for guarantee codes. <p><strong>OperationId:</strong>changeGuaranteeCodeSchedule</p>
      * Change an schedule for guarantee codes
      */
-    changeGuaranteeCodeSchedule(requestParameters: ChangeGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeGuaranteeCodeSchedule(requestParameters: ChangeGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to modify a Market Code . <p><strong>OperationId:</strong>changeMarketCode</p>
      * Modify a Market Code
      */
-    changeMarketCodeRaw(requestParameters: ChangeMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMarketCodeRaw(requestParameters: ChangeMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to modify a Market Code . <p><strong>OperationId:</strong>changeMarketCode</p>
      * Modify a Market Code
      */
-    changeMarketCode(requestParameters: ChangeMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMarketCode(requestParameters: ChangeMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to modify a Market Group. Only one Market Group can be modified at a time. <p><strong>OperationId:</strong>changeMarketGroup</p>
      * Change Market Group
      */
-    changeMarketGroupRaw(requestParameters: ChangeMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeMarketGroupRaw(requestParameters: ChangeMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to modify a Market Group. Only one Market Group can be modified at a time. <p><strong>OperationId:</strong>changeMarketGroup</p>
      * Change Market Group
      */
-    changeMarketGroup(requestParameters: ChangeMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeMarketGroup(requestParameters: ChangeMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update an schedule for deposit or cancel policy. <p><strong>OperationId:</strong>changePolicySchedule</p>
      * Change a Policy Schedule
      */
-    changePolicyScheduleRaw(requestParameters: ChangePolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changePolicyScheduleRaw(requestParameters: ChangePolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update an schedule for deposit or cancel policy. <p><strong>OperationId:</strong>changePolicySchedule</p>
      * Change a Policy Schedule
      */
-    changePolicySchedule(requestParameters: ChangePolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changePolicySchedule(requestParameters: ChangePolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Pre Check In rules. <p><strong>OperationId:</strong>changePreCheckInRules</p>
      * Change Pre Check In rules
      */
-    changePreCheckInRulesRaw(requestParameters: ChangePreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changePreCheckInRulesRaw(requestParameters: ChangePreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Pre Check In rules. <p><strong>OperationId:</strong>changePreCheckInRules</p>
      * Change Pre Check In rules
      */
-    changePreCheckInRules(requestParameters: ChangePreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changePreCheckInRules(requestParameters: ChangePreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update Service Request Code Priorities. <p><strong>OperationId:</strong>changeServiceRequestCodePriorities</p>
      * Change Service Request Code Priorities
      */
-    changeServiceRequestCodePrioritiesRaw(requestParameters: ChangeServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeServiceRequestCodePrioritiesRaw(requestParameters: ChangeServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update Service Request Code Priorities. <p><strong>OperationId:</strong>changeServiceRequestCodePriorities</p>
      * Change Service Request Code Priorities
      */
-    changeServiceRequestCodePriorities(requestParameters: ChangeServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeServiceRequestCodePriorities(requestParameters: ChangeServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update configuration service request codes. <p><strong>OperationId:</strong>changeServiceRequestCodes</p>
      * Change configuration service request codes
      */
-    changeServiceRequestCodesRaw(requestParameters: ChangeServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeServiceRequestCodesRaw(requestParameters: ChangeServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update configuration service request codes. <p><strong>OperationId:</strong>changeServiceRequestCodes</p>
      * Change configuration service request codes
      */
-    changeServiceRequestCodes(requestParameters: ChangeServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeServiceRequestCodes(requestParameters: ChangeServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to modify a Source Code. Only one Source Code can be modified at a time. <p><strong>OperationId:</strong>changeSourceCode</p>
      * Update a Source Code
      */
-    changeSourceCodeRaw(requestParameters: ChangeSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeSourceCodeRaw(requestParameters: ChangeSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to modify a Source Code. Only one Source Code can be modified at a time. <p><strong>OperationId:</strong>changeSourceCode</p>
      * Update a Source Code
      */
-    changeSourceCode(requestParameters: ChangeSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeSourceCode(requestParameters: ChangeSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to modify a Source Group. Only one Source Group can be modified at a time. <p><strong>OperationId:</strong>changeSourceGroup</p>
      * Change a Source Group
      */
-    changeSourceGroupRaw(requestParameters: ChangeSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeSourceGroupRaw(requestParameters: ChangeSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to modify a Source Group. Only one Source Group can be modified at a time. <p><strong>OperationId:</strong>changeSourceGroup</p>
      * Change a Source Group
      */
-    changeSourceGroup(requestParameters: ChangeSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeSourceGroup(requestParameters: ChangeSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update template Cancellation policies. <p><strong>OperationId:</strong>changeTemplateCancellationPolicy</p>
      * Change template Cancellation policies
      */
-    changeTemplateCancellationPolicyRaw(requestParameters: ChangeTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateCancellationPolicyRaw(requestParameters: ChangeTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update template Cancellation policies. <p><strong>OperationId:</strong>changeTemplateCancellationPolicy</p>
      * Change template Cancellation policies
      */
-    changeTemplateCancellationPolicy(requestParameters: ChangeTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateCancellationPolicy(requestParameters: ChangeTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update template deposit policy. <p><strong>OperationId:</strong>changeTemplateDepositPolicy</p>
      * Change template deposit policy
      */
-    changeTemplateDepositPolicyRaw(requestParameters: ChangeTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateDepositPolicyRaw(requestParameters: ChangeTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update template deposit policy. <p><strong>OperationId:</strong>changeTemplateDepositPolicy</p>
      * Change template deposit policy
      */
-    changeTemplateDepositPolicy(requestParameters: ChangeTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateDepositPolicy(requestParameters: ChangeTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to update template Guarantee Code. <p><strong>OperationId:</strong>changeTemplateGuaranteeCode</p>
      * Change template Guarantee Code
      */
-    changeTemplateGuaranteeCodeRaw(requestParameters: ChangeTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateGuaranteeCodeRaw(requestParameters: ChangeTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to update template Guarantee Code. <p><strong>OperationId:</strong>changeTemplateGuaranteeCode</p>
      * Change template Guarantee Code
      */
-    changeTemplateGuaranteeCode(requestParameters: ChangeTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateGuaranteeCode(requestParameters: ChangeTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to modify a template Market Code. Only one template Market Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketCode</p>
      * Update a Market Code Template
      */
-    changeTemplateMarketCodeRaw(requestParameters: ChangeTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateMarketCodeRaw(requestParameters: ChangeTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to modify a template Market Code. Only one template Market Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketCode</p>
      * Update a Market Code Template
      */
-    changeTemplateMarketCode(requestParameters: ChangeTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateMarketCode(requestParameters: ChangeTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to modify a Template Market Group. Only one Template Market Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketGroup</p>
      * Change Market Group Template
      */
-    changeTemplateMarketGroupRaw(requestParameters: ChangeTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateMarketGroupRaw(requestParameters: ChangeTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to modify a Template Market Group. Only one Template Market Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateMarketGroup</p>
      * Change Market Group Template
      */
-    changeTemplateMarketGroup(requestParameters: ChangeTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateMarketGroup(requestParameters: ChangeTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to Modify a Template Source Code. Only one Template Source Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceCode</p>
      * Change a Template Source Code
      */
-    changeTemplateSourceCodeRaw(requestParameters: ChangeTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateSourceCodeRaw(requestParameters: ChangeTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to Modify a Template Source Code. Only one Template Source Code can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceCode</p>
      * Change a Template Source Code
      */
-    changeTemplateSourceCode(requestParameters: ChangeTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateSourceCode(requestParameters: ChangeTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to Modify a Template Source Group. Only one Template Source Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceGroup</p>
      * Change Template Source Group
      */
-    changeTemplateSourceGroupRaw(requestParameters: ChangeTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeTemplateSourceGroupRaw(requestParameters: ChangeTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to Modify a Template Source Group. Only one Template Source Group can be modified at a time. <p><strong>OperationId:</strong>changeTemplateSourceGroup</p>
      * Change Template Source Group
      */
-    changeTemplateSourceGroup(requestParameters: ChangeTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeTemplateSourceGroup(requestParameters: ChangeTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this APU to copy schedules for guarantee codes. <p><strong>OperationId:</strong>copyGuaranteeCodeSchedules</p>
      * Copy schedule s for guarantee codes
      */
-    copyGuaranteeCodeSchedulesRaw(requestParameters: CopyGuaranteeCodeSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyGuaranteeCodeSchedulesRaw(requestParameters: CopyGuaranteeCodeSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this APU to copy schedules for guarantee codes. <p><strong>OperationId:</strong>copyGuaranteeCodeSchedules</p>
      * Copy schedule s for guarantee codes
      */
-    copyGuaranteeCodeSchedules(requestParameters: CopyGuaranteeCodeSchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyGuaranteeCodeSchedules(requestParameters: CopyGuaranteeCodeSchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this APU to copy schedules for deposit or cancel policy. <p><strong>OperationId:</strong>copyPolicySchedules</p>
      * Copy a Policy Schedule
      */
-    copyPolicySchedulesRaw(requestParameters: CopyPolicySchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyPolicySchedulesRaw(requestParameters: CopyPolicySchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this APU to copy schedules for deposit or cancel policy. <p><strong>OperationId:</strong>copyPolicySchedules</p>
      * Copy a Policy Schedule
      */
-    copyPolicySchedules(requestParameters: CopyPolicySchedulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyPolicySchedules(requestParameters: CopyPolicySchedulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Copy configuration service request codes. <p><strong>OperationId:</strong>copyServiceRequestCodes</p>
      *  copy configuration service request codes
      */
-    copyServiceRequestCodesRaw(requestParameters: CopyServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    copyServiceRequestCodesRaw(requestParameters: CopyServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Copy configuration service request codes. <p><strong>OperationId:</strong>copyServiceRequestCodes</p>
      *  copy configuration service request codes
      */
-    copyServiceRequestCodes(requestParameters: CopyServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    copyServiceRequestCodes(requestParameters: CopyServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete Cancellation policies in hotel level. <p><strong>OperationId:</strong>deleteCancellationPolicy</p>
      * Delete Cancellation policies in hotel level
@@ -1264,11 +1264,13 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to get Service Request Code Priorities.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCodePriority instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodePriorities</p>
      * Get Service Request Code Priorities
+     * @deprecated
      */
     getServiceRequestCodePrioritiesRaw(requestParameters: GetServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceRequestCodePrioritiesDetails>>;
     /**
      * Use this API to get Service Request Code Priorities.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCodePriority instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodePriorities</p>
      * Get Service Request Code Priorities
+     * @deprecated
      */
     getServiceRequestCodePriorities(requestParameters: GetServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceRequestCodePrioritiesDetails>;
     /**
@@ -1284,11 +1286,13 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
     /**
      * Use this API to get service request codes.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCode instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodes</p>
      * Get service request codes
+     * @deprecated
      */
     getServiceRequestCodesRaw(requestParameters: GetServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceRequestCodesDetails>>;
     /**
      * Use this API to get service request codes.<br><p><strong><mark>This API is deprecated. Please use getServiceRequestCode instead</mark></strong></p> <p><strong>OperationId:</strong>getServiceRequestCodes</p>
      * Get service request codes
+     * @deprecated
      */
     getServiceRequestCodes(requestParameters: GetServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceRequestCodesDetails>;
     /**
@@ -1385,202 +1389,204 @@ export declare class HotelConfigApi extends runtime.BaseAPI {
      * Use this API to create Cancellation policies in hotel level. <p><strong>OperationId:</strong>postCancellationPolicy</p>
      * Create Cancellation policies in hotel level
      */
-    postCancellationPolicyRaw(requestParameters: PostCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCancellationPolicyRaw(requestParameters: PostCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Cancellation policies in hotel level. <p><strong>OperationId:</strong>postCancellationPolicy</p>
      * Create Cancellation policies in hotel level
      */
-    postCancellationPolicy(requestParameters: PostCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCancellationPolicy(requestParameters: PostCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create deposit policy in hotel level. <p><strong>OperationId:</strong>postDepositPolicy</p>
      * Create deposit policy in hotel level
      */
-    postDepositPolicyRaw(requestParameters: PostDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postDepositPolicyRaw(requestParameters: PostDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create deposit policy in hotel level. <p><strong>OperationId:</strong>postDepositPolicy</p>
      * Create deposit policy in hotel level
      */
-    postDepositPolicy(requestParameters: PostDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postDepositPolicy(requestParameters: PostDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Guarantee Code. <p><strong>OperationId:</strong>postGuaranteeCode</p>
      * Create Guarantee Code
      */
-    postGuaranteeCodeRaw(requestParameters: PostGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGuaranteeCodeRaw(requestParameters: PostGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Guarantee Code. <p><strong>OperationId:</strong>postGuaranteeCode</p>
      * Create Guarantee Code
      */
-    postGuaranteeCode(requestParameters: PostGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGuaranteeCode(requestParameters: PostGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create schedule for guarantee codes. <p><strong>OperationId:</strong>postGuaranteeCodeSchedule</p>
      * Create schedule for guarantee codes
      */
-    postGuaranteeCodeScheduleRaw(requestParameters: PostGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGuaranteeCodeScheduleRaw(requestParameters: PostGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create schedule for guarantee codes. <p><strong>OperationId:</strong>postGuaranteeCodeSchedule</p>
      * Create schedule for guarantee codes
      */
-    postGuaranteeCodeSchedule(requestParameters: PostGuaranteeCodeScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGuaranteeCodeSchedule(requestParameters: PostGuaranteeCodeScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Market Code. <p><strong>OperationId:</strong>postMarketCode</p>
      * Create a new Market Code
      */
-    postMarketCodeRaw(requestParameters: PostMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMarketCodeRaw(requestParameters: PostMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Market Code. <p><strong>OperationId:</strong>postMarketCode</p>
      * Create a new Market Code
      */
-    postMarketCode(requestParameters: PostMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMarketCode(requestParameters: PostMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Market Group. Only one Market Code can be created at a time. <p><strong>OperationId:</strong>postMarketGroup</p>
      * Create Market Group
      */
-    postMarketGroupRaw(requestParameters: PostMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postMarketGroupRaw(requestParameters: PostMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Market Group. Only one Market Code can be created at a time. <p><strong>OperationId:</strong>postMarketGroup</p>
      * Create Market Group
      */
-    postMarketGroup(requestParameters: PostMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postMarketGroup(requestParameters: PostMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create schedule for deposit or cancel policy. <p><strong>OperationId:</strong>postNewPolicySchedule</p>
      * Create a Policy Schedule
      */
-    postNewPolicyScheduleRaw(requestParameters: PostNewPolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postNewPolicyScheduleRaw(requestParameters: PostNewPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create schedule for deposit or cancel policy. <p><strong>OperationId:</strong>postNewPolicySchedule</p>
      * Create a Policy Schedule
      */
-    postNewPolicySchedule(requestParameters: PostNewPolicyScheduleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postNewPolicySchedule(requestParameters: PostNewPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create schedule for deposit or cancel policy.<br><p><strong><mark>This API is deprecated. Please use createNewPolicySchedule instead</mark></strong></p> <p><strong>OperationId:</strong>postPolicySchedule</p>
      * Create a Policy Schedule
+     * @deprecated
      */
     postPolicyScheduleRaw(requestParameters: PostPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create schedule for deposit or cancel policy.<br><p><strong><mark>This API is deprecated. Please use createNewPolicySchedule instead</mark></strong></p> <p><strong>OperationId:</strong>postPolicySchedule</p>
      * Create a Policy Schedule
+     * @deprecated
      */
     postPolicySchedule(requestParameters: PostPolicyScheduleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Pre Check In rules. <p><strong>OperationId:</strong>postPreCheckInRules</p>
      * Create Pre Check In rules
      */
-    postPreCheckInRulesRaw(requestParameters: PostPreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postPreCheckInRulesRaw(requestParameters: PostPreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Pre Check In rules. <p><strong>OperationId:</strong>postPreCheckInRules</p>
      * Create Pre Check In rules
      */
-    postPreCheckInRules(requestParameters: PostPreCheckInRulesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postPreCheckInRules(requestParameters: PostPreCheckInRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create Service Request Code Priorities. <p><strong>OperationId:</strong>postServiceRequestCodePriorities</p>
      * Create Service Request Code Priorities
      */
-    postServiceRequestCodePrioritiesRaw(requestParameters: PostServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postServiceRequestCodePrioritiesRaw(requestParameters: PostServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create Service Request Code Priorities. <p><strong>OperationId:</strong>postServiceRequestCodePriorities</p>
      * Create Service Request Code Priorities
      */
-    postServiceRequestCodePriorities(requestParameters: PostServiceRequestCodePrioritiesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postServiceRequestCodePriorities(requestParameters: PostServiceRequestCodePrioritiesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create service request codes. <p><strong>OperationId:</strong>postServiceRequestCodes</p>
      * Create service request codes
      */
-    postServiceRequestCodesRaw(requestParameters: PostServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postServiceRequestCodesRaw(requestParameters: PostServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create service request codes. <p><strong>OperationId:</strong>postServiceRequestCodes</p>
      * Create service request codes
      */
-    postServiceRequestCodes(requestParameters: PostServiceRequestCodesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postServiceRequestCodes(requestParameters: PostServiceRequestCodesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Source Code. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceCode</p>
      * Create a Source Code
      */
-    postSourceCodeRaw(requestParameters: PostSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postSourceCodeRaw(requestParameters: PostSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Source Code. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceCode</p>
      * Create a Source Code
      */
-    postSourceCode(requestParameters: PostSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postSourceCode(requestParameters: PostSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to create a new Source Group. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceGroup</p>
      * Create a Source Group
      */
-    postSourceGroupRaw(requestParameters: PostSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postSourceGroupRaw(requestParameters: PostSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to create a new Source Group. Only one Source Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postSourceGroup</p>
      * Create a Source Group
      */
-    postSourceGroup(requestParameters: PostSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postSourceGroup(requestParameters: PostSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template Cancellation policies. <p><strong>OperationId:</strong>postTemplateCancellationPolicy</p>
      * Create template Cancellation policies
      */
-    postTemplateCancellationPolicyRaw(requestParameters: PostTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateCancellationPolicyRaw(requestParameters: PostTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template Cancellation policies. <p><strong>OperationId:</strong>postTemplateCancellationPolicy</p>
      * Create template Cancellation policies
      */
-    postTemplateCancellationPolicy(requestParameters: PostTemplateCancellationPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateCancellationPolicy(requestParameters: PostTemplateCancellationPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template deposit policy. <p><strong>OperationId:</strong>postTemplateDepositPolicy</p>
      * Create template deposit policy
      */
-    postTemplateDepositPolicyRaw(requestParameters: PostTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateDepositPolicyRaw(requestParameters: PostTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template deposit policy. <p><strong>OperationId:</strong>postTemplateDepositPolicy</p>
      * Create template deposit policy
      */
-    postTemplateDepositPolicy(requestParameters: PostTemplateDepositPolicyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateDepositPolicy(requestParameters: PostTemplateDepositPolicyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create template Guarantee Code. <p><strong>OperationId:</strong>postTemplateGuaranteeCode</p>
      * Create template Guarantee Code
      */
-    postTemplateGuaranteeCodeRaw(requestParameters: PostTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateGuaranteeCodeRaw(requestParameters: PostTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create template Guarantee Code. <p><strong>OperationId:</strong>postTemplateGuaranteeCode</p>
      * Create template Guarantee Code
      */
-    postTemplateGuaranteeCode(requestParameters: PostTemplateGuaranteeCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateGuaranteeCode(requestParameters: PostTemplateGuaranteeCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to create a new Template Market Code. Only one template Market Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketCode</p>
      * Create Market Code Template
      */
-    postTemplateMarketCodeRaw(requestParameters: PostTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateMarketCodeRaw(requestParameters: PostTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to create a new Template Market Code. Only one template Market Code can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketCode</p>
      * Create Market Code Template
      */
-    postTemplateMarketCode(requestParameters: PostTemplateMarketCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateMarketCode(requestParameters: PostTemplateMarketCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API is used to create a new Template Market Group. Only one template Market Group can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketGroup</p>
      * Create Market Group Template
      */
-    postTemplateMarketGroupRaw(requestParameters: PostTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateMarketGroupRaw(requestParameters: PostTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to create a new Template Market Group. Only one template Market Group can be Use this API to created at a time. <p><strong>OperationId:</strong>postTemplateMarketGroup</p>
      * Create Market Group Template
      */
-    postTemplateMarketGroup(requestParameters: PostTemplateMarketGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateMarketGroup(requestParameters: PostTemplateMarketGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Template Source Code. Only one template Source Code can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceCode</p>
      * Create a Template Source Code
      */
-    postTemplateSourceCodeRaw(requestParameters: PostTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateSourceCodeRaw(requestParameters: PostTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Template Source Code. Only one template Source Code can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceCode</p>
      * Create a Template Source Code
      */
-    postTemplateSourceCode(requestParameters: PostTemplateSourceCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateSourceCode(requestParameters: PostTemplateSourceCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to create a new Template Source Group. Only one template Source Group can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceGroup</p>
      * Create a Template Source Group
      */
-    postTemplateSourceGroupRaw(requestParameters: PostTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postTemplateSourceGroupRaw(requestParameters: PostTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Use this API to create a new Template Source Group. Only one template Source Group can be created at a time. <p><strong>OperationId:</strong>postTemplateSourceGroup</p>
      * Create a Template Source Group
      */
-    postTemplateSourceGroup(requestParameters: PostTemplateSourceGroupOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postTemplateSourceGroup(requestParameters: PostTemplateSourceGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * Use this API to delete a Market Code . <p><strong>OperationId:</strong>removeMarketCode</p>
      * Delete a Market Code

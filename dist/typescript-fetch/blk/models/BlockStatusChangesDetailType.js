@@ -52,7 +52,7 @@ function BlockStatusChangesDetailTypeToJSON(value) {
         return null;
     }
     return {
-        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substr(0, 10)),
+        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substring(0, 10)),
         'currentStatus': value.currentStatus,
         'priorStatus': value.priorStatus,
         'revenue': (0, RevenueSummaryType_1.RevenueSummaryTypeToJSON)(value.revenue),

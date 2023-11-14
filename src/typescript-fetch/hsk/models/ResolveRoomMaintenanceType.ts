@@ -66,7 +66,7 @@ export function ResolveRoomMaintenanceTypeToJSON(value?: ResolveRoomMaintenanceT
     }
     return {
         
-        'resolveDate': value.resolveDate === undefined ? undefined : (value.resolveDate.toISOString().substr(0,10)),
+        'resolveDate': value.resolveDate === undefined ? undefined : (value.resolveDate.toISOString().substring(0,10)),
         'resolveUser': value.resolveUser,
     };
 }

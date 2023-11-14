@@ -51,11 +51,11 @@ function RatePlanAdvancedPostingRhythmTypeToJSON(value) {
         return null;
     }
     return {
-        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substr(0, 10)),
+        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substring(0, 10)),
         'code': value.code,
         'description': value.description,
         'eligibleFreeNights': value.eligibleFreeNights,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substr(0, 10)),
+        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
         'repeatWithinSellSegment': value.repeatWithinSellSegment,
         'repeatWithinStay': value.repeatWithinStay,
         'requiredPaidNights': value.requiredPaidNights,

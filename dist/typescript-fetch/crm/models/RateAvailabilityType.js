@@ -73,7 +73,7 @@ function RateAvailabilityTypeToJSON(value) {
         'roomCategory': value.roomCategory,
         'roomDescription': value.roomDescription,
         'roomLabel': value.roomLabel,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substr(0, 10)),
+        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
         'totalAvailablePoints': value.totalAvailablePoints,
     };
 }

@@ -102,7 +102,7 @@ export function HousekeepingTaskAssignmentTypeToJSON(value?: HousekeepingTaskAss
         
         'hotelId': value.hotelId,
         'taskCodes': value.taskCodes === undefined ? undefined : ((value.taskCodes as Array<any>).map(HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substr(0,10)),
+        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
         'taskSheets': value.taskSheets === undefined ? undefined : ((value.taskSheets as Array<any>).map(HousekeepingTaskTypeToJSON)),
         'taskSheetsCount': value.taskSheetsCount,
     };

@@ -157,14 +157,14 @@ export function CreateBlockRestrictionTypeToJSON(value?: CreateBlockRestrictionT
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substr(0,10)),
+        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
         'friday': value.friday,
         'hotelId': value.hotelId,
         'monday': value.monday,
         'restrictionStatus': RestrictionStatusTypeToJSON(value.restrictionStatus),
         'roomTypes': value.roomTypes,
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substr(0,10)),
+        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

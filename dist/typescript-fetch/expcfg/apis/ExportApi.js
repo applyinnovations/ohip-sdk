@@ -47,7 +47,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetExportsAvailableFileGroupEnum = exports.GetExportSchedulesFrequencyEnum = exports.GetExportSchedulesExportGroupEnum = exports.GetExportMappingsByChainExportMappingConfigsEnum = exports.GetExportMappingsExportMappingConfigsEnum = exports.GetExportMappingLinkedCodesConfigTypeEnum = exports.GetExportColumnsAndFunctionsCategoryEnum = exports.GetExportActivityLogModuleEnum = exports.ExportApi = void 0;
 const runtime = __importStar(require("../runtime"));
-const models_1 = require("../models");
+const index_1 = require("../models/index");
 /**
  *
  */
@@ -58,6 +58,24 @@ class ExportApi extends runtime.BaseAPI {
      */
     changeExportSchedulesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling changeExportSchedules.');
+            }
+            if (requestParameters.exportFileId === null || requestParameters.exportFileId === undefined) {
+                throw new runtime.RequiredError('exportFileId', 'Required parameter requestParameters.exportFileId was null or undefined when calling changeExportSchedules.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeExportSchedules.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeExportSchedules.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeExportSchedules.');
+            }
+            if (requestParameters.exportSchedulesToBeChanged === null || requestParameters.exportSchedulesToBeChanged === undefined) {
+                throw new runtime.RequiredError('exportSchedulesToBeChanged', 'Required parameter requestParameters.exportSchedulesToBeChanged was null or undefined when calling changeExportSchedules.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -81,9 +99,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeExportSchedulesByChainRequestToJSON)(requestParameters.exportSchedulesToBeChanged),
+                body: (0, index_1.ExportSchedulesToBeChangedToJSON)(requestParameters.exportSchedulesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportSchedulesStatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportSchedulesStatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -102,6 +120,21 @@ class ExportApi extends runtime.BaseAPI {
      */
     changeExportSchedulesByChainRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.exportFileId === null || requestParameters.exportFileId === undefined) {
+                throw new runtime.RequiredError('exportFileId', 'Required parameter requestParameters.exportFileId was null or undefined when calling changeExportSchedulesByChain.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling changeExportSchedulesByChain.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling changeExportSchedulesByChain.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling changeExportSchedulesByChain.');
+            }
+            if (requestParameters.exportSchedulesToBeChanged === null || requestParameters.exportSchedulesToBeChanged === undefined) {
+                throw new runtime.RequiredError('exportSchedulesToBeChanged', 'Required parameter requestParameters.exportSchedulesToBeChanged was null or undefined when calling changeExportSchedulesByChain.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -125,9 +158,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.ChangeExportSchedulesByChainRequestToJSON)(requestParameters.exportSchedulesToBeChanged),
+                body: (0, index_1.ExportSchedulesToBeChangedToJSON)(requestParameters.exportSchedulesToBeChanged),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportSchedulesStatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportSchedulesStatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -146,6 +179,21 @@ class ExportApi extends runtime.BaseAPI {
      */
     deleteExistingExportMappingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.exportMappingId === null || requestParameters.exportMappingId === undefined) {
+                throw new runtime.RequiredError('exportMappingId', 'Required parameter requestParameters.exportMappingId was null or undefined when calling deleteExistingExportMappings.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteExistingExportMappings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteExistingExportMappings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteExistingExportMappings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteExistingExportMappings.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -169,7 +217,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -188,6 +236,24 @@ class ExportApi extends runtime.BaseAPI {
      */
     deleteExportMappingCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.mappingTypeCode === null || requestParameters.mappingTypeCode === undefined) {
+                throw new runtime.RequiredError('mappingTypeCode', 'Required parameter requestParameters.mappingTypeCode was null or undefined when calling deleteExportMappingCodes.');
+            }
+            if (requestParameters.exportMappingId === null || requestParameters.exportMappingId === undefined) {
+                throw new runtime.RequiredError('exportMappingId', 'Required parameter requestParameters.exportMappingId was null or undefined when calling deleteExportMappingCodes.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling deleteExportMappingCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling deleteExportMappingCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling deleteExportMappingCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling deleteExportMappingCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -211,7 +277,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -230,15 +296,36 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportActivityLogRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getExportActivityLog.');
+            }
+            if (requestParameters.activityType === null || requestParameters.activityType === undefined) {
+                throw new runtime.RequiredError('activityType', 'Required parameter requestParameters.activityType was null or undefined when calling getExportActivityLog.');
+            }
+            if (requestParameters.fromDate === null || requestParameters.fromDate === undefined) {
+                throw new runtime.RequiredError('fromDate', 'Required parameter requestParameters.fromDate was null or undefined when calling getExportActivityLog.');
+            }
+            if (requestParameters.toDate === null || requestParameters.toDate === undefined) {
+                throw new runtime.RequiredError('toDate', 'Required parameter requestParameters.toDate was null or undefined when calling getExportActivityLog.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportActivityLog.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportActivityLog.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportActivityLog.');
+            }
             const queryParameters = {};
             if (requestParameters.activityType !== undefined) {
                 queryParameters['activityType'] = requestParameters.activityType;
             }
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substr(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
             }
             if (requestParameters.toDate !== undefined) {
-                queryParameters['toDate'] = requestParameters.toDate.toISOString().substr(0, 10);
+                queryParameters['toDate'] = requestParameters.toDate.toISOString().substring(0, 10);
             }
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -289,7 +376,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportActivityLogFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportActivityLogFromJSON)(jsonValue));
         });
     }
     /**
@@ -308,6 +395,15 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportColumnsAndFunctionsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportColumnsAndFunctions.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportColumnsAndFunctions.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportColumnsAndFunctions.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchDbColumns !== undefined) {
                 queryParameters['fetchDbColumns'] = requestParameters.fetchDbColumns;
@@ -349,7 +445,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportColumnsAndFunctionsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportColumnsAndFunctionsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -368,6 +464,21 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportMappingCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.exportMappingTypeId === null || requestParameters.exportMappingTypeId === undefined) {
+                throw new runtime.RequiredError('exportMappingTypeId', 'Required parameter requestParameters.exportMappingTypeId was null or undefined when calling getExportMappingCodes.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportMappingCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -391,7 +502,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.FetchExportMappingCodesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.FetchExportMappingCodesFromJSON)(jsonValue));
         });
     }
     /**
@@ -410,6 +521,21 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportMappingCodesToLinkRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.configType === null || requestParameters.configType === undefined) {
+                throw new runtime.RequiredError('configType', 'Required parameter requestParameters.configType was null or undefined when calling getExportMappingCodesToLink.');
+            }
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingCodesToLink.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportMappingCodesToLink.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingCodesToLink.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingCodesToLink.');
+            }
             const queryParameters = {};
             if (requestParameters.code !== undefined) {
                 queryParameters['code'] = requestParameters.code;
@@ -439,7 +565,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportMappingCodesToLinkFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportMappingCodesToLinkFromJSON)(jsonValue));
         });
     }
     /**
@@ -458,6 +584,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportMappingLinkedCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getExportMappingLinkedCodes.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportMappingLinkedCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingLinkedCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingLinkedCodes.');
+            }
             const queryParameters = {};
             if (requestParameters.id !== undefined) {
                 queryParameters['id'] = requestParameters.id;
@@ -499,7 +637,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportMappingLinkedCodesFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportMappingLinkedCodesFromJSON)(jsonValue));
         });
     }
     /**
@@ -518,6 +656,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportMappingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getExportMappings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportMappings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappings.');
+            }
             const queryParameters = {};
             if (requestParameters.exportMappingConfigs) {
                 queryParameters['exportMappingConfigs'] = requestParameters.exportMappingConfigs;
@@ -544,7 +694,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.FetchExportMappingsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.FetchExportMappingsFromJSON)(jsonValue));
         });
     }
     /**
@@ -563,6 +713,15 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportMappingsByChainRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportMappingsByChain.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportMappingsByChain.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportMappingsByChain.');
+            }
             const queryParameters = {};
             if (requestParameters.hotelId !== undefined) {
                 queryParameters['hotelId'] = requestParameters.hotelId;
@@ -592,7 +751,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.FetchExportMappingsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.FetchExportMappingsFromJSON)(jsonValue));
         });
     }
     /**
@@ -611,6 +770,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportSchedulesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling getExportSchedules.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportSchedules.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportSchedules.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportSchedules.');
+            }
             const queryParameters = {};
             if (requestParameters.timeZone !== undefined) {
                 queryParameters['timeZone'] = requestParameters.timeZone;
@@ -634,10 +805,10 @@ class ExportApi extends runtime.BaseAPI {
                 queryParameters['exportName'] = requestParameters.exportName;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substr(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substr(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
             }
             if (requestParameters.frequency !== undefined) {
                 queryParameters['frequency'] = requestParameters.frequency;
@@ -667,7 +838,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportSchedulesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportSchedulesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -686,6 +857,15 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportsAvailableRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportsAvailable.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportsAvailable.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportsAvailable.');
+            }
             const queryParameters = {};
             if (requestParameters.fetchColumns !== undefined) {
                 queryParameters['fetchColumns'] = requestParameters.fetchColumns;
@@ -751,7 +931,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportsAvailableFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportsAvailableFromJSON)(jsonValue));
         });
     }
     /**
@@ -770,6 +950,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     getExportsGeneratedRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.exportFileId === null || requestParameters.exportFileId === undefined) {
+                throw new runtime.RequiredError('exportFileId', 'Required parameter requestParameters.exportFileId was null or undefined when calling getExportsGenerated.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling getExportsGenerated.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling getExportsGenerated.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling getExportsGenerated.');
+            }
             const queryParameters = {};
             if (requestParameters.exportDataId !== undefined) {
                 queryParameters['exportDataId'] = requestParameters.exportDataId;
@@ -796,7 +988,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.GeneratedExportsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GeneratedExportsFromJSON)(jsonValue));
         });
     }
     /**
@@ -815,6 +1007,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     postExportMappingCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postExportMappingCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postExportMappingCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postExportMappingCodes.');
+            }
+            if (requestParameters.exportMappingCodes === null || requestParameters.exportMappingCodes === undefined) {
+                throw new runtime.RequiredError('exportMappingCodes', 'Required parameter requestParameters.exportMappingCodes was null or undefined when calling postExportMappingCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -838,9 +1042,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutExportMappingCodesRequestToJSON)(requestParameters.exportMappingCodes),
+                body: (0, index_1.ExportMappingCodesToJSON)(requestParameters.exportMappingCodes),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -859,6 +1063,21 @@ class ExportApi extends runtime.BaseAPI {
      */
     postExportMappingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling postExportMappings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postExportMappings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postExportMappings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postExportMappings.');
+            }
+            if (requestParameters.exportMappings === null || requestParameters.exportMappings === undefined) {
+                throw new runtime.RequiredError('exportMappings', 'Required parameter requestParameters.exportMappings was null or undefined when calling postExportMappings.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -882,9 +1101,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutExportMappingsRequestToJSON)(requestParameters.exportMappings),
+                body: (0, index_1.ExportMappingsToJSON)(requestParameters.exportMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -903,6 +1122,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     postExportSchedulesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling postExportSchedules.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling postExportSchedules.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling postExportSchedules.');
+            }
+            if (requestParameters.exportSchedulesCriteria === null || requestParameters.exportSchedulesCriteria === undefined) {
+                throw new runtime.RequiredError('exportSchedulesCriteria', 'Required parameter requestParameters.exportSchedulesCriteria was null or undefined when calling postExportSchedules.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -926,9 +1157,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'POST',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PostExportSchedulesRequestToJSON)(requestParameters.exportSchedulesCriteria),
+                body: (0, index_1.ExportSchedulesCriteriaToJSON)(requestParameters.exportSchedulesCriteria),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**
@@ -947,6 +1178,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     putExportMappingCodesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putExportMappingCodes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putExportMappingCodes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putExportMappingCodes.');
+            }
+            if (requestParameters.exportMappingCodes === null || requestParameters.exportMappingCodes === undefined) {
+                throw new runtime.RequiredError('exportMappingCodes', 'Required parameter requestParameters.exportMappingCodes was null or undefined when calling putExportMappingCodes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -970,9 +1213,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutExportMappingCodesRequestToJSON)(requestParameters.exportMappingCodes),
+                body: (0, index_1.ExportMappingCodesToJSON)(requestParameters.exportMappingCodes),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportMappingCodesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportMappingCodesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -991,6 +1234,18 @@ class ExportApi extends runtime.BaseAPI {
      */
     putExportMappingLinkedTypesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putExportMappingLinkedTypes.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putExportMappingLinkedTypes.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putExportMappingLinkedTypes.');
+            }
+            if (requestParameters.exportMappingLinkedTypes === null || requestParameters.exportMappingLinkedTypes === undefined) {
+                throw new runtime.RequiredError('exportMappingLinkedTypes', 'Required parameter requestParameters.exportMappingLinkedTypes was null or undefined when calling putExportMappingLinkedTypes.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1014,9 +1269,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutExportMappingLinkedTypesRequestToJSON)(requestParameters.exportMappingLinkedTypes),
+                body: (0, index_1.ExportMappingLinkedTypesToJSON)(requestParameters.exportMappingLinkedTypes),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportMappingLinkedTypesDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportMappingLinkedTypesDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1035,6 +1290,21 @@ class ExportApi extends runtime.BaseAPI {
      */
     putExportMappingsRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+                throw new runtime.RequiredError('hotelId', 'Required parameter requestParameters.hotelId was null or undefined when calling putExportMappings.');
+            }
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling putExportMappings.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling putExportMappings.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling putExportMappings.');
+            }
+            if (requestParameters.exportMappings === null || requestParameters.exportMappings === undefined) {
+                throw new runtime.RequiredError('exportMappings', 'Required parameter requestParameters.exportMappings was null or undefined when calling putExportMappings.');
+            }
             const queryParameters = {};
             const headerParameters = {};
             headerParameters['Content-Type'] = 'application/json;charset=UTF-8';
@@ -1058,9 +1328,9 @@ class ExportApi extends runtime.BaseAPI {
                 method: 'PUT',
                 headers: headerParameters,
                 query: queryParameters,
-                body: (0, models_1.PutExportMappingsRequestToJSON)(requestParameters.exportMappings),
+                body: (0, index_1.ExportMappingsToJSON)(requestParameters.exportMappings),
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.ExportMappingsDetailsFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExportMappingsDetailsFromJSON)(jsonValue));
         });
     }
     /**
@@ -1079,6 +1349,15 @@ class ExportApi extends runtime.BaseAPI {
      */
     removeExportSchedulesRaw(requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+                throw new runtime.RequiredError('authorization', 'Required parameter requestParameters.authorization was null or undefined when calling removeExportSchedules.');
+            }
+            if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+                throw new runtime.RequiredError('xAppKey', 'Required parameter requestParameters.xAppKey was null or undefined when calling removeExportSchedules.');
+            }
+            if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+                throw new runtime.RequiredError('xHotelid', 'Required parameter requestParameters.xHotelid was null or undefined when calling removeExportSchedules.');
+            }
             const queryParameters = {};
             if (requestParameters.jobNames) {
                 queryParameters['jobNames'] = requestParameters.jobNames;
@@ -1105,7 +1384,7 @@ class ExportApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             }, initOverrides);
-            return new runtime.JSONApiResponse(response, (jsonValue) => (0, models_1.StatusFromJSON)(jsonValue));
+            return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StatusFromJSON)(jsonValue));
         });
     }
     /**

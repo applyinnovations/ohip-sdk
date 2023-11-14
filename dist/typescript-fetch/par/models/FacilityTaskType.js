@@ -48,7 +48,7 @@ function FacilityTaskTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'supplies': (0, FacilityCodesType_1.FacilityCodesTypeToJSON)(value.supplies),
         'task': (0, HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeToJSON)(value.task),
     };

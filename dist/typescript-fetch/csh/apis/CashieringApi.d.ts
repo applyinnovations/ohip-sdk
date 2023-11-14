@@ -10,187 +10,187 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AcquiredCashierLock, ActivatePrepaidCardRequest, ActivatePrepaidCardStatus, AdditionalTaxesDetails, AdjustTransactionsRequest, AdjustedTransactions, AdvancePaymentBalance, AdvanceRoomChargesReservationInfo, AlertNotices, AmountEligible, ApplyFinalPostingsRequest, ApplyFlexibleBenefitPostingsRequest, ArticlesSale, AttachDepositPolicyToPaymentRequest, AuthorizationHistory, AuthorizationInfo, AuthorizeCreditCardAmountByProfileRequest, AuthorizersCreditInfo, AutoSettleCompFoliosRequest, AutoSettleCompFoliosStatus, BalanceInfoCriteria, BatchAutoCheckoutDetails, BatchZeroBalanceCheckoutDetails, BedTaxInfo, BillingChargeStatus, BillingChargesDetails, BillingChargesStatus, BillingInstructionCodes, CalculateForeignCurrencyRequest, CalculatedForeignCurrency, CancelPrepaidCardTransactionRequest, CancelPrepaidCardTransactionStatus, CashOutPrepaidCardRequest, CashOutPrepaidCardStatus, CashierClosureDetails, CashierClosureInformation, CashierClosureReportsList, CashierReportPostingsInfo, CashierTransactionsDetails, CcAuthorizationInstructions, CcBatchSettlements, CcBatchSettlementsStatus, CcSurchargeDetails, ChangeBillingPaymentRequest, ChangeRoutingInstructionsRequest, ChangedRoutingInstructions, CheckDetails, CheckedRateCode, CloseReservationFolioRequest, CompAccountingJournal, CompRoutingInstructions, CompTrxAuthorizers, ConvertFolioDetails, ConvertFolioRequest, CreatedRoutingInstructions, CreditCardWallet, CreditLimitOveragePaymentsDetails, CreditLimitOveragePaymentsInfo, DeferredTaxesProcessDetails, DepositFolioTransactionDetails, DepositMaturityDetails, DepositRefundEligibleCheck, DepositedFolioValidate, DepositedPayment, DetachDepositPolicyFromPaymentRequest, EarlyDepartureInfo, ExtendedCashierLock, FinancialPostings, FinancialPostingsNetVat, FiscalCallStatus, FiscalCommandsResponseInfo, FiscalInformationFolio, FiscalSupportingDocumentsResponse, FixedChargesDetails, Folio, FolioActivityDetailsType, FolioActivityResponseDetailType, FolioHistoryResponse, FolioPrinters, FolioTaxPaymentReversal, FolioTaxPaymentsInfo, FolioTransactionDetails, FolioTypeNameInfo, FolioTypesInfo, ForeignCurrencyExchangeTransaction, GamingRequestStatusInfo, GenerateFiscalFolioRequest, GenerateFolioRequest, GeneratedFolio, GuestsTransactions, HotelRevenueDetails, LinkReservationPackageAllowanceRequest, MaturedDepositsDetails, PasserBySale, PostAdvanceFolioRequest, PostAdvanceRoomChargesRequest, PostArticlesSaleRequest, PostAutoCheckoutReservationsRequest, PostAwardTransactionRequest, PostBatchAutoSettlementRequest, PostBatchCCSettlementsRequest, PostBatchDepositRequest, PostBedTaxInfoRequest, PostBillingChargesInBatchRequest, PostBillingChargesRequest, PostBillingCheckChargesRequest, PostBillingPaymentRequest, PostCCSettlementRequest, PostCheckOutRequest, PostCompRedemptionsRequest, PostCompTransactionRequest, PostCreditBillRequest, PostCreditLimitOveragePaymentsRequest, PostDeferredTaxesProcessRequest, PostDepositFolioRequest, PostDepositPaymentByExtIdRequest, PostFBAReimbursementRequest, PostFiscalCommandInvoiceRequest, PostFiscalInfoRequest, PostForeignCurrencyExchangeRequest, PostGuestCheckDetailsRequest, PostPasserBySaleRequest, PostPrepaidCardsRequest, PostProformaRequest, PostRateCodeRequest, PostReversePaymentRequest, PostRoomAndTaxForDayUseRequest, PostStoredFolioDetailsRequest, PostSupplementalFolioRequest, PostSupplementalFolioStatus, PostZeroBalanceCheckoutReservationsRequest, PostedBillingChargesInBatch, PostedBillingPayment, PostedCreditBill, PostedDepositFolio, PostedRateCode, PostingActivityDetail, PostingSummaryList, PostingsForRefresh, ProcessFiscalRetryRequest, ProcessFiscalRetryStatus, ProcessReservationDepositRequest, ProcessRoomRoutingRefreshRequest, PutBillingChargeRequest, PutBillingChargesRequest, PutBillingChargesStatus, PutCashierLockRequest, PutCashierRequest, PutForEarlyDepartureRequest, PutPayeeTaxNumberRequest, PutReservationDepositTransferRequest, PutRoutingInstructionsRequest, ReceiptHistoryResponse, RedeemPrepaidCardsRequest, RedeemPrepaidCardsStatus, RegisterManualAuthorizationRequest, RegisterVaultTransactionRequest, ReinstateCheckOutRequest, ReloadPrepaidCardRequest, ReloadPrepaidCardStatus, ResendSupportingDocumentRequest, ReservationDepositFolios, ReservationFolioInformation, ReservationPackageOptions, RevenueBucketTotals, ReverseCertificatePostingsRequest, ReverseCompRedemptionsRequest, ReverseFolioTaxPaymentRequest, RoomRoutingPostings, RoundingDifferenceAmount, RoutingInstructionsDetails, SplitAndTransferTransactionRequest, SplitDepositTransactionRequest, SplitDepositTransactionStatus, SplitTransactionRequest, StagedTransactions, Status, StoredFolioDetailsInfo, TransactionCodes, TransferCompTransactionsRequest, TransferFolioToWindowRequest, TransferTransactionToReservationRequest, TransferTransactionToWindow, TransferTransactionToWindowRequest, TransitionDepositToGuestFolioRequest, UpdateFixedChargesRequest, ValidateDepositFolioRequest, ValidatedCreditBill, ValidatedTransactionCode, VoidFolioRequest, VoidedFolio } from '../models';
-export interface ActivatePrepaidCardOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    activatePrepaidCard?: ActivatePrepaidCardRequest;
+import type { AcquiredCashierLock, ActivatePrepaidCard, ActivatePrepaidCardStatus, AdditionalTaxesDetails, AdjustedTransactions, AdvancePaymentBalance, AdvanceRoomCharges, AdvanceRoomChargesReservationInfo, AlertNotices, AmountEligible, ArticlesSale, ArticlesSaleCriteria, AttachPolicyApplyCriteria, AuthorizationHistory, AuthorizationInfo, AuthorizersCreditInfo, AutoSettleCompFolios, AutoSettleCompFoliosStatus, AwardPaymentDetails, BalanceInfoCriteria, BatchAdvanceFolio, BatchAutoCheckoutDetails, BatchAutoCheckoutReservation, BatchAutoSettlementCriteria, BatchDeposit, BatchZeroBalanceCheckoutDetails, BatchZeroBalanceCheckoutReservation, BedTaxCriteria, BedTaxInfo, BillingCharge, BillingChargeStatus, BillingCharges, BillingChargesDetails, BillingChargesInBatchCriteria, BillingChargesStatus, BillingCheckChargesCriteria, BillingInstructionCodes, BillingPayment, BillingPaymentToChange, CalculatedForeignCurrency, CancelPrepaidCardTransaction, CancelPrepaidCardTransactionStatus, CashOutPrepaidCard, CashOutPrepaidCardStatus, CashierClosure, CashierClosureDetails, CashierClosureInformation, CashierClosureReportsList, CashierLockCriteriaToExtend, CashierReportPostingsInfo, CashierTransactionsDetails, CcAuthorizationCriteria, CcAuthorizationInstructions, CcBatchSettlements, CcBatchSettlementsProcessCriteria, CcBatchSettlementsStatus, CcManualAuthorizationCriteria, CcSettlementCriteria, CcSurchargeDetails, ChangedRoutingInstructions, CheckDetails, CheckedRateCode, CloseFolioCriteria, CompAccountingJournal, CompRoutingInstructions, CompTransactionCriteria, CompTrxAuthorizers, ConvertFolioCriteria, ConvertFolioDetails, CreatedRoutingInstructions, CreditBillCriteria, CreditCardWallet, CreditLimitOveragePayments, CreditLimitOveragePaymentsDetails, CreditLimitOveragePaymentsInfo, DeferredTaxesProcess, DeferredTaxesProcessDetails, DepositFolioCriteria, DepositFolioTransactionDetails, DepositFolioValidateCriteria, DepositMaturityDetails, DepositPayment, DepositRefundEligibleCheck, DepositToGuestFolio, DepositTransferCriteria, DepositedFolioValidate, DepositedPayment, DetachPolicyApplyCriteria, EarlyDeparture, EarlyDepartureInfo, ExtendedCashierLock, FbaReimbursementCriteria, FinalPostings, FinancialPostings, FinancialPostingsNetVat, FiscalCallStatus, FiscalCommandsResponseInfo, FiscalFolioCriteria, FiscalInfoFolioCriteria, FiscalInformationFolio, FiscalSupportingDocumentCriteria, FiscalSupportingDocumentsResponse, FixedCharges, FixedChargesDetails, FlexibleBenefitPostingsCriteria, Folio, FolioActivityDetailsType, FolioActivityResponseDetailType, FolioCriteria, FolioHistoryResponse, FolioPrinters, FolioTaxPaymentReversal, FolioTaxPaymentsInfo, FolioToVoid, FolioToWindow, FolioTransactionDetails, FolioTypeNameInfo, FolioTypesInfo, ForeignCurrencyCriteria, ForeignCurrencyExchange, ForeignCurrencyExchangeTransaction, GamingRequestStatusInfo, GeneratedFolio, GuestCheckDetails, GuestsTransactions, HotelRevenueDetails, LinkReservationPackageAllowance, MaturedDepositsDetails, PasserBySale, PasserBySalesCriteria, PayeeTaxNumber, PaymentReversalCriteria, PostCompRedemptions, PostFiscalInfoType, PostRateCodeCriteria, PostRoomAndTaxForDayUse, PostSupplementalFolio, PostSupplementalFolioStatus, PostedBillingChargesInBatch, PostedBillingPayment, PostedCreditBill, PostedDepositFolio, PostedRateCode, PostingActivityDetail, PostingSummaryList, PostingsForRefresh, PrepaidCardCriteria, ProcessFiscalRetry, ProcessFiscalRetryStatus, PutBillingCharges, PutBillingChargesStatus, ReceiptHistoryResponse, RedeemPrepaidCards, RedeemPrepaidCardsStatus, ReinstateCheckedOutReservation, ReloadPrepaidCard, ReloadPrepaidCardStatus, Reservation, ReservationDepositCriteria, ReservationDepositFolios, ReservationFolio, ReservationFolioInformation, ReservationPackageOptions, ReservationTransaction, RevenueBucketTotals, ReverseCertificatePostingsCriteria, ReverseCompRedemptions, RoomRoutingPostings, RoomRoutingRefresh, RoundingDifferenceAmount, RoutingInstructions, RoutingInstructionsDetails, RoutingInstructionsToChange, SplitDepositTransaction, SplitDepositTransactionStatus, StagedTransactions, Status, StoredFolioDetails, StoredFolioDetailsInfo, TransactionCodes, TransactionReversal, TransactionToSplit, TransactionToSplitAndTransfer, TransactionToWindow, TransactionsAdjustment, TransferCompTransactions, TransferTransactionToWindow, ValidatedCreditBill, ValidatedTransactionCode, VaultTransaction, VoidedFolio } from '../models/index';
+export interface ActivatePrepaidCardRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    activatePrepaidCard: ActivatePrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface AdjustTransactionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionsAdjustment?: AdjustTransactionsRequest;
+export interface AdjustTransactionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionsAdjustment: TransactionsAdjustment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ApplyFinalPostingsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    finalPostings?: ApplyFinalPostingsRequest;
+export interface ApplyFinalPostingsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    finalPostings: FinalPostings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ApplyFlexibleBenefitPostingsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    flexibleBenefitPostingsCriteria?: ApplyFlexibleBenefitPostingsRequest;
+export interface ApplyFlexibleBenefitPostingsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    flexibleBenefitPostingsCriteria: FlexibleBenefitPostingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface AttachDepositPolicyToPaymentOperationRequest {
-    transactionId?: string;
-    policyId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    attachPolicyApplyCriteria?: AttachDepositPolicyToPaymentRequest;
+export interface AttachDepositPolicyToPaymentRequest {
+    transactionId: string;
+    policyId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    attachPolicyApplyCriteria: AttachPolicyApplyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface AuthorizeCreditCardAmountRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccAuthorizationCriteria?: AuthorizeCreditCardAmountByProfileRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccAuthorizationCriteria: CcAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface AuthorizeCreditCardAmountByProfileOperationRequest {
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccAuthorizationCriteria?: AuthorizeCreditCardAmountByProfileRequest;
+export interface AuthorizeCreditCardAmountByProfileRequest {
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccAuthorizationCriteria: CcAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface AutoSettleCompFoliosOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    autoSettleCompFolios?: AutoSettleCompFoliosRequest;
+export interface AutoSettleCompFoliosRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    autoSettleCompFolios: AutoSettleCompFolios;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface BreakCashierLockRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CalculateForeignCurrencyOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    foreignCurrencyCriteria?: CalculateForeignCurrencyRequest;
+export interface CalculateForeignCurrencyRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    foreignCurrencyCriteria: ForeignCurrencyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CancelPrepaidCardTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cancelPrepaidCardTransaction?: CancelPrepaidCardTransactionRequest;
+export interface CancelPrepaidCardTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cancelPrepaidCardTransaction: CancelPrepaidCardTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CashOutPrepaidCardOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashOutPrepaidCard?: CashOutPrepaidCardRequest;
+export interface CashOutPrepaidCardRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashOutPrepaidCard: CashOutPrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeBillingPaymentOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingPaymentToChange?: ChangeBillingPaymentRequest;
+export interface ChangeBillingPaymentRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingPaymentToChange: BillingPaymentToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ChangeRoutingInstructionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructionsToChange?: ChangeRoutingInstructionsRequest;
+export interface ChangeRoutingInstructionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructionsToChange: RoutingInstructionsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CheckPostRateCodeRequest {
-    rateCode?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postRateCodeCriteria?: PostRateCodeRequest;
+    rateCode: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postRateCodeCriteria: PostRateCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface CloseReservationFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    closeFolioCriteria?: CloseReservationFolioRequest;
+export interface CloseReservationFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    closeFolioCriteria: CloseFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ConvertFolioOperationRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    convertFolioCriteria?: ConvertFolioRequest;
+export interface ConvertFolioRequest {
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    convertFolioCriteria: ConvertFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAdvanceRoomChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCompRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     folioWindowNo?: number;
@@ -221,11 +221,11 @@ export interface DeleteCompRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteFolioRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     folioWindowNo?: number;
@@ -251,11 +251,11 @@ export interface DeleteFolioRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRequestRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     userName?: string;
@@ -274,11 +274,11 @@ export interface DeleteRequestRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoomRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     refreshFolio?: boolean;
     retrievePostingsForRoomRouting?: boolean;
     reservationNameId?: string;
@@ -303,49 +303,49 @@ export interface DeleteRoomRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface DetachDepositPolicyFromPaymentOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    detachPolicyApplyCriteria?: DetachDepositPolicyFromPaymentRequest;
+export interface DetachDepositPolicyFromPaymentRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    detachPolicyApplyCriteria: DetachPolicyApplyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface GenerateFiscalFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalInfoFolioCriteria?: GenerateFiscalFolioRequest;
+export interface GenerateFiscalFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalInfoFolioCriteria: FiscalInfoFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface GenerateFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioCriteria?: GenerateFolioRequest;
+export interface GenerateFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioCriteria: FolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAdditionalTaxesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     folioView?: number;
@@ -354,11 +354,11 @@ export interface GetAdditionalTaxesRequest {
     acceptLanguage?: string;
 }
 export interface GetAdvancePaymentBalanceRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     fromDate?: Date;
@@ -368,21 +368,21 @@ export interface GetAdvancePaymentBalanceRequest {
     acceptLanguage?: string;
 }
 export interface GetAlertsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     alertArea?: GetAlertsAlertAreaEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAuthorizationHistoryRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     includeAuthorizations?: boolean;
@@ -395,10 +395,10 @@ export interface GetAuthorizationHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetAuthorizersCreditInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -408,10 +408,10 @@ export interface GetAuthorizersCreditInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBalanceInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: GetBalanceInfoEventEnum;
     id?: string;
     idContext?: string;
@@ -456,10 +456,10 @@ export interface GetBalanceInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetBatchCCSettlementsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     offlineSettlement?: boolean;
     transactionDate?: Date;
     guestName?: string;
@@ -468,11 +468,11 @@ export interface GetBatchCCSettlementsRequest {
     acceptLanguage?: string;
 }
 export interface GetBatchCCSettlementsStatusRequest {
-    batchId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    batchId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: Array<string>;
     idContext?: Array<string>;
     type?: Array<string>;
@@ -480,19 +480,19 @@ export interface GetBatchCCSettlementsStatusRequest {
     acceptLanguage?: string;
 }
 export interface GetBedTaxInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     arrival?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBillingInstructionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeTransactionCodes?: boolean;
     includeBillingInstructions?: boolean;
     includeCompInstructions?: boolean;
@@ -505,11 +505,11 @@ export interface GetBillingInstructionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetCCAuthorizationInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     evaluateApprovalAmount?: boolean;
     sourceOfAuthorization?: GetCCAuthorizationInstructionsSourceOfAuthorizationEnum;
     updateReservation?: boolean;
@@ -580,11 +580,11 @@ export interface GetCCAuthorizationInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCCAuthorizationInstructionsByProfileRequest {
-    profileId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    profileId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     evaluateApprovalAmount?: boolean;
     sourceOfAuthorization?: GetCCAuthorizationInstructionsByProfileSourceOfAuthorizationEnum;
     updateReservation?: boolean;
@@ -654,10 +654,10 @@ export interface GetCCAuthorizationInstructionsByProfileRequest {
     acceptLanguage?: string;
 }
 export interface GetCCSurchargeInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     description?: string;
     folioView?: number;
@@ -715,20 +715,20 @@ export interface GetCCSurchargeInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierClosureRequest {
-    cashierId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierLockHandle?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCashierClosureInfoRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     closureNo?: number;
     cashierId?: number;
     shiftDropLocationCode?: string;
@@ -739,11 +739,11 @@ export interface GetCashierClosureInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierClosureReportsListRequest {
-    cashierId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     closureNo?: number;
     shiftDropLocationCode?: string;
     bagNumberForOthers?: string;
@@ -752,17 +752,17 @@ export interface GetCashierClosureReportsListRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierLockRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCashierReportPostingsRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId?: Array<string>;
     startDate?: Date;
     endDate?: Date;
@@ -777,10 +777,10 @@ export interface GetCashierReportPostingsRequest {
     acceptLanguage?: string;
 }
 export interface GetCashierTransactionsRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     closureNo?: number;
     shiftDropLocationCode?: string;
     bagNumberForOthers?: string;
@@ -789,18 +789,18 @@ export interface GetCashierTransactionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCheckDetailsRequest {
-    checkNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    checkNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCompAccountingJournalRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     startDate?: Date;
@@ -821,10 +821,10 @@ export interface GetCompAccountingJournalRequest {
     acceptLanguage?: string;
 }
 export interface GetCompPostingJournalRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     startDate?: Date;
@@ -844,10 +844,10 @@ export interface GetCompPostingJournalRequest {
     acceptLanguage?: string;
 }
 export interface GetCompRoutingInstructionsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     end?: Date;
     start?: Date;
     nameWildcard?: string;
@@ -864,10 +864,10 @@ export interface GetCompRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetCompTrxAuthorizersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     id?: Array<string>;
     idContext?: Array<string>;
@@ -884,10 +884,10 @@ export interface GetCompTrxAuthorizersRequest {
     acceptLanguage?: string;
 }
 export interface GetCreditLimitOveragePaymentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     guestNameWildCard?: string;
     roomNumberWildCard?: string;
     code?: Array<string>;
@@ -895,10 +895,10 @@ export interface GetCreditLimitOveragePaymentsRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositFolioRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fetchInstructions?: Set<GetDepositFolioFetchInstructionsEnum>;
     id?: string;
     policyIdId?: string;
@@ -907,10 +907,10 @@ export interface GetDepositFolioRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositFolioTransactionDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     transactionNo?: Array<number>;
     includeExchangeInformation?: boolean;
@@ -918,11 +918,11 @@ export interface GetDepositFolioTransactionDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetDepositMaturityInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     idContext?: string;
     type?: string;
@@ -930,20 +930,20 @@ export interface GetDepositMaturityInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetEligibleBillAmountRequest {
-    hotelId?: string;
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioView?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFinancialPostingsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     limit?: number;
     offset?: number;
     startDate?: Date;
@@ -984,12 +984,12 @@ export interface GetFinancialPostingsRequest {
     acceptLanguage?: string;
 }
 export interface GetFinancialPostingsNetVatRequest {
-    hotelId?: string;
-    reservationId?: string;
-    folioWindowNo?: number;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationId: string;
+    folioWindowNo: number;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     startDate?: Date;
     endDate?: Date;
     limit?: number;
@@ -998,30 +998,30 @@ export interface GetFinancialPostingsNetVatRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalFolioActivityRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioSeqNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFiscalFolioActivityDetailsRequest {
-    folioSeqNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    folioSeqNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     responseAttemptNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFiscalPrintingDetailsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioView?: number;
     folioType?: string;
     id?: string;
@@ -1032,10 +1032,10 @@ export interface GetFiscalPrintingDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetFiscalSupportingDocumentsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     surname?: string;
     givenName?: string;
     confirmationNo?: string;
@@ -1056,22 +1056,22 @@ export interface GetFiscalSupportingDocumentsRequest {
     acceptLanguage?: string;
 }
 export interface GetFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFolioRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     guestPayOnly?: boolean;
     includeFolioHistory?: boolean;
     reservationBalanceOnly?: boolean;
@@ -1092,10 +1092,10 @@ export interface GetFolioRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioHistoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     id?: string;
     idContext?: string;
     type?: string;
@@ -1127,10 +1127,10 @@ export interface GetFolioHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioPrintersRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     allFolioWindow?: boolean;
     correction?: boolean;
     debitFolio?: boolean;
@@ -1160,11 +1160,11 @@ export interface GetFolioPrintersRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTaxPaymentsInfoRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioWindowNo?: number;
     cashierId?: number;
     description?: string;
@@ -1272,10 +1272,10 @@ export interface GetFolioTaxPaymentsInfoRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTransactionDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     transactionNo?: Array<number>;
     includeExchangeInformation?: boolean;
@@ -1283,10 +1283,10 @@ export interface GetFolioTransactionDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypeNameRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     internalFolioWindowId?: string;
     languageCode?: string;
     folioTypeName?: string;
@@ -1295,10 +1295,10 @@ export interface GetFolioTypeNameRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioTypesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeCompress?: boolean;
     includeCredit?: boolean;
     folioType?: string;
@@ -1306,20 +1306,20 @@ export interface GetFolioTypesRequest {
     acceptLanguage?: string;
 }
 export interface GetGamingRequestStatusInfoRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetGuestsTransactionsRequest {
-    hotelId?: string;
-    reservationList?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    reservationList: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     includeTransactionsWithARInvoiceNo?: boolean;
     includeTransactionsWithFolioNo?: boolean;
@@ -1351,38 +1351,38 @@ export interface GetGuestsTransactionsRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelCreditCardWalletRequest {
-    hotelId?: string;
-    profileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    profileId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelRevenueRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     businessDate?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetMaturedDepositsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPostBillingChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     cashierId?: number;
     folioWindowNo?: Array<number>;
     chargeCashierId?: Array<number>;
@@ -1408,11 +1408,11 @@ export interface GetPostBillingChargesRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingActivityDetailRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     module?: string;
@@ -1429,10 +1429,10 @@ export interface GetPostingActivityDetailRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingSummaryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     includeGenerates?: boolean;
     postingDate?: Date;
     checkPostings?: boolean;
@@ -1444,12 +1444,12 @@ export interface GetPostingSummaryRequest {
     acceptLanguage?: string;
 }
 export interface GetPostingsForRefreshRequest {
-    targetReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    targetReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     targetResvNameIdContext?: string;
@@ -1498,10 +1498,10 @@ export interface GetPostingsForRefreshRequest {
     acceptLanguage?: string;
 }
 export interface GetReceiptHistoryRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fromDate?: Date;
     toDate?: Date;
     name?: string;
@@ -1513,20 +1513,20 @@ export interface GetReceiptHistoryRequest {
     acceptLanguage?: string;
 }
 export interface GetReservationPackageOptionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetReservationRevenueBucketTotalsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     revenueBucketType?: string;
@@ -1535,9 +1535,9 @@ export interface GetReservationRevenueBucketTotalsRequest {
     acceptLanguage?: string;
 }
 export interface GetRoundingDifferenceRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: GetRoundingDifferenceEventEnum;
     folioWindowNo?: number;
     internalFolioWindowID?: string;
@@ -1590,11 +1590,11 @@ export interface GetRoundingDifferenceRequest {
     acceptLanguage?: string;
 }
 export interface GetRoutingInstructionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     includeWindowRouting?: boolean;
     includeRoomRouting?: boolean;
@@ -1605,11 +1605,11 @@ export interface GetRoutingInstructionsRequest {
     acceptLanguage?: string;
 }
 export interface GetStoredFolioDetailsRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fiscalBillNo?: string;
     folioDate?: Date;
     folioStatus?: GetStoredFolioDetailsFolioStatusEnum;
@@ -1620,10 +1620,10 @@ export interface GetStoredFolioDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetTransactionCodesRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: GetTransactionCodesEventEnum;
     includeArticles?: boolean;
     userRoleTransactions?: boolean;
@@ -1643,10 +1643,10 @@ export interface GetTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetValidateFiscalPrintingDetailsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     folioView?: number;
     folioType?: string;
     id?: string;
@@ -1658,794 +1658,794 @@ export interface GetValidateFiscalPrintingDetailsRequest {
     acceptLanguage?: string;
 }
 export interface GetfetchStagedTransactionsRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     hotelId2?: string;
     folioWindowNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface IsDepositRefundEligibleRequest {
-    transactionId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface LinkReservationPackageAllowanceOperationRequest {
-    destinationReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    linkReservationPackageAllowance?: LinkReservationPackageAllowanceRequest;
+export interface LinkReservationPackageAllowanceRequest {
+    destinationReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    linkReservationPackageAllowance: LinkReservationPackageAllowance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAdvanceFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchAdvanceFolio?: PostAdvanceFolioRequest;
+export interface PostAdvanceFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchAdvanceFolio: BatchAdvanceFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAdvanceRoomChargesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    advanceRoomCharges?: PostAdvanceRoomChargesRequest;
+export interface PostAdvanceRoomChargesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    advanceRoomCharges: AdvanceRoomCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostArticlesSaleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    articlesSaleCriteria?: PostArticlesSaleRequest;
+export interface PostArticlesSaleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    articlesSaleCriteria: ArticlesSaleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAutoCheckoutReservationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchAutoCheckoutReservation?: PostAutoCheckoutReservationsRequest;
+export interface PostAutoCheckoutReservationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchAutoCheckoutReservation: BatchAutoCheckoutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostAwardTransactionOperationRequest {
-    hotelId?: string;
-    reservationId?: number;
-    membershipId?: number;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    awardDetails?: PostAwardTransactionRequest;
+export interface PostAwardTransactionRequest {
+    hotelId: string;
+    reservationId: number;
+    membershipId: number;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    awardDetails: AwardPaymentDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBatchAutoSettlementOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchAutoSettlementCriteria?: PostBatchAutoSettlementRequest;
+export interface PostBatchAutoSettlementRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchAutoSettlementCriteria: BatchAutoSettlementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBatchCCSettlementsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccBatchSettlementsProcessCriteria?: PostBatchCCSettlementsRequest;
+export interface PostBatchCCSettlementsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccBatchSettlementsProcessCriteria: CcBatchSettlementsProcessCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBatchDepositOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchDeposit?: PostBatchDepositRequest;
+export interface PostBatchDepositRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchDeposit: BatchDeposit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBedTaxInfoOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTaxCriteria?: PostBedTaxInfoRequest;
+export interface PostBedTaxInfoRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTaxCriteria: BedTaxCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBillingChargesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingCharges?: PostBillingChargesRequest;
+export interface PostBillingChargesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingCharges: BillingCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBillingChargesInBatchOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingChargesInBatchCriteria?: PostBillingChargesInBatchRequest;
+export interface PostBillingChargesInBatchRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingChargesInBatchCriteria: BillingChargesInBatchCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBillingCheckChargesOperationRequest {
-    checkNumber?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingCheckChargesCriteria?: PostBillingCheckChargesRequest;
+export interface PostBillingCheckChargesRequest {
+    checkNumber: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingCheckChargesCriteria: BillingCheckChargesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostBillingPaymentOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingPayment?: PostBillingPaymentRequest;
+export interface PostBillingPaymentRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingPayment: BillingPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCCSettlementOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccSettlementCriteria?: PostCCSettlementRequest;
+export interface PostCCSettlementRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccSettlementCriteria: CcSettlementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCheckOutOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservation?: PostCheckOutRequest;
+export interface PostCheckOutRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservation: Reservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCompRedemptionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postCompRedemptions?: PostCompRedemptionsRequest;
+export interface PostCompRedemptionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postCompRedemptions: PostCompRedemptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCompTransactionOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    compTransactionCriteria?: PostCompTransactionRequest;
+export interface PostCompTransactionRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    compTransactionCriteria: CompTransactionCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCreditBillOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditBillCriteria?: PostCreditBillRequest;
+export interface PostCreditBillRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditBillCriteria: CreditBillCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostCreditLimitOveragePaymentsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditLimitOveragePayments?: PostCreditLimitOveragePaymentsRequest;
+export interface PostCreditLimitOveragePaymentsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditLimitOveragePayments: CreditLimitOveragePayments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDeferredTaxesProcessOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    deferredTaxesProcess?: PostDeferredTaxesProcessRequest;
+export interface PostDeferredTaxesProcessRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    deferredTaxesProcess: DeferredTaxesProcess;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDepositFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositFolioCriteria?: PostDepositFolioRequest;
+export interface PostDepositFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositFolioCriteria: DepositFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDepositPaymentRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPayment?: PostDepositPaymentByExtIdRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPayment: DepositPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostDepositPaymentByExtIdOperationRequest {
-    reservationId?: string;
-    externalSysCode?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositPayment?: PostDepositPaymentByExtIdRequest;
+export interface PostDepositPaymentByExtIdRequest {
+    reservationId: string;
+    externalSysCode: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositPayment: DepositPayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFBAReimbursementOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fbaReimbursementCriteria?: PostFBAReimbursementRequest;
+export interface PostFBAReimbursementRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fbaReimbursementCriteria: FbaReimbursementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFBASettlementRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fbaReimbursementCriteria?: PostFBAReimbursementRequest;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fbaReimbursementCriteria: FbaReimbursementCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFiscalCommandInvoiceOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalFolioCriteria?: PostFiscalCommandInvoiceRequest;
+export interface PostFiscalCommandInvoiceRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalFolioCriteria: FiscalFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostFiscalInfoOperationRequest {
-    hotelId?: string;
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postFiscalInfoType?: PostFiscalInfoRequest;
+export interface PostFiscalInfoRequest {
+    hotelId: string;
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postFiscalInfoType: PostFiscalInfoType;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFiscalInvoiceRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalFolioCriteria?: PostFiscalCommandInvoiceRequest;
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalFolioCriteria: FiscalFolioCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fixedCharges?: UpdateFixedChargesRequest;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fixedCharges: FixedCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostForeignCurrencyExchangeOperationRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    foreignCurrencyExchange?: PostForeignCurrencyExchangeRequest;
+export interface PostForeignCurrencyExchangeRequest {
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    foreignCurrencyExchange: ForeignCurrencyExchange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostGuestCheckDetailsOperationRequest {
-    checkNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    guestCheckDetails?: PostGuestCheckDetailsRequest;
+export interface PostGuestCheckDetailsRequest {
+    checkNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    guestCheckDetails: GuestCheckDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostPasserBySaleOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    passerBySalesCriteria?: PostPasserBySaleRequest;
+export interface PostPasserBySaleRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    passerBySalesCriteria: PasserBySalesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostPrepaidCardsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    prepaidCardCriteria?: PostPrepaidCardsRequest;
+export interface PostPrepaidCardsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    prepaidCardCriteria: PrepaidCardCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostProformaOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationFolio?: PostProformaRequest;
+export interface PostProformaRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationFolio: ReservationFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRateCodeOperationRequest {
-    rateCode?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postRateCodeCriteria?: PostRateCodeRequest;
+export interface PostRateCodeRequest {
+    rateCode: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postRateCodeCriteria: PostRateCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostReversePaymentOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    paymentReversalCriteria?: PostReversePaymentRequest;
+export interface PostReversePaymentRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    paymentReversalCriteria: PaymentReversalCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostRoomAndTaxForDayUseOperationRequest {
-    reservationId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postRoomAndTaxForDayUse?: PostRoomAndTaxForDayUseRequest;
+export interface PostRoomAndTaxForDayUseRequest {
+    reservationId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postRoomAndTaxForDayUse: PostRoomAndTaxForDayUse;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostStoredFolioDetailsOperationRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    storedFolioDetails?: PostStoredFolioDetailsRequest;
+export interface PostStoredFolioDetailsRequest {
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    storedFolioDetails: StoredFolioDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostSupplementalFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    postSupplementalFolio?: PostSupplementalFolioRequest;
+export interface PostSupplementalFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    postSupplementalFolio: PostSupplementalFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostZeroBalanceCheckoutReservationsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    batchZeroBalanceCheckoutReservation?: PostZeroBalanceCheckoutReservationsRequest;
+export interface PostZeroBalanceCheckoutReservationsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    batchZeroBalanceCheckoutReservation: BatchZeroBalanceCheckoutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ProcessFiscalRetryOperationRequest {
-    folioId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    processFiscalRetry?: ProcessFiscalRetryRequest;
+export interface ProcessFiscalRetryRequest {
+    folioId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    processFiscalRetry: ProcessFiscalRetry;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ProcessReservationDepositOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationDepositCriteria?: ProcessReservationDepositRequest;
+export interface ProcessReservationDepositRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationDepositCriteria: ReservationDepositCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ProcessRoomRoutingRefreshOperationRequest {
-    targetReservationId?: string;
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    roomRoutingRefresh?: ProcessRoomRoutingRefreshRequest;
+export interface ProcessRoomRoutingRefreshRequest {
+    targetReservationId: string;
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    roomRoutingRefresh: RoomRoutingRefresh;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutBedTaxInfoRequest {
-    taxRegistraitionNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    bedTaxCriteria?: PostBedTaxInfoRequest;
+    taxRegistraitionNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    bedTaxCriteria: BedTaxCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBillingChargeOperationRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    billingCharge?: PutBillingChargeRequest;
+export interface PutBillingChargeRequest {
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    billingCharge: BillingCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutBillingChargesOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    putBillingCharges?: PutBillingChargesRequest;
+export interface PutBillingChargesRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    putBillingCharges: PutBillingCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCashierOperationRequest {
-    cashierId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierClosure?: PutCashierRequest;
+export interface PutCashierRequest {
+    cashierId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierClosure: CashierClosure;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutCashierLockOperationRequest {
-    lockId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    cashierLockCriteriaToExtend?: PutCashierLockRequest;
+export interface PutCashierLockRequest {
+    lockId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    cashierLockCriteriaToExtend: CashierLockCriteriaToExtend;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutForEarlyDepartureOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    earlyDeparture?: PutForEarlyDepartureRequest;
+export interface PutForEarlyDepartureRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    earlyDeparture: EarlyDeparture;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutPayeeTaxNumberOperationRequest {
-    payeeId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    payeeTaxNumber?: PutPayeeTaxNumberRequest;
+export interface PutPayeeTaxNumberRequest {
+    payeeId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    payeeTaxNumber: PayeeTaxNumber;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutReservationDepositTransferOperationRequest {
-    sourceReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositTransferCriteria?: PutReservationDepositTransferRequest;
+export interface PutReservationDepositTransferRequest {
+    sourceReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositTransferCriteria: DepositTransferCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutRoutingInstructionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    routingInstructions?: PutRoutingInstructionsRequest;
+export interface PutRoutingInstructionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    routingInstructions: RoutingInstructions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface RedeemPrepaidCardsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    redeemPrepaidCards?: RedeemPrepaidCardsRequest;
+export interface RedeemPrepaidCardsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    redeemPrepaidCards: RedeemPrepaidCards;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface RegisterManualAuthorizationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    ccManualAuthorizationCriteria?: RegisterManualAuthorizationRequest;
+export interface RegisterManualAuthorizationRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    ccManualAuthorizationCriteria: CcManualAuthorizationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface RegisterVaultTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    vaultTransaction?: RegisterVaultTransactionRequest;
+export interface RegisterVaultTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    vaultTransaction: VaultTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ReinstateCheckOutOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reinstateCheckedOutReservation?: ReinstateCheckOutRequest;
+export interface ReinstateCheckOutRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reinstateCheckedOutReservation: ReinstateCheckedOutReservation;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReleaseCashierLockRequest {
-    lockId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    lockId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ReloadPrepaidCardOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reloadPrepaidCard?: ReloadPrepaidCardRequest;
+export interface ReloadPrepaidCardRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reloadPrepaidCard: ReloadPrepaidCard;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveBedTaxInfoRequest {
-    taxRegistraitionNo?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taxRegistraitionNo: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveFixedChargesRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     fixedChargeID?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ResendSupportingDocumentOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fiscalSupportingDocumentCriteria?: ResendSupportingDocumentRequest;
+export interface ResendSupportingDocumentRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fiscalSupportingDocumentCriteria: FiscalSupportingDocumentCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReverseARInvoiceRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     reasonCode?: string;
     cashierId?: number;
     transactionCodes?: Array<number>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ReverseCertificatePostingsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reverseCertificatePostingsCriteria?: ReverseCertificatePostingsRequest;
+export interface ReverseCertificatePostingsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reverseCertificatePostingsCriteria: ReverseCertificatePostingsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ReverseCompRedemptionsOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reverseCompRedemptions?: ReverseCompRedemptionsRequest;
+export interface ReverseCompRedemptionsRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reverseCompRedemptions: ReverseCompRedemptions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ReverseFlexibleBenefitPostingRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ReverseFolioTaxPaymentOperationRequest {
-    cashierId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionReversal?: ReverseFolioTaxPaymentRequest;
+export interface ReverseFolioTaxPaymentRequest {
+    cashierId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionReversal: TransactionReversal;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SplitAndTransferTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionToSplitAndTransfer?: SplitAndTransferTransactionRequest;
+export interface SplitAndTransferTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionToSplitAndTransfer: TransactionToSplitAndTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SplitDepositTransactionOperationRequest {
-    transactionId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    splitDepositTransaction?: SplitDepositTransactionRequest;
+export interface SplitDepositTransactionRequest {
+    transactionId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    splitDepositTransaction: SplitDepositTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface SplitTransactionOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionToSplit?: SplitTransactionRequest;
+export interface SplitTransactionRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionToSplit: TransactionToSplit;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferCompTransactionsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transferCompTransactions?: TransferCompTransactionsRequest;
+export interface TransferCompTransactionsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transferCompTransactions: TransferCompTransactions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferFolioToWindowOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioToWindow?: TransferFolioToWindowRequest;
+export interface TransferFolioToWindowRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioToWindow: FolioToWindow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferTransactionToReservationOperationRequest {
-    toReservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    reservationTransaction?: TransferTransactionToReservationRequest;
+export interface TransferTransactionToReservationRequest {
+    toReservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    reservationTransaction: ReservationTransaction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransferTransactionToWindowOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    transactionToWindow?: TransferTransactionToWindowRequest;
+export interface TransferTransactionToWindowRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    transactionToWindow: TransactionToWindow;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface TransitionDepositToGuestFolioOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositToGuestFolio?: TransitionDepositToGuestFolioRequest;
+export interface TransitionDepositToGuestFolioRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositToGuestFolio: DepositToGuestFolio;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface UnlinkReservationPackageAllowanceRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface UpdateFixedChargesOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    fixedCharges?: UpdateFixedChargesRequest;
+export interface UpdateFixedChargesRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    fixedCharges: FixedCharges;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateCreditBillRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    creditBillCriteria?: PostCreditBillRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    creditBillCriteria: CreditBillCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface ValidateDepositFolioOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    depositFolioValidateCriteria?: ValidateDepositFolioRequest;
+export interface ValidateDepositFolioRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    depositFolioValidateCriteria: DepositFolioValidateCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateTransactionCodesRequest {
-    transactionId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    transactionId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     event?: ValidateTransactionCodesEventEnum;
     fiscalBillNo?: string;
     folioDate?: Date;
@@ -2458,11 +2458,11 @@ export interface ValidateTransactionCodesRequest {
     acceptLanguage?: string;
 }
 export interface VerifyForEarlyDepartureRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ignoreCheckOnTieredRate?: boolean;
     ignoreRateRestriction?: boolean;
     postConsumedAllowanceToGuest?: boolean;
@@ -2474,11 +2474,11 @@ export interface VerifyForEarlyDepartureRequest {
     acceptLanguage?: string;
 }
 export interface VoidBillingCheckChargesRequest {
-    checkNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    checkNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     revenueDate?: Date;
     amount?: number;
     currencyCode?: string;
@@ -2493,14 +2493,14 @@ export interface VoidBillingCheckChargesRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface VoidFolioOperationRequest {
-    folioId?: string;
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    folioToVoid?: VoidFolioRequest;
+export interface VoidFolioRequest {
+    folioId: string;
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    folioToVoid: FolioToVoid;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2512,52 +2512,52 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to activate Prepaid Card. <p><strong>OperationId:</strong>activatePrepaidCard</p>
      * Operation to activate prepaid card.
      */
-    activatePrepaidCardRaw(requestParameters: ActivatePrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivatePrepaidCardStatus>>;
+    activatePrepaidCardRaw(requestParameters: ActivatePrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivatePrepaidCardStatus>>;
     /**
      * You can use this API to activate Prepaid Card. <p><strong>OperationId:</strong>activatePrepaidCard</p>
      * Operation to activate prepaid card.
      */
-    activatePrepaidCard(requestParameters: ActivatePrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ActivatePrepaidCardStatus>;
+    activatePrepaidCard(requestParameters: ActivatePrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ActivatePrepaidCardStatus>;
     /**
      * You can use this API to Adjust Transactions. <p><strong>OperationId:</strong>adjustTransactions</p>
      * Adjust Transactions
      */
-    adjustTransactionsRaw(requestParameters: AdjustTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustedTransactions>>;
+    adjustTransactionsRaw(requestParameters: AdjustTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdjustedTransactions>>;
     /**
      * You can use this API to Adjust Transactions. <p><strong>OperationId:</strong>adjustTransactions</p>
      * Adjust Transactions
      */
-    adjustTransactions(requestParameters: AdjustTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustedTransactions>;
+    adjustTransactions(requestParameters: AdjustTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdjustedTransactions>;
     /**
      * You can use this API to apply final postings on a reservation. <p><strong>OperationId:</strong>applyFinalPostings</p>
      * Apply final Postings
      */
-    applyFinalPostingsRaw(requestParameters: ApplyFinalPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    applyFinalPostingsRaw(requestParameters: ApplyFinalPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to apply final postings on a reservation. <p><strong>OperationId:</strong>applyFinalPostings</p>
      * Apply final Postings
      */
-    applyFinalPostings(requestParameters: ApplyFinalPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    applyFinalPostings(requestParameters: ApplyFinalPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to apply flexible benefit postings. <p><strong>OperationId:</strong>applyFlexibleBenefitPostings</p>
      * Apply flexible benefit postings
      */
-    applyFlexibleBenefitPostingsRaw(requestParameters: ApplyFlexibleBenefitPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    applyFlexibleBenefitPostingsRaw(requestParameters: ApplyFlexibleBenefitPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to apply flexible benefit postings. <p><strong>OperationId:</strong>applyFlexibleBenefitPostings</p>
      * Apply flexible benefit postings
      */
-    applyFlexibleBenefitPostings(requestParameters: ApplyFlexibleBenefitPostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    applyFlexibleBenefitPostings(requestParameters: ApplyFlexibleBenefitPostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to attach Deposit Policy to Payment. <p><strong>OperationId:</strong>attachDepositPolicyToPayment</p>
      * Attach Deposit Policy to Payment
      */
-    attachDepositPolicyToPaymentRaw(requestParameters: AttachDepositPolicyToPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    attachDepositPolicyToPaymentRaw(requestParameters: AttachDepositPolicyToPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to attach Deposit Policy to Payment. <p><strong>OperationId:</strong>attachDepositPolicyToPayment</p>
      * Attach Deposit Policy to Payment
      */
-    attachDepositPolicyToPayment(requestParameters: AttachDepositPolicyToPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    attachDepositPolicyToPayment(requestParameters: AttachDepositPolicyToPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to authorize Credit Card Amount by Reservation. <p><strong>OperationId:</strong>authorizeCreditCardAmount</p>
      * Authorize Credit Card Amount
@@ -2572,22 +2572,22 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to authorize Credit Card Amount by Profile. <p><strong>OperationId:</strong>authorizeCreditCardAmountByProfile</p>
      * Authorize Credit Card Amount by Profile
      */
-    authorizeCreditCardAmountByProfileRaw(requestParameters: AuthorizeCreditCardAmountByProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationInfo>>;
+    authorizeCreditCardAmountByProfileRaw(requestParameters: AuthorizeCreditCardAmountByProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorizationInfo>>;
     /**
      * You can use this API to authorize Credit Card Amount by Profile. <p><strong>OperationId:</strong>authorizeCreditCardAmountByProfile</p>
      * Authorize Credit Card Amount by Profile
      */
-    authorizeCreditCardAmountByProfile(requestParameters: AuthorizeCreditCardAmountByProfileOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizationInfo>;
+    authorizeCreditCardAmountByProfile(requestParameters: AuthorizeCreditCardAmountByProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorizationInfo>;
     /**
      * You can use this API to auto Settle CompFolios <p><strong>OperationId:</strong>autoSettleCompFolios</p>
      * Operation to auto settle comp folios.
      */
-    autoSettleCompFoliosRaw(requestParameters: AutoSettleCompFoliosOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoSettleCompFoliosStatus>>;
+    autoSettleCompFoliosRaw(requestParameters: AutoSettleCompFoliosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoSettleCompFoliosStatus>>;
     /**
      * You can use this API to auto Settle CompFolios <p><strong>OperationId:</strong>autoSettleCompFolios</p>
      * Operation to auto settle comp folios.
      */
-    autoSettleCompFolios(requestParameters: AutoSettleCompFoliosOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoSettleCompFoliosStatus>;
+    autoSettleCompFolios(requestParameters: AutoSettleCompFoliosRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoSettleCompFoliosStatus>;
     /**
      * You can use this API to Break Cashier Lock. <p><strong>OperationId:</strong>breakCashierLock</p>
      * Break Cashier Lock
@@ -2602,52 +2602,52 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * This API will allow you to Calculate Foreign Currency exchange. <p><strong>OperationId:</strong>calculateForeignCurrency</p>
      * Calculate Foreign Currency
      */
-    calculateForeignCurrencyRaw(requestParameters: CalculateForeignCurrencyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculatedForeignCurrency>>;
+    calculateForeignCurrencyRaw(requestParameters: CalculateForeignCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalculatedForeignCurrency>>;
     /**
      * This API will allow you to Calculate Foreign Currency exchange. <p><strong>OperationId:</strong>calculateForeignCurrency</p>
      * Calculate Foreign Currency
      */
-    calculateForeignCurrency(requestParameters: CalculateForeignCurrencyOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculatedForeignCurrency>;
+    calculateForeignCurrency(requestParameters: CalculateForeignCurrencyRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CalculatedForeignCurrency>;
     /**
      * You can use this API to cancel PrepaidCard Transaction. <p><strong>OperationId:</strong>cancelPrepaidCardTransaction</p>
      * Operation to cancel prepaid card transaction.
      */
-    cancelPrepaidCardTransactionRaw(requestParameters: CancelPrepaidCardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancelPrepaidCardTransactionStatus>>;
+    cancelPrepaidCardTransactionRaw(requestParameters: CancelPrepaidCardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CancelPrepaidCardTransactionStatus>>;
     /**
      * You can use this API to cancel PrepaidCard Transaction. <p><strong>OperationId:</strong>cancelPrepaidCardTransaction</p>
      * Operation to cancel prepaid card transaction.
      */
-    cancelPrepaidCardTransaction(requestParameters: CancelPrepaidCardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CancelPrepaidCardTransactionStatus>;
+    cancelPrepaidCardTransaction(requestParameters: CancelPrepaidCardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CancelPrepaidCardTransactionStatus>;
     /**
      * You can use this API to cashOut Prepaid Card. <p><strong>OperationId:</strong>cashOutPrepaidCard</p>
      * Operation to cash out prepaid card.
      */
-    cashOutPrepaidCardRaw(requestParameters: CashOutPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashOutPrepaidCardStatus>>;
+    cashOutPrepaidCardRaw(requestParameters: CashOutPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CashOutPrepaidCardStatus>>;
     /**
      * You can use this API to cashOut Prepaid Card. <p><strong>OperationId:</strong>cashOutPrepaidCard</p>
      * Operation to cash out prepaid card.
      */
-    cashOutPrepaidCard(requestParameters: CashOutPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashOutPrepaidCardStatus>;
+    cashOutPrepaidCard(requestParameters: CashOutPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CashOutPrepaidCardStatus>;
     /**
      * You can use this API to change Billing Payment. <p><strong>OperationId:</strong>changeBillingPayment</p>
      * Change Billing Payment
      */
-    changeBillingPaymentRaw(requestParameters: ChangeBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    changeBillingPaymentRaw(requestParameters: ChangeBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Billing Payment. <p><strong>OperationId:</strong>changeBillingPayment</p>
      * Change Billing Payment
      */
-    changeBillingPayment(requestParameters: ChangeBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    changeBillingPayment(requestParameters: ChangeBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to update routing instructions for a specified reservation. <p><strong>OperationId:</strong>changeRoutingInstructions</p>
      * Change routing instructions
      */
-    changeRoutingInstructionsRaw(requestParameters: ChangeRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedRoutingInstructions>>;
+    changeRoutingInstructionsRaw(requestParameters: ChangeRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChangedRoutingInstructions>>;
     /**
      * You can use this API to update routing instructions for a specified reservation. <p><strong>OperationId:</strong>changeRoutingInstructions</p>
      * Change routing instructions
      */
-    changeRoutingInstructions(requestParameters: ChangeRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedRoutingInstructions>;
+    changeRoutingInstructions(requestParameters: ChangeRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChangedRoutingInstructions>;
     /**
      * You can use this API to change posted rate codes. <p><strong>OperationId:</strong>checkPostRateCode</p>
      * Change posted rate codes
@@ -2662,22 +2662,22 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to close the Reservation Folio on a reservation. <p><strong>OperationId:</strong>closeReservationFolio</p>
      * Close Reservation Folio
      */
-    closeReservationFolioRaw(requestParameters: CloseReservationFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    closeReservationFolioRaw(requestParameters: CloseReservationFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to close the Reservation Folio on a reservation. <p><strong>OperationId:</strong>closeReservationFolio</p>
      * Close Reservation Folio
      */
-    closeReservationFolio(requestParameters: CloseReservationFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    closeReservationFolio(requestParameters: CloseReservationFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to Convert folio. <p><strong>OperationId:</strong>convertFolio</p>
      * Convert Folio
      */
-    convertFolioRaw(requestParameters: ConvertFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConvertFolioDetails>>;
+    convertFolioRaw(requestParameters: ConvertFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConvertFolioDetails>>;
     /**
      * You can use this API to Convert folio. <p><strong>OperationId:</strong>convertFolio</p>
      * Convert Folio
      */
-    convertFolio(requestParameters: ConvertFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConvertFolioDetails>;
+    convertFolio(requestParameters: ConvertFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConvertFolioDetails>;
     /**
      * You can use this API to reverse the Advance Folio Transactions on a reservation. As part of reversal, the actual charges may not be deleted but only an offset will be posted.<p><strong>OperationId:</strong>reverseAdvanceFolio</p>
      * Delete Advance Folio Transactions
@@ -2731,43 +2731,45 @@ export declare class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to delete routing instructions for a specified reservation.<br><p><strong><mark>This API is deprecated. Please use deleteFolioRoutingInstructions or  deleteRoomRoutingInstructions or deleteCompRoutingInstructions or deleteRequestRoutingInstructions instead</mark></strong></p> <p><strong>OperationId:</strong>deleteRoutingInstructions</p>
      * Delete routing instructions
+     * @deprecated
      */
     deleteRoutingInstructionsRaw(requestParameters: DeleteRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to delete routing instructions for a specified reservation.<br><p><strong><mark>This API is deprecated. Please use deleteFolioRoutingInstructions or  deleteRoomRoutingInstructions or deleteCompRoutingInstructions or deleteRequestRoutingInstructions instead</mark></strong></p> <p><strong>OperationId:</strong>deleteRoutingInstructions</p>
      * Delete routing instructions
+     * @deprecated
      */
     deleteRoutingInstructions(requestParameters: DeleteRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to detach Deposit Policy from Payment. <p><strong>OperationId:</strong>detachDepositPolicyFromPayment</p>
      * Detach Deposit Policy from Payment
      */
-    detachDepositPolicyFromPaymentRaw(requestParameters: DetachDepositPolicyFromPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    detachDepositPolicyFromPaymentRaw(requestParameters: DetachDepositPolicyFromPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to detach Deposit Policy from Payment. <p><strong>OperationId:</strong>detachDepositPolicyFromPayment</p>
      * Detach Deposit Policy from Payment
      */
-    detachDepositPolicyFromPayment(requestParameters: DetachDepositPolicyFromPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    detachDepositPolicyFromPayment(requestParameters: DetachDepositPolicyFromPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Fiscal Information Folio. <p><strong>OperationId:</strong>generateFiscalFolio</p>
      * Create Fiscal Information Folio
      */
-    generateFiscalFolioRaw(requestParameters: GenerateFiscalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalInformationFolio>>;
+    generateFiscalFolioRaw(requestParameters: GenerateFiscalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalInformationFolio>>;
     /**
      * You can use this API to create Fiscal Information Folio. <p><strong>OperationId:</strong>generateFiscalFolio</p>
      * Create Fiscal Information Folio
      */
-    generateFiscalFolio(requestParameters: GenerateFiscalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalInformationFolio>;
+    generateFiscalFolio(requestParameters: GenerateFiscalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalInformationFolio>;
     /**
      * You can use this API to generate folios for a reservation. <p><strong>OperationId:</strong>generateFolio</p>
      * Generate Folios
      */
-    generateFolioRaw(requestParameters: GenerateFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeneratedFolio>>;
+    generateFolioRaw(requestParameters: GenerateFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GeneratedFolio>>;
     /**
      * You can use this API to generate folios for a reservation. <p><strong>OperationId:</strong>generateFolio</p>
      * Generate Folios
      */
-    generateFolio(requestParameters: GenerateFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeneratedFolio>;
+    generateFolio(requestParameters: GenerateFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GeneratedFolio>;
     /**
      * You can use this API to get Additional Taxes. <p><strong>OperationId:</strong>getAdditionalTaxes</p>
      * Get additional Taxes
@@ -2791,11 +2793,13 @@ export declare class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Alert Notices.<br><p><strong><mark>This API is deprecated.</mark></strong></p> <p><strong>OperationId:</strong>getAlerts</p>
      * Get Alert Notices
+     * @deprecated
      */
     getAlertsRaw(requestParameters: GetAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AlertNotices>>;
     /**
      * You can use this API to get Alert Notices.<br><p><strong><mark>This API is deprecated.</mark></strong></p> <p><strong>OperationId:</strong>getAlerts</p>
      * Get Alert Notices
+     * @deprecated
      */
     getAlerts(requestParameters: GetAlertsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AlertNotices>;
     /**
@@ -2971,11 +2975,13 @@ export declare class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Comp Accounting Journal. <br><p><strong><mark>This API is deprecated. Please use getCompPostingJournal instead</mark></strong></p> <p><strong>OperationId:</strong>getCompAccountingJournal</p>
      * Get Comp Accounting Journal
+     * @deprecated
      */
     getCompAccountingJournalRaw(requestParameters: GetCompAccountingJournalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CompAccountingJournal>>;
     /**
      * You can use this API to get Comp Accounting Journal. <br><p><strong><mark>This API is deprecated. Please use getCompPostingJournal instead</mark></strong></p> <p><strong>OperationId:</strong>getCompAccountingJournal</p>
      * Get Comp Accounting Journal
+     * @deprecated
      */
     getCompAccountingJournal(requestParameters: GetCompAccountingJournalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CompAccountingJournal>;
     /**
@@ -3101,11 +3107,13 @@ export declare class CashieringApi extends runtime.BaseAPI {
     /**
      * You can use this API to get Fiscal Printing Details.<br><p><strong><mark>This API is deprecated. Please use getValidateFiscalPrintingDetails instead</mark></strong></p> <p><strong>OperationId:</strong>getFiscalPrintingDetails</p>
      * Get Fiscal Printing Details
+     * @deprecated
      */
     getFiscalPrintingDetailsRaw(requestParameters: GetFiscalPrintingDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalCallStatus>>;
     /**
      * You can use this API to get Fiscal Printing Details.<br><p><strong><mark>This API is deprecated. Please use getValidateFiscalPrintingDetails instead</mark></strong></p> <p><strong>OperationId:</strong>getFiscalPrintingDetails</p>
      * Get Fiscal Printing Details
+     * @deprecated
      */
     getFiscalPrintingDetails(requestParameters: GetFiscalPrintingDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalCallStatus>;
     /**
@@ -3392,222 +3400,222 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to link reservation package allowance. <p><strong>OperationId:</strong>linkReservationPackageAllowance</p>
      * Link Reservation package allowance
      */
-    linkReservationPackageAllowanceRaw(requestParameters: LinkReservationPackageAllowanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    linkReservationPackageAllowanceRaw(requestParameters: LinkReservationPackageAllowanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to link reservation package allowance. <p><strong>OperationId:</strong>linkReservationPackageAllowance</p>
      * Link Reservation package allowance
      */
-    linkReservationPackageAllowance(requestParameters: LinkReservationPackageAllowanceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    linkReservationPackageAllowance(requestParameters: LinkReservationPackageAllowanceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Batch Advance Folio. <p><strong>OperationId:</strong>postAdvanceFolio</p>
      * Create Batch Advance Folio
      */
-    postAdvanceFolioRaw(requestParameters: PostAdvanceFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAdvanceFolioRaw(requestParameters: PostAdvanceFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Batch Advance Folio. <p><strong>OperationId:</strong>postAdvanceFolio</p>
      * Create Batch Advance Folio
      */
-    postAdvanceFolio(requestParameters: PostAdvanceFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAdvanceFolio(requestParameters: PostAdvanceFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create advance Room Charges. <p><strong>OperationId:</strong>postAdvanceRoomCharges</p>
      * Create advance Room Charges
      */
-    postAdvanceRoomChargesRaw(requestParameters: PostAdvanceRoomChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvanceRoomChargesReservationInfo>>;
+    postAdvanceRoomChargesRaw(requestParameters: PostAdvanceRoomChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdvanceRoomChargesReservationInfo>>;
     /**
      * You can use this API to create advance Room Charges. <p><strong>OperationId:</strong>postAdvanceRoomCharges</p>
      * Create advance Room Charges
      */
-    postAdvanceRoomCharges(requestParameters: PostAdvanceRoomChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvanceRoomChargesReservationInfo>;
+    postAdvanceRoomCharges(requestParameters: PostAdvanceRoomChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdvanceRoomChargesReservationInfo>;
     /**
      * You can use this API to create Articles Sale. <p><strong>OperationId:</strong>postArticlesSale</p>
      * Create Articles Sale
      */
-    postArticlesSaleRaw(requestParameters: PostArticlesSaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArticlesSale>>;
+    postArticlesSaleRaw(requestParameters: PostArticlesSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ArticlesSale>>;
     /**
      * You can use this API to create Articles Sale. <p><strong>OperationId:</strong>postArticlesSale</p>
      * Create Articles Sale
      */
-    postArticlesSale(requestParameters: PostArticlesSaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArticlesSale>;
+    postArticlesSale(requestParameters: PostArticlesSaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ArticlesSale>;
     /**
      * You can use this API to create Auto Checkout Reservation Batch. <p><strong>OperationId:</strong>postAutoCheckoutReservations</p>
      * Create Auto Checkout Reservation Batch
      */
-    postAutoCheckoutReservationsRaw(requestParameters: PostAutoCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchAutoCheckoutDetails>>;
+    postAutoCheckoutReservationsRaw(requestParameters: PostAutoCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchAutoCheckoutDetails>>;
     /**
      * You can use this API to create Auto Checkout Reservation Batch. <p><strong>OperationId:</strong>postAutoCheckoutReservations</p>
      * Create Auto Checkout Reservation Batch
      */
-    postAutoCheckoutReservations(requestParameters: PostAutoCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchAutoCheckoutDetails>;
+    postAutoCheckoutReservations(requestParameters: PostAutoCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchAutoCheckoutDetails>;
     /**
      * Creates a new membership award payment transaction. <p><strong>OperationId:</strong>postAwardTransaction</p>
      * Post a membership award payment transaction.
      */
-    postAwardTransactionRaw(requestParameters: PostAwardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postAwardTransactionRaw(requestParameters: PostAwardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * Creates a new membership award payment transaction. <p><strong>OperationId:</strong>postAwardTransaction</p>
      * Post a membership award payment transaction.
      */
-    postAwardTransaction(requestParameters: PostAwardTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postAwardTransaction(requestParameters: PostAwardTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Batch Auto Settlement. <p><strong>OperationId:</strong>postBatchAutoSettlement</p>
      * Create Batch Auto Settlement
      */
-    postBatchAutoSettlementRaw(requestParameters: PostBatchAutoSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBatchAutoSettlementRaw(requestParameters: PostBatchAutoSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Batch Auto Settlement. <p><strong>OperationId:</strong>postBatchAutoSettlement</p>
      * Create Batch Auto Settlement
      */
-    postBatchAutoSettlement(requestParameters: PostBatchAutoSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBatchAutoSettlement(requestParameters: PostBatchAutoSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Batch CC Settlements. <p><strong>OperationId:</strong>postBatchCCSettlements</p>
      * Create Batch CC Settlements
      */
-    postBatchCCSettlementsRaw(requestParameters: PostBatchCCSettlementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBatchCCSettlementsRaw(requestParameters: PostBatchCCSettlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Batch CC Settlements. <p><strong>OperationId:</strong>postBatchCCSettlements</p>
      * Create Batch CC Settlements
      */
-    postBatchCCSettlements(requestParameters: PostBatchCCSettlementsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBatchCCSettlements(requestParameters: PostBatchCCSettlementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create batch deposits. <p><strong>OperationId:</strong>postBatchDeposit</p>
      * Create batch deposits
      */
-    postBatchDepositRaw(requestParameters: PostBatchDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBatchDepositRaw(requestParameters: PostBatchDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create batch deposits. <p><strong>OperationId:</strong>postBatchDeposit</p>
      * Create batch deposits
      */
-    postBatchDeposit(requestParameters: PostBatchDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBatchDeposit(requestParameters: PostBatchDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create new bed tax information for a property. <p><strong>OperationId:</strong>postBedTaxInfo</p>
      * Create bed tax information
      */
-    postBedTaxInfoRaw(requestParameters: PostBedTaxInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBedTaxInfoRaw(requestParameters: PostBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create new bed tax information for a property. <p><strong>OperationId:</strong>postBedTaxInfo</p>
      * Create bed tax information
      */
-    postBedTaxInfo(requestParameters: PostBedTaxInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBedTaxInfo(requestParameters: PostBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to post a charge to a folio window. <p><strong>OperationId:</strong>postBillingCharges</p>
      * Post Charge to a folio
      */
-    postBillingChargesRaw(requestParameters: PostBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargesDetails>>;
+    postBillingChargesRaw(requestParameters: PostBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargesDetails>>;
     /**
      * You can use this API to post a charge to a folio window. <p><strong>OperationId:</strong>postBillingCharges</p>
      * Post Charge to a folio
      */
-    postBillingCharges(requestParameters: PostBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargesDetails>;
+    postBillingCharges(requestParameters: PostBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargesDetails>;
     /**
      * You can use this API to create Billing Charges in Batch. <p><strong>OperationId:</strong>postBillingChargesInBatch</p>
      * Create Billing Charges in Batch
      */
-    postBillingChargesInBatchRaw(requestParameters: PostBillingChargesInBatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingChargesInBatch>>;
+    postBillingChargesInBatchRaw(requestParameters: PostBillingChargesInBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingChargesInBatch>>;
     /**
      * You can use this API to create Billing Charges in Batch. <p><strong>OperationId:</strong>postBillingChargesInBatch</p>
      * Create Billing Charges in Batch
      */
-    postBillingChargesInBatch(requestParameters: PostBillingChargesInBatchOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingChargesInBatch>;
+    postBillingChargesInBatch(requestParameters: PostBillingChargesInBatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingChargesInBatch>;
     /**
      * You can use this API to validate the posting prior to posting the charge to the folio <p><strong>OperationId:</strong>postBillingCheckCharges</p>
      * Pre-validate the Billing Charge
      */
-    postBillingCheckChargesRaw(requestParameters: PostBillingCheckChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postBillingCheckChargesRaw(requestParameters: PostBillingCheckChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to validate the posting prior to posting the charge to the folio <p><strong>OperationId:</strong>postBillingCheckCharges</p>
      * Pre-validate the Billing Charge
      */
-    postBillingCheckCharges(requestParameters: PostBillingCheckChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postBillingCheckCharges(requestParameters: PostBillingCheckChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Billing Payment on the folio of a Reservation. <p><strong>OperationId:</strong>postBillingPayment</p>
      * Create Billing Payment
      */
-    postBillingPaymentRaw(requestParameters: PostBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingPayment>>;
+    postBillingPaymentRaw(requestParameters: PostBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedBillingPayment>>;
     /**
      * You can use this API to create Billing Payment on the folio of a Reservation. <p><strong>OperationId:</strong>postBillingPayment</p>
      * Create Billing Payment
      */
-    postBillingPayment(requestParameters: PostBillingPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingPayment>;
+    postBillingPayment(requestParameters: PostBillingPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedBillingPayment>;
     /**
      * You can use this API to create cc Settlement. <p><strong>OperationId:</strong>postCCSettlement</p>
      * Create CreditCard Settlement
      */
-    postCCSettlementRaw(requestParameters: PostCCSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCCSettlementRaw(requestParameters: PostCCSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create cc Settlement. <p><strong>OperationId:</strong>postCCSettlement</p>
      * Create CreditCard Settlement
      */
-    postCCSettlement(requestParameters: PostCCSettlementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCCSettlement(requestParameters: PostCCSettlementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API enables you to check out a guest reservation which is in due out status, with options to update the room\'s housekeeping status and set a flag to email the guests folio. <p><strong>OperationId:</strong>postCheckOut</p>
      * Check out a guest
      */
-    postCheckOutRaw(requestParameters: PostCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCheckOutRaw(requestParameters: PostCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API enables you to check out a guest reservation which is in due out status, with options to update the room\'s housekeeping status and set a flag to email the guests folio. <p><strong>OperationId:</strong>postCheckOut</p>
      * Check out a guest
      */
-    postCheckOut(requestParameters: PostCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCheckOut(requestParameters: PostCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to post complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    postCompRedemptionsRaw(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCompRedemptionsRaw(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to post complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>postCompRedemptions</p>
      * Operation to post complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    postCompRedemptions(requestParameters: PostCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCompRedemptions(requestParameters: PostCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>postCompTransaction</p>
      * Submit Comp Transaction
      */
-    postCompTransactionRaw(requestParameters: PostCompTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postCompTransactionRaw(requestParameters: PostCompTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to submit Comp Transactions. <p><strong>OperationId:</strong>postCompTransaction</p>
      * Submit Comp Transaction
      */
-    postCompTransaction(requestParameters: PostCompTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postCompTransaction(requestParameters: PostCompTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Credit Bill. <p><strong>OperationId:</strong>postCreditBill</p>
      * Create Credit Bill
      */
-    postCreditBillRaw(requestParameters: PostCreditBillOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedCreditBill>>;
+    postCreditBillRaw(requestParameters: PostCreditBillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedCreditBill>>;
     /**
      * You can use this API to create Credit Bill. <p><strong>OperationId:</strong>postCreditBill</p>
      * Create Credit Bill
      */
-    postCreditBill(requestParameters: PostCreditBillOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedCreditBill>;
+    postCreditBill(requestParameters: PostCreditBillRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedCreditBill>;
     /**
      * You can use this API to create Credit Limit Overage Payments. <p><strong>OperationId:</strong>postCreditLimitOveragePayments</p>
      * Create Credit Limit Overage Payments
      */
-    postCreditLimitOveragePaymentsRaw(requestParameters: PostCreditLimitOveragePaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditLimitOveragePaymentsDetails>>;
+    postCreditLimitOveragePaymentsRaw(requestParameters: PostCreditLimitOveragePaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreditLimitOveragePaymentsDetails>>;
     /**
      * You can use this API to create Credit Limit Overage Payments. <p><strong>OperationId:</strong>postCreditLimitOveragePayments</p>
      * Create Credit Limit Overage Payments
      */
-    postCreditLimitOveragePayments(requestParameters: PostCreditLimitOveragePaymentsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditLimitOveragePaymentsDetails>;
+    postCreditLimitOveragePayments(requestParameters: PostCreditLimitOveragePaymentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreditLimitOveragePaymentsDetails>;
     /**
      * Request to submit a job to post the deferred taxes. <p><strong>OperationId:</strong>postDeferredTaxesProcess</p>
      * Request to submit a job to post the deferred taxes.
      */
-    postDeferredTaxesProcessRaw(requestParameters: PostDeferredTaxesProcessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeferredTaxesProcessDetails>>;
+    postDeferredTaxesProcessRaw(requestParameters: PostDeferredTaxesProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DeferredTaxesProcessDetails>>;
     /**
      * Request to submit a job to post the deferred taxes. <p><strong>OperationId:</strong>postDeferredTaxesProcess</p>
      * Request to submit a job to post the deferred taxes.
      */
-    postDeferredTaxesProcess(requestParameters: PostDeferredTaxesProcessOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeferredTaxesProcessDetails>;
+    postDeferredTaxesProcess(requestParameters: PostDeferredTaxesProcessRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DeferredTaxesProcessDetails>;
     /**
      * You can use this API to create Deposit Folio. <p><strong>OperationId:</strong>postDepositFolio</p>
      * Create Deposit Folio
      */
-    postDepositFolioRaw(requestParameters: PostDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedDepositFolio>>;
+    postDepositFolioRaw(requestParameters: PostDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedDepositFolio>>;
     /**
      * You can use this API to create Deposit Folio. <p><strong>OperationId:</strong>postDepositFolio</p>
      * Create Deposit Folio
      */
-    postDepositFolio(requestParameters: PostDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedDepositFolio>;
+    postDepositFolio(requestParameters: PostDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedDepositFolio>;
     /**
      * You can use this API to create Deposit Payment. <p><strong>OperationId:</strong>postDepositPayment</p>
      * Create Deposit Payment
@@ -3622,22 +3630,22 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Deposit Payment with external reference. <p><strong>OperationId:</strong>postDepositPaymentByExtId</p>
      * Create Deposit Payment using external reference.
      */
-    postDepositPaymentByExtIdRaw(requestParameters: PostDepositPaymentByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedPayment>>;
+    postDepositPaymentByExtIdRaw(requestParameters: PostDepositPaymentByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedPayment>>;
     /**
      * You can use this API to create Deposit Payment with external reference. <p><strong>OperationId:</strong>postDepositPaymentByExtId</p>
      * Create Deposit Payment using external reference.
      */
-    postDepositPaymentByExtId(requestParameters: PostDepositPaymentByExtIdOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedPayment>;
+    postDepositPaymentByExtId(requestParameters: PostDepositPaymentByExtIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedPayment>;
     /**
      * You can use this API to create FBA Reimbursement. <p><strong>OperationId:</strong>postFBAReimbursement</p>
      * Create FBA Reimbursement
      */
-    postFBAReimbursementRaw(requestParameters: PostFBAReimbursementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFBAReimbursementRaw(requestParameters: PostFBAReimbursementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create FBA Reimbursement. <p><strong>OperationId:</strong>postFBAReimbursement</p>
      * Create FBA Reimbursement
      */
-    postFBAReimbursement(requestParameters: PostFBAReimbursementOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFBAReimbursement(requestParameters: PostFBAReimbursementRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create FBA Settlement. <p><strong>OperationId:</strong>postFBASettlement</p>
      * Create FBA Settlement
@@ -3652,30 +3660,32 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to create Fiscal Invoice. <p><strong>OperationId:</strong>postFiscalCommandInvoice</p>
      * Create Fiscal Invoice
      */
-    postFiscalCommandInvoiceRaw(requestParameters: PostFiscalCommandInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalCommandsResponseInfo>>;
+    postFiscalCommandInvoiceRaw(requestParameters: PostFiscalCommandInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FiscalCommandsResponseInfo>>;
     /**
      * You can use this API to create Fiscal Invoice. <p><strong>OperationId:</strong>postFiscalCommandInvoice</p>
      * Create Fiscal Invoice
      */
-    postFiscalCommandInvoice(requestParameters: PostFiscalCommandInvoiceOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalCommandsResponseInfo>;
+    postFiscalCommandInvoice(requestParameters: PostFiscalCommandInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FiscalCommandsResponseInfo>;
     /**
      * API to generate CHECK OUT payload for a reservation
      * Post fiscal Info
      */
-    postFiscalInfoRaw(requestParameters: PostFiscalInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postFiscalInfoRaw(requestParameters: PostFiscalInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * API to generate CHECK OUT payload for a reservation
      * Post fiscal Info
      */
-    postFiscalInfo(requestParameters: PostFiscalInfoOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postFiscalInfo(requestParameters: PostFiscalInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Fiscal Invoice.<br><p><strong><mark>This API is deprecated. Please use postFiscalCommandInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>postFiscalInvoice</p>
      * Create Fiscal Invoice
+     * @deprecated
      */
     postFiscalInvoiceRaw(requestParameters: PostFiscalInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Fiscal Invoice.<br><p><strong><mark>This API is deprecated. Please use postFiscalCommandInvoice instead</mark></strong></p> <p><strong>OperationId:</strong>postFiscalInvoice</p>
      * Create Fiscal Invoice
+     * @deprecated
      */
     postFiscalInvoice(requestParameters: PostFiscalInvoiceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -3692,272 +3702,274 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Create Foreign Currency Exchange. <p><strong>OperationId:</strong>postForeignCurrencyExchange</p>
      * Create Foreign Currency Exchange
      */
-    postForeignCurrencyExchangeRaw(requestParameters: PostForeignCurrencyExchangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ForeignCurrencyExchangeTransaction>>;
+    postForeignCurrencyExchangeRaw(requestParameters: PostForeignCurrencyExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ForeignCurrencyExchangeTransaction>>;
     /**
      * You can use this API to Create Foreign Currency Exchange. <p><strong>OperationId:</strong>postForeignCurrencyExchange</p>
      * Create Foreign Currency Exchange
      */
-    postForeignCurrencyExchange(requestParameters: PostForeignCurrencyExchangeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ForeignCurrencyExchangeTransaction>;
+    postForeignCurrencyExchange(requestParameters: PostForeignCurrencyExchangeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ForeignCurrencyExchangeTransaction>;
     /**
      * This operation is to add guest check details for posted check transactions. <p><strong>OperationId:</strong>postGuestCheckDetails</p>
      * Post Guest Check Details
      */
-    postGuestCheckDetailsRaw(requestParameters: PostGuestCheckDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postGuestCheckDetailsRaw(requestParameters: PostGuestCheckDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This operation is to add guest check details for posted check transactions. <p><strong>OperationId:</strong>postGuestCheckDetails</p>
      * Post Guest Check Details
      */
-    postGuestCheckDetails(requestParameters: PostGuestCheckDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postGuestCheckDetails(requestParameters: PostGuestCheckDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create passer by sale. <p><strong>OperationId:</strong>postPasserBySale</p>
      * Create passer by sale
      */
-    postPasserBySaleRaw(requestParameters: PostPasserBySaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PasserBySale>>;
+    postPasserBySaleRaw(requestParameters: PostPasserBySaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PasserBySale>>;
     /**
      * You can use this API to create passer by sale. <p><strong>OperationId:</strong>postPasserBySale</p>
      * Create passer by sale
      */
-    postPasserBySale(requestParameters: PostPasserBySaleOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PasserBySale>;
+    postPasserBySale(requestParameters: PostPasserBySaleRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PasserBySale>;
     /**
      * You can use this API to create Prepaid Cards. <p><strong>OperationId:</strong>postPrepaidCards</p>
      * Create Prepaid Cards
      */
-    postPrepaidCardsRaw(requestParameters: PostPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postPrepaidCardsRaw(requestParameters: PostPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Prepaid Cards. <p><strong>OperationId:</strong>postPrepaidCards</p>
      * Create Prepaid Cards
      */
-    postPrepaidCards(requestParameters: PostPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postPrepaidCards(requestParameters: PostPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create proforma for a specific reservation. <p><strong>OperationId:</strong>postProforma</p>
      * Create proforma
      */
-    postProformaRaw(requestParameters: PostProformaOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationFolioInformation>>;
+    postProformaRaw(requestParameters: PostProformaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReservationFolioInformation>>;
     /**
      * You can use this API to create proforma for a specific reservation. <p><strong>OperationId:</strong>postProforma</p>
      * Create proforma
      */
-    postProforma(requestParameters: PostProformaOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationFolioInformation>;
+    postProforma(requestParameters: PostProformaRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReservationFolioInformation>;
     /**
      * You can use this API to create rate codes. <p><strong>OperationId:</strong>postRateCode</p>
      * Create rate codes
      */
-    postRateCodeRaw(requestParameters: PostRateCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedRateCode>>;
+    postRateCodeRaw(requestParameters: PostRateCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostedRateCode>>;
     /**
      * You can use this API to create rate codes. <p><strong>OperationId:</strong>postRateCode</p>
      * Create rate codes
      */
-    postRateCode(requestParameters: PostRateCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedRateCode>;
+    postRateCode(requestParameters: PostRateCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostedRateCode>;
     /**
      * You can use this API to create reverse payments. <p><strong>OperationId:</strong>postReversePayment</p>
      * Create reverse payments
      */
-    postReversePaymentRaw(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postReversePaymentRaw(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create reverse payments. <p><strong>OperationId:</strong>postReversePayment</p>
      * Create reverse payments
      */
-    postReversePayment(requestParameters: PostReversePaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postReversePayment(requestParameters: PostReversePaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to post post Room And Tax For DayUse <p><strong>OperationId:</strong>postRoomAndTaxForDayUse</p>
      * Operation to post room and tax for day use.
      */
-    postRoomAndTaxForDayUseRaw(requestParameters: PostRoomAndTaxForDayUseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postRoomAndTaxForDayUseRaw(requestParameters: PostRoomAndTaxForDayUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to post post Room And Tax For DayUse <p><strong>OperationId:</strong>postRoomAndTaxForDayUse</p>
      * Operation to post room and tax for day use.
      */
-    postRoomAndTaxForDayUse(requestParameters: PostRoomAndTaxForDayUseOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postRoomAndTaxForDayUse(requestParameters: PostRoomAndTaxForDayUseRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create Stored Folio Details. <p><strong>OperationId:</strong>postStoredFolioDetails</p>
      * Create Stored Folio Details
      */
-    postStoredFolioDetailsRaw(requestParameters: PostStoredFolioDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postStoredFolioDetailsRaw(requestParameters: PostStoredFolioDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create Stored Folio Details. <p><strong>OperationId:</strong>postStoredFolioDetails</p>
      * Create Stored Folio Details
      */
-    postStoredFolioDetails(requestParameters: PostStoredFolioDetailsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postStoredFolioDetails(requestParameters: PostStoredFolioDetailsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to post supplemental folio. <p><strong>OperationId:</strong>postSupplementalFolio</p>
      * Post supplemental folio
      */
-    postSupplementalFolioRaw(requestParameters: PostSupplementalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSupplementalFolioStatus>>;
+    postSupplementalFolioRaw(requestParameters: PostSupplementalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSupplementalFolioStatus>>;
     /**
      * You can use this API to post supplemental folio. <p><strong>OperationId:</strong>postSupplementalFolio</p>
      * Post supplemental folio
      */
-    postSupplementalFolio(requestParameters: PostSupplementalFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostSupplementalFolioStatus>;
+    postSupplementalFolio(requestParameters: PostSupplementalFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostSupplementalFolioStatus>;
     /**
      * You can use this API to create Zero Balance Checkout Reservation Batch. <p><strong>OperationId:</strong>postZeroBalanceCheckoutReservations</p>
      * Create Zero Balance Checkout Reservation Batch
      */
-    postZeroBalanceCheckoutReservationsRaw(requestParameters: PostZeroBalanceCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchZeroBalanceCheckoutDetails>>;
+    postZeroBalanceCheckoutReservationsRaw(requestParameters: PostZeroBalanceCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BatchZeroBalanceCheckoutDetails>>;
     /**
      * You can use this API to create Zero Balance Checkout Reservation Batch. <p><strong>OperationId:</strong>postZeroBalanceCheckoutReservations</p>
      * Create Zero Balance Checkout Reservation Batch
      */
-    postZeroBalanceCheckoutReservations(requestParameters: PostZeroBalanceCheckoutReservationsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchZeroBalanceCheckoutDetails>;
+    postZeroBalanceCheckoutReservations(requestParameters: PostZeroBalanceCheckoutReservationsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BatchZeroBalanceCheckoutDetails>;
     /**
      * You can use this API to process fiscal retry status. <p><strong>OperationId:</strong>processFiscalRetry</p>
      * Process Fiscal retry
      */
-    processFiscalRetryRaw(requestParameters: ProcessFiscalRetryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessFiscalRetryStatus>>;
+    processFiscalRetryRaw(requestParameters: ProcessFiscalRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProcessFiscalRetryStatus>>;
     /**
      * You can use this API to process fiscal retry status. <p><strong>OperationId:</strong>processFiscalRetry</p>
      * Process Fiscal retry
      */
-    processFiscalRetry(requestParameters: ProcessFiscalRetryOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessFiscalRetryStatus>;
+    processFiscalRetry(requestParameters: ProcessFiscalRetryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProcessFiscalRetryStatus>;
     /**
      * You can use this API to Process reservations deposit. <p><strong>OperationId:</strong>processReservationDeposit</p>
      * Process Reservations deposit
      */
-    processReservationDepositRaw(requestParameters: ProcessReservationDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    processReservationDepositRaw(requestParameters: ProcessReservationDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to Process reservations deposit. <p><strong>OperationId:</strong>processReservationDeposit</p>
      * Process Reservations deposit
      */
-    processReservationDeposit(requestParameters: ProcessReservationDepositOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    processReservationDeposit(requestParameters: ProcessReservationDepositRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Room Routing Refresh. <p><strong>OperationId:</strong>processRoomRoutingRefresh</p>
      * Process Room Routing Refresh
      */
-    processRoomRoutingRefreshRaw(requestParameters: ProcessRoomRoutingRefreshOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    processRoomRoutingRefreshRaw(requestParameters: ProcessRoomRoutingRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Room Routing Refresh. <p><strong>OperationId:</strong>processRoomRoutingRefresh</p>
      * Process Room Routing Refresh
      */
-    processRoomRoutingRefresh(requestParameters: ProcessRoomRoutingRefreshOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    processRoomRoutingRefresh(requestParameters: ProcessRoomRoutingRefreshRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to Update bed tax information for a property. <p><strong>OperationId:</strong>putBedTaxInfo</p>
      * Change bed tax information
+     * @deprecated
      */
     putBedTaxInfoRaw(requestParameters: PutBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to Update bed tax information for a property. <p><strong>OperationId:</strong>putBedTaxInfo</p>
      * Change bed tax information
+     * @deprecated
      */
     putBedTaxInfo(requestParameters: PutBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharge</p>
      * Change Billing Charge
      */
-    putBillingChargeRaw(requestParameters: PutBillingChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargeStatus>>;
+    putBillingChargeRaw(requestParameters: PutBillingChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingChargeStatus>>;
     /**
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharge</p>
      * Change Billing Charge
      */
-    putBillingCharge(requestParameters: PutBillingChargeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargeStatus>;
+    putBillingCharge(requestParameters: PutBillingChargeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingChargeStatus>;
     /**
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharges</p>
      * Change Billing Charges
      */
-    putBillingChargesRaw(requestParameters: PutBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PutBillingChargesStatus>>;
+    putBillingChargesRaw(requestParameters: PutBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PutBillingChargesStatus>>;
     /**
      * You can use this API to change Billing Charges. <p><strong>OperationId:</strong>putBillingCharges</p>
      * Change Billing Charges
      */
-    putBillingCharges(requestParameters: PutBillingChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PutBillingChargesStatus>;
+    putBillingCharges(requestParameters: PutBillingChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PutBillingChargesStatus>;
     /**
      * You can use this API to change Cashier Closure. <p><strong>OperationId:</strong>putCashier</p>
      * Close Cashier
      */
-    putCashierRaw(requestParameters: PutCashierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putCashierRaw(requestParameters: PutCashierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Cashier Closure. <p><strong>OperationId:</strong>putCashier</p>
      * Close Cashier
      */
-    putCashier(requestParameters: PutCashierOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putCashier(requestParameters: PutCashierRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to Extend cashiers lock. <p><strong>OperationId:</strong>putCashierLock</p>
      * Extend Cashier Lock
      */
-    putCashierLockRaw(requestParameters: PutCashierLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExtendedCashierLock>>;
+    putCashierLockRaw(requestParameters: PutCashierLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExtendedCashierLock>>;
     /**
      * You can use this API to Extend cashiers lock. <p><strong>OperationId:</strong>putCashierLock</p>
      * Extend Cashier Lock
      */
-    putCashierLock(requestParameters: PutCashierLockOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExtendedCashierLock>;
+    putCashierLock(requestParameters: PutCashierLockRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExtendedCashierLock>;
     /**
      * You can use this API to change early Departure. <p><strong>OperationId:</strong>putForEarlyDeparture</p>
      * Change early Departure
      */
-    putForEarlyDepartureRaw(requestParameters: PutForEarlyDepartureOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putForEarlyDepartureRaw(requestParameters: PutForEarlyDepartureRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change early Departure. <p><strong>OperationId:</strong>putForEarlyDeparture</p>
      * Change early Departure
      */
-    putForEarlyDeparture(requestParameters: PutForEarlyDepartureOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putForEarlyDeparture(requestParameters: PutForEarlyDepartureRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Payee Tax Number. <p><strong>OperationId:</strong>putPayeeTaxNumber</p>
      * Change Payee Tax Number
      */
-    putPayeeTaxNumberRaw(requestParameters: PutPayeeTaxNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putPayeeTaxNumberRaw(requestParameters: PutPayeeTaxNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Payee Tax Number. <p><strong>OperationId:</strong>putPayeeTaxNumber</p>
      * Change Payee Tax Number
      */
-    putPayeeTaxNumber(requestParameters: PutPayeeTaxNumberOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putPayeeTaxNumber(requestParameters: PutPayeeTaxNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to change Reservation Deposit Transfer. <p><strong>OperationId:</strong>putReservationDepositTransfer</p>
      * Change Reservation Deposit Transfer.
      */
-    putReservationDepositTransferRaw(requestParameters: PutReservationDepositTransferOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    putReservationDepositTransferRaw(requestParameters: PutReservationDepositTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to change Reservation Deposit Transfer. <p><strong>OperationId:</strong>putReservationDepositTransfer</p>
      * Change Reservation Deposit Transfer.
      */
-    putReservationDepositTransfer(requestParameters: PutReservationDepositTransferOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    putReservationDepositTransfer(requestParameters: PutReservationDepositTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to add routing instructions to a reservation. <p><strong>OperationId:</strong>putRoutingInstructions</p>
      * Create routing instructions
      */
-    putRoutingInstructionsRaw(requestParameters: PutRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatedRoutingInstructions>>;
+    putRoutingInstructionsRaw(requestParameters: PutRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatedRoutingInstructions>>;
     /**
      * You can use this API to add routing instructions to a reservation. <p><strong>OperationId:</strong>putRoutingInstructions</p>
      * Create routing instructions
      */
-    putRoutingInstructions(requestParameters: PutRoutingInstructionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedRoutingInstructions>;
+    putRoutingInstructions(requestParameters: PutRoutingInstructionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedRoutingInstructions>;
     /**
      * You can use this API to redeem Prepaid Cards <p><strong>OperationId:</strong>redeemPrepaidCards</p>
      * Operation to redeem prepaid cards.
      */
-    redeemPrepaidCardsRaw(requestParameters: RedeemPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RedeemPrepaidCardsStatus>>;
+    redeemPrepaidCardsRaw(requestParameters: RedeemPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RedeemPrepaidCardsStatus>>;
     /**
      * You can use this API to redeem Prepaid Cards <p><strong>OperationId:</strong>redeemPrepaidCards</p>
      * Operation to redeem prepaid cards.
      */
-    redeemPrepaidCards(requestParameters: RedeemPrepaidCardsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemPrepaidCardsStatus>;
+    redeemPrepaidCards(requestParameters: RedeemPrepaidCardsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemPrepaidCardsStatus>;
     /**
      * You can use this API to register Manual Authorization. <p><strong>OperationId:</strong>registerManualAuthorization</p>
      * Register Manual Authorization
      */
-    registerManualAuthorizationRaw(requestParameters: RegisterManualAuthorizationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    registerManualAuthorizationRaw(requestParameters: RegisterManualAuthorizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to register Manual Authorization. <p><strong>OperationId:</strong>registerManualAuthorization</p>
      * Register Manual Authorization
      */
-    registerManualAuthorization(requestParameters: RegisterManualAuthorizationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    registerManualAuthorization(requestParameters: RegisterManualAuthorizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to create vault transaction. <p><strong>OperationId:</strong>registerVaultTransaction</p>
      * Register Vault Transaction
      */
-    registerVaultTransactionRaw(requestParameters: RegisterVaultTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    registerVaultTransactionRaw(requestParameters: RegisterVaultTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to create vault transaction. <p><strong>OperationId:</strong>registerVaultTransaction</p>
      * Register Vault Transaction
      */
-    registerVaultTransaction(requestParameters: RegisterVaultTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    registerVaultTransaction(requestParameters: RegisterVaultTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to reinstate Checked Out Reservation. <p><strong>OperationId:</strong>reinstateCheckOut</p>
      * Reinstate Checked Out Reservation
      */
-    reinstateCheckOutRaw(requestParameters: ReinstateCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    reinstateCheckOutRaw(requestParameters: ReinstateCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to reinstate Checked Out Reservation. <p><strong>OperationId:</strong>reinstateCheckOut</p>
      * Reinstate Checked Out Reservation
      */
-    reinstateCheckOut(requestParameters: ReinstateCheckOutOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    reinstateCheckOut(requestParameters: ReinstateCheckOutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to Release Cashier Lock. <p><strong>OperationId:</strong>releaseCashierLock</p>
      * Release Cashier Lock
@@ -3972,20 +3984,22 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to reload Prepaid Card. <p><strong>OperationId:</strong>reloadPrepaidCard</p>
      * Operation to reload prepaid card.
      */
-    reloadPrepaidCardRaw(requestParameters: ReloadPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReloadPrepaidCardStatus>>;
+    reloadPrepaidCardRaw(requestParameters: ReloadPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReloadPrepaidCardStatus>>;
     /**
      * You can use this API to reload Prepaid Card. <p><strong>OperationId:</strong>reloadPrepaidCard</p>
      * Operation to reload prepaid card.
      */
-    reloadPrepaidCard(requestParameters: ReloadPrepaidCardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReloadPrepaidCardStatus>;
+    reloadPrepaidCard(requestParameters: ReloadPrepaidCardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReloadPrepaidCardStatus>;
     /**
      * You can use this API to delete bed tax information for a property. <p><strong>OperationId:</strong>removeBedTaxInfo</p>
      * Delete bed tax information
+     * @deprecated
      */
     removeBedTaxInfoRaw(requestParameters: RemoveBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to delete bed tax information for a property. <p><strong>OperationId:</strong>removeBedTaxInfo</p>
      * Delete bed tax information
+     * @deprecated
      */
     removeBedTaxInfo(requestParameters: RemoveBedTaxInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
@@ -4002,12 +4016,12 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * This API is used to resend the failed supporting documents. <p><strong>OperationId:</strong>resendSupportingDocument</p>
      * Operation to resend the failed supporting documents to fiscal partner.
      */
-    resendSupportingDocumentRaw(requestParameters: ResendSupportingDocumentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    resendSupportingDocumentRaw(requestParameters: ResendSupportingDocumentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API is used to resend the failed supporting documents. <p><strong>OperationId:</strong>resendSupportingDocument</p>
      * Operation to resend the failed supporting documents to fiscal partner.
      */
-    resendSupportingDocument(requestParameters: ResendSupportingDocumentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    resendSupportingDocument(requestParameters: ResendSupportingDocumentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to reverse an AR Invoice. <p><strong>OperationId:</strong>reverseARInvoice</p>
      * Reverse AR Invoice
@@ -4022,22 +4036,22 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to Reverse certificate postings. <p><strong>OperationId:</strong>reverseCertificatePostings</p>
      * Reverse certificate postings
      */
-    reverseCertificatePostingsRaw(requestParameters: ReverseCertificatePostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    reverseCertificatePostingsRaw(requestParameters: ReverseCertificatePostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to Reverse certificate postings. <p><strong>OperationId:</strong>reverseCertificatePostings</p>
      * Reverse certificate postings
      */
-    reverseCertificatePostings(requestParameters: ReverseCertificatePostingsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    reverseCertificatePostings(requestParameters: ReverseCertificatePostingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to reverse complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    reverseCompRedemptionsRaw(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to reverse complimentary bucket redemptions for a guest having PTS Membership Type <p><strong>OperationId:</strong>reverseCompRedemptions</p>
      * Operation to reverse complimentary bucket redemptions for a guest having PTS Membership Type
      */
-    reverseCompRedemptions(requestParameters: ReverseCompRedemptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    reverseCompRedemptions(requestParameters: ReverseCompRedemptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to delete flexible benefit postings. <p><strong>OperationId:</strong>reverseFlexibleBenefitPosting</p>
      * Delete flexible benefit postings
@@ -4052,92 +4066,92 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to change folio tax payments. <p><strong>OperationId:</strong>reverseFolioTaxPayment</p>
      * Change folio tax payments
      */
-    reverseFolioTaxPaymentRaw(requestParameters: ReverseFolioTaxPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTaxPaymentReversal>>;
+    reverseFolioTaxPaymentRaw(requestParameters: ReverseFolioTaxPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FolioTaxPaymentReversal>>;
     /**
      * You can use this API to change folio tax payments. <p><strong>OperationId:</strong>reverseFolioTaxPayment</p>
      * Change folio tax payments
      */
-    reverseFolioTaxPayment(requestParameters: ReverseFolioTaxPaymentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FolioTaxPaymentReversal>;
+    reverseFolioTaxPayment(requestParameters: ReverseFolioTaxPaymentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FolioTaxPaymentReversal>;
     /**
      * You can use this API to split and transfer transactions. <p><strong>OperationId:</strong>splitAndTransferTransaction</p>
      * Split and transfer transactions
      */
-    splitAndTransferTransactionRaw(requestParameters: SplitAndTransferTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    splitAndTransferTransactionRaw(requestParameters: SplitAndTransferTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to split and transfer transactions. <p><strong>OperationId:</strong>splitAndTransferTransaction</p>
      * Split and transfer transactions
      */
-    splitAndTransferTransaction(requestParameters: SplitAndTransferTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    splitAndTransferTransaction(requestParameters: SplitAndTransferTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to Split deposit transaction. <p><strong>OperationId:</strong>splitDepositTransaction</p>
      * Split deposit transaction
      */
-    splitDepositTransactionRaw(requestParameters: SplitDepositTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SplitDepositTransactionStatus>>;
+    splitDepositTransactionRaw(requestParameters: SplitDepositTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SplitDepositTransactionStatus>>;
     /**
      * You can use this API to Split deposit transaction. <p><strong>OperationId:</strong>splitDepositTransaction</p>
      * Split deposit transaction
      */
-    splitDepositTransaction(requestParameters: SplitDepositTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SplitDepositTransactionStatus>;
+    splitDepositTransaction(requestParameters: SplitDepositTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SplitDepositTransactionStatus>;
     /**
      * You can use this API to Split transactions. <p><strong>OperationId:</strong>splitTransaction</p>
      * Split transactions
      */
-    splitTransactionRaw(requestParameters: SplitTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    splitTransactionRaw(requestParameters: SplitTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to Split transactions. <p><strong>OperationId:</strong>splitTransaction</p>
      * Split transactions
      */
-    splitTransaction(requestParameters: SplitTransactionOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    splitTransaction(requestParameters: SplitTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to transfer comp transactions to window <p><strong>OperationId:</strong>transferCompTransactions</p>
      * Transfer comp transactions to window
      */
-    transferCompTransactionsRaw(requestParameters: TransferCompTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transferCompTransactionsRaw(requestParameters: TransferCompTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to transfer comp transactions to window <p><strong>OperationId:</strong>transferCompTransactions</p>
      * Transfer comp transactions to window
      */
-    transferCompTransactions(requestParameters: TransferCompTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transferCompTransactions(requestParameters: TransferCompTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to transfer Folio to Window. <p><strong>OperationId:</strong>transferFolioToWindow</p>
      * Transfer Folio to Window.
      */
-    transferFolioToWindowRaw(requestParameters: TransferFolioToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transferFolioToWindowRaw(requestParameters: TransferFolioToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to transfer Folio to Window. <p><strong>OperationId:</strong>transferFolioToWindow</p>
      * Transfer Folio to Window.
      */
-    transferFolioToWindow(requestParameters: TransferFolioToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transferFolioToWindow(requestParameters: TransferFolioToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to Transfer Transaction to Reservation. <p><strong>OperationId:</strong>transferTransactionToReservation</p>
      * Transfer Transaction to Reservation
      */
-    transferTransactionToReservationRaw(requestParameters: TransferTransactionToReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transferTransactionToReservationRaw(requestParameters: TransferTransactionToReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to Transfer Transaction to Reservation. <p><strong>OperationId:</strong>transferTransactionToReservation</p>
      * Transfer Transaction to Reservation
      */
-    transferTransactionToReservation(requestParameters: TransferTransactionToReservationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transferTransactionToReservation(requestParameters: TransferTransactionToReservationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to transfer Transaction to Window. <p><strong>OperationId:</strong>transferTransactionToWindow</p>
      * Transfer Transaction to Window
      */
-    transferTransactionToWindowRaw(requestParameters: TransferTransactionToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransferTransactionToWindow>>;
+    transferTransactionToWindowRaw(requestParameters: TransferTransactionToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransferTransactionToWindow>>;
     /**
      * You can use this API to transfer Transaction to Window. <p><strong>OperationId:</strong>transferTransactionToWindow</p>
      * Transfer Transaction to Window
      */
-    transferTransactionToWindow(requestParameters: TransferTransactionToWindowOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransferTransactionToWindow>;
+    transferTransactionToWindow(requestParameters: TransferTransactionToWindowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransferTransactionToWindow>;
     /**
      * You can use this API to Transfer Deposit to Guest Folio. <p><strong>OperationId:</strong>transitionDepositToGuestFolio</p>
      * Transition Deposit to Guest Folio
      */
-    transitionDepositToGuestFolioRaw(requestParameters: TransitionDepositToGuestFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    transitionDepositToGuestFolioRaw(requestParameters: TransitionDepositToGuestFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to Transfer Deposit to Guest Folio. <p><strong>OperationId:</strong>transitionDepositToGuestFolio</p>
      * Transition Deposit to Guest Folio
      */
-    transitionDepositToGuestFolio(requestParameters: TransitionDepositToGuestFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    transitionDepositToGuestFolio(requestParameters: TransitionDepositToGuestFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to unlink reservation package allowance. <p><strong>OperationId:</strong>unlinkReservationPackageAllowance</p>
      * Unlink reservation package allowance
@@ -4152,12 +4166,12 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to update fixed Charges for a reservation. <p><strong>OperationId:</strong>updateFixedCharges</p>
      * Updates Fixed Charges
      */
-    updateFixedChargesRaw(requestParameters: UpdateFixedChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    updateFixedChargesRaw(requestParameters: UpdateFixedChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * You can use this API to update fixed Charges for a reservation. <p><strong>OperationId:</strong>updateFixedCharges</p>
      * Updates Fixed Charges
      */
-    updateFixedCharges(requestParameters: UpdateFixedChargesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    updateFixedCharges(requestParameters: UpdateFixedChargesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * You can use this API to validate credit Bill. <p><strong>OperationId:</strong>validateCreditBill</p>
      * Validate Credit Bill
@@ -4172,12 +4186,12 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to validate Deposit Folio. <p><strong>OperationId:</strong>validateDepositFolio</p>
      * Validate Deposit Folio
      */
-    validateDepositFolioRaw(requestParameters: ValidateDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedFolioValidate>>;
+    validateDepositFolioRaw(requestParameters: ValidateDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DepositedFolioValidate>>;
     /**
      * You can use this API to validate Deposit Folio. <p><strong>OperationId:</strong>validateDepositFolio</p>
      * Validate Deposit Folio
      */
-    validateDepositFolio(requestParameters: ValidateDepositFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedFolioValidate>;
+    validateDepositFolio(requestParameters: ValidateDepositFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DepositedFolioValidate>;
     /**
      * You can use this API to validate Transaction Codes. <p><strong>OperationId:</strong>validateTransactionCodes</p>
      * Validate Transaction Codes
@@ -4212,12 +4226,12 @@ export declare class CashieringApi extends runtime.BaseAPI {
      * You can use this API to void a folio. <p><strong>OperationId:</strong>voidFolio</p>
      * Void folio
      */
-    voidFolioRaw(requestParameters: VoidFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoidedFolio>>;
+    voidFolioRaw(requestParameters: VoidFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VoidedFolio>>;
     /**
      * You can use this API to void a folio. <p><strong>OperationId:</strong>voidFolio</p>
      * Void folio
      */
-    voidFolio(requestParameters: VoidFolioOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoidedFolio>;
+    voidFolio(requestParameters: VoidFolioRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VoidedFolio>;
 }
 /**
  * @export

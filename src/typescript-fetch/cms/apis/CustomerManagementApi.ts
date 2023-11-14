@@ -19,11 +19,9 @@ import type {
   CalendarTaskAttachments,
   CalendarTasks,
   ExceptionDetailType,
-  PostCalendarTaskRequest,
-  PutTrackItItemsRequest,
   Status,
   TrackItItems,
-} from '../models';
+} from '../models/index';
 import {
     CalendarTaskFromJSON,
     CalendarTaskToJSON,
@@ -33,41 +31,37 @@ import {
     CalendarTasksToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-    PostCalendarTaskRequestFromJSON,
-    PostCalendarTaskRequestToJSON,
-    PutTrackItItemsRequestFromJSON,
-    PutTrackItItemsRequestToJSON,
     StatusFromJSON,
     StatusToJSON,
     TrackItItemsFromJSON,
     TrackItItemsToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface DeleteCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCalendarTaskAttachmentRequest {
-    linkedToId?: string;
-    attachId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    linkedToId: string;
+    attachId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTrackItItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     trackItId?: Array<string>;
     trackItIdContext?: Array<string>;
     trackItIdType?: Array<string>;
@@ -76,10 +70,10 @@ export interface DeleteTrackItItemsRequest {
 }
 
 export interface GetCalendarTaskRequest {
-    activityId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    activityId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     idType?: string;
     xExternalsystem?: string;
@@ -87,11 +81,11 @@ export interface GetCalendarTaskRequest {
 }
 
 export interface GetCalendarTaskAttachmentsRequest {
-    taskId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    taskId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     idContext?: string;
     idType?: string;
     xExternalsystem?: string;
@@ -99,9 +93,9 @@ export interface GetCalendarTaskAttachmentsRequest {
 }
 
 export interface GetCalendarTasksRequest {
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     countSummary?: boolean;
     taskSummary?: boolean;
     hotelIds?: Array<string>;
@@ -129,10 +123,10 @@ export interface GetCalendarTasksRequest {
 }
 
 export interface GetTrackItItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     ticketId?: string;
     reservationId?: string;
     reservationIdContext?: string;
@@ -159,43 +153,43 @@ export interface GetTrackItItemsRequest {
     acceptLanguage?: string;
 }
 
-export interface PostCalendarTaskOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    calendarTask?: PostCalendarTaskRequest;
+export interface PostCalendarTaskRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTrackItItemsRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItItems?: PutTrackItItemsRequest;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCalendarTaskRequest {
-    activityId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    calendarTask?: PostCalendarTaskRequest;
+    activityId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    calendarTask: CalendarTask;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
-export interface PutTrackItItemsOperationRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    trackItItems?: PutTrackItItemsRequest;
+export interface PutTrackItItemsRequest {
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    trackItItems: TrackItItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -210,6 +204,26 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Delete a Calendar Task
      */
     async deleteCalendarTaskRaw(requestParameters: DeleteCalendarTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
+            throw new runtime.RequiredError('activityId','Required parameter requestParameters.activityId was null or undefined when calling deleteCalendarTask.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteCalendarTask.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCalendarTask.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCalendarTask.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCalendarTask.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -258,6 +272,26 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Delete a Calendar Task attachment 
      */
     async deleteCalendarTaskAttachmentRaw(requestParameters: DeleteCalendarTaskAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.linkedToId === null || requestParameters.linkedToId === undefined) {
+            throw new runtime.RequiredError('linkedToId','Required parameter requestParameters.linkedToId was null or undefined when calling deleteCalendarTaskAttachment.');
+        }
+
+        if (requestParameters.attachId === null || requestParameters.attachId === undefined) {
+            throw new runtime.RequiredError('attachId','Required parameter requestParameters.attachId was null or undefined when calling deleteCalendarTaskAttachment.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteCalendarTaskAttachment.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteCalendarTaskAttachment.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteCalendarTaskAttachment.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.linkedToId !== undefined) {
@@ -314,6 +348,22 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Deletes track it items
      */
     async deleteTrackItItemsRaw(requestParameters: DeleteTrackItItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling deleteTrackItItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling deleteTrackItItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling deleteTrackItItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling deleteTrackItItems.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.trackItId) {
@@ -374,6 +424,22 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Get a Calendar Task
      */
     async getCalendarTaskRaw(requestParameters: GetCalendarTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalendarTask>> {
+        if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
+            throw new runtime.RequiredError('activityId','Required parameter requestParameters.activityId was null or undefined when calling getCalendarTask.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCalendarTask.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTask.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTask.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -430,6 +496,26 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Get calendar task attachments
      */
     async getCalendarTaskAttachmentsRaw(requestParameters: GetCalendarTaskAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalendarTaskAttachments>> {
+        if (requestParameters.taskId === null || requestParameters.taskId === undefined) {
+            throw new runtime.RequiredError('taskId','Required parameter requestParameters.taskId was null or undefined when calling getCalendarTaskAttachments.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getCalendarTaskAttachments.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCalendarTaskAttachments.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTaskAttachments.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTaskAttachments.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.idContext !== undefined) {
@@ -486,6 +572,18 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Get Calendar Tasks
      */
     async getCalendarTasksRaw(requestParameters: GetCalendarTasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalendarTasks>> {
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getCalendarTasks.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getCalendarTasks.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getCalendarTasks.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.countSummary !== undefined) {
@@ -501,11 +599,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.duration !== undefined) {
@@ -622,6 +720,22 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Fetches track it items
      */
     async getTrackItItemsRaw(requestParameters: GetTrackItItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItItems>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getTrackItItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getTrackItItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getTrackItItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getTrackItItems.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.ticketId !== undefined) {
@@ -689,11 +803,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.followUpDate !== undefined) {
-            queryParameters['followUpDate'] = (requestParameters.followUpDate as any).toISOString().substr(0,10);
+            queryParameters['followUpDate'] = (requestParameters.followUpDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.createdOn !== undefined) {
-            queryParameters['createdOn'] = (requestParameters.createdOn as any).toISOString().substr(0,10);
+            queryParameters['createdOn'] = (requestParameters.createdOn as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.createdByUserId !== undefined) {
@@ -757,7 +871,27 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * This API will allow you to create a new Calendar Task. <p><strong>OperationId:</strong>postCalendarTask</p>
      * Create Calendar Task
      */
-    async postCalendarTaskRaw(requestParameters: PostCalendarTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+    async postCalendarTaskRaw(requestParameters: PostCalendarTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postCalendarTask.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postCalendarTask.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postCalendarTask.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postCalendarTask.');
+        }
+
+        if (requestParameters.calendarTask === null || requestParameters.calendarTask === undefined) {
+            throw new runtime.RequiredError('calendarTask','Required parameter requestParameters.calendarTask was null or undefined when calling postCalendarTask.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -789,7 +923,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCalendarTaskRequestToJSON(requestParameters.calendarTask),
+            body: CalendarTaskToJSON(requestParameters.calendarTask),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -799,7 +933,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * This API will allow you to create a new Calendar Task. <p><strong>OperationId:</strong>postCalendarTask</p>
      * Create Calendar Task
      */
-    async postCalendarTask(requestParameters: PostCalendarTaskOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+    async postCalendarTask(requestParameters: PostCalendarTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
         const response = await this.postCalendarTaskRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -809,6 +943,26 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Creates track it items
      */
     async postTrackItItemsRaw(requestParameters: PostTrackItItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling postTrackItItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling postTrackItItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling postTrackItItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling postTrackItItems.');
+        }
+
+        if (requestParameters.trackItItems === null || requestParameters.trackItItems === undefined) {
+            throw new runtime.RequiredError('trackItItems','Required parameter requestParameters.trackItItems was null or undefined when calling postTrackItItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -840,7 +994,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTrackItItemsRequestToJSON(requestParameters.trackItItems),
+            body: TrackItItemsToJSON(requestParameters.trackItItems),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
@@ -860,6 +1014,30 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Update Calendar Task
      */
     async putCalendarTaskRaw(requestParameters: PutCalendarTaskRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CalendarTask>> {
+        if (requestParameters.activityId === null || requestParameters.activityId === undefined) {
+            throw new runtime.RequiredError('activityId','Required parameter requestParameters.activityId was null or undefined when calling putCalendarTask.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putCalendarTask.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putCalendarTask.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putCalendarTask.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putCalendarTask.');
+        }
+
+        if (requestParameters.calendarTask === null || requestParameters.calendarTask === undefined) {
+            throw new runtime.RequiredError('calendarTask','Required parameter requestParameters.calendarTask was null or undefined when calling putCalendarTask.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -891,7 +1069,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PostCalendarTaskRequestToJSON(requestParameters.calendarTask),
+            body: CalendarTaskToJSON(requestParameters.calendarTask),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CalendarTaskFromJSON(jsonValue));
@@ -910,7 +1088,27 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Update the details of a Track It Item for a property. <p><strong>OperationId:</strong>putTrackItItems</p>
      * Updates track it items
      */
-    async putTrackItItemsRaw(requestParameters: PutTrackItItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItItems>> {
+    async putTrackItItemsRaw(requestParameters: PutTrackItItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrackItItems>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling putTrackItItems.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling putTrackItItems.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling putTrackItItems.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling putTrackItItems.');
+        }
+
+        if (requestParameters.trackItItems === null || requestParameters.trackItItems === undefined) {
+            throw new runtime.RequiredError('trackItItems','Required parameter requestParameters.trackItItems was null or undefined when calling putTrackItItems.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -942,7 +1140,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: PutTrackItItemsRequestToJSON(requestParameters.trackItItems),
+            body: TrackItItemsToJSON(requestParameters.trackItItems),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TrackItItemsFromJSON(jsonValue));
@@ -952,7 +1150,7 @@ export class CustomerManagementApi extends runtime.BaseAPI {
      * Update the details of a Track It Item for a property. <p><strong>OperationId:</strong>putTrackItItems</p>
      * Updates track it items
      */
-    async putTrackItItems(requestParameters: PutTrackItItemsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrackItItems> {
+    async putTrackItItems(requestParameters: PutTrackItItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrackItItems> {
         const response = await this.putTrackItItemsRaw(requestParameters, initOverrides);
         return await response.value();
     }

@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { Award, Enrollment, MemberInformation, PostEnrollmentRequest, RedeemAwardRequest } from '../models';
+import type { Award, Enrollment, MemberInformation } from '../models/index';
 export interface GetMembershipDetailsRequest {
-    extSystemCode?: string;
-    externalProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
+    extSystemCode: string;
+    externalProfileId: string;
+    authorization: string;
+    xAppKey: string;
     operaProfileId?: Array<string>;
     membershipType?: string;
     membershipId?: string;
@@ -26,21 +26,21 @@ export interface GetMembershipDetailsRequest {
     xTransactionId?: string;
     acceptLanguage?: string;
 }
-export interface PostEnrollmentOperationRequest {
-    extSystemCode?: string;
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
-    enrollment?: PostEnrollmentRequest;
+export interface PostEnrollmentRequest {
+    extSystemCode: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
+    enrollment: Enrollment;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
-export interface RedeemAwardOperationRequest {
-    extSystemCode?: string;
-    externalProfileId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    award?: RedeemAwardRequest;
+export interface RedeemAwardRequest {
+    extSystemCode: string;
+    externalProfileId: string;
+    authorization: string;
+    xAppKey: string;
+    award: Award;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
@@ -62,22 +62,22 @@ export declare class ProfileMembershipApi extends runtime.BaseAPI {
      * Use this API when you have a guest profile and you want to enroll that guest profile into a membership program in an external system. <p><strong>OperationId:</strong>postEnrollment</p>
      * Create an Enrollment
      */
-    postEnrollmentRaw(requestParameters: PostEnrollmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Enrollment>>;
+    postEnrollmentRaw(requestParameters: PostEnrollmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Enrollment>>;
     /**
      * Use this API when you have a guest profile and you want to enroll that guest profile into a membership program in an external system. <p><strong>OperationId:</strong>postEnrollment</p>
      * Create an Enrollment
      */
-    postEnrollment(requestParameters: PostEnrollmentOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Enrollment>;
+    postEnrollment(requestParameters: PostEnrollmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Enrollment>;
     /**
      * Redeem an award that exists on a profile. <p><strong>OperationId:</strong>redeemAward</p>
      * Redeem an award
      */
-    redeemAwardRaw(requestParameters: RedeemAwardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Award>>;
+    redeemAwardRaw(requestParameters: RedeemAwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Award>>;
     /**
      * Redeem an award that exists on a profile. <p><strong>OperationId:</strong>redeemAward</p>
      * Redeem an award
      */
-    redeemAward(requestParameters: RedeemAwardOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Award>;
+    redeemAward(requestParameters: RedeemAwardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Award>;
 }
 /**
  * @export

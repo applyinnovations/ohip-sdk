@@ -17,19 +17,19 @@ import * as runtime from '../runtime';
 import type {
   BusinessDate,
   ExceptionDetailType,
-} from '../models';
+} from '../models/index';
 import {
     BusinessDateFromJSON,
     BusinessDateToJSON,
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetBusinessDateRequest {
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -44,6 +44,22 @@ export class BackOfficeOperationsApi extends runtime.BaseAPI {
      * Fetch end of day business dates
      */
     async getBusinessDateRaw(requestParameters: GetBusinessDateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BusinessDate>> {
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling getBusinessDate.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getBusinessDate.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getBusinessDate.');
+        }
+
+        if (requestParameters.xHotelid === null || requestParameters.xHotelid === undefined) {
+            throw new runtime.RequiredError('xHotelid','Required parameter requestParameters.xHotelid was null or undefined when calling getBusinessDate.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};

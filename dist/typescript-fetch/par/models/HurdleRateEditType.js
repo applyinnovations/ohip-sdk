@@ -53,7 +53,7 @@ function HurdleRateEditTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substr(0, 10)),
+        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substring(0, 10)),
         'lengthOfStay': value.lengthOfStay,
         'newHurdleRate': (0, HurdleRateType_1.HurdleRateTypeToJSON)(value.newHurdleRate),
         'roomCategory': value.roomCategory,

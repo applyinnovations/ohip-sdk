@@ -46,7 +46,7 @@ function BlockStatusStatisticTypeToJSON(value) {
         return null;
     }
     return {
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substr(0, 10)),
+        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
         'statusSummaryStatistic': (0, StatisticUnitsType_1.StatisticUnitsTypeToJSON)(value.statusSummaryStatistic),
     };
 }

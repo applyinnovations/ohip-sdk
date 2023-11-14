@@ -64,13 +64,13 @@ function ECertificateConsumptionTypeToJSON(value) {
         'firstName': value.firstName,
         'middleName': value.middleName,
         'email': value.email,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substr(0, 10)),
+        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
         'userName': value.userName,
         'userNotes': value.userNotes,
         'referenceId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.referenceId),
         'locationType': value.locationType,
         'authCode': value.authCode,
-        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substr(0, 10)),
+        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substring(0, 10)),
     };
 }
 exports.ECertificateConsumptionTypeToJSON = ECertificateConsumptionTypeToJSON;

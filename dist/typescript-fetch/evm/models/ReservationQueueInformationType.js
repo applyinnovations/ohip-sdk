@@ -56,7 +56,7 @@ function ReservationQueueInformationTypeToJSON(value) {
         'blockDates': (0, ReservationQueueInformationTypeBlockDates_1.ReservationQueueInformationTypeBlockDatesToJSON)(value.blockDates),
         'guestTextInfo': (0, QueueTextInfoType_1.QueueTextInfoTypeToJSON)(value.guestTextInfo),
         'priority': value.priority,
-        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substr(0, 10)),
+        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substring(0, 10)),
     };
 }
 exports.ReservationQueueInformationTypeToJSON = ReservationQueueInformationTypeToJSON;

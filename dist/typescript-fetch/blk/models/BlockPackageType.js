@@ -55,13 +55,13 @@ function BlockPackageTypeToJSON(value) {
     }
     return {
         'consumptionDetails': (0, PackageConsumptionType_1.PackageConsumptionTypeToJSON)(value.consumptionDetails),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substr(0, 10)),
+        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
         'newTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.newTimeSpan),
         'packageCode': value.packageCode,
         'packageGroup': value.packageGroup,
         'packageHeaderType': (0, PackageCodeHeaderType_1.PackageCodeHeaderTypeToJSON)(value.packageHeaderType),
         'ratePlanCode': value.ratePlanCode,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substr(0, 10)),
+        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
     };
 }
 exports.BlockPackageTypeToJSON = BlockPackageTypeToJSON;

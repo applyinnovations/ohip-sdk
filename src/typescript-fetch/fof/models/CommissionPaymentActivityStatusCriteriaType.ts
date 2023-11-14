@@ -74,7 +74,7 @@ export function CommissionPaymentActivityStatusCriteriaTypeToJSON(value?: Commis
     return {
         
         'status': CommissionPaymentActivityStatusTypeToJSON(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substr(0,10)),
+        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0,10)),
     };
 }
 

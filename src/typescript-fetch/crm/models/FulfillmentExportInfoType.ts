@@ -132,7 +132,7 @@ export function FulfillmentExportInfoTypeToJSON(value?: FulfillmentExportInfoTyp
         'excludeExtract': value.excludeExtract,
         'extractBatchId': UniqueIDTypeToJSON(value.extractBatchId),
         'extractCode': value.extractCode,
-        'extractDate': value.extractDate === undefined ? undefined : (value.extractDate.toISOString().substr(0,10)),
+        'extractDate': value.extractDate === undefined ? undefined : (value.extractDate.toISOString().substring(0,10)),
         'extractId': UniqueIDTypeToJSON(value.extractId),
         'extractLogId': UniqueIDTypeToJSON(value.extractLogId),
         'membershipCard': value.membershipCard,

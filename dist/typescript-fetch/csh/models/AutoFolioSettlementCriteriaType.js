@@ -47,7 +47,7 @@ function AutoFolioSettlementCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'dateSinceLastAutoSettled': value.dateSinceLastAutoSettled === undefined ? undefined : (value.dateSinceLastAutoSettled.toISOString().substr(0, 10)),
+        'dateSinceLastAutoSettled': value.dateSinceLastAutoSettled === undefined ? undefined : (value.dateSinceLastAutoSettled.toISOString().substring(0, 10)),
         'daysSinceLastAutoSettled': value.daysSinceLastAutoSettled,
         'defaultDays': value.defaultDays,
         'folioSettlementTypes': value.folioSettlementTypes,

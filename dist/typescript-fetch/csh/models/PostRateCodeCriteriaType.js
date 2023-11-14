@@ -79,7 +79,7 @@ function PostRateCodeCriteriaTypeToJSON(value) {
         'reference': value.reference,
         'remark': value.remark,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substr(0, 10)),
+        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0, 10)),
     };
 }
 exports.PostRateCodeCriteriaTypeToJSON = PostRateCodeCriteriaTypeToJSON;

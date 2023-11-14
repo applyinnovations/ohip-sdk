@@ -94,9 +94,9 @@ export function FloorPlanRoomGuestTypeToJSON(value?: FloorPlanRoomGuestType | nu
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substr(0,10)),
+        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
         'confirmationNo': value.confirmationNo,
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substr(0,10)),
+        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
         'firstName': value.firstName,
         'lastName': value.lastName,
         'shareID': value.shareID,

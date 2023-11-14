@@ -24,7 +24,7 @@ import type {
   ValidateMembershipNumber,
   ValidatedAddress,
   ValidatedAddresses,
-} from '../models';
+} from '../models/index';
 import {
     ExceptionDetailTypeFromJSON,
     ExceptionDetailTypeToJSON,
@@ -44,23 +44,23 @@ import {
     ValidatedAddressToJSON,
     ValidatedAddressesFromJSON,
     ValidatedAddressesToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface CheckIataNumberRequest {
-    iataNumber?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
+    iataNumber: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
 
 export interface DownloadExternalProfileRequest {
-    extSystemCode?: string;
-    chainCode?: string;
-    profileExternalId?: string;
-    authorization?: string;
-    xAppKey?: string;
+    extSystemCode: string;
+    chainCode: string;
+    profileExternalId: string;
+    authorization: string;
+    xAppKey: string;
     externalDatabaseId?: string;
     hotelId?: string;
     xTransactionId?: string;
@@ -68,10 +68,10 @@ export interface DownloadExternalProfileRequest {
 }
 
 export interface GetExternalProfilesRequest {
-    extSystemCode?: string;
-    chainCode?: string;
-    authorization?: string;
-    xAppKey?: string;
+    extSystemCode: string;
+    chainCode: string;
+    authorization: string;
+    xAppKey: string;
     externalDatabaseId?: string;
     hotelId?: string;
     profileType?: GetExternalProfilesProfileTypeEnum;
@@ -93,10 +93,10 @@ export interface GetExternalProfilesRequest {
 }
 
 export interface GetGamingOffersRequest {
-    membershipNo?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
+    membershipNo: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
     hotelId?: string;
     startDate?: Date;
     endDate?: Date;
@@ -104,10 +104,10 @@ export interface GetGamingOffersRequest {
 }
 
 export interface GetPlayerStatisticsRequest {
-    profileId?: string;
-    extSystemCode?: string;
-    authorization?: string;
-    xAppKey?: string;
+    profileId: string;
+    extSystemCode: string;
+    authorization: string;
+    xAppKey: string;
     playerId?: string;
     hotelId?: string;
     reservationId?: string;
@@ -117,30 +117,30 @@ export interface GetPlayerStatisticsRequest {
 }
 
 export interface GetValidatedAddressRequest {
-    externalAddressId?: string;
-    authorization?: string;
-    xAppKey?: string;
+    externalAddressId: string;
+    authorization: string;
+    xAppKey: string;
     timeoutSeconds?: number;
     acceptLanguage?: string;
 }
 
 export interface GetValidatedAddressesRequest {
-    addressText?: string;
-    country?: string;
-    authorization?: string;
-    xAppKey?: string;
+    addressText: string;
+    country: string;
+    authorization: string;
+    xAppKey: string;
     language?: string;
     timeoutSeconds?: number;
     acceptLanguage?: string;
 }
 
 export interface ValidateMembershipNumberRequest {
-    chainCode?: string;
-    extSystemCode?: string;
-    membershipNo?: string;
-    membershipType?: string;
-    authorization?: string;
-    xAppKey?: string;
+    chainCode: string;
+    extSystemCode: string;
+    membershipNo: string;
+    membershipType: string;
+    authorization: string;
+    xAppKey: string;
     hotelId?: string;
     acceptLanguage?: string;
 }
@@ -155,6 +155,22 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Validate IATA number.
      */
     async checkIataNumberRaw(requestParameters: CheckIataNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IataNumberDetails>> {
+        if (requestParameters.iataNumber === null || requestParameters.iataNumber === undefined) {
+            throw new runtime.RequiredError('iataNumber','Required parameter requestParameters.iataNumber was null or undefined when calling checkIataNumber.');
+        }
+
+        if (requestParameters.hotelId === null || requestParameters.hotelId === undefined) {
+            throw new runtime.RequiredError('hotelId','Required parameter requestParameters.hotelId was null or undefined when calling checkIataNumber.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling checkIataNumber.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling checkIataNumber.');
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -199,6 +215,26 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Download a Profile from external system
      */
     async downloadExternalProfileRaw(requestParameters: DownloadExternalProfileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Profile>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling downloadExternalProfile.');
+        }
+
+        if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
+            throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling downloadExternalProfile.');
+        }
+
+        if (requestParameters.profileExternalId === null || requestParameters.profileExternalId === undefined) {
+            throw new runtime.RequiredError('profileExternalId','Required parameter requestParameters.profileExternalId was null or undefined when calling downloadExternalProfile.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling downloadExternalProfile.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling downloadExternalProfile.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.externalDatabaseId !== undefined) {
@@ -251,6 +287,22 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Retrieve profiles from external system
      */
     async getExternalProfilesRaw(requestParameters: GetExternalProfilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExternalProfiles>> {
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getExternalProfiles.');
+        }
+
+        if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
+            throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling getExternalProfiles.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getExternalProfiles.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getExternalProfiles.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.externalDatabaseId !== undefined) {
@@ -318,7 +370,7 @@ export class ProfileExternalApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.birthDate !== undefined) {
-            queryParameters['birthDate'] = (requestParameters.birthDate as any).toISOString().substr(0,10);
+            queryParameters['birthDate'] = (requestParameters.birthDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -359,6 +411,22 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Get offers that can be attached for a profile
      */
     async getGamingOffersRaw(requestParameters: GetGamingOffersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GamingOffers>> {
+        if (requestParameters.membershipNo === null || requestParameters.membershipNo === undefined) {
+            throw new runtime.RequiredError('membershipNo','Required parameter requestParameters.membershipNo was null or undefined when calling getGamingOffers.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getGamingOffers.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getGamingOffers.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getGamingOffers.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.hotelId !== undefined) {
@@ -366,11 +434,11 @@ export class ProfileExternalApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substr(0,10);
+            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substr(0,10);
+            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -411,6 +479,22 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Retrieve player statistics
      */
     async getPlayerStatisticsRaw(requestParameters: GetPlayerStatisticsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FetchPlayerStatisticsRS>> {
+        if (requestParameters.profileId === null || requestParameters.profileId === undefined) {
+            throw new runtime.RequiredError('profileId','Required parameter requestParameters.profileId was null or undefined when calling getPlayerStatistics.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling getPlayerStatistics.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getPlayerStatistics.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getPlayerStatistics.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.playerId !== undefined) {
@@ -471,6 +555,18 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Get full Address information from third party system for a given external Address ID. The external Address ID is fetched from valdatedAddresses service.
      */
     async getValidatedAddressRaw(requestParameters: GetValidatedAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatedAddress>> {
+        if (requestParameters.externalAddressId === null || requestParameters.externalAddressId === undefined) {
+            throw new runtime.RequiredError('externalAddressId','Required parameter requestParameters.externalAddressId was null or undefined when calling getValidatedAddress.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getValidatedAddress.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getValidatedAddress.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.timeoutSeconds !== undefined) {
@@ -515,6 +611,22 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Retrive valid addresses from a third party vendor.
      */
     async getValidatedAddressesRaw(requestParameters: GetValidatedAddressesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatedAddresses>> {
+        if (requestParameters.addressText === null || requestParameters.addressText === undefined) {
+            throw new runtime.RequiredError('addressText','Required parameter requestParameters.addressText was null or undefined when calling getValidatedAddresses.');
+        }
+
+        if (requestParameters.country === null || requestParameters.country === undefined) {
+            throw new runtime.RequiredError('country','Required parameter requestParameters.country was null or undefined when calling getValidatedAddresses.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling getValidatedAddresses.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling getValidatedAddresses.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.addressText !== undefined) {
@@ -571,6 +683,30 @@ export class ProfileExternalApi extends runtime.BaseAPI {
      * Validate Membership Number attached to a membership
      */
     async validateMembershipNumberRaw(requestParameters: ValidateMembershipNumberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidateMembershipNumber>> {
+        if (requestParameters.chainCode === null || requestParameters.chainCode === undefined) {
+            throw new runtime.RequiredError('chainCode','Required parameter requestParameters.chainCode was null or undefined when calling validateMembershipNumber.');
+        }
+
+        if (requestParameters.extSystemCode === null || requestParameters.extSystemCode === undefined) {
+            throw new runtime.RequiredError('extSystemCode','Required parameter requestParameters.extSystemCode was null or undefined when calling validateMembershipNumber.');
+        }
+
+        if (requestParameters.membershipNo === null || requestParameters.membershipNo === undefined) {
+            throw new runtime.RequiredError('membershipNo','Required parameter requestParameters.membershipNo was null or undefined when calling validateMembershipNumber.');
+        }
+
+        if (requestParameters.membershipType === null || requestParameters.membershipType === undefined) {
+            throw new runtime.RequiredError('membershipType','Required parameter requestParameters.membershipType was null or undefined when calling validateMembershipNumber.');
+        }
+
+        if (requestParameters.authorization === null || requestParameters.authorization === undefined) {
+            throw new runtime.RequiredError('authorization','Required parameter requestParameters.authorization was null or undefined when calling validateMembershipNumber.');
+        }
+
+        if (requestParameters.xAppKey === null || requestParameters.xAppKey === undefined) {
+            throw new runtime.RequiredError('xAppKey','Required parameter requestParameters.xAppKey was null or undefined when calling validateMembershipNumber.');
+        }
+
         const queryParameters: any = {};
 
         if (requestParameters.membershipNo !== undefined) {

@@ -83,8 +83,8 @@ function StayInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substr(0, 10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substr(0, 10)),
+        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
         'originalTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.originalTimeSpan),
         'expectedTimes': (0, ResExpectedTimesType_1.ResExpectedTimesTypeToJSON)(value.expectedTimes),
         'adultCount': value.adultCount,
@@ -112,7 +112,7 @@ function StayInfoTypeToJSON(value) {
         'roomTypeCharged': value.roomTypeCharged,
         'depositPayments': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.depositPayments),
         'guestServiceStatus': (0, GuestHousekeepingServiceRequestType_1.GuestHousekeepingServiceRequestTypeToJSON)(value.guestServiceStatus),
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substr(0, 10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0, 10)),
         'roomNumberLocked': value.roomNumberLocked,
         'pseudoRoom': value.pseudoRoom,
     };

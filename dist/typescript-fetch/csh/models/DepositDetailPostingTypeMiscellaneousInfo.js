@@ -45,7 +45,7 @@ function DepositDetailPostingTypeMiscellaneousInfoToJSON(value) {
         return null;
     }
     return {
-        'createDateTime': value.createDateTime === undefined ? undefined : (value.createDateTime.toISOString().substr(0, 10)),
+        'createDateTime': value.createDateTime === undefined ? undefined : (value.createDateTime.toISOString().substring(0, 10)),
         'paidOut': value.paidOut,
     };
 }

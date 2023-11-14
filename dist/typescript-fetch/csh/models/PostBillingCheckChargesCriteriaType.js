@@ -59,7 +59,7 @@ function PostBillingCheckChargesCriteriaTypeToJSON(value) {
         'hotelId': value.hotelId,
         'items': (0, PostBillingCheckChargesItemsCriteriaType_1.PostBillingCheckChargesItemsCriteriaTypeToJSON)(value.items),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substr(0, 10)),
+        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0, 10)),
     };
 }
 exports.PostBillingCheckChargesCriteriaTypeToJSON = PostBillingCheckChargesCriteriaTypeToJSON;

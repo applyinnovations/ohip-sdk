@@ -295,7 +295,7 @@ export function StagedProfileCustomerTypeToJSON(value?: StagedProfileCustomerTyp
         'alternateLanguage': value.alternateLanguage,
         'anonymization': AnonymizationTypeToJSON(value.anonymization),
         'birthCountry': CountryNameTypeToJSON(value.birthCountry),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substr(0,10)),
+        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
         'birthDateMasked': value.birthDateMasked,
         'birthPlace': value.birthPlace,
         'blacklist': value.blacklist,

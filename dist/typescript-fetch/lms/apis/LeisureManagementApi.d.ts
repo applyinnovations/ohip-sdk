@@ -10,24 +10,24 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ActivityBookingModified, ActivityBookingsDetails, PostActivityBookingRequest, PostLocationNotificationRequest, PutActivityBookingRequest, Status } from '../models';
+import type { ActivityBookingModified, ActivityBookingsDetails, ChangeActivityBooking, CreateActivityBooking, LocationNotificationToBeCreated, Status } from '../models/index';
 export interface DeleteActivityBookingRequest {
-    reservationId?: string;
-    hotelId?: string;
-    activityId?: string;
-    activityIdType?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    reservationId: string;
+    hotelId: string;
+    activityId: string;
+    activityIdType: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityBookingsRequest {
-    hotelId?: string;
-    profileIds?: Array<string>;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
+    hotelId: string;
+    profileIds: Array<string>;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
     profileIdContext?: Array<string>;
     profileIdsType?: Array<string>;
     reservationIds?: Array<string>;
@@ -39,33 +39,33 @@ export interface GetActivityBookingsRequest {
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostActivityBookingOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    createActivityBooking?: PostActivityBookingRequest;
+export interface PostActivityBookingRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    createActivityBooking: CreateActivityBooking;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PostLocationNotificationOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    locationNotificationToBeCreated?: PostLocationNotificationRequest;
+export interface PostLocationNotificationRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    locationNotificationToBeCreated: LocationNotificationToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
-export interface PutActivityBookingOperationRequest {
-    reservationId?: string;
-    hotelId?: string;
-    authorization?: string;
-    xAppKey?: string;
-    xHotelid?: string;
-    changeActivityBooking?: PutActivityBookingRequest;
+export interface PutActivityBookingRequest {
+    reservationId: string;
+    hotelId: string;
+    authorization: string;
+    xAppKey: string;
+    xHotelid: string;
+    changeActivityBooking: ChangeActivityBooking;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -97,30 +97,30 @@ export declare class LeisureManagementApi extends runtime.BaseAPI {
      * This API will send a response to Creation of Activity Booking. <p><strong>OperationId:</strong>postActivityBooking</p>
      * Send a response to Creation of Activity Booking
      */
-    postActivityBookingRaw(requestParameters: PostActivityBookingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postActivityBookingRaw(requestParameters: PostActivityBookingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will send a response to Creation of Activity Booking. <p><strong>OperationId:</strong>postActivityBooking</p>
      * Send a response to Creation of Activity Booking
      */
-    postActivityBooking(requestParameters: PostActivityBookingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postActivityBooking(requestParameters: PostActivityBookingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will send a response to a Location Notification. <p><strong>OperationId:</strong>postLocationNotification</p>
      * Send a response to Location Notification
      */
-    postLocationNotificationRaw(requestParameters: PostLocationNotificationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
+    postLocationNotificationRaw(requestParameters: PostLocationNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>>;
     /**
      * This API will send a response to a Location Notification. <p><strong>OperationId:</strong>postLocationNotification</p>
      * Send a response to Location Notification
      */
-    postLocationNotification(requestParameters: PostLocationNotificationOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
+    postLocationNotification(requestParameters: PostLocationNotificationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status>;
     /**
      * This API will send a response to a  Change in Activity Booking request from external Activity Scheduler system. <p><strong>OperationId:</strong>putActivityBooking</p>
      * Send a response to Change in Activity Booking
      */
-    putActivityBookingRaw(requestParameters: PutActivityBookingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivityBookingModified>>;
+    putActivityBookingRaw(requestParameters: PutActivityBookingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActivityBookingModified>>;
     /**
      * This API will send a response to a  Change in Activity Booking request from external Activity Scheduler system. <p><strong>OperationId:</strong>putActivityBooking</p>
      * Send a response to Change in Activity Booking
      */
-    putActivityBooking(requestParameters: PutActivityBookingOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ActivityBookingModified>;
+    putActivityBooking(requestParameters: PutActivityBookingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ActivityBookingModified>;
 }
