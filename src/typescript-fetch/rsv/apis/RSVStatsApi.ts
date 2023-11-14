@@ -32,9 +32,9 @@ import {
 } from '../models/index';
 
 export interface GetBlockReservationStatisticsByDateAndRoomPoolRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     excludeBlocksWithoutQuoteID?: boolean;
     startDate?: Date;
     endDate?: Date;
@@ -44,9 +44,9 @@ export interface GetBlockReservationStatisticsByDateAndRoomPoolRequest {
 }
 
 export interface GetReservationPaceRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     stayDate?: Date;
     leadDays?: number;
@@ -56,9 +56,9 @@ export interface GetReservationPaceRequest {
 }
 
 export interface GetReservationStatisticsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     chainName?: Array<string>;
     hotelCityCode?: Array<string>;
     hotelId?: Array<string>;

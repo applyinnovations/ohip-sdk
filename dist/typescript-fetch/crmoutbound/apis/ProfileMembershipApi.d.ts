@@ -12,10 +12,10 @@
 import * as runtime from '../runtime';
 import type { Award, Enrollment, MemberInformation } from '../models/index';
 export interface GetMembershipDetailsRequest {
-    extSystemCode: string;
-    externalProfileId: string;
-    authorization: string;
-    xAppKey: string;
+    extSystemCode?: string;
+    externalProfileId?: string;
+    authorization?: string;
+    xAppKey?: string;
     operaProfileId?: Array<string>;
     membershipType?: string;
     membershipId?: string;
@@ -27,20 +27,20 @@ export interface GetMembershipDetailsRequest {
     acceptLanguage?: string;
 }
 export interface PostEnrollmentRequest {
-    extSystemCode: string;
-    chainCode: string;
-    authorization: string;
-    xAppKey: string;
-    enrollment: Enrollment;
+    extSystemCode?: string;
+    chainCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    enrollment?: Enrollment;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
 export interface RedeemAwardRequest {
-    extSystemCode: string;
-    externalProfileId: string;
-    authorization: string;
-    xAppKey: string;
-    award: Award;
+    extSystemCode?: string;
+    externalProfileId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    award?: Award;
     xTransactionId?: string;
     acceptLanguage?: string;
 }

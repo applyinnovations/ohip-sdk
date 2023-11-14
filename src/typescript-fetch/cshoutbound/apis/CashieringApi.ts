@@ -50,53 +50,53 @@ import {
 } from '../models/index';
 
 export interface ApproveCompPostingsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    postings: CompTransactionsCriteriaType;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    postings?: CompTransactionsCriteriaType;
     acceptLanguage?: string;
 }
 
 export interface AuthorizeCompRedemptionsRequest {
-    membershipId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    authorizeCompRedemptions: AuthorizeCompRedemptionsRQ;
+    membershipId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    authorizeCompRedemptions?: AuthorizeCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 
 export interface GetCompRedemptionsRequest {
-    membershipId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
+    membershipId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCompRedemptionsRequest {
-    membershipId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    postCompRedemptions: PostCompRedemptionsRQ;
+    membershipId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    postCompRedemptions?: PostCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 
 export interface ReverseCompPostingsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    postings: CompTransactionsCriteriaType;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    postings?: CompTransactionsCriteriaType;
     acceptLanguage?: string;
 }
 
 export interface ReverseCompRedemptionsRequest {
-    membershipId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    reverseCompRedemptions: ReverseCompRedemptionsRQ;
+    membershipId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    reverseCompRedemptions?: ReverseCompRedemptionsRQ;
     acceptLanguage?: string;
 }
 

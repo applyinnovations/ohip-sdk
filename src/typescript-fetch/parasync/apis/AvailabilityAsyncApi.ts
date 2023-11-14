@@ -32,32 +32,32 @@ import {
 } from '../models/index';
 
 export interface GetRestrictionsRequest {
-    hotelId: string;
-    extSystemCode: string;
-    requestId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    extSystemCode?: string;
+    requestId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRestrictionsProcessStatusRequest {
-    requestId: string;
-    extSystemCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    requestId?: string;
+    extSystemCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRestrictionsProcessRequest {
-    hotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    restrictions: Restrictions;
+    hotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    restrictions?: Restrictions;
     acceptLanguage?: string;
 }
 

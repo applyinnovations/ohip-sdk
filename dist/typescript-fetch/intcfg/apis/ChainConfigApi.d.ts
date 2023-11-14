@@ -12,18 +12,18 @@
 import * as runtime from '../runtime';
 import type { Status, TemplateDeviceLocationsCriteria, TemplateDeviceLocationsDetails, TemplateDeviceLocationsToBeChanged } from '../models/index';
 export interface ChangeTemplateDeviceLocationsRequest {
-    deviceLocationId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateDeviceLocationsToBeChanged: TemplateDeviceLocationsToBeChanged;
+    deviceLocationId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateDeviceLocationsToBeChanged?: TemplateDeviceLocationsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateDeviceLocationsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -32,18 +32,18 @@ export interface GetTemplateDeviceLocationsRequest {
     acceptLanguage?: string;
 }
 export interface PostTemplateDeviceLocationsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateDeviceLocationsCriteria: TemplateDeviceLocationsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateDeviceLocationsCriteria?: TemplateDeviceLocationsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveTemplateDeviceLocationsRequest {
-    deviceLocationId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    deviceLocationId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

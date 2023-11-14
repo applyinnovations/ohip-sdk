@@ -29,11 +29,11 @@ import {
 } from '../models/index';
 
 export interface GetAvailableARAddressesRequest {
-    profileId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    profileId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     accountId?: string;
     accountIdContext?: string;
     accountType?: string;
@@ -43,10 +43,10 @@ export interface GetAvailableARAddressesRequest {
 }
 
 export interface GetAvailablePreferencesRequest {
-    id: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    id?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     maxFetchSize?: number;
     xExternalsystem?: string;

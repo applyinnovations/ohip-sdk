@@ -29,12 +29,12 @@ import {
 } from '../models/index';
 
 export interface GetProfileMembershipStatisticsRequest {
-    profileId: Array<string>;
-    membershipCardNo: string;
-    membershipType: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    profileId?: Array<string>;
+    membershipCardNo?: string;
+    membershipType?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -44,12 +44,12 @@ export interface GetProfileMembershipStatisticsRequest {
 }
 
 export interface GetProfileStatisticsRequest {
-    profileId: Array<string>;
-    hotelIds: Array<string>;
-    reportType: GetProfileStatisticsReportTypeEnum;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    profileId?: Array<string>;
+    hotelIds?: Array<string>;
+    reportType?: GetProfileStatisticsReportTypeEnum;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     stayFrom?: Date;
     stayTo?: Date;
     summary?: boolean;

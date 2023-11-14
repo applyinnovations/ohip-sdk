@@ -35,19 +35,19 @@ import {
 } from '../models/index';
 
 export interface PostMinimumRateAvailabilityRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
     body?: SearchPropertyRequestType;
 }
 
 export interface PostMultiRoomRateAvailabilityOperationRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    request: PostMultiRoomRateAvailabilityRequest;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    request?: PostMultiRoomRateAvailabilityRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

@@ -12,39 +12,39 @@
 import * as runtime from '../runtime';
 import type { ChannelSellLimits, ChannelSellLimitsByDate, ChannelSellLimitsByDateRange, Status } from '../models/index';
 export interface ChangeChannelSellLimitsByDateRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    channelSellLimitsByDate: ChannelSellLimitsByDate;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    channelSellLimitsByDate?: ChannelSellLimitsByDate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeChannelSellLimitsByDateRangeRequest {
-    channelId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    channelSellLimitsByDateRange: ChannelSellLimitsByDateRange;
+    channelId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    channelSellLimitsByDateRange?: ChannelSellLimitsByDateRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteChannelSellLimitsRequest {
-    id: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    id?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetChannelSellLimitsRequest {
-    hotelId: string;
-    fromDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    fromDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     bookingChannelCode?: string;
     channelRoomType?: string;
     xExternalsystem?: string;

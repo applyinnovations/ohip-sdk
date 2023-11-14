@@ -12,137 +12,137 @@
 import * as runtime from '../runtime';
 import type { AddressFormats, CreditRatings, ExclusivePreferences, ExclusivePreferencesCopy, HotelPreferences, PreferenceGroups, PreferencesCopy, ProfileLinks, ProfileNameValidations, ProfileNameValidationsToChange, Status, TemplateExclusivePreferences, TemplatePreferences } from '../models/index';
 export interface CopyExclusivePreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exclusivePreferencesCopy: ExclusivePreferencesCopy;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exclusivePreferencesCopy?: ExclusivePreferencesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyPreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    preferencesCopy: PreferencesCopy;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    preferencesCopy?: PreferencesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteAddressFormatsRequest {
-    formatCodes: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    formatCodes?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCreditRatingsRequest {
-    creditRatings: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    creditRatings?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExclusivePreferencesRequest {
-    hotelId: string;
-    exclusivePreferenceCode: string;
-    exclusivePreferenceGroup: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    exclusivePreferenceCode?: string;
+    exclusivePreferenceGroup?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteHotelAndGlobalPreferencesRequest {
-    preferenceCode: string;
-    preferenceGroup: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    preferenceCode?: string;
+    preferenceGroup?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePreferenceGroupsRequest {
-    preferenceGroup: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    preferenceGroup?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeletePreferencesRequest {
-    hotelId: string;
-    preferenceCode: string;
-    preferenceGroup: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    preferenceCode?: string;
+    preferenceGroup?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileLinksRequest {
-    fromType: string;
-    toType: string;
-    fromCode: string;
-    toCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    fromType?: string;
+    toType?: string;
+    fromCode?: string;
+    toCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileNameValidationsRequest {
-    profileType: DeleteProfileNameValidationsProfileTypeEnum;
-    profileName: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    profileType?: DeleteProfileNameValidationsProfileTypeEnum;
+    profileName?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteProfileRelationshipsRequest {
-    fromType: string;
-    toType: string;
-    fromCode: string;
-    toCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    fromType?: string;
+    toType?: string;
+    fromCode?: string;
+    toCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplateExclusivePreferencesRequest {
-    exclusivePreferenceCode: string;
-    exclusivePreferenceGroup: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    exclusivePreferenceCode?: string;
+    exclusivePreferenceGroup?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteTemplatePreferencesRequest {
-    preferenceCode: string;
-    preferenceGroup: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    preferenceCode?: string;
+    preferenceGroup?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAddressFormatsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     codes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCreditRatingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -151,10 +151,10 @@ export interface GetCreditRatingsRequest {
     acceptLanguage?: string;
 }
 export interface GetExclusivePreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     exclusivePreferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     preferenceCodes?: Array<string>;
@@ -162,19 +162,19 @@ export interface GetExclusivePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface GetPreferenceGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     preferenceGroupsCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetPreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     preferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     createdByUserIds?: Array<number>;
@@ -182,18 +182,18 @@ export interface GetPreferencesRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileLinksRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fromType?: string;
     toType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetProfileNameValidationsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     typeCodes?: Array<string>;
     wildCard?: string;
     name?: string;
@@ -201,18 +201,18 @@ export interface GetProfileNameValidationsRequest {
     acceptLanguage?: string;
 }
 export interface GetProfileRelationshipsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fromType?: string;
     toType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetTemplateExclusivePreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     exclusivePreferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     preferenceCodes?: Array<string>;
@@ -220,175 +220,175 @@ export interface GetTemplateExclusivePreferencesRequest {
     acceptLanguage?: string;
 }
 export interface GetTemplatePreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     preferenceCodes?: Array<string>;
     preferenceGroupsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostAddressFormatsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    addressFormats: AddressFormats;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    addressFormats?: AddressFormats;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCreditRatingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    creditRatings: CreditRatings;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    creditRatings?: CreditRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExclusivePreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exclusivePreferences: ExclusivePreferences;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exclusivePreferences?: ExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreferenceGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    preferenceGroups: PreferenceGroups;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    preferenceGroups?: PreferenceGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelPreferences: HotelPreferences;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelPreferences?: HotelPreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileLinksRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    profileLinks: ProfileLinks;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    profileLinks?: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileNameValidationsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    profileNameValidations: ProfileNameValidations;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    profileNameValidations?: ProfileNameValidations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostProfileRelationshipsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    profileLinks: ProfileLinks;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    profileLinks?: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplateExclusivePreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateExclusivePreferences: TemplateExclusivePreferences;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateExclusivePreferences?: TemplateExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostTemplatePreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templatePreferences: TemplatePreferences;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templatePreferences?: TemplatePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutAddressFormatsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    addressFormats: AddressFormats;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    addressFormats?: AddressFormats;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCreditRatingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    creditRatings: CreditRatings;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    creditRatings?: CreditRatings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutExclusivePreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exclusivePreferences: ExclusivePreferences;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exclusivePreferences?: ExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPreferenceGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    preferenceGroups: PreferenceGroups;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    preferenceGroups?: PreferenceGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutPreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelPreferences: HotelPreferences;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelPreferences?: HotelPreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileLinksRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    profileLinks: ProfileLinks;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    profileLinks?: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileNameValidationsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    profileNameValidationsToChange: ProfileNameValidationsToChange;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    profileNameValidationsToChange?: ProfileNameValidationsToChange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutProfileRelationshipsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    profileLinks: ProfileLinks;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    profileLinks?: ProfileLinks;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTemplateExclusivePreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateExclusivePreferences: TemplateExclusivePreferences;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateExclusivePreferences?: TemplateExclusivePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutTemplatePreferencesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templatePreferences: TemplatePreferences;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templatePreferences?: TemplatePreferences;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

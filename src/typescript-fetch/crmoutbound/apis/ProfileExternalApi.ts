@@ -47,20 +47,20 @@ import {
 } from '../models/index';
 
 export interface CheckIataNumberRequest {
-    iataNumber: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
+    iataNumber?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
     xTransactionId?: string;
     acceptLanguage?: string;
 }
 
 export interface DownloadExternalProfileRequest {
-    extSystemCode: string;
-    chainCode: string;
-    profileExternalId: string;
-    authorization: string;
-    xAppKey: string;
+    extSystemCode?: string;
+    chainCode?: string;
+    profileExternalId?: string;
+    authorization?: string;
+    xAppKey?: string;
     externalDatabaseId?: string;
     hotelId?: string;
     xTransactionId?: string;
@@ -68,10 +68,10 @@ export interface DownloadExternalProfileRequest {
 }
 
 export interface GetExternalProfilesRequest {
-    extSystemCode: string;
-    chainCode: string;
-    authorization: string;
-    xAppKey: string;
+    extSystemCode?: string;
+    chainCode?: string;
+    authorization?: string;
+    xAppKey?: string;
     externalDatabaseId?: string;
     hotelId?: string;
     profileType?: GetExternalProfilesProfileTypeEnum;
@@ -93,10 +93,10 @@ export interface GetExternalProfilesRequest {
 }
 
 export interface GetGamingOffersRequest {
-    membershipNo: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
+    membershipNo?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
     hotelId?: string;
     startDate?: Date;
     endDate?: Date;
@@ -104,10 +104,10 @@ export interface GetGamingOffersRequest {
 }
 
 export interface GetPlayerStatisticsRequest {
-    profileId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
+    profileId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
     playerId?: string;
     hotelId?: string;
     reservationId?: string;
@@ -117,30 +117,30 @@ export interface GetPlayerStatisticsRequest {
 }
 
 export interface GetValidatedAddressRequest {
-    externalAddressId: string;
-    authorization: string;
-    xAppKey: string;
+    externalAddressId?: string;
+    authorization?: string;
+    xAppKey?: string;
     timeoutSeconds?: number;
     acceptLanguage?: string;
 }
 
 export interface GetValidatedAddressesRequest {
-    addressText: string;
-    country: string;
-    authorization: string;
-    xAppKey: string;
+    addressText?: string;
+    country?: string;
+    authorization?: string;
+    xAppKey?: string;
     language?: string;
     timeoutSeconds?: number;
     acceptLanguage?: string;
 }
 
 export interface ValidateMembershipNumberRequest {
-    chainCode: string;
-    extSystemCode: string;
-    membershipNo: string;
-    membershipType: string;
-    authorization: string;
-    xAppKey: string;
+    chainCode?: string;
+    extSystemCode?: string;
+    membershipNo?: string;
+    membershipType?: string;
+    authorization?: string;
+    xAppKey?: string;
     hotelId?: string;
     acceptLanguage?: string;
 }

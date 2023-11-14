@@ -35,11 +35,11 @@ import {
 } from '../models/index';
 
 export interface GetChannelInventorySnapshotRequest {
-    hotelId: string;
-    fromDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    fromDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -57,13 +57,13 @@ export interface GetChannelInventorySnapshotRequest {
 }
 
 export interface GetChannelInventorySnapshotByRoomTypeRequest {
-    roomTypeCode: string;
-    channelCode: string;
-    hotelId: string;
-    fromDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    roomTypeCode?: string;
+    channelCode?: string;
+    hotelId?: string;
+    fromDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -79,10 +79,10 @@ export interface GetChannelInventorySnapshotByRoomTypeRequest {
 }
 
 export interface GetGeneralAvailabilitySimulatorRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     bookingChannelCode?: string;
     arrival?: Date;
@@ -102,10 +102,10 @@ export interface GetGeneralAvailabilitySimulatorRequest {
 }
 
 export interface GetRateParityRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     comparisonType?: string;
     language?: string;
     limit?: number;
@@ -126,9 +126,9 @@ export interface GetRateParityRequest {
 }
 
 export interface GetRegionalRateParityRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     language?: string;
     limit?: number;
     numberOfDays?: number;

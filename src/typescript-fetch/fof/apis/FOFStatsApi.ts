@@ -38,11 +38,11 @@ import {
 } from '../models/index';
 
 export interface GetFrontOfficeStatisticsRequest {
-    statisticsCode: GetFrontOfficeStatisticsStatisticsCodeEnum;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    statisticsCode?: GetFrontOfficeStatisticsStatisticsCodeEnum;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     date?: Date;
     metric?: Set<GetFrontOfficeStatisticsMetricEnum>;
     parameterNames?: Array<string>;
@@ -53,11 +53,11 @@ export interface GetFrontOfficeStatisticsRequest {
 }
 
 export interface GetFrontOfficeStatisticsWithDateRangeRequest {
-    statisticsCode: GetFrontOfficeStatisticsWithDateRangeStatisticsCodeEnum;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    statisticsCode?: GetFrontOfficeStatisticsWithDateRangeStatisticsCodeEnum;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     endDate?: Date;
     date?: Date;
     metric?: Set<GetFrontOfficeStatisticsWithDateRangeMetricEnum>;
@@ -69,34 +69,34 @@ export interface GetFrontOfficeStatisticsWithDateRangeRequest {
 }
 
 export interface GetReservationQueueStatisticsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetReservationStatusStatisticsRequest {
-    hotelId: string;
-    reservationStatus: Array<GetReservationStatusStatisticsReservationStatusEnum>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    reservationStatus?: Array<GetReservationStatusStatisticsReservationStatusEnum>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRoomsByRoomStatusRequest {
-    hotelId: string;
+    hotelId?: string;
     frontOfficeStatus?: GetRoomsByRoomStatusFrontOfficeStatusEnum;
 }
 
 export interface GetTaskSheetStatisticsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeAllAssignedTasks?: boolean;
     includeTaskSheetsDetails?: boolean;
     taskCode?: string;

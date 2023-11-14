@@ -32,11 +32,11 @@ import {
 } from '../models/index';
 
 export interface GetConvertedValuesRequest {
-    operaHotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    operaHotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     externalHotelId?: string;
     conversionCode?: Set<GetConvertedValuesConversionCodeEnum>;
     valueToBeConverted?: Array<string>;
@@ -46,21 +46,21 @@ export interface GetConvertedValuesRequest {
 }
 
 export interface GetDefaultValuesRequest {
-    operaHotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    operaHotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetOperaHotelCodeRequest {
-    externalHotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    externalHotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     operaHotelCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;

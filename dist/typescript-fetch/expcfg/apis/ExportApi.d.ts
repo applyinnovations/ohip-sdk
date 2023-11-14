@@ -12,51 +12,51 @@
 import * as runtime from '../runtime';
 import type { ExportActivityLog, ExportColumnsAndFunctionsDetails, ExportMappingCodes, ExportMappingCodesDetails, ExportMappingCodesToLink, ExportMappingLinkedCodes, ExportMappingLinkedTypes, ExportMappingLinkedTypesDetails, ExportMappings, ExportMappingsDetails, ExportSchedulesCriteria, ExportSchedulesDetails, ExportSchedulesStatus, ExportSchedulesToBeChanged, ExportsAvailable, FetchExportMappingCodes, FetchExportMappings, GeneratedExports, Status } from '../models/index';
 export interface ChangeExportSchedulesRequest {
-    hotelId: string;
-    exportFileId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportSchedulesToBeChanged: ExportSchedulesToBeChanged;
+    hotelId?: string;
+    exportFileId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportSchedulesToBeChanged?: ExportSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeExportSchedulesByChainRequest {
-    exportFileId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportSchedulesToBeChanged: ExportSchedulesToBeChanged;
+    exportFileId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportSchedulesToBeChanged?: ExportSchedulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExistingExportMappingsRequest {
-    exportMappingId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    exportMappingId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteExportMappingCodesRequest {
-    mappingTypeCode: string;
-    exportMappingId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    mappingTypeCode?: string;
+    exportMappingId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportActivityLogRequest {
-    hotelId: string;
-    activityType: string;
-    fromDate: Date;
-    toDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    activityType?: string;
+    fromDate?: Date;
+    toDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     module?: GetExportActivityLogModuleEnum;
@@ -70,9 +70,9 @@ export interface GetExportActivityLogRequest {
     acceptLanguage?: string;
 }
 export interface GetExportColumnsAndFunctionsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchDbColumns?: boolean;
     fetchOperaApis?: boolean;
     fetchPrePostProcedures?: boolean;
@@ -83,30 +83,30 @@ export interface GetExportColumnsAndFunctionsRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingCodesRequest {
-    exportMappingTypeId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    exportMappingTypeId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportMappingCodesToLinkRequest {
-    configType: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    configType?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     code?: string;
     description?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportMappingLinkedCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     id?: string;
     idExtension?: number;
     idContext?: string;
@@ -117,28 +117,28 @@ export interface GetExportMappingLinkedCodesRequest {
     acceptLanguage?: string;
 }
 export interface GetExportMappingsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     exportMappingConfigs?: Set<GetExportMappingsExportMappingConfigsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportMappingsByChainRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     exportMappingConfigs?: Set<GetExportMappingsByChainExportMappingConfigsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetExportSchedulesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     timeZone?: string;
     exportFileId?: string;
     idExtension?: number;
@@ -154,9 +154,9 @@ export interface GetExportSchedulesRequest {
     acceptLanguage?: string;
 }
 export interface GetExportsAvailableRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchColumns?: boolean;
     fetchDataSetup?: boolean;
     fetchDestinationSetup?: boolean;
@@ -175,68 +175,68 @@ export interface GetExportsAvailableRequest {
     acceptLanguage?: string;
 }
 export interface GetExportsGeneratedRequest {
-    exportFileId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    exportFileId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     exportDataId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExportMappingCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportMappingCodes: ExportMappingCodes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportMappingCodes?: ExportMappingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExportMappingsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportMappings: ExportMappings;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportMappings?: ExportMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostExportSchedulesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportSchedulesCriteria: ExportSchedulesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportSchedulesCriteria?: ExportSchedulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutExportMappingCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportMappingCodes: ExportMappingCodes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportMappingCodes?: ExportMappingCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutExportMappingLinkedTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportMappingLinkedTypes: ExportMappingLinkedTypes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportMappingLinkedTypes?: ExportMappingLinkedTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutExportMappingsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    exportMappings: ExportMappings;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    exportMappings?: ExportMappings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveExportSchedulesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     jobNames?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;

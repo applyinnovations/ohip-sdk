@@ -12,35 +12,35 @@
 import * as runtime from '../runtime';
 import type { CustomizedLetter, CustomizedLetterStatus, EmailFile, FileToUpload, FolioReport, FolioReportToEmail, Image, ImageToUpload, RegistrationCard, Status } from '../models/index';
 export interface EmailFolioReportRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    folioReportToEmail: FolioReportToEmail;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    folioReportToEmail?: FolioReportToEmail;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCustomizedLetterRequest {
-    letterId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    letterId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     letterIdContext?: string;
     letterIdtype?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetEmailFileRequest {
-    emailId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    emailId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFileAttachmentRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     id?: string;
     idContext?: string;
     idType?: string;
@@ -48,11 +48,11 @@ export interface GetFileAttachmentRequest {
     acceptLanguage?: string;
 }
 export interface GetFolioReportRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     folioWindowNo?: number;
@@ -64,9 +64,9 @@ export interface GetFolioReportRequest {
     acceptLanguage?: string;
 }
 export interface GetImageRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     linkId?: string;
     linkIdContext?: string;
     linkIdType?: string;
@@ -83,11 +83,11 @@ export interface GetImageRequest {
     acceptLanguage?: string;
 }
 export interface GetRegistrationCardRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     regenerate?: boolean;
@@ -98,9 +98,9 @@ export interface GetRegistrationCardRequest {
     acceptLanguage?: string;
 }
 export interface RemoveImageRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     imageCode?: RemoveImageImageCodeEnum;
     imageSet?: string;
     imageId?: string;
@@ -110,28 +110,28 @@ export interface RemoveImageRequest {
     acceptLanguage?: string;
 }
 export interface SetCustomizedLetterRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    customizedLetter: CustomizedLetter;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    customizedLetter?: CustomizedLetter;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface UploadFileAttachmentRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    fileToUpload: FileToUpload;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    fileToUpload?: FileToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface UploadImageRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    imageToUpload: ImageToUpload;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    imageToUpload?: ImageToUpload;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

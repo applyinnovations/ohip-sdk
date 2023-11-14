@@ -29,10 +29,10 @@ import {
 } from '../models/index';
 
 export interface GetBlockInventoryStatisticsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeBlocksWithNoRoom?: boolean;
     includeOverbooking?: boolean;
     includeOpportunities?: boolean;
@@ -60,10 +60,10 @@ export interface GetBlockInventoryStatisticsRequest {
 }
 
 export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeBlocksWithNoRoom?: boolean;
     includeOverbooking?: boolean;
     includeOpportunities?: boolean;
@@ -91,13 +91,13 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
 }
 
 export interface GetInventoryStatisticsRequest {
-    hotelId: string;
-    dateRangeEnd: Date;
-    reportCode: GetInventoryStatisticsReportCodeEnum;
-    dateRangeStart: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    dateRangeEnd?: Date;
+    reportCode?: GetInventoryStatisticsReportCodeEnum;
+    dateRangeStart?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     parameterName?: Array<GetInventoryStatisticsParameterNameEnum>;
     parameterValue?: Array<string>;
     xExternalsystem?: string;

@@ -12,109 +12,109 @@
 import * as runtime from '../runtime';
 import type { BlockCateringPackage, BlockCateringPackageDetails, BlockPostingAccountReservationsInfo, CateringEventChanges, CateringEventPostings, CateringEventPostingsDetail, CateringEventsBulkUpdate, CateringEventsBulkUpdateStatus, CateringPackageRevenue, CateringPackages, ChangeCateringPackageRevenueRequest, ChangeEventResourceByMenuRequest, ChangeEventsRequest, ChangeEventsResourcesRequest, CopyCateringEvents, CopyCateringEventsResponse, CopyCateringPackage, CopyCateringPackageResponse, CopyEventResourcesRequest, Event, EventCalendar, EventResource, EventResourcesResponse, Events, EventsResources, FunctionSpaceAvailabilityDetails, FunctionSpaceEvents, ManageAlternateEventsRequest, ManageAlternateEventsStatus, ManageCateringEventPostingsRequest, ManageEventsResources, ManageWaitlistedEventsRequest, OpportunityEvents, PostEventsRequest, QuickInsertResourceStatus, QuickInsertResources, Status, WaitlistedEvents } from '../models/index';
 export interface CateringEventsBulkUpdateRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringEventsBulkUpdate: CateringEventsBulkUpdate;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringEventsBulkUpdate?: CateringEventsBulkUpdate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeCateringPackageRevenueOperationRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringPackageRevenue: ChangeCateringPackageRevenueRequest;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringPackageRevenue?: ChangeCateringPackageRevenueRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeCateringPackagesRequest {
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringPackages: CateringPackages;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringPackages?: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventResourceByMenuOperationRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    eventResource: ChangeEventResourceByMenuRequest;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    eventResource?: ChangeEventResourceByMenuRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventsOperationRequest {
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    event: ChangeEventsRequest;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    event?: ChangeEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventsResourcesOperationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    manageEventsResources: ChangeEventsResourcesRequest;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    manageEventsResources?: ChangeEventsResourcesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ChangeEventsResourcesByChainRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    manageEventsResources: ManageEventsResources;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    manageEventsResources?: ManageEventsResources;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyCateringEventsRequest {
-    blockId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyCateringEvents: CopyCateringEvents;
+    blockId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyCateringEvents?: CopyCateringEvents;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyCateringPackageRequest {
-    cateringpackageId: string;
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyCateringPackage: CopyCateringPackage;
+    cateringpackageId?: string;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyCateringPackage?: CopyCateringPackage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyEventResourcesOperationRequest {
-    eventId: string;
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    eventResources: CopyEventResourcesRequest;
+    eventId?: string;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    eventResources?: CopyEventResourcesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageRequest {
-    cateringPackageId: string;
-    blockId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringPackageId?: string;
+    blockId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageRevenueRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     cateringPackageEventId?: string;
     cateringPackageRevenueType?: string;
@@ -122,39 +122,39 @@ export interface DeleteCateringPackageRevenueRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackagesRequest {
-    blockId: string;
-    hotelId: string;
-    cateringPackageId: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    blockId?: string;
+    hotelId?: string;
+    cateringPackageId?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteEventsRequest {
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeSubEvents?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetBlockPostingAccountReservationsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     blockId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCateringEventChangesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     fetchInstructions?: GetCateringEventChangesFetchInstructionsEnum;
@@ -179,11 +179,11 @@ export interface GetCateringEventChangesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringEventPostingsRequest {
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeSubEvents?: boolean;
     blockId?: Array<string>;
     blockIdContext?: Array<string>;
@@ -193,11 +193,11 @@ export interface GetCateringEventPostingsRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRevenueRequest {
-    cateringpackageId: string;
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringpackageId?: string;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     idExtension?: number;
     blockIdContext?: string;
@@ -209,10 +209,10 @@ export interface GetCateringPackageRevenueRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagesRequest {
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     blockIdContext?: string;
     blockIdType?: string;
@@ -220,20 +220,20 @@ export interface GetCateringPackagesRequest {
     acceptLanguage?: string;
 }
 export interface GetEventRequest {
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInstructions?: Set<GetEventFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetEventCalendarRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     eventEndDate?: Date;
     includeHidden?: boolean;
     includeOpportunities?: boolean;
@@ -267,9 +267,9 @@ export interface GetEventCalendarRequest {
     acceptLanguage?: string;
 }
 export interface GetEventCalendarMultipleHotelIdsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     eventEndDate?: Date;
     includeHidden?: boolean;
     includeOpportunities?: boolean;
@@ -304,10 +304,10 @@ export interface GetEventCalendarMultipleHotelIdsRequest {
     acceptLanguage?: string;
 }
 export interface GetEventItemSplitQuantityRequest {
-    eventId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    eventId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     eventPrimaryHotelId?: string;
     eventItemId?: string;
     eventEndDate?: string;
@@ -319,12 +319,12 @@ export interface GetEventItemSplitQuantityRequest {
     acceptLanguage?: string;
 }
 export interface GetEventResourceByMenuRequest {
-    resourceId: string;
-    eventId: string;
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    resourceId?: string;
+    eventId?: string;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     blockIdContext?: string;
     blockIdType?: string;
@@ -337,9 +337,9 @@ export interface GetEventResourceByMenuRequest {
     acceptLanguage?: string;
 }
 export interface GetEventsMultipleHotelsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     eventStartDate?: Date;
     eventEndDate?: Date;
@@ -364,10 +364,10 @@ export interface GetEventsMultipleHotelsRequest {
     acceptLanguage?: string;
 }
 export interface GetEventsOneHotelRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     eventStartDate?: Date;
     eventEndDate?: Date;
     blockId?: Array<string>;
@@ -389,20 +389,20 @@ export interface GetEventsOneHotelRequest {
     acceptLanguage?: string;
 }
 export interface GetEventsResourcesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     blockId?: string;
     eventIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetFunctionSpaceAvailabilityRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     checkInventory?: boolean;
     eventEndDate?: string;
     limit?: number;
@@ -436,10 +436,10 @@ export interface GetFunctionSpaceAvailabilityRequest {
     acceptLanguage?: string;
 }
 export interface GetSharedFunctionSpaceEventsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     functionSpaceCode?: string;
     startDateTime?: string;
     endDateTime?: string;
@@ -447,10 +447,10 @@ export interface GetSharedFunctionSpaceEventsRequest {
     acceptLanguage?: string;
 }
 export interface GetWaitlistedEventsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     functionSpaceCode?: Array<string>;
     accountName?: string;
     blockName?: string;
@@ -463,85 +463,85 @@ export interface GetWaitlistedEventsRequest {
     acceptLanguage?: string;
 }
 export interface ManageAlternateEventsOperationRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    manageAlternateEvents: ManageAlternateEventsRequest;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    manageAlternateEvents?: ManageAlternateEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ManageCateringEventPostingsOperationRequest {
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringEventPostings: ManageCateringEventPostingsRequest;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringEventPostings?: ManageCateringEventPostingsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ManageWaitlistedEventsOperationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    manageWaitlistedEvents: ManageWaitlistedEventsRequest;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    manageWaitlistedEvents?: ManageWaitlistedEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface MoveEventResourcesRequest {
-    eventId: string;
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    eventResources: CopyEventResourcesRequest;
+    eventId?: string;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    eventResources?: CopyEventResourcesRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringPackageRequest {
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    blockCateringPackage: BlockCateringPackage;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    blockCateringPackage?: BlockCateringPackage;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringPackageRevenueRequest {
-    cateringpackageId: string;
-    blockId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringPackageRevenue: CateringPackageRevenue;
+    cateringpackageId?: string;
+    blockId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringPackageRevenue?: CateringPackageRevenue;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostEventsOperationRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    event: PostEventsRequest;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    event?: PostEventsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostOpportunityEventsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    opportunityEvents: OpportunityEvents;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    opportunityEvents?: OpportunityEvents;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostQuickInsertResourcesRequest {
-    quickInsertId: string;
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    quickInsertResources: QuickInsertResources;
+    quickInsertId?: string;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    quickInsertResources?: QuickInsertResources;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

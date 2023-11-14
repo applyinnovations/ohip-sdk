@@ -12,28 +12,28 @@
 import * as runtime from '../runtime';
 import type { AvailablePreferencesDetails, CommunicationTypeCriteria, CommunicationTypeToBeChanged, CommunicationTypesDetails, Status } from '../models/index';
 export interface ChangeCommunicationTypeRequest {
-    communicationTypeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    communicationTypeToBeChanged: CommunicationTypeToBeChanged;
+    communicationTypeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    communicationTypeToBeChanged?: CommunicationTypeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetAvailablePreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     isOnlyForReservation?: boolean;
     preferenceType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCommunicationTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     codes?: Array<string>;
     roles?: Set<GetCommunicationTypesRolesEnum>;
     description?: string;
@@ -41,18 +41,18 @@ export interface GetCommunicationTypesRequest {
     acceptLanguage?: string;
 }
 export interface PostCommunicationTypeRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    communicationTypeCriteria: CommunicationTypeCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    communicationTypeCriteria?: CommunicationTypeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface RemoveCommunicationTypeRequest {
-    communicationTypeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    communicationTypeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

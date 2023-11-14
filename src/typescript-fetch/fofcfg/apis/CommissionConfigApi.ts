@@ -44,59 +44,59 @@ import {
 } from '../models/index';
 
 export interface DeleteCommissionCodesRequest {
-    hotelIds: Array<string>;
-    commissionCodes: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    commissionCodes?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteConfigBankAccountsRequest {
-    hotelId: Array<string>;
-    bankAccountID: Array<number>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: Array<string>;
+    bankAccountID?: Array<number>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteStopProcessingReasonsRequest {
-    codes: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    codes?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCommissionCodeRequest {
-    commissionCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    commissionCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCommissionCodesRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     commissionCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetConfigBankAccountsRequest {
-    hotels: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotels?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     bankCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
@@ -104,9 +104,9 @@ export interface GetConfigBankAccountsRequest {
 }
 
 export interface GetStopProcessingReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -116,55 +116,55 @@ export interface GetStopProcessingReasonsRequest {
 }
 
 export interface PostCommissionCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    commissionCodes: CommissionCodes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    commissionCodes?: CommissionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostConfigBankAccountsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    bankAccounts: BankAccounts;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    bankAccounts?: BankAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostStopProcessingReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    stopProcessingReasons: StopProcessingReasons;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    stopProcessingReasons?: StopProcessingReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutCommissionCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    commissionCodes: CommissionCodes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    commissionCodes?: CommissionCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutConfigBankAccountsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    bankAccounts: BankAccounts;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    bankAccounts?: BankAccounts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutStopProcessingReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    stopProcessingReasons: StopProcessingReasons;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    stopProcessingReasons?: StopProcessingReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

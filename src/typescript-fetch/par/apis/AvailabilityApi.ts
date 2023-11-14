@@ -77,10 +77,10 @@ import {
 } from '../models/index';
 
 export interface AnalyzeRateAvailabilityRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     ratePlanCode?: string;
     roomType?: string;
     startDate?: Date;
@@ -104,20 +104,20 @@ export interface AnalyzeRateAvailabilityRequest {
 }
 
 export interface ClearAllRestrictionsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    clearAllRestrictions: ClearAllRestrictions;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    clearAllRestrictions?: ClearAllRestrictions;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteHurdleRatesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hurdleDate?: Array<Date>;
     roomType?: Array<string>;
     roomCategory?: Array<string>;
@@ -129,11 +129,11 @@ export interface DeleteHurdleRatesRequest {
 }
 
 export interface DeleteRestrictionRequest {
-    restrictionId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    restrictionId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     restrictionEndDate?: Date;
     restrictionStartDate?: Date;
     bookingChannelCode?: string;
@@ -146,10 +146,10 @@ export interface DeleteRestrictionRequest {
 }
 
 export interface GetAlternateAvailabilityRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     ratePlanCode?: string;
     redemption?: boolean;
     roomType?: string;
@@ -180,31 +180,31 @@ export interface GetAlternateAvailabilityRequest {
 }
 
 export interface GetAvailabilityRatePlanInfoRequest {
-    ratePlanCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    ratePlanCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     ratePlanCodeList?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAvailabilityRatePlanInfoByMultipleRatePlansRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     ratePlanCodeList?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAvailableUpsellsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     reservationId?: string;
     profileId?: string;
     reservationStatus?: GetAvailableUpsellsReservationStatusEnum;
@@ -229,10 +229,10 @@ export interface GetAvailableUpsellsRequest {
 }
 
 export interface GetGuaranteeablePreferencesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     startDate?: Date;
     endDate?: Date;
     roomType?: string;
@@ -243,10 +243,10 @@ export interface GetGuaranteeablePreferencesRequest {
 }
 
 export interface GetHotelAvailabilityRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     cro?: Array<string>;
     includeClosedRates?: Array<boolean>;
     includeDefaultRatePlanSet?: Array<boolean>;
@@ -297,9 +297,9 @@ export interface GetHotelAvailabilityRequest {
 }
 
 export interface GetHotelAvailabilityCRORequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     cro?: Array<string>;
     hotelIds?: Array<string>;
     includeClosedRates?: Array<boolean>;
@@ -353,9 +353,9 @@ export interface GetHotelAvailabilityCRORequest {
 }
 
 export interface GetHotelsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     cro?: string;
     limit?: number;
     startDate?: Date;
@@ -397,11 +397,11 @@ export interface GetHotelsRequest {
 }
 
 export interface GetHurdleRatesRequest {
-    hotelId: string;
-    hurdleDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    hurdleDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     roomTypesCode?: Array<string>;
@@ -411,11 +411,11 @@ export interface GetHurdleRatesRequest {
 }
 
 export interface GetReservationGuaranteesRequest {
-    hotelId: string;
-    arrivalDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    arrivalDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     ratePlanCode?: string;
     blockId?: string;
     reservationGuestId?: string;
@@ -436,10 +436,10 @@ export interface GetReservationGuaranteesRequest {
 }
 
 export interface GetRestrictionsByDateRangeRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     chainName?: string;
     end?: Date;
     fetchSizeByDay?: number;
@@ -458,10 +458,10 @@ export interface GetRestrictionsByDateRangeRequest {
 }
 
 export interface GetRestrictionsHistoryRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     chainName?: string;
     date?: Date;
     bookingChannelCode?: string;
@@ -476,41 +476,41 @@ export interface GetRestrictionsHistoryRequest {
 }
 
 export interface PostHurdleRatesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createHurdleRates: CreateHurdleRates;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createHurdleRates?: CreateHurdleRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRestrictionRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createRestriction: CreateRestriction;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createRestriction?: CreateRestriction;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutHurdleRatesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeHurdleRates: ChangeHurdleRates;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeHurdleRates?: ChangeHurdleRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ValidateReservationGuaranteesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    validateReservationGuarantees: ValidateReservationGuarantees;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    validateReservationGuarantees?: ValidateReservationGuarantees;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

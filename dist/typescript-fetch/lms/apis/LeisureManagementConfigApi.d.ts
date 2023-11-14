@@ -12,126 +12,126 @@
 import * as runtime from '../runtime';
 import type { ChangeActivityLocations, ChangeActivityLocationsRS, ChangeActivityStatusCodes, ChangeActivityStatusCodesRS, ChangeActivityTypes, ChangeActivityTypesRS, CopyActivityLocations, CopyActivityLocationsRS, CopyActivityTypes, CopyActivityTypesRS, CreateActivityLocations, CreateActivityStatusCodes, CreateActivityTypes, FetchActivityLocations, FetchActivityStatusCodes, FetchActivityTypes, Status } from '../models/index';
 export interface CopyActivityLocationsRequest {
-    activityLocationsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyActivityLocations: CopyActivityLocations;
+    activityLocationsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyActivityLocations?: CopyActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyActivityTypesRequest {
-    activityTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyActivityTypes: CopyActivityTypes;
+    activityTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyActivityTypes?: CopyActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityLocationsRequest {
-    activityLocationsId: string;
-    hotelIds: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    activityLocationsId?: string;
+    hotelIds?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityStatusCodesRequest {
-    activityStatusCodesId: string;
-    hotelIds: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    activityStatusCodesId?: string;
+    hotelIds?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteActivityTypesRequest {
-    activityTypesId: string;
-    hotelIds: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    activityTypesId?: string;
+    hotelIds?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityLocationsRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     criteriaCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityStatusCodesRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     criteriaCodes?: Array<string>;
     applicationCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityTypesRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     typeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostActivityLocationsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createActivityLocations: CreateActivityLocations;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createActivityLocations?: CreateActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostActivityStatusCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createActivityStatusCodes: CreateActivityStatusCodes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createActivityStatusCodes?: CreateActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostActivityTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createActivityTypes: CreateActivityTypes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createActivityTypes?: CreateActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityLocationsRequest {
-    activityLocationsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeActivityLocations: ChangeActivityLocations;
+    activityLocationsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeActivityLocations?: ChangeActivityLocations;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityStatusCodesRequest {
-    activityStatusCodesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeActivityStatusCodes: ChangeActivityStatusCodes;
+    activityStatusCodesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeActivityStatusCodes?: ChangeActivityStatusCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityTypesRequest {
-    activityTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeActivityTypes: ChangeActivityTypes;
+    activityTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeActivityTypes?: ChangeActivityTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

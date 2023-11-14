@@ -35,18 +35,18 @@ import {
 } from '../models/index';
 
 export interface DeleteDisplaySetsRequest {
-    displaySetsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    displaySetsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetDisplaySetsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -56,20 +56,20 @@ export interface GetDisplaySetsRequest {
 }
 
 export interface PostDisplaySetsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    displaySetsCriteria: DisplaySetsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    displaySetsCriteria?: DisplaySetsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutDisplaySetsRequest {
-    displaySetsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    displaySetsToBeChanged: DisplaySetsToBeChanged;
+    displaySetsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    displaySetsToBeChanged?: DisplaySetsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

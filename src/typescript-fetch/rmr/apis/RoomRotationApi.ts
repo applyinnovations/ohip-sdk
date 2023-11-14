@@ -47,13 +47,13 @@ import {
 } from '../models/index';
 
 export interface GetReservationRotationPointsRequest {
-    hotelId: string;
-    departureStartDate: Date;
-    departureEndDate: Date;
-    roomIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    departureStartDate?: Date;
+    departureEndDate?: Date;
+    roomIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     confirmationNumber?: string;
     surname?: string;
     givenName?: string;
@@ -64,22 +64,22 @@ export interface GetReservationRotationPointsRequest {
 }
 
 export interface GetReservationRotationPointsDetailsRequest {
-    hotelId: string;
-    reservationId: string;
-    roomId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    reservationId?: string;
+    roomId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeAdjustmentLog?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRoomOwnersRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     surname?: string;
     givenName?: string;
     startDateFrom?: Date;
@@ -98,10 +98,10 @@ export interface GetRoomOwnersRequest {
 }
 
 export interface GetRoomOwnershipsRequest {
-    profileId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    profileId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     startDate?: Date;
     endDate?: Date;
@@ -112,11 +112,11 @@ export interface GetRoomOwnershipsRequest {
 }
 
 export interface GetRoomRotationPointsRequest {
-    hotelId: string;
-    roomRotationPointsDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    roomRotationPointsDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     roomClasses?: Array<string>;
@@ -127,23 +127,23 @@ export interface GetRoomRotationPointsRequest {
 }
 
 export interface PutReservationRotationPointsDetailsRequest {
-    hotelId: string;
-    reservationId: string;
-    roomId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    reservationRotationPoints: PutReservationRotationPointsDetails;
+    hotelId?: string;
+    reservationId?: string;
+    roomId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    reservationRotationPoints?: PutReservationRotationPointsDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomRotationPointsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomRotationPointsAdjustment: RoomRotationPointsAdjustment;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomRotationPointsAdjustment?: RoomRotationPointsAdjustment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

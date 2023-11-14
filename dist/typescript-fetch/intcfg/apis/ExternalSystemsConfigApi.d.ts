@@ -12,9 +12,9 @@
 import * as runtime from '../runtime';
 import type { ChangeDeliveryMethods, ChangeInterfaceRight, ChangeUDFMapping, ChangedDeliveryMethods, ChangedInterfaceRight, ChangedUDFMapping, CreateDeliveryMethods, CreatePublishers, FetchedDeliveryMethods, FetchedExternalDatabaseAvailableProperties, FetchedHotelInterfaceControllerRegistry, FetchedHotelInterfaceErrors, FetchedHotelInterfaceFailedMessages, FetchedHotelInterfaceSchemas, FetchedHotelInterfaces, FetchedInterfaceRights, FetchedPublishers, FetchedUDFMappings, Status } from '../models/index';
 export interface DeleteDeliveryMethodsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     type?: DeleteDeliveryMethodsTypeEnum;
     options?: Set<DeleteDeliveryMethodsOptionsEnum>;
@@ -23,18 +23,18 @@ export interface DeleteDeliveryMethodsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteHotelInterfaceRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     logo?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteInterfaceRightRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     id?: string;
     idExtension?: number;
@@ -48,20 +48,20 @@ export interface DeleteInterfaceRightRequest {
     acceptLanguage?: string;
 }
 export interface DeletePublisherRequest {
-    hotelId: string;
-    externalSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    externalSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     subscriberHotelId?: string;
     code?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetDeliveryMethodsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     croCode?: string;
     usages?: Set<GetDeliveryMethodsUsagesEnum>;
@@ -70,11 +70,11 @@ export interface GetDeliveryMethodsRequest {
     acceptLanguage?: string;
 }
 export interface GetExternalDatabaseAvailablePropertiesRequest {
-    databaseId: string;
-    interfaceId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    databaseId?: string;
+    interfaceId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeInactive?: boolean;
     interfaceCodes?: Array<string>;
     hotelIds?: Array<string>;
@@ -82,17 +82,17 @@ export interface GetExternalDatabaseAvailablePropertiesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceControllerRegistryRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     machine?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceErrorsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -103,9 +103,9 @@ export interface GetHotelInterfaceErrorsRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceFailedMessagesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -116,9 +116,9 @@ export interface GetHotelInterfaceFailedMessagesRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfaceSchemasRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -129,9 +129,9 @@ export interface GetHotelInterfaceSchemasRequest {
     acceptLanguage?: string;
 }
 export interface GetHotelInterfacesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     interfaceTypes?: Set<GetHotelInterfacesInterfaceTypesEnum>;
     logosCodes?: Array<string>;
@@ -140,9 +140,9 @@ export interface GetHotelInterfacesRequest {
     acceptLanguage?: string;
 }
 export interface GetInterfaceRightsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     id?: string;
     idExtension?: number;
@@ -152,62 +152,62 @@ export interface GetInterfaceRightsRequest {
     acceptLanguage?: string;
 }
 export interface GetPublishersRequest {
-    externalSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    externalSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetUDFMappingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     type?: string;
     uDFName?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostDeliveryMethodsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createDeliveryMethods: CreateDeliveryMethods;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createDeliveryMethods?: CreateDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostPublishersRequest {
-    hotelId: string;
-    externalSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createPublishers: CreatePublishers;
+    hotelId?: string;
+    externalSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createPublishers?: CreatePublishers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutDeliveryMethodsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeDeliveryMethods: ChangeDeliveryMethods;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeDeliveryMethods?: ChangeDeliveryMethods;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutInterfaceRightRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeInterfaceRight: ChangeInterfaceRight;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeInterfaceRight?: ChangeInterfaceRight;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutUDFMappingRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeUDFMapping: ChangeUDFMapping;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeUDFMapping?: ChangeUDFMapping;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

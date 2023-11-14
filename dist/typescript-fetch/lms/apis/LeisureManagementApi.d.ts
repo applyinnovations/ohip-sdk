@@ -12,22 +12,22 @@
 import * as runtime from '../runtime';
 import type { ActivityBookingModified, ActivityBookingsDetails, ChangeActivityBooking, CreateActivityBooking, LocationNotificationToBeCreated, Status } from '../models/index';
 export interface DeleteActivityBookingRequest {
-    reservationId: string;
-    hotelId: string;
-    activityId: string;
-    activityIdType: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    reservationId?: string;
+    hotelId?: string;
+    activityId?: string;
+    activityIdType?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetActivityBookingsRequest {
-    hotelId: string;
-    profileIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    profileIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     profileIdContext?: Array<string>;
     profileIdsType?: Array<string>;
     reservationIds?: Array<string>;
@@ -40,32 +40,32 @@ export interface GetActivityBookingsRequest {
     acceptLanguage?: string;
 }
 export interface PostActivityBookingRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createActivityBooking: CreateActivityBooking;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createActivityBooking?: CreateActivityBooking;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostLocationNotificationRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    locationNotificationToBeCreated: LocationNotificationToBeCreated;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    locationNotificationToBeCreated?: LocationNotificationToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutActivityBookingRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    changeActivityBooking: ChangeActivityBooking;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    changeActivityBooking?: ChangeActivityBooking;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

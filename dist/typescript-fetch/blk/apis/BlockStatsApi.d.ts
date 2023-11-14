@@ -12,9 +12,9 @@
 import * as runtime from '../runtime';
 import type { BlockStats } from '../models/index';
 export interface GetBlockStatsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     reportCode?: Set<GetBlockStatsReportCodeEnum>;
     reportEndDate?: Array<Date>;

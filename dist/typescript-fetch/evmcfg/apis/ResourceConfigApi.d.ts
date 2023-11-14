@@ -12,87 +12,87 @@
 import * as runtime from '../runtime';
 import type { CateringContainers, CateringContainersInfo, CateringItemRates, CateringItemRatesInfo, CateringMenuClasses, CateringMenuClassesInfo, CateringMenuItemClasses, CateringMenuItemClassesCopy, CateringMenuItemClassesInfo, CateringMenuItems, CateringMenuItemsCopy, CateringMenuItemsInfo, CateringMenus, CateringMenusCopy, CateringMenusInfo, CateringPackage, CateringPackages, CateringPackagesInfo, CateringServings, CateringServingsInfo, CheckedDiscountAvailable, DailyInventoryItems, EventForecasts, EventForecastsCopy, EventForecastsInfo, InventoryItemTemplates, InventoryItems, InventoryItemsCopy, InventoryItemsCreated, ItemClasses, ItemClassesCopy, ItemClassesInfo, ItemPools, ItemPoolsInfo, RevenueGroups, RevenueGroupsInfo, RevenueTypes, RevenueTypesInfo, Status } from '../models/index';
 export interface CheckDiscountAvailableRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyCateringMenuItemClassesRequest {
-    cateringMenuItemClassesCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuItemClassesCopy: CateringMenuItemClassesCopy;
+    cateringMenuItemClassesCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuItemClassesCopy?: CateringMenuItemClassesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyCateringMenuItemsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuItemsCopy: CateringMenuItemsCopy;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuItemsCopy?: CateringMenuItemsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyCateringMenusRequest {
-    cateringMenuId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenusCopy: CateringMenusCopy;
+    cateringMenuId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenusCopy?: CateringMenusCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyEventForecastsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    eventForecastsCopy: EventForecastsCopy;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    eventForecastsCopy?: EventForecastsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyInventoryItemsRequest {
-    sourceHotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    inventoryItemsCopy: InventoryItemsCopy;
+    sourceHotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    inventoryItemsCopy?: InventoryItemsCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface CopyItemClassesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    itemClassesCopy: ItemClassesCopy;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    itemClassesCopy?: ItemClassesCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringContainersRequest {
-    cateringContainersCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringContainersCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringItemRatesRequest {
-    cateringItemRatesCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringItemRatesCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuClassesRequest {
-    menuClassesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    menuClassesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     menuClassListIDExtension?: Array<number>;
     menuClassListIdContext?: Array<string>;
     menuClassListUniqueIdType?: Array<string>;
@@ -100,10 +100,10 @@ export interface DeleteCateringMenuClassesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuItemClassesRequest {
-    cateringMenuItemClassesCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringMenuItemClassesCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     menuItemClassesIdExtension?: Array<number>;
     menuItemClassesIdContext?: Array<string>;
     menuItemClassesUniqueIdType?: Array<string>;
@@ -111,29 +111,29 @@ export interface DeleteCateringMenuItemClassesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuItemsRequest {
-    cateringMenuItemId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringMenuItemId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuItemsByChainRequest {
-    cateringMenuItemId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringMenuItemId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenuMultiCoursesRequest {
-    coursesId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    coursesId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     courseIdListUniqueIdExtension?: Array<number>;
     courseIdListUniqueIdContext?: Array<string>;
     courseIdListUniqueIdType?: Array<string>;
@@ -141,21 +141,21 @@ export interface DeleteCateringMenuMultiCoursesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringMenusRequest {
-    cateringMenuId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringMenuId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageEventNotesRequest {
-    notedId: string;
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    notedId?: string;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventIdType?: string;
@@ -166,11 +166,11 @@ export interface DeleteCateringPackageEventNotesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageEventsRequest {
-    packageEventsId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    packageEventsId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventIdType?: string;
@@ -178,11 +178,11 @@ export interface DeleteCateringPackageEventsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackagePricesRequest {
-    pricesId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    pricesId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     packagPriceIdExtension?: number;
     packagPriceIdContext?: string;
     packagPriceIdType?: string;
@@ -190,22 +190,22 @@ export interface DeleteCateringPackagePricesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageResourceNotesRequest {
-    notesId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    notesId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageResourcesRequest {
-    hotelId: Array<string>;
-    pkgEventId: Array<string>;
-    pkgEventIdType: Array<string>;
-    resourceId: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: Array<string>;
+    pkgEventId?: Array<string>;
+    pkgEventIdType?: Array<string>;
+    resourceId?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     pkgEventIdExtension?: number;
     pkgEventIdContext?: string;
     pkgEventType?: Array<string>;
@@ -213,13 +213,13 @@ export interface DeleteCateringPackageResourcesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackageRevenuesRequest {
-    priceId: string;
-    revenueType: string;
-    eventsId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    priceId?: string;
+    revenueType?: string;
+    eventsId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     packagePriceIdExtension?: number;
     packagePriceIdContext?: string;
     packagePriceIdType?: string;
@@ -230,20 +230,20 @@ export interface DeleteCateringPackageRevenuesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteCateringPackagesRequest {
-    cateringPackageId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringPackageId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteEventForecastsRequest {
-    eventTypesCode: string;
-    forecastsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    eventTypesCode?: string;
+    forecastsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     forecastIdExtension?: number;
     forecastIdContext?: string;
     forecastIdType?: string;
@@ -257,10 +257,10 @@ export interface DeleteEventForecastsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteInventoryItemTemplatesRequest {
-    inventoryItemId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    inventoryItemId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     inventoryItemTemplatesIdExtension?: Array<number>;
     inventoryItemTemplatesContext?: Array<string>;
     inventoryItemTemplatesType?: Array<string>;
@@ -268,11 +268,11 @@ export interface DeleteInventoryItemTemplatesRequest {
     acceptLanguage?: string;
 }
 export interface DeleteInventoryItemsRequest {
-    inventoryItemId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    inventoryItemId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     itemIDExtension?: number;
     idContext?: string;
     itemIDType?: string;
@@ -280,34 +280,34 @@ export interface DeleteInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface DeleteItemClassesRequest {
-    itemClassesCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    itemClassesCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteItemPoolsRequest {
-    itemPoolsCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    itemPoolsCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteRevenueGroupsRequest {
-    revenueGroupsCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    revenueGroupsCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCateringContainersRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -316,9 +316,9 @@ export interface GetCateringContainersRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringItemRatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -327,21 +327,21 @@ export interface GetCateringItemRatesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenuRequest {
-    cateringMenuId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringMenuId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     inactive?: boolean;
     fetchInstructions?: Set<GetCateringMenuFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetCateringMenuClassesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     className?: string;
@@ -352,10 +352,10 @@ export interface GetCateringMenuClassesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenuItemClassesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     className?: string;
@@ -367,10 +367,10 @@ export interface GetCateringMenuItemClassesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenuItemsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     name?: string;
@@ -383,10 +383,10 @@ export interface GetCateringMenuItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringMenusRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     menuId?: string;
@@ -408,11 +408,11 @@ export interface GetCateringMenusRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageRequest {
-    cateringPackageId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringPackageId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     idExtension?: number;
     idContext?: string;
     pkgIDType?: string;
@@ -421,10 +421,10 @@ export interface GetCateringPackageRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackageByChainRequest {
-    cateringPackageId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cateringPackageId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     idExtension?: number;
     idContext?: string;
@@ -434,10 +434,10 @@ export interface GetCateringPackageByChainRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     packageCode?: Array<string>;
@@ -458,9 +458,9 @@ export interface GetCateringPackagesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringPackagesMultiPropertiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -482,9 +482,9 @@ export interface GetCateringPackagesMultiPropertiesRequest {
     acceptLanguage?: string;
 }
 export interface GetCateringServingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     servingCodes?: Array<string>;
     wildCard?: string;
@@ -493,10 +493,10 @@ export interface GetCateringServingsRequest {
     acceptLanguage?: string;
 }
 export interface GetDailyInventoryItemsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     itemClassCode?: string;
     itemName?: string;
     friday?: boolean;
@@ -513,11 +513,11 @@ export interface GetDailyInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetEventForecastsRequest {
-    hotelId: string;
-    fetchInstructions: Set<GetEventForecastsFetchInstructionsEnum>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    fetchInstructions?: Set<GetEventForecastsFetchInstructionsEnum>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     eventTypeCodes?: Array<string>;
@@ -531,19 +531,19 @@ export interface GetEventForecastsRequest {
     acceptLanguage?: string;
 }
 export interface GetInventoryItemTemplatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     inventoryItemTemplateName?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetInventoryItemsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     itemClassCode?: string;
     itemName?: string;
     itemCode?: string;
@@ -556,9 +556,9 @@ export interface GetInventoryItemsRequest {
     acceptLanguage?: string;
 }
 export interface GetItemClassesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: Array<string>;
     itemClassesCode?: Array<string>;
     wildCard?: string;
@@ -568,10 +568,10 @@ export interface GetItemClassesRequest {
     acceptLanguage?: string;
 }
 export interface GetItemPoolsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     itemClasseCodes?: Array<string>;
     wildCard?: string;
@@ -581,9 +581,9 @@ export interface GetItemPoolsRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     revenueGroupCodes?: Array<string>;
     wildCard?: string;
@@ -593,9 +593,9 @@ export interface GetRevenueGroupsRequest {
     acceptLanguage?: string;
 }
 export interface GetRevenueTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     revenueGroupCodes?: Array<string>;
     revenueGroupWildCard?: string;
     revenueTypeCodes?: Array<string>;
@@ -606,255 +606,255 @@ export interface GetRevenueTypesRequest {
     acceptLanguage?: string;
 }
 export interface PostCateringContainersRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringContainers: CateringContainers;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringContainers?: CateringContainers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringItemRatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringItemRates: CateringItemRates;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringItemRates?: CateringItemRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringMenuClassesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuClasses: CateringMenuClasses;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuClasses?: CateringMenuClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringMenuItemClassesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuItemClasses: CateringMenuItemClasses;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuItemClasses?: CateringMenuItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringMenuItemsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuItems: CateringMenuItems;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuItems?: CateringMenuItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringMenusRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenus: CateringMenus;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenus?: CateringMenus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostCateringPackagesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringPackages: CateringPackages;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringPackages?: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostEventForecastsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    eventForecasts: EventForecasts;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    eventForecasts?: EventForecasts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostInventoryItemTemplatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    inventoryItemTemplates: InventoryItemTemplates;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    inventoryItemTemplates?: InventoryItemTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostInventoryItemsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    inventoryItems: InventoryItems;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    inventoryItems?: InventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostItemClassesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    itemClasses: ItemClasses;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    itemClasses?: ItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostItemPoolsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    itemPools: ItemPools;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    itemPools?: ItemPools;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRevenueGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    revenueGroups: RevenueGroups;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    revenueGroups?: RevenueGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostRevenueTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    revenueTypes: RevenueTypes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    revenueTypes?: RevenueTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringContainersRequest {
-    cateringContainersCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringContainers: CateringContainers;
+    cateringContainersCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringContainers?: CateringContainers;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringItemRatesRequest {
-    cateringItemRatesCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringItemRates: CateringItemRates;
+    cateringItemRatesCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringItemRates?: CateringItemRates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringMenuClassesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuClasses: CateringMenuClasses;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuClasses?: CateringMenuClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringMenuItemClassesRequest {
-    cateringMenuItemClassesCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuItemClasses: CateringMenuItemClasses;
+    cateringMenuItemClassesCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuItemClasses?: CateringMenuItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringMenuItemsRequest {
-    cateringMenuItemId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenuItems: CateringMenuItems;
+    cateringMenuItemId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenuItems?: CateringMenuItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringMenusRequest {
-    cateringMenuId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringMenus: CateringMenus;
+    cateringMenuId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringMenus?: CateringMenus;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringPackagesRequest {
-    cateringPackageId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringPackages: CateringPackages;
+    cateringPackageId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringPackages?: CateringPackages;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutCateringServingsRequest {
-    cateringServingsCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cateringServings: CateringServings;
+    cateringServingsCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cateringServings?: CateringServings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutEventForecastsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    eventForecasts: EventForecasts;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    eventForecasts?: EventForecasts;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutInventoryItemTemplatesRequest {
-    inventoryItemId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    inventoryItemTemplates: InventoryItemTemplates;
+    inventoryItemId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    inventoryItemTemplates?: InventoryItemTemplates;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutInventoryItemsRequest {
-    inventoryItemId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    inventoryItems: InventoryItems;
+    inventoryItemId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    inventoryItems?: InventoryItems;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutItemClassesRequest {
-    itemClassesCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    itemClasses: ItemClasses;
+    itemClassesCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    itemClasses?: ItemClasses;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutItemPoolsRequest {
-    itemPoolsCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    itemPools: ItemPools;
+    itemPoolsCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    itemPools?: ItemPools;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRevenueGroupsRequest {
-    revenueGroupsCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    revenueGroups: RevenueGroups;
+    revenueGroupsCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    revenueGroups?: RevenueGroups;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutRevenueTypesRequest {
-    revenueTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    revenueTypes: RevenueTypes;
+    revenueTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    revenueTypes?: RevenueTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

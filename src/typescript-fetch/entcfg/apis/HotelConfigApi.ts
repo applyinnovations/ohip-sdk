@@ -335,379 +335,379 @@ import {
 } from '../models/index';
 
 export interface ChangeAirportsRequest {
-    airportCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    airportsToBeChanged: AirportsToBeChanged;
+    airportCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    airportsToBeChanged?: AirportsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeAlternateHotelsRequest {
-    alternateHotelId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    alternateHotelsToBeChanged: AlternateHotelsToBeChanged;
+    alternateHotelId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    alternateHotelsToBeChanged?: AlternateHotelsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeAmenitiesRequest {
-    featureCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    amenitiesToBeChanged: AmenitiesToBeChanged;
+    featureCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    amenitiesToBeChanged?: AmenitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeAttractionTemplatesRequest {
-    attractionCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    attractionTemplatesToBeChanged: AttractionTemplatesToBeChanged;
+    attractionCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    attractionTemplatesToBeChanged?: AttractionTemplatesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeAttractionsRequest {
-    attractionCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    attractionsToBeChanged: AttractionsToBeChanged;
+    attractionCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    attractionsToBeChanged?: AttractionsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeCountriesRequest {
-    countryCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    countriesToBeChanged: CountriesToBeChanged;
+    countryCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    countriesToBeChanged?: CountriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeCreditCardTypesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    creditCardTypesToBeChanged: CreditCardTypesToBeChanged;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    creditCardTypesToBeChanged?: CreditCardTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeDepartmentsRequest {
-    departmentCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    departmentsToBeChanged: DepartmentsToBeChanged;
+    departmentCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    departmentsToBeChanged?: DepartmentsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeHotelContactsRequest {
-    contactId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelContactsToBeChanged: HotelContactsToBeChanged;
+    contactId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelContactsToBeChanged?: HotelContactsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeHotelDayTypeCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelDayTypeCodesToBeChanged: HotelDayTypeCodesToBeChanged;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelDayTypeCodesToBeChanged?: HotelDayTypeCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeHotelNotesRequest {
-    noteCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelNotesToBeChanged: HotelNotesToBeChanged;
+    noteCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelNotesToBeChanged?: HotelNotesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeHotelRateRangesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelRateRangesToBeChanged: HotelRateRangesToBeChanged;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelRateRangesToBeChanged?: HotelRateRangesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeHotelRestaurantsRequest {
-    restaurantCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelRestaurantsToBeChanged: HotelRestaurantsToBeChanged;
+    restaurantCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelRestaurantsToBeChanged?: HotelRestaurantsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeJobTitlesRequest {
-    jobTitleCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    jobTitlesToBeChanged: JobTitlesToBeChanged;
+    jobTitleCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    jobTitlesToBeChanged?: JobTitlesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeLanguagesRequest {
-    languageCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    languagesToBeChanged: LanguagesToBeChanged;
+    languageCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    languagesToBeChanged?: LanguagesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeMarketingCitiesRequest {
-    cityCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    marketingCitiesToBeChanged: MarketingCitiesToBeChanged;
+    cityCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    marketingCitiesToBeChanged?: MarketingCitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTelephoneBookCategoriesRequest {
-    categoryCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    telephoneBookCategoriesToBeChanged: TelephoneBookCategoriesToBeChanged;
+    categoryCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    telephoneBookCategoriesToBeChanged?: TelephoneBookCategoriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTelephoneBookEntriesRequest {
-    entryId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    telephoneBookEntriesToBeChanged: TelephoneBookEntriesToBeChanged;
+    entryId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    telephoneBookEntriesToBeChanged?: TelephoneBookEntriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateAirportsRequest {
-    airportCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateAirportsToBeChanged: TemplateAirportsToBeChanged;
+    airportCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateAirportsToBeChanged?: TemplateAirportsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateAmenitiesRequest {
-    featureCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateAmenitiesToBeChanged: TemplateAmenitiesToBeChanged;
+    featureCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateAmenitiesToBeChanged?: TemplateAmenitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateCountriesRequest {
-    countryCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateCountriesToBeChanged: TemplateCountriesToBeChanged;
+    countryCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateCountriesToBeChanged?: TemplateCountriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateDayTypeCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateDayTypeCodesToBeChanged: TemplateDayTypeCodesToBeChanged;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateDayTypeCodesToBeChanged?: TemplateDayTypeCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateHotelDetailsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateHotelDetailsToBeChanged: TemplateHotelDetailsToBeChanged;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateHotelDetailsToBeChanged?: TemplateHotelDetailsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateJobTitlesRequest {
-    jobTitleCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateJobTitlesToBeChanged: TemplateJobTitlesToBeChanged;
+    jobTitleCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateJobTitlesToBeChanged?: TemplateJobTitlesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateMarketingCitiesRequest {
-    cityCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateMarketingCitiesToBeChanged: TemplateMarketingCitiesToBeChanged;
+    cityCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateMarketingCitiesToBeChanged?: TemplateMarketingCitiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTransportationRequest {
-    transportationCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    transportationToBeChanged: TransportationToBeChanged;
+    transportationCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    transportationToBeChanged?: TransportationToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTransportationTemplatesRequest {
-    transportationCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    transportationTemplatesToBeChanged: TransportationTemplatesToBeChanged;
+    transportationCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    transportationTemplatesToBeChanged?: TransportationTemplatesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeYieldAdjustmentCodesRequest {
-    yieldAdjustmentCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    yieldAdjustmentCodesToBeChanged: YieldAdjustmentCodesToBeChanged;
+    yieldAdjustmentCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    yieldAdjustmentCodesToBeChanged?: YieldAdjustmentCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeYieldCategoriesRequest {
-    code: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    yieldCategoriesToBeChanged: YieldCategoriesToBeChanged;
+    code?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    yieldCategoriesToBeChanged?: YieldCategoriesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeYieldMarketTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    yieldMarketTypesToBeChanged: YieldMarketTypesToBeChanged;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    yieldMarketTypesToBeChanged?: YieldMarketTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyDepartmentsRequest {
-    sourceHotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyDepartments: CopyDepartments;
+    sourceHotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyDepartments?: CopyDepartments;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyHotelDetailsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyHotelDetails: CopyHotelDetails;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyHotelDetails?: CopyHotelDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyMarketingCitiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyMarketingCities: CopyMarketingCities;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyMarketingCities?: CopyMarketingCities;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyTemplateCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyTemplateCodes: CopyTemplateCodes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyTemplateCodes?: CopyTemplateCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyYieldAdjustmentCodesRequest {
-    sourceHotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyYieldAdjustmentCodes: CopyYieldAdjustmentCodes;
+    sourceHotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyYieldAdjustmentCodes?: CopyYieldAdjustmentCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyYieldCategoriesRequest {
-    sourceHotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyYieldCategories: CopyYieldCategories;
+    sourceHotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyYieldCategories?: CopyYieldCategories;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetAirportsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -717,10 +717,10 @@ export interface GetAirportsRequest {
 }
 
 export interface GetAmenitiesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     general?: boolean;
     meeting?: boolean;
@@ -730,9 +730,9 @@ export interface GetAmenitiesRequest {
 }
 
 export interface GetAttractionTemplatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     attractionCodes?: Array<string>;
     wildCard?: string;
     classCodes?: Array<string>;
@@ -741,10 +741,10 @@ export interface GetAttractionTemplatesRequest {
 }
 
 export interface GetAttractionsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     attractionCodes?: Array<string>;
     wildCard?: string;
@@ -754,9 +754,9 @@ export interface GetAttractionsRequest {
 }
 
 export interface GetConfigActivityLogRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelId?: string;
@@ -775,10 +775,10 @@ export interface GetConfigActivityLogRequest {
 }
 
 export interface GetCountriesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     countriesCodes?: Array<string>;
@@ -788,10 +788,10 @@ export interface GetCountriesRequest {
 }
 
 export interface GetCreditCardTypesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     fetchInactive?: boolean;
     codes?: Array<string>;
@@ -802,9 +802,9 @@ export interface GetCreditCardTypesRequest {
 }
 
 export interface GetCurrencyExchangeRatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     exchangeType?: GetCurrencyExchangeRatesExchangeTypeEnum;
     hotelIds?: Array<string>;
     currencyCode?: string;
@@ -814,9 +814,9 @@ export interface GetCurrencyExchangeRatesRequest {
 }
 
 export interface GetDepartmentsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     departmentCodes?: Array<string>;
     departmentWildCard?: string;
@@ -825,42 +825,42 @@ export interface GetDepartmentsRequest {
 }
 
 export interface GetHotelRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInstructions?: Set<GetHotelFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHotelBrochureRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInstructions?: Set<GetHotelBrochureFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHotelCalendarRequest {
-    hotelId: string;
-    startDate: Date;
-    endDate: Date;
-    fetchInstructions: Set<GetHotelCalendarFetchInstructionsEnum>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    startDate?: Date;
+    endDate?: Date;
+    fetchInstructions?: Set<GetHotelCalendarFetchInstructionsEnum>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHotelDayTypeCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     dayTypesCodes?: Array<string>;
     wildCard?: string;
@@ -869,10 +869,10 @@ export interface GetHotelDayTypeCodesRequest {
 }
 
 export interface GetHotelDetailsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     hotelDetailCodes?: Array<string>;
     hotelDetailCategoriesCodes?: Array<string>;
@@ -881,9 +881,9 @@ export interface GetHotelDetailsRequest {
 }
 
 export interface GetHotelsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     name?: string;
     xExternalsystem?: string;
@@ -891,10 +891,10 @@ export interface GetHotelsRequest {
 }
 
 export interface GetJobTitlesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     jobTitleCodes?: Array<string>;
     xExternalsystem?: string;
@@ -902,9 +902,9 @@ export interface GetJobTitlesRequest {
 }
 
 export interface GetLanguagesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     languageCodes?: Array<string>;
     description?: string;
     useAsAlternateLanguage?: boolean;
@@ -913,10 +913,10 @@ export interface GetLanguagesRequest {
 }
 
 export interface GetMarketingCitiesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     includeInactive?: boolean;
     limit?: number;
@@ -929,27 +929,27 @@ export interface GetMarketingCitiesRequest {
 }
 
 export interface GetOperaHotelContextRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetOperaParametersRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     parameterName?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetOperaSettingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     cROCode?: string;
     parameterNameWildCard?: string;
@@ -958,22 +958,22 @@ export interface GetOperaSettingsRequest {
 }
 
 export interface GetPropertyCalendarRequest {
-    startDate: Date;
-    endDate: Date;
-    fetchInstructions: Set<GetPropertyCalendarFetchInstructionsEnum>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    startDate?: Date;
+    endDate?: Date;
+    fetchInstructions?: Set<GetPropertyCalendarFetchInstructionsEnum>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetTelephoneBookCategoriesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     codes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
@@ -981,10 +981,10 @@ export interface GetTelephoneBookCategoriesRequest {
 }
 
 export interface GetTelephoneBookEntriesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     category?: string;
     name?: string;
     xExternalsystem?: string;
@@ -992,18 +992,18 @@ export interface GetTelephoneBookEntriesRequest {
 }
 
 export interface GetTemplateAirportsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     airportCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetTemplateAmenitiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     general?: boolean;
     meeting?: boolean;
     amenityCodes?: Array<string>;
@@ -1012,9 +1012,9 @@ export interface GetTemplateAmenitiesRequest {
 }
 
 export interface GetTemplateCountriesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     countriesCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
@@ -1022,9 +1022,9 @@ export interface GetTemplateCountriesRequest {
 }
 
 export interface GetTemplateDayTypeCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     dayTypesCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
@@ -1032,9 +1032,9 @@ export interface GetTemplateDayTypeCodesRequest {
 }
 
 export interface GetTemplateHotelDetailsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelDetailCodes?: Array<string>;
     hotelDetailCategoriesCodes?: Array<string>;
     xExternalsystem?: string;
@@ -1042,18 +1042,18 @@ export interface GetTemplateHotelDetailsRequest {
 }
 
 export interface GetTemplateJobTitlesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     jobTitleCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetTemplateMarketingCitiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     includeInactive?: boolean;
     limit?: number;
     pageNumber?: number;
@@ -1065,10 +1065,10 @@ export interface GetTemplateMarketingCitiesRequest {
 }
 
 export interface GetTransportationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     transportationCodes?: Array<string>;
     wildCard?: string;
@@ -1077,9 +1077,9 @@ export interface GetTransportationRequest {
 }
 
 export interface GetTransportationTemplatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     transportationCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
@@ -1087,10 +1087,10 @@ export interface GetTransportationTemplatesRequest {
 }
 
 export interface GetYieldAdjustmentCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     yieldAdjustmentCodes?: Array<string>;
     wildCard?: string;
@@ -1100,10 +1100,10 @@ export interface GetYieldAdjustmentCodesRequest {
 }
 
 export interface GetYieldCategoriesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     yieldCategoriesCodes?: Array<string>;
     wildCard?: string;
     xExternalsystem?: string;
@@ -1111,9 +1111,9 @@ export interface GetYieldCategoriesRequest {
 }
 
 export interface GetYieldMarketTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     yieldMarketTypesCodes?: Array<string>;
     wildCard?: string;
     hotelId?: string;
@@ -1122,368 +1122,368 @@ export interface GetYieldMarketTypesRequest {
 }
 
 export interface PostAirportsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    airportsCriteria: AirportsCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    airportsCriteria?: AirportsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAlternateHotelsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    alternateHotelsCriteria: AlternateHotelsCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    alternateHotelsCriteria?: AlternateHotelsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAmenitiesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    amenitiesCriteria: AmenitiesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    amenitiesCriteria?: AmenitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAttractionTemplatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    attractionTemplatesCriteria: AttractionTemplatesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    attractionTemplatesCriteria?: AttractionTemplatesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAttractionsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    attractionsCriteria: AttractionsCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    attractionsCriteria?: AttractionsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostConfigActivityLogRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createConfigActivityLogCriteria: CreateConfigActivityLogCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createConfigActivityLogCriteria?: CreateConfigActivityLogCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCreditCardTypesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    creditCardTypesCriteria: CreditCardTypesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    creditCardTypesCriteria?: CreditCardTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostDepartmentsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    departmentsCriteria: DepartmentsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    departmentsCriteria?: DepartmentsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostHotelContactsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelContactsCriteria: HotelContactsCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelContactsCriteria?: HotelContactsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostHotelDayTypeCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelDayTypeCodesCriteria: HotelDayTypeCodesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelDayTypeCodesCriteria?: HotelDayTypeCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostHotelNotesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelNotesCriteria: HotelNotesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelNotesCriteria?: HotelNotesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostHotelRateRangesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelRateRangesCriteria: HotelRateRangesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelRateRangesCriteria?: HotelRateRangesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostHotelRestaurantsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hotelRestaurantsCriteria: HotelRestaurantsCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hotelRestaurantsCriteria?: HotelRestaurantsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostJobTitlesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    jobTitlesCriteria: JobTitlesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    jobTitlesCriteria?: JobTitlesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostLanguagesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    languagesCriteria: LanguagesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    languagesCriteria?: LanguagesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostMarketingCitiesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    marketingCitiesCriteria: MarketingCitiesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    marketingCitiesCriteria?: MarketingCitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTelephoneBookCategoriesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    telephoneBookCategoriesCriteria: TelephoneBookCategoriesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    telephoneBookCategoriesCriteria?: TelephoneBookCategoriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTelephoneBookEntriesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    telephoneBookEntriesCriteria: TelephoneBookEntriesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    telephoneBookEntriesCriteria?: TelephoneBookEntriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateAirportsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateAirportsCriteria: TemplateAirportsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateAirportsCriteria?: TemplateAirportsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateAmenitiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateAmenitiesCriteria: TemplateAmenitiesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateAmenitiesCriteria?: TemplateAmenitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateCountriesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateCountriesCriteria: TemplateCountriesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateCountriesCriteria?: TemplateCountriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateDayTypeCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateDayTypeCodesCriteria: TemplateDayTypeCodesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateDayTypeCodesCriteria?: TemplateDayTypeCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateHotelDetailsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateHotelDetailsCriteria: TemplateHotelDetailsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateHotelDetailsCriteria?: TemplateHotelDetailsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateJobTitlesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateJobTitlesCriteria: TemplateJobTitlesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateJobTitlesCriteria?: TemplateJobTitlesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateMarketingCitiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateMarketingCitiesCriteria: TemplateMarketingCitiesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateMarketingCitiesCriteria?: TemplateMarketingCitiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTransportationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    transportationCriteria: TransportationCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    transportationCriteria?: TransportationCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTransportationTemplatesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    transportationTemplatesCriteria: TransportationTemplatesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    transportationTemplatesCriteria?: TransportationTemplatesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostYieldAdjustmentCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    yieldAdjustmentCodesCriteria: YieldAdjustmentCodesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    yieldAdjustmentCodesCriteria?: YieldAdjustmentCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostYieldCategoriesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    yieldCategoriesCriteria: YieldCategoriesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    yieldCategoriesCriteria?: YieldCategoriesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostYieldMarketTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    yieldMarketTypesCriteria: YieldMarketTypesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    yieldMarketTypesCriteria?: YieldMarketTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveAirportsRequest {
-    airportCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    airportCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveAlternateHotelsRequest {
-    alternateHotelId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    alternateHotelId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveAmenitiesRequest {
-    featureCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    featureCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     beginDate?: Array<Date>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveAttractionTemplatesRequest {
-    attractionCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    attractionCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveAttractionsRequest {
-    attractionCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    attractionCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     attractionCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveAttractionsByCodeRequest {
-    attractionCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    attractionCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveCreditCardTypesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     creditCardTypesCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveDayTypesRequest {
-    dayType: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    dayType?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: Array<string>;
     friday?: boolean;
     monday?: boolean;
@@ -1500,42 +1500,42 @@ export interface RemoveDayTypesRequest {
 }
 
 export interface RemoveDepartmentsRequest {
-    departmentCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    departmentCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveHotelContactsRequest {
-    contactId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    contactId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     idExtension?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveHotelDayTypeCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveHotelEventsRequest {
-    eventId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    eventId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -1551,19 +1551,19 @@ export interface RemoveHotelEventsRequest {
 }
 
 export interface RemoveHotelNotesRequest {
-    noteCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    noteCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveHotelRateRangesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -1572,51 +1572,51 @@ export interface RemoveHotelRateRangesRequest {
 }
 
 export interface RemoveHotelRestaurantsRequest {
-    restaurantCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    restaurantCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveJobTitlesRequest {
-    jobTitleCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    jobTitleCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveLanguagesRequest {
-    languageCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    languageCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveMarketingCitiesRequest {
-    cityCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cityCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     regionCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTelephoneBookCategoriesRequest {
-    categoryCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    categoryCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     description?: Array<string>;
     orderBy?: Array<number>;
     generic?: Array<boolean>;
@@ -1625,66 +1625,66 @@ export interface RemoveTelephoneBookCategoriesRequest {
 }
 
 export interface RemoveTelephoneBookEntriesRequest {
-    entryId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    entryId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     idContext?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTelephoneBookEntriesWithoutHotelIdRequest {
-    entryId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    entryId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     idContext?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateAirportsRequest {
-    airportCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    airportCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateAmenitiesRequest {
-    featureCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    featureCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateCountriesRequest {
-    countryCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    countryCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateDayTypeCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     templateDayTypeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateHotelDetailsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     templateHotelDetailCode?: Array<string>;
     templateHotelDetailCategory?: Array<string>;
     xExternalsystem?: string;
@@ -1692,30 +1692,30 @@ export interface RemoveTemplateHotelDetailsRequest {
 }
 
 export interface RemoveTemplateJobTitlesRequest {
-    jobTitleCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    jobTitleCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateMarketingCitiesRequest {
-    cityCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cityCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     regionCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTransportationRequest {
-    transportationCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    transportationCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     label?: Array<string>;
     orderBy?: Array<number>;
     createDateTime?: string;
@@ -1746,59 +1746,59 @@ export interface RemoveTransportationRequest {
 }
 
 export interface RemoveTransportationTemplatesRequest {
-    transportationCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    transportationCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveYieldAdjustmentCodesRequest {
-    yieldAdjustmentCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    yieldAdjustmentCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveYieldCategoriesRequest {
-    code: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    code?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveYieldMarketTypesRequest {
-    code: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    code?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetDayTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    setDayTypes: SetDayTypes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    setDayTypes?: SetDayTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetHotelEventsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    setHotelEvents: SetHotelEvents;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    setHotelEvents?: SetHotelEvents;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

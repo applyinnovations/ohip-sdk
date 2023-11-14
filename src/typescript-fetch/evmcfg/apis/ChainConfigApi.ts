@@ -53,37 +53,37 @@ import {
 } from '../models/index';
 
 export interface ChangeFunctionSpaceEventTypesRequest {
-    eventTypeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    functionSpaceEventTypesToBeChanged: FunctionSpaceEventTypesToBeChanged;
+    eventTypeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    functionSpaceEventTypesToBeChanged?: FunctionSpaceEventTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteFunctionSpaceTypesRequest {
-    functionSpaceTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    functionSpaceTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteMealTypesRequest {
-    mealTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    mealTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetFunctionSpaceEventTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     codes?: Array<string>;
     description?: string;
     xExternalsystem?: string;
@@ -91,9 +91,9 @@ export interface GetFunctionSpaceEventTypesRequest {
 }
 
 export interface GetFunctionSpaceTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -103,9 +103,9 @@ export interface GetFunctionSpaceTypesRequest {
 }
 
 export interface GetMealTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -115,57 +115,57 @@ export interface GetMealTypesRequest {
 }
 
 export interface PostFunctionSpaceEventTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    functionSpaceEventTypesCriteria: FunctionSpaceEventTypesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    functionSpaceEventTypesCriteria?: FunctionSpaceEventTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostFunctionSpaceTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    functionSpaceTypesCriteria: FunctionSpaceTypesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    functionSpaceTypesCriteria?: FunctionSpaceTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostMealTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    mealTypesCriteria: MealTypesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    mealTypesCriteria?: MealTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutFunctionSpaceTypesRequest {
-    functionSpaceTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    functionSpaceTypesToBeChanged: FunctionSpaceTypesToBeChanged;
+    functionSpaceTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    functionSpaceTypesToBeChanged?: FunctionSpaceTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutMealTypesRequest {
-    mealTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    mealTypesToBeChanged: MealTypesToBeChanged;
+    mealTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    mealTypesToBeChanged?: MealTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveFunctionSpaceEventTypesRequest {
-    eventTypeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    eventTypeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

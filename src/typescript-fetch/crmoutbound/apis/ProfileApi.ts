@@ -29,11 +29,11 @@ import {
 } from '../models/index';
 
 export interface PostMembershipNumberRequest {
-    extSystemCode: string;
-    membershipType: string;
-    authorization: string;
-    xAppKey: string;
-    membershipNumber: MembershipNumber;
+    extSystemCode?: string;
+    membershipType?: string;
+    authorization?: string;
+    xAppKey?: string;
+    membershipNumber?: MembershipNumber;
     xTransactionId?: string;
     acceptLanguage?: string;
 }

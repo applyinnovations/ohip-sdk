@@ -12,30 +12,30 @@
 import * as runtime from '../runtime';
 import type { PromotionCouponValidationDetails } from '../models/index';
 export interface ValidateRateCouponRequest {
-    couponCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    couponCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateRatePromotionRequest {
-    promotionCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    promotionCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface ValidateRatePromotionCouponRequest {
-    hotelId: string;
-    couponCode: string;
-    promotionCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    couponCode?: string;
+    promotionCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     startDate?: Date;
     endDate?: Date;
     xExternalsystem?: string;

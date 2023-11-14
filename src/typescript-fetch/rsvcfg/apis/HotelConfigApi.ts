@@ -206,269 +206,269 @@ import {
 } from '../models/index';
 
 export interface ChangeCancellationPolicyRequest {
-    cancelpolicycode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cancellationPolicyToBeChanged: CancellationPolicyToBeChanged;
+    cancelpolicycode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cancellationPolicyToBeChanged?: CancellationPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeDepositPolicyRequest {
-    depositpolicycode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    depositPolicyToBeChanged: DepositPolicyToBeChanged;
+    depositpolicycode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    depositPolicyToBeChanged?: DepositPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeGuaranteeCodeRequest {
-    guaranteeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    guaranteeCodeToBeChanged: GuaranteeCodeToBeChanged;
+    guaranteeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    guaranteeCodeToBeChanged?: GuaranteeCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeGuaranteeCodeScheduleRequest {
-    policyScheduleId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    guaranteeCodeScheduleToBeChanged: GuaranteeCodeScheduleToBeChanged;
+    policyScheduleId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    guaranteeCodeScheduleToBeChanged?: GuaranteeCodeScheduleToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeMarketCodeRequest {
-    marketcode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    marketCodeToBeChanged: MarketCodeToBeChanged;
+    marketcode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    marketCodeToBeChanged?: MarketCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeMarketGroupRequest {
-    marketGroupCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    marketGroupToBeChanged: MarketGroupToBeChanged;
+    marketGroupCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    marketGroupToBeChanged?: MarketGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangePolicyScheduleRequest {
-    policyscheduleId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    policyScheduleToBeChanged: PolicyScheduleToBeChanged;
+    policyscheduleId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    policyScheduleToBeChanged?: PolicyScheduleToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangePreCheckInRulesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    preCheckInRulesToBeChanged: PreCheckInRulesToBeChanged;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    preCheckInRulesToBeChanged?: PreCheckInRulesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeServiceRequestCodePrioritiesRequest {
-    serviceRequestCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    serviceRequestCodePrioritiesToBeChanged: ServiceRequestCodePrioritiesToBeChanged;
+    serviceRequestCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    serviceRequestCodePrioritiesToBeChanged?: ServiceRequestCodePrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeServiceRequestCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    serviceRequestCodesToBeChanged: ServiceRequestCodesToBeChanged;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    serviceRequestCodesToBeChanged?: ServiceRequestCodesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeSourceCodeRequest {
-    sourceCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    sourceCodeToBeChanged: SourceCodeToBeChanged;
+    sourceCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    sourceCodeToBeChanged?: SourceCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeSourceGroupRequest {
-    sourceGroupCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    sourceGroupToBeChanged: SourceGroupToBeChanged;
+    sourceGroupCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    sourceGroupToBeChanged?: SourceGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateCancellationPolicyRequest {
-    cancelpolicytemplate: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateCancellationPolicyToBeChanged: TemplateCancellationPolicyToBeChanged;
+    cancelpolicytemplate?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateCancellationPolicyToBeChanged?: TemplateCancellationPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateDepositPolicyRequest {
-    depositpolicytemplate: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateDepositPolicyToBeChanged: TemplateDepositPolicyToBeChanged;
+    depositpolicytemplate?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateDepositPolicyToBeChanged?: TemplateDepositPolicyToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateGuaranteeCodeRequest {
-    guaranteeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateGuaranteeCodeToBeChanged: TemplateGuaranteeCodeToBeChanged;
+    guaranteeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateGuaranteeCodeToBeChanged?: TemplateGuaranteeCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateMarketCodeRequest {
-    marketcode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateMarketCodeToBeChanged: TemplateMarketCodeToBeChanged;
+    marketcode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateMarketCodeToBeChanged?: TemplateMarketCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateMarketGroupRequest {
-    marketGroupCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateMarketGroupToBeChanged: TemplateMarketGroupToBeChanged;
+    marketGroupCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateMarketGroupToBeChanged?: TemplateMarketGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateSourceCodeRequest {
-    sourceCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateSourceCodeToBeChanged: TemplateSourceCodeToBeChanged;
+    sourceCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateSourceCodeToBeChanged?: TemplateSourceCodeToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateSourceGroupRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateSourceGroupToBeChanged: TemplateSourceGroupToBeChanged;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateSourceGroupToBeChanged?: TemplateSourceGroupToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyGuaranteeCodeSchedulesRequest {
-    policyScheduleId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyGuaranteeCodeSchedules: CopyGuaranteeCodeSchedules;
+    policyScheduleId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyGuaranteeCodeSchedules?: CopyGuaranteeCodeSchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyPolicySchedulesRequest {
-    policyscheduleId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyPolicySchedules: CopyPolicySchedules;
+    policyscheduleId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyPolicySchedules?: CopyPolicySchedules;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyServiceRequestCodesRequest {
-    sourceHotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    copyServiceRequestCodes: CopyServiceRequestCodes;
+    sourceHotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    copyServiceRequestCodes?: CopyServiceRequestCodes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteCancellationPolicyRequest {
-    cancelpolicycode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cancelpolicycode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteDepositPolicyRequest {
-    depositpolicycode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    depositpolicycode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteGuaranteeCodeRequest {
-    guaranteeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    guaranteeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteGuaranteeCodeScheduleRequest {
-    policyScheduleId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    policyScheduleId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
@@ -476,11 +476,11 @@ export interface DeleteGuaranteeCodeScheduleRequest {
 }
 
 export interface DeletePolicyScheduleRequest {
-    policyscheduleId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    policyscheduleId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     idContext?: string;
     type?: string;
     xExternalsystem?: string;
@@ -488,38 +488,38 @@ export interface DeletePolicyScheduleRequest {
 }
 
 export interface DeleteTemplateCancellationPolicyRequest {
-    cancelpolicytemplate: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    cancelpolicytemplate?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     policyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateDepositPolicyRequest {
-    depositpolicytemplate: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    depositpolicytemplate?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     policyCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateGuaranteeCodeRequest {
-    guaranteeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    guaranteeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetCancellationPolicyRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -530,9 +530,9 @@ export interface GetCancellationPolicyRequest {
 }
 
 export interface GetDepositPolicyRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -543,10 +543,10 @@ export interface GetDepositPolicyRequest {
 }
 
 export interface GetGuaranteeCodeSchedulesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -563,9 +563,9 @@ export interface GetGuaranteeCodeSchedulesRequest {
 }
 
 export interface GetGuaranteeCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -576,9 +576,9 @@ export interface GetGuaranteeCodesRequest {
 }
 
 export interface GetMarketCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -590,9 +590,9 @@ export interface GetMarketCodesRequest {
 }
 
 export interface GetMarketGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -604,10 +604,10 @@ export interface GetMarketGroupsRequest {
 }
 
 export interface GetPolicySchedulesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -629,10 +629,10 @@ export interface GetPolicySchedulesRequest {
 }
 
 export interface GetPreCheckInRulesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     date?: Date;
     ruleType?: GetPreCheckInRulesRuleTypeEnum;
     xExternalsystem?: string;
@@ -640,9 +640,9 @@ export interface GetPreCheckInRulesRequest {
 }
 
 export interface GetServiceRequestCodeRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -654,11 +654,11 @@ export interface GetServiceRequestCodeRequest {
 }
 
 export interface GetServiceRequestCodePrioritiesRequest {
-    serviceRequestCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    serviceRequestCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     wildCard?: string;
     description?: string;
@@ -667,9 +667,9 @@ export interface GetServiceRequestCodePrioritiesRequest {
 }
 
 export interface GetServiceRequestCodePriorityRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     serviceRequestCodes?: Array<string>;
     wildCard?: string;
@@ -680,10 +680,10 @@ export interface GetServiceRequestCodePriorityRequest {
 }
 
 export interface GetServiceRequestCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     serviceRequestCodes?: Array<string>;
@@ -694,10 +694,10 @@ export interface GetServiceRequestCodesRequest {
 }
 
 export interface GetSourceCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -709,10 +709,10 @@ export interface GetSourceCodesRequest {
 }
 
 export interface GetSourceGroupsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     pageNumber?: number;
@@ -724,9 +724,9 @@ export interface GetSourceGroupsRequest {
 }
 
 export interface GetTemplateCancellationPolicyRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -737,9 +737,9 @@ export interface GetTemplateCancellationPolicyRequest {
 }
 
 export interface GetTemplateDepositPolicyRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     hotelIds?: Array<string>;
@@ -750,9 +750,9 @@ export interface GetTemplateDepositPolicyRequest {
 }
 
 export interface GetTemplateGuaranteeCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     guaranteeCodes?: Array<string>;
@@ -762,9 +762,9 @@ export interface GetTemplateGuaranteeCodesRequest {
 }
 
 export interface GetTemplateMarketCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     templateMarketCodes?: Array<string>;
@@ -775,9 +775,9 @@ export interface GetTemplateMarketCodesRequest {
 }
 
 export interface GetTemplateMarketGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     templateMarketCodes?: Array<string>;
@@ -788,9 +788,9 @@ export interface GetTemplateMarketGroupsRequest {
 }
 
 export interface GetTemplateSourceCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     templateSourceCodes?: Array<string>;
@@ -801,9 +801,9 @@ export interface GetTemplateSourceCodesRequest {
 }
 
 export interface GetTemplateSourceGroupsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     pageNumber?: number;
     templateSourceCodes?: Array<string>;
@@ -814,230 +814,230 @@ export interface GetTemplateSourceGroupsRequest {
 }
 
 export interface PostCancellationPolicyRequest {
-    cancelpolicycode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    cancellationPolicyCriteria: CancellationPolicyCriteria;
+    cancelpolicycode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    cancellationPolicyCriteria?: CancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostDepositPolicyRequest {
-    depositpolicycode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    depositPolicyCriteria: DepositPolicyCriteria;
+    depositpolicycode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    depositPolicyCriteria?: DepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostGuaranteeCodeRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    guaranteeCodeCriteria: GuaranteeCodeCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    guaranteeCodeCriteria?: GuaranteeCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostGuaranteeCodeScheduleRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    guaranteeCodeScheduleCriteria: GuaranteeCodeScheduleCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    guaranteeCodeScheduleCriteria?: GuaranteeCodeScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostMarketCodeRequest {
-    marketcode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    marketCodeCriteria: MarketCodeCriteria;
+    marketcode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    marketCodeCriteria?: MarketCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostMarketGroupRequest {
-    marketGroupCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    marketGroupCriteria: MarketGroupCriteria;
+    marketGroupCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    marketGroupCriteria?: MarketGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostNewPolicyScheduleRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    policyScheduleCriteria: PolicyScheduleCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    policyScheduleCriteria?: PolicyScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPolicyScheduleRequest {
-    policyscheduleId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    policyScheduleCriteria: PolicyScheduleCriteria;
+    policyscheduleId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    policyScheduleCriteria?: PolicyScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostPreCheckInRulesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    preCheckInRulesCriteria: PreCheckInRulesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    preCheckInRulesCriteria?: PreCheckInRulesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostServiceRequestCodePrioritiesRequest {
-    serviceRequestCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    serviceRequestCodePrioritiesCriteria: ServiceRequestCodePrioritiesCriteria;
+    serviceRequestCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    serviceRequestCodePrioritiesCriteria?: ServiceRequestCodePrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostServiceRequestCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    serviceRequestCodesCriteria: ServiceRequestCodesCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    serviceRequestCodesCriteria?: ServiceRequestCodesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostSourceCodeRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    sourceCodeCriteria: SourceCodeCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    sourceCodeCriteria?: SourceCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostSourceGroupRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    sourceGroupCriteria: SourceGroupCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    sourceGroupCriteria?: SourceGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateCancellationPolicyRequest {
-    cancelpolicytemplate: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateCancellationPolicyCriteria: TemplateCancellationPolicyCriteria;
+    cancelpolicytemplate?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateCancellationPolicyCriteria?: TemplateCancellationPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateDepositPolicyRequest {
-    depositpolicytemplate: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateDepositPolicyCriteria: TemplateDepositPolicyCriteria;
+    depositpolicytemplate?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateDepositPolicyCriteria?: TemplateDepositPolicyCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateGuaranteeCodeRequest {
-    guaranteeCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateGuaranteeCodeCriteria: TemplateGuaranteeCodeCriteria;
+    guaranteeCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateGuaranteeCodeCriteria?: TemplateGuaranteeCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateMarketCodeRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateMarketCodeCriteria: TemplateMarketCodeCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateMarketCodeCriteria?: TemplateMarketCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateMarketGroupRequest {
-    marketGroupCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateMarketGroupCriteria: TemplateMarketGroupCriteria;
+    marketGroupCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateMarketGroupCriteria?: TemplateMarketGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateSourceCodeRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateSourceCodeCriteria: TemplateSourceCodeCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateSourceCodeCriteria?: TemplateSourceCodeCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateSourceGroupRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateSourceGroupCriteria: TemplateSourceGroupCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateSourceGroupCriteria?: TemplateSourceGroupCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveMarketCodeRequest {
-    marketcode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    marketcode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveMarketGroupRequest {
-    marketGroupCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    marketGroupCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemovePreCheckInRulesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     ruleType?: Set<RemovePreCheckInRulesRuleTypeEnum>;
     startDate?: Date;
     endDate?: Date;
@@ -1065,79 +1065,79 @@ export interface RemovePreCheckInRulesRequest {
 }
 
 export interface RemoveServiceRequestCodePrioritiesRequest {
-    serviceRequestCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    serviceRequestCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveServiceRequestCodesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     serviceRequestCode?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSourceCodeRequest {
-    sourceCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    sourceCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSourceGroupRequest {
-    sourceGroupCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    sourceGroupCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateMarketCodeRequest {
-    marketcode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    marketcode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     templateMarketCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateMarketGroupRequest {
-    marketGroupCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    marketGroupCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     templateMarketGroup?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateSourceCodeRequest {
-    sourceCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    sourceCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     templateSourceCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateSourceGroupRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     templateSourceGroup?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;

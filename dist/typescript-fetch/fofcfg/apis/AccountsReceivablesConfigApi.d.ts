@@ -12,37 +12,37 @@
 import * as runtime from '../runtime';
 import type { ArAccountTypes, ArFlaggedReasons, Status } from '../models/index';
 export interface DeleteARAccountTypesRequest {
-    hotelId: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     accountTypes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface DeleteARFlaggedReasonsRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     codes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetARAccountTypesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     accountType?: string;
     description?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface GetARFlaggedReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     reasonCodes?: Array<string>;
     reasonWildCard?: string;
     description?: string;
@@ -52,34 +52,34 @@ export interface GetARFlaggedReasonsRequest {
     acceptLanguage?: string;
 }
 export interface PostARAccountTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arAccountTypes: ArAccountTypes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arAccountTypes?: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PostARFlaggedReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arFlaggedReasons: ArFlaggedReasons;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arFlaggedReasons?: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutARAccountTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arAccountTypes: ArAccountTypes;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arAccountTypes?: ArAccountTypes;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 export interface PutARFlaggedReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arFlaggedReasons: ArFlaggedReasons;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arFlaggedReasons?: ArFlaggedReasons;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

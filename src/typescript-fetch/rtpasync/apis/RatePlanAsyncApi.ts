@@ -44,122 +44,122 @@ import {
 } from '../models/index';
 
 export interface GetBestAvailableRatePlansRequest {
-    requestId: string;
-    hotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    requestId?: string;
+    hotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBestAvailableRatePlansProcessStatusRequest {
-    requestId: string;
-    extSystemCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    requestId?: string;
+    extSystemCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetDailyRatePlanSchedulesRequest {
-    requestId: string;
-    hotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    requestId?: string;
+    hotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetDailyRatePlanSchedulesProcessStatusRequest {
-    requestId: string;
-    extSystemCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    requestId?: string;
+    extSystemCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHurdleRatesRequest {
-    hotelId: string;
-    extSystemCode: string;
-    requestId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    extSystemCode?: string;
+    requestId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHurdleRatesProcessStatusRequest {
-    requestId: string;
-    extSystemCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    requestId?: string;
+    extSystemCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRatePlansHeadersRequest {
-    hotelId: string;
-    extSystemCode: string;
-    requestId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    extSystemCode?: string;
+    requestId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRatePlansHeadersProcessStatusRequest {
-    requestId: string;
-    extSystemCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    requestId?: string;
+    extSystemCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     acceptLanguage?: string;
 }
 
 export interface StartHurdleRatesProcessRequest {
-    hotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    hurdleRates: HurdleRates;
+    hotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    hurdleRates?: HurdleRates;
     acceptLanguage?: string;
 }
 
 export interface StartSetBestAvailableRatePlansProcessRequest {
-    hotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    bestAvailableRatePlans: BestAvailableRatePlans;
+    hotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    bestAvailableRatePlans?: BestAvailableRatePlans;
     acceptLanguage?: string;
 }
 
 export interface StartSetDailyRatePlanSchedulesProcessRequest {
-    hotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    dailyRatePlanSchedules: DailyRatePlanSchedules;
+    hotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    dailyRatePlanSchedules?: DailyRatePlanSchedules;
     acceptLanguage?: string;
 }
 
 export interface StartSetRatePlansHeadersProcessRequest {
-    hotelId: string;
-    extSystemCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    ratePlan: RatePlans;
+    hotelId?: string;
+    extSystemCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    ratePlan?: RatePlans;
     acceptLanguage?: string;
 }
 

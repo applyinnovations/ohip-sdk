@@ -26,9 +26,9 @@ import {
 } from '../models/index';
 
 export interface GetCurrenciesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

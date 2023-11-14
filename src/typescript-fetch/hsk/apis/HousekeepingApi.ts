@@ -185,86 +185,86 @@ import {
 } from '../models/index';
 
 export interface AutoGenerateTaskSheetsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheets: TaskSheets;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheets?: TaskSheets;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CancelServicingTaskRoomRequest {
-    sheetNumber: string;
-    roomId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskRoom: TaskRoom;
+    sheetNumber?: string;
+    roomId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskRoom?: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CompleteOutOfOrderRoomsOperationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    completeRoomRepair: CompleteOutOfOrderRoomsRequest;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    completeRoomRepair?: CompleteOutOfOrderRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CompleteOutOfServiceRoomsOperationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    completeRoomRepair: CompleteOutOfServiceRoomsRequest;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    completeRoomRepair?: CompleteOutOfServiceRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CompleteServicingTaskRoomRequest {
-    sheetNumber: string;
-    roomId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskRoom: TaskRoom;
+    sheetNumber?: string;
+    roomId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskRoom?: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteHouseKeepingTaskSheetsRequest {
-    hotelId: string;
-    taskCodesBreakOutId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    taskCodesBreakOutId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteHousekeepingAttendantScheduleRequest {
-    hotelId: string;
-    scheduleDate: Date;
-    attendantId: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    scheduleDate?: Date;
+    attendantId?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteReservationHousekeepingTasksRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     customized?: boolean;
     cycleStartDay?: number;
     endDate?: Date;
@@ -288,34 +288,34 @@ export interface DeleteReservationHousekeepingTasksRequest {
 }
 
 export interface DeleteRoomMaintenanceRequest {
-    mainteananceId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    mainteananceId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTaskSheetRequest {
-    hotelId: string;
-    sheetNumber: number;
-    taskCodes: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    sheetNumber?: number;
+    taskCodes?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     date?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTaskSheetRoomsRequest {
-    hotelId: string;
-    sheetNumber: number;
-    taskCodes: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    sheetNumber?: number;
+    taskCodes?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     date?: Date;
     roomId?: Array<string>;
     xExternalsystem?: string;
@@ -323,42 +323,42 @@ export interface DeleteTaskSheetRoomsRequest {
 }
 
 export interface DeleteTaskSheetTemplateRequest {
-    taskSheetTemplateCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    taskSheetTemplateCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface EditReservationHousekeepingTasksRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    schedule: Schedule;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    schedule?: Schedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface EndServiceBreakRequest {
-    taskSheetNumber: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskRoom: TaskRoom;
+    taskSheetNumber?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskRoom?: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetFacilityForecastRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     startDate?: Date;
     endDate?: Date;
     duration?: string;
@@ -369,11 +369,11 @@ export interface GetFacilityForecastRequest {
 }
 
 export interface GetGuestHousekeepingNotesRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     room?: string;
@@ -383,11 +383,11 @@ export interface GetGuestHousekeepingNotesRequest {
 }
 
 export interface GetHouseKeepingTasksRequest {
-    hotelId: string;
-    taskDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    taskDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     attendantInRoomOnly?: boolean;
     generateCleaningSequence?: boolean;
     includeReservationInfo?: boolean;
@@ -414,21 +414,21 @@ export interface GetHouseKeepingTasksRequest {
 }
 
 export interface GetHousekeepingAttendantsScheduleRequest {
-    hotelId: string;
-    scheduleStartDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    scheduleStartDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     scheduleEndDate?: Date;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetHousekeepingDiscrepanciesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomDiscrepancyStatus?: Set<GetHousekeepingDiscrepanciesRoomDiscrepancyStatusEnum>;
     fromRoomNumber?: string;
     toRoomNumber?: string;
@@ -442,10 +442,10 @@ export interface GetHousekeepingDiscrepanciesRequest {
 }
 
 export interface GetHousekeepingOverviewRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     housekeepingRoomStatus?: Set<GetHousekeepingOverviewHousekeepingRoomStatusEnum>;
@@ -474,11 +474,11 @@ export interface GetHousekeepingOverviewRequest {
 }
 
 export interface GetOutOfOrderRoomsRequest {
-    hotelId: string;
-    startDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    startDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomId?: string;
     endDate?: Date;
     roomTypes?: Array<string>;
@@ -488,11 +488,11 @@ export interface GetOutOfOrderRoomsRequest {
 }
 
 export interface GetOutOfServiceRoomsRequest {
-    hotelId: string;
-    startDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    startDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomId?: string;
     endDate?: Date;
     roomTypes?: Array<string>;
@@ -502,11 +502,11 @@ export interface GetOutOfServiceRoomsRequest {
 }
 
 export interface GetReservationHousekeepingScheduleRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     reservationIdContext?: string;
     reservationIdType?: string;
     beginDate?: Date;
@@ -517,10 +517,10 @@ export interface GetReservationHousekeepingScheduleRequest {
 }
 
 export interface GetRoomConditionsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomConditionsOnly?: boolean;
     roomWithoutConditionsOnly?: boolean;
     room?: string;
@@ -544,10 +544,10 @@ export interface GetRoomConditionsRequest {
 }
 
 export interface GetRoomMaintenanceRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomIdText?: string;
     roomId?: string;
     roomClasses?: Array<string>;
@@ -568,12 +568,12 @@ export interface GetRoomMaintenanceRequest {
 }
 
 export interface GetTaskCompanionRequest {
-    sheetNumber: string;
-    hotelId: string;
-    taskCodes: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    sheetNumber?: string;
+    hotelId?: string;
+    taskCodes?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     taskDate?: Date;
     roomId?: string;
     skipRoomNumbers?: Array<string>;
@@ -583,310 +583,310 @@ export interface GetTaskCompanionRequest {
 }
 
 export interface GetTaskSheetTemplateRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     templateCode?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface LockTaskSheetRequest {
-    sheetNumber: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheetToLock: TaskSheetToLock;
+    sheetNumber?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheetToLock?: TaskSheetToLock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface MergeTaskSheetRequest {
-    toTaskSequenceNo: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheetToMerge: TaskSheetToMerge;
+    toTaskSequenceNo?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheetToMerge?: TaskSheetToMerge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface MoveTaskRoomsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    moveTaskRooms: MoveTaskRooms;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    moveTaskRooms?: MoveTaskRooms;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostHousekeepingAttendantScheduleRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    attendantSchedule: AttendantSchedule;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    attendantSchedule?: AttendantSchedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostOutOfOrderRoomsOperationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomRepairOutOfOrder: PostOutOfOrderRoomsRequest;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomRepairOutOfOrder?: PostOutOfOrderRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostOutOfServiceRoomsOperationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomRepairOutOfService: PostOutOfServiceRoomsRequest;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomRepairOutOfService?: PostOutOfServiceRoomsRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostReservationHousekeepingTasksRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    schedule: Schedule;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    schedule?: Schedule;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRoomMaintenanceRequest {
-    maintenanceCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomMaintenanceRequest: RoomMaintenanceRequest;
+    maintenanceCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomMaintenanceRequest?: RoomMaintenanceRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTaskSheetRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheet: TaskSheet;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheet?: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTaskSheetRoomsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheet: TaskSheet;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheet?: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomCleaningPriorityRequest {
-    hotelId: string;
-    roomId: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    roomId?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomMaintenanceRequest {
-    maintenanceId: string;
-    roomId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomMaintenance: RoomMaintenance;
+    maintenanceId?: string;
+    roomId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomMaintenance?: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomRelatedStatusOperationRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    housekeepingRoomStatusCriteria: PutRoomRelatedStatusRequest;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    housekeepingRoomStatusCriteria?: PutRoomRelatedStatusRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutTaskSheetRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheet: TaskSheet;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheet?: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutTaskSheetRoomsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheet: TaskSheet;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheet?: TaskSheet;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutTaskSheetTemplateRequest {
-    taskSheetTemplateCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheetTemplate: TaskSheetTemplate;
+    taskSheetTemplateCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheetTemplate?: TaskSheetTemplate;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ResetReservationHousekeepingScheduleRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    scheduleSearch: ScheduleSearch;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    scheduleSearch?: ScheduleSearch;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ResolveRoomMaintenanceRequest {
-    mainteananceId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomMaintenance: RoomMaintenance;
+    mainteananceId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomMaintenance?: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetGuestHousekeepingNotesRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    guestHousekeepingServiceRequest: GuestHousekeepingServiceRequest;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    guestHousekeepingServiceRequest?: GuestHousekeepingServiceRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetGuestHousekeepingServiceRequestRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    guestHousekeepingServiceRequestCriteria: GuestHousekeepingServiceRequestCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    guestHousekeepingServiceRequestCriteria?: GuestHousekeepingServiceRequestCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetRoomCleaningPriorityRequest {
-    roomId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomCleaningPriority: RoomCleaningPriority;
+    roomId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomCleaningPriority?: RoomCleaningPriority;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetRoomConditionRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomCondition: RoomCondition;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomCondition?: RoomCondition;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ShiftReservationHousekeepingScheduleRequest {
-    reservationId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    scheduleShiftRequest: ScheduleShiftRequest;
+    reservationId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    scheduleShiftRequest?: ScheduleShiftRequest;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SkipServicingTaskRoomRequest {
-    sheetNumber: string;
-    roomId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskRoom: TaskRoom;
+    sheetNumber?: string;
+    roomId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskRoom?: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface StartServiceBreakRequest {
-    taskSheetNumber: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskRoom: TaskRoom;
+    taskSheetNumber?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskRoom?: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface StartServicingTaskRoomRequest {
-    sheetNumber: string;
-    roomId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskRoom: TaskRoom;
+    sheetNumber?: string;
+    roomId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskRoom?: TaskRoom;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface UnResolveRoomMaintenanceRequest {
-    mainteananceId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomMaintenance: RoomMaintenance;
+    mainteananceId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomMaintenance?: RoomMaintenance;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface UnlockTaskSheetRequest {
-    sheetNumber: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    taskSheetToUnlock: TaskSheetToUnlock;
+    sheetNumber?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    taskSheetToUnlock?: TaskSheetToUnlock;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

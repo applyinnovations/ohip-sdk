@@ -59,12 +59,12 @@ import {
 } from '../models/index';
 
 export interface DeleteBlockSalesAllowanceRangeRequest {
-    hotelId: string;
-    endDate: Date;
-    startDate: Date;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    endDate?: Date;
+    startDate?: Date;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     friday?: boolean;
     monday?: boolean;
     saturday?: boolean;
@@ -77,29 +77,29 @@ export interface DeleteBlockSalesAllowanceRangeRequest {
 }
 
 export interface DeleteBlockStatusCodeRequest {
-    blockStatusCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    blockStatusCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteWashScheduleRequest {
-    washScheduleCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    washScheduleCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBlockSalesAllowanceRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     endDateRange?: Date;
     startDateRange?: Date;
     includeRestricted?: boolean;
@@ -109,18 +109,18 @@ export interface GetBlockSalesAllowanceRequest {
 }
 
 export interface GetBlockStatusCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     blockStatusCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetNextBlockStatusCodesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     configuredOnly?: boolean;
     blockStatusCodes?: Array<string>;
     xExternalsystem?: string;
@@ -128,11 +128,11 @@ export interface GetNextBlockStatusCodesRequest {
 }
 
 export interface GetSalesManagerGoalsRequest {
-    salesManagerId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    salesManagerId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     future?: boolean;
@@ -142,10 +142,10 @@ export interface GetSalesManagerGoalsRequest {
 }
 
 export interface GetSalesManagerGoalsMultipleHotelIdsRequest {
-    salesManagerId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    salesManagerId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -156,10 +156,10 @@ export interface GetSalesManagerGoalsMultipleHotelIdsRequest {
 }
 
 export interface GetSalesManagersRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     ownerCodes?: Array<string>;
@@ -170,10 +170,10 @@ export interface GetSalesManagersRequest {
 }
 
 export interface GetSalesManagersMultipleHotelIdsRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     ownerCodes?: Array<string>;
@@ -184,9 +184,9 @@ export interface GetSalesManagersMultipleHotelIdsRequest {
 }
 
 export interface GetWashScheduleRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     washCodes?: Array<string>;
     wildCard?: string;
@@ -195,104 +195,104 @@ export interface GetWashScheduleRequest {
 }
 
 export interface PostBlockStatusCodeRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    blockStatusCodeDetails: BlockStatusCodeDetails;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    blockStatusCodeDetails?: BlockStatusCodeDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostSalesManagerGoalsRequest {
-    salesManagerId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    createSalesManagerGoals: CreateSalesManagerGoals;
+    salesManagerId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    createSalesManagerGoals?: CreateSalesManagerGoals;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostWashScheduleRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    washScheduleCriteria: WashScheduleCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    washScheduleCriteria?: WashScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBlockStatusCodeRequest {
-    blockStatusCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    blockStatusCodeDetails: BlockStatusCodeDetails;
+    blockStatusCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    blockStatusCodeDetails?: BlockStatusCodeDetails;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutNextBlockStatusCodesRequest {
-    srcBlockStatusCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    nextBlockStatusCode: NextBlockStatusCode;
+    srcBlockStatusCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    nextBlockStatusCode?: NextBlockStatusCode;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutSalesManagerGoalsRequest {
-    salesGoalId: string;
-    salesManagerId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    salesManagerGoalsInfo: SalesManagerGoalsInfo;
+    salesGoalId?: string;
+    salesManagerId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    salesManagerGoalsInfo?: SalesManagerGoalsInfo;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutWashScheduleRequest {
-    washScheduleCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    washScheduleCriteria: WashScheduleCriteria;
+    washScheduleCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    washScheduleCriteria?: WashScheduleCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSalesManagerGoalRequest {
-    salesGoalId: string;
-    salesManagerId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    salesGoalId?: string;
+    salesManagerId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveSalesManagerGoalsRequest {
-    salesManagerId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    salesManagerId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     salesGoalId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface SetBlockSalesAllowanceRangeRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    blockSalesAllowanceRange: BlockSalesAllowanceRange;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    blockSalesAllowanceRange?: BlockSalesAllowanceRange;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

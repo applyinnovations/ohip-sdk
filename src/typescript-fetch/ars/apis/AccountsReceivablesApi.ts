@@ -152,43 +152,43 @@ import {
 } from '../models/index';
 
 export interface CompressARInvoicesRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arCompressInvoices: ArCompressInvoices;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arCompressInvoices?: ArCompressInvoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface CopyARAccountRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arAccountCopy: ArAccountCopy;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arAccountCopy?: ArAccountCopy;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAccountRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAccountCommentRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     id?: string;
     value?: string;
     hotel?: string;
@@ -197,22 +197,22 @@ export interface DeleteAccountCommentRequest {
 }
 
 export interface DeleteAccountFixedChargeRequest {
-    fixedChargeId: string;
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    fixedChargeId?: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteAccountTraceRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     traceID?: string;
     traceOn?: string;
     traceText?: string;
@@ -221,14 +221,14 @@ export interface DeleteAccountTraceRequest {
 }
 
 export interface DeletePaymentsFromInvoiceRequest {
-    transactionId: string;
-    invoiceId: string;
-    hotelId: string;
-    trxNo: Array<number>;
-    accountId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    transactionId?: string;
+    invoiceId?: string;
+    hotelId?: string;
+    trxNo?: Array<number>;
+    accountId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     cashierID?: number;
     invoiceNo?: number;
     xExternalsystem?: string;
@@ -236,20 +236,20 @@ export interface DeletePaymentsFromInvoiceRequest {
 }
 
 export interface GetARAgingCyclesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetARCreditCardPaymentsRequest {
-    transactionId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    transactionId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     endDate?: Date;
     startDate?: Date;
     limit?: number;
@@ -259,11 +259,11 @@ export interface GetARCreditCardPaymentsRequest {
 }
 
 export interface GetARFolioPrintersRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     balance?: number;
     overrideCreditHoldCheck?: boolean;
     cashierId?: number;
@@ -300,9 +300,9 @@ export interface GetARFolioPrintersRequest {
 }
 
 export interface GetARStatementsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: Array<string>;
     profileId?: Array<string>;
     profileIdContext?: string;
@@ -435,10 +435,10 @@ export interface GetARStatementsRequest {
 }
 
 export interface GetARTransactionsRequest {
-    hotelIds: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelIds?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     accounts?: string;
     endDate?: Date;
     startDate?: Date;
@@ -457,11 +457,11 @@ export interface GetARTransactionsRequest {
 }
 
 export interface GetAccountRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     accountNo?: string;
     profileId?: string;
     profileIdContext?: string;
@@ -472,9 +472,9 @@ export interface GetAccountRequest {
 }
 
 export interface GetAccountsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     balance?: GetAccountsBalanceEnum;
     batchStatement?: boolean;
     limit?: number;
@@ -500,37 +500,37 @@ export interface GetAccountsRequest {
 }
 
 export interface GetAppliedInvoicePaymentsRequest {
-    accountId: string;
-    transactionId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    transactionId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetInvoiceAppliedPaymentsRequest {
-    accountId: string;
-    transactionId: string;
-    invoiceId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    transactionId?: string;
+    invoiceId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     invoiceNo?: number;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetInvoicePaymentDetailRequest {
-    transactionId: string;
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    transactionId?: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     profileId?: string;
     profileIdContext?: string;
     profileType?: string;
@@ -541,9 +541,9 @@ export interface GetInvoicePaymentDetailRequest {
 }
 
 export interface GetInvoicePostingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     canBeModified?: boolean;
     closeDate?: Date;
     fiscalBillNo?: string;
@@ -678,10 +678,10 @@ export interface GetInvoicePostingsRequest {
 }
 
 export interface GetInvoicesOnHoldRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     profileId?: string;
     profileIdContext?: string;
     profileType?: string;
@@ -701,10 +701,10 @@ export interface GetInvoicesOnHoldRequest {
 }
 
 export interface GetInvoicesPaymentsRequest {
-    accountId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     inclDetails?: boolean;
     inclZeroBalance?: boolean;
     limit?: number;
@@ -731,10 +731,10 @@ export interface GetInvoicesPaymentsRequest {
 }
 
 export interface GetProfileAgingRequest {
-    profileId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    profileId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     currency?: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
@@ -742,10 +742,10 @@ export interface GetProfileAgingRequest {
 }
 
 export interface GetProfileYearViewRequest {
-    profileId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    profileId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     currency?: string;
     hotelIds?: Array<string>;
     xExternalsystem?: string;
@@ -753,10 +753,10 @@ export interface GetProfileYearViewRequest {
 }
 
 export interface GetRemindersRequest {
-    accounts: Array<string>;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accounts?: Array<string>;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     profiles?: Array<string>;
     accountNo?: Array<string>;
@@ -766,10 +766,10 @@ export interface GetRemindersRequest {
 }
 
 export interface GetRemindersHistoryRequest {
-    accountId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: string;
     profileId?: string;
     accountIdContext?: string;
@@ -783,10 +783,10 @@ export interface GetRemindersHistoryRequest {
 }
 
 export interface GetStatementsRequest {
-    accountId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelId?: Array<string>;
     profileId?: string;
     profileIdContext?: string;
@@ -918,12 +918,12 @@ export interface GetStatementsRequest {
 }
 
 export interface GetStatementsHistoryRequest {
-    accountId: string;
-    profileId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    accountId?: string;
+    profileId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     accountNo?: string;
     accountName?: string;
     dateSent?: Date;
@@ -933,249 +933,249 @@ export interface GetStatementsHistoryRequest {
 }
 
 export interface PostARChargesRequest {
-    accountId: string;
-    profileId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arChargesPostingCriteria: ArChargesPostingCriteria;
+    accountId?: string;
+    profileId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arChargesPostingCriteria?: ArChargesPostingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAROldBalancesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arOldBalances: ArOldBalances;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arOldBalances?: ArOldBalances;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostARPaymentsRequest {
-    accountId: string;
-    profileId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arPaymentsToBeCreated: ArPaymentsToBeCreated;
+    accountId?: string;
+    profileId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arPaymentsToBeCreated?: ArPaymentsToBeCreated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAccountRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    accountCriteria: AccountCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    accountCriteria?: AccountCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAccountCommentRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    accountComment: AccountComment;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    accountComment?: AccountComment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAccountFixedChargeRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    accountFixedCharge: AccountFixedCharge;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    accountFixedCharge?: AccountFixedCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostAccountTraceRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    accountTrace: AccountTrace;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    accountTrace?: AccountTrace;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostBatchChargesRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    batchChargesToPost: BatchChargesToPost;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    batchChargesToPost?: BatchChargesToPost;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostChargesToARRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arChargesPostingCriteria: ArChargesPostingCriteria;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arChargesPostingCriteria?: ArChargesPostingCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostCreditToInvoicesRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    creditToInvoices: CreditToInvoices;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    creditToInvoices?: CreditToInvoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostInvoiceRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arInvoice: ArInvoice;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arInvoice?: ArInvoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRemindersRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    reminders: Reminders;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    reminders?: Reminders;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostReversePaymentRequest {
-    transactionId: string;
-    accountId: string;
-    profileId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    reversePayment: ReversePayment;
+    transactionId?: string;
+    accountId?: string;
+    profileId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    reversePayment?: ReversePayment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostStatementsRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    statementsToBeGenerated: StatementsToBeGenerated;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    statementsToBeGenerated?: StatementsToBeGenerated;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutARInvoicesAccountRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arInvoicesAccount: ArInvoicesAccount;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arInvoicesAccount?: ArInvoicesAccount;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAccountRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    account: Account;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    account?: Account;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAccountCommentRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    accountComment: AccountComment;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    accountComment?: AccountComment;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAccountFixedChargeRequest {
-    fixedChargeId: string;
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    accountFixedCharge: AccountFixedCharge;
+    fixedChargeId?: string;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    accountFixedCharge?: AccountFixedCharge;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutAccountTraceRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    accountTrace: AccountTrace;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    accountTrace?: AccountTrace;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutInvoiceRequest {
-    invoiceId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    invoice: Invoice;
+    invoiceId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    invoice?: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutInvoiceDetailsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    invoice: Invoice;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    invoice?: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutInvoicesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    invoices: Invoices;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    invoices?: Invoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemovePaymentsFromInvoiceRequest {
-    transactionId: string;
-    hotelId: string;
-    trxNo: Array<number>;
-    accountId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    transactionId?: string;
+    hotelId?: string;
+    trxNo?: Array<number>;
+    accountId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     cashierID?: number;
     invoiceNo?: number;
     xExternalsystem?: string;
@@ -1183,70 +1183,70 @@ export interface RemovePaymentsFromInvoiceRequest {
 }
 
 export interface ReopenInvoicesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    invoices: Invoices;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    invoices?: Invoices;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface TransferARCreditCardPaymentsRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    arCreditCardPaymentsToTransfer: ArCreditCardPaymentsToTransfer;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    arCreditCardPaymentsToTransfer?: ArCreditCardPaymentsToTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface TransferDirectBillsToArRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    transferDirectBillsToAr: TransferDirectBillsToAr;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    transferDirectBillsToAr?: TransferDirectBillsToAr;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface TransferInvoicesAndPaymentsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    invoicesAndPaymentsToTransfer: InvoicesAndPaymentsToTransfer;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    invoicesAndPaymentsToTransfer?: InvoicesAndPaymentsToTransfer;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface TransferPostingsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    transferPostings: TransferPostings;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    transferPostings?: TransferPostings;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface UncompressARInvoicesRequest {
-    accountId: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    invoice: Invoice;
+    accountId?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    invoice?: Invoice;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface UnlinkInvoiceFromStatementRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    unlinkInvoiceFromStatement: UnlinkInvoiceFromStatement;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    unlinkInvoiceFromStatement?: UnlinkInvoiceFromStatement;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

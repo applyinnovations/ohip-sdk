@@ -89,79 +89,79 @@ import {
 } from '../models/index';
 
 export interface ChangeRoomMoveReasonsRequest {
-    reasonCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomMoveReasonsToBeChanged: RoomMoveReasonsToBeChanged;
+    reasonCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomMoveReasonsToBeChanged?: RoomMoveReasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBedTypeRequestsRequest {
-    bedTypeRequestsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    bedTypeRequestsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     bedTypeRequestsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteBedTypesRequest {
-    bedTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    bedTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     bedTypeCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteFloorTypesRequest {
-    floorTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    floorTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     floorTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomPotentialsRequest {
-    roomPotentialsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    roomPotentialsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomPotentialsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRoomPreferencePrioritiesRequest {
-    roomPreferencePrioritiesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    roomPreferencePrioritiesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomPreferencePrioritiesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteSmokingTypesRequest {
-    smokingTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    smokingTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     smokingTypesCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetBedTypeRequestsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -171,9 +171,9 @@ export interface GetBedTypeRequestsRequest {
 }
 
 export interface GetBedTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -183,9 +183,9 @@ export interface GetBedTypesRequest {
 }
 
 export interface GetFloorTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -195,9 +195,9 @@ export interface GetFloorTypesRequest {
 }
 
 export interface GetRoomMoveReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -207,9 +207,9 @@ export interface GetRoomMoveReasonsRequest {
 }
 
 export interface GetRoomPotentialsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -219,9 +219,9 @@ export interface GetRoomPotentialsRequest {
 }
 
 export interface GetRoomPreferencePrioritiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -231,9 +231,9 @@ export interface GetRoomPreferencePrioritiesRequest {
 }
 
 export interface GetSmokingTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     fetchInactive?: boolean;
     codes?: Array<string>;
     wildCard?: string;
@@ -243,133 +243,133 @@ export interface GetSmokingTypesRequest {
 }
 
 export interface PostBedTypeRequestsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    bedTypeRequestsCriteria: BedTypeRequestsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    bedTypeRequestsCriteria?: BedTypeRequestsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostBedTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    bedTypesCriteria: BedTypesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    bedTypesCriteria?: BedTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostFloorTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    floorTypesCriteria: FloorTypesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    floorTypesCriteria?: FloorTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRoomMoveReasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomMoveReasonsCriteria: RoomMoveReasonsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomMoveReasonsCriteria?: RoomMoveReasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRoomPotentialsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomPotentialsCriteria: RoomPotentialsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomPotentialsCriteria?: RoomPotentialsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRoomPreferencePrioritiesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomPreferencePrioritiesCriteria: RoomPreferencePrioritiesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomPreferencePrioritiesCriteria?: RoomPreferencePrioritiesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostSmokingTypesRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    smokingTypesCriteria: SmokingTypesCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    smokingTypesCriteria?: SmokingTypesCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBedTypeRequestsRequest {
-    bedTypeRequestsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    bedTypeRequestsToBeChanged: BedTypeRequestsToBeChanged;
+    bedTypeRequestsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    bedTypeRequestsToBeChanged?: BedTypeRequestsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutBedTypesRequest {
-    bedTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    bedTypesToBeChanged: BedTypesToBeChanged;
+    bedTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    bedTypesToBeChanged?: BedTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutFloorTypesRequest {
-    floorTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    floorTypesToBeChanged: FloorTypesToBeChanged;
+    floorTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    floorTypesToBeChanged?: FloorTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomPotentialsRequest {
-    roomPotentialsId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomPotentialsToBeChanged: RoomPotentialsToBeChanged;
+    roomPotentialsId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomPotentialsToBeChanged?: RoomPotentialsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutRoomPreferencePrioritiesRequest {
-    roomPreferencePrioritiesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    roomPreferencePrioritiesToBeChanged: RoomPreferencePrioritiesToBeChanged;
+    roomPreferencePrioritiesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    roomPreferencePrioritiesToBeChanged?: RoomPreferencePrioritiesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PutSmokingTypesRequest {
-    smokingTypesId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    smokingTypesToBeChanged: SmokingTypesToBeChanged;
+    smokingTypesId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    smokingTypesToBeChanged?: SmokingTypesToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveRoomMoveReasonsRequest {
-    reasonCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    reasonCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     roomMoveReasonsCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;

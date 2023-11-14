@@ -26,10 +26,10 @@ import {
 } from '../models/index';
 
 export interface GetExternalYieldMarketTypeRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     membershipId?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;

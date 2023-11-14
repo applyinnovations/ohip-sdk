@@ -80,110 +80,110 @@ import {
 } from '../models/index';
 
 export interface ChangeRateCategoryRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    rateCategoryToBeChanged: RateCategoryToBeChanged;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    rateCategoryToBeChanged?: RateCategoryToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeRateClassRequest {
-    rateClassCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    rateClassToBeChanged: RateClassToBeChanged;
+    rateClassCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    rateClassToBeChanged?: RateClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeRateSeasonsRequest {
-    seasonCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    rateSeasonsToBeChanged: RateSeasonsToBeChanged;
+    seasonCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    rateSeasonsToBeChanged?: RateSeasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateRateCategoryRequest {
-    rateCategoryCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateRateCategoryToBeChanged: TemplateRateCategoryToBeChanged;
+    rateCategoryCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateRateCategoryToBeChanged?: TemplateRateCategoryToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateRateClassRequest {
-    rateClassCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateRateClassToBeChanged: TemplateRateClassToBeChanged;
+    rateClassCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateRateClassToBeChanged?: TemplateRateClassToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface ChangeTemplateRateSeasonsRequest {
-    seasonCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateRateSeasonsToBeChanged: TemplateRateSeasonsToBeChanged;
+    seasonCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateRateSeasonsToBeChanged?: TemplateRateSeasonsToBeChanged;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRateCategoryRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     rateCategory?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteRateClassRequest {
-    rateClassCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    rateClassCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateRateCategoryRequest {
-    rateCategoryCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    rateCategoryCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface DeleteTemplateRateClassRequest {
-    rateClassCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    rateClassCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface GetRateCategoryRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -195,10 +195,10 @@ export interface GetRateCategoryRequest {
 }
 
 export interface GetRateClassRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -210,10 +210,10 @@ export interface GetRateClassRequest {
 }
 
 export interface GetRateSeasonsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     hotelIds?: Array<string>;
     limit?: number;
     offset?: number;
@@ -223,9 +223,9 @@ export interface GetRateSeasonsRequest {
 }
 
 export interface GetTemplateRateCategoryRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     rateCategoryListCodes?: Array<string>;
     rateCategoryDescription?: string;
     includeInactive?: boolean;
@@ -234,9 +234,9 @@ export interface GetTemplateRateCategoryRequest {
 }
 
 export interface GetTemplateRateClassRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
@@ -248,86 +248,86 @@ export interface GetTemplateRateClassRequest {
 }
 
 export interface GetTemplateRateSeasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     seasonCodes?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRateCategoryRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    rateCategoryCriteria: RateCategoryCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    rateCategoryCriteria?: RateCategoryCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRateClassRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    rateClassCriteria: RateClassCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    rateClassCriteria?: RateClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostRateSeasonsRequest {
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    rateSeasonsCriteria: RateSeasonsCriteria;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    rateSeasonsCriteria?: RateSeasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateRateCategoryRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateRateCategoryCriteria: TemplateRateCategoryCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateRateCategoryCriteria?: TemplateRateCategoryCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateRateClassRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateRateClassCriteria: TemplateRateClassCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateRateClassCriteria?: TemplateRateClassCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface PostTemplateRateSeasonsRequest {
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
-    templateRateSeasonsCriteria: TemplateRateSeasonsCriteria;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
+    templateRateSeasonsCriteria?: TemplateRateSeasonsCriteria;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveRateSeasonsRequest {
-    seasonCode: string;
-    hotelId: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    seasonCode?: string;
+    hotelId?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
 
 export interface RemoveTemplateRateSeasonsRequest {
-    seasonCode: string;
-    authorization: string;
-    xAppKey: string;
-    xHotelid: string;
+    seasonCode?: string;
+    authorization?: string;
+    xAppKey?: string;
+    xHotelid?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
