@@ -15,11 +15,11 @@ const MAX_MS = 10 * 1000;
 const MAX_RETRIES = 7;
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 class OhipCredentialsProvider {
-    constructor({ appKey, credentials, access_token, expiry, }) {
+    constructor({ appKey, credentials, access_token, expiry, host, }) {
         this.authenticating = false;
         this.credentials = credentials;
         this.appKey = appKey;
-        this.ohip = new oauth_1.AuthenticationApi(new oauth_1.Configuration());
+        this.ohip = new oauth_1.AuthenticationApi(new oauth_1.Configuration({ host }));
         if (!access_token || !expiry) {
             this.loadCredentials();
         }

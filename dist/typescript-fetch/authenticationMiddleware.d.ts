@@ -10,7 +10,7 @@ export declare class OhipCredentialsProvider {
     credentials: OhipCredential[];
     access_token?: string;
     expiry?: number;
-    constructor({ appKey, credentials, access_token, expiry, }: {
+    constructor({ appKey, credentials, access_token, expiry, host, }: {
         appKey: string;
         host: string;
         credentials: OhipCredential[];

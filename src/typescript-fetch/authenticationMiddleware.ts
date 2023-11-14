@@ -23,6 +23,7 @@ export class OhipCredentialsProvider {
     credentials,
     access_token,
     expiry,
+    host,
   }: {
     appKey: string;
     host: string;
@@ -33,7 +34,7 @@ export class OhipCredentialsProvider {
     this.authenticating = false;
     this.credentials = credentials;
     this.appKey = appKey;
-    this.ohip = new AuthenticationApi(new Configuration());
+    this.ohip = new AuthenticationApi(new Configuration({ host }));
     if (!access_token || !expiry) {
       this.loadCredentials();
     } else {
