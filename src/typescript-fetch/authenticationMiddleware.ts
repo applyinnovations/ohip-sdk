@@ -60,36 +60,43 @@ export class OhipCredentialsProvider {
     start?: number;
   }) {
     this.authenticating = true;
-    // contact ohip for new credentials
-    const retryPeriod = retryCount ** 2 * 100; // milliseconds
-    if (Date.now() - start > MAX_MS - retryPeriod) {
-      throw Error(
-        `OHIP_AUTH_ERR: timeout reached while attempting to authenticate`,
-      );
-    }
-    await delay(retryPeriod);
-    const credentials = this.credentials[retryCount % this.credentials.length];
     try {
-      const res = await this.ohip.getToken({
-        xAppKey: this.appKey,
-        grantType: 'password',
-        ...credentials,
-      });
-      if (res.accessToken && res.expiresIn) {
-        this.access_token = res.accessToken;
-        this.expiry = Date.now() + res.expiresIn * 1000;
-        this.storeCredentials();
-      } else {
+      // contact ohip for new credentials
+      const retryPeriod = retryCount ** 2 * 100; // milliseconds
+      if (Date.now() - start > MAX_MS - retryPeriod) {
         throw Error(
-          `OHIP_AUTH_ERR: access_token and expires_in missing from response`,
+          `OHIP_AUTH_ERR: timeout reached while attempting to authenticate`,
         );
       }
+      await delay(retryPeriod);
+      const credentials =
+        this.credentials[retryCount % this.credentials.length];
+      try {
+        const res = await this.ohip.getToken({
+          xAppKey: this.appKey,
+          grantType: 'password',
+          ...credentials,
+        });
+        if (res.accessToken && res.expiresIn) {
+          this.access_token = res.accessToken;
+          this.expiry = Date.now() + res.expiresIn * 1000;
+          this.storeCredentials();
+        } else {
+          throw Error(
+            `OHIP_AUTH_ERR: access_token and expires_in missing from response`,
+          );
+        }
+      } catch (e) {
+        console.error(e);
+        // recursively renew
+        if (retryCount < MAX_RETRIES) {
+          await this.renewCredentials({ retryCount: retryCount + 1 });
+        } else throw Error(`OHIP_AUTH_ERR: maximum retry attempts exceeded`);
+      }
     } catch (e) {
-      console.error(e);
-      // recursively renew
-      if (retryCount < MAX_RETRIES) {
-        await this.renewCredentials({ retryCount: retryCount + 1 });
-      } else throw Error(`OHIP_AUTH_ERR: maximum retry attempts exceeded`);
+      throw e;
+    } finally {
+      this.authenticating = false;
     }
   }
 
