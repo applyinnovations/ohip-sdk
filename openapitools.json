@@ -7,6 +7,7 @@
       "typescript-fetch": {
         "generatorName": "typescript-fetch",
         "output": "./src/typescript-fetch/#{name}",
+        "templateDir": "templates/typescript-fetch",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "skipOperationExample": true,
         "additionalProperties": {
