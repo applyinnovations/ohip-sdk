@@ -52,10 +52,10 @@ export interface BlockRangeInfoTypeBlockInfo {
     blockStatus?: string;
     /**
      * Block End Date
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {string}
@@ -76,22 +76,22 @@ export interface BlockRangeInfoTypeBlockInfo {
     rateCode?: string;
     /**
      * Block Shoulder End Date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Block Shoulder Start Date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      * Block Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -116,13 +116,13 @@ export function BlockRangeInfoTypeBlockInfoFromJSONTyped(json: any, ignoreDiscri
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
         'blockStatus': !exists(json, 'blockStatus') ? undefined : json['blockStatus'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inventoryControl': !exists(json, 'inventoryControl') ? undefined : BlockInventoryControlTypeFromJSON(json['inventoryControl']),
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
-        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : (new Date(json['shoulderEndDate'])),
-        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : (new Date(json['shoulderStartDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : json['shoulderEndDate'],
+        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : json['shoulderStartDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -138,13 +138,13 @@ export function BlockRangeInfoTypeBlockInfoToJSON(value?: BlockRangeInfoTypeBloc
         'blockCode': value.blockCode,
         'blockId': BlockIdToJSON(value.blockId),
         'blockStatus': value.blockStatus,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inventoryControl': BlockInventoryControlTypeToJSON(value.inventoryControl),
         'rateCode': value.rateCode,
-        'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0,10)),
-        'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'shoulderEndDate': value.shoulderEndDate,
+        'shoulderStartDate': value.shoulderStartDate,
+        'startDate': value.startDate,
     };
 }
 

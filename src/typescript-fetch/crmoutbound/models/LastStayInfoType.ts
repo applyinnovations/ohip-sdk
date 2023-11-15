@@ -28,10 +28,10 @@ import {
 export interface LastStayInfoType {
     /**
      * Used to hold last stay information for the profile.
-     * @type {Date}
+     * @type {string}
      * @memberof LastStayInfoType
      */
-    lastVisit?: Date;
+    lastVisit?: string;
     /**
      * Used to hold last room information for the profile.
      * @type {string}
@@ -71,7 +71,7 @@ export function LastStayInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'lastVisit': !exists(json, 'lastVisit') ? undefined : (new Date(json['lastVisit'])),
+        'lastVisit': !exists(json, 'lastVisit') ? undefined : json['lastVisit'],
         'lastRoom': !exists(json, 'lastRoom') ? undefined : json['lastRoom'],
         'lastRate': !exists(json, 'lastRate') ? undefined : CurrencyAmountTypeFromJSON(json['lastRate']),
         'totalStay': !exists(json, 'totalStay') ? undefined : json['totalStay'],
@@ -87,7 +87,7 @@ export function LastStayInfoTypeToJSON(value?: LastStayInfoType | null): any {
     }
     return {
         
-        'lastVisit': value.lastVisit === undefined ? undefined : (value.lastVisit.toISOString().substring(0,10)),
+        'lastVisit': value.lastVisit,
         'lastRoom': value.lastRoom,
         'lastRate': CurrencyAmountTypeToJSON(value.lastRate),
         'totalStay': value.totalStay,

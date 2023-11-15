@@ -34,16 +34,16 @@ export interface OperaRecordLock {
     createdBy?: string;
     /**
      * This is the time when the record was locked.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaRecordLock
      */
-    createdOn?: Date;
+    createdOn?: string;
     /**
      * This is the estimated expiry time of the lock.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaRecordLock
      */
-    expiresOn?: Date;
+    expiresOn?: string;
     /**
      * Notification flag to specify if the lock is based on an Internal Opera9 lock versus an External lock.
      * @type {boolean}
@@ -96,8 +96,8 @@ export function OperaRecordLockFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'createdBy': !exists(json, 'createdBy') ? undefined : json['createdBy'],
-        'createdOn': !exists(json, 'createdOn') ? undefined : (new Date(json['createdOn'])),
-        'expiresOn': !exists(json, 'expiresOn') ? undefined : (new Date(json['expiresOn'])),
+        'createdOn': !exists(json, 'createdOn') ? undefined : json['createdOn'],
+        'expiresOn': !exists(json, 'expiresOn') ? undefined : json['expiresOn'],
         'internal': !exists(json, 'internal') ? undefined : json['internal'],
         'lockHandle': !exists(json, 'lockHandle') ? undefined : json['lockHandle'],
         'recordId': !exists(json, 'recordId') ? undefined : json['recordId'],
@@ -116,8 +116,8 @@ export function OperaRecordLockToJSON(value?: OperaRecordLock | null): any {
     return {
         
         'createdBy': value.createdBy,
-        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substring(0,10)),
-        'expiresOn': value.expiresOn === undefined ? undefined : (value.expiresOn.toISOString().substring(0,10)),
+        'createdOn': value.createdOn,
+        'expiresOn': value.expiresOn,
         'internal': value.internal,
         'lockHandle': value.lockHandle,
         'recordId': value.recordId,

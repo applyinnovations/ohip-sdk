@@ -24,10 +24,10 @@ export interface TransactionType {
     transactionCode?: string;
     /**
      * Transaction date.
-     * @type {Date}
+     * @type {string}
      * @memberof TransactionType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction description.
      * @type {string}

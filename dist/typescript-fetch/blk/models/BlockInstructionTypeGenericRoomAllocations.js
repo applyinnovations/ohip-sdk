@@ -39,7 +39,7 @@ function BlockInstructionTypeGenericRoomAllocationsFromJSONTyped(json, ignoreDis
         'masterInfo': !(0, runtime_1.exists)(json, 'masterInfo') ? undefined : (0, RoomAllocationMasterInfoType_1.RoomAllocationMasterInfoTypeFromJSON)(json['masterInfo']),
         'numberOfDays': !(0, runtime_1.exists)(json, 'numberOfDays') ? undefined : json['numberOfDays'],
         'roomAllocationType': !(0, runtime_1.exists)(json, 'roomAllocationType') ? undefined : (json['roomAllocationType'].map(RoomAllocationTypeType_1.RoomAllocationTypeTypeFromJSON)),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'totalResults': !(0, runtime_1.exists)(json, 'totalResults') ? undefined : json['totalResults'],
     };
 }
@@ -57,7 +57,7 @@ function BlockInstructionTypeGenericRoomAllocationsToJSON(value) {
         'masterInfo': (0, RoomAllocationMasterInfoType_1.RoomAllocationMasterInfoTypeToJSON)(value.masterInfo),
         'numberOfDays': value.numberOfDays,
         'roomAllocationType': value.roomAllocationType === undefined ? undefined : (value.roomAllocationType.map(RoomAllocationTypeType_1.RoomAllocationTypeTypeToJSON)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'totalResults': value.totalResults,
     };
 }

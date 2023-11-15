@@ -73,10 +73,10 @@ export interface ServiceTaskRoomType {
     taskCodes?: Array<string>;
     /**
      * Date for which the task sheet was created. By default this would be the current business date.
-     * @type {Date}
+     * @type {string}
      * @memberof ServiceTaskRoomType
      */
-    taskDate?: Date;
+    taskDate?: string;
 }
 /**
  * Check if a given object implements the ServiceTaskRoomType interface.

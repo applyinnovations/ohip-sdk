@@ -36,10 +36,10 @@ export interface ReservationRateSummaryType {
     details?: Array<ReservationRateSummaryDetailType>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryType
      */
-    end?: Date;
+    end?: string;
     /**
      * Amount of automatically posted charges along with room and taxes.
      * @type {number}
@@ -84,10 +84,10 @@ export interface ReservationRateSummaryType {
     routing?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryType
      */
-    start?: Date;
+    start?: string;
     /**
      * Amount of total cost of stay.
      * @type {number}

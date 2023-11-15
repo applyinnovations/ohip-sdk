@@ -64,10 +64,10 @@ export interface RatePlanPrimaryDetailsType {
     description?: TranslationTextType2000;
     /**
      * End sell date of the rate plan.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanPrimaryDetailsType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      * 
      * @type {RateCodeLockStatusType}
@@ -94,10 +94,10 @@ export interface RatePlanPrimaryDetailsType {
     sellSequence?: number;
     /**
      * Start sell date of the rate plan.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanPrimaryDetailsType
      */
-    startSellDate?: Date;
+    startSellDate?: string;
 }
 
 /**
@@ -122,12 +122,12 @@ export function RatePlanPrimaryDetailsTypeFromJSONTyped(json: any, ignoreDiscrim
         'approvalStatus': !exists(json, 'approvalStatus') ? undefined : RatePlanApprovalStatusTypeFromJSON(json['approvalStatus']),
         'baseType': !exists(json, 'baseType') ? undefined : BaseTypeFromJSON(json['baseType']),
         'description': !exists(json, 'description') ? undefined : TranslationTextType2000FromJSON(json['description']),
-        'endSellDate': !exists(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !exists(json, 'endSellDate') ? undefined : json['endSellDate'],
         'lockStatus': !exists(json, 'lockStatus') ? undefined : RateCodeLockStatusTypeFromJSON(json['lockStatus']),
         'privilegedRate': !exists(json, 'privilegedRate') ? undefined : json['privilegedRate'],
         'privilegedRateRestriction': !exists(json, 'privilegedRateRestriction') ? undefined : json['privilegedRateRestriction'],
         'sellSequence': !exists(json, 'sellSequence') ? undefined : json['sellSequence'],
-        'startSellDate': !exists(json, 'startSellDate') ? undefined : (new Date(json['startSellDate'])),
+        'startSellDate': !exists(json, 'startSellDate') ? undefined : json['startSellDate'],
     };
 }
 
@@ -143,12 +143,12 @@ export function RatePlanPrimaryDetailsTypeToJSON(value?: RatePlanPrimaryDetailsT
         'approvalStatus': RatePlanApprovalStatusTypeToJSON(value.approvalStatus),
         'baseType': BaseTypeToJSON(value.baseType),
         'description': TranslationTextType2000ToJSON(value.description),
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0,10)),
+        'endSellDate': value.endSellDate,
         'lockStatus': RateCodeLockStatusTypeToJSON(value.lockStatus),
         'privilegedRate': value.privilegedRate,
         'privilegedRateRestriction': value.privilegedRateRestriction,
         'sellSequence': value.sellSequence,
-        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substring(0,10)),
+        'startSellDate': value.startSellDate,
     };
 }
 

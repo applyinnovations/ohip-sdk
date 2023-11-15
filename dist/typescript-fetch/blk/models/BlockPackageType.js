@@ -36,13 +36,13 @@ function BlockPackageTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'consumptionDetails': !(0, runtime_1.exists)(json, 'consumptionDetails') ? undefined : (0, PackageConsumptionType_1.PackageConsumptionTypeFromJSON)(json['consumptionDetails']),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'newTimeSpan': !(0, runtime_1.exists)(json, 'newTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['newTimeSpan']),
         'packageCode': !(0, runtime_1.exists)(json, 'packageCode') ? undefined : json['packageCode'],
         'packageGroup': !(0, runtime_1.exists)(json, 'packageGroup') ? undefined : json['packageGroup'],
         'packageHeaderType': !(0, runtime_1.exists)(json, 'packageHeaderType') ? undefined : (0, PackageCodeHeaderType_1.PackageCodeHeaderTypeFromJSON)(json['packageHeaderType']),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.BlockPackageTypeFromJSONTyped = BlockPackageTypeFromJSONTyped;
@@ -55,13 +55,13 @@ function BlockPackageTypeToJSON(value) {
     }
     return {
         'consumptionDetails': (0, PackageConsumptionType_1.PackageConsumptionTypeToJSON)(value.consumptionDetails),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'newTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.newTimeSpan),
         'packageCode': value.packageCode,
         'packageGroup': value.packageGroup,
         'packageHeaderType': (0, PackageCodeHeaderType_1.PackageCodeHeaderTypeToJSON)(value.packageHeaderType),
         'ratePlanCode': value.ratePlanCode,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.BlockPackageTypeToJSON = BlockPackageTypeToJSON;

@@ -17,16 +17,16 @@
 export interface DateRangeType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DateRangeType
      */
-    end?: Date;
+    end?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DateRangeType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the DateRangeType interface.

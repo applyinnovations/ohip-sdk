@@ -112,10 +112,10 @@ export interface ProfileMembershipType {
     earningPreference?: MembershipEarningPreferenceType;
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Resort/CRO where enrollment is done.
      * @type {string}
@@ -136,10 +136,10 @@ export interface ProfileMembershipType {
     excludeFromBatch?: boolean;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -280,10 +280,10 @@ export interface ProfileMembershipType {
     reIssueNewCard?: CardReIssueType;
     /**
      * Indicates when the member signed up for the loyalty program.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileMembershipType
      */
-    signupDate?: Date;
+    signupDate?: string;
     /**
      * 
      * @type {TierAdministrationType}
@@ -326,11 +326,11 @@ export function ProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscriminato
         'downgrade': !exists(json, 'downgrade') ? undefined : DowngradeTypeFromJSON(json['downgrade']),
         'downgradeDescription': !exists(json, 'downgradeDescription') ? undefined : json['downgradeDescription'],
         'earningPreference': !exists(json, 'earningPreference') ? undefined : MembershipEarningPreferenceTypeFromJSON(json['earningPreference']),
-        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
+        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : json['effectiveDate'],
         'enrollmentResort': !exists(json, 'enrollmentResort') ? undefined : json['enrollmentResort'],
         'enrollmentSource': !exists(json, 'enrollmentSource') ? undefined : json['enrollmentSource'],
         'excludeFromBatch': !exists(json, 'excludeFromBatch') ? undefined : json['excludeFromBatch'],
-        'expireDate': !exists(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'expireDate': !exists(json, 'expireDate') ? undefined : json['expireDate'],
         'expireDateExclusiveIndicator': !exists(json, 'expireDateExclusiveIndicator') ? undefined : json['expireDateExclusiveIndicator'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
@@ -354,7 +354,7 @@ export function ProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscriminato
         'programDescription': !exists(json, 'programDescription') ? undefined : json['programDescription'],
         'rating': !exists(json, 'rating') ? undefined : json['rating'],
         'reIssueNewCard': !exists(json, 'reIssueNewCard') ? undefined : CardReIssueTypeFromJSON(json['reIssueNewCard']),
-        'signupDate': !exists(json, 'signupDate') ? undefined : (new Date(json['signupDate'])),
+        'signupDate': !exists(json, 'signupDate') ? undefined : json['signupDate'],
         'tierAdministration': !exists(json, 'tierAdministration') ? undefined : TierAdministrationTypeFromJSON(json['tierAdministration']),
         'upgradeDescription': !exists(json, 'upgradeDescription') ? undefined : json['upgradeDescription'],
     };
@@ -378,11 +378,11 @@ export function ProfileMembershipTypeToJSON(value?: ProfileMembershipType | null
         'downgrade': DowngradeTypeToJSON(value.downgrade),
         'downgradeDescription': value.downgradeDescription,
         'earningPreference': MembershipEarningPreferenceTypeToJSON(value.earningPreference),
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
+        'effectiveDate': value.effectiveDate,
         'enrollmentResort': value.enrollmentResort,
         'enrollmentSource': value.enrollmentSource,
         'excludeFromBatch': value.excludeFromBatch,
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
+        'expireDate': value.expireDate,
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
         'inactive': value.inactive,
         'lastModifierId': value.lastModifierId,
@@ -406,7 +406,7 @@ export function ProfileMembershipTypeToJSON(value?: ProfileMembershipType | null
         'programDescription': value.programDescription,
         'rating': value.rating,
         'reIssueNewCard': CardReIssueTypeToJSON(value.reIssueNewCard),
-        'signupDate': value.signupDate === undefined ? undefined : (value.signupDate.toISOString().substring(0,10)),
+        'signupDate': value.signupDate,
         'tierAdministration': TierAdministrationTypeToJSON(value.tierAdministration),
         'upgradeDescription': value.upgradeDescription,
     };

@@ -53,16 +53,16 @@ export interface BusinessEventDetailType {
     oldValue?: string;
     /**
      * Begin date from when this value is applicable, such as daily element date, block grid date etc.
-     * @type {Date}
+     * @type {string}
      * @memberof BusinessEventDetailType
      */
-    scopeFrom?: Date;
+    scopeFrom?: string;
     /**
      * End date till when this value is applicable, such as daily element date, block grid date etc.
-     * @type {Date}
+     * @type {string}
      * @memberof BusinessEventDetailType
      */
-    scopeTo?: Date;
+    scopeTo?: string;
 }
 /**
  * Check if a given object implements the BusinessEventDetailType interface.

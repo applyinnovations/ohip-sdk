@@ -118,10 +118,10 @@ export interface DepositFolioCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof DepositFolioCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * Manual Folio Number used for deposit folio.This applies to certain country requirements.
      * @type {number}
@@ -199,7 +199,7 @@ export function DepositFolioCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimin
         'folioNameValue': !exists(json, 'folioNameValue') ? undefined : ((json['folioNameValue'] as Array<any>).map(NameValueHeaderDetailTypeFromJSON)),
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
+        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : json['incomeAuditDate'],
         'manualFolioNo': !exists(json, 'manualFolioNo') ? undefined : json['manualFolioNo'],
         'overrideInventoryCheck': !exists(json, 'overrideInventoryCheck') ? undefined : json['overrideInventoryCheck'],
         'paymentMethod': !exists(json, 'paymentMethod') ? undefined : ReservationPaymentMethodTypeFromJSON(json['paymentMethod']),
@@ -228,7 +228,7 @@ export function DepositFolioCriteriaTypeToJSON(value?: DepositFolioCriteriaType 
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
+        'incomeAuditDate': value.incomeAuditDate,
         'manualFolioNo': value.manualFolioNo,
         'overrideInventoryCheck': value.overrideInventoryCheck,
         'paymentMethod': ReservationPaymentMethodTypeToJSON(value.paymentMethod),

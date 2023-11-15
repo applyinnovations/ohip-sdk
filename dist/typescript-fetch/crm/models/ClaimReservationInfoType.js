@@ -33,9 +33,9 @@ function ClaimReservationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : json['arrival'],
         'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : (json['confirmationNo'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
-        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : json['departure'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -48,9 +48,9 @@ function ClaimReservationInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
+        'arrival': value.arrival,
         'confirmationNo': value.confirmationNo === undefined ? undefined : (value.confirmationNo.map(UniqueIDType_1.UniqueIDTypeToJSON)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
+        'departure': value.departure,
         'hotelId': value.hotelId,
     };
 }

@@ -118,10 +118,10 @@ export interface AwardType {
     displaySequence?: number;
     /**
      * Expiration Date.
-     * @type {Date}
+     * @type {string}
      * @memberof AwardType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * Confirmation Number given by a CRS application for this reservation.
      * @type {string}
@@ -290,7 +290,7 @@ export function AwardTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'description': !exists(json, 'description') ? undefined : json['description'],
         'detailedCertificate': !exists(json, 'detailedCertificate') ? undefined : json['detailedCertificate'],
         'displaySequence': !exists(json, 'displaySequence') ? undefined : json['displaySequence'],
-        'expirationDate': !exists(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !exists(json, 'expirationDate') ? undefined : json['expirationDate'],
         'externalConfirmationNo': !exists(json, 'externalConfirmationNo') ? undefined : json['externalConfirmationNo'],
         'externalHotelCode': !exists(json, 'externalHotelCode') ? undefined : json['externalHotelCode'],
         'fBAInfo': !exists(json, 'fBAInfo') ? undefined : FBAInfoTypeFromJSON(json['fBAInfo']),
@@ -335,7 +335,7 @@ export function AwardTypeToJSON(value?: AwardType | null): any {
         'description': value.description,
         'detailedCertificate': value.detailedCertificate,
         'displaySequence': value.displaySequence,
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
+        'expirationDate': value.expirationDate,
         'externalConfirmationNo': value.externalConfirmationNo,
         'externalHotelCode': value.externalHotelCode,
         'fBAInfo': FBAInfoTypeToJSON(value.fBAInfo),

@@ -17,10 +17,10 @@
 export interface HotelStayType {
     /**
      * Guest arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelStayType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Hotel Name.
      * @type {string}

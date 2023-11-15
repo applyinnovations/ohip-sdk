@@ -33,7 +33,7 @@ function ARStatementCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'balanceForwardDate': !(0, runtime_1.exists)(json, 'balanceForwardDate') ? undefined : (new Date(json['balanceForwardDate'])),
+        'balanceForwardDate': !(0, runtime_1.exists)(json, 'balanceForwardDate') ? undefined : json['balanceForwardDate'],
         'filterDate': !(0, runtime_1.exists)(json, 'filterDate') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['filterDate']),
         'inclFolios': !(0, runtime_1.exists)(json, 'inclFolios') ? undefined : json['inclFolios'],
         'inclPrinted': !(0, runtime_1.exists)(json, 'inclPrinted') ? undefined : json['inclPrinted'],
@@ -50,7 +50,7 @@ function ARStatementCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'balanceForwardDate': value.balanceForwardDate === undefined ? undefined : (value.balanceForwardDate.toISOString().substring(0, 10)),
+        'balanceForwardDate': value.balanceForwardDate,
         'filterDate': (0, DateRangeType_1.DateRangeTypeToJSON)(value.filterDate),
         'inclFolios': value.inclFolios,
         'inclPrinted': value.inclPrinted,

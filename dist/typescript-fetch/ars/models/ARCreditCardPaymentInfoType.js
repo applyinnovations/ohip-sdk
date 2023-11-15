@@ -38,11 +38,11 @@ function ARCreditCardPaymentInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'fiscalFolioNo': !(0, runtime_1.exists)(json, 'fiscalFolioNo') ? undefined : json['fiscalFolioNo'],
         'folioNo': !(0, runtime_1.exists)(json, 'folioNo') ? undefined : json['folioNo'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
-        'postingDate': !(0, runtime_1.exists)(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'postingDate': !(0, runtime_1.exists)(json, 'postingDate') ? undefined : json['postingDate'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
         'reference': !(0, runtime_1.exists)(json, 'reference') ? undefined : json['reference'],
         'remark': !(0, runtime_1.exists)(json, 'remark') ? undefined : json['remark'],
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionNo': !(0, runtime_1.exists)(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
 }
@@ -59,11 +59,11 @@ function ARCreditCardPaymentInfoTypeToJSON(value) {
         'fiscalFolioNo': value.fiscalFolioNo,
         'folioNo': value.folioNo,
         'guestName': value.guestName,
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0, 10)),
+        'postingDate': value.postingDate,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'reference': value.reference,
         'remark': value.remark,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'transactionDate': value.transactionDate,
         'transactionNo': value.transactionNo,
     };
 }

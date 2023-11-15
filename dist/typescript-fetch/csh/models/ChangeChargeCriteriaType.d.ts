@@ -24,10 +24,10 @@ export interface ChangeChargeCriteriaType {
     approvalCode?: string;
     /**
      * Approval date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof ChangeChargeCriteriaType
      */
-    approvalDate?: Date;
+    approvalDate?: string;
     /**
      * Approval status of the posting.
      * @type {string}
@@ -96,10 +96,10 @@ export interface ChangeChargeCriteriaType {
     remark?: string;
     /**
      * Corrected Revenue Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChangeChargeCriteriaType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Transaction number of the posting being corrected.
      * @type {number}

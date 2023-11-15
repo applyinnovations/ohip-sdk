@@ -34,10 +34,10 @@ export interface DailyRatePlanScheduleType {
     rateAmounts?: ScheduleRateAmountsType;
     /**
      * The rate date for which the daily rate amounts will be applied.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRatePlanScheduleType
      */
-    rateDate?: Date;
+    rateDate?: string;
     /**
      * The rate code for which the daily rate amounts will be applied.
      * @type {string}
@@ -72,7 +72,7 @@ export function DailyRatePlanScheduleTypeFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'rateAmounts': !exists(json, 'rateAmounts') ? undefined : ScheduleRateAmountsTypeFromJSON(json['rateAmounts']),
-        'rateDate': !exists(json, 'rateDate') ? undefined : (new Date(json['rateDate'])),
+        'rateDate': !exists(json, 'rateDate') ? undefined : json['rateDate'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
     };
@@ -88,7 +88,7 @@ export function DailyRatePlanScheduleTypeToJSON(value?: DailyRatePlanScheduleTyp
     return {
         
         'rateAmounts': ScheduleRateAmountsTypeToJSON(value.rateAmounts),
-        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0,10)),
+        'rateDate': value.rateDate,
         'ratePlanCode': value.ratePlanCode,
         'roomType': value.roomType,
     };

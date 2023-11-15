@@ -35,8 +35,8 @@ function ReservationDepositTypeFromJSONTyped(json, ignoreDiscriminator) {
         'amountRequired': !(0, runtime_1.exists)(json, 'amountRequired') ? undefined : json['amountRequired'],
         'amountPaid': !(0, runtime_1.exists)(json, 'amountPaid') ? undefined : json['amountPaid'],
         'amountOwed': !(0, runtime_1.exists)(json, 'amountOwed') ? undefined : json['amountOwed'],
-        'dueDate': !(0, runtime_1.exists)(json, 'dueDate') ? undefined : (new Date(json['dueDate'])),
-        'postingDate': !(0, runtime_1.exists)(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'dueDate': !(0, runtime_1.exists)(json, 'dueDate') ? undefined : json['dueDate'],
+        'postingDate': !(0, runtime_1.exists)(json, 'postingDate') ? undefined : json['postingDate'],
         'hasPaid': !(0, runtime_1.exists)(json, 'hasPaid') ? undefined : json['hasPaid'],
         'hasOutstanding': !(0, runtime_1.exists)(json, 'hasOutstanding') ? undefined : json['hasOutstanding'],
     };
@@ -53,8 +53,8 @@ function ReservationDepositTypeToJSON(value) {
         'amountRequired': value.amountRequired,
         'amountPaid': value.amountPaid,
         'amountOwed': value.amountOwed,
-        'dueDate': value.dueDate === undefined ? undefined : (value.dueDate.toISOString().substring(0, 10)),
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0, 10)),
+        'dueDate': value.dueDate,
+        'postingDate': value.postingDate,
         'hasPaid': value.hasPaid,
         'hasOutstanding': value.hasOutstanding,
     };

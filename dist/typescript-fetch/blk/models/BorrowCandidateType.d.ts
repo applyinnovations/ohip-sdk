@@ -26,10 +26,10 @@ export interface BorrowCandidateType {
     blockId?: BlockId;
     /**
      * The date on which rooms need to be borrowed for the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BorrowCandidateType
      */
-    borrowDate?: Date;
+    borrowDate?: string;
     /**
      * Holds the information about a borrowable room type and available rooms for each borrow date.
      * @type {Array<BorrowableInventoryType>}

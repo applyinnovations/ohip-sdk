@@ -130,10 +130,10 @@ export interface ResPaymentCardType {
     currentAuthorizedAmount?: CurrencyAmountType;
     /**
      * Expiration date of the credit card
-     * @type {Date}
+     * @type {string}
      * @memberof ResPaymentCardType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * 
      * @type {boolean}
@@ -198,7 +198,7 @@ export function ResPaymentCardTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'cardType': !exists(json, 'cardType') ? undefined : CardTypeTypeFromJSON(json['cardType']),
         'citId': !exists(json, 'citId') ? undefined : json['citId'],
         'currentAuthorizedAmount': !exists(json, 'currentAuthorizedAmount') ? undefined : CurrencyAmountTypeFromJSON(json['currentAuthorizedAmount']),
-        'expirationDate': !exists(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !exists(json, 'expirationDate') ? undefined : json['expirationDate'],
         'expirationDateExpired': !exists(json, 'expirationDateExpired') ? undefined : json['expirationDateExpired'],
         'expirationDateMasked': !exists(json, 'expirationDateMasked') ? undefined : json['expirationDateMasked'],
         'processing': !exists(json, 'processing') ? undefined : CardProcessingTypeFromJSON(json['processing']),
@@ -229,7 +229,7 @@ export function ResPaymentCardTypeToJSON(value?: ResPaymentCardType | null): any
         'cardType': CardTypeTypeToJSON(value.cardType),
         'citId': value.citId,
         'currentAuthorizedAmount': CurrencyAmountTypeToJSON(value.currentAuthorizedAmount),
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
+        'expirationDate': value.expirationDate,
         'expirationDateExpired': value.expirationDateExpired,
         'expirationDateMasked': value.expirationDateMasked,
         'processing': CardProcessingTypeToJSON(value.processing),

@@ -58,10 +58,10 @@ export interface RotationRuleType {
     daysOfWeek?: DaysOfWeekAttrType;
     /**
      * Represents end date for Room Rotation Setup Rule.
-     * @type {Date}
+     * @type {string}
      * @memberof RotationRuleType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Represents multiplier value to be used for an Owner Multiplier Rule or an Out of Order / Service Multiplier rule.
      * @type {number}
@@ -112,10 +112,10 @@ export interface RotationRuleType {
     setupType?: RotationRuleSetupType;
     /**
      * Represents start date for Room Rotation Setup Rule.
-     * @type {Date}
+     * @type {string}
      * @memberof RotationRuleType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * 
      * @type {RotationRuleStatusType}
@@ -145,7 +145,7 @@ export function RotationRuleTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'calculationRule': !exists(json, 'calculationRule') ? undefined : RotationRuleCalculationRuleTypeFromJSON(json['calculationRule']),
         'daysOfWeek': !exists(json, 'daysOfWeek') ? undefined : DaysOfWeekAttrTypeFromJSON(json['daysOfWeek']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'multiplier': !exists(json, 'multiplier') ? undefined : json['multiplier'],
         'points': !exists(json, 'points') ? undefined : json['points'],
         'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
@@ -154,7 +154,7 @@ export function RotationRuleTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
         'ruleId': !exists(json, 'ruleId') ? undefined : json['ruleId'],
         'setupType': !exists(json, 'setupType') ? undefined : RotationRuleSetupTypeFromJSON(json['setupType']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'status': !exists(json, 'status') ? undefined : RotationRuleStatusTypeFromJSON(json['status']),
     };
 }
@@ -170,7 +170,7 @@ export function RotationRuleTypeToJSON(value?: RotationRuleType | null): any {
         
         'calculationRule': RotationRuleCalculationRuleTypeToJSON(value.calculationRule),
         'daysOfWeek': DaysOfWeekAttrTypeToJSON(value.daysOfWeek),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'multiplier': value.multiplier,
         'points': value.points,
         'rateCodes': value.rateCodes,
@@ -179,7 +179,7 @@ export function RotationRuleTypeToJSON(value?: RotationRuleType | null): any {
         'roomTypes': value.roomTypes,
         'ruleId': value.ruleId,
         'setupType': RotationRuleSetupTypeToJSON(value.setupType),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'status': RotationRuleStatusTypeToJSON(value.status),
     };
 }

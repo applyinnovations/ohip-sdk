@@ -17,10 +17,10 @@
 export interface SellLimitGridByDateRangeType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitGridByDateRangeType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -47,10 +47,10 @@ export interface SellLimitGridByDateRangeType {
     sellLimit?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitGridByDateRangeType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

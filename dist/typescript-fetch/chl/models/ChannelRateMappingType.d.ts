@@ -34,10 +34,10 @@ export interface ChannelRateMappingType {
     allowRestrictionUpdate?: boolean;
     /**
      * Begin date of the channel rate code mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRateMappingType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Block Rate Indicator.
      * @type {string}
@@ -88,10 +88,10 @@ export interface ChannelRateMappingType {
     description?: ChannelRateMappingDescriptionType;
     /**
      * End date of the channel rate code mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRateMappingType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * True if the mapping has channel negotiated rates, otherwise false.
      * @type {boolean}

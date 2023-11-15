@@ -76,10 +76,10 @@ export interface VoidFolioCriteriaType {
     fiscalFolioInfo?: FiscalServiceType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof VoidFolioCriteriaType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -160,7 +160,7 @@ export function VoidFolioCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminato
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'fiscalCreditBillQueueName': !exists(json, 'fiscalCreditBillQueueName') ? undefined : json['fiscalCreditBillQueueName'],
         'fiscalFolioInfo': !exists(json, 'fiscalFolioInfo') ? undefined : FiscalServiceTypeFromJSON(json['fiscalFolioInfo']),
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioSeqNo': !exists(json, 'folioSeqNo') ? undefined : json['folioSeqNo'],
@@ -187,7 +187,7 @@ export function VoidFolioCriteriaTypeToJSON(value?: VoidFolioCriteriaType | null
         'fiscalBillNo': value.fiscalBillNo,
         'fiscalCreditBillQueueName': value.fiscalCreditBillQueueName,
         'fiscalFolioInfo': FiscalServiceTypeToJSON(value.fiscalFolioInfo),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,

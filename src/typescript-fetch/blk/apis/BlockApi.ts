@@ -277,8 +277,8 @@ export interface DeleteBlockOwnersRequest {
 export interface DeleteBlockRestrictionRequest {
     blockId: string;
     hotelId: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     code: DeleteBlockRestrictionCodeEnum;
     authorization?: string;
     xAppKey?: string;
@@ -305,7 +305,7 @@ export interface GetBlockRequest {
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
-    startDate?: Date;
+    startDate?: string;
     numberOfDays?: number;
     roomAllocationCriteria?: Set<GetBlockRoomAllocationCriteriaEnum>;
     roomTypes?: Array<string>;
@@ -335,8 +335,8 @@ export interface GetBlockActivityLogRequest {
     moduleParamsParameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    activityParamsFromDate?: Date;
-    activityParamsToDate?: Date;
+    activityParamsFromDate?: string;
+    activityParamsToDate?: string;
     activityParamsSearchText?: string;
     userByIDsUserId?: Array<number>;
     userForIDsUserId?: Array<number>;
@@ -361,7 +361,7 @@ export interface GetBlockAvailabilityRequest {
     xAppKey?: string;
     xHotelid?: string;
     overrideRateCode?: boolean;
-    arrivalDate?: Date;
+    arrivalDate?: string;
     nights?: number;
     adults?: number;
     children?: number;
@@ -386,7 +386,7 @@ export interface GetBlockByExtIdRequest {
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockByExtIdFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
-    startDate?: Date;
+    startDate?: string;
     numberOfDays?: number;
     roomAllocationCriteria?: Set<GetBlockByExtIdRoomAllocationCriteriaEnum>;
     roomTypes?: Array<string>;
@@ -402,8 +402,8 @@ export interface GetBlockDailyStatisticsRequest {
     limit?: number;
     offset?: number;
     hotelId?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -469,8 +469,8 @@ export interface GetBlockRestrictionsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     roomType?: Array<string>;
     xExternalsystem?: string;
@@ -486,8 +486,8 @@ export interface GetBlockRevenueChangesRequest {
     offset?: number;
     hotelId?: string;
     status?: Array<string>;
-    changeEndDate?: Date;
-    changeStartDate?: Date;
+    changeEndDate?: string;
+    changeStartDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -499,8 +499,8 @@ export interface GetBlockRoomTypesRequest {
     xHotelid?: string;
     hotelId?: string;
     fetchAllocatedRoomTypes?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     fetchGenericRoomTypes?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -522,7 +522,7 @@ export interface GetBlockStatisticsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: string;
-    startDate?: Date;
+    startDate?: string;
     numberOfDays?: number;
     statisticsInstructions?: Set<GetBlockStatisticsStatisticsInstructionsEnum>;
     roomTypeHotelId?: Array<string>;
@@ -554,8 +554,8 @@ export interface GetBlockStatusChangesRequest {
     limit?: number;
     offset?: number;
     hotelId?: string;
-    changeEndDate?: Date;
-    changeStartDate?: Date;
+    changeEndDate?: string;
+    changeStartDate?: string;
     currentStatus?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -603,20 +603,20 @@ export interface GetBlocksRequest {
     blockStatus?: Array<string>;
     cateringStatus?: Array<string>;
     createdByUser?: string;
-    blockStartEndDate?: Date;
-    blockStartStartDate?: Date;
-    blockEndEndDate?: Date;
-    blockEndStartDate?: Date;
-    reservationArrival?: Date;
-    reservationDeparture?: Date;
+    blockStartEndDate?: string;
+    blockStartStartDate?: string;
+    blockEndEndDate?: string;
+    blockEndStartDate?: string;
+    reservationArrival?: string;
+    reservationDeparture?: string;
     includeShoulderDates?: boolean;
-    stayDate?: Date;
-    blockCreatedOnEndDate?: Date;
-    blockCreatedOnStartDate?: Date;
-    decisionEndDate?: Date;
-    decisionStartDate?: Date;
-    cutOffEndDate?: Date;
-    cutOffStartDate?: Date;
+    stayDate?: string;
+    blockCreatedOnEndDate?: string;
+    blockCreatedOnStartDate?: string;
+    decisionEndDate?: string;
+    decisionStartDate?: string;
+    cutOffEndDate?: string;
+    cutOffStartDate?: string;
     category?: Set<GetBlocksCategoryEnum>;
     name?: Array<string>;
     attachedProfileId?: string;
@@ -631,7 +631,7 @@ export interface GetBlocksRequest {
     orderType?: Set<GetBlocksOrderTypeEnum>;
     fetchInstructions?: Set<GetBlocksFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
-    additionalCriteriaStartDate?: Date;
+    additionalCriteriaStartDate?: string;
     numberOfDays?: number;
     adults?: number;
     children?: number;
@@ -655,7 +655,7 @@ export interface GetBlocksRequest {
     customNumericUDFsValue?: Array<number>;
     customDateUDFsAltname?: Array<string>;
     customDateUDFsName?: Array<string>;
-    customDateUDFsValue?: Array<Date>;
+    customDateUDFsValue?: Array<string>;
     accessRestriction?: Set<GetBlocksAccessRestrictionEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -667,7 +667,7 @@ export interface GetDefaultBlockCodeRequest {
     xHotelid?: string;
     hotelId?: string;
     blockName?: string;
-    startDate?: Date;
+    startDate?: string;
     blockCodeTemplate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -676,7 +676,7 @@ export interface GetDefaultBlockCodeRequest {
 export interface GetInventoryToBorrowRequest {
     hotelId: string;
     blockId: string;
-    startDate: Date;
+    startDate: string;
     requiredRooms: Array<number>;
     authorization?: string;
     xAppKey?: string;
@@ -686,10 +686,10 @@ export interface GetInventoryToBorrowRequest {
     existingReservationId?: string;
     existingReservationIdType?: string;
     roomType?: string;
-    endDate?: Date;
+    endDate?: string;
     duration?: string;
     numberOfRooms?: number;
-    borrowDate?: Array<Date>;
+    borrowDate?: Array<string>;
     overrideRateCode?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -729,8 +729,8 @@ export interface GetTracesByDateRangeRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelIds?: Array<string>;
-    beginDate?: Date;
-    endDate?: Date;
+    beginDate?: string;
+    endDate?: string;
     department?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1540,11 +1540,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.code !== undefined) {
@@ -1672,7 +1672,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -1824,11 +1824,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.activityParamsFromDate !== undefined) {
-            queryParameters['activityParamsFromDate'] = (requestParameters.activityParamsFromDate as any).toISOString().substring(0,10);
+            queryParameters['activityParamsFromDate'] = requestParameters.activityParamsFromDate;
         }
 
         if (requestParameters.activityParamsToDate !== undefined) {
-            queryParameters['activityParamsToDate'] = (requestParameters.activityParamsToDate as any).toISOString().substring(0,10);
+            queryParameters['activityParamsToDate'] = requestParameters.activityParamsToDate;
         }
 
         if (requestParameters.activityParamsSearchText !== undefined) {
@@ -1960,7 +1960,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrivalDate !== undefined) {
-            queryParameters['arrivalDate'] = (requestParameters.arrivalDate as any).toISOString().substring(0,10);
+            queryParameters['arrivalDate'] = requestParameters.arrivalDate;
         }
 
         if (requestParameters.nights !== undefined) {
@@ -2076,7 +2076,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -2156,11 +2156,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2520,11 +2520,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -2604,11 +2604,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.changeEndDate !== undefined) {
-            queryParameters['changeEndDate'] = (requestParameters.changeEndDate as any).toISOString().substring(0,10);
+            queryParameters['changeEndDate'] = requestParameters.changeEndDate;
         }
 
         if (requestParameters.changeStartDate !== undefined) {
-            queryParameters['changeStartDate'] = (requestParameters.changeStartDate as any).toISOString().substring(0,10);
+            queryParameters['changeStartDate'] = requestParameters.changeStartDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2672,11 +2672,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.fetchGenericRoomTypes !== undefined) {
@@ -2796,7 +2796,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -2940,11 +2940,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.changeEndDate !== undefined) {
-            queryParameters['changeEndDate'] = (requestParameters.changeEndDate as any).toISOString().substring(0,10);
+            queryParameters['changeEndDate'] = requestParameters.changeEndDate;
         }
 
         if (requestParameters.changeStartDate !== undefined) {
-            queryParameters['changeStartDate'] = (requestParameters.changeStartDate as any).toISOString().substring(0,10);
+            queryParameters['changeStartDate'] = requestParameters.changeStartDate;
         }
 
         if (requestParameters.currentStatus) {
@@ -3184,27 +3184,27 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.blockStartEndDate !== undefined) {
-            queryParameters['blockStartEndDate'] = (requestParameters.blockStartEndDate as any).toISOString().substring(0,10);
+            queryParameters['blockStartEndDate'] = requestParameters.blockStartEndDate;
         }
 
         if (requestParameters.blockStartStartDate !== undefined) {
-            queryParameters['blockStartStartDate'] = (requestParameters.blockStartStartDate as any).toISOString().substring(0,10);
+            queryParameters['blockStartStartDate'] = requestParameters.blockStartStartDate;
         }
 
         if (requestParameters.blockEndEndDate !== undefined) {
-            queryParameters['blockEndEndDate'] = (requestParameters.blockEndEndDate as any).toISOString().substring(0,10);
+            queryParameters['blockEndEndDate'] = requestParameters.blockEndEndDate;
         }
 
         if (requestParameters.blockEndStartDate !== undefined) {
-            queryParameters['blockEndStartDate'] = (requestParameters.blockEndStartDate as any).toISOString().substring(0,10);
+            queryParameters['blockEndStartDate'] = requestParameters.blockEndStartDate;
         }
 
         if (requestParameters.reservationArrival !== undefined) {
-            queryParameters['reservationArrival'] = (requestParameters.reservationArrival as any).toISOString().substring(0,10);
+            queryParameters['reservationArrival'] = requestParameters.reservationArrival;
         }
 
         if (requestParameters.reservationDeparture !== undefined) {
-            queryParameters['reservationDeparture'] = (requestParameters.reservationDeparture as any).toISOString().substring(0,10);
+            queryParameters['reservationDeparture'] = requestParameters.reservationDeparture;
         }
 
         if (requestParameters.includeShoulderDates !== undefined) {
@@ -3212,31 +3212,31 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.stayDate !== undefined) {
-            queryParameters['stayDate'] = (requestParameters.stayDate as any).toISOString().substring(0,10);
+            queryParameters['stayDate'] = requestParameters.stayDate;
         }
 
         if (requestParameters.blockCreatedOnEndDate !== undefined) {
-            queryParameters['blockCreatedOnEndDate'] = (requestParameters.blockCreatedOnEndDate as any).toISOString().substring(0,10);
+            queryParameters['blockCreatedOnEndDate'] = requestParameters.blockCreatedOnEndDate;
         }
 
         if (requestParameters.blockCreatedOnStartDate !== undefined) {
-            queryParameters['blockCreatedOnStartDate'] = (requestParameters.blockCreatedOnStartDate as any).toISOString().substring(0,10);
+            queryParameters['blockCreatedOnStartDate'] = requestParameters.blockCreatedOnStartDate;
         }
 
         if (requestParameters.decisionEndDate !== undefined) {
-            queryParameters['decisionEndDate'] = (requestParameters.decisionEndDate as any).toISOString().substring(0,10);
+            queryParameters['decisionEndDate'] = requestParameters.decisionEndDate;
         }
 
         if (requestParameters.decisionStartDate !== undefined) {
-            queryParameters['decisionStartDate'] = (requestParameters.decisionStartDate as any).toISOString().substring(0,10);
+            queryParameters['decisionStartDate'] = requestParameters.decisionStartDate;
         }
 
         if (requestParameters.cutOffEndDate !== undefined) {
-            queryParameters['cutOffEndDate'] = (requestParameters.cutOffEndDate as any).toISOString().substring(0,10);
+            queryParameters['cutOffEndDate'] = requestParameters.cutOffEndDate;
         }
 
         if (requestParameters.cutOffStartDate !== undefined) {
-            queryParameters['cutOffStartDate'] = (requestParameters.cutOffStartDate as any).toISOString().substring(0,10);
+            queryParameters['cutOffStartDate'] = requestParameters.cutOffStartDate;
         }
 
         if (requestParameters.category) {
@@ -3296,7 +3296,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.additionalCriteriaStartDate !== undefined) {
-            queryParameters['additionalCriteriaStartDate'] = (requestParameters.additionalCriteriaStartDate as any).toISOString().substring(0,10);
+            queryParameters['additionalCriteriaStartDate'] = requestParameters.additionalCriteriaStartDate;
         }
 
         if (requestParameters.numberOfDays !== undefined) {
@@ -3456,7 +3456,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.blockCodeTemplate !== undefined) {
@@ -3536,7 +3536,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.requiredRooms) {
@@ -3564,7 +3564,7 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3800,11 +3800,11 @@ export class BlockApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
+            queryParameters['beginDate'] = requestParameters.beginDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.department) {

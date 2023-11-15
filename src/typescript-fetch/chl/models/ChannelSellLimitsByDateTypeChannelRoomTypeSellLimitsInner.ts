@@ -33,10 +33,10 @@ export interface ChannelSellLimitsByDateTypeChannelRoomTypeSellLimitsInner {
     channelRoomType?: string;
     /**
      * Date on which this sell limit is applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelSellLimitsByDateTypeChannelRoomTypeSellLimitsInner
      */
-    date?: Date;
+    date?: string;
     /**
      * Number of rooms that can be sold for this particular sell limit date.
      * @type {number}
@@ -66,7 +66,7 @@ export function ChannelSellLimitsByDateTypeChannelRoomTypeSellLimitsInnerFromJSO
         
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'channelRoomType': !exists(json, 'channelRoomType') ? undefined : json['channelRoomType'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'numberOfRooms': !exists(json, 'numberOfRooms') ? undefined : json['numberOfRooms'],
     };
 }
@@ -82,7 +82,7 @@ export function ChannelSellLimitsByDateTypeChannelRoomTypeSellLimitsInnerToJSON(
         
         'bookingChannelCode': value.bookingChannelCode,
         'channelRoomType': value.channelRoomType,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'numberOfRooms': value.numberOfRooms,
     };
 }

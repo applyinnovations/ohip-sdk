@@ -34,10 +34,10 @@ import {
 export interface ECertificateConsumptionType {
     /**
      * Date the certificate was consumed.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    date?: Date;
+    date?: string;
     /**
      * Email of the person who consumed the certificate.
      * @type {string}
@@ -107,7 +107,7 @@ export function ECertificateConsumptionTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'email': !exists(json, 'email') ? undefined : json['email'],
         'firstName': !exists(json, 'firstName') ? undefined : json['firstName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -128,7 +128,7 @@ export function ECertificateConsumptionTypeToJSON(value?: ECertificateConsumptio
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'email': value.email,
         'firstName': value.firstName,
         'hotelId': value.hotelId,

@@ -172,10 +172,10 @@ export interface AutoGenerateTaskSheetsCriteriaType {
     taskCodes?: Array<string>;
     /**
      * Task Date for which the tasks are to be generated. Date cannot be earlier than business date.
-     * @type {Date}
+     * @type {string}
      * @memberof AutoGenerateTaskSheetsCriteriaType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * Template code of the task sheet.
      * @type {string}
@@ -268,7 +268,7 @@ export function AutoGenerateTaskSheetsCriteriaTypeFromJSONTyped(json: any, ignor
         'status': !exists(json, 'status') ? undefined : TaskSheetGenerationStatusTypesTypeFromJSON(json['status']),
         'stayOverFirst': !exists(json, 'stayOverFirst') ? undefined : json['stayOverFirst'],
         'taskCodes': !exists(json, 'taskCodes') ? undefined : json['taskCodes'],
-        'taskDate': !exists(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !exists(json, 'taskDate') ? undefined : json['taskDate'],
         'templateCode': !exists(json, 'templateCode') ? undefined : json['templateCode'],
         'templateDescription': !exists(json, 'templateDescription') ? undefined : json['templateDescription'],
         'turndown': !exists(json, 'turndown') ? undefined : json['turndown'],
@@ -308,7 +308,7 @@ export function AutoGenerateTaskSheetsCriteriaTypeToJSON(value?: AutoGenerateTas
         'status': TaskSheetGenerationStatusTypesTypeToJSON(value.status),
         'stayOverFirst': value.stayOverFirst,
         'taskCodes': value.taskCodes,
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
+        'taskDate': value.taskDate,
         'templateCode': value.templateCode,
         'templateDescription': value.templateDescription,
         'turndown': value.turndown,

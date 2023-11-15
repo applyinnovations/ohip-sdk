@@ -39,11 +39,11 @@ function AmountTypeFromJSONTyped(json, ignoreDiscriminator) {
         'base': !(0, runtime_1.exists)(json, 'base') ? undefined : (0, TotalType_1.TotalTypeFromJSON)(json['base']),
         'discount': !(0, runtime_1.exists)(json, 'discount') ? undefined : (0, DiscountType_1.DiscountTypeFromJSON)(json['discount']),
         'effectiveRate': !(0, runtime_1.exists)(json, 'effectiveRate') ? undefined : (0, TotalType_1.TotalTypeFromJSON)(json['effectiveRate']),
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'requiredPoints': !(0, runtime_1.exists)(json, 'requiredPoints') ? undefined : (0, PointsType_1.PointsTypeFromJSON)(json['requiredPoints']),
         'shareDistributionInstruction': !(0, runtime_1.exists)(json, 'shareDistributionInstruction') ? undefined : (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeFromJSON)(json['shareDistributionInstruction']),
         'shareRatePercentage': !(0, runtime_1.exists)(json, 'shareRatePercentage') ? undefined : json['shareRatePercentage'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'total': !(0, runtime_1.exists)(json, 'total') ? undefined : (0, TotalType_1.TotalTypeFromJSON)(json['total']),
     };
 }
@@ -59,11 +59,11 @@ function AmountTypeToJSON(value) {
         'base': (0, TotalType_1.TotalTypeToJSON)(value.base),
         'discount': (0, DiscountType_1.DiscountTypeToJSON)(value.discount),
         'effectiveRate': (0, TotalType_1.TotalTypeToJSON)(value.effectiveRate),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'requiredPoints': (0, PointsType_1.PointsTypeToJSON)(value.requiredPoints),
         'shareDistributionInstruction': (0, ShareDistributionInstructionType_1.ShareDistributionInstructionTypeToJSON)(value.shareDistributionInstruction),
         'shareRatePercentage': value.shareRatePercentage,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'total': (0, TotalType_1.TotalTypeToJSON)(value.total),
     };
 }

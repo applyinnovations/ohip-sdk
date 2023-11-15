@@ -28,10 +28,10 @@ import {
 export interface ARStatementCriteriaType {
     /**
      * The date specified in this field determines the balance forward date and balance forward total that is printed on the statement. (A balance forward shows the net amount for all invoices and payments (debits and credits) prior to the balance forward date as a single total, rather than itemizing them individually on the statement.)
-     * @type {Date}
+     * @type {string}
      * @memberof ARStatementCriteriaType
      */
-    balanceForwardDate?: Date;
+    balanceForwardDate?: string;
     /**
      * 
      * @type {DateRangeType}
@@ -83,7 +83,7 @@ export function ARStatementCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'balanceForwardDate': !exists(json, 'balanceForwardDate') ? undefined : (new Date(json['balanceForwardDate'])),
+        'balanceForwardDate': !exists(json, 'balanceForwardDate') ? undefined : json['balanceForwardDate'],
         'filterDate': !exists(json, 'filterDate') ? undefined : DateRangeTypeFromJSON(json['filterDate']),
         'inclFolios': !exists(json, 'inclFolios') ? undefined : json['inclFolios'],
         'inclPrinted': !exists(json, 'inclPrinted') ? undefined : json['inclPrinted'],
@@ -101,7 +101,7 @@ export function ARStatementCriteriaTypeToJSON(value?: ARStatementCriteriaType | 
     }
     return {
         
-        'balanceForwardDate': value.balanceForwardDate === undefined ? undefined : (value.balanceForwardDate.toISOString().substring(0,10)),
+        'balanceForwardDate': value.balanceForwardDate,
         'filterDate': DateRangeTypeToJSON(value.filterDate),
         'inclFolios': value.inclFolios,
         'inclPrinted': value.inclPrinted,

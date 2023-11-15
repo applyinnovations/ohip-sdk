@@ -56,10 +56,10 @@ export interface PostBillingCheckChargesCriteriaType {
     reservationId?: ReservationId;
     /**
      * The date against which charges are posted.
-     * @type {Date}
+     * @type {string}
      * @memberof PostBillingCheckChargesCriteriaType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
 }
 /**
  * Check if a given object implements the PostBillingCheckChargesCriteriaType interface.

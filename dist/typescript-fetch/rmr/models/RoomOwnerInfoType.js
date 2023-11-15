@@ -34,7 +34,7 @@ function RoomOwnerInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'contractNumber': !(0, runtime_1.exists)(json, 'contractNumber') ? undefined : json['contractNumber'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'ownerDisplayName': !(0, runtime_1.exists)(json, 'ownerDisplayName') ? undefined : json['ownerDisplayName'],
@@ -43,7 +43,7 @@ function RoomOwnerInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomOwnershipId': !(0, runtime_1.exists)(json, 'roomOwnershipId') ? undefined : json['roomOwnershipId'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.RoomOwnerInfoTypeFromJSONTyped = RoomOwnerInfoTypeFromJSONTyped;
@@ -56,7 +56,7 @@ function RoomOwnerInfoTypeToJSON(value) {
     }
     return {
         'contractNumber': value.contractNumber,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'ownerDisplayName': value.ownerDisplayName,
@@ -65,7 +65,7 @@ function RoomOwnerInfoTypeToJSON(value) {
         'roomId': value.roomId,
         'roomOwnershipId': value.roomOwnershipId,
         'roomType': value.roomType,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.RoomOwnerInfoTypeToJSON = RoomOwnerInfoTypeToJSON;

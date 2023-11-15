@@ -17,10 +17,10 @@
 export interface RateCategoryTypeRateCategoryDetails {
     /**
      * Begin date for the rate category.
-     * @type {Date}
+     * @type {string}
      * @memberof RateCategoryTypeRateCategoryDetails
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Description of rate category.
      * @type {string}
@@ -29,10 +29,10 @@ export interface RateCategoryTypeRateCategoryDetails {
     description?: string;
     /**
      * End date for the rate category.
-     * @type {Date}
+     * @type {string}
      * @memberof RateCategoryTypeRateCategoryDetails
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Active date of the room category.
      * @type {string}

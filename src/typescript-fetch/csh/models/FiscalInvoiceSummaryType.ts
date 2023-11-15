@@ -40,10 +40,10 @@ export interface FiscalInvoiceSummaryType {
     fiscalTerminalId?: string;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalInvoiceSummaryType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -127,7 +127,7 @@ export function FiscalInvoiceSummaryTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'fiscalTerminalId': !exists(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioSeqNo': !exists(json, 'folioSeqNo') ? undefined : json['folioSeqNo'],
@@ -152,7 +152,7 @@ export function FiscalInvoiceSummaryTypeToJSON(value?: FiscalInvoiceSummaryType 
         
         'fiscalBillNo': value.fiscalBillNo,
         'fiscalTerminalId': value.fiscalTerminalId,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,

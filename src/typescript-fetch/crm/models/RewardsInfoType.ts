@@ -45,10 +45,10 @@ export interface RewardsInfoType {
     meetingPlanner?: boolean;
     /**
      * Indicates membership date of the guest
-     * @type {Date}
+     * @type {string}
      * @memberof RewardsInfoType
      */
-    membershipDate?: Date;
+    membershipDate?: string;
     /**
      * Indicates membership id of the guest.
      * @type {number}
@@ -98,7 +98,7 @@ export function RewardsInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'currentBalance': !exists(json, 'currentBalance') ? undefined : json['currentBalance'],
         'mVCIOwner': !exists(json, 'mVCIOwner') ? undefined : json['mVCIOwner'],
         'meetingPlanner': !exists(json, 'meetingPlanner') ? undefined : json['meetingPlanner'],
-        'membershipDate': !exists(json, 'membershipDate') ? undefined : (new Date(json['membershipDate'])),
+        'membershipDate': !exists(json, 'membershipDate') ? undefined : json['membershipDate'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
         'membershipNo': !exists(json, 'membershipNo') ? undefined : json['membershipNo'],
@@ -119,7 +119,7 @@ export function RewardsInfoTypeToJSON(value?: RewardsInfoType | null): any {
         'currentBalance': value.currentBalance,
         'mVCIOwner': value.mVCIOwner,
         'meetingPlanner': value.meetingPlanner,
-        'membershipDate': value.membershipDate === undefined ? undefined : (value.membershipDate.toISOString().substring(0,10)),
+        'membershipDate': value.membershipDate,
         'membershipId': value.membershipId,
         'membershipLevel': value.membershipLevel,
         'membershipNo': value.membershipNo,

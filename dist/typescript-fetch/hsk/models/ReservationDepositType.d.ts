@@ -35,10 +35,10 @@ export interface ReservationDepositType {
     amountRequired?: number;
     /**
      * Deposit Due Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    dueDate?: Date;
+    dueDate?: string;
     /**
      * Resolves whether reservation has outstanding deposit.
      * @type {boolean}
@@ -53,10 +53,10 @@ export interface ReservationDepositType {
     hasPaid?: boolean;
     /**
      * Deposit Posting Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    postingDate?: Date;
+    postingDate?: string;
 }
 /**
  * Check if a given object implements the ReservationDepositType interface.

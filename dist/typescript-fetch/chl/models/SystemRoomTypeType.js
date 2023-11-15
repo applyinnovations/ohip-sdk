@@ -33,7 +33,7 @@ function SystemRoomTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'roomTypeCode': !(0, runtime_1.exists)(json, 'roomTypeCode') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['roomTypeCode']),
     };
 }
@@ -46,7 +46,7 @@ function SystemRoomTypeTypeToJSON(value) {
         return null;
     }
     return {
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'roomTypeCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.roomTypeCode),
     };
 }

@@ -32,7 +32,7 @@ function FolioActivityResponseDetailsTypeFromJSONTyped(json, ignoreDiscriminator
         return json;
     }
     return {
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'responseAttemptNo': !(0, runtime_1.exists)(json, 'responseAttemptNo') ? undefined : json['responseAttemptNo'],
         'responseName': !(0, runtime_1.exists)(json, 'responseName') ? undefined : json['responseName'],
         'responseType': !(0, runtime_1.exists)(json, 'responseType') ? undefined : json['responseType'],
@@ -48,7 +48,7 @@ function FolioActivityResponseDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'responseAttemptNo': value.responseAttemptNo,
         'responseName': value.responseName,
         'responseType': value.responseType,

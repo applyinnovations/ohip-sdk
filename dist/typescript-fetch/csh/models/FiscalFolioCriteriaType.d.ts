@@ -19,10 +19,10 @@ import type { FolioCommandType } from './FolioCommandType';
 export interface FiscalFolioCriteriaType {
     /**
      * Effective date to run fiscal command.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalFolioCriteriaType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      *
      * @type {FolioCommandType}

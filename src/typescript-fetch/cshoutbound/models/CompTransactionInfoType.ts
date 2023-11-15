@@ -58,10 +58,10 @@ export interface CompTransactionInfoType {
     confirmationNo?: string;
     /**
      * Approval date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CompTransactionInfoType
      */
-    approvalDate?: Date;
+    approvalDate?: string;
     /**
      * Approval status of the posting.
      * @type {string}
@@ -124,7 +124,7 @@ export function CompTransactionInfoTypeFromJSONTyped(json: any, ignoreDiscrimina
         'transactionDescription': !exists(json, 'transactionDescription') ? undefined : json['transactionDescription'],
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'confirmationNo': !exists(json, 'confirmationNo') ? undefined : json['confirmationNo'],
-        'approvalDate': !exists(json, 'approvalDate') ? undefined : (new Date(json['approvalDate'])),
+        'approvalDate': !exists(json, 'approvalDate') ? undefined : json['approvalDate'],
         'approvalStatus': !exists(json, 'approvalStatus') ? undefined : json['approvalStatus'],
         'approvalCode': !exists(json, 'approvalCode') ? undefined : json['approvalCode'],
         'approvalMessage': !exists(json, 'approvalMessage') ? undefined : json['approvalMessage'],
@@ -148,7 +148,7 @@ export function CompTransactionInfoTypeToJSON(value?: CompTransactionInfoType | 
         'transactionDescription': value.transactionDescription,
         'roomId': value.roomId,
         'confirmationNo': value.confirmationNo,
-        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substring(0,10)),
+        'approvalDate': value.approvalDate,
         'approvalStatus': value.approvalStatus,
         'approvalCode': value.approvalCode,
         'approvalMessage': value.approvalMessage,

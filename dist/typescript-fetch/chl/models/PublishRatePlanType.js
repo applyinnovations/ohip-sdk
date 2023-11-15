@@ -34,10 +34,10 @@ function PublishRatePlanTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'channel': !(0, runtime_1.exists)(json, 'channel') ? undefined : json['channel'],
         'channelCodes': !(0, runtime_1.exists)(json, 'channelCodes') ? undefined : (0, PublishRatePlanTypeChannelCodes_1.PublishRatePlanTypeChannelCodesFromJSON)(json['channelCodes']),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : (0, PublishRatePlanTypeHotelCodes_1.PublishRatePlanTypeHotelCodesFromJSON)(json['hotelCodes']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
@@ -51,10 +51,10 @@ function PublishRatePlanTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'channel': value.channel,
         'channelCodes': (0, PublishRatePlanTypeChannelCodes_1.PublishRatePlanTypeChannelCodesToJSON)(value.channelCodes),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelCodes': (0, PublishRatePlanTypeHotelCodes_1.PublishRatePlanTypeHotelCodesToJSON)(value.hotelCodes),
         'hotelId': value.hotelId,
     };

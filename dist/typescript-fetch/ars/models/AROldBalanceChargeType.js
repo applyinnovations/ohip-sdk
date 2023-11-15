@@ -35,7 +35,7 @@ function AROldBalanceChargeTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['amount']),
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'fiscalBillNo': !(0, runtime_1.exists)(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'folioNo': !(0, runtime_1.exists)(json, 'folioNo') ? undefined : json['folioNo'],
         'paid': !(0, runtime_1.exists)(json, 'paid') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['paid']),
@@ -54,7 +54,7 @@ function AROldBalanceChargeTypeToJSON(value) {
     }
     return {
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'fiscalBillNo': value.fiscalBillNo,
         'folioNo': value.folioNo,
         'paid': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.paid),

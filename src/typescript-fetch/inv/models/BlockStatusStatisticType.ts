@@ -28,10 +28,10 @@ import {
 export interface BlockStatusStatisticType {
     /**
      * Date of the statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatusStatisticType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
     /**
      * Unit type to hold statistic code and value pair.
      * @type {Array<StatisticUnitType>}
@@ -59,7 +59,7 @@ export function BlockStatusStatisticTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'statisticDate': !exists(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !exists(json, 'statisticDate') ? undefined : json['statisticDate'],
         'statusSummaryStatistic': !exists(json, 'statusSummaryStatistic') ? undefined : ((json['statusSummaryStatistic'] as Array<any>).map(StatisticUnitTypeFromJSON)),
     };
 }
@@ -73,7 +73,7 @@ export function BlockStatusStatisticTypeToJSON(value?: BlockStatusStatisticType 
     }
     return {
         
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
+        'statisticDate': value.statisticDate,
         'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : ((value.statusSummaryStatistic as Array<any>).map(StatisticUnitTypeToJSON)),
     };
 }

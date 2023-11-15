@@ -30,10 +30,10 @@ export interface FiscalPeriodEditType {
     newPeriod?: FiscalPeriodType;
     /**
      * Start Date of the Period
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalPeriodEditType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Id of the Year.
      * @type {number}

@@ -13,7 +13,7 @@ import * as runtime from '../runtime';
 import type { ChannelInventorySnapshot, GeneralAvailabilitySimulator, RateParity, RegionalRateParity } from '../models/index';
 export interface GetChannelInventorySnapshotRequest {
     hotelId: string;
-    fromDate: Date;
+    fromDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -24,7 +24,7 @@ export interface GetChannelInventorySnapshotRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    endDate?: Date;
+    endDate?: string;
     duration?: string;
     bookingChannelCodes?: Array<string>;
     channelRoomTypes?: Array<string>;
@@ -36,7 +36,7 @@ export interface GetChannelInventorySnapshotByRoomTypeRequest {
     roomTypeCode: string;
     channelCode: string;
     hotelId: string;
-    fromDate: Date;
+    fromDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -47,7 +47,7 @@ export interface GetChannelInventorySnapshotByRoomTypeRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    endDate?: Date;
+    endDate?: string;
     duration?: string;
     snapshotLevel?: GetChannelInventorySnapshotByRoomTypeSnapshotLevelEnum;
     xExternalsystem?: string;
@@ -60,7 +60,7 @@ export interface GetGeneralAvailabilitySimulatorRequest {
     xHotelid?: string;
     limit?: number;
     bookingChannelCode?: string;
-    arrival?: Date;
+    arrival?: string;
     adults?: number;
     nights?: number;
     children?: number;

@@ -46,10 +46,10 @@ export interface ReceiptSummaryType {
     customNumbers?: Array<string>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReceiptSummaryType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {PayeeInfoType}
@@ -82,10 +82,10 @@ export interface ReceiptSummaryType {
     receiptTypeDescription?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReceiptSummaryType
      */
-    start?: Date;
+    start?: string;
     /**
      * Tax Invoice Number of the Receipt.
      * @type {string}
@@ -120,13 +120,13 @@ export function ReceiptSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'customNumbers': !exists(json, 'customNumbers') ? undefined : json['customNumbers'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'payeeInfo': !exists(json, 'payeeInfo') ? undefined : PayeeInfoTypeFromJSON(json['payeeInfo']),
         'receiptAmount': !exists(json, 'receiptAmount') ? undefined : CurrencyAmountTypeFromJSON(json['receiptAmount']),
         'receiptNo': !exists(json, 'receiptNo') ? undefined : json['receiptNo'],
         'receiptType': !exists(json, 'receiptType') ? undefined : ReceiptTypeFromJSON(json['receiptType']),
         'receiptTypeDescription': !exists(json, 'receiptTypeDescription') ? undefined : json['receiptTypeDescription'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'taxInvoice': !exists(json, 'taxInvoice') ? undefined : json['taxInvoice'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
@@ -142,13 +142,13 @@ export function ReceiptSummaryTypeToJSON(value?: ReceiptSummaryType | null): any
     return {
         
         'customNumbers': value.customNumbers,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'payeeInfo': PayeeInfoTypeToJSON(value.payeeInfo),
         'receiptAmount': CurrencyAmountTypeToJSON(value.receiptAmount),
         'receiptNo': value.receiptNo,
         'receiptType': ReceiptTypeToJSON(value.receiptType),
         'receiptTypeDescription': value.receiptTypeDescription,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'taxInvoice': value.taxInvoice,
         'transactionNo': value.transactionNo,
     };

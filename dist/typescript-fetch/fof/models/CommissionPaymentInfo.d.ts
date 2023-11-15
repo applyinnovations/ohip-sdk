@@ -41,10 +41,10 @@ export interface CommissionPaymentInfo {
     commissionStatus?: string;
     /**
      * The payment date
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentInfo
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      * Payment id
      * @type {string}

@@ -56,10 +56,10 @@ export interface TrxAdjustCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof TrxAdjustCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      *
      * @type {ReservationId}

@@ -36,7 +36,7 @@ function EnrollmentPaymentDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : json['amount'],
         'amountCode': !(0, runtime_1.exists)(json, 'amountCode') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['amountCode']),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
-        'paymentDate': !(0, runtime_1.exists)(json, 'paymentDate') ? undefined : (new Date(json['paymentDate'])),
+        'paymentDate': !(0, runtime_1.exists)(json, 'paymentDate') ? undefined : json['paymentDate'],
         'paymentMethod': !(0, runtime_1.exists)(json, 'paymentMethod') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['paymentMethod']),
     };
 }
@@ -52,7 +52,7 @@ function EnrollmentPaymentDetailsTypeToJSON(value) {
         'amount': value.amount,
         'amountCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.amountCode),
         'comments': value.comments,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0, 10)),
+        'paymentDate': value.paymentDate,
         'paymentMethod': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.paymentMethod),
     };
 }

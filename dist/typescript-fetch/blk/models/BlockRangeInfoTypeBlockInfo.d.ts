@@ -37,10 +37,10 @@ export interface BlockRangeInfoTypeBlockInfo {
     blockStatus?: string;
     /**
      * Block End Date
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {string}
@@ -61,22 +61,22 @@ export interface BlockRangeInfoTypeBlockInfo {
     rateCode?: string;
     /**
      * Block Shoulder End Date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Block Shoulder Start Date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      * Block Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRangeInfoTypeBlockInfo
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the BlockRangeInfoTypeBlockInfo interface.

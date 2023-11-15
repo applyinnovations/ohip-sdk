@@ -94,10 +94,10 @@ export interface ValidateRateInfoCriteria {
     decimalPlaces?: number;
     /**
      * This field is only required when the criteria is meant for a detailed results. The date for the rate detail is needed.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidateRateInfoCriteria
      */
-    detailDate?: Date;
+    detailDate?: string;
     /**
      * Collection of effective rate amount per guest on specific dates.
      * @type {Array<EffectiveRateType>}
@@ -189,7 +189,7 @@ export function ValidateRateInfoCriteriaFromJSONTyped(json: any, ignoreDiscrimin
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'currencySymbol': !exists(json, 'currencySymbol') ? undefined : json['currencySymbol'],
         'decimalPlaces': !exists(json, 'decimalPlaces') ? undefined : json['decimalPlaces'],
-        'detailDate': !exists(json, 'detailDate') ? undefined : (new Date(json['detailDate'])),
+        'detailDate': !exists(json, 'detailDate') ? undefined : json['detailDate'],
         'effectiveRates': !exists(json, 'effectiveRates') ? undefined : ((json['effectiveRates'] as Array<any>).map(EffectiveRateTypeFromJSON)),
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
@@ -217,7 +217,7 @@ export function ValidateRateInfoCriteriaToJSON(value?: ValidateRateInfoCriteria 
         'currencyCode': value.currencyCode,
         'currencySymbol': value.currencySymbol,
         'decimalPlaces': value.decimalPlaces,
-        'detailDate': value.detailDate === undefined ? undefined : (value.detailDate.toISOString().substring(0,10)),
+        'detailDate': value.detailDate,
         'effectiveRates': value.effectiveRates === undefined ? undefined : ((value.effectiveRates as Array<any>).map(EffectiveRateTypeToJSON)),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),
         'quantity': value.quantity,

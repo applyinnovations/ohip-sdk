@@ -41,7 +41,7 @@ function CateringPackageEventNoteTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'noteCode': !(0, runtime_1.exists)(json, 'noteCode') ? undefined : json['noteCode'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'title': !(0, runtime_1.exists)(json, 'title') ? undefined : json['title'],
     };
 }
@@ -62,7 +62,7 @@ function CateringPackageEventNoteTypeToJSON(value) {
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'noteCode': value.noteCode,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'title': value.title,
     };
 }

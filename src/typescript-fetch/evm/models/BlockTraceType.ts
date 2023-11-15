@@ -94,10 +94,10 @@ export interface BlockTraceType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof BlockTraceType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {ReservationId}
@@ -164,7 +164,7 @@ export function BlockTraceTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'instance': !exists(json, 'instance') ? undefined : json['instance'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'resolveInfo': !exists(json, 'resolveInfo') ? undefined : TraceResolveTypeFromJSON(json['resolveInfo']),
         'timeInfo': !exists(json, 'timeInfo') ? undefined : TraceTimeInfoTypeFromJSON(json['timeInfo']),
@@ -192,7 +192,7 @@ export function BlockTraceTypeToJSON(value?: BlockTraceType | null): any {
         'instance': value.instance,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'resolveInfo': TraceResolveTypeToJSON(value.resolveInfo),
         'timeInfo': TraceTimeInfoTypeToJSON(value.timeInfo),

@@ -17,10 +17,10 @@
 export interface BlockRateCodeValidationType {
     /**
      * End date for the rate code validation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRateCodeValidationType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel code for which rate code should be validated.
      * @type {string}
@@ -35,10 +35,10 @@ export interface BlockRateCodeValidationType {
     rateCode?: string;
     /**
      * Start date for the rate code validation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRateCodeValidationType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the BlockRateCodeValidationType interface.

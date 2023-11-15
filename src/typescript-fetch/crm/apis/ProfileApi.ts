@@ -615,7 +615,7 @@ export interface GetMembershipTierProjectionsRequest {
     id?: string;
     idContext?: string;
     type?: string;
-    projectionDate?: Date;
+    projectionDate?: string;
     projectionType?: GetMembershipTierProjectionsProjectionTypeEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -706,8 +706,8 @@ export interface GetProfileActivityLogRequest {
     parameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userByIDs?: Array<number>;
     userForIDs?: Array<number>;
@@ -891,7 +891,7 @@ export interface GetStagedProfilesRequest {
     region?: string;
     countryCode?: string;
     profileType?: string;
-    importDate?: Date;
+    importDate?: string;
     stageStatus?: string;
     applyTo?: GetStagedProfilesApplyToEnum;
     membershipCodes?: Array<string>;
@@ -923,7 +923,7 @@ export interface GetSuspendedAddressesRequest {
     profileType?: string;
     matchCode?: string;
     countryCode?: string;
-    validateDate?: Date;
+    validateDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -3346,7 +3346,7 @@ export class ProfileApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.projectionDate !== undefined) {
-            queryParameters['projectionDate'] = (requestParameters.projectionDate as any).toISOString().substring(0,10);
+            queryParameters['projectionDate'] = requestParameters.projectionDate;
         }
 
         if (requestParameters.projectionType !== undefined) {
@@ -3806,11 +3806,11 @@ export class ProfileApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
+            queryParameters['toDate'] = requestParameters.toDate;
         }
 
         if (requestParameters.searchText !== undefined) {
@@ -4706,7 +4706,7 @@ export class ProfileApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.importDate !== undefined) {
-            queryParameters['importDate'] = (requestParameters.importDate as any).toISOString().substring(0,10);
+            queryParameters['importDate'] = requestParameters.importDate;
         }
 
         if (requestParameters.stageStatus !== undefined) {
@@ -4866,7 +4866,7 @@ export class ProfileApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.validateDate !== undefined) {
-            queryParameters['validateDate'] = (requestParameters.validateDate as any).toISOString().substring(0,10);
+            queryParameters['validateDate'] = requestParameters.validateDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

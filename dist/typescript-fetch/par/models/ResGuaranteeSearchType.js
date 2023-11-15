@@ -39,7 +39,7 @@ function ResGuaranteeSearchTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
         'fetchInstruction': !(0, runtime_1.exists)(json, 'fetchInstruction') ? undefined : (0, ResGuaranteeFetchInstructionsType_1.ResGuaranteeFetchInstructionsTypeFromJSON)(json['fetchInstruction']),
         'guaranteeCode': !(0, runtime_1.exists)(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
@@ -62,7 +62,7 @@ function ResGuaranteeSearchTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
         'fetchInstruction': (0, ResGuaranteeFetchInstructionsType_1.ResGuaranteeFetchInstructionsTypeToJSON)(value.fetchInstruction),
         'guaranteeCode': value.guaranteeCode,

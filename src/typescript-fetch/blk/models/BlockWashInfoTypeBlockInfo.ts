@@ -46,10 +46,10 @@ export interface BlockWashInfoTypeBlockInfo {
     blockId?: BlockId;
     /**
      * End date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code to which the block belongs to.
      * @type {string}
@@ -64,22 +64,22 @@ export interface BlockWashInfoTypeBlockInfo {
     inventoryControl?: BlockInventoryControlType;
     /**
      * Shoulder end date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Shoulder start date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      * Start date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -103,12 +103,12 @@ export function BlockWashInfoTypeBlockInfoFromJSONTyped(json: any, ignoreDiscrim
         
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inventoryControl': !exists(json, 'inventoryControl') ? undefined : BlockInventoryControlTypeFromJSON(json['inventoryControl']),
-        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : (new Date(json['shoulderEndDate'])),
-        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : (new Date(json['shoulderStartDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : json['shoulderEndDate'],
+        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : json['shoulderStartDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -123,12 +123,12 @@ export function BlockWashInfoTypeBlockInfoToJSON(value?: BlockWashInfoTypeBlockI
         
         'blockCode': value.blockCode,
         'blockId': BlockIdToJSON(value.blockId),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inventoryControl': BlockInventoryControlTypeToJSON(value.inventoryControl),
-        'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0,10)),
-        'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'shoulderEndDate': value.shoulderEndDate,
+        'shoulderStartDate': value.shoulderStartDate,
+        'startDate': value.startDate,
     };
 }
 

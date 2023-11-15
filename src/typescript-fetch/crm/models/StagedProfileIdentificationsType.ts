@@ -52,10 +52,10 @@ export interface StagedProfileIdentificationsType {
     identification?: IdentificationType;
     /**
      * The date when the record was inactivated.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileIdentificationsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}
@@ -87,7 +87,7 @@ export function StagedProfileIdentificationsTypeFromJSONTyped(json: any, ignoreD
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'id': !exists(json, 'id') ? undefined : json['id'],
         'identification': !exists(json, 'identification') ? undefined : IdentificationTypeFromJSON(json['identification']),
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
 }
@@ -105,7 +105,7 @@ export function StagedProfileIdentificationsTypeToJSON(value?: StagedProfileIden
         'errorDescription': value.errorDescription,
         'id': value.id,
         'identification': IdentificationTypeToJSON(value.identification),
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'type': value.type,
     };
 }

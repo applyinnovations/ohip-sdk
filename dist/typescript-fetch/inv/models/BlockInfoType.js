@@ -51,15 +51,15 @@ function BlockInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'contactName': !(0, runtime_1.exists)(json, 'contactName') ? undefined : json['contactName'],
         'conversionCode': !(0, runtime_1.exists)(json, 'conversionCode') ? undefined : json['conversionCode'],
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
-        'cutOffDate': !(0, runtime_1.exists)(json, 'cutOffDate') ? undefined : (new Date(json['cutOffDate'])),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'cutOffDate': !(0, runtime_1.exists)(json, 'cutOffDate') ? undefined : json['cutOffDate'],
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'guaranteeCode': !(0, runtime_1.exists)(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'nonCompeteDetails': !(0, runtime_1.exists)(json, 'nonCompeteDetails') ? undefined : (0, BlockNonCompeteType_1.BlockNonCompeteTypeFromJSON)(json['nonCompeteDetails']),
         'rankingCode': !(0, runtime_1.exists)(json, 'rankingCode') ? undefined : json['rankingCode'],
         'rateProtectionDetails': !(0, runtime_1.exists)(json, 'rateProtectionDetails') ? undefined : (0, BlockRateProtectionType_1.BlockRateProtectionTypeFromJSON)(json['rateProtectionDetails']),
         'roomSalesManager': !(0, runtime_1.exists)(json, 'roomSalesManager') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['roomSalesManager']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.BlockInfoTypeFromJSONTyped = BlockInfoTypeFromJSONTyped;
@@ -84,15 +84,15 @@ function BlockInfoTypeToJSON(value) {
         'contactName': value.contactName,
         'conversionCode': value.conversionCode,
         'currencyCode': value.currencyCode,
-        'cutOffDate': value.cutOffDate === undefined ? undefined : (value.cutOffDate.toISOString().substring(0, 10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'cutOffDate': value.cutOffDate,
+        'endDate': value.endDate,
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
         'nonCompeteDetails': (0, BlockNonCompeteType_1.BlockNonCompeteTypeToJSON)(value.nonCompeteDetails),
         'rankingCode': value.rankingCode,
         'rateProtectionDetails': (0, BlockRateProtectionType_1.BlockRateProtectionTypeToJSON)(value.rateProtectionDetails),
         'roomSalesManager': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.roomSalesManager),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.BlockInfoTypeToJSON = BlockInfoTypeToJSON;

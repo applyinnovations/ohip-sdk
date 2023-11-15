@@ -34,7 +34,7 @@ function CheckDetailsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'checkDate': !(0, runtime_1.exists)(json, 'checkDate') ? undefined : (new Date(json['checkDate'])),
+        'checkDate': !(0, runtime_1.exists)(json, 'checkDate') ? undefined : json['checkDate'],
         'checkDetailsInfo': !(0, runtime_1.exists)(json, 'checkDetailsInfo') ? undefined : json['checkDetailsInfo'],
         'checkImageInfo': !(0, runtime_1.exists)(json, 'checkImageInfo') ? undefined : json['checkImageInfo'],
         'checkNumber': !(0, runtime_1.exists)(json, 'checkNumber') ? undefined : json['checkNumber'],
@@ -51,7 +51,7 @@ function CheckDetailsToJSON(value) {
         return null;
     }
     return {
-        'checkDate': value.checkDate === undefined ? undefined : (value.checkDate.toISOString().substring(0, 10)),
+        'checkDate': value.checkDate,
         'checkDetailsInfo': value.checkDetailsInfo,
         'checkImageInfo': value.checkImageInfo,
         'checkNumber': value.checkNumber,

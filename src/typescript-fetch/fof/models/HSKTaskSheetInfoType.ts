@@ -70,10 +70,10 @@ export interface HSKTaskSheetInfoType {
     roomSummary?: Array<HSKTaskSheetInfoTypeRoomSummaryInner>;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof HSKTaskSheetInfoType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * 
      * @type {number}
@@ -135,7 +135,7 @@ export function HSKTaskSheetInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
         'attendant': !exists(json, 'attendant') ? undefined : json['attendant'],
         'averageActualTimeInSecs': !exists(json, 'averageActualTimeInSecs') ? undefined : json['averageActualTimeInSecs'],
         'roomSummary': !exists(json, 'roomSummary') ? undefined : ((json['roomSummary'] as Array<any>).map(HSKTaskSheetInfoTypeRoomSummaryInnerFromJSON)),
-        'taskDate': !exists(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !exists(json, 'taskDate') ? undefined : json['taskDate'],
         'taskSeqNo': !exists(json, 'taskSeqNo') ? undefined : json['taskSeqNo'],
         'taskSheetDetails': !exists(json, 'taskSheetDetails') ? undefined : HSKTaskSheetDetailsInfoTypeFromJSON(json['taskSheetDetails']),
         'taskSheetNo': !exists(json, 'taskSheetNo') ? undefined : json['taskSheetNo'],
@@ -158,7 +158,7 @@ export function HSKTaskSheetInfoTypeToJSON(value?: HSKTaskSheetInfoType | null):
         'attendant': value.attendant,
         'averageActualTimeInSecs': value.averageActualTimeInSecs,
         'roomSummary': value.roomSummary === undefined ? undefined : ((value.roomSummary as Array<any>).map(HSKTaskSheetInfoTypeRoomSummaryInnerToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
+        'taskDate': value.taskDate,
         'taskSeqNo': value.taskSeqNo,
         'taskSheetDetails': HSKTaskSheetDetailsInfoTypeToJSON(value.taskSheetDetails),
         'taskSheetNo': value.taskSheetNo,

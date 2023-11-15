@@ -34,10 +34,10 @@ export interface MembershipPointsCalculationType {
     awardCode?: string;
     /**
      * The last date for which calculate or expire points. Available for Calculate Points and Expire Award Points only.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipPointsCalculationType
      */
-    calculateUntilDate?: Date;
+    calculateUntilDate?: string;
     /**
      * Membership type for which point calculation process is to be run.
      * @type {string}
@@ -72,7 +72,7 @@ export function MembershipPointsCalculationTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'awardCode': !exists(json, 'awardCode') ? undefined : json['awardCode'],
-        'calculateUntilDate': !exists(json, 'calculateUntilDate') ? undefined : (new Date(json['calculateUntilDate'])),
+        'calculateUntilDate': !exists(json, 'calculateUntilDate') ? undefined : json['calculateUntilDate'],
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
         'processType': !exists(json, 'processType') ? undefined : MembershipPointsCalculationProcessTypeFromJSON(json['processType']),
     };
@@ -88,7 +88,7 @@ export function MembershipPointsCalculationTypeToJSON(value?: MembershipPointsCa
     return {
         
         'awardCode': value.awardCode,
-        'calculateUntilDate': value.calculateUntilDate === undefined ? undefined : (value.calculateUntilDate.toISOString().substring(0,10)),
+        'calculateUntilDate': value.calculateUntilDate,
         'membershipType': value.membershipType,
         'processType': MembershipPointsCalculationProcessTypeToJSON(value.processType),
     };

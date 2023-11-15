@@ -184,10 +184,10 @@ export interface ReservationInfoType {
     lastModifyDateTime?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationInfoType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      *
      * @type {ResMobileNotificationsType}

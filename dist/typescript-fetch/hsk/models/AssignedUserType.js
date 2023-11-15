@@ -35,10 +35,10 @@ function AssignedUserTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'assignedByUser': !(0, runtime_1.exists)(json, 'assignedByUser') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['assignedByUser']),
         'assignedByUserName': !(0, runtime_1.exists)(json, 'assignedByUserName') ? undefined : json['assignedByUserName'],
-        'assignedDate': !(0, runtime_1.exists)(json, 'assignedDate') ? undefined : (new Date(json['assignedDate'])),
+        'assignedDate': !(0, runtime_1.exists)(json, 'assignedDate') ? undefined : json['assignedDate'],
         'assignedToUser': !(0, runtime_1.exists)(json, 'assignedToUser') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['assignedToUser']),
         'assignedToUserName': !(0, runtime_1.exists)(json, 'assignedToUserName') ? undefined : json['assignedToUserName'],
-        'expectedByDate': !(0, runtime_1.exists)(json, 'expectedByDate') ? undefined : (new Date(json['expectedByDate'])),
+        'expectedByDate': !(0, runtime_1.exists)(json, 'expectedByDate') ? undefined : json['expectedByDate'],
     };
 }
 exports.AssignedUserTypeFromJSONTyped = AssignedUserTypeFromJSONTyped;
@@ -52,10 +52,10 @@ function AssignedUserTypeToJSON(value) {
     return {
         'assignedByUser': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.assignedByUser),
         'assignedByUserName': value.assignedByUserName,
-        'assignedDate': value.assignedDate === undefined ? undefined : (value.assignedDate.toISOString().substring(0, 10)),
+        'assignedDate': value.assignedDate,
         'assignedToUser': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.assignedToUser),
         'assignedToUserName': value.assignedToUserName,
-        'expectedByDate': value.expectedByDate === undefined ? undefined : (value.expectedByDate.toISOString().substring(0, 10)),
+        'expectedByDate': value.expectedByDate,
     };
 }
 exports.AssignedUserTypeToJSON = AssignedUserTypeToJSON;

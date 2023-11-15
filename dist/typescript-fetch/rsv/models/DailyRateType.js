@@ -43,9 +43,9 @@ function DailyRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         'decimalPlaces': !(0, runtime_1.exists)(json, 'decimalPlaces') ? undefined : json['decimalPlaces'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'discount': !(0, runtime_1.exists)(json, 'discount') ? undefined : (0, DiscountType_1.DiscountTypeFromJSON)(json['discount']),
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'rateOverride': !(0, runtime_1.exists)(json, 'rateOverride') ? undefined : json['rateOverride'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'taxes': !(0, runtime_1.exists)(json, 'taxes') ? undefined : (0, TaxesType_1.TaxesTypeFromJSON)(json['taxes']),
     };
 }
@@ -67,9 +67,9 @@ function DailyRateTypeToJSON(value) {
         'decimalPlaces': value.decimalPlaces,
         'description': value.description,
         'discount': (0, DiscountType_1.DiscountTypeToJSON)(value.discount),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'rateOverride': value.rateOverride,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'taxes': (0, TaxesType_1.TaxesTypeToJSON)(value.taxes),
     };
 }

@@ -40,8 +40,8 @@ function RevenueInventoryStatisticsSearchTypeFromJSONTyped(json, ignoreDiscrimin
         return json;
     }
     return {
-        'dateRangeEnd': !(0, runtime_1.exists)(json, 'dateRangeEnd') ? undefined : (new Date(json['dateRangeEnd'])),
-        'dateRangeStart': !(0, runtime_1.exists)(json, 'dateRangeStart') ? undefined : (new Date(json['dateRangeStart'])),
+        'dateRangeEnd': !(0, runtime_1.exists)(json, 'dateRangeEnd') ? undefined : json['dateRangeEnd'],
+        'dateRangeStart': !(0, runtime_1.exists)(json, 'dateRangeStart') ? undefined : json['dateRangeStart'],
         'groupBy': !(0, runtime_1.exists)(json, 'groupBy') ? undefined : json['groupBy'],
         'guaranteeCodes': !(0, runtime_1.exists)(json, 'guaranteeCodes') ? undefined : json['guaranteeCodes'],
         'marketCodes': !(0, runtime_1.exists)(json, 'marketCodes') ? undefined : json['marketCodes'],
@@ -57,8 +57,8 @@ function RevenueInventoryStatisticsSearchTypeToJSON(value) {
         return null;
     }
     return {
-        'dateRangeEnd': value.dateRangeEnd === undefined ? undefined : (value.dateRangeEnd.toISOString().substring(0, 10)),
-        'dateRangeStart': value.dateRangeStart === undefined ? undefined : (value.dateRangeStart.toISOString().substring(0, 10)),
+        'dateRangeEnd': value.dateRangeEnd,
+        'dateRangeStart': value.dateRangeStart,
         'groupBy': value.groupBy === undefined ? undefined : Array.from(value.groupBy),
         'guaranteeCodes': value.guaranteeCodes,
         'marketCodes': value.marketCodes,

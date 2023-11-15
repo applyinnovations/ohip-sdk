@@ -40,10 +40,10 @@ export interface CancellationActivityType {
     cancellationIdList?: Array<UniqueIDType>;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof CancellationActivityType
      */
-    cxlDate?: Date;
+    cxlDate?: string;
     /**
      * 
      * @type {CancellationReasonType}
@@ -84,7 +84,7 @@ export function CancellationActivityTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'cancellationIdList': !exists(json, 'cancellationIdList') ? undefined : ((json['cancellationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
-        'cxlDate': !exists(json, 'cxlDate') ? undefined : (new Date(json['cxlDate'])),
+        'cxlDate': !exists(json, 'cxlDate') ? undefined : json['cxlDate'],
         'reason': !exists(json, 'reason') ? undefined : CancellationReasonTypeFromJSON(json['reason']),
         'userId': !exists(json, 'userId') ? undefined : json['userId'],
         'userName': !exists(json, 'userName') ? undefined : json['userName'],
@@ -101,7 +101,7 @@ export function CancellationActivityTypeToJSON(value?: CancellationActivityType 
     return {
         
         'cancellationIdList': value.cancellationIdList === undefined ? undefined : ((value.cancellationIdList as Array<any>).map(UniqueIDTypeToJSON)),
-        'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substring(0,10)),
+        'cxlDate': value.cxlDate,
         'reason': CancellationReasonTypeToJSON(value.reason),
         'userId': value.userId,
         'userName': value.userName,

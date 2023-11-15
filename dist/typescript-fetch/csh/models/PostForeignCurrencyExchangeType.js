@@ -37,7 +37,7 @@ function PostForeignCurrencyExchangeTypeFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'exchangeDate': !(0, runtime_1.exists)(json, 'exchangeDate') ? undefined : (new Date(json['exchangeDate'])),
+        'exchangeDate': !(0, runtime_1.exists)(json, 'exchangeDate') ? undefined : json['exchangeDate'],
         'exchangeReference': !(0, runtime_1.exists)(json, 'exchangeReference') ? undefined : json['exchangeReference'],
         'exchangeType': !(0, runtime_1.exists)(json, 'exchangeType') ? undefined : (0, CurrencyExchangeType_1.CurrencyExchangeTypeFromJSON)(json['exchangeType']),
         'fromCurrencyAmount': !(0, runtime_1.exists)(json, 'fromCurrencyAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['fromCurrencyAmount']),
@@ -60,7 +60,7 @@ function PostForeignCurrencyExchangeTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0, 10)),
+        'exchangeDate': value.exchangeDate,
         'exchangeReference': value.exchangeReference,
         'exchangeType': (0, CurrencyExchangeType_1.CurrencyExchangeTypeToJSON)(value.exchangeType),
         'fromCurrencyAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.fromCurrencyAmount),

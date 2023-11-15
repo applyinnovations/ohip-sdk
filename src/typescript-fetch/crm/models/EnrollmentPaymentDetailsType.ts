@@ -46,10 +46,10 @@ export interface EnrollmentPaymentDetailsType {
     comments?: string;
     /**
      * The date of Payment for enrollment to membership program.
-     * @type {Date}
+     * @type {string}
      * @memberof EnrollmentPaymentDetailsType
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      * 
      * @type {CodeDescriptionType}
@@ -80,7 +80,7 @@ export function EnrollmentPaymentDetailsTypeFromJSONTyped(json: any, ignoreDiscr
         'amount': !exists(json, 'amount') ? undefined : json['amount'],
         'amountCode': !exists(json, 'amountCode') ? undefined : CodeDescriptionTypeFromJSON(json['amountCode']),
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
-        'paymentDate': !exists(json, 'paymentDate') ? undefined : (new Date(json['paymentDate'])),
+        'paymentDate': !exists(json, 'paymentDate') ? undefined : json['paymentDate'],
         'paymentMethod': !exists(json, 'paymentMethod') ? undefined : CodeDescriptionTypeFromJSON(json['paymentMethod']),
     };
 }
@@ -97,7 +97,7 @@ export function EnrollmentPaymentDetailsTypeToJSON(value?: EnrollmentPaymentDeta
         'amount': value.amount,
         'amountCode': CodeDescriptionTypeToJSON(value.amountCode),
         'comments': value.comments,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0,10)),
+        'paymentDate': value.paymentDate,
         'paymentMethod': CodeDescriptionTypeToJSON(value.paymentMethod),
     };
 }

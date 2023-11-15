@@ -46,10 +46,10 @@ export interface CustomerType {
     anonymization?: AnonymizationType;
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomerType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -156,7 +156,7 @@ export function CustomerTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'anonymization': !exists(json, 'anonymization') ? undefined : AnonymizationTypeFromJSON(json['anonymization']),
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !exists(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'birthPlace': !exists(json, 'birthPlace') ? undefined : json['birthPlace'],
         'blacklist': !exists(json, 'blacklist') ? undefined : json['blacklist'],
@@ -184,7 +184,7 @@ export function CustomerTypeToJSON(value?: CustomerType | null): any {
     return {
         
         'anonymization': AnonymizationTypeToJSON(value.anonymization),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'birthPlace': value.birthPlace,
         'blacklist': value.blacklist,

@@ -29,10 +29,10 @@ export interface MembershipTierPointsType {
     pointsCost?: number;
     /**
      * Date when points were created.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTierPointsType
      */
-    pointsCreditDate?: Date;
+    pointsCreditDate?: string;
     /**
      * Sum of the base revenue and bonus revenue points.
      * @type {number}

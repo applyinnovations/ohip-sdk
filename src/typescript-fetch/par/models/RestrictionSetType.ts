@@ -52,10 +52,10 @@ export interface RestrictionSetType {
     actualTimeSpan?: TimeSpanType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RestrictionSetType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {boolean}
@@ -94,10 +94,10 @@ export interface RestrictionSetType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RestrictionSetType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {boolean}
@@ -145,14 +145,14 @@ export function RestrictionSetTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'actionType': !exists(json, 'actionType') ? undefined : json['actionType'],
         'actualTimeSpan': !exists(json, 'actualTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['actualTimeSpan']),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'friday': !exists(json, 'friday') ? undefined : json['friday'],
         'monday': !exists(json, 'monday') ? undefined : json['monday'],
         'onRequest': !exists(json, 'onRequest') ? undefined : json['onRequest'],
         'restrictionControl': !exists(json, 'restrictionControl') ? undefined : RestrictionControlTypeFromJSON(json['restrictionControl']),
         'restrictionStatus': !exists(json, 'restrictionStatus') ? undefined : RestrictionStatusTypeFromJSON(json['restrictionStatus']),
         'saturday': !exists(json, 'saturday') ? undefined : json['saturday'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'sunday': !exists(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !exists(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !exists(json, 'tuesday') ? undefined : json['tuesday'],
@@ -171,14 +171,14 @@ export function RestrictionSetTypeToJSON(value?: RestrictionSetType | null): any
         
         'actionType': value.actionType,
         'actualTimeSpan': TimeSpanTypeToJSON(value.actualTimeSpan),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'friday': value.friday,
         'monday': value.monday,
         'onRequest': value.onRequest,
         'restrictionControl': RestrictionControlTypeToJSON(value.restrictionControl),
         'restrictionStatus': RestrictionStatusTypeToJSON(value.restrictionStatus),
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

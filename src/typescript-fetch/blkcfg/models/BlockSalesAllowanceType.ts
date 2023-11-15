@@ -33,10 +33,10 @@ export interface BlockSalesAllowanceType {
     booked?: number;
     /**
      * Contains cutoff date for sales allowance.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSalesAllowanceType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Contains Hotel Code.
      * @type {string}
@@ -63,10 +63,10 @@ export interface BlockSalesAllowanceType {
     roomType?: string;
     /**
      * Contains sales allowance date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSalesAllowanceType
      */
-    salesAllowanceDate?: Date;
+    salesAllowanceDate?: string;
 }
 
 /**
@@ -90,12 +90,12 @@ export function BlockSalesAllowanceTypeFromJSONTyped(json: any, ignoreDiscrimina
         
         'allowance': !exists(json, 'allowance') ? undefined : json['allowance'],
         'booked': !exists(json, 'booked') ? undefined : json['booked'],
-        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
+        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : json['cutoffDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'overBooked': !exists(json, 'overBooked') ? undefined : json['overBooked'],
         'roomPool': !exists(json, 'roomPool') ? undefined : json['roomPool'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'salesAllowanceDate': !exists(json, 'salesAllowanceDate') ? undefined : (new Date(json['salesAllowanceDate'])),
+        'salesAllowanceDate': !exists(json, 'salesAllowanceDate') ? undefined : json['salesAllowanceDate'],
     };
 }
 
@@ -110,12 +110,12 @@ export function BlockSalesAllowanceTypeToJSON(value?: BlockSalesAllowanceType | 
         
         'allowance': value.allowance,
         'booked': value.booked,
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
+        'cutoffDate': value.cutoffDate,
         'hotelId': value.hotelId,
         'overBooked': value.overBooked,
         'roomPool': value.roomPool,
         'roomType': value.roomType,
-        'salesAllowanceDate': value.salesAllowanceDate === undefined ? undefined : (value.salesAllowanceDate.toISOString().substring(0,10)),
+        'salesAllowanceDate': value.salesAllowanceDate,
     };
 }
 

@@ -23,10 +23,10 @@ export interface HouseSellLimitType {
     amount?: number;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof HouseSellLimitType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {string}

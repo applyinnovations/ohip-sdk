@@ -19,10 +19,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface BlockPostingReservationsType {
     /**
      * Arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPostingReservationsType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      *
      * @type {UniqueIDType}
@@ -43,10 +43,10 @@ export interface BlockPostingReservationsType {
     defaultPostingAccount?: UniqueIDType;
     /**
      * Departure date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPostingReservationsType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      *
      * @type {UniqueIDType}

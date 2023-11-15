@@ -35,10 +35,10 @@ export interface MembershipAwardPointsType {
     miscPoints?: number;
     /**
      * The date until points are eligible for redemption based on membership type configuration.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardPointsType
      */
-    pointsExpiryDate?: Date;
+    pointsExpiryDate?: string;
     /**
      * Rule Code for award points.
      * @type {string}

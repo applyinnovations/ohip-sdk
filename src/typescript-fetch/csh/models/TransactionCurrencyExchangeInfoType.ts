@@ -58,10 +58,10 @@ export interface TransactionCurrencyExchangeInfoType {
     description?: string;
     /**
      * The date when this exchange rate was set.
-     * @type {Date}
+     * @type {string}
      * @memberof TransactionCurrencyExchangeInfoType
      */
-    exchangeDate?: Date;
+    exchangeDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -94,7 +94,7 @@ export function TransactionCurrencyExchangeInfoTypeFromJSONTyped(json: any, igno
         'commissionPercent': !exists(json, 'commissionPercent') ? undefined : json['commissionPercent'],
         'currencyAmount': !exists(json, 'currencyAmount') ? undefined : CurrencyAmountTypeFromJSON(json['currencyAmount']),
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'exchangeDate': !exists(json, 'exchangeDate') ? undefined : (new Date(json['exchangeDate'])),
+        'exchangeDate': !exists(json, 'exchangeDate') ? undefined : json['exchangeDate'],
         'exchangeRate': !exists(json, 'exchangeRate') ? undefined : CurrencyAmountTypeFromJSON(json['exchangeRate']),
     };
 }
@@ -113,7 +113,7 @@ export function TransactionCurrencyExchangeInfoTypeToJSON(value?: TransactionCur
         'commissionPercent': value.commissionPercent,
         'currencyAmount': CurrencyAmountTypeToJSON(value.currencyAmount),
         'description': value.description,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0,10)),
+        'exchangeDate': value.exchangeDate,
         'exchangeRate': CurrencyAmountTypeToJSON(value.exchangeRate),
     };
 }

@@ -18,10 +18,10 @@ import type { ExclusionReasonType } from './ExclusionReasonType';
 export interface ExcludedDateType {
     /**
      * Contains exclusion date.
-     * @type {Date}
+     * @type {string}
      * @memberof ExcludedDateType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {ExclusionReasonType}

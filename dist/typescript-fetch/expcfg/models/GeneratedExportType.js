@@ -36,11 +36,11 @@ function GeneratedExportTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'checksumEnabled': !(0, runtime_1.exists)(json, 'checksumEnabled') ? undefined : json['checksumEnabled'],
-        'dataFromDate': !(0, runtime_1.exists)(json, 'dataFromDate') ? undefined : (new Date(json['dataFromDate'])),
+        'dataFromDate': !(0, runtime_1.exists)(json, 'dataFromDate') ? undefined : json['dataFromDate'],
         'dataHeader': !(0, runtime_1.exists)(json, 'dataHeader') ? undefined : (0, ExportHeaderSummaryType_1.ExportHeaderSummaryTypeFromJSON)(json['dataHeader']),
-        'dataToDate': !(0, runtime_1.exists)(json, 'dataToDate') ? undefined : (new Date(json['dataToDate'])),
+        'dataToDate': !(0, runtime_1.exists)(json, 'dataToDate') ? undefined : json['dataToDate'],
         'exportDataId': !(0, runtime_1.exists)(json, 'exportDataId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['exportDataId']),
-        'generatedDate': !(0, runtime_1.exists)(json, 'generatedDate') ? undefined : (new Date(json['generatedDate'])),
+        'generatedDate': !(0, runtime_1.exists)(json, 'generatedDate') ? undefined : json['generatedDate'],
         'generatedErrors': !(0, runtime_1.exists)(json, 'generatedErrors') ? undefined : json['generatedErrors'],
         'generatedFileExtension': !(0, runtime_1.exists)(json, 'generatedFileExtension') ? undefined : json['generatedFileExtension'],
         'generatedFileLocation': !(0, runtime_1.exists)(json, 'generatedFileLocation') ? undefined : json['generatedFileLocation'],
@@ -64,11 +64,11 @@ function GeneratedExportTypeToJSON(value) {
     }
     return {
         'checksumEnabled': value.checksumEnabled,
-        'dataFromDate': value.dataFromDate === undefined ? undefined : (value.dataFromDate.toISOString().substring(0, 10)),
+        'dataFromDate': value.dataFromDate,
         'dataHeader': (0, ExportHeaderSummaryType_1.ExportHeaderSummaryTypeToJSON)(value.dataHeader),
-        'dataToDate': value.dataToDate === undefined ? undefined : (value.dataToDate.toISOString().substring(0, 10)),
+        'dataToDate': value.dataToDate,
         'exportDataId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.exportDataId),
-        'generatedDate': value.generatedDate === undefined ? undefined : (value.generatedDate.toISOString().substring(0, 10)),
+        'generatedDate': value.generatedDate,
         'generatedErrors': value.generatedErrors,
         'generatedFileExtension': value.generatedFileExtension,
         'generatedFileLocation': value.generatedFileLocation,

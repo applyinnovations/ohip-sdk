@@ -23,10 +23,10 @@ export interface StagedProfileDateUDFType {
     name?: string;
     /**
      * Value of user defined field.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileDateUDFType
      */
-    value?: Date;
+    value?: string;
     /**
      * Label of user defined field used by vendors or customers.
      * @type {string}

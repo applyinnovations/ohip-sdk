@@ -23,16 +23,16 @@ export interface ResPeriodicFolioType {
     frequency?: number;
     /**
      * Latest date when a folio was printed using the "Periodic Batch Folios" option
-     * @type {Date}
+     * @type {string}
      * @memberof ResPeriodicFolioType
      */
-    lastFolioDate?: Date;
+    lastFolioDate?: string;
     /**
      * Latest date when a direct bill settlement was automatically done using the "Direct Bill Batch Folios" option.
-     * @type {Date}
+     * @type {string}
      * @memberof ResPeriodicFolioType
      */
-    lastSettlementDate?: Date;
+    lastSettlementDate?: string;
 }
 /**
  * Check if a given object implements the ResPeriodicFolioType interface.

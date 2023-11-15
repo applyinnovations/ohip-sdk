@@ -29,10 +29,10 @@ export interface MemberPointToExpireType {
     extend?: boolean;
     /**
      * The date when the member future award points will expire.
-     * @type {Date}
+     * @type {string}
      * @memberof MemberPointToExpireType
      */
-    pointsExpiryDate?: Date;
+    pointsExpiryDate?: string;
     /**
      * Displays the total number of points that will expire on the expiration date.
      * @type {number}

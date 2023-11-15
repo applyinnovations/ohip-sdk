@@ -810,8 +810,8 @@ export interface DeleteCompRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     creditLimit?: Array<number>;
     percentageLimit?: Array<number>;
     covers?: Array<number>;
@@ -841,8 +841,8 @@ export interface DeleteFolioRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     creditLimit?: Array<number>;
     percentageLimit?: Array<number>;
     covers?: Array<number>;
@@ -872,8 +872,8 @@ export interface DeleteRequestRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -895,8 +895,8 @@ export interface DeleteRoomRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     creditLimit?: Array<number>;
     percentageLimit?: Array<number>;
     covers?: Array<number>;
@@ -972,7 +972,7 @@ export interface GetAdvancePaymentBalanceRequest {
     xHotelid?: string;
     idContext?: string;
     type?: string;
-    fromDate?: Date;
+    fromDate?: string;
     numberOfNights?: number;
     eventType?: GetAdvancePaymentBalanceEventTypeEnum;
     xExternalsystem?: string;
@@ -1013,8 +1013,8 @@ export interface GetAuthorizersCreditInfoRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     code?: Array<string>;
     includeCreditDetails?: boolean;
@@ -1061,7 +1061,7 @@ export interface GetBalanceInfoRequest {
     policyIdIdContext?: string;
     policyIdType?: string;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioNo?: number;
     folioStatus?: GetBalanceInfoFolioStatusEnum;
     folioTypeName?: string;
@@ -1077,7 +1077,7 @@ export interface GetBatchCCSettlementsRequest {
     xAppKey?: string;
     xHotelid?: string;
     offlineSettlement?: boolean;
-    transactionDate?: Date;
+    transactionDate?: string;
     guestName?: string;
     roomId?: string;
     xExternalsystem?: string;
@@ -1102,7 +1102,7 @@ export interface GetBedTaxInfoRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    arrival?: Date;
+    arrival?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1152,7 +1152,7 @@ export interface GetCCAuthorizationInstructionsRequest {
     cardOrToken?: GetCCAuthorizationInstructionsCardOrTokenEnum;
     storeToCreditCardWallet?: boolean;
     cardType?: GetCCAuthorizationInstructionsCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetCCAuthorizationInstructionsProcessingEnum;
@@ -1185,7 +1185,7 @@ export interface GetCCAuthorizationInstructionsRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -1227,7 +1227,7 @@ export interface GetCCAuthorizationInstructionsByProfileRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetCCAuthorizationInstructionsByProfileCardOrTokenEnum;
     cardType?: GetCCAuthorizationInstructionsByProfileCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetCCAuthorizationInstructionsByProfileProcessingEnum;
@@ -1260,7 +1260,7 @@ export interface GetCCAuthorizationInstructionsByProfileRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -1292,7 +1292,7 @@ export interface GetCCSurchargeInfoRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetCCSurchargeInfoCardOrTokenEnum;
     cardType?: GetCCSurchargeInfoCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetCCSurchargeInfoProcessingEnum;
@@ -1323,7 +1323,7 @@ export interface GetCCSurchargeInfoRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -1358,7 +1358,7 @@ export interface GetCashierClosureInfoRequest {
     shiftDropLocationCode?: string;
     bagNumberForOthers?: string;
     bagNumberForCash?: string;
-    closureBusinessDate?: Date;
+    closureBusinessDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1391,8 +1391,8 @@ export interface GetCashierReportPostingsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     requestType?: GetCashierReportPostingsRequestTypeEnum;
     closureNo?: number;
@@ -1433,8 +1433,8 @@ export interface GetCompAccountingJournalRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     filterTransactionCode?: Array<string>;
     hotelId?: Array<string>;
@@ -1458,8 +1458,8 @@ export interface GetCompPostingJournalRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     filterTransactionCode?: Array<string>;
     filterRoomNumber?: Array<string>;
@@ -1480,8 +1480,8 @@ export interface GetCompRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     nameWildcard?: string;
     firstNameWildCard?: string;
     roomNumberCodes?: Array<string>;
@@ -1585,8 +1585,8 @@ export interface GetFinancialPostingsRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     cashierId?: number;
     filterTransactionCode?: Array<string>;
@@ -1605,7 +1605,7 @@ export interface GetFinancialPostingsRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetFinancialPostingsCardOrTokenEnum;
     cardType?: GetFinancialPostingsCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetFinancialPostingsProcessingEnum;
@@ -1630,8 +1630,8 @@ export interface GetFinancialPostingsNetVatRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
@@ -1683,10 +1683,10 @@ export interface GetFiscalSupportingDocumentsRequest {
     surname?: string;
     givenName?: string;
     confirmationNo?: string;
-    arrivalStartDate?: Date;
-    arrivalEndDate?: Date;
-    departureStartDate?: Date;
-    departureEndDate?: Date;
+    arrivalStartDate?: string;
+    arrivalEndDate?: string;
+    departureStartDate?: string;
+    departureEndDate?: string;
     roomId?: string;
     documentType?: Set<GetFiscalSupportingDocumentsDocumentTypeEnum>;
     documentNo?: string;
@@ -1722,11 +1722,11 @@ export interface GetFolioRequest {
     includeFolioHistory?: boolean;
     reservationBalanceOnly?: boolean;
     fetchInstructions?: Set<GetFolioFetchInstructionsEnum>;
-    end?: Array<Date>;
+    end?: Array<string>;
     folioWindowNo?: Array<number>;
     limit?: Array<number>;
     offset?: Array<number>;
-    start?: Array<Date>;
+    start?: Array<string>;
     summaryOnly?: boolean;
     groupType?: GetFolioGroupTypeEnum;
     exchangeCurrency?: string;
@@ -1756,7 +1756,7 @@ export interface GetFolioHistoryRequest {
     passerBy?: boolean;
     postIt?: boolean;
     videoCheckOut?: boolean;
-    folioDate?: Date;
+    folioDate?: string;
     reservationIdId?: string;
     reservationIdIdContext?: string;
     reservationIdType?: string;
@@ -1795,7 +1795,7 @@ export interface GetFolioPrintersRequest {
     associatedBillFolioType?: string;
     associatedBillQueueName?: string;
     associatedBillFiscalBillNumber?: string;
-    associatedBillGenerationDate?: Date;
+    associatedBillGenerationDate?: string;
     folioType?: string;
     generateFiscalFolio?: boolean;
     queueName?: string;
@@ -1827,7 +1827,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetFolioTaxPaymentsInfoCardOrTokenEnum;
     cardType?: GetFolioTaxPaymentsInfoCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetFolioTaxPaymentsInfoProcessingEnum;
@@ -1858,7 +1858,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -1874,7 +1874,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     applyCCSurcharge?: boolean;
     manualPaymentTaxInfoFolioWindowNo?: number;
     transactionCode?: string;
-    transactionDate?: Date;
+    transactionDate?: string;
     transactionDescription?: string;
     transactionNo?: number;
     taxInvoiceNo?: string;
@@ -1887,10 +1887,10 @@ export interface GetFolioTaxPaymentsInfoRequest {
     nonTaxableAmountCurrencyCode?: string;
     availableCreditAmount?: number;
     availableCreditCurrencyCode?: string;
-    paymentDate?: Date;
+    paymentDate?: string;
     taxFolioWindowNo?: Array<number>;
     taxTransactionCode?: Array<string>;
-    taxTransactionDate?: Array<Date>;
+    taxTransactionDate?: Array<string>;
     taxTransactionDescription?: Array<string>;
     taxTransactionNo?: Array<number>;
     taxTaxInvoiceNo?: Array<string>;
@@ -1903,7 +1903,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     creditablePaymentNonTaxableCurrencyCode?: string;
     availableTaxCreditAmount?: number;
     availableTaxCreditCurrencyCode?: string;
-    taxPaymentDate?: Array<Date>;
+    taxPaymentDate?: Array<string>;
     terminalId?: string;
     overrideInsufficientCC?: boolean;
     changeDueAmount?: number;
@@ -1994,8 +1994,8 @@ export interface GetGuestsTransactionsRequest {
     supplementWildCard?: string;
     windowNo?: Array<number>;
     cashieringTransactionType?: Set<GetGuestsTransactionsCashieringTransactionTypeEnum>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     cashierId?: number;
     code?: Array<string>;
     commissionable?: boolean;
@@ -2020,7 +2020,7 @@ export interface GetHotelRevenueRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    businessDate?: Date;
+    businessDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2094,7 +2094,7 @@ export interface GetPostingSummaryRequest {
     xAppKey?: string;
     xHotelid?: string;
     includeGenerates?: boolean;
-    postingDate?: Date;
+    postingDate?: string;
     checkPostings?: boolean;
     postingsByExternalSystem?: boolean;
     cashierId?: number;
@@ -2123,8 +2123,8 @@ export interface GetPostingsForRefreshRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     transactionHotelId?: Array<string>;
     printTrxReceipt?: Array<boolean>;
     transactionCode?: Array<string>;
@@ -2164,8 +2164,8 @@ export interface GetReceiptHistoryRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     name?: string;
     firstName?: string;
     receiptTypeName?: string;
@@ -2221,7 +2221,7 @@ export interface GetRoundingDifferenceRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetRoundingDifferenceCardOrTokenEnum;
     cardType?: GetRoundingDifferenceCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetRoundingDifferenceProcessingEnum;
@@ -2248,7 +2248,7 @@ export interface GetRoundingDifferenceRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     xExternalsystem?: string;
@@ -2266,7 +2266,7 @@ export interface GetRoutingInstructionsRequest {
     includeRoomRouting?: boolean;
     includeCompRouting?: boolean;
     includeCompRoutingRequests?: boolean;
-    effectiveOn?: Date;
+    effectiveOn?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -2278,7 +2278,7 @@ export interface GetStoredFolioDetailsRequest {
     xAppKey?: string;
     xHotelid?: string;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioStatus?: GetStoredFolioDetailsFolioStatusEnum;
     folioTypeName?: string;
     internalFolioWindowID?: string;
@@ -2300,7 +2300,7 @@ export interface GetTransactionCodesRequest {
     description?: string;
     wildCard?: string;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioNo?: number;
     folioStatus?: GetTransactionCodesFolioStatusEnum;
     folioTypeName?: string;
@@ -3199,7 +3199,7 @@ export interface ValidateTransactionCodesRequest {
     xHotelid?: string;
     event?: ValidateTransactionCodesEventEnum;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioNo?: number;
     folioStatus?: ValidateTransactionCodesFolioStatusEnum;
     folioTypeName?: string;
@@ -3232,7 +3232,7 @@ export interface VoidBillingCheckChargesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueDate?: Date;
+    revenueDate?: string;
     amount?: number;
     currencyCode?: string;
     reservationId?: string;
@@ -4452,11 +4452,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.creditLimit) {
@@ -4592,11 +4592,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.creditLimit) {
@@ -4732,11 +4732,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -4840,11 +4840,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.creditLimit) {
@@ -5255,7 +5255,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.numberOfNights !== undefined) {
@@ -5469,11 +5469,11 @@ export class CashieringApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -5677,7 +5677,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
+            queryParameters['folioDate'] = requestParameters.folioDate;
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -5757,7 +5757,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transactionDate !== undefined) {
-            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substring(0,10);
+            queryParameters['transactionDate'] = requestParameters.transactionDate;
         }
 
         if (requestParameters.guestName !== undefined) {
@@ -5889,7 +5889,7 @@ export class CashieringApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.arrival !== undefined) {
-            queryParameters['arrival'] = (requestParameters.arrival as any).toISOString().substring(0,10);
+            queryParameters['arrival'] = requestParameters.arrival;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -6121,7 +6121,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -6253,7 +6253,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
+            queryParameters['purgeDate'] = requestParameters.purgeDate;
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -6437,7 +6437,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -6569,7 +6569,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
+            queryParameters['purgeDate'] = requestParameters.purgeDate;
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -6713,7 +6713,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -6837,7 +6837,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
+            queryParameters['purgeDate'] = requestParameters.purgeDate;
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -7009,7 +7009,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.closureBusinessDate !== undefined) {
-            queryParameters['closureBusinessDate'] = (requestParameters.closureBusinessDate as any).toISOString().substring(0,10);
+            queryParameters['closureBusinessDate'] = requestParameters.closureBusinessDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -7189,11 +7189,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -7406,11 +7406,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -7523,11 +7523,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -7627,11 +7627,11 @@ export class CashieringApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         if (requestParameters.nameWildcard !== undefined) {
@@ -8159,11 +8159,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -8239,7 +8239,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -8363,11 +8363,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -8641,19 +8641,19 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrivalStartDate !== undefined) {
-            queryParameters['arrivalStartDate'] = (requestParameters.arrivalStartDate as any).toISOString().substring(0,10);
+            queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate;
         }
 
         if (requestParameters.arrivalEndDate !== undefined) {
-            queryParameters['arrivalEndDate'] = (requestParameters.arrivalEndDate as any).toISOString().substring(0,10);
+            queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate;
         }
 
         if (requestParameters.departureStartDate !== undefined) {
-            queryParameters['departureStartDate'] = (requestParameters.departureStartDate as any).toISOString().substring(0,10);
+            queryParameters['departureStartDate'] = requestParameters.departureStartDate;
         }
 
         if (requestParameters.departureEndDate !== undefined) {
-            queryParameters['departureEndDate'] = (requestParameters.departureEndDate as any).toISOString().substring(0,10);
+            queryParameters['departureEndDate'] = requestParameters.departureEndDate;
         }
 
         if (requestParameters.roomId !== undefined) {
@@ -8981,7 +8981,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
+            queryParameters['folioDate'] = requestParameters.folioDate;
         }
 
         if (requestParameters.reservationIdId !== undefined) {
@@ -9153,7 +9153,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.associatedBillGenerationDate !== undefined) {
-            queryParameters['associatedBillGenerationDate'] = (requestParameters.associatedBillGenerationDate as any).toISOString().substring(0,10);
+            queryParameters['associatedBillGenerationDate'] = requestParameters.associatedBillGenerationDate;
         }
 
         if (requestParameters.folioType !== undefined) {
@@ -9297,7 +9297,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -9421,7 +9421,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
+            queryParameters['purgeDate'] = requestParameters.purgeDate;
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -9485,7 +9485,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transactionDate !== undefined) {
-            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substring(0,10);
+            queryParameters['transactionDate'] = requestParameters.transactionDate;
         }
 
         if (requestParameters.transactionDescription !== undefined) {
@@ -9537,7 +9537,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.paymentDate !== undefined) {
-            queryParameters['paymentDate'] = (requestParameters.paymentDate as any).toISOString().substring(0,10);
+            queryParameters['paymentDate'] = requestParameters.paymentDate;
         }
 
         if (requestParameters.taxFolioWindowNo) {
@@ -10049,11 +10049,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.cashierId !== undefined) {
@@ -10185,7 +10185,7 @@ export class CashieringApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.businessDate !== undefined) {
-            queryParameters['businessDate'] = (requestParameters.businessDate as any).toISOString().substring(0,10);
+            queryParameters['businessDate'] = requestParameters.businessDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -10545,7 +10545,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.postingDate !== undefined) {
-            queryParameters['postingDate'] = (requestParameters.postingDate as any).toISOString().substring(0,10);
+            queryParameters['postingDate'] = requestParameters.postingDate;
         }
 
         if (requestParameters.checkPostings !== undefined) {
@@ -10677,11 +10677,11 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.transactionHotelId) {
@@ -10857,11 +10857,11 @@ export class CashieringApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
+            queryParameters['toDate'] = requestParameters.toDate;
         }
 
         if (requestParameters.name !== undefined) {
@@ -11133,7 +11133,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -11241,7 +11241,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
+            queryParameters['purgeDate'] = requestParameters.purgeDate;
         }
 
         if (requestParameters.emailType !== undefined) {
@@ -11329,7 +11329,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.effectiveOn !== undefined) {
-            queryParameters['effectiveOn'] = (requestParameters.effectiveOn as any).toISOString().substring(0,10);
+            queryParameters['effectiveOn'] = requestParameters.effectiveOn;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -11393,7 +11393,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
+            queryParameters['folioDate'] = requestParameters.folioDate;
         }
 
         if (requestParameters.folioStatus !== undefined) {
@@ -11497,7 +11497,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
+            queryParameters['folioDate'] = requestParameters.folioDate;
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -16646,7 +16646,7 @@ export class CashieringApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
+            queryParameters['folioDate'] = requestParameters.folioDate;
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -16810,7 +16810,7 @@ export class CashieringApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.revenueDate !== undefined) {
-            queryParameters['revenueDate'] = (requestParameters.revenueDate as any).toISOString().substring(0,10);
+            queryParameters['revenueDate'] = requestParameters.revenueDate;
         }
 
         if (requestParameters.amount !== undefined) {

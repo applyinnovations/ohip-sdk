@@ -40,10 +40,10 @@ export interface ReservationHousekeepingScheduleType {
     cycleStartDay?: number;
     /**
      * Date at which facility tasks stopped being retrieved.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationHousekeepingScheduleType
      */
-    end?: Date;
+    end?: string;
     /**
      * List of the facility tasks.
      * @type {Array<FacilityHousekeepingTaskType>}
@@ -52,10 +52,10 @@ export interface ReservationHousekeepingScheduleType {
     facilityHousekeepingTasks?: Array<FacilityHousekeepingTaskType>;
     /**
      * Date at which facility tasks started being retrieved.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationHousekeepingScheduleType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -79,9 +79,9 @@ export function ReservationHousekeepingScheduleTypeFromJSONTyped(json: any, igno
         
         'customized': !exists(json, 'customized') ? undefined : json['customized'],
         'cycleStartDay': !exists(json, 'cycleStartDay') ? undefined : json['cycleStartDay'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'facilityHousekeepingTasks': !exists(json, 'facilityHousekeepingTasks') ? undefined : ((json['facilityHousekeepingTasks'] as Array<any>).map(FacilityHousekeepingTaskTypeFromJSON)),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -96,9 +96,9 @@ export function ReservationHousekeepingScheduleTypeToJSON(value?: ReservationHou
         
         'customized': value.customized,
         'cycleStartDay': value.cycleStartDay,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'facilityHousekeepingTasks': value.facilityHousekeepingTasks === undefined ? undefined : ((value.facilityHousekeepingTasks as Array<any>).map(FacilityHousekeepingTaskTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

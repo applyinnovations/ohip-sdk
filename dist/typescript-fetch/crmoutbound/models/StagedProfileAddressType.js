@@ -36,7 +36,7 @@ function StagedProfileAddressTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'address': !(0, runtime_1.exists)(json, 'address') ? undefined : (0, AddressType_1.AddressTypeFromJSON)(json['address']),
         'errorDescription': !(0, runtime_1.exists)(json, 'errorDescription') ? undefined : json['errorDescription'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'postalCodeExtension': !(0, runtime_1.exists)(json, 'postalCodeExtension') ? undefined : json['postalCodeExtension'],
         'barCode': !(0, runtime_1.exists)(json, 'barCode') ? undefined : json['barCode'],
         'cleansStatus': !(0, runtime_1.exists)(json, 'cleansStatus') ? undefined : (0, StagedAddressCleansStatus_1.StagedAddressCleansStatusFromJSON)(json['cleansStatus']),
@@ -55,7 +55,7 @@ function StagedProfileAddressTypeToJSON(value) {
     return {
         'address': (0, AddressType_1.AddressTypeToJSON)(value.address),
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'postalCodeExtension': value.postalCodeExtension,
         'barCode': value.barCode,
         'cleansStatus': (0, StagedAddressCleansStatus_1.StagedAddressCleansStatusToJSON)(value.cleansStatus),

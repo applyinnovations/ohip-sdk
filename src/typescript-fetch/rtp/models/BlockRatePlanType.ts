@@ -33,10 +33,10 @@ export interface BlockRatePlanType {
     description?: string;
     /**
      * End sell date of the rate code.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRatePlanType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      * Market code associated with the rate code.
      * @type {string}
@@ -75,10 +75,10 @@ export interface BlockRatePlanType {
     sourceCode?: string;
     /**
      * Start sell date of the rate code.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRatePlanType
      */
-    startSellDate?: Date;
+    startSellDate?: string;
 }
 
 /**
@@ -102,14 +102,14 @@ export function BlockRatePlanTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endSellDate': !exists(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !exists(json, 'endSellDate') ? undefined : json['endSellDate'],
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
         'negotiated': !exists(json, 'negotiated') ? undefined : json['negotiated'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
         'sellSequence': !exists(json, 'sellSequence') ? undefined : json['sellSequence'],
         'showRateAmount': !exists(json, 'showRateAmount') ? undefined : json['showRateAmount'],
         'sourceCode': !exists(json, 'sourceCode') ? undefined : json['sourceCode'],
-        'startSellDate': !exists(json, 'startSellDate') ? undefined : (new Date(json['startSellDate'])),
+        'startSellDate': !exists(json, 'startSellDate') ? undefined : json['startSellDate'],
     };
 }
 
@@ -124,14 +124,14 @@ export function BlockRatePlanTypeToJSON(value?: BlockRatePlanType | null): any {
         
         'currencyCode': value.currencyCode,
         'description': value.description,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0,10)),
+        'endSellDate': value.endSellDate,
         'marketCode': value.marketCode,
         'negotiated': value.negotiated,
         'rateCode': value.rateCode,
         'sellSequence': value.sellSequence,
         'showRateAmount': value.showRateAmount,
         'sourceCode': value.sourceCode,
-        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substring(0,10)),
+        'startSellDate': value.startSellDate,
     };
 }
 

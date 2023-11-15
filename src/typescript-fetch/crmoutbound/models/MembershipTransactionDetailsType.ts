@@ -70,10 +70,10 @@ export interface MembershipTransactionDetailsType {
     transactionType?: string;
     /**
      * The date when the points were calculated.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionDetailsType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -106,10 +106,10 @@ export interface MembershipTransactionDetailsType {
     profilePromotions?: Array<string>;
     /**
      * For adjustments, the date when the points are to be credited.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionDetailsType
      */
-    pointsCreditDate?: Date;
+    pointsCreditDate?: string;
     /**
      * The average cost of the room per night.
      * @type {number}
@@ -230,13 +230,13 @@ export function MembershipTransactionDetailsTypeFromJSONTyped(json: any, ignoreD
         'membershipTransactionId': !exists(json, 'membershipTransactionId') ? undefined : MembershipTransactionIdFromJSON(json['membershipTransactionId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'transactionType': !exists(json, 'transactionType') ? undefined : json['transactionType'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'currency': !exists(json, 'currency') ? undefined : json['currency'],
         'stayTimeSpan': !exists(json, 'stayTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['stayTimeSpan']),
         'ratePromotion': !exists(json, 'ratePromotion') ? undefined : json['ratePromotion'],
         'profilePromotions': !exists(json, 'profilePromotions') ? undefined : json['profilePromotions'],
-        'pointsCreditDate': !exists(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
+        'pointsCreditDate': !exists(json, 'pointsCreditDate') ? undefined : json['pointsCreditDate'],
         'averageRateAmount': !exists(json, 'averageRateAmount') ? undefined : json['averageRateAmount'],
         'adjustment': !exists(json, 'adjustment') ? undefined : json['adjustment'],
         'pointsCalculated': !exists(json, 'pointsCalculated') ? undefined : json['pointsCalculated'],
@@ -268,13 +268,13 @@ export function MembershipTransactionDetailsTypeToJSON(value?: MembershipTransac
         'membershipTransactionId': MembershipTransactionIdToJSON(value.membershipTransactionId),
         'hotelId': value.hotelId,
         'transactionType': value.transactionType,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'currency': value.currency,
         'stayTimeSpan': TimeSpanTypeToJSON(value.stayTimeSpan),
         'ratePromotion': value.ratePromotion,
         'profilePromotions': value.profilePromotions,
-        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0,10)),
+        'pointsCreditDate': value.pointsCreditDate,
         'averageRateAmount': value.averageRateAmount,
         'adjustment': value.adjustment,
         'pointsCalculated': value.pointsCalculated,

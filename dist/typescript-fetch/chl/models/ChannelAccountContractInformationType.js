@@ -34,11 +34,11 @@ function ChannelAccountContractInformationTypeFromJSONTyped(json, ignoreDiscrimi
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'channelAccountContractElements': !(0, runtime_1.exists)(json, 'channelAccountContractElements') ? undefined : (json['channelAccountContractElements'].map(ContractElementInformationType_1.ContractElementInformationTypeFromJSON)),
         'contractId': !(0, runtime_1.exists)(json, 'contractId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['contractId']),
         'contractNo': !(0, runtime_1.exists)(json, 'contractNo') ? undefined : json['contractNo'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'markStatementsToRegenerate': !(0, runtime_1.exists)(json, 'markStatementsToRegenerate') ? undefined : json['markStatementsToRegenerate'],
         'note': !(0, runtime_1.exists)(json, 'note') ? undefined : json['note'],
     };
@@ -52,11 +52,11 @@ function ChannelAccountContractInformationTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'channelAccountContractElements': value.channelAccountContractElements === undefined ? undefined : (value.channelAccountContractElements.map(ContractElementInformationType_1.ContractElementInformationTypeToJSON)),
         'contractId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.contractId),
         'contractNo': value.contractNo,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'markStatementsToRegenerate': value.markStatementsToRegenerate,
         'note': value.note,
     };

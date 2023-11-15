@@ -120,10 +120,10 @@ export interface FileDeliveryConfigType {
     validAuthentication?: boolean;
     /**
      * Date and time when the last validation of connection information was performed.
-     * @type {Date}
+     * @type {string}
      * @memberof FileDeliveryConfigType
      */
-    validUpdateDate?: Date;
+    validUpdateDate?: string;
 }
 /**
  * Check if a given object implements the FileDeliveryConfigType interface.

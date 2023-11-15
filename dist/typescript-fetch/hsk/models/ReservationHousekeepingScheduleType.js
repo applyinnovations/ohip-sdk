@@ -35,9 +35,9 @@ function ReservationHousekeepingScheduleTypeFromJSONTyped(json, ignoreDiscrimina
     return {
         'customized': !(0, runtime_1.exists)(json, 'customized') ? undefined : json['customized'],
         'cycleStartDay': !(0, runtime_1.exists)(json, 'cycleStartDay') ? undefined : json['cycleStartDay'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'facilityHousekeepingTasks': !(0, runtime_1.exists)(json, 'facilityHousekeepingTasks') ? undefined : (json['facilityHousekeepingTasks'].map(FacilityHousekeepingTaskType_1.FacilityHousekeepingTaskTypeFromJSON)),
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.ReservationHousekeepingScheduleTypeFromJSONTyped = ReservationHousekeepingScheduleTypeFromJSONTyped;
@@ -51,9 +51,9 @@ function ReservationHousekeepingScheduleTypeToJSON(value) {
     return {
         'customized': value.customized,
         'cycleStartDay': value.cycleStartDay,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'facilityHousekeepingTasks': value.facilityHousekeepingTasks === undefined ? undefined : (value.facilityHousekeepingTasks.map(FacilityHousekeepingTaskType_1.FacilityHousekeepingTaskTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.ReservationHousekeepingScheduleTypeToJSON = ReservationHousekeepingScheduleTypeToJSON;

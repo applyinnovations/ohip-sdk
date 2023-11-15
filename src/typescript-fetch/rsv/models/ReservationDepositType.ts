@@ -27,10 +27,10 @@ export interface ReservationDepositType {
     amountPaid?: number;
     /**
      * Deposit Due Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    dueDate?: Date;
+    dueDate?: string;
     /**
      * Resolves whether reservation has outstanding deposit.
      * @type {boolean}
@@ -45,10 +45,10 @@ export interface ReservationDepositType {
     hasPaid?: boolean;
     /**
      * Deposit Posting Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    postingDate?: Date;
+    postingDate?: string;
 }
 
 /**
@@ -71,10 +71,10 @@ export function ReservationDepositTypeFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'amountPaid': !exists(json, 'amountPaid') ? undefined : json['amountPaid'],
-        'dueDate': !exists(json, 'dueDate') ? undefined : (new Date(json['dueDate'])),
+        'dueDate': !exists(json, 'dueDate') ? undefined : json['dueDate'],
         'hasOutstanding': !exists(json, 'hasOutstanding') ? undefined : json['hasOutstanding'],
         'hasPaid': !exists(json, 'hasPaid') ? undefined : json['hasPaid'],
-        'postingDate': !exists(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'postingDate': !exists(json, 'postingDate') ? undefined : json['postingDate'],
     };
 }
 
@@ -88,10 +88,10 @@ export function ReservationDepositTypeToJSON(value?: ReservationDepositType | nu
     return {
         
         'amountPaid': value.amountPaid,
-        'dueDate': value.dueDate === undefined ? undefined : (value.dueDate.toISOString().substring(0,10)),
+        'dueDate': value.dueDate,
         'hasOutstanding': value.hasOutstanding,
         'hasPaid': value.hasPaid,
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
+        'postingDate': value.postingDate,
     };
 }
 

@@ -34,7 +34,7 @@ function MembershipTierPointsTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'nightPoints': !(0, runtime_1.exists)(json, 'nightPoints') ? undefined : json['nightPoints'],
         'pointsCost': !(0, runtime_1.exists)(json, 'pointsCost') ? undefined : json['pointsCost'],
-        'pointsCreditDate': !(0, runtime_1.exists)(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
+        'pointsCreditDate': !(0, runtime_1.exists)(json, 'pointsCreditDate') ? undefined : json['pointsCreditDate'],
         'revenuePoints': !(0, runtime_1.exists)(json, 'revenuePoints') ? undefined : json['revenuePoints'],
         'stayPoints': !(0, runtime_1.exists)(json, 'stayPoints') ? undefined : json['stayPoints'],
     };
@@ -50,7 +50,7 @@ function MembershipTierPointsTypeToJSON(value) {
     return {
         'nightPoints': value.nightPoints,
         'pointsCost': value.pointsCost,
-        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0, 10)),
+        'pointsCreditDate': value.pointsCreditDate,
         'revenuePoints': value.revenuePoints,
         'stayPoints': value.stayPoints,
     };

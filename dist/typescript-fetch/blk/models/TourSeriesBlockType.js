@@ -36,7 +36,7 @@ function TourSeriesBlockTypeFromJSONTyped(json, ignoreDiscriminator) {
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !(0, runtime_1.exists)(json, 'blockStatus') ? undefined : json['blockStatus'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.TourSeriesBlockTypeFromJSONTyped = TourSeriesBlockTypeFromJSONTyped;
@@ -52,7 +52,7 @@ function TourSeriesBlockTypeToJSON(value) {
         'blockName': value.blockName,
         'blockStatus': value.blockStatus,
         'hotelId': value.hotelId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.TourSeriesBlockTypeToJSON = TourSeriesBlockTypeToJSON;

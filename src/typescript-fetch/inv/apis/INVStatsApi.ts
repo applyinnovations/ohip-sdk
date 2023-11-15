@@ -39,8 +39,8 @@ export interface GetBlockInventoryStatisticsRequest {
     includeTentativeInventory?: boolean;
     limit?: number;
     offset?: number;
-    endDateRange?: Date;
-    startDateRange?: Date;
+    endDateRange?: string;
+    startDateRange?: string;
     blockStatusCodes?: Array<string>;
     originCodes?: Array<string>;
     roomOwnerCodes?: Array<string>;
@@ -70,8 +70,8 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
     includeTentativeInventory?: boolean;
     limit?: number;
     offset?: number;
-    endDateRange?: Date;
-    startDateRange?: Date;
+    endDateRange?: string;
+    startDateRange?: string;
     blockStatusCodes?: Array<string>;
     originCodes?: Array<string>;
     roomOwnerCodes?: Array<string>;
@@ -92,9 +92,9 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
 
 export interface GetInventoryStatisticsRequest {
     hotelId: string;
-    dateRangeEnd: Date;
+    dateRangeEnd: string;
     reportCode: GetInventoryStatisticsReportCodeEnum;
-    dateRangeStart: Date;
+    dateRangeStart: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -145,11 +145,11 @@ export class INVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDateRange !== undefined) {
-            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substring(0,10);
+            queryParameters['endDateRange'] = requestParameters.endDateRange;
         }
 
         if (requestParameters.startDateRange !== undefined) {
-            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substring(0,10);
+            queryParameters['startDateRange'] = requestParameters.startDateRange;
         }
 
         if (requestParameters.blockStatusCodes) {
@@ -289,11 +289,11 @@ export class INVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDateRange !== undefined) {
-            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substring(0,10);
+            queryParameters['endDateRange'] = requestParameters.endDateRange;
         }
 
         if (requestParameters.startDateRange !== undefined) {
-            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substring(0,10);
+            queryParameters['startDateRange'] = requestParameters.startDateRange;
         }
 
         if (requestParameters.blockStatusCodes) {
@@ -417,7 +417,7 @@ export class INVStatsApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.dateRangeEnd !== undefined) {
-            queryParameters['dateRangeEnd'] = (requestParameters.dateRangeEnd as any).toISOString().substring(0,10);
+            queryParameters['dateRangeEnd'] = requestParameters.dateRangeEnd;
         }
 
         if (requestParameters.reportCode !== undefined) {
@@ -425,7 +425,7 @@ export class INVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.dateRangeStart !== undefined) {
-            queryParameters['dateRangeStart'] = (requestParameters.dateRangeStart as any).toISOString().substring(0,10);
+            queryParameters['dateRangeStart'] = requestParameters.dateRangeStart;
         }
 
         if (requestParameters.parameterName) {

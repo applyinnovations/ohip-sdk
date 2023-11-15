@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface RatePlanAdvancedPostingRhythmType {
     /**
      * Date which the posting rhythm becomes applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanAdvancedPostingRhythmType
      */
-    beginSellDate?: Date;
+    beginSellDate?: string;
     /**
      * Code identifying the posting rhythm within the rate plan.
      * @type {string}
@@ -45,10 +45,10 @@ export interface RatePlanAdvancedPostingRhythmType {
     eligibleFreeNights?: number;
     /**
      * Date which the posting rhythm ceases to be applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanAdvancedPostingRhythmType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      * Indicates if the posting rhythm offer can be repeated more than once within a specific sell segment of the reservation.
      * @type {boolean}
@@ -88,11 +88,11 @@ export function RatePlanAdvancedPostingRhythmTypeFromJSONTyped(json: any, ignore
     }
     return {
         
-        'beginSellDate': !exists(json, 'beginSellDate') ? undefined : (new Date(json['beginSellDate'])),
+        'beginSellDate': !exists(json, 'beginSellDate') ? undefined : json['beginSellDate'],
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'eligibleFreeNights': !exists(json, 'eligibleFreeNights') ? undefined : json['eligibleFreeNights'],
-        'endSellDate': !exists(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !exists(json, 'endSellDate') ? undefined : json['endSellDate'],
         'repeatWithinSellSegment': !exists(json, 'repeatWithinSellSegment') ? undefined : json['repeatWithinSellSegment'],
         'repeatWithinStay': !exists(json, 'repeatWithinStay') ? undefined : json['repeatWithinStay'],
         'requiredPaidNights': !exists(json, 'requiredPaidNights') ? undefined : json['requiredPaidNights'],
@@ -108,11 +108,11 @@ export function RatePlanAdvancedPostingRhythmTypeToJSON(value?: RatePlanAdvanced
     }
     return {
         
-        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substring(0,10)),
+        'beginSellDate': value.beginSellDate,
         'code': value.code,
         'description': value.description,
         'eligibleFreeNights': value.eligibleFreeNights,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0,10)),
+        'endSellDate': value.endSellDate,
         'repeatWithinSellSegment': value.repeatWithinSellSegment,
         'repeatWithinStay': value.repeatWithinStay,
         'requiredPaidNights': value.requiredPaidNights,

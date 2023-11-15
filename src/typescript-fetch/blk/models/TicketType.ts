@@ -28,10 +28,10 @@ import {
 export interface TicketType {
     /**
      * Tickets comsumption date.
-     * @type {Date}
+     * @type {string}
      * @memberof TicketType
      */
-    consumptionDate?: Date;
+    consumptionDate?: string;
     /**
      * Package description.
      * @type {string}
@@ -40,10 +40,10 @@ export interface TicketType {
     description?: string;
     /**
      * Tickets issue date.
-     * @type {Date}
+     * @type {string}
      * @memberof TicketType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * Package Code.
      * @type {string}
@@ -125,9 +125,9 @@ export function TicketTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'consumptionDate': !exists(json, 'consumptionDate') ? undefined : (new Date(json['consumptionDate'])),
+        'consumptionDate': !exists(json, 'consumptionDate') ? undefined : json['consumptionDate'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'issueDate': !exists(json, 'issueDate') ? undefined : (new Date(json['issueDate'])),
+        'issueDate': !exists(json, 'issueDate') ? undefined : json['issueDate'],
         'packageCode': !exists(json, 'packageCode') ? undefined : json['packageCode'],
         'price': !exists(json, 'price') ? undefined : json['price'],
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
@@ -150,9 +150,9 @@ export function TicketTypeToJSON(value?: TicketType | null): any {
     }
     return {
         
-        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substring(0,10)),
+        'consumptionDate': value.consumptionDate,
         'description': value.description,
-        'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substring(0,10)),
+        'issueDate': value.issueDate,
         'packageCode': value.packageCode,
         'price': value.price,
         'quantity': value.quantity,

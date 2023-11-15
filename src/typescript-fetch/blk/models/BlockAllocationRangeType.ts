@@ -64,10 +64,10 @@ export interface BlockAllocationRangeType {
     allocationType?: AllocationType;
     /**
      * Begin date for range update operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * 
      * @type {BlockId}
@@ -88,10 +88,10 @@ export interface BlockAllocationRangeType {
     blockRates?: BlockGridRatesType;
     /**
      * Date after which unused block rooms should be returned to house.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Number of days from block start date after which unused block rooms should be returned to house.
      * @type {number}
@@ -100,10 +100,10 @@ export interface BlockAllocationRangeType {
     cutoffDays?: number;
     /**
      * End date for range update operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if the Allocation objects refer to Generic Room Types (Room Pools).
      * @type {boolean}
@@ -168,13 +168,13 @@ export function BlockAllocationRangeTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'allocationType': !exists(json, 'allocationType') ? undefined : AllocationTypeFromJSON(json['allocationType']),
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
         'blockInventory': !exists(json, 'blockInventory') ? undefined : BlockGridInvTypeFromJSON(json['blockInventory']),
         'blockRates': !exists(json, 'blockRates') ? undefined : BlockGridRatesTypeFromJSON(json['blockRates']),
-        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
+        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : json['cutoffDate'],
         'cutoffDays': !exists(json, 'cutoffDays') ? undefined : json['cutoffDays'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'genericRoomType': !exists(json, 'genericRoomType') ? undefined : json['genericRoomType'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'includedDays': !exists(json, 'includedDays') ? undefined : json['includedDays'],
@@ -195,13 +195,13 @@ export function BlockAllocationRangeTypeToJSON(value?: BlockAllocationRangeType 
     return {
         
         'allocationType': AllocationTypeToJSON(value.allocationType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'blockId': BlockIdToJSON(value.blockId),
         'blockInventory': BlockGridInvTypeToJSON(value.blockInventory),
         'blockRates': BlockGridRatesTypeToJSON(value.blockRates),
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
+        'cutoffDate': value.cutoffDate,
         'cutoffDays': value.cutoffDays,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'genericRoomType': value.genericRoomType,
         'hotelId': value.hotelId,
         'includedDays': value.includedDays,

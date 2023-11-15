@@ -33,10 +33,10 @@ export interface MembershipInfoType {
     bonusCode?: string;
     /**
      * Indicates the end date of membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipInfoType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * Indicates whether membership is active or inactive.
      * @type {boolean}
@@ -120,7 +120,7 @@ export function MembershipInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'accountId': !exists(json, 'accountId') ? undefined : json['accountId'],
         'bonusCode': !exists(json, 'bonusCode') ? undefined : json['bonusCode'],
-        'expireDate': !exists(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'expireDate': !exists(json, 'expireDate') ? undefined : json['expireDate'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
@@ -145,7 +145,7 @@ export function MembershipInfoTypeToJSON(value?: MembershipInfoType | null): any
         
         'accountId': value.accountId,
         'bonusCode': value.bonusCode,
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
+        'expireDate': value.expireDate,
         'inactive': value.inactive,
         'membershipId': value.membershipId,
         'membershipLevel': value.membershipLevel,

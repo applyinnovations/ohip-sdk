@@ -52,16 +52,16 @@ export interface CashierClosureInfoType {
     cashierUser?: string;
     /**
      * Date and time cashier was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierClosureInfoType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      * Business date cashier was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierClosureInfoType
      */
-    closureBusinessDate?: Date;
+    closureBusinessDate?: string;
     /**
      * Property this record belongs to.
      * @type {string}
@@ -70,10 +70,10 @@ export interface CashierClosureInfoType {
     hotelId?: string;
     /**
      * Date and time cashier was opened.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierClosureInfoType
      */
-    openDate?: Date;
+    openDate?: string;
     /**
      * Information of the Cashier.
      * @type {Array<CashierReportType>}
@@ -104,10 +104,10 @@ export function CashierClosureInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'cashierClosureNo': !exists(json, 'cashierClosureNo') ? undefined : CashierClosureNoTypeFromJSON(json['cashierClosureNo']),
         'cashierTitle': !exists(json, 'cashierTitle') ? undefined : json['cashierTitle'],
         'cashierUser': !exists(json, 'cashierUser') ? undefined : json['cashierUser'],
-        'closeDate': !exists(json, 'closeDate') ? undefined : (new Date(json['closeDate'])),
-        'closureBusinessDate': !exists(json, 'closureBusinessDate') ? undefined : (new Date(json['closureBusinessDate'])),
+        'closeDate': !exists(json, 'closeDate') ? undefined : json['closeDate'],
+        'closureBusinessDate': !exists(json, 'closureBusinessDate') ? undefined : json['closureBusinessDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'openDate': !exists(json, 'openDate') ? undefined : (new Date(json['openDate'])),
+        'openDate': !exists(json, 'openDate') ? undefined : json['openDate'],
         'reportsList': !exists(json, 'reportsList') ? undefined : ((json['reportsList'] as Array<any>).map(CashierReportTypeFromJSON)),
     };
 }
@@ -124,10 +124,10 @@ export function CashierClosureInfoTypeToJSON(value?: CashierClosureInfoType | nu
         'cashierClosureNo': CashierClosureNoTypeToJSON(value.cashierClosureNo),
         'cashierTitle': value.cashierTitle,
         'cashierUser': value.cashierUser,
-        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0,10)),
-        'closureBusinessDate': value.closureBusinessDate === undefined ? undefined : (value.closureBusinessDate.toISOString().substring(0,10)),
+        'closeDate': value.closeDate,
+        'closureBusinessDate': value.closureBusinessDate,
         'hotelId': value.hotelId,
-        'openDate': value.openDate === undefined ? undefined : (value.openDate.toISOString().substring(0,10)),
+        'openDate': value.openDate,
         'reportsList': value.reportsList === undefined ? undefined : ((value.reportsList as Array<any>).map(CashierReportTypeToJSON)),
     };
 }

@@ -103,16 +103,16 @@ export interface BlockSummaryType {
     customFields?: CustomFieldsType;
     /**
      * Date after which unused block rooms should be returned to house.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Contains information about the date by which the group must make a decision on the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    decisionDate?: Date;
+    decisionDate?: string;
     /**
      * Indicates if blocked rooms are deducted from inventory.
      * @type {boolean}
@@ -121,10 +121,10 @@ export interface BlockSummaryType {
     deductInventory?: boolean;
     /**
      * End date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if alternate dates are allowed for the booking.
      * @type {boolean}
@@ -133,10 +133,10 @@ export interface BlockSummaryType {
     flexibleDates?: boolean;
     /**
      * Contains information to follow up on the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    followupDate?: Date;
+    followupDate?: string;
     /**
      * Group name for this block.
      * @type {string}
@@ -205,22 +205,22 @@ export interface BlockSummaryType {
     searchMatches?: Array<SearchMatchType>;
     /**
      * Shoulder end date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Shoulder begin date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      * Start date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Internal status for the block.
      * @type {string}

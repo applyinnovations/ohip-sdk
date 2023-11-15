@@ -34,7 +34,7 @@ function BlockStatReportTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'calendarDate': !(0, runtime_1.exists)(json, 'calendarDate') ? undefined : (new Date(json['calendarDate'])),
+        'calendarDate': !(0, runtime_1.exists)(json, 'calendarDate') ? undefined : json['calendarDate'],
         'chainCode': !(0, runtime_1.exists)(json, 'chainCode') ? undefined : json['chainCode'],
         'chainName': !(0, runtime_1.exists)(json, 'chainName') ? undefined : json['chainName'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
@@ -55,7 +55,7 @@ function BlockStatReportTypeToJSON(value) {
         return null;
     }
     return {
-        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0, 10)),
+        'calendarDate': value.calendarDate,
         'chainCode': value.chainCode,
         'chainName': value.chainName,
         'description': value.description,

@@ -29,16 +29,16 @@ export interface BedTaxReportingType {
     visaNumber?: string;
     /**
      * Visa Issue Date used for Maldives Bed Tax Reporting.
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxReportingType
      */
-    visaIssueDate?: Date;
+    visaIssueDate?: string;
     /**
      * Visa Expiration Date used for Maldives Bed Tax Reporting
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxReportingType
      */
-    visaExpiryDate?: Date;
+    visaExpiryDate?: string;
     /**
      * Number of days for which the Maldives tax is applicable.
      * @type {number}

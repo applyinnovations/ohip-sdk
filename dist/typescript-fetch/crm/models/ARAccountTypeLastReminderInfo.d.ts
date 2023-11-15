@@ -23,10 +23,10 @@ export interface ARAccountTypeLastReminderInfo {
     age?: number;
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
-     * @type {Date}
+     * @type {string}
      * @memberof ARAccountTypeLastReminderInfo
      */
-    dateSent?: Date;
+    dateSent?: string;
     /**
      * Indicates that reminders history exists.
      * @type {boolean}

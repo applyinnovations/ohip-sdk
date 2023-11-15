@@ -70,10 +70,10 @@ export interface ChainDetailInfoType {
     email?: string;
     /**
      * This represents the end date of chain.
-     * @type {Date}
+     * @type {string}
      * @memberof ChainDetailInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * The fax number of the chain.
      * @type {string}
@@ -112,10 +112,10 @@ export interface ChainDetailInfoType {
     shareProfilesYn?: string;
     /**
      * This represents the begin date of Chain.
-     * @type {Date}
+     * @type {string}
      * @memberof ChainDetailInfoType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -144,14 +144,14 @@ export function ChainDetailInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'chainDesc': !exists(json, 'chainDesc') ? undefined : json['chainDesc'],
         'chainName': !exists(json, 'chainName') ? undefined : json['chainName'],
         'email': !exists(json, 'email') ? undefined : json['email'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'fax': !exists(json, 'fax') ? undefined : json['fax'],
         'frequentFlierCardsAcceptYn': !exists(json, 'frequentFlierCardsAcceptYn') ? undefined : json['frequentFlierCardsAcceptYn'],
         'loyaltyProgram': !exists(json, 'loyaltyProgram') ? undefined : json['loyaltyProgram'],
         'marketingText': !exists(json, 'marketingText') ? undefined : json['marketingText'],
         'phone': !exists(json, 'phone') ? undefined : json['phone'],
         'shareProfilesYn': !exists(json, 'shareProfilesYn') ? undefined : json['shareProfilesYn'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -171,14 +171,14 @@ export function ChainDetailInfoTypeToJSON(value?: ChainDetailInfoType | null): a
         'chainDesc': value.chainDesc,
         'chainName': value.chainName,
         'email': value.email,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'fax': value.fax,
         'frequentFlierCardsAcceptYn': value.frequentFlierCardsAcceptYn,
         'loyaltyProgram': value.loyaltyProgram,
         'marketingText': value.marketingText,
         'phone': value.phone,
         'shareProfilesYn': value.shareProfilesYn,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

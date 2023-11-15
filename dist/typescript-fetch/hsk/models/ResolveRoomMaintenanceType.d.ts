@@ -17,10 +17,10 @@
 export interface ResolveRoomMaintenanceType {
     /**
      * Resolve date.
-     * @type {Date}
+     * @type {string}
      * @memberof ResolveRoomMaintenanceType
      */
-    resolveDate?: Date;
+    resolveDate?: string;
     /**
      * Resolved by user.
      * @type {string}

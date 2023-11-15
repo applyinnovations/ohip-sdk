@@ -62,22 +62,22 @@ export interface FacilityHousekeepingTaskType {
     stayPeriod?: HousekeepingTaskStayPeriodType;
     /**
      * A reservation date on which task must occur.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityHousekeepingTaskType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * Date on which task will stop being performed.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityHousekeepingTaskType
      */
-    taskEndDate?: Date;
+    taskEndDate?: string;
     /**
      * Date on which the task needs to start being performed.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityHousekeepingTaskType
      */
-    taskStartDate?: Date;
+    taskStartDate?: string;
 }
 /**
  * Check if a given object implements the FacilityHousekeepingTaskType interface.

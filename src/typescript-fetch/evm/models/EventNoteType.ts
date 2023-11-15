@@ -82,10 +82,10 @@ export interface EventNoteType {
     noteTitle?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof EventNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Pertain display sequence.
      * @type {number}
@@ -122,7 +122,7 @@ export function EventNoteTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'noteCode': !exists(json, 'noteCode') ? undefined : json['noteCode'],
         'noteId': !exists(json, 'noteId') ? undefined : UniqueIDTypeFromJSON(json['noteId']),
         'noteTitle': !exists(json, 'noteTitle') ? undefined : json['noteTitle'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
     };
 }
@@ -145,7 +145,7 @@ export function EventNoteTypeToJSON(value?: EventNoteType | null): any {
         'noteCode': value.noteCode,
         'noteId': UniqueIDTypeToJSON(value.noteId),
         'noteTitle': value.noteTitle,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'sequence': value.sequence,
     };
 }

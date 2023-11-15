@@ -34,10 +34,10 @@ import {
 export interface RecentlyAccessedActivityType {
     /**
      * The date the record was accessed.
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedActivityType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Unique identifier for the Activity.
      * @type {Array<ActivityId>}
@@ -89,7 +89,7 @@ export function RecentlyAccessedActivityTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'accessDate': !exists(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !exists(json, 'accessDate') ? undefined : json['accessDate'],
         'activityIdList': !exists(json, 'activityIdList') ? undefined : ((json['activityIdList'] as Array<any>).map(ActivityIdFromJSON)),
         'activityOwnerCode': !exists(json, 'activityOwnerCode') ? undefined : json['activityOwnerCode'],
         'activityTypeDescription': !exists(json, 'activityTypeDescription') ? undefined : json['activityTypeDescription'],
@@ -107,7 +107,7 @@ export function RecentlyAccessedActivityTypeToJSON(value?: RecentlyAccessedActiv
     }
     return {
         
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
+        'accessDate': value.accessDate,
         'activityIdList': value.activityIdList === undefined ? undefined : ((value.activityIdList as Array<any>).map(ActivityIdToJSON)),
         'activityOwnerCode': value.activityOwnerCode,
         'activityTypeDescription': value.activityTypeDescription,

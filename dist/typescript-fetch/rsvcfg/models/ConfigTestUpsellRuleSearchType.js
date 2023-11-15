@@ -33,7 +33,7 @@ function ConfigTestUpsellRuleSearchTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'adults': !(0, runtime_1.exists)(json, 'adults') ? undefined : json['adults'],
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'channel': !(0, runtime_1.exists)(json, 'channel') ? undefined : json['channel'],
         'children': !(0, runtime_1.exists)(json, 'children') ? undefined : json['children'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -58,7 +58,7 @@ function ConfigTestUpsellRuleSearchTypeToJSON(value) {
     }
     return {
         'adults': value.adults,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
         'channel': value.channel,
         'children': value.children,
         'hotelId': value.hotelId,

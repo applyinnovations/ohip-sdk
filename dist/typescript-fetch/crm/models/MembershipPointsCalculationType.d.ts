@@ -24,10 +24,10 @@ export interface MembershipPointsCalculationType {
     awardCode?: string;
     /**
      * The last date for which calculate or expire points. Available for Calculate Points and Expire Award Points only.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipPointsCalculationType
      */
-    calculateUntilDate?: Date;
+    calculateUntilDate?: string;
     /**
      * Membership type for which point calculation process is to be run.
      * @type {string}

@@ -34,7 +34,7 @@ function TransactionTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionDescription': !(0, runtime_1.exists)(json, 'transactionDescription') ? undefined : json['transactionDescription'],
         'transactionNo': !(0, runtime_1.exists)(json, 'transactionNo') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['transactionNo']),
     };
@@ -49,7 +49,7 @@ function TransactionTypeToJSON(value) {
     }
     return {
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'transactionDate': value.transactionDate,
         'transactionDescription': value.transactionDescription,
         'transactionNo': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.transactionNo),
     };

@@ -34,7 +34,7 @@ function ChangeChargeCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'approvalCode': !(0, runtime_1.exists)(json, 'approvalCode') ? undefined : json['approvalCode'],
-        'approvalDate': !(0, runtime_1.exists)(json, 'approvalDate') ? undefined : (new Date(json['approvalDate'])),
+        'approvalDate': !(0, runtime_1.exists)(json, 'approvalDate') ? undefined : json['approvalDate'],
         'approvalStatus': !(0, runtime_1.exists)(json, 'approvalStatus') ? undefined : json['approvalStatus'],
         'arrangementCode': !(0, runtime_1.exists)(json, 'arrangementCode') ? undefined : json['arrangementCode'],
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
@@ -46,7 +46,7 @@ function ChangeChargeCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
         'reference': !(0, runtime_1.exists)(json, 'reference') ? undefined : json['reference'],
         'remark': !(0, runtime_1.exists)(json, 'remark') ? undefined : json['remark'],
-        'revenueDate': !(0, runtime_1.exists)(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !(0, runtime_1.exists)(json, 'revenueDate') ? undefined : json['revenueDate'],
         'transactionNo': !(0, runtime_1.exists)(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
 }
@@ -60,7 +60,7 @@ function ChangeChargeCriteriaTypeToJSON(value) {
     }
     return {
         'approvalCode': value.approvalCode,
-        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substring(0, 10)),
+        'approvalDate': value.approvalDate,
         'approvalStatus': value.approvalStatus,
         'arrangementCode': value.arrangementCode,
         'cashierId': value.cashierId,
@@ -72,7 +72,7 @@ function ChangeChargeCriteriaTypeToJSON(value) {
         'quantity': value.quantity,
         'reference': value.reference,
         'remark': value.remark,
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0, 10)),
+        'revenueDate': value.revenueDate,
         'transactionNo': value.transactionNo,
     };
 }

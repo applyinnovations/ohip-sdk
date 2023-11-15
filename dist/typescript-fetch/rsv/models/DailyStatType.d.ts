@@ -24,10 +24,10 @@ export interface DailyStatType {
     blockStats?: Array<BlockStatType>;
     /**
      * Date of statistics.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyStatType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
 }
 /**
  * Check if a given object implements the DailyStatType interface.

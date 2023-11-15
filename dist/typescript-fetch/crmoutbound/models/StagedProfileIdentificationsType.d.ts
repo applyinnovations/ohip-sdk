@@ -36,10 +36,10 @@ export interface StagedProfileIdentificationsType {
     documentResort?: string;
     /**
      * The date when the record was inactivated.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileIdentificationsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * A unique identifying value assigned by the creating system. The ID attribute may be used to reference a primary-key value within a database or in a particular implementation.
      * @type {string}

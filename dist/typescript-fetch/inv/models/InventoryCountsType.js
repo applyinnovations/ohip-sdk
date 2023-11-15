@@ -35,8 +35,8 @@ function InventoryCountsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'available': !(0, runtime_1.exists)(json, 'available') ? undefined : json['available'],
         'availableCount': !(0, runtime_1.exists)(json, 'availableCount') ? undefined : json['availableCount'],
         'availableTentativeCount': !(0, runtime_1.exists)(json, 'availableTentativeCount') ? undefined : json['availableTentativeCount'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.InventoryCountsTypeFromJSONTyped = InventoryCountsTypeFromJSONTyped;
@@ -51,8 +51,8 @@ function InventoryCountsTypeToJSON(value) {
         'available': value.available,
         'availableCount': value.availableCount,
         'availableTentativeCount': value.availableTentativeCount,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
+        'startDate': value.startDate,
     };
 }
 exports.InventoryCountsTypeToJSON = InventoryCountsTypeToJSON;

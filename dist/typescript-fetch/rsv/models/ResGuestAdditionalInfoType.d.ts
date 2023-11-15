@@ -18,10 +18,10 @@ import type { GuestLastStayInfoType } from './GuestLastStayInfoType';
 export interface ResGuestAdditionalInfoType {
     /**
      * Entry Date into the country. (Croatian Requirements).
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuestAdditionalInfoType
      */
-    dateOfEntry?: Date;
+    dateOfEntry?: string;
     /**
      * Guest Classification for the data export.
      * @type {string}

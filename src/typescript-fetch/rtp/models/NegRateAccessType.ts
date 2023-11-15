@@ -46,10 +46,10 @@ export interface NegRateAccessType {
     discounts?: Array<ProfileDiscountType>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegRateAccessType
      */
-    end?: Date;
+    end?: string;
     /**
      * Sequence for the negotiated rate.
      * @type {number}
@@ -64,10 +64,10 @@ export interface NegRateAccessType {
     newTimeSpan?: TimeSpanType;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegRateAccessType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -91,10 +91,10 @@ export function NegRateAccessTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'commissionCode': !exists(json, 'commissionCode') ? undefined : json['commissionCode'],
         'discounts': !exists(json, 'discounts') ? undefined : ((json['discounts'] as Array<any>).map(ProfileDiscountTypeFromJSON)),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'negotiatedRateOrder': !exists(json, 'negotiatedRateOrder') ? undefined : json['negotiatedRateOrder'],
         'newTimeSpan': !exists(json, 'newTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['newTimeSpan']),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -109,10 +109,10 @@ export function NegRateAccessTypeToJSON(value?: NegRateAccessType | null): any {
         
         'commissionCode': value.commissionCode,
         'discounts': value.discounts === undefined ? undefined : ((value.discounts as Array<any>).map(ProfileDiscountTypeToJSON)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'negotiatedRateOrder': value.negotiatedRateOrder,
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

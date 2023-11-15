@@ -50,7 +50,7 @@ function FileDeliveryConfigTypeFromJSONTyped(json, ignoreDiscriminator) {
         'useSOAPProtocol': !(0, runtime_1.exists)(json, 'useSOAPProtocol') ? undefined : json['useSOAPProtocol'],
         'userId': !(0, runtime_1.exists)(json, 'userId') ? undefined : json['userId'],
         'validAuthentication': !(0, runtime_1.exists)(json, 'validAuthentication') ? undefined : json['validAuthentication'],
-        'validUpdateDate': !(0, runtime_1.exists)(json, 'validUpdateDate') ? undefined : (new Date(json['validUpdateDate'])),
+        'validUpdateDate': !(0, runtime_1.exists)(json, 'validUpdateDate') ? undefined : json['validUpdateDate'],
     };
 }
 exports.FileDeliveryConfigTypeFromJSONTyped = FileDeliveryConfigTypeFromJSONTyped;
@@ -79,7 +79,7 @@ function FileDeliveryConfigTypeToJSON(value) {
         'useSOAPProtocol': value.useSOAPProtocol,
         'userId': value.userId,
         'validAuthentication': value.validAuthentication,
-        'validUpdateDate': value.validUpdateDate === undefined ? undefined : (value.validUpdateDate.toISOString().substring(0, 10)),
+        'validUpdateDate': value.validUpdateDate,
     };
 }
 exports.FileDeliveryConfigTypeToJSON = FileDeliveryConfigTypeToJSON;

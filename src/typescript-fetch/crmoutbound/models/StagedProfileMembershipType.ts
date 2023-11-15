@@ -238,22 +238,22 @@ export interface StagedProfileMembershipType {
     centralSetup?: boolean;
     /**
      * Indicates when the member signed up for the loyalty program.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    signupDate?: Date;
+    signupDate?: string;
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -316,10 +316,10 @@ export interface StagedProfileMembershipType {
     membershipStatus?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Device encoded string.
      * @type {string}
@@ -328,10 +328,10 @@ export interface StagedProfileMembershipType {
     deviceCode?: string;
     /**
      * Device disabled date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    deviceDisabledDate?: Date;
+    deviceDisabledDate?: string;
     /**
      * Indicates if existing information for primary membership should be overwritten.
      * @type {boolean}
@@ -401,9 +401,9 @@ export function StagedProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscri
         'membershipIdNo': !exists(json, 'membershipIdNo') ? undefined : json['membershipIdNo'],
         'playerRanking': !exists(json, 'playerRanking') ? undefined : json['playerRanking'],
         'centralSetup': !exists(json, 'centralSetup') ? undefined : json['centralSetup'],
-        'signupDate': !exists(json, 'signupDate') ? undefined : (new Date(json['signupDate'])),
-        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
-        'expireDate': !exists(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'signupDate': !exists(json, 'signupDate') ? undefined : json['signupDate'],
+        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : json['effectiveDate'],
+        'expireDate': !exists(json, 'expireDate') ? undefined : json['expireDate'],
         'expireDateExclusiveIndicator': !exists(json, 'expireDateExclusiveIndicator') ? undefined : json['expireDateExclusiveIndicator'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
@@ -414,9 +414,9 @@ export function StagedProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscri
         'registrationResort': !exists(json, 'registrationResort') ? undefined : json['registrationResort'],
         'enrollmentCode': !exists(json, 'enrollmentCode') ? undefined : json['enrollmentCode'],
         'membershipStatus': !exists(json, 'membershipStatus') ? undefined : json['membershipStatus'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'deviceCode': !exists(json, 'deviceCode') ? undefined : json['deviceCode'],
-        'deviceDisabledDate': !exists(json, 'deviceDisabledDate') ? undefined : (new Date(json['deviceDisabledDate'])),
+        'deviceDisabledDate': !exists(json, 'deviceDisabledDate') ? undefined : json['deviceDisabledDate'],
         'updateExistingMembership': !exists(json, 'updateExistingMembership') ? undefined : json['updateExistingMembership'],
         'id': !exists(json, 'id') ? undefined : json['id'],
         'type': !exists(json, 'type') ? undefined : json['type'],
@@ -462,9 +462,9 @@ export function StagedProfileMembershipTypeToJSON(value?: StagedProfileMembershi
         'membershipIdNo': value.membershipIdNo,
         'playerRanking': value.playerRanking,
         'centralSetup': value.centralSetup,
-        'signupDate': value.signupDate === undefined ? undefined : (value.signupDate.toISOString().substring(0,10)),
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
+        'signupDate': value.signupDate,
+        'effectiveDate': value.effectiveDate,
+        'expireDate': value.expireDate,
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
         'orderSequence': value.orderSequence,
         'createDateTime': value.createDateTime,
@@ -475,9 +475,9 @@ export function StagedProfileMembershipTypeToJSON(value?: StagedProfileMembershi
         'registrationResort': value.registrationResort,
         'enrollmentCode': value.enrollmentCode,
         'membershipStatus': value.membershipStatus,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'deviceCode': value.deviceCode,
-        'deviceDisabledDate': value.deviceDisabledDate === undefined ? undefined : (value.deviceDisabledDate.toISOString().substring(0,10)),
+        'deviceDisabledDate': value.deviceDisabledDate,
         'updateExistingMembership': value.updateExistingMembership,
         'id': value.id,
         'type': value.type,

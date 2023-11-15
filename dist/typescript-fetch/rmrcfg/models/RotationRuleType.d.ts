@@ -33,10 +33,10 @@ export interface RotationRuleType {
     daysOfWeek?: DaysOfWeekAttrType;
     /**
      * Represents end date for Room Rotation Setup Rule.
-     * @type {Date}
+     * @type {string}
      * @memberof RotationRuleType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Represents multiplier value to be used for an Owner Multiplier Rule or an Out of Order / Service Multiplier rule.
      * @type {number}
@@ -87,10 +87,10 @@ export interface RotationRuleType {
     setupType?: RotationRuleSetupType;
     /**
      * Represents start date for Room Rotation Setup Rule.
-     * @type {Date}
+     * @type {string}
      * @memberof RotationRuleType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
      * @type {RotationRuleStatusType}

@@ -39,14 +39,14 @@ function PackageElementTypeFromJSONTyped(json, ignoreDiscriminator) {
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['amount']),
         'calculationRule': !(0, runtime_1.exists)(json, 'calculationRule') ? undefined : json['calculationRule'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'endTime': !(0, runtime_1.exists)(json, 'endTime') ? undefined : json['endTime'],
         'includedInRate': !(0, runtime_1.exists)(json, 'includedInRate') ? undefined : json['includedInRate'],
         'packageCode': !(0, runtime_1.exists)(json, 'packageCode') ? undefined : json['packageCode'],
         'postingRhythm': !(0, runtime_1.exists)(json, 'postingRhythm') ? undefined : json['postingRhythm'],
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
         'sellSeparate': !(0, runtime_1.exists)(json, 'sellSeparate') ? undefined : json['sellSeparate'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'startTime': !(0, runtime_1.exists)(json, 'startTime') ? undefined : json['startTime'],
     };
 }
@@ -65,14 +65,14 @@ function PackageElementTypeToJSON(value) {
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
         'calculationRule': value.calculationRule,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'endTime': value.endTime,
         'includedInRate': value.includedInRate,
         'packageCode': value.packageCode,
         'postingRhythm': value.postingRhythm,
         'quantity': value.quantity,
         'sellSeparate': value.sellSeparate,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'startTime': value.startTime,
     };
 }

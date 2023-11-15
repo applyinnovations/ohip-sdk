@@ -19,10 +19,10 @@ import type { HotelCalendarEventType } from './HotelCalendarEventType';
 export interface HotelCalendarDayType {
     /**
      * Indicates a specific hotel for which the calendar is being represented.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelCalendarDayType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {HotelCalendarDayTypeType}

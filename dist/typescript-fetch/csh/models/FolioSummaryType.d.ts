@@ -79,10 +79,10 @@ export interface FolioSummaryType {
     debitFolio?: boolean;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioSummaryType
      */
-    end?: Date;
+    end?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -115,10 +115,10 @@ export interface FolioSummaryType {
     folioAmount?: CurrencyAmountType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioSummaryType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -247,10 +247,10 @@ export interface FolioSummaryType {
     revisionNo?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioSummaryType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {SupportingDocumentType}

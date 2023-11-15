@@ -52,10 +52,10 @@ export interface ShiftBlockCriteriaType {
     ignoreTraces?: boolean;
     /**
      * New start date of the business block.
-     * @type {Date}
+     * @type {string}
      * @memberof ShiftBlockCriteriaType
      */
-    newStartDate?: Date;
+    newStartDate?: string;
     /**
      * When true, this will overbook allocated rooms if needed.
      * @type {boolean}
@@ -105,7 +105,7 @@ export function ShiftBlockCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminat
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'ignorePreAllocatedRooms': !exists(json, 'ignorePreAllocatedRooms') ? undefined : json['ignorePreAllocatedRooms'],
         'ignoreTraces': !exists(json, 'ignoreTraces') ? undefined : json['ignoreTraces'],
-        'newStartDate': !exists(json, 'newStartDate') ? undefined : (new Date(json['newStartDate'])),
+        'newStartDate': !exists(json, 'newStartDate') ? undefined : json['newStartDate'],
         'overbookAll': !exists(json, 'overbookAll') ? undefined : json['overbookAll'],
         'overrideEventsProcessingWarnings': !exists(json, 'overrideEventsProcessingWarnings') ? undefined : json['overrideEventsProcessingWarnings'],
         'removeAlternateDates': !exists(json, 'removeAlternateDates') ? undefined : json['removeAlternateDates'],
@@ -126,7 +126,7 @@ export function ShiftBlockCriteriaTypeToJSON(value?: ShiftBlockCriteriaType | nu
         'hotelId': value.hotelId,
         'ignorePreAllocatedRooms': value.ignorePreAllocatedRooms,
         'ignoreTraces': value.ignoreTraces,
-        'newStartDate': value.newStartDate === undefined ? undefined : (value.newStartDate.toISOString().substring(0,10)),
+        'newStartDate': value.newStartDate,
         'overbookAll': value.overbookAll,
         'overrideEventsProcessingWarnings': value.overrideEventsProcessingWarnings,
         'removeAlternateDates': value.removeAlternateDates,

@@ -52,10 +52,10 @@ export interface DeliveryHistoryType {
     creatorId?: string;
     /**
      * Delivery Date.
-     * @type {Date}
+     * @type {string}
      * @memberof DeliveryHistoryType
      */
-    deliveryDate?: Date;
+    deliveryDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -106,10 +106,10 @@ export interface DeliveryHistoryType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof DeliveryHistoryType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -145,7 +145,7 @@ export function DeliveryHistoryTypeFromJSONTyped(json: any, ignoreDiscriminator:
         
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
-        'deliveryDate': !exists(json, 'deliveryDate') ? undefined : (new Date(json['deliveryDate'])),
+        'deliveryDate': !exists(json, 'deliveryDate') ? undefined : json['deliveryDate'],
         'deliveryId': !exists(json, 'deliveryId') ? undefined : UniqueIDTypeFromJSON(json['deliveryId']),
         'deliveryMethod': !exists(json, 'deliveryMethod') ? undefined : DeliveryMethodTypeFromJSON(json['deliveryMethod']),
         'deliveryStatus': !exists(json, 'deliveryStatus') ? undefined : StatusTypeFromJSON(json['deliveryStatus']),
@@ -154,7 +154,7 @@ export function DeliveryHistoryTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'interfaceId': !exists(json, 'interfaceId') ? undefined : json['interfaceId'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'resvNameId': !exists(json, 'resvNameId') ? undefined : UniqueIDTypeFromJSON(json['resvNameId']),
         'retryCount': !exists(json, 'retryCount') ? undefined : json['retryCount'],
     };
@@ -171,7 +171,7 @@ export function DeliveryHistoryTypeToJSON(value?: DeliveryHistoryType | null): a
         
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'deliveryDate': value.deliveryDate === undefined ? undefined : (value.deliveryDate.toISOString().substring(0,10)),
+        'deliveryDate': value.deliveryDate,
         'deliveryId': UniqueIDTypeToJSON(value.deliveryId),
         'deliveryMethod': DeliveryMethodTypeToJSON(value.deliveryMethod),
         'deliveryStatus': StatusTypeToJSON(value.deliveryStatus),
@@ -180,7 +180,7 @@ export function DeliveryHistoryTypeToJSON(value?: DeliveryHistoryType | null): a
         'interfaceId': value.interfaceId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'resvNameId': UniqueIDTypeToJSON(value.resvNameId),
         'retryCount': value.retryCount,
     };

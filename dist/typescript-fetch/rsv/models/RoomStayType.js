@@ -45,12 +45,12 @@ function RoomStayTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'availableUpsellOfferCount': !(0, runtime_1.exists)(json, 'availableUpsellOfferCount') ? undefined : json['availableUpsellOfferCount'],
         'bookingMedium': !(0, runtime_1.exists)(json, 'bookingMedium') ? undefined : json['bookingMedium'],
         'bookingMediumDescription': !(0, runtime_1.exists)(json, 'bookingMediumDescription') ? undefined : json['bookingMediumDescription'],
         'currentRoomInfo': !(0, runtime_1.exists)(json, 'currentRoomInfo') ? undefined : (0, CurrentRoomInfoType_1.CurrentRoomInfoTypeFromJSON)(json['currentRoomInfo']),
-        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : json['departureDate'],
         'expectedTimes': !(0, runtime_1.exists)(json, 'expectedTimes') ? undefined : (0, ResExpectedTimesType_1.ResExpectedTimesTypeFromJSON)(json['expectedTimes']),
         'guarantee': !(0, runtime_1.exists)(json, 'guarantee') ? undefined : (0, ResGuaranteeType_1.ResGuaranteeTypeFromJSON)(json['guarantee']),
         'guestCounts': !(0, runtime_1.exists)(json, 'guestCounts') ? undefined : (0, GuestCountsType_1.GuestCountsTypeFromJSON)(json['guestCounts']),
@@ -79,12 +79,12 @@ function RoomStayTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
         'availableUpsellOfferCount': value.availableUpsellOfferCount,
         'bookingMedium': value.bookingMedium,
         'bookingMediumDescription': value.bookingMediumDescription,
         'currentRoomInfo': (0, CurrentRoomInfoType_1.CurrentRoomInfoTypeToJSON)(value.currentRoomInfo),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
+        'departureDate': value.departureDate,
         'expectedTimes': (0, ResExpectedTimesType_1.ResExpectedTimesTypeToJSON)(value.expectedTimes),
         'guarantee': (0, ResGuaranteeType_1.ResGuaranteeTypeToJSON)(value.guarantee),
         'guestCounts': (0, GuestCountsType_1.GuestCountsTypeToJSON)(value.guestCounts),

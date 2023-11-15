@@ -42,10 +42,10 @@ export interface StagedProfileIdentificationsType {
     identification?: IdentificationType;
     /**
      * The date when the record was inactivated.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileIdentificationsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}

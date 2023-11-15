@@ -34,7 +34,7 @@ function MembershipInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'accountId': !(0, runtime_1.exists)(json, 'accountId') ? undefined : json['accountId'],
         'bonusCode': !(0, runtime_1.exists)(json, 'bonusCode') ? undefined : json['bonusCode'],
-        'expireDate': !(0, runtime_1.exists)(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'expireDate': !(0, runtime_1.exists)(json, 'expireDate') ? undefined : json['expireDate'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
         'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
@@ -58,7 +58,7 @@ function MembershipInfoTypeToJSON(value) {
     return {
         'accountId': value.accountId,
         'bonusCode': value.bonusCode,
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0, 10)),
+        'expireDate': value.expireDate,
         'inactive': value.inactive,
         'membershipId': value.membershipId,
         'membershipLevel': value.membershipLevel,

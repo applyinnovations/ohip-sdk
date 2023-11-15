@@ -32,9 +32,9 @@ function HotelInfoTypePropertyControlsSellControlsFromJSONTyped(json, ignoreDisc
         return json;
     }
     return {
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.HotelInfoTypePropertyControlsSellControlsFromJSONTyped = HotelInfoTypePropertyControlsSellControlsFromJSONTyped;
@@ -46,9 +46,9 @@ function HotelInfoTypePropertyControlsSellControlsToJSON(value) {
         return null;
     }
     return {
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.HotelInfoTypePropertyControlsSellControlsToJSON = HotelInfoTypePropertyControlsSellControlsToJSON;

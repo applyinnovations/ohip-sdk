@@ -38,7 +38,7 @@ function DailyRateDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'changeAllSharers': !(0, runtime_1.exists)(json, 'changeAllSharers') ? undefined : json['changeAllSharers'],
         'commissionCode': !(0, runtime_1.exists)(json, 'commissionCode') ? undefined : json['commissionCode'],
         'discountAllowed': !(0, runtime_1.exists)(json, 'discountAllowed') ? undefined : json['discountAllowed'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'fixedRate': !(0, runtime_1.exists)(json, 'fixedRate') ? undefined : json['fixedRate'],
         'guestCounts': !(0, runtime_1.exists)(json, 'guestCounts') ? undefined : (0, GuestCountsType_1.GuestCountsTypeFromJSON)(json['guestCounts']),
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
@@ -49,7 +49,7 @@ function DailyRateDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
         'roomTypeToCharge': !(0, runtime_1.exists)(json, 'roomTypeToCharge') ? undefined : json['roomTypeToCharge'],
         'sourceCode': !(0, runtime_1.exists)(json, 'sourceCode') ? undefined : json['sourceCode'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.DailyRateDetailTypeFromJSONTyped = DailyRateDetailTypeFromJSONTyped;
@@ -64,7 +64,7 @@ function DailyRateDetailTypeToJSON(value) {
         'changeAllSharers': value.changeAllSharers,
         'commissionCode': value.commissionCode,
         'discountAllowed': value.discountAllowed,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'fixedRate': value.fixedRate,
         'guestCounts': (0, GuestCountsType_1.GuestCountsTypeToJSON)(value.guestCounts),
         'marketCode': value.marketCode,
@@ -75,7 +75,7 @@ function DailyRateDetailTypeToJSON(value) {
         'roomType': value.roomType,
         'roomTypeToCharge': value.roomTypeToCharge,
         'sourceCode': value.sourceCode,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.DailyRateDetailTypeToJSON = DailyRateDetailTypeToJSON;

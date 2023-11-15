@@ -72,10 +72,10 @@ export interface ValidatedCreditBillFolio {
     creditableAmount?: CurrencyAmountType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidatedCreditBillFolio
      */
-    end?: Date;
+    end?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -108,10 +108,10 @@ export interface ValidatedCreditBillFolio {
     folioAmount?: CurrencyAmountType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidatedCreditBillFolio
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -204,10 +204,10 @@ export interface ValidatedCreditBillFolio {
     revisionNo?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidatedCreditBillFolio
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the ValidatedCreditBillFolio interface.

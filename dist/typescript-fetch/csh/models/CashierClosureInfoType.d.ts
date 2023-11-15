@@ -37,16 +37,16 @@ export interface CashierClosureInfoType {
     cashierUser?: string;
     /**
      * Date and time cashier was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierClosureInfoType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      * Business date cashier was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierClosureInfoType
      */
-    closureBusinessDate?: Date;
+    closureBusinessDate?: string;
     /**
      * Property this record belongs to.
      * @type {string}
@@ -55,10 +55,10 @@ export interface CashierClosureInfoType {
     hotelId?: string;
     /**
      * Date and time cashier was opened.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierClosureInfoType
      */
-    openDate?: Date;
+    openDate?: string;
     /**
      * Information of the Cashier.
      * @type {Array<CashierReportType>}

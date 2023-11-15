@@ -37,10 +37,10 @@ export interface SupportingDocumentType {
     documentCategory?: FiscalSupportingDocumentCategory;
     /**
      * Supporting document creation date.
-     * @type {Date}
+     * @type {string}
      * @memberof SupportingDocumentType
      */
-    documentDate?: Date;
+    documentDate?: string;
     /**
      * Supporting document number.
      * @type {number}

@@ -40,14 +40,14 @@ function ChainDetailInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'chainDesc': !(0, runtime_1.exists)(json, 'chainDesc') ? undefined : json['chainDesc'],
         'chainName': !(0, runtime_1.exists)(json, 'chainName') ? undefined : json['chainName'],
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : json['email'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'fax': !(0, runtime_1.exists)(json, 'fax') ? undefined : json['fax'],
         'frequentFlierCardsAcceptYn': !(0, runtime_1.exists)(json, 'frequentFlierCardsAcceptYn') ? undefined : json['frequentFlierCardsAcceptYn'],
         'loyaltyProgram': !(0, runtime_1.exists)(json, 'loyaltyProgram') ? undefined : json['loyaltyProgram'],
         'marketingText': !(0, runtime_1.exists)(json, 'marketingText') ? undefined : json['marketingText'],
         'phone': !(0, runtime_1.exists)(json, 'phone') ? undefined : json['phone'],
         'shareProfilesYn': !(0, runtime_1.exists)(json, 'shareProfilesYn') ? undefined : json['shareProfilesYn'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.ChainDetailInfoTypeFromJSONTyped = ChainDetailInfoTypeFromJSONTyped;
@@ -66,14 +66,14 @@ function ChainDetailInfoTypeToJSON(value) {
         'chainDesc': value.chainDesc,
         'chainName': value.chainName,
         'email': value.email,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'fax': value.fax,
         'frequentFlierCardsAcceptYn': value.frequentFlierCardsAcceptYn,
         'loyaltyProgram': value.loyaltyProgram,
         'marketingText': value.marketingText,
         'phone': value.phone,
         'shareProfilesYn': value.shareProfilesYn,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.ChainDetailInfoTypeToJSON = ChainDetailInfoTypeToJSON;

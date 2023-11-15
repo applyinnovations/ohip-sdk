@@ -34,10 +34,10 @@ import {
 export interface AllocationGridByDateRangeType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AllocationGridByDateRangeType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {boolean}
@@ -70,10 +70,10 @@ export interface AllocationGridByDateRangeType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AllocationGridByDateRangeType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {boolean}
@@ -119,13 +119,13 @@ export function AllocationGridByDateRangeTypeFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'friday': !exists(json, 'friday') ? undefined : json['friday'],
         'inventory': !exists(json, 'inventory') ? undefined : SetBlockGridInvTypeFromJSON(json['inventory']),
         'monday': !exists(json, 'monday') ? undefined : json['monday'],
         'rate': !exists(json, 'rate') ? undefined : BlockGridRatesTypeFromJSON(json['rate']),
         'saturday': !exists(json, 'saturday') ? undefined : json['saturday'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'sunday': !exists(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !exists(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !exists(json, 'tuesday') ? undefined : json['tuesday'],
@@ -142,13 +142,13 @@ export function AllocationGridByDateRangeTypeToJSON(value?: AllocationGridByDate
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'friday': value.friday,
         'inventory': SetBlockGridInvTypeToJSON(value.inventory),
         'monday': value.monday,
         'rate': BlockGridRatesTypeToJSON(value.rate),
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

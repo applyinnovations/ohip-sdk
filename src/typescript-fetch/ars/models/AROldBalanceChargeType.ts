@@ -40,10 +40,10 @@ export interface AROldBalanceChargeType {
     amount?: CurrencyAmountType;
     /**
      * Date of the Posting.
-     * @type {Date}
+     * @type {string}
      * @memberof AROldBalanceChargeType
      */
-    date?: Date;
+    date?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -102,7 +102,7 @@ export function AROldBalanceChargeTypeFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'amount': !exists(json, 'amount') ? undefined : CurrencyAmountTypeFromJSON(json['amount']),
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'paid': !exists(json, 'paid') ? undefined : CurrencyAmountTypeFromJSON(json['paid']),
@@ -122,7 +122,7 @@ export function AROldBalanceChargeTypeToJSON(value?: AROldBalanceChargeType | nu
     return {
         
         'amount': CurrencyAmountTypeToJSON(value.amount),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'fiscalBillNo': value.fiscalBillNo,
         'folioNo': value.folioNo,
         'paid': CurrencyAmountTypeToJSON(value.paid),

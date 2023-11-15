@@ -67,7 +67,7 @@ export interface DeleteChannelSellLimitsRequest {
 
 export interface GetChannelSellLimitsRequest {
     hotelId: string;
-    fromDate: Date;
+    fromDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -276,7 +276,7 @@ export class InventoryApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.bookingChannelCode !== undefined) {

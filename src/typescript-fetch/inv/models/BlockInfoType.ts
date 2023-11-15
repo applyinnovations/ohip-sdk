@@ -136,16 +136,16 @@ export interface BlockInfoType {
     currencyCode?: string;
     /**
      * Date after which unused block rooms should be returned to house.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInfoType
      */
-    cutOffDate?: Date;
+    cutOffDate?: string;
     /**
      * End date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Guarantee Code for the block.
      * @type {string}
@@ -184,10 +184,10 @@ export interface BlockInfoType {
     roomSalesManager?: CodeDescriptionType;
     /**
      * Start date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInfoType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -222,15 +222,15 @@ export function BlockInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'contactName': !exists(json, 'contactName') ? undefined : json['contactName'],
         'conversionCode': !exists(json, 'conversionCode') ? undefined : json['conversionCode'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
-        'cutOffDate': !exists(json, 'cutOffDate') ? undefined : (new Date(json['cutOffDate'])),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'cutOffDate': !exists(json, 'cutOffDate') ? undefined : json['cutOffDate'],
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'nonCompeteDetails': !exists(json, 'nonCompeteDetails') ? undefined : BlockNonCompeteTypeFromJSON(json['nonCompeteDetails']),
         'rankingCode': !exists(json, 'rankingCode') ? undefined : json['rankingCode'],
         'rateProtectionDetails': !exists(json, 'rateProtectionDetails') ? undefined : BlockRateProtectionTypeFromJSON(json['rateProtectionDetails']),
         'roomSalesManager': !exists(json, 'roomSalesManager') ? undefined : CodeDescriptionTypeFromJSON(json['roomSalesManager']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -256,15 +256,15 @@ export function BlockInfoTypeToJSON(value?: BlockInfoType | null): any {
         'contactName': value.contactName,
         'conversionCode': value.conversionCode,
         'currencyCode': value.currencyCode,
-        'cutOffDate': value.cutOffDate === undefined ? undefined : (value.cutOffDate.toISOString().substring(0,10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'cutOffDate': value.cutOffDate,
+        'endDate': value.endDate,
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
         'nonCompeteDetails': BlockNonCompeteTypeToJSON(value.nonCompeteDetails),
         'rankingCode': value.rankingCode,
         'rateProtectionDetails': BlockRateProtectionTypeToJSON(value.rateProtectionDetails),
         'roomSalesManager': CodeDescriptionTypeToJSON(value.roomSalesManager),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

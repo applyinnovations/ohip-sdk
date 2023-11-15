@@ -124,8 +124,8 @@ export interface DeleteExportMappingCodesRequest {
 export interface GetExportActivityLogRequest {
     hotelId: string;
     activityType: string;
-    fromDate: Date;
-    toDate: Date;
+    fromDate: string;
+    toDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -225,8 +225,8 @@ export interface GetExportSchedulesRequest {
     type?: string;
     exportGroup?: GetExportSchedulesExportGroupEnum;
     exportName?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     frequency?: GetExportSchedulesFrequencyEnum;
     includeInactive?: boolean;
     xExternalsystem?: string;
@@ -601,11 +601,11 @@ export class ExportApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
+            queryParameters['toDate'] = requestParameters.toDate;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -1105,11 +1105,11 @@ export class ExportApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.frequency !== undefined) {

@@ -34,7 +34,7 @@ function FiscalFolioCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'effectiveDate': !(0, runtime_1.exists)(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
+        'effectiveDate': !(0, runtime_1.exists)(json, 'effectiveDate') ? undefined : json['effectiveDate'],
         'folioCommand': !(0, runtime_1.exists)(json, 'folioCommand') ? undefined : (0, FolioCommandType_1.FolioCommandTypeFromJSON)(json['folioCommand']),
         'folios': !(0, runtime_1.exists)(json, 'folios') ? undefined : (0, FiscalInvoiceSummaryType_1.FiscalInvoiceSummaryTypeFromJSON)(json['folios']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -49,7 +49,7 @@ function FiscalFolioCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0, 10)),
+        'effectiveDate': value.effectiveDate,
         'folioCommand': (0, FolioCommandType_1.FolioCommandTypeToJSON)(value.folioCommand),
         'folios': (0, FiscalInvoiceSummaryType_1.FiscalInvoiceSummaryTypeToJSON)(value.folios),
         'hotelId': value.hotelId,

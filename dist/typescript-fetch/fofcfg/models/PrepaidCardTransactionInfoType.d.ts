@@ -33,10 +33,10 @@ export interface PrepaidCardTransactionInfoType {
     cancellable?: boolean;
     /**
      * Prepaid card transaction date.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardTransactionInfoType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {UniqueIDType}

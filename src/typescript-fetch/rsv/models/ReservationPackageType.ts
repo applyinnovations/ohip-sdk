@@ -64,10 +64,10 @@ export interface ReservationPackageType {
     consumptionDetails?: PackageConsumptionType;
     /**
      * Required value when changing a reservation package. If the original end date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Reservation Package Opera Internal Unique Id. This is the unique Id used for this reservation package.
      * @type {number}
@@ -124,10 +124,10 @@ export interface ReservationPackageType {
     source?: ProductSourceType;
     /**
      * Required value when changing a reservation package. If the original start date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -151,7 +151,7 @@ export function ReservationPackageTypeFromJSONTyped(json: any, ignoreDiscriminat
         
         'awardCode': !exists(json, 'awardCode') ? undefined : json['awardCode'],
         'consumptionDetails': !exists(json, 'consumptionDetails') ? undefined : PackageConsumptionTypeFromJSON(json['consumptionDetails']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'internalId': !exists(json, 'internalId') ? undefined : json['internalId'],
         'newTimeSpan': !exists(json, 'newTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['newTimeSpan']),
         'packageCode': !exists(json, 'packageCode') ? undefined : json['packageCode'],
@@ -161,7 +161,7 @@ export function ReservationPackageTypeFromJSONTyped(json: any, ignoreDiscriminat
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'scheduleList': !exists(json, 'scheduleList') ? undefined : ((json['scheduleList'] as Array<any>).map(ReservationPackageScheduleTypeFromJSON)),
         'source': !exists(json, 'source') ? undefined : ProductSourceTypeFromJSON(json['source']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -176,7 +176,7 @@ export function ReservationPackageTypeToJSON(value?: ReservationPackageType | nu
         
         'awardCode': value.awardCode,
         'consumptionDetails': PackageConsumptionTypeToJSON(value.consumptionDetails),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'internalId': value.internalId,
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
         'packageCode': value.packageCode,
@@ -186,7 +186,7 @@ export function ReservationPackageTypeToJSON(value?: ReservationPackageType | nu
         'ratePlanCode': value.ratePlanCode,
         'scheduleList': value.scheduleList === undefined ? undefined : ((value.scheduleList as Array<any>).map(ReservationPackageScheduleTypeToJSON)),
         'source': ProductSourceTypeToJSON(value.source),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

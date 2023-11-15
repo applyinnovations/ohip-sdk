@@ -725,7 +725,7 @@ export interface DeleteFiscalPeriodsRequest {
     xAppKey?: string;
     xHotelid?: string;
     yearId?: Array<number>;
-    startDate?: Array<Date>;
+    startDate?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1220,8 +1220,8 @@ export interface GetCustomNumberConfigRequest {
     wildCard?: string;
     description?: string;
     area?: GetCustomNumberConfigAreaEnum;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1238,8 +1238,8 @@ export interface GetCustomNumbersRequest {
     wildCard?: string;
     description?: string;
     area?: GetCustomNumbersAreaEnum;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1437,8 +1437,8 @@ export interface GetFuturePastExchangeRatesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    dateRangeStart?: Date;
-    dateRangeEnd?: Date;
+    dateRangeStart?: string;
+    dateRangeEnd?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1623,8 +1623,8 @@ export interface GetTemplateCustomNumberConfigRequest {
     xHotelid?: string;
     includeInactive?: boolean;
     wildCard?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1636,8 +1636,8 @@ export interface GetTemplateCustomNumbersRequest {
     includeInactive?: boolean;
     configurationId?: Array<string>;
     wildCard?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -7615,11 +7615,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -7704,11 +7704,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -8830,11 +8830,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.dateRangeStart !== undefined) {
-            queryParameters['dateRangeStart'] = (requestParameters.dateRangeStart as any).toISOString().substring(0,10);
+            queryParameters['dateRangeStart'] = requestParameters.dateRangeStart;
         }
 
         if (requestParameters.dateRangeEnd !== undefined) {
-            queryParameters['dateRangeEnd'] = (requestParameters.dateRangeEnd as any).toISOString().substring(0,10);
+            queryParameters['dateRangeEnd'] = requestParameters.dateRangeEnd;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9879,11 +9879,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -9948,11 +9948,11 @@ export class CashieringConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

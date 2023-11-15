@@ -18,10 +18,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface MasterAccountSummaryType {
     /**
      * Business Date when the reservation was created.
-     * @type {Date}
+     * @type {string}
      * @memberof MasterAccountSummaryType
      */
-    createBusinessDate?: Date;
+    createBusinessDate?: string;
     /**
      * Time stamp of the creation.
      * @type {string}
@@ -48,10 +48,10 @@ export interface MasterAccountSummaryType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof MasterAccountSummaryType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}

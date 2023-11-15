@@ -31,10 +31,10 @@ export interface FacilityTaskType {
     supplies?: Array<FacilityCodeType>;
     /**
      * The Date on which the task is applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityTaskType
      */
-    date?: Date;
+    date?: string;
 }
 /**
  * Check if a given object implements the FacilityTaskType interface.

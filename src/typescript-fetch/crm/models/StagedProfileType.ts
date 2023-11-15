@@ -166,10 +166,10 @@ export interface StagedProfileType {
     identifications?: Array<StagedProfileIdentificationsType>;
     /**
      * The date on which the staged profile has been received.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      * Collection of detailed information about keyword for the staged profile.
      * @type {Array<StagedProfileKeywordType>}
@@ -276,7 +276,7 @@ export function StagedProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'emails': !exists(json, 'emails') ? undefined : ((json['emails'] as Array<any>).map(StagedProfileEmailTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'identifications': !exists(json, 'identifications') ? undefined : ((json['identifications'] as Array<any>).map(StagedProfileIdentificationsTypeFromJSON)),
-        'importDate': !exists(json, 'importDate') ? undefined : (new Date(json['importDate'])),
+        'importDate': !exists(json, 'importDate') ? undefined : json['importDate'],
         'keywords': !exists(json, 'keywords') ? undefined : ((json['keywords'] as Array<any>).map(StagedProfileKeywordTypeFromJSON)),
         'mailingActions': !exists(json, 'mailingActions') ? undefined : MailingActionsTypeFromJSON(json['mailingActions']),
         'memberships': !exists(json, 'memberships') ? undefined : ((json['memberships'] as Array<any>).map(StagedProfileMembershipTypeFromJSON)),
@@ -309,7 +309,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
         'emails': value.emails === undefined ? undefined : ((value.emails as Array<any>).map(StagedProfileEmailTypeToJSON)),
         'hotelId': value.hotelId,
         'identifications': value.identifications === undefined ? undefined : ((value.identifications as Array<any>).map(StagedProfileIdentificationsTypeToJSON)),
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
+        'importDate': value.importDate,
         'keywords': value.keywords === undefined ? undefined : ((value.keywords as Array<any>).map(StagedProfileKeywordTypeToJSON)),
         'mailingActions': MailingActionsTypeToJSON(value.mailingActions),
         'memberships': value.memberships === undefined ? undefined : ((value.memberships as Array<any>).map(StagedProfileMembershipTypeToJSON)),

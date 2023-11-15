@@ -24,10 +24,10 @@ export interface ConfigHotelAmenityType {
     amenityType?: AmenityTypeType;
     /**
      * The date the amenity is scheduled to become active.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigHotelAmenityType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The comments about amenity of the hotel.
      * @type {string}
@@ -42,10 +42,10 @@ export interface ConfigHotelAmenityType {
     description?: string;
     /**
      * The date the amenity is scheduled to become inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigHotelAmenityType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Specifies the feature code (aka amenity code).
      * @type {string}
@@ -72,10 +72,10 @@ export interface ConfigHotelAmenityType {
     newAmenityCode?: string;
     /**
      * The new date the amenity is scheduled to become active.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigHotelAmenityType
      */
-    newBeginDate?: Date;
+    newBeginDate?: string;
     /**
      * Display Order sequence.
      * @type {number}

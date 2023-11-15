@@ -199,7 +199,7 @@ export interface GetMembershipAwardsRequest {
     awardCodes?: Array<string>;
     wildCard?: string;
     description?: string;
-    validForDate?: Date;
+    validForDate?: string;
     includeInactive?: boolean;
     includeDetails?: boolean;
     xExternalsystem?: string;
@@ -212,8 +212,8 @@ export interface GetMembershipBenefitProgramsRequest {
     xHotelid?: string;
     membershipType?: string;
     code?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     minimumLevel?: string;
     includeInactive?: boolean;
     xExternalsystem?: string;
@@ -1106,7 +1106,7 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.validForDate !== undefined) {
-            queryParameters['validForDate'] = (requestParameters.validForDate as any).toISOString().substring(0,10);
+            queryParameters['validForDate'] = requestParameters.validForDate;
         }
 
         if (requestParameters.includeInactive !== undefined) {
@@ -1174,11 +1174,11 @@ export class MembershipConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         if (requestParameters.minimumLevel !== undefined) {

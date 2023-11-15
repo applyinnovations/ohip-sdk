@@ -18,10 +18,10 @@ import type { StatisticUnitType } from './StatisticUnitType';
 export interface BlockStatusStatisticType {
     /**
      * Date of the statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatusStatisticType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
     /**
      * Unit type to hold statistic code and value pair.
      * @type {Array<StatisticUnitType>}

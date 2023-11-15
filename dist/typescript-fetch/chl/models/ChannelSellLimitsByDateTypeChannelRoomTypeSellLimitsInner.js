@@ -34,7 +34,7 @@ function ChannelSellLimitsByDateTypeChannelRoomTypeSellLimitsInnerFromJSONTyped(
     return {
         'bookingChannelCode': !(0, runtime_1.exists)(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'channelRoomType': !(0, runtime_1.exists)(json, 'channelRoomType') ? undefined : json['channelRoomType'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'numberOfRooms': !(0, runtime_1.exists)(json, 'numberOfRooms') ? undefined : json['numberOfRooms'],
     };
 }
@@ -49,7 +49,7 @@ function ChannelSellLimitsByDateTypeChannelRoomTypeSellLimitsInnerToJSON(value) 
     return {
         'bookingChannelCode': value.bookingChannelCode,
         'channelRoomType': value.channelRoomType,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'numberOfRooms': value.numberOfRooms,
     };
 }

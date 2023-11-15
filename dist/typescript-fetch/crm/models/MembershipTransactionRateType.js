@@ -35,11 +35,11 @@ function MembershipTransactionRateTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'centralRateAmount': !(0, runtime_1.exists)(json, 'centralRateAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['centralRateAmount']),
         'currency': !(0, runtime_1.exists)(json, 'currency') ? undefined : json['currency'],
-        'fromDate': !(0, runtime_1.exists)(json, 'fromDate') ? undefined : (new Date(json['fromDate'])),
+        'fromDate': !(0, runtime_1.exists)(json, 'fromDate') ? undefined : json['fromDate'],
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
         'pMSRateAmount': !(0, runtime_1.exists)(json, 'pMSRateAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['pMSRateAmount']),
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
-        'toDate': !(0, runtime_1.exists)(json, 'toDate') ? undefined : (new Date(json['toDate'])),
+        'toDate': !(0, runtime_1.exists)(json, 'toDate') ? undefined : json['toDate'],
     };
 }
 exports.MembershipTransactionRateTypeFromJSONTyped = MembershipTransactionRateTypeFromJSONTyped;
@@ -53,11 +53,11 @@ function MembershipTransactionRateTypeToJSON(value) {
     return {
         'centralRateAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.centralRateAmount),
         'currency': value.currency,
-        'fromDate': value.fromDate === undefined ? undefined : (value.fromDate.toISOString().substring(0, 10)),
+        'fromDate': value.fromDate,
         'marketCode': value.marketCode,
         'pMSRateAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.pMSRateAmount),
         'rateCode': value.rateCode,
-        'toDate': value.toDate === undefined ? undefined : (value.toDate.toISOString().substring(0, 10)),
+        'toDate': value.toDate,
     };
 }
 exports.MembershipTransactionRateTypeToJSON = MembershipTransactionRateTypeToJSON;

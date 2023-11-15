@@ -30,10 +30,10 @@ export interface StagedProfilePhoneType {
     errorDescription?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfilePhoneType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Indicates whether the phone is the default confirmation method.
      * @type {boolean}

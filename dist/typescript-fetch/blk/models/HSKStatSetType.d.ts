@@ -24,16 +24,16 @@ export interface HSKStatSetType {
     code?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof HSKStatSetType
      */
-    end?: Date;
+    end?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof HSKStatSetType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {Array<HSKStatType>}

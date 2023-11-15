@@ -17,16 +17,16 @@
 export interface VisaInfoType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof VisaInfoType
      */
-    visaExpiryDate?: Date;
+    visaExpiryDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof VisaInfoType
      */
-    visaIssueDate?: Date;
+    visaIssueDate?: string;
     /**
      *
      * @type {string}

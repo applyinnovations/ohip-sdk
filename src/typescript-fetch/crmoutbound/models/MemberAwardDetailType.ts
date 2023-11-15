@@ -64,10 +64,10 @@ export interface MemberAwardDetailType {
     cancelPenaltyPoints?: number;
     /**
      * Date of stay.
-     * @type {Date}
+     * @type {string}
      * @memberof MemberAwardDetailType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Rate code associated with the reservation.
      * @type {string}
@@ -191,7 +191,7 @@ export function MemberAwardDetailTypeFromJSONTyped(json: any, ignoreDiscriminato
         'cancelPenaltyCharge': !exists(json, 'cancelPenaltyCharge') ? undefined : json['cancelPenaltyCharge'],
         'cancelPenaltyType': !exists(json, 'cancelPenaltyType') ? undefined : json['cancelPenaltyType'],
         'cancelPenaltyPoints': !exists(json, 'cancelPenaltyPoints') ? undefined : json['cancelPenaltyPoints'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
         'product': !exists(json, 'product') ? undefined : json['product'],
@@ -226,7 +226,7 @@ export function MemberAwardDetailTypeToJSON(value?: MemberAwardDetailType | null
         'cancelPenaltyCharge': value.cancelPenaltyCharge,
         'cancelPenaltyType': value.cancelPenaltyType,
         'cancelPenaltyPoints': value.cancelPenaltyPoints,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
         'rateCode': value.rateCode,
         'roomType': value.roomType,
         'product': value.product,

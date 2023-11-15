@@ -33,7 +33,7 @@ function RoomTypeSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'accessible': !(0, runtime_1.exists)(json, 'accessible') ? undefined : json['accessible'],
-        'activeDate': !(0, runtime_1.exists)(json, 'activeDate') ? undefined : (new Date(json['activeDate'])),
+        'activeDate': !(0, runtime_1.exists)(json, 'activeDate') ? undefined : json['activeDate'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'meetingRoom': !(0, runtime_1.exists)(json, 'meetingRoom') ? undefined : json['meetingRoom'],
         'numberOfRooms': !(0, runtime_1.exists)(json, 'numberOfRooms') ? undefined : json['numberOfRooms'],
@@ -56,7 +56,7 @@ function RoomTypeSummaryTypeToJSON(value) {
     }
     return {
         'accessible': value.accessible,
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0, 10)),
+        'activeDate': value.activeDate,
         'inactive': value.inactive,
         'meetingRoom': value.meetingRoom,
         'numberOfRooms': value.numberOfRooms,

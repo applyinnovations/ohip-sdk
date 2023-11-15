@@ -17,10 +17,10 @@
 export interface DepositDetailPostingTypeMiscellaneousInfo {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof DepositDetailPostingTypeMiscellaneousInfo
      */
-    createDateTime?: Date;
+    createDateTime?: string;
     /**
      *
      * @type {boolean}

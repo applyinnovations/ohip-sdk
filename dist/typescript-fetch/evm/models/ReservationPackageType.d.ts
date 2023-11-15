@@ -34,10 +34,10 @@ export interface ReservationPackageType {
     consumptionDetails?: PackageConsumptionType;
     /**
      * Required value when changing a reservation package. If the original eventEndDate date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Reservation Package Opera Internal Unique Id. This is the unique Id used for this reservation package.
      * @type {number}
@@ -94,10 +94,10 @@ export interface ReservationPackageType {
     source?: ProductSourceType;
     /**
      * Required value when changing a reservation package. If the original eventStartDate date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the ReservationPackageType interface.

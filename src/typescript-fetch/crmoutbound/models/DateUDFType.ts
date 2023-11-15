@@ -27,10 +27,10 @@ export interface DateUDFType {
     name?: string;
     /**
      * Value of user defined field.
-     * @type {Date}
+     * @type {string}
      * @memberof DateUDFType
      */
-    value?: Date;
+    value?: string;
     /**
      * Label of user defined field used by vendors or customers.
      * @type {string}
@@ -59,7 +59,7 @@ export function DateUDFTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         
         'name': !exists(json, 'name') ? undefined : json['name'],
-        'value': !exists(json, 'value') ? undefined : (new Date(json['value'])),
+        'value': !exists(json, 'value') ? undefined : json['value'],
         'altname': !exists(json, 'altname') ? undefined : json['altname'],
     };
 }
@@ -74,7 +74,7 @@ export function DateUDFTypeToJSON(value?: DateUDFType | null): any {
     return {
         
         'name': value.name,
-        'value': value.value === undefined ? undefined : (value.value.toISOString().substring(0,10)),
+        'value': value.value,
         'altname': value.altname,
     };
 }

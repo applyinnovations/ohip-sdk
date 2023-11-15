@@ -24,10 +24,10 @@ export interface FiscalYearType {
     description?: string;
     /**
      * End Date of the Year.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalYearType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Resort for which the Year is defined.
      * @type {string}
@@ -36,10 +36,10 @@ export interface FiscalYearType {
     hotelId?: string;
     /**
      * Start Date of the Year.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalYearType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Number of the Year.
      * @type {number}

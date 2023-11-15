@@ -40,10 +40,10 @@ export interface InventoryToReturnType {
     blockId?: BlockId;
     /**
      * The date on which rooms need to be returned for the block either to another room type in the block or to House if the borrowed room was from House.
-     * @type {Date}
+     * @type {string}
      * @memberof InventoryToReturnType
      */
-    returnDate?: Date;
+    returnDate?: string;
     /**
      * Specifies the collection of number of rooms to be returned to room types or House.
      * @type {Array<ReturnRoomType>}
@@ -72,7 +72,7 @@ export function InventoryToReturnTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'returnDate': !exists(json, 'returnDate') ? undefined : (new Date(json['returnDate'])),
+        'returnDate': !exists(json, 'returnDate') ? undefined : json['returnDate'],
         'returnRooms': !exists(json, 'returnRooms') ? undefined : ((json['returnRooms'] as Array<any>).map(ReturnRoomTypeFromJSON)),
     };
 }
@@ -87,7 +87,7 @@ export function InventoryToReturnTypeToJSON(value?: InventoryToReturnType | null
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'returnDate': value.returnDate === undefined ? undefined : (value.returnDate.toISOString().substring(0,10)),
+        'returnDate': value.returnDate,
         'returnRooms': value.returnRooms === undefined ? undefined : ((value.returnRooms as Array<any>).map(ReturnRoomTypeToJSON)),
     };
 }

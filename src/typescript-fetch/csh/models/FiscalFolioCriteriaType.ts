@@ -34,10 +34,10 @@ import {
 export interface FiscalFolioCriteriaType {
     /**
      * Effective date to run fiscal command.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalFolioCriteriaType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * 
      * @type {FolioCommandType}
@@ -77,7 +77,7 @@ export function FiscalFolioCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
+        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : json['effectiveDate'],
         'folioCommand': !exists(json, 'folioCommand') ? undefined : FolioCommandTypeFromJSON(json['folioCommand']),
         'folios': !exists(json, 'folios') ? undefined : FiscalInvoiceSummaryTypeFromJSON(json['folios']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -93,7 +93,7 @@ export function FiscalFolioCriteriaTypeToJSON(value?: FiscalFolioCriteriaType | 
     }
     return {
         
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
+        'effectiveDate': value.effectiveDate,
         'folioCommand': FolioCommandTypeToJSON(value.folioCommand),
         'folios': FiscalInvoiceSummaryTypeToJSON(value.folios),
         'hotelId': value.hotelId,

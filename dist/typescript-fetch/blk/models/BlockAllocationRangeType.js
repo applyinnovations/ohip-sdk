@@ -39,13 +39,13 @@ function BlockAllocationRangeTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'allocationType': !(0, runtime_1.exists)(json, 'allocationType') ? undefined : (0, AllocationType_1.AllocationTypeFromJSON)(json['allocationType']),
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
         'blockInventory': !(0, runtime_1.exists)(json, 'blockInventory') ? undefined : (0, BlockGridInvType_1.BlockGridInvTypeFromJSON)(json['blockInventory']),
         'blockRates': !(0, runtime_1.exists)(json, 'blockRates') ? undefined : (0, BlockGridRatesType_1.BlockGridRatesTypeFromJSON)(json['blockRates']),
-        'cutoffDate': !(0, runtime_1.exists)(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
+        'cutoffDate': !(0, runtime_1.exists)(json, 'cutoffDate') ? undefined : json['cutoffDate'],
         'cutoffDays': !(0, runtime_1.exists)(json, 'cutoffDays') ? undefined : json['cutoffDays'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'genericRoomType': !(0, runtime_1.exists)(json, 'genericRoomType') ? undefined : json['genericRoomType'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'includedDays': !(0, runtime_1.exists)(json, 'includedDays') ? undefined : json['includedDays'],
@@ -65,13 +65,13 @@ function BlockAllocationRangeTypeToJSON(value) {
     }
     return {
         'allocationType': (0, AllocationType_1.AllocationTypeToJSON)(value.allocationType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
         'blockInventory': (0, BlockGridInvType_1.BlockGridInvTypeToJSON)(value.blockInventory),
         'blockRates': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.blockRates),
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0, 10)),
+        'cutoffDate': value.cutoffDate,
         'cutoffDays': value.cutoffDays,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'genericRoomType': value.genericRoomType,
         'hotelId': value.hotelId,
         'includedDays': value.includedDays,

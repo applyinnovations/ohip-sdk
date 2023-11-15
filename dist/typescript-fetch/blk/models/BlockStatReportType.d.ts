@@ -19,10 +19,10 @@ import type { HSKStatReportCodeType } from './HSKStatReportCodeType';
 export interface BlockStatReportType {
     /**
      * Statistical date of the requested report.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatReportType
      */
-    calendarDate?: Date;
+    calendarDate?: string;
     /**
      * The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute.
      * @type {string}

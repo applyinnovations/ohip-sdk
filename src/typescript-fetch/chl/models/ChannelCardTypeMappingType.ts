@@ -45,10 +45,10 @@ export interface ChannelCardTypeMappingType {
     hotelId?: string;
     /**
      * Inactive date of card type mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelCardTypeMappingType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * New channel card type for the existing card type mapping.
      * @type {string}
@@ -80,7 +80,7 @@ export function ChannelCardTypeMappingTypeFromJSONTyped(json: any, ignoreDiscrim
         'cardType': !exists(json, 'cardType') ? undefined : json['cardType'],
         'channelCardType': !exists(json, 'channelCardType') ? undefined : json['channelCardType'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'newChannelCardType': !exists(json, 'newChannelCardType') ? undefined : json['newChannelCardType'],
     };
 }
@@ -98,7 +98,7 @@ export function ChannelCardTypeMappingTypeToJSON(value?: ChannelCardTypeMappingT
         'cardType': value.cardType,
         'channelCardType': value.channelCardType,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'newChannelCardType': value.newChannelCardType,
     };
 }

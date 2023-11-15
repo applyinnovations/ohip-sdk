@@ -34,9 +34,9 @@ function StatisticsMetricSetInnerFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'metrics': !(0, runtime_1.exists)(json, 'metrics') ? undefined : (json['metrics'].map(HSKStatType_1.HSKStatTypeFromJSON)),
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.StatisticsMetricSetInnerFromJSONTyped = StatisticsMetricSetInnerFromJSONTyped;
@@ -49,9 +49,9 @@ function StatisticsMetricSetInnerToJSON(value) {
     }
     return {
         'code': value.code,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'metrics': value.metrics === undefined ? undefined : (value.metrics.map(HSKStatType_1.HSKStatTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.StatisticsMetricSetInnerToJSON = StatisticsMetricSetInnerToJSON;

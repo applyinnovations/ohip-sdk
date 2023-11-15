@@ -38,8 +38,8 @@ function ClaimMembershipTypeFromJSONTyped(json, ignoreDiscriminator) {
         'membershipIdNo': !(0, runtime_1.exists)(json, 'membershipIdNo') ? undefined : json['membershipIdNo'],
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
         'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
-        'effectiveDate': !(0, runtime_1.exists)(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
-        'expireDate': !(0, runtime_1.exists)(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'effectiveDate': !(0, runtime_1.exists)(json, 'effectiveDate') ? undefined : json['effectiveDate'],
+        'expireDate': !(0, runtime_1.exists)(json, 'expireDate') ? undefined : json['expireDate'],
         'expireDateExclusiveIndicator': !(0, runtime_1.exists)(json, 'expireDateExclusiveIndicator') ? undefined : json['expireDateExclusiveIndicator'],
     };
 }
@@ -58,8 +58,8 @@ function ClaimMembershipTypeToJSON(value) {
         'membershipIdNo': value.membershipIdNo,
         'membershipType': value.membershipType,
         'membershipLevel': value.membershipLevel,
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0, 10)),
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0, 10)),
+        'effectiveDate': value.effectiveDate,
+        'expireDate': value.expireDate,
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
     };
 }

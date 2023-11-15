@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface HotelSummaryType {
     /**
      * Date when the hotel becomes valid for use.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelSummaryType
      */
-    activeDate?: Date;
+    activeDate?: string;
     /**
      * Hotels Chain Code. This attribute uniquely assign Hotel to a single chain.
      * @type {string}
@@ -45,10 +45,10 @@ export interface HotelSummaryType {
     hotelName?: string;
     /**
      * Date when the hotel becomes invalid for use.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelSummaryType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
 }
 
 /**
@@ -70,11 +70,11 @@ export function HotelSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'activeDate': !exists(json, 'activeDate') ? undefined : (new Date(json['activeDate'])),
+        'activeDate': !exists(json, 'activeDate') ? undefined : json['activeDate'],
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !exists(json, 'hotelName') ? undefined : json['hotelName'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
     };
 }
 
@@ -87,11 +87,11 @@ export function HotelSummaryTypeToJSON(value?: HotelSummaryType | null): any {
     }
     return {
         
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0,10)),
+        'activeDate': value.activeDate,
         'chainCode': value.chainCode,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
     };
 }
 

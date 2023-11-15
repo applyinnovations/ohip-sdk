@@ -46,13 +46,13 @@ function AuthorizationHistoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'approvalAmount': !(0, runtime_1.exists)(json, 'approvalAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['approvalAmount']),
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'cardPaymentInformation': !(0, runtime_1.exists)(json, 'cardPaymentInformation') ? undefined : (0, AuthorizationHistoryTypeCardPaymentInformation_1.AuthorizationHistoryTypeCardPaymentInformationFromJSON)(json['cardPaymentInformation']),
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, AuthorizationHistoryTypeStatus_1.AuthorizationHistoryTypeStatusFromJSON)(json['status']),
         'transactionType': !(0, runtime_1.exists)(json, 'transactionType') ? undefined : (0, CardAuthorizationTransactionType_1.CardAuthorizationTransactionTypeFromJSON)(json['transactionType']),
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
@@ -68,13 +68,13 @@ function AuthorizationHistoryTypeToJSON(value) {
     }
     return {
         'approvalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.approvalAmount),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'cardPaymentInformation': (0, AuthorizationHistoryTypeCardPaymentInformation_1.AuthorizationHistoryTypeCardPaymentInformationToJSON)(value.cardPaymentInformation),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'status': (0, AuthorizationHistoryTypeStatus_1.AuthorizationHistoryTypeStatusToJSON)(value.status),
         'transactionType': (0, CardAuthorizationTransactionType_1.CardAuthorizationTransactionTypeToJSON)(value.transactionType),
         'type': value.type,

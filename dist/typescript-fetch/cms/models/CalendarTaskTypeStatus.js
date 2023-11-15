@@ -34,7 +34,7 @@ function CalendarTaskTypeStatusFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'completed': !(0, runtime_1.exists)(json, 'completed') ? undefined : json['completed'],
         'completedBy': !(0, runtime_1.exists)(json, 'completedBy') ? undefined : json['completedBy'],
-        'completedOn': !(0, runtime_1.exists)(json, 'completedOn') ? undefined : (new Date(json['completedOn'])),
+        'completedOn': !(0, runtime_1.exists)(json, 'completedOn') ? undefined : json['completedOn'],
     };
 }
 exports.CalendarTaskTypeStatusFromJSONTyped = CalendarTaskTypeStatusFromJSONTyped;
@@ -48,7 +48,7 @@ function CalendarTaskTypeStatusToJSON(value) {
     return {
         'completed': value.completed,
         'completedBy': value.completedBy,
-        'completedOn': value.completedOn === undefined ? undefined : (value.completedOn.toISOString().substring(0, 10)),
+        'completedOn': value.completedOn,
     };
 }
 exports.CalendarTaskTypeStatusToJSON = CalendarTaskTypeStatusToJSON;

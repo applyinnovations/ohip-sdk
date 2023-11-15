@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface RateCategoryTypeRateCategoryDetails {
     /**
      * Begin date for the rate category.
-     * @type {Date}
+     * @type {string}
      * @memberof RateCategoryTypeRateCategoryDetails
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Description of rate category.
      * @type {string}
@@ -33,10 +33,10 @@ export interface RateCategoryTypeRateCategoryDetails {
     description?: string;
     /**
      * End date for the rate category.
-     * @type {Date}
+     * @type {string}
      * @memberof RateCategoryTypeRateCategoryDetails
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Active date of the room category.
      * @type {string}
@@ -70,9 +70,9 @@ export function RateCategoryTypeRateCategoryDetailsFromJSONTyped(json: any, igno
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'rateClass': !exists(json, 'rateClass') ? undefined : json['rateClass'],
         'sellSequence': !exists(json, 'sellSequence') ? undefined : json['sellSequence'],
     };
@@ -87,9 +87,9 @@ export function RateCategoryTypeRateCategoryDetailsToJSON(value?: RateCategoryTy
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'rateClass': value.rateClass,
         'sellSequence': value.sellSequence,
     };

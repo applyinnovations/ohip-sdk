@@ -52,10 +52,10 @@ export interface ExchangeRateCalculationType {
     calculatedAmount?: number;
     /**
      * Date on which the exchange is to take place.
-     * @type {Date}
+     * @type {string}
      * @memberof ExchangeRateCalculationType
      */
-    date?: Date;
+    date?: string;
     /**
      * Amount in Euro for the exchange.
      * @type {number}
@@ -70,10 +70,10 @@ export interface ExchangeRateCalculationType {
     euroExchangeRate?: number;
     /**
      * Date on which exchange rate was obtained.
-     * @type {Date}
+     * @type {string}
      * @memberof ExchangeRateCalculationType
      */
-    exchangeDate?: Date;
+    exchangeDate?: string;
     /**
      * Exchange Information - text presentation of the exchange operation including formula, buy rate, etc.
      * @type {string}
@@ -163,10 +163,10 @@ export function ExchangeRateCalculationTypeFromJSONTyped(json: any, ignoreDiscri
         
         'buyCommission': !exists(json, 'buyCommission') ? undefined : json['buyCommission'],
         'calculatedAmount': !exists(json, 'calculatedAmount') ? undefined : json['calculatedAmount'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'euroAmount': !exists(json, 'euroAmount') ? undefined : json['euroAmount'],
         'euroExchangeRate': !exists(json, 'euroExchangeRate') ? undefined : json['euroExchangeRate'],
-        'exchangeDate': !exists(json, 'exchangeDate') ? undefined : (new Date(json['exchangeDate'])),
+        'exchangeDate': !exists(json, 'exchangeDate') ? undefined : json['exchangeDate'],
         'exchangeInformation': !exists(json, 'exchangeInformation') ? undefined : json['exchangeInformation'],
         'exchangeRate': !exists(json, 'exchangeRate') ? undefined : json['exchangeRate'],
         'exchangeRateCalculationTax': !exists(json, 'exchangeRateCalculationTax') ? undefined : ExchangeRateCalculationTaxTypeFromJSON(json['exchangeRateCalculationTax']),
@@ -192,10 +192,10 @@ export function ExchangeRateCalculationTypeToJSON(value?: ExchangeRateCalculatio
         
         'buyCommission': value.buyCommission,
         'calculatedAmount': value.calculatedAmount,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'euroAmount': value.euroAmount,
         'euroExchangeRate': value.euroExchangeRate,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0,10)),
+        'exchangeDate': value.exchangeDate,
         'exchangeInformation': value.exchangeInformation,
         'exchangeRate': value.exchangeRate,
         'exchangeRateCalculationTax': ExchangeRateCalculationTaxTypeToJSON(value.exchangeRateCalculationTax),

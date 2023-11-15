@@ -20,10 +20,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface RecentlyAccessedReservationType {
     /**
      * The date the record was accessed.
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedReservationType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Given name, first name or names
      * @type {string}

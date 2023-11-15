@@ -19,10 +19,10 @@ import type { HousekeepingTaskCodeType } from './HousekeepingTaskCodeType';
 export interface FacilityTaskType {
     /**
      * The Date on which the task is applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityTaskType
      */
-    date?: Date;
+    date?: string;
     /**
      * List of the facility codes.
      * @type {Array<FacilityCodeType>}

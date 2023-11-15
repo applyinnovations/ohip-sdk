@@ -27,10 +27,10 @@ export interface ReservationPackageScheduleType {
     computedResvPrice?: number;
     /**
      * The date the package was used or can be used.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageScheduleType
      */
-    consumptionDate?: Date;
+    consumptionDate?: string;
     /**
      * The original allowance per unit of the package if it has been changed.
      * @type {number}
@@ -45,10 +45,10 @@ export interface ReservationPackageScheduleType {
     originalUnitPrice?: number;
     /**
      * The date of the Reservation when this package is applicable. This can be different from the date the package will be consumed. Example are next day packages. Reservation date is when the package is applied to the guest and Consumption date is when the guest can consume the package.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageScheduleType
      */
-    reservationDate?: Date;
+    reservationDate?: string;
     /**
      * The total quantity of the package for this date, calculated based on the calculation rule as defined in the PackageHeaderType
      * @type {number}
@@ -89,10 +89,10 @@ export function ReservationPackageScheduleTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'computedResvPrice': !exists(json, 'computedResvPrice') ? undefined : json['computedResvPrice'],
-        'consumptionDate': !exists(json, 'consumptionDate') ? undefined : (new Date(json['consumptionDate'])),
+        'consumptionDate': !exists(json, 'consumptionDate') ? undefined : json['consumptionDate'],
         'originalUnitAllowance': !exists(json, 'originalUnitAllowance') ? undefined : json['originalUnitAllowance'],
         'originalUnitPrice': !exists(json, 'originalUnitPrice') ? undefined : json['originalUnitPrice'],
-        'reservationDate': !exists(json, 'reservationDate') ? undefined : (new Date(json['reservationDate'])),
+        'reservationDate': !exists(json, 'reservationDate') ? undefined : json['reservationDate'],
         'totalQuantity': !exists(json, 'totalQuantity') ? undefined : json['totalQuantity'],
         'unitAllowance': !exists(json, 'unitAllowance') ? undefined : json['unitAllowance'],
         'unitPrice': !exists(json, 'unitPrice') ? undefined : json['unitPrice'],
@@ -109,10 +109,10 @@ export function ReservationPackageScheduleTypeToJSON(value?: ReservationPackageS
     return {
         
         'computedResvPrice': value.computedResvPrice,
-        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substring(0,10)),
+        'consumptionDate': value.consumptionDate,
         'originalUnitAllowance': value.originalUnitAllowance,
         'originalUnitPrice': value.originalUnitPrice,
-        'reservationDate': value.reservationDate === undefined ? undefined : (value.reservationDate.toISOString().substring(0,10)),
+        'reservationDate': value.reservationDate,
         'totalQuantity': value.totalQuantity,
         'unitAllowance': value.unitAllowance,
         'unitPrice': value.unitPrice,

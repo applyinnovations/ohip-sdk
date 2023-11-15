@@ -17,16 +17,16 @@
 export interface ReservationQueueInformationTypeTimeSpan {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeTimeSpan
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeTimeSpan
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {string}

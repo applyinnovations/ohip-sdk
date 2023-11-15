@@ -45,10 +45,10 @@ export interface ChannelGuaranteeCodeMappingType {
     hotelId?: string;
     /**
      * Inactive date of guarantee code mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelGuaranteeCodeMappingType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * New channel guarantee code for the existing guarantee code mapping.
      * @type {string}
@@ -86,7 +86,7 @@ export function ChannelGuaranteeCodeMappingTypeFromJSONTyped(json: any, ignoreDi
         'channelGuaranteeCode': !exists(json, 'channelGuaranteeCode') ? undefined : json['channelGuaranteeCode'],
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'newChannelGuaranteeCode': !exists(json, 'newChannelGuaranteeCode') ? undefined : json['newChannelGuaranteeCode'],
         'paymentType': !exists(json, 'paymentType') ? undefined : json['paymentType'],
     };
@@ -105,7 +105,7 @@ export function ChannelGuaranteeCodeMappingTypeToJSON(value?: ChannelGuaranteeCo
         'channelGuaranteeCode': value.channelGuaranteeCode,
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'newChannelGuaranteeCode': value.newChannelGuaranteeCode,
         'paymentType': value.paymentType,
     };

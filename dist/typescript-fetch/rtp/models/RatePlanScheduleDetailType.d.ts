@@ -48,10 +48,10 @@ export interface RatePlanScheduleDetailType {
     classifications?: RatePlanScheduleClassificationsType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanScheduleDetailType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -108,10 +108,10 @@ export interface RatePlanScheduleDetailType {
     seasonCode?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanScheduleDetailType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

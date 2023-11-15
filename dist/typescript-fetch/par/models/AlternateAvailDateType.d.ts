@@ -19,10 +19,10 @@ import type { CurrencyAmountType } from './CurrencyAmountType';
 export interface AlternateAvailDateType {
     /**
      * A specific date from the alternate dates.
-     * @type {Date}
+     * @type {string}
      * @memberof AlternateAvailDateType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {CurrencyAmountType}

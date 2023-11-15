@@ -49,10 +49,10 @@ export interface ResHousekeepingType {
     roomStatus?: HousekeepingRoomStatusType;
     /**
      * This is the Turndown functionSpaceDetails service time.
-     * @type {Date}
+     * @type {string}
      * @memberof ResHousekeepingType
      */
-    serviceTime?: Date;
+    serviceTime?: string;
     /**
      * Indicates whether guest wants turndown facility or not.
      * @type {boolean}

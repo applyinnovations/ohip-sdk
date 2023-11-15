@@ -87,16 +87,16 @@ export interface StayDetailType {
     attachedProfiles?: Array<ResAttachedProfileType>;
     /**
      * Booked arrival date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedArrivalDate?: Date;
+    bookedArrivalDate?: string;
     /**
      * Booked departure date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedDepartureDate?: Date;
+    bookedDepartureDate?: string;
     /**
      * Indicate the category of room originally booked.
      * @type {string}
@@ -105,16 +105,16 @@ export interface StayDetailType {
     bookedRoomType?: string;
     /**
      * Booking date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookingDate?: Date;
+    bookingDate?: string;
     /**
      * Cancellation date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    cancellationDate?: Date;
+    cancellationDate?: string;
     /**
      *
      * @type {ReservationInfoTypeCancellationInfo}
@@ -243,10 +243,10 @@ export interface StayDetailType {
     lastModifyDateTime?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      *
      * @type {ResMobileNotificationsType}
@@ -297,10 +297,10 @@ export interface StayDetailType {
     promotionCode?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {ReservationQueueInformationType}

@@ -18,10 +18,10 @@ import type { CurrencyAmountType } from './CurrencyAmountType';
 export interface GuestLastStayInfoType {
     /**
      * Guest's last stay date.
-     * @type {Date}
+     * @type {string}
      * @memberof GuestLastStayInfoType
      */
-    lastStayDate?: Date;
+    lastStayDate?: string;
     /**
      * Room Number where the guest stayed.
      * @type {string}

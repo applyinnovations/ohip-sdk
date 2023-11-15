@@ -46,7 +46,7 @@ function NewBlockDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
         'sourceCode': !(0, runtime_1.exists)(json, 'sourceCode') ? undefined : json['sourceCode'],
         'sourceDateRangeToCopy': !(0, runtime_1.exists)(json, 'sourceDateRangeToCopy') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['sourceDateRangeToCopy']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.NewBlockDetailsTypeFromJSONTyped = NewBlockDetailsTypeFromJSONTyped;
@@ -71,7 +71,7 @@ function NewBlockDetailsTypeToJSON(value) {
         'rateCode': value.rateCode,
         'sourceCode': value.sourceCode,
         'sourceDateRangeToCopy': (0, DateRangeType_1.DateRangeTypeToJSON)(value.sourceDateRangeToCopy),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.NewBlockDetailsTypeToJSON = NewBlockDetailsTypeToJSON;

@@ -46,16 +46,16 @@ export interface AmountType {
     effectiveRate?: TotalType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      *
      * @type {PointsType}

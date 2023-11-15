@@ -52,10 +52,10 @@ export interface MembershipTypeRulePrimaryDetailsType {
     description?: string;
     /**
      * The date that Membership type rule is marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRulePrimaryDetailsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * 
      * @type {MembershipTypeRuleIDType}
@@ -76,16 +76,16 @@ export interface MembershipTypeRulePrimaryDetailsType {
     ruleBasedOn?: MembershipTypeRuleBasedOnType;
     /**
      * End date for this points calculation rule.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRulePrimaryDetailsType
      */
-    ruleEndDate?: Date;
+    ruleEndDate?: string;
     /**
      * Start date indicates the begin date for this points calculation rule.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRulePrimaryDetailsType
      */
-    ruleStartDate?: Date;
+    ruleStartDate?: string;
     /**
      * 
      * @type {MembershipTypeRuleTransactionCodeType}
@@ -114,12 +114,12 @@ export function MembershipTypeRulePrimaryDetailsTypeFromJSONTyped(json: any, ign
     return {
         
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'membershipTypeRuleId': !exists(json, 'membershipTypeRuleId') ? undefined : MembershipTypeRuleIDTypeFromJSON(json['membershipTypeRuleId']),
         'pointsType': !exists(json, 'pointsType') ? undefined : RulePointsTypeTypeFromJSON(json['pointsType']),
         'ruleBasedOn': !exists(json, 'ruleBasedOn') ? undefined : MembershipTypeRuleBasedOnTypeFromJSON(json['ruleBasedOn']),
-        'ruleEndDate': !exists(json, 'ruleEndDate') ? undefined : (new Date(json['ruleEndDate'])),
-        'ruleStartDate': !exists(json, 'ruleStartDate') ? undefined : (new Date(json['ruleStartDate'])),
+        'ruleEndDate': !exists(json, 'ruleEndDate') ? undefined : json['ruleEndDate'],
+        'ruleStartDate': !exists(json, 'ruleStartDate') ? undefined : json['ruleStartDate'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : MembershipTypeRuleTransactionCodeTypeFromJSON(json['transactionCode']),
     };
 }
@@ -134,12 +134,12 @@ export function MembershipTypeRulePrimaryDetailsTypeToJSON(value?: MembershipTyp
     return {
         
         'description': value.description,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'membershipTypeRuleId': MembershipTypeRuleIDTypeToJSON(value.membershipTypeRuleId),
         'pointsType': RulePointsTypeTypeToJSON(value.pointsType),
         'ruleBasedOn': MembershipTypeRuleBasedOnTypeToJSON(value.ruleBasedOn),
-        'ruleEndDate': value.ruleEndDate === undefined ? undefined : (value.ruleEndDate.toISOString().substring(0,10)),
-        'ruleStartDate': value.ruleStartDate === undefined ? undefined : (value.ruleStartDate.toISOString().substring(0,10)),
+        'ruleEndDate': value.ruleEndDate,
+        'ruleStartDate': value.ruleStartDate,
         'transactionCode': MembershipTypeRuleTransactionCodeTypeToJSON(value.transactionCode),
     };
 }

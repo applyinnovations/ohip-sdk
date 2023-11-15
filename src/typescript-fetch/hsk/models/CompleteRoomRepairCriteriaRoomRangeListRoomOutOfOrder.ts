@@ -34,10 +34,10 @@ import {
 export interface CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {DateRangeType}
@@ -70,10 +70,10 @@ export interface CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder {
     returnStatus?: HousekeepingRoomStatusType;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrder
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -95,13 +95,13 @@ export function CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderFromJSONTyp
     }
     return {
         
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'newDateRange': !exists(json, 'newDateRange') ? undefined : DateRangeTypeFromJSON(json['newDateRange']),
         'reasonCode': !exists(json, 'reasonCode') ? undefined : json['reasonCode'],
         'reasonDescription': !exists(json, 'reasonDescription') ? undefined : json['reasonDescription'],
         'repairRemarks': !exists(json, 'repairRemarks') ? undefined : json['repairRemarks'],
         'returnStatus': !exists(json, 'returnStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['returnStatus']),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -114,13 +114,13 @@ export function CompleteRoomRepairCriteriaRoomRangeListRoomOutOfOrderToJSON(valu
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'newDateRange': DateRangeTypeToJSON(value.newDateRange),
         'reasonCode': value.reasonCode,
         'reasonDescription': value.reasonDescription,
         'repairRemarks': value.repairRemarks,
         'returnStatus': HousekeepingRoomStatusTypeToJSON(value.returnStatus),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

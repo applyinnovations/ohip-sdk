@@ -169,9 +169,9 @@ export interface GetCateringEventChangesRequest {
     resourceDescription?: string;
     fieldNameListCode?: Array<string>;
     userListCode?: Array<string>;
-    eventDate?: Date;
-    eventEndDate?: Date;
-    eventStartDate?: Date;
+    eventDate?: string;
+    eventEndDate?: string;
+    eventStartDate?: string;
     priorStatus?: string;
     currentStatus?: string;
     revenueTypeListCode?: Array<string>;
@@ -234,7 +234,7 @@ export interface GetEventCalendarRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eventEndDate?: Date;
+    eventEndDate?: string;
     includeHidden?: boolean;
     includeOpportunities?: boolean;
     showAvailableRooms?: boolean;
@@ -244,7 +244,7 @@ export interface GetEventCalendarRequest {
     pageIndex?: number;
     recordsPerPage?: number;
     sortingBy?: GetEventCalendarSortingByEnum;
-    eventStartDate?: Date;
+    eventStartDate?: string;
     functionSpaceDetails?: Array<string>;
     status?: Array<string>;
     setupStyle?: string;
@@ -270,7 +270,7 @@ export interface GetEventCalendarMultipleHotelIdsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eventEndDate?: Date;
+    eventEndDate?: string;
     includeHidden?: boolean;
     includeOpportunities?: boolean;
     showAvailableRooms?: boolean;
@@ -280,7 +280,7 @@ export interface GetEventCalendarMultipleHotelIdsRequest {
     pageIndex?: number;
     recordsPerPage?: number;
     sortingBy?: GetEventCalendarMultipleHotelIdsSortingByEnum;
-    eventStartDate?: Date;
+    eventStartDate?: string;
     functionSpaceDetails?: Array<string>;
     status?: Array<string>;
     setupStyle?: string;
@@ -341,8 +341,8 @@ export interface GetEventsMultipleHotelsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelIds?: Array<string>;
-    eventStartDate?: Date;
-    eventEndDate?: Date;
+    eventStartDate?: string;
+    eventEndDate?: string;
     blockId?: Array<string>;
     eventId?: Array<string>;
     category?: Set<GetEventsMultipleHotelsCategoryEnum>;
@@ -368,8 +368,8 @@ export interface GetEventsOneHotelRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    eventStartDate?: Date;
-    eventEndDate?: Date;
+    eventStartDate?: string;
+    eventEndDate?: string;
     blockId?: Array<string>;
     eventId?: Array<string>;
     attachedProfileId?: string;

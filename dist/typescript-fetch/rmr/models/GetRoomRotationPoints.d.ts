@@ -38,10 +38,10 @@ export interface GetRoomRotationPoints {
     count?: number;
     /**
      * End date of the Room Rotation Period
-     * @type {Date}
+     * @type {string}
      * @memberof GetRoomRotationPoints
      */
-    endRoomRotationPeriodDate?: Date;
+    endRoomRotationPeriodDate?: string;
     /**
      * Indicates whether there are more records available to be returned as per the API request criteria or not.
      * @type {boolean}
@@ -80,10 +80,10 @@ export interface GetRoomRotationPoints {
     roomRotationPointsInfoList?: Array<RoomRotationPointsInfoType>;
     /**
      * Start date of the Room Rotation Period
-     * @type {Date}
+     * @type {string}
      * @memberof GetRoomRotationPoints
      */
-    startRoomRotationPeriodDate?: Date;
+    startRoomRotationPeriodDate?: string;
     /**
      * Indicates total number of records available that can be returned as per the API request criteria.
      * @type {number}

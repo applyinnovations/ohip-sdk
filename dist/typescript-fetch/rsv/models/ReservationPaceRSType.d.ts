@@ -18,10 +18,10 @@ import type { DailyPaceStatType } from './DailyPaceStatType';
 export interface ReservationPaceRSType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPaceRSType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * a collection of reservation pace statistics.
      * @type {Array<DailyPaceStatType>}

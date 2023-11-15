@@ -38,7 +38,7 @@ function StagedProfileSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'country': !(0, runtime_1.exists)(json, 'country') ? undefined : (0, CountryNameType_1.CountryNameTypeFromJSON)(json['country']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : (new Date(json['importDate'])),
+        'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : json['importDate'],
         'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'profileName': !(0, runtime_1.exists)(json, 'profileName') ? undefined : (0, ProfileNameType_1.ProfileNameTypeFromJSON)(json['profileName']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : json['profileType'],
@@ -57,7 +57,7 @@ function StagedProfileSummaryTypeToJSON(value) {
     return {
         'country': (0, CountryNameType_1.CountryNameTypeToJSON)(value.country),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
+        'importDate': value.importDate,
         'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'profileName': (0, ProfileNameType_1.ProfileNameTypeToJSON)(value.profileName),
         'profileType': value.profileType,

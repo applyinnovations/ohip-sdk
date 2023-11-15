@@ -43,10 +43,10 @@ export interface RoomAllocationInfoType {
     roomGridInvSummary?: Array<BlockGridInvType>;
     /**
      * Indicates the date of the room allocation or rate amount.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomAllocationInfoType
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 /**
  * Check if a given object implements the RoomAllocationInfoType interface.

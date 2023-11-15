@@ -18,10 +18,10 @@ import type { BlockDailyRoomStatisticsType } from './BlockDailyRoomStatisticsTyp
 export interface BlockDailyStatisticsDateType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof BlockDailyStatisticsDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Collection of room type level statistics.
      * @type {Array<BlockDailyRoomStatisticsType>}

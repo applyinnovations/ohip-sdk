@@ -17,16 +17,16 @@
 export interface HotelPackageType {
     /**
      * The begin date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelPackageType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The end date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelPackageType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {string}

@@ -35,7 +35,7 @@ function ECertificateToExtendFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'certificateId': !(0, runtime_1.exists)(json, 'certificateId') ? undefined : json['certificateId'],
-        'expiryDate': !(0, runtime_1.exists)(json, 'expiryDate') ? undefined : (new Date(json['expiryDate'])),
+        'expiryDate': !(0, runtime_1.exists)(json, 'expiryDate') ? undefined : json['expiryDate'],
         'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
@@ -50,7 +50,7 @@ function ECertificateToExtendToJSON(value) {
     }
     return {
         'certificateId': value.certificateId,
-        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substring(0, 10)),
+        'expiryDate': value.expiryDate,
         'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };

@@ -31,10 +31,10 @@ export interface BlockSummaryStatisticType {
     dailyTargetsSummaryStatistic?: Array<StatisticUnitType>;
     /**
      * Date of the block inventory statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryStatisticType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
     /**
      * Statistic summary for a particular status.
      * @type {Array<StatusStatisticType>}

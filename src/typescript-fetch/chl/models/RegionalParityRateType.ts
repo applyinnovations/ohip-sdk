@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface RegionalParityRateType {
     /**
      * Arrival Date.
-     * @type {Date}
+     * @type {string}
      * @memberof RegionalParityRateType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * 
      * @type {string}
@@ -82,7 +82,7 @@ export function RegionalParityRateTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'maximumRate': !exists(json, 'maximumRate') ? undefined : json['maximumRate'],
         'minimumRate': !exists(json, 'minimumRate') ? undefined : json['minimumRate'],
@@ -101,7 +101,7 @@ export function RegionalParityRateTypeToJSON(value?: RegionalParityRateType | nu
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'currencyCode': value.currencyCode,
         'maximumRate': value.maximumRate,
         'minimumRate': value.minimumRate,

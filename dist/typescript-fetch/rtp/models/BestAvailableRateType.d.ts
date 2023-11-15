@@ -17,10 +17,10 @@
 export interface BestAvailableRateType {
     /**
      * Best available rate date available
-     * @type {Date}
+     * @type {string}
      * @memberof BestAvailableRateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Best available rate length of stay
      * @type {number}

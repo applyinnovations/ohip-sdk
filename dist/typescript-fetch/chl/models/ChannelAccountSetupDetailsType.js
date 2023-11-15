@@ -33,12 +33,12 @@ function ChannelAccountSetupDetailsTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'chainCode': !(0, runtime_1.exists)(json, 'chainCode') ? undefined : json['chainCode'],
-        'contractEndsOn': !(0, runtime_1.exists)(json, 'contractEndsOn') ? undefined : (new Date(json['contractEndsOn'])),
+        'contractEndsOn': !(0, runtime_1.exists)(json, 'contractEndsOn') ? undefined : json['contractEndsOn'],
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'hotelCodes': !(0, runtime_1.exists)(json, 'hotelCodes') ? undefined : json['hotelCodes'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'instances': !(0, runtime_1.exists)(json, 'instances') ? undefined : json['instances'],
-        'rebateDate': !(0, runtime_1.exists)(json, 'rebateDate') ? undefined : (new Date(json['rebateDate'])),
+        'rebateDate': !(0, runtime_1.exists)(json, 'rebateDate') ? undefined : json['rebateDate'],
         'registeredHotel': !(0, runtime_1.exists)(json, 'registeredHotel') ? undefined : json['registeredHotel'],
     };
 }
@@ -52,12 +52,12 @@ function ChannelAccountSetupDetailsTypeToJSON(value) {
     }
     return {
         'chainCode': value.chainCode,
-        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0, 10)),
+        'contractEndsOn': value.contractEndsOn,
         'currencyCode': value.currencyCode,
         'hotelCodes': value.hotelCodes,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'instances': value.instances,
-        'rebateDate': value.rebateDate === undefined ? undefined : (value.rebateDate.toISOString().substring(0, 10)),
+        'rebateDate': value.rebateDate,
         'registeredHotel': value.registeredHotel,
     };
 }

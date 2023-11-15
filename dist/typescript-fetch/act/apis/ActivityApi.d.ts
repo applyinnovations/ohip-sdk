@@ -68,8 +68,8 @@ export interface GetActivitiesRequest {
     offset?: number;
     text?: string;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     ownerCode?: Array<string>;
     activityClass?: GetActivitiesActivityClassEnum;
     activityType?: Array<string>;
@@ -90,8 +90,8 @@ export interface GetActivitiesByMultipleHotelIdsRequest {
     offset?: number;
     text?: string;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     ownerCode?: Array<string>;
     activityClass?: GetActivitiesByMultipleHotelIdsActivityClassEnum;
     activityType?: Array<string>;
@@ -133,8 +133,8 @@ export interface GetActivityLogRequest {
     moduleParamsParameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userByIdUserIds?: Array<number>;
     userForIdUserIds?: Array<number>;
@@ -146,7 +146,7 @@ export interface GetActivityStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reportStartDate?: Date;
+    reportStartDate?: string;
     activityTypeCodes?: Array<string>;
     ownerCodeList?: Array<string>;
     xExternalsystem?: string;
@@ -188,8 +188,8 @@ export interface GetEmailsRequest {
     senderLastName?: string;
     senderFirstName?: string;
     senderEmailAddress?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;

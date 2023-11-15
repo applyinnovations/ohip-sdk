@@ -38,12 +38,12 @@ function BillingPrivilegesTypeFromJSONTyped(json, ignoreDiscriminator) {
         'autoSettlementType': !(0, runtime_1.exists)(json, 'autoSettlementType') ? undefined : json['autoSettlementType'],
         'creditLimitAutoPay': !(0, runtime_1.exists)(json, 'creditLimitAutoPay') ? undefined : json['creditLimitAutoPay'],
         'directBillAuthorized': !(0, runtime_1.exists)(json, 'directBillAuthorized') ? undefined : json['directBillAuthorized'],
-        'folioCloseDate': !(0, runtime_1.exists)(json, 'folioCloseDate') ? undefined : (new Date(json['folioCloseDate'])),
+        'folioCloseDate': !(0, runtime_1.exists)(json, 'folioCloseDate') ? undefined : json['folioCloseDate'],
         'postStayCharging': !(0, runtime_1.exists)(json, 'postStayCharging') ? undefined : json['postStayCharging'],
         'postingRestriction': !(0, runtime_1.exists)(json, 'postingRestriction') ? undefined : json['postingRestriction'],
         'preStayCharging': !(0, runtime_1.exists)(json, 'preStayCharging') ? undefined : json['preStayCharging'],
         'scheduledCheckout': !(0, runtime_1.exists)(json, 'scheduledCheckout') ? undefined : json['scheduledCheckout'],
-        'scheduledCheckoutTime': !(0, runtime_1.exists)(json, 'scheduledCheckoutTime') ? undefined : (new Date(json['scheduledCheckoutTime'])),
+        'scheduledCheckoutTime': !(0, runtime_1.exists)(json, 'scheduledCheckoutTime') ? undefined : json['scheduledCheckoutTime'],
         'videoCheckout': !(0, runtime_1.exists)(json, 'videoCheckout') ? undefined : json['videoCheckout'],
     };
 }
@@ -62,12 +62,12 @@ function BillingPrivilegesTypeToJSON(value) {
         'autoSettlementType': value.autoSettlementType,
         'creditLimitAutoPay': value.creditLimitAutoPay,
         'directBillAuthorized': value.directBillAuthorized,
-        'folioCloseDate': value.folioCloseDate === undefined ? undefined : (value.folioCloseDate.toISOString().substring(0, 10)),
+        'folioCloseDate': value.folioCloseDate,
         'postStayCharging': value.postStayCharging,
         'postingRestriction': value.postingRestriction,
         'preStayCharging': value.preStayCharging,
         'scheduledCheckout': value.scheduledCheckout,
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0, 10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime,
         'videoCheckout': value.videoCheckout,
     };
 }

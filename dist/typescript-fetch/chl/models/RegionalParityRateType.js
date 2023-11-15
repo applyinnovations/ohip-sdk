@@ -32,7 +32,7 @@ function RegionalParityRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'maximumRate': !(0, runtime_1.exists)(json, 'maximumRate') ? undefined : json['maximumRate'],
         'minimumRate': !(0, runtime_1.exists)(json, 'minimumRate') ? undefined : json['minimumRate'],
@@ -50,7 +50,7 @@ function RegionalParityRateTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
         'currencyCode': value.currencyCode,
         'maximumRate': value.maximumRate,
         'minimumRate': value.minimumRate,

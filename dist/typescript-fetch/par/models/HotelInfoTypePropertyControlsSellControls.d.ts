@@ -17,10 +17,10 @@
 export interface HotelInfoTypePropertyControlsSellControls {
     /**
      * The end date of the hotel.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelInfoTypePropertyControlsSellControls
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * The hotel code.
      * @type {string}
@@ -29,10 +29,10 @@ export interface HotelInfoTypePropertyControlsSellControls {
     hotelId?: string;
     /**
      * Date when the hotel become valid for use.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelInfoTypePropertyControlsSellControls
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the HotelInfoTypePropertyControlsSellControls interface.

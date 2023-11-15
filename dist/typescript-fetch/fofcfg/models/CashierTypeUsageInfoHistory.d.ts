@@ -17,10 +17,10 @@
 export interface CashierTypeUsageInfoHistory {
     /**
      * The date that the cashier last opened.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierTypeUsageInfoHistory
      */
-    lastOpened?: Date;
+    lastOpened?: string;
     /**
      * The number of times the cashier has opened their account today.
      * @type {number}

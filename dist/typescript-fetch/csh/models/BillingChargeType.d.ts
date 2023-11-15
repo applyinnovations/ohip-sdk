@@ -24,10 +24,10 @@ export interface BillingChargeType {
     approvalCode?: string;
     /**
      * Approval date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingChargeType
      */
-    approvalDate?: Date;
+    approvalDate?: string;
     /**
      * Approval status of the posting.
      * @type {string}
@@ -84,10 +84,10 @@ export interface BillingChargeType {
     remark?: string;
     /**
      * Corrected Revenue Date.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingChargeType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Transaction number of the posting being corrected.
      * @type {number}

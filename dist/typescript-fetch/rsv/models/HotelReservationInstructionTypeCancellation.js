@@ -35,7 +35,7 @@ function HotelReservationInstructionTypeCancellationFromJSONTyped(json, ignoreDi
     return {
         'cancellationNo': !(0, runtime_1.exists)(json, 'cancellationNo') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['cancellationNo']),
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
     };
 }
@@ -50,7 +50,7 @@ function HotelReservationInstructionTypeCancellationToJSON(value) {
     return {
         'cancellationNo': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.cancellationNo),
         'code': value.code,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'description': value.description,
     };
 }

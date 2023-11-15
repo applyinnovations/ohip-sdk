@@ -25,10 +25,10 @@ export interface CreateBlockRestrictionType {
     blockId?: BlockId;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateBlockRestrictionType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -67,10 +67,10 @@ export interface CreateBlockRestrictionType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateBlockRestrictionType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

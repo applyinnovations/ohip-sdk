@@ -33,8 +33,8 @@ function ResPeriodicFolioTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'frequency': !(0, runtime_1.exists)(json, 'frequency') ? undefined : json['frequency'],
-        'lastFolioDate': !(0, runtime_1.exists)(json, 'lastFolioDate') ? undefined : (new Date(json['lastFolioDate'])),
-        'lastSettlementDate': !(0, runtime_1.exists)(json, 'lastSettlementDate') ? undefined : (new Date(json['lastSettlementDate'])),
+        'lastFolioDate': !(0, runtime_1.exists)(json, 'lastFolioDate') ? undefined : json['lastFolioDate'],
+        'lastSettlementDate': !(0, runtime_1.exists)(json, 'lastSettlementDate') ? undefined : json['lastSettlementDate'],
     };
 }
 exports.ResPeriodicFolioTypeFromJSONTyped = ResPeriodicFolioTypeFromJSONTyped;
@@ -47,8 +47,8 @@ function ResPeriodicFolioTypeToJSON(value) {
     }
     return {
         'frequency': value.frequency,
-        'lastFolioDate': value.lastFolioDate === undefined ? undefined : (value.lastFolioDate.toISOString().substring(0, 10)),
-        'lastSettlementDate': value.lastSettlementDate === undefined ? undefined : (value.lastSettlementDate.toISOString().substring(0, 10)),
+        'lastFolioDate': value.lastFolioDate,
+        'lastSettlementDate': value.lastSettlementDate,
     };
 }
 exports.ResPeriodicFolioTypeToJSON = ResPeriodicFolioTypeToJSON;

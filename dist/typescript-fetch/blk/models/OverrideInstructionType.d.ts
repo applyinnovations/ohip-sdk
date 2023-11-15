@@ -17,10 +17,10 @@
 export interface OverrideInstructionType {
     /**
      * The date when the override was done.
-     * @type {Date}
+     * @type {string}
      * @memberof OverrideInstructionType
      */
-    date?: Date;
+    date?: string;
     /**
      * The description of the restriction for which the override was done.
      * @type {string}

@@ -18,10 +18,10 @@ import type { DateRangeType } from './DateRangeType';
 export interface ARStatementCriteriaType {
     /**
      * The date specified in this field determines the balance forward date and balance forward total that is printed on the statement. (A balance forward shows the net amount for all invoices and payments (debits and credits) prior to the balance forward date as a single total, rather than itemizing them individually on the statement.)
-     * @type {Date}
+     * @type {string}
      * @memberof ARStatementCriteriaType
      */
-    balanceForwardDate?: Date;
+    balanceForwardDate?: string;
     /**
      *
      * @type {DateRangeType}

@@ -74,10 +74,10 @@ export interface TraceType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof TraceType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {ReservationId}

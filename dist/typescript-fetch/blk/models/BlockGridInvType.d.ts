@@ -17,10 +17,10 @@
 export interface BlockGridInvType {
     /**
      * Indicates the cutoff date.Date when inventory left in the block will be cut-off.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockGridInvType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Indicates the four person inventory value ( occupancy or availability ).
      * @type {number}

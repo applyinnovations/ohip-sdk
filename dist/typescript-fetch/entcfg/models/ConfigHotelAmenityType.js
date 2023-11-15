@@ -34,15 +34,15 @@ function ConfigHotelAmenityTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'amenityType': !(0, runtime_1.exists)(json, 'amenityType') ? undefined : (0, AmenityTypeType_1.AmenityTypeTypeFromJSON)(json['amenityType']),
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'featureCode': !(0, runtime_1.exists)(json, 'featureCode') ? undefined : json['featureCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'hours': !(0, runtime_1.exists)(json, 'hours') ? undefined : json['hours'],
         'newAmenityCode': !(0, runtime_1.exists)(json, 'newAmenityCode') ? undefined : json['newAmenityCode'],
-        'newBeginDate': !(0, runtime_1.exists)(json, 'newBeginDate') ? undefined : (new Date(json['newBeginDate'])),
+        'newBeginDate': !(0, runtime_1.exists)(json, 'newBeginDate') ? undefined : json['newBeginDate'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
         'priceRange': !(0, runtime_1.exists)(json, 'priceRange') ? undefined : json['priceRange'],
     };
@@ -57,15 +57,15 @@ function ConfigHotelAmenityTypeToJSON(value) {
     }
     return {
         'amenityType': (0, AmenityTypeType_1.AmenityTypeTypeToJSON)(value.amenityType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'comments': value.comments,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'featureCode': value.featureCode,
         'hotelId': value.hotelId,
         'hours': value.hours,
         'newAmenityCode': value.newAmenityCode,
-        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substring(0, 10)),
+        'newBeginDate': value.newBeginDate,
         'orderSequence': value.orderSequence,
         'priceRange': value.priceRange,
     };

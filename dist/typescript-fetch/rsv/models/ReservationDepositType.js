@@ -33,10 +33,10 @@ function ReservationDepositTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'amountPaid': !(0, runtime_1.exists)(json, 'amountPaid') ? undefined : json['amountPaid'],
-        'dueDate': !(0, runtime_1.exists)(json, 'dueDate') ? undefined : (new Date(json['dueDate'])),
+        'dueDate': !(0, runtime_1.exists)(json, 'dueDate') ? undefined : json['dueDate'],
         'hasOutstanding': !(0, runtime_1.exists)(json, 'hasOutstanding') ? undefined : json['hasOutstanding'],
         'hasPaid': !(0, runtime_1.exists)(json, 'hasPaid') ? undefined : json['hasPaid'],
-        'postingDate': !(0, runtime_1.exists)(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'postingDate': !(0, runtime_1.exists)(json, 'postingDate') ? undefined : json['postingDate'],
     };
 }
 exports.ReservationDepositTypeFromJSONTyped = ReservationDepositTypeFromJSONTyped;
@@ -49,10 +49,10 @@ function ReservationDepositTypeToJSON(value) {
     }
     return {
         'amountPaid': value.amountPaid,
-        'dueDate': value.dueDate === undefined ? undefined : (value.dueDate.toISOString().substring(0, 10)),
+        'dueDate': value.dueDate,
         'hasOutstanding': value.hasOutstanding,
         'hasPaid': value.hasPaid,
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0, 10)),
+        'postingDate': value.postingDate,
     };
 }
 exports.ReservationDepositTypeToJSON = ReservationDepositTypeToJSON;

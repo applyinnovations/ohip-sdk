@@ -18,8 +18,8 @@ export interface GetProfileMembershipStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     transactionDetail?: boolean;
     xExternalsystem?: string;
@@ -32,8 +32,8 @@ export interface GetProfileStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stayFrom?: Date;
-    stayTo?: Date;
+    stayFrom?: string;
+    stayTo?: string;
     summary?: boolean;
     passerBy?: boolean;
     contactProfileRoleType?: GetProfileStatisticsContactProfileRoleTypeEnum;

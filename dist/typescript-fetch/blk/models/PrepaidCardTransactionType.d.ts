@@ -49,16 +49,16 @@ export interface PrepaidCardTransactionType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardTransactionType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Transaction number of the Prepaid card transaction.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardTransactionType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction number of the Prepaid card transaction.
      * @type {number}

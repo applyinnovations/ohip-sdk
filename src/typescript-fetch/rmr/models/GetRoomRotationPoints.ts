@@ -58,10 +58,10 @@ export interface GetRoomRotationPoints {
     count?: number;
     /**
      * End date of the Room Rotation Period
-     * @type {Date}
+     * @type {string}
      * @memberof GetRoomRotationPoints
      */
-    endRoomRotationPeriodDate?: Date;
+    endRoomRotationPeriodDate?: string;
     /**
      * Indicates whether there are more records available to be returned as per the API request criteria or not.
      * @type {boolean}
@@ -100,10 +100,10 @@ export interface GetRoomRotationPoints {
     roomRotationPointsInfoList?: Array<RoomRotationPointsInfoType>;
     /**
      * Start date of the Room Rotation Period
-     * @type {Date}
+     * @type {string}
      * @memberof GetRoomRotationPoints
      */
-    startRoomRotationPeriodDate?: Date;
+    startRoomRotationPeriodDate?: string;
     /**
      * Indicates total number of records available that can be returned as per the API request criteria.
      * @type {number}
@@ -140,14 +140,14 @@ export function GetRoomRotationPointsFromJSONTyped(json: any, ignoreDiscriminato
         'balanceForwardActive': !exists(json, 'balanceForwardActive') ? undefined : json['balanceForwardActive'],
         'balanceForwardEditable': !exists(json, 'balanceForwardEditable') ? undefined : json['balanceForwardEditable'],
         'count': !exists(json, 'count') ? undefined : json['count'],
-        'endRoomRotationPeriodDate': !exists(json, 'endRoomRotationPeriodDate') ? undefined : (new Date(json['endRoomRotationPeriodDate'])),
+        'endRoomRotationPeriodDate': !exists(json, 'endRoomRotationPeriodDate') ? undefined : json['endRoomRotationPeriodDate'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'offset': !exists(json, 'offset') ? undefined : json['offset'],
         'outOfOrderServiceActive': !exists(json, 'outOfOrderServiceActive') ? undefined : json['outOfOrderServiceActive'],
         'roomRotationPointsInfoList': !exists(json, 'roomRotationPointsInfoList') ? undefined : ((json['roomRotationPointsInfoList'] as Array<any>).map(RoomRotationPointsInfoTypeFromJSON)),
-        'startRoomRotationPeriodDate': !exists(json, 'startRoomRotationPeriodDate') ? undefined : (new Date(json['startRoomRotationPeriodDate'])),
+        'startRoomRotationPeriodDate': !exists(json, 'startRoomRotationPeriodDate') ? undefined : json['startRoomRotationPeriodDate'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
         'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
@@ -165,14 +165,14 @@ export function GetRoomRotationPointsToJSON(value?: GetRoomRotationPoints | null
         'balanceForwardActive': value.balanceForwardActive,
         'balanceForwardEditable': value.balanceForwardEditable,
         'count': value.count,
-        'endRoomRotationPeriodDate': value.endRoomRotationPeriodDate === undefined ? undefined : (value.endRoomRotationPeriodDate.toISOString().substring(0,10)),
+        'endRoomRotationPeriodDate': value.endRoomRotationPeriodDate,
         'hasMore': value.hasMore,
         'limit': value.limit,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'offset': value.offset,
         'outOfOrderServiceActive': value.outOfOrderServiceActive,
         'roomRotationPointsInfoList': value.roomRotationPointsInfoList === undefined ? undefined : ((value.roomRotationPointsInfoList as Array<any>).map(RoomRotationPointsInfoTypeToJSON)),
-        'startRoomRotationPeriodDate': value.startRoomRotationPeriodDate === undefined ? undefined : (value.startRoomRotationPeriodDate.toISOString().substring(0,10)),
+        'startRoomRotationPeriodDate': value.startRoomRotationPeriodDate,
         'totalResults': value.totalResults,
         'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };

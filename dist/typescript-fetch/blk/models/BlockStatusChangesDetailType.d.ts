@@ -20,10 +20,10 @@ import type { RoomStatisticsType } from './RoomStatisticsType';
 export interface BlockStatusChangesDetailType {
     /**
      * Change date for this block .
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatusChangesDetailType
      */
-    changeDate?: Date;
+    changeDate?: string;
     /**
      * Current Status for this block .
      * @type {string}

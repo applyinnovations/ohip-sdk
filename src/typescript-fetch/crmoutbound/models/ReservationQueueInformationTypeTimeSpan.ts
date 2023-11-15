@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface ReservationQueueInformationTypeTimeSpan {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeTimeSpan
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeTimeSpan
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {string}
@@ -64,8 +64,8 @@ export function ReservationQueueInformationTypeTimeSpanFromJSONTyped(json: any, 
     }
     return {
         
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'duration': !exists(json, 'duration') ? undefined : json['duration'],
         'durationInSeconds': !exists(json, 'durationInSeconds') ? undefined : json['durationInSeconds'],
     };
@@ -80,8 +80,8 @@ export function ReservationQueueInformationTypeTimeSpanToJSON(value?: Reservatio
     }
     return {
         
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
+        'endDate': value.endDate,
         'duration': value.duration,
         'durationInSeconds': value.durationInSeconds,
     };

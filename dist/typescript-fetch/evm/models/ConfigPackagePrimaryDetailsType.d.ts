@@ -23,10 +23,10 @@ export interface ConfigPackagePrimaryDetailsType {
     arrangementCode?: string;
     /**
      * Indicates the begin sell date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackagePrimaryDetailsType
      */
-    beginSellDate?: Date;
+    beginSellDate?: string;
     /**
      * The description of the package.
      * @type {string}
@@ -35,10 +35,10 @@ export interface ConfigPackagePrimaryDetailsType {
     description?: string;
     /**
      * Indicates the eventEndDate sell date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackagePrimaryDetailsType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      * The Forecast group package belongs to.
      * @type {string}

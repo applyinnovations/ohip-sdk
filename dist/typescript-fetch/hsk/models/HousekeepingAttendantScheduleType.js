@@ -33,7 +33,7 @@ function HousekeepingAttendantScheduleTypeFromJSONTyped(json, ignoreDiscriminato
     }
     return {
         'attendantId': !(0, runtime_1.exists)(json, 'attendantId') ? undefined : json['attendantId'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
     };
 }
@@ -47,7 +47,7 @@ function HousekeepingAttendantScheduleTypeToJSON(value) {
     }
     return {
         'attendantId': value.attendantId,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'name': value.name,
     };
 }

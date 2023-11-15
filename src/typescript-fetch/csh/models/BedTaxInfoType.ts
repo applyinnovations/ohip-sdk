@@ -28,10 +28,10 @@ import {
 export interface BedTaxInfoType {
     /**
      * Arrival Date of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Arrival Carrier code of the mode of transportation (Airline No. or Railway No., etc.)
      * @type {string}
@@ -46,10 +46,10 @@ export interface BedTaxInfoType {
     country?: string;
     /**
      * Departure Date with time of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Departure Carrier code of the mode of transportation (Airline No. or Railway No., etc.)
      * @type {string}
@@ -118,16 +118,16 @@ export interface BedTaxInfoType {
     reservationNameId?: UniqueIDType;
     /**
      * Arrival Date with time of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    taxArrivaldate?: Date;
+    taxArrivaldate?: string;
     /**
      * Departure Date with time of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    taxDepartureDate?: Date;
+    taxDepartureDate?: string;
     /**
      * Total number of tax stays at the property
      * @type {number}
@@ -142,16 +142,16 @@ export interface BedTaxInfoType {
     taxRegistrationNo?: number;
     /**
      * Expiration date of visa
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    visaExpirationDate?: Date;
+    visaExpirationDate?: string;
     /**
      * Issue date of the Visa
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    visaIssueDate?: Date;
+    visaIssueDate?: string;
     /**
      * Visa Number
      * @type {string}
@@ -179,10 +179,10 @@ export function BedTaxInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !exists(json, 'arrival') ? undefined : json['arrival'],
         'arrivalCarrierCode': !exists(json, 'arrivalCarrierCode') ? undefined : json['arrivalCarrierCode'],
         'country': !exists(json, 'country') ? undefined : json['country'],
-        'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !exists(json, 'departure') ? undefined : json['departure'],
         'departureCarrierCode': !exists(json, 'departureCarrierCode') ? undefined : json['departureCarrierCode'],
         'guestAge': !exists(json, 'guestAge') ? undefined : json['guestAge'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
@@ -194,12 +194,12 @@ export function BedTaxInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'profession': !exists(json, 'profession') ? undefined : json['profession'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
         'reservationNameId': !exists(json, 'reservationNameId') ? undefined : UniqueIDTypeFromJSON(json['reservationNameId']),
-        'taxArrivaldate': !exists(json, 'taxArrivaldate') ? undefined : (new Date(json['taxArrivaldate'])),
-        'taxDepartureDate': !exists(json, 'taxDepartureDate') ? undefined : (new Date(json['taxDepartureDate'])),
+        'taxArrivaldate': !exists(json, 'taxArrivaldate') ? undefined : json['taxArrivaldate'],
+        'taxDepartureDate': !exists(json, 'taxDepartureDate') ? undefined : json['taxDepartureDate'],
         'taxNoOfStays': !exists(json, 'taxNoOfStays') ? undefined : json['taxNoOfStays'],
         'taxRegistrationNo': !exists(json, 'taxRegistrationNo') ? undefined : json['taxRegistrationNo'],
-        'visaExpirationDate': !exists(json, 'visaExpirationDate') ? undefined : (new Date(json['visaExpirationDate'])),
-        'visaIssueDate': !exists(json, 'visaIssueDate') ? undefined : (new Date(json['visaIssueDate'])),
+        'visaExpirationDate': !exists(json, 'visaExpirationDate') ? undefined : json['visaExpirationDate'],
+        'visaIssueDate': !exists(json, 'visaIssueDate') ? undefined : json['visaIssueDate'],
         'visaNumber': !exists(json, 'visaNumber') ? undefined : json['visaNumber'],
     };
 }
@@ -213,10 +213,10 @@ export function BedTaxInfoTypeToJSON(value?: BedTaxInfoType | null): any {
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
+        'arrival': value.arrival,
         'arrivalCarrierCode': value.arrivalCarrierCode,
         'country': value.country,
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
+        'departure': value.departure,
         'departureCarrierCode': value.departureCarrierCode,
         'guestAge': value.guestAge,
         'guestName': value.guestName,
@@ -228,12 +228,12 @@ export function BedTaxInfoTypeToJSON(value?: BedTaxInfoType | null): any {
         'profession': value.profession,
         'remark': value.remark,
         'reservationNameId': UniqueIDTypeToJSON(value.reservationNameId),
-        'taxArrivaldate': value.taxArrivaldate === undefined ? undefined : (value.taxArrivaldate.toISOString().substring(0,10)),
-        'taxDepartureDate': value.taxDepartureDate === undefined ? undefined : (value.taxDepartureDate.toISOString().substring(0,10)),
+        'taxArrivaldate': value.taxArrivaldate,
+        'taxDepartureDate': value.taxDepartureDate,
         'taxNoOfStays': value.taxNoOfStays,
         'taxRegistrationNo': value.taxRegistrationNo,
-        'visaExpirationDate': value.visaExpirationDate === undefined ? undefined : (value.visaExpirationDate.toISOString().substring(0,10)),
-        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substring(0,10)),
+        'visaExpirationDate': value.visaExpirationDate,
+        'visaIssueDate': value.visaIssueDate,
         'visaNumber': value.visaNumber,
     };
 }

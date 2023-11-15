@@ -27,10 +27,10 @@ export interface FolioType {
     allowConvertFolioYn?: boolean;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioType
      */
-    end?: Date;
+    end?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -45,10 +45,10 @@ export interface FolioType {
     folioAmount?: CurrencyAmountType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -111,10 +111,10 @@ export interface FolioType {
     revisionNo?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the FolioType interface.

@@ -33,7 +33,7 @@ function TraceResolveTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'resolvedBy': !(0, runtime_1.exists)(json, 'resolvedBy') ? undefined : json['resolvedBy'],
-        'resolvedOn': !(0, runtime_1.exists)(json, 'resolvedOn') ? undefined : (new Date(json['resolvedOn'])),
+        'resolvedOn': !(0, runtime_1.exists)(json, 'resolvedOn') ? undefined : json['resolvedOn'],
     };
 }
 exports.TraceResolveTypeFromJSONTyped = TraceResolveTypeFromJSONTyped;
@@ -46,7 +46,7 @@ function TraceResolveTypeToJSON(value) {
     }
     return {
         'resolvedBy': value.resolvedBy,
-        'resolvedOn': value.resolvedOn === undefined ? undefined : (value.resolvedOn.toISOString().substring(0, 10)),
+        'resolvedOn': value.resolvedOn,
     };
 }
 exports.TraceResolveTypeToJSON = TraceResolveTypeToJSON;

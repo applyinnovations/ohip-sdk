@@ -43,10 +43,10 @@ export interface MoveTaskRoomsCriteriaType {
     taskCode?: Array<HousekeepingTaskCodeType>;
     /**
      * The date of the task sheet.
-     * @type {Date}
+     * @type {string}
      * @memberof MoveTaskRoomsCriteriaType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * The task sheet number to which the rooms should be moved.
      * @type {number}

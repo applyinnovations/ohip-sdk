@@ -102,10 +102,10 @@ export interface HotelInfoTypeAddress {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof HotelInfoTypeAddress
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * The region code of the hotel.
      * @type {string}

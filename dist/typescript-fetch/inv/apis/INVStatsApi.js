@@ -81,10 +81,10 @@ class INVStatsApi extends runtime.BaseAPI {
                 queryParameters['offset'] = requestParameters.offset;
             }
             if (requestParameters.endDateRange !== undefined) {
-                queryParameters['endDateRange'] = requestParameters.endDateRange.toISOString().substring(0, 10);
+                queryParameters['endDateRange'] = requestParameters.endDateRange;
             }
             if (requestParameters.startDateRange !== undefined) {
-                queryParameters['startDateRange'] = requestParameters.startDateRange.toISOString().substring(0, 10);
+                queryParameters['startDateRange'] = requestParameters.startDateRange;
             }
             if (requestParameters.blockStatusCodes) {
                 queryParameters['blockStatusCodes'] = requestParameters.blockStatusCodes;
@@ -195,10 +195,10 @@ class INVStatsApi extends runtime.BaseAPI {
                 queryParameters['offset'] = requestParameters.offset;
             }
             if (requestParameters.endDateRange !== undefined) {
-                queryParameters['endDateRange'] = requestParameters.endDateRange.toISOString().substring(0, 10);
+                queryParameters['endDateRange'] = requestParameters.endDateRange;
             }
             if (requestParameters.startDateRange !== undefined) {
-                queryParameters['startDateRange'] = requestParameters.startDateRange.toISOString().substring(0, 10);
+                queryParameters['startDateRange'] = requestParameters.startDateRange;
             }
             if (requestParameters.blockStatusCodes) {
                 queryParameters['blockStatusCodes'] = requestParameters.blockStatusCodes;
@@ -297,13 +297,13 @@ class INVStatsApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.dateRangeEnd !== undefined) {
-                queryParameters['dateRangeEnd'] = requestParameters.dateRangeEnd.toISOString().substring(0, 10);
+                queryParameters['dateRangeEnd'] = requestParameters.dateRangeEnd;
             }
             if (requestParameters.reportCode !== undefined) {
                 queryParameters['reportCode'] = requestParameters.reportCode;
             }
             if (requestParameters.dateRangeStart !== undefined) {
-                queryParameters['dateRangeStart'] = requestParameters.dateRangeStart.toISOString().substring(0, 10);
+                queryParameters['dateRangeStart'] = requestParameters.dateRangeStart;
             }
             if (requestParameters.parameterName) {
                 queryParameters['parameterName'] = requestParameters.parameterName;

@@ -27,10 +27,10 @@ export interface CancelReservationTypeCancellationInfo {
     code?: string;
     /**
      * Date when reservation was last cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof CancelReservationTypeCancellationInfo
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {string}
@@ -59,7 +59,7 @@ export function CancelReservationTypeCancellationInfoFromJSONTyped(json: any, ig
     return {
         
         'code': !exists(json, 'code') ? undefined : json['code'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'description': !exists(json, 'description') ? undefined : json['description'],
     };
 }
@@ -74,7 +74,7 @@ export function CancelReservationTypeCancellationInfoToJSON(value?: CancelReserv
     return {
         
         'code': value.code,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'description': value.description,
     };
 }

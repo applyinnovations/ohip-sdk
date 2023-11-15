@@ -73,10 +73,10 @@ export interface SuspendedAddressesInfoType {
     profileType?: string;
     /**
      * Validate Date.
-     * @type {Date}
+     * @type {string}
      * @memberof SuspendedAddressesInfoType
      */
-    validateDate?: Date;
+    validateDate?: string;
 }
 /**
  * Check if a given object implements the SuspendedAddressesInfoType interface.

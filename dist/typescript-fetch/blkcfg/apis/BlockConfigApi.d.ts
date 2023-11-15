@@ -13,8 +13,8 @@ import * as runtime from '../runtime';
 import type { BlockSalesAllowance, BlockSalesAllowanceRange, BlockStatusCodeDetails, CreateSalesManagerGoals, NextBlockStatusCode, NextBlockStatusCodeDetails, SalesManagerGoalsInfo, SalesManagersInfo, Status, StatusCodeDetails, WashScheduleCriteria, WashScheduleDetails } from '../models/index';
 export interface DeleteBlockSalesAllowanceRangeRequest {
     hotelId: string;
-    endDate: Date;
-    startDate: Date;
+    endDate: string;
+    startDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -50,8 +50,8 @@ export interface GetBlockSalesAllowanceRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    endDateRange?: Date;
-    startDateRange?: Date;
+    endDateRange?: string;
+    startDateRange?: string;
     includeRestricted?: boolean;
     roomTypesCodes?: Array<string>;
     xExternalsystem?: string;

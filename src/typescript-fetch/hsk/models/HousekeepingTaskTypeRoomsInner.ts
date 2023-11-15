@@ -316,10 +316,10 @@ export interface HousekeepingTaskTypeRoomsInner {
     turndownInfo?: TurndownInfoType;
     /**
      * The wake up time of the current date
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingTaskTypeRoomsInner
      */
-    wakeUpTime?: Date;
+    wakeUpTime?: string;
 }
 
 /**
@@ -375,7 +375,7 @@ export function HousekeepingTaskTypeRoomsInnerFromJSONTyped(json: any, ignoreDis
         'smokingPreferenceDescription': !exists(json, 'smokingPreferenceDescription') ? undefined : json['smokingPreferenceDescription'],
         'totalCredits': !exists(json, 'totalCredits') ? undefined : json['totalCredits'],
         'turndownInfo': !exists(json, 'turndownInfo') ? undefined : TurndownInfoTypeFromJSON(json['turndownInfo']),
-        'wakeUpTime': !exists(json, 'wakeUpTime') ? undefined : (new Date(json['wakeUpTime'])),
+        'wakeUpTime': !exists(json, 'wakeUpTime') ? undefined : json['wakeUpTime'],
     };
 }
 
@@ -422,7 +422,7 @@ export function HousekeepingTaskTypeRoomsInnerToJSON(value?: HousekeepingTaskTyp
         'smokingPreferenceDescription': value.smokingPreferenceDescription,
         'totalCredits': value.totalCredits,
         'turndownInfo': TurndownInfoTypeToJSON(value.turndownInfo),
-        'wakeUpTime': value.wakeUpTime === undefined ? undefined : (value.wakeUpTime.toISOString().substring(0,10)),
+        'wakeUpTime': value.wakeUpTime,
     };
 }
 

@@ -40,10 +40,10 @@ export interface RateProgramRateType {
     commissionable?: boolean;
     /**
      * End date of the Room Pool Rate Program.
-     * @type {Date}
+     * @type {string}
      * @memberof RateProgramRateType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Rate Program Mobile Checkout Allowed Indicator.
      * @type {boolean}
@@ -88,10 +88,10 @@ export interface RateProgramRateType {
     sequence?: number;
     /**
      * Start date of the Room Pool Rate Program.
-     * @type {Date}
+     * @type {string}
      * @memberof RateProgramRateType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -114,7 +114,7 @@ export function RateProgramRateTypeFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'commissionable': !exists(json, 'commissionable') ? undefined : json['commissionable'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'mobileCheckout': !exists(json, 'mobileCheckout') ? undefined : json['mobileCheckout'],
         'primary': !exists(json, 'primary') ? undefined : json['primary'],
         'rateAmounts': !exists(json, 'rateAmounts') ? undefined : BlockGridRatesTypeFromJSON(json['rateAmounts']),
@@ -122,7 +122,7 @@ export function RateProgramRateTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'rateMarketCode': !exists(json, 'rateMarketCode') ? undefined : CodeDescriptionTypeFromJSON(json['rateMarketCode']),
         'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -136,7 +136,7 @@ export function RateProgramRateTypeToJSON(value?: RateProgramRateType | null): a
     return {
         
         'commissionable': value.commissionable,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'mobileCheckout': value.mobileCheckout,
         'primary': value.primary,
         'rateAmounts': BlockGridRatesTypeToJSON(value.rateAmounts),
@@ -144,7 +144,7 @@ export function RateProgramRateTypeToJSON(value?: RateProgramRateType | null): a
         'rateMarketCode': CodeDescriptionTypeToJSON(value.rateMarketCode),
         'roomTypes': value.roomTypes,
         'sequence': value.sequence,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

@@ -40,7 +40,7 @@ function MembershipTransactionInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'stay': !(0, runtime_1.exists)(json, 'stay') ? undefined : json['stay'],
         'stayTimeSpan': !(0, runtime_1.exists)(json, 'stayTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['stayTimeSpan']),
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionType': !(0, runtime_1.exists)(json, 'transactionType') ? undefined : json['transactionType'],
     };
 }
@@ -59,7 +59,7 @@ function MembershipTransactionInfoTypeToJSON(value) {
         'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'stay': value.stay,
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'transactionDate': value.transactionDate,
         'transactionType': value.transactionType,
     };
 }

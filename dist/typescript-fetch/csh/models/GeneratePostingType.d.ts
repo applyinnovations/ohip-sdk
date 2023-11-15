@@ -36,10 +36,10 @@ export interface GeneratePostingType {
     transactionCode?: string;
     /**
      * Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratePostingType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction Number for which request is being submitted.
      * @type {number}

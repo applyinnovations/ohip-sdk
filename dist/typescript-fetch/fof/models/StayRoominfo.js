@@ -32,7 +32,7 @@ function StayRoominfoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
     };
@@ -46,7 +46,7 @@ function StayRoominfoToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
         'roomId': value.roomId,
         'roomType': value.roomType,
     };

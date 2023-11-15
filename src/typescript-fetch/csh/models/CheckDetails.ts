@@ -34,10 +34,10 @@ import {
 export interface CheckDetails {
     /**
      * Indicates the Cheque date.
-     * @type {Date}
+     * @type {string}
      * @memberof CheckDetails
      */
-    checkDate?: Date;
+    checkDate?: string;
     /**
      * Used for Character Strings, length 0 to 32000.
      * @type {string}
@@ -89,7 +89,7 @@ export function CheckDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'checkDate': !exists(json, 'checkDate') ? undefined : (new Date(json['checkDate'])),
+        'checkDate': !exists(json, 'checkDate') ? undefined : json['checkDate'],
         'checkDetailsInfo': !exists(json, 'checkDetailsInfo') ? undefined : json['checkDetailsInfo'],
         'checkImageInfo': !exists(json, 'checkImageInfo') ? undefined : json['checkImageInfo'],
         'checkNumber': !exists(json, 'checkNumber') ? undefined : json['checkNumber'],
@@ -107,7 +107,7 @@ export function CheckDetailsToJSON(value?: CheckDetails | null): any {
     }
     return {
         
-        'checkDate': value.checkDate === undefined ? undefined : (value.checkDate.toISOString().substring(0,10)),
+        'checkDate': value.checkDate,
         'checkDetailsInfo': value.checkDetailsInfo,
         'checkImageInfo': value.checkImageInfo,
         'checkNumber': value.checkNumber,

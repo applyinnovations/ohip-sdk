@@ -33,7 +33,7 @@ function SellMessageTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'chainCode': !(0, runtime_1.exists)(json, 'chainCode') ? undefined : json['chainCode'],
         'croCode': !(0, runtime_1.exists)(json, 'croCode') ? undefined : json['croCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -58,7 +58,7 @@ function SellMessageTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'chainCode': value.chainCode,
         'croCode': value.croCode,
         'hotelId': value.hotelId,

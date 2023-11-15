@@ -32,7 +32,7 @@ function BestAvailableRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'lengthOfStay': !(0, runtime_1.exists)(json, 'lengthOfStay') ? undefined : json['lengthOfStay'],
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
     };
@@ -46,7 +46,7 @@ function BestAvailableRateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'lengthOfStay': value.lengthOfStay,
         'rateCode': value.rateCode,
     };

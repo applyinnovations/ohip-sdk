@@ -60,10 +60,10 @@ export interface ChainDetailInfoType {
     email?: string;
     /**
      * This represents the end date of chain.
-     * @type {Date}
+     * @type {string}
      * @memberof ChainDetailInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * The fax number of the chain.
      * @type {string}
@@ -102,10 +102,10 @@ export interface ChainDetailInfoType {
     shareProfilesYn?: string;
     /**
      * This represents the begin date of Chain.
-     * @type {Date}
+     * @type {string}
      * @memberof ChainDetailInfoType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the ChainDetailInfoType interface.

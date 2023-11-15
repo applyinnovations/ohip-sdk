@@ -21,10 +21,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface RoomOwnerReferralType {
     /**
      * End Date of the Room Owner Referral record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnerReferralType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code of Room Owner Referral record.
      * @type {string}
@@ -39,10 +39,10 @@ export interface RoomOwnerReferralType {
     inactive?: boolean;
     /**
      * Date in which the room owner referral record was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnerReferralType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {AddressType}
@@ -87,10 +87,10 @@ export interface RoomOwnerReferralType {
     roomOwnerReferralId?: number;
     /**
      * Start Date of the Room Owner Referral record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnerReferralType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the RoomOwnerReferralType interface.

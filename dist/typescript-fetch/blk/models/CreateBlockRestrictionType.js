@@ -35,14 +35,14 @@ function CreateBlockRestrictionTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'friday': !(0, runtime_1.exists)(json, 'friday') ? undefined : json['friday'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'monday': !(0, runtime_1.exists)(json, 'monday') ? undefined : json['monday'],
         'restrictionStatus': !(0, runtime_1.exists)(json, 'restrictionStatus') ? undefined : (0, RestrictionStatusType_1.RestrictionStatusTypeFromJSON)(json['restrictionStatus']),
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
         'saturday': !(0, runtime_1.exists)(json, 'saturday') ? undefined : json['saturday'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'sunday': !(0, runtime_1.exists)(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !(0, runtime_1.exists)(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !(0, runtime_1.exists)(json, 'tuesday') ? undefined : json['tuesday'],
@@ -59,14 +59,14 @@ function CreateBlockRestrictionTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'friday': value.friday,
         'hotelId': value.hotelId,
         'monday': value.monday,
         'restrictionStatus': (0, RestrictionStatusType_1.RestrictionStatusTypeToJSON)(value.restrictionStatus),
         'roomTypes': value.roomTypes,
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

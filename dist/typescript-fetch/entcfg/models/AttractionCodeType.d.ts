@@ -57,10 +57,10 @@ export interface AttractionCodeType {
     hotelId?: string;
     /**
      * The date the record was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof AttractionCodeType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {number}

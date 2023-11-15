@@ -46,10 +46,10 @@ export interface BlockRevenueChangesDetailType {
     blockOwner?: Array<BlockOwnersType>;
     /**
      * Change date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRevenueChangesDetailType
      */
-    changeDate?: Date;
+    changeDate?: string;
     /**
      * Number of nights room is occupied.
      * @type {number}
@@ -70,10 +70,10 @@ export interface BlockRevenueChangesDetailType {
     roomStatus?: string;
     /**
      * Date of stay.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRevenueChangesDetailType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * 
      * @type {LogUserInfoType}
@@ -102,11 +102,11 @@ export function BlockRevenueChangesDetailTypeFromJSONTyped(json: any, ignoreDisc
     return {
         
         'blockOwner': !exists(json, 'blockOwner') ? undefined : ((json['blockOwner'] as Array<any>).map(BlockOwnersTypeFromJSON)),
-        'changeDate': !exists(json, 'changeDate') ? undefined : (new Date(json['changeDate'])),
+        'changeDate': !exists(json, 'changeDate') ? undefined : json['changeDate'],
         'nights': !exists(json, 'nights') ? undefined : json['nights'],
         'roomRevenue': !exists(json, 'roomRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['roomRevenue']),
         'roomStatus': !exists(json, 'roomStatus') ? undefined : json['roomStatus'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
         'userDetails': !exists(json, 'userDetails') ? undefined : LogUserInfoTypeFromJSON(json['userDetails']),
     };
 }
@@ -121,11 +121,11 @@ export function BlockRevenueChangesDetailTypeToJSON(value?: BlockRevenueChangesD
     return {
         
         'blockOwner': value.blockOwner === undefined ? undefined : ((value.blockOwner as Array<any>).map(BlockOwnersTypeToJSON)),
-        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substring(0,10)),
+        'changeDate': value.changeDate,
         'nights': value.nights,
         'roomRevenue': CurrencyAmountTypeToJSON(value.roomRevenue),
         'roomStatus': value.roomStatus,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
         'userDetails': LogUserInfoTypeToJSON(value.userDetails),
     };
 }

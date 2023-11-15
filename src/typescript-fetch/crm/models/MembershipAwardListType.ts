@@ -34,10 +34,10 @@ export interface MembershipAwardListType {
     actualCancelPoints?: number;
     /**
      * The arrival date of the stay for when the award is associated.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * 
      * @type {MembershipAwardBasedOnType}
@@ -46,10 +46,10 @@ export interface MembershipAwardListType {
     awardBasedOn?: MembershipAwardBasedOnType;
     /**
      * If the reservation associated with the award was cancelled, the reservation cancellation date appears here.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    awardCancelDate?: Date;
+    awardCancelDate?: string;
     /**
      * If the award was cancelled, the system-generated award cancellation number appears here.
      * @type {number}
@@ -130,22 +130,22 @@ export interface MembershipAwardListType {
     crsBookNo?: string;
     /**
      * Date when the award was issued
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    dateAwarded?: Date;
+    dateAwarded?: string;
     /**
      * The date of the departure of the reservation associated with the award. There may be more than one date (multiple nights) associated with award
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * Expiry date on the Card.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * Property Reservation number.
      * @type {string}
@@ -160,10 +160,10 @@ export interface MembershipAwardListType {
     hotelId?: string;
     /**
      * Joined date on the Card.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    joinDate?: Date;
+    joinDate?: string;
     /**
      * If this award was included on a statement, the member statement ID appears here. The field is blank if the award has not yet been reported on a statement
      * @type {number}
@@ -238,10 +238,10 @@ export interface MembershipAwardListType {
     statementId?: number;
     /**
      * The date of the reservation associated with the award. There may be more than one date (multiple nights) associated with award
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Indicates member is below the threshold limit or not to request award.
      * @type {number}
@@ -276,9 +276,9 @@ export function MembershipAwardListTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'actualCancelPoints': !exists(json, 'actualCancelPoints') ? undefined : json['actualCancelPoints'],
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'awardBasedOn': !exists(json, 'awardBasedOn') ? undefined : MembershipAwardBasedOnTypeFromJSON(json['awardBasedOn']),
-        'awardCancelDate': !exists(json, 'awardCancelDate') ? undefined : (new Date(json['awardCancelDate'])),
+        'awardCancelDate': !exists(json, 'awardCancelDate') ? undefined : json['awardCancelDate'],
         'awardCancellationNumber': !exists(json, 'awardCancellationNumber') ? undefined : json['awardCancellationNumber'],
         'awardCode': !exists(json, 'awardCode') ? undefined : json['awardCode'],
         'awardNumber': !exists(json, 'awardNumber') ? undefined : json['awardNumber'],
@@ -292,12 +292,12 @@ export function MembershipAwardListTypeFromJSONTyped(json: any, ignoreDiscrimina
         'cancelPolicyType': !exists(json, 'cancelPolicyType') ? undefined : json['cancelPolicyType'],
         'cancelStatementID': !exists(json, 'cancelStatementID') ? undefined : json['cancelStatementID'],
         'crsBookNo': !exists(json, 'crsBookNo') ? undefined : json['crsBookNo'],
-        'dateAwarded': !exists(json, 'dateAwarded') ? undefined : (new Date(json['dateAwarded'])),
-        'departureDate': !exists(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
-        'expireDate': !exists(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'dateAwarded': !exists(json, 'dateAwarded') ? undefined : json['dateAwarded'],
+        'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
+        'expireDate': !exists(json, 'expireDate') ? undefined : json['expireDate'],
         'hotelBookingNumber': !exists(json, 'hotelBookingNumber') ? undefined : json['hotelBookingNumber'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'joinDate': !exists(json, 'joinDate') ? undefined : (new Date(json['joinDate'])),
+        'joinDate': !exists(json, 'joinDate') ? undefined : json['joinDate'],
         'memberStatementId': !exists(json, 'memberStatementId') ? undefined : json['memberStatementId'],
         'membershipCardNo': !exists(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
@@ -310,7 +310,7 @@ export function MembershipAwardListTypeFromJSONTyped(json: any, ignoreDiscrimina
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'reservationCancellationNumber': !exists(json, 'reservationCancellationNumber') ? undefined : json['reservationCancellationNumber'],
         'statementId': !exists(json, 'statementId') ? undefined : json['statementId'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
         'thresholdPoints': !exists(json, 'thresholdPoints') ? undefined : json['thresholdPoints'],
         'totalAvailablePoints': !exists(json, 'totalAvailablePoints') ? undefined : json['totalAvailablePoints'],
     };
@@ -326,9 +326,9 @@ export function MembershipAwardListTypeToJSON(value?: MembershipAwardListType | 
     return {
         
         'actualCancelPoints': value.actualCancelPoints,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'awardBasedOn': MembershipAwardBasedOnTypeToJSON(value.awardBasedOn),
-        'awardCancelDate': value.awardCancelDate === undefined ? undefined : (value.awardCancelDate.toISOString().substring(0,10)),
+        'awardCancelDate': value.awardCancelDate,
         'awardCancellationNumber': value.awardCancellationNumber,
         'awardCode': value.awardCode,
         'awardNumber': value.awardNumber,
@@ -342,12 +342,12 @@ export function MembershipAwardListTypeToJSON(value?: MembershipAwardListType | 
         'cancelPolicyType': value.cancelPolicyType,
         'cancelStatementID': value.cancelStatementID,
         'crsBookNo': value.crsBookNo,
-        'dateAwarded': value.dateAwarded === undefined ? undefined : (value.dateAwarded.toISOString().substring(0,10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
+        'dateAwarded': value.dateAwarded,
+        'departureDate': value.departureDate,
+        'expireDate': value.expireDate,
         'hotelBookingNumber': value.hotelBookingNumber,
         'hotelId': value.hotelId,
-        'joinDate': value.joinDate === undefined ? undefined : (value.joinDate.toISOString().substring(0,10)),
+        'joinDate': value.joinDate,
         'memberStatementId': value.memberStatementId,
         'membershipCardNo': value.membershipCardNo,
         'membershipId': value.membershipId,
@@ -360,7 +360,7 @@ export function MembershipAwardListTypeToJSON(value?: MembershipAwardListType | 
         'ratePlanCode': value.ratePlanCode,
         'reservationCancellationNumber': value.reservationCancellationNumber,
         'statementId': value.statementId,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
         'thresholdPoints': value.thresholdPoints,
         'totalAvailablePoints': value.totalAvailablePoints,
     };

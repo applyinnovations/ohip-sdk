@@ -220,10 +220,10 @@ class InventoryApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.dateRangeStart !== undefined) {
-                queryParameters['dateRangeStart'] = requestParameters.dateRangeStart.toISOString().substring(0, 10);
+                queryParameters['dateRangeStart'] = requestParameters.dateRangeStart;
             }
             if (requestParameters.dateRangeEnd !== undefined) {
-                queryParameters['dateRangeEnd'] = requestParameters.dateRangeEnd.toISOString().substring(0, 10);
+                queryParameters['dateRangeEnd'] = requestParameters.dateRangeEnd;
             }
             if (requestParameters.roomCountRequested !== undefined) {
                 queryParameters['roomCountRequested'] = requestParameters.roomCountRequested;
@@ -289,10 +289,10 @@ class InventoryApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;

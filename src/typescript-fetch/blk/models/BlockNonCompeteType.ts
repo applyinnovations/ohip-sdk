@@ -46,10 +46,10 @@ export interface BlockNonCompeteType {
     industryDescription?: string;
     /**
      * Specifies a single date.
-     * @type {Array<Date>}
+     * @type {Array<string>}
      * @memberof BlockNonCompeteType
      */
-    protectedDates?: Array<Date>;
+    protectedDates?: Array<string>;
 }
 
 /**

@@ -65,10 +65,10 @@ export interface BestAvailableRatePlanType {
     los8?: boolean;
     /**
      * Validity of best available rate plan.
-     * @type {Date}
+     * @type {string}
      * @memberof BestAvailableRatePlanType
      */
-    rateDate?: Date;
+    rateDate?: string;
     /**
      * Collection of best available rate codes.
      * @type {Array<string>}

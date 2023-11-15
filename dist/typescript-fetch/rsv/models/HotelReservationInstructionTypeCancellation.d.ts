@@ -30,10 +30,10 @@ export interface HotelReservationInstructionTypeCancellation {
     code?: string;
     /**
      * Date when reservation was last cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationInstructionTypeCancellation
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {string}

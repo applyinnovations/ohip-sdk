@@ -28,10 +28,10 @@ import {
 export interface CommentType {
     /**
      * Indicates at which date an action described in the comment must be taken.
-     * @type {Date}
+     * @type {string}
      * @memberof CommentType
      */
-    actionDate?: Date;
+    actionDate?: string;
     /**
      * Specifies type of action described in the comments.
      * @type {string}
@@ -112,10 +112,10 @@ export interface CommentType {
     protectDescription?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CommentType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {FormattedTextTextType}
@@ -161,7 +161,7 @@ export function CommentTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'actionDate': !exists(json, 'actionDate') ? undefined : (new Date(json['actionDate'])),
+        'actionDate': !exists(json, 'actionDate') ? undefined : json['actionDate'],
         'actionType': !exists(json, 'actionType') ? undefined : json['actionType'],
         'commentTitle': !exists(json, 'commentTitle') ? undefined : json['commentTitle'],
         'confidential': !exists(json, 'confidential') ? undefined : json['confidential'],
@@ -175,7 +175,7 @@ export function CommentTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'notificationLocation': !exists(json, 'notificationLocation') ? undefined : json['notificationLocation'],
         'overrideInternal': !exists(json, 'overrideInternal') ? undefined : json['overrideInternal'],
         'protectDescription': !exists(json, 'protectDescription') ? undefined : json['protectDescription'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'text': !exists(json, 'text') ? undefined : FormattedTextTextTypeFromJSON(json['text']),
         'type': !exists(json, 'type') ? undefined : json['type'],
         'typeDescription': !exists(json, 'typeDescription') ? undefined : json['typeDescription'],
@@ -192,7 +192,7 @@ export function CommentTypeToJSON(value?: CommentType | null): any {
     }
     return {
         
-        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substring(0,10)),
+        'actionDate': value.actionDate,
         'actionType': value.actionType,
         'commentTitle': value.commentTitle,
         'confidential': value.confidential,
@@ -206,7 +206,7 @@ export function CommentTypeToJSON(value?: CommentType | null): any {
         'notificationLocation': value.notificationLocation,
         'overrideInternal': value.overrideInternal,
         'protectDescription': value.protectDescription,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'text': FormattedTextTextTypeToJSON(value.text),
         'type': value.type,
         'typeDescription': value.typeDescription,

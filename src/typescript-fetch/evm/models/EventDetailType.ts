@@ -166,10 +166,10 @@ export interface EventDetailType {
     hasPostings?: boolean;
     /**
      * Inactivation date of the event.
-     * @type {Date}
+     * @type {string}
      * @memberof EventDetailType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Flag to indicate if the event space is associated from the Package
      * @type {boolean}
@@ -238,10 +238,10 @@ export interface EventDetailType {
     packageName?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof EventDetailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Flag to indicate if the event is a sub event.
      * @type {boolean}
@@ -298,7 +298,7 @@ export function EventDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'eventType': !exists(json, 'eventType') ? undefined : json['eventType'],
         'externalURL': !exists(json, 'externalURL') ? undefined : json['externalURL'],
         'hasPostings': !exists(json, 'hasPostings') ? undefined : json['hasPostings'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'includeSpaceInPackage': !exists(json, 'includeSpaceInPackage') ? undefined : json['includeSpaceInPackage'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
@@ -310,7 +310,7 @@ export function EventDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'packageEvent': !exists(json, 'packageEvent') ? undefined : json['packageEvent'],
         'packageId': !exists(json, 'packageId') ? undefined : json['packageId'],
         'packageName': !exists(json, 'packageName') ? undefined : json['packageName'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'subEvent': !exists(json, 'subEvent') ? undefined : json['subEvent'],
         'waitlistReturnStatus': !exists(json, 'waitlistReturnStatus') ? undefined : BookingStatusTypeFromJSON(json['waitlistReturnStatus']),
         'waitlisted': !exists(json, 'waitlisted') ? undefined : json['waitlisted'],
@@ -343,7 +343,7 @@ export function EventDetailTypeToJSON(value?: EventDetailType | null): any {
         'eventType': value.eventType,
         'externalURL': value.externalURL,
         'hasPostings': value.hasPostings,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'includeSpaceInPackage': value.includeSpaceInPackage,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
@@ -355,7 +355,7 @@ export function EventDetailTypeToJSON(value?: EventDetailType | null): any {
         'packageEvent': value.packageEvent,
         'packageId': value.packageId,
         'packageName': value.packageName,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'subEvent': value.subEvent,
         'waitlistReturnStatus': BookingStatusTypeToJSON(value.waitlistReturnStatus),
         'waitlisted': value.waitlisted,

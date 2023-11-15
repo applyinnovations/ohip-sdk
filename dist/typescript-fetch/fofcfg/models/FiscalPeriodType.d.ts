@@ -30,10 +30,10 @@ export interface FiscalPeriodType {
     description?: string;
     /**
      * End Date of the Period.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalPeriodType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Resort for which the Period is defined.
      * @type {string}
@@ -48,10 +48,10 @@ export interface FiscalPeriodType {
     periodType?: YearTypeType;
     /**
      * Start Date of the Period
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalPeriodType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Year for the current Period.
      * @type {number}

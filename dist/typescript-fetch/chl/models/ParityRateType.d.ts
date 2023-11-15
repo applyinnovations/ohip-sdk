@@ -40,10 +40,10 @@ export interface ParityRateType {
     amount?: number;
     /**
      * Arrival Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ParityRateType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      *
      * @type {number}

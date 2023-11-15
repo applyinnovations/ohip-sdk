@@ -33,10 +33,10 @@ function FixedChargeScheduleTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dateToExecute': !(0, runtime_1.exists)(json, 'dateToExecute') ? undefined : (new Date(json['dateToExecute'])),
+        'dateToExecute': !(0, runtime_1.exists)(json, 'dateToExecute') ? undefined : json['dateToExecute'],
         'dayToExecute': !(0, runtime_1.exists)(json, 'dayToExecute') ? undefined : json['dayToExecute'],
-        'eventEndDate': !(0, runtime_1.exists)(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
-        'eventStartDate': !(0, runtime_1.exists)(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
+        'eventEndDate': !(0, runtime_1.exists)(json, 'eventEndDate') ? undefined : json['eventEndDate'],
+        'eventStartDate': !(0, runtime_1.exists)(json, 'eventStartDate') ? undefined : json['eventStartDate'],
         'frequency': !(0, runtime_1.exists)(json, 'frequency') ? undefined : (0, FixedChargeFrequencyType_1.FixedChargeFrequencyTypeFromJSON)(json['frequency']),
     };
 }
@@ -49,10 +49,10 @@ function FixedChargeScheduleTypeToJSON(value) {
         return null;
     }
     return {
-        'dateToExecute': value.dateToExecute === undefined ? undefined : (value.dateToExecute.toISOString().substring(0, 10)),
+        'dateToExecute': value.dateToExecute,
         'dayToExecute': value.dayToExecute,
-        'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0, 10)),
-        'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0, 10)),
+        'eventEndDate': value.eventEndDate,
+        'eventStartDate': value.eventStartDate,
         'frequency': (0, FixedChargeFrequencyType_1.FixedChargeFrequencyTypeToJSON)(value.frequency),
     };
 }

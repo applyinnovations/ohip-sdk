@@ -76,10 +76,10 @@ export interface StagedProfileType {
     identifications?: Array<StagedProfileIdentificationsType>;
     /**
      * The date on which the staged profile has been received.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      * Collection of detailed information about keyword for the staged profile.
      * @type {Array<StagedProfileKeywordType>}

@@ -232,16 +232,16 @@ export interface StayDetailType {
     attachedProfiles?: Array<ResAttachedProfileType>;
     /**
      * Booked arrival date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedArrivalDate?: Date;
+    bookedArrivalDate?: string;
     /**
      * Booked departure date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedDepartureDate?: Date;
+    bookedDepartureDate?: string;
     /**
      * Indicate the category of room originally booked.
      * @type {string}
@@ -250,16 +250,16 @@ export interface StayDetailType {
     bookedRoomType?: string;
     /**
      * Booking date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookingDate?: Date;
+    bookingDate?: string;
     /**
      * Cancellation date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    cancellationDate?: Date;
+    cancellationDate?: string;
     /**
      * 
      * @type {ReservationInfoTypeCancellationInfo}
@@ -388,10 +388,10 @@ export interface StayDetailType {
     lastModifyDateTime?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * 
      * @type {ResMobileNotificationsType}
@@ -442,10 +442,10 @@ export interface StayDetailType {
     promotionCode?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {ReservationQueueInformationType}
@@ -630,11 +630,11 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'allowMobileViewFolio': !exists(json, 'allowMobileViewFolio') ? undefined : json['allowMobileViewFolio'],
         'allowedActions': !exists(json, 'allowedActions') ? undefined : ((json['allowedActions'] as Array<any>).map(ReservationAllowedActionTypeFromJSON)),
         'attachedProfiles': !exists(json, 'attachedProfiles') ? undefined : ((json['attachedProfiles'] as Array<any>).map(ResAttachedProfileTypeFromJSON)),
-        'bookedArrivalDate': !exists(json, 'bookedArrivalDate') ? undefined : (new Date(json['bookedArrivalDate'])),
-        'bookedDepartureDate': !exists(json, 'bookedDepartureDate') ? undefined : (new Date(json['bookedDepartureDate'])),
+        'bookedArrivalDate': !exists(json, 'bookedArrivalDate') ? undefined : json['bookedArrivalDate'],
+        'bookedDepartureDate': !exists(json, 'bookedDepartureDate') ? undefined : json['bookedDepartureDate'],
         'bookedRoomType': !exists(json, 'bookedRoomType') ? undefined : json['bookedRoomType'],
-        'bookingDate': !exists(json, 'bookingDate') ? undefined : (new Date(json['bookingDate'])),
-        'cancellationDate': !exists(json, 'cancellationDate') ? undefined : (new Date(json['cancellationDate'])),
+        'bookingDate': !exists(json, 'bookingDate') ? undefined : json['bookingDate'],
+        'cancellationDate': !exists(json, 'cancellationDate') ? undefined : json['cancellationDate'],
         'cancellationInfo': !exists(json, 'cancellationInfo') ? undefined : ReservationInfoTypeCancellationInfoFromJSON(json['cancellationInfo']),
         'cancelledRoomNights': !exists(json, 'cancelledRoomNights') ? undefined : json['cancelledRoomNights'],
         'cashiering': !exists(json, 'cashiering') ? undefined : ResCashieringTypeFromJSON(json['cashiering']),
@@ -656,7 +656,7 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'keyCount': !exists(json, 'keyCount') ? undefined : json['keyCount'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
+        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : json['lastPrivacyPromptDate'],
         'mobileNotifications': !exists(json, 'mobileNotifications') ? undefined : ResMobileNotificationsTypeFromJSON(json['mobileNotifications']),
         'noShowRoomNights': !exists(json, 'noShowRoomNights') ? undefined : json['noShowRoomNights'],
         'openFolio': !exists(json, 'openFolio') ? undefined : json['openFolio'],
@@ -665,7 +665,7 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'preRegistered': !exists(json, 'preRegistered') ? undefined : json['preRegistered'],
         'primarySharer': !exists(json, 'primarySharer') ? undefined : json['primarySharer'],
         'promotionCode': !exists(json, 'promotionCode') ? undefined : json['promotionCode'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'queue': !exists(json, 'queue') ? undefined : ReservationQueueInformationTypeFromJSON(json['queue']),
         'reservationCommunication': !exists(json, 'reservationCommunication') ? undefined : ResCommunicationTypeFromJSON(json['reservationCommunication']),
         'reservationFolioWindows': !exists(json, 'reservationFolioWindows') ? undefined : ((json['reservationFolioWindows'] as Array<any>).map(ReservationFolioWindowTypeFromJSON)),
@@ -711,11 +711,11 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
         'allowMobileViewFolio': value.allowMobileViewFolio,
         'allowedActions': value.allowedActions === undefined ? undefined : ((value.allowedActions as Array<any>).map(ReservationAllowedActionTypeToJSON)),
         'attachedProfiles': value.attachedProfiles === undefined ? undefined : ((value.attachedProfiles as Array<any>).map(ResAttachedProfileTypeToJSON)),
-        'bookedArrivalDate': value.bookedArrivalDate === undefined ? undefined : (value.bookedArrivalDate.toISOString().substring(0,10)),
-        'bookedDepartureDate': value.bookedDepartureDate === undefined ? undefined : (value.bookedDepartureDate.toISOString().substring(0,10)),
+        'bookedArrivalDate': value.bookedArrivalDate,
+        'bookedDepartureDate': value.bookedDepartureDate,
         'bookedRoomType': value.bookedRoomType,
-        'bookingDate': value.bookingDate === undefined ? undefined : (value.bookingDate.toISOString().substring(0,10)),
-        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substring(0,10)),
+        'bookingDate': value.bookingDate,
+        'cancellationDate': value.cancellationDate,
         'cancellationInfo': ReservationInfoTypeCancellationInfoToJSON(value.cancellationInfo),
         'cancelledRoomNights': value.cancelledRoomNights,
         'cashiering': ResCashieringTypeToJSON(value.cashiering),
@@ -737,7 +737,7 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
         'keyCount': value.keyCount,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate,
         'mobileNotifications': ResMobileNotificationsTypeToJSON(value.mobileNotifications),
         'noShowRoomNights': value.noShowRoomNights,
         'openFolio': value.openFolio,
@@ -746,7 +746,7 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
         'preRegistered': value.preRegistered,
         'primarySharer': value.primarySharer,
         'promotionCode': value.promotionCode,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'queue': ReservationQueueInformationTypeToJSON(value.queue),
         'reservationCommunication': ResCommunicationTypeToJSON(value.reservationCommunication),
         'reservationFolioWindows': value.reservationFolioWindows === undefined ? undefined : ((value.reservationFolioWindows as Array<any>).map(ReservationFolioWindowTypeToJSON)),

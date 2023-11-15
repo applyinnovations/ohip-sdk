@@ -17,16 +17,16 @@
 export interface BlockReservationsCriteriaTypeStayOn {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationsCriteriaTypeStayOn
      */
-    end?: Date;
+    end?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationsCriteriaTypeStayOn
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the BlockReservationsCriteriaTypeStayOn interface.

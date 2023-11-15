@@ -100,10 +100,10 @@ export interface ARAccountCommentCriteriaType {
     profileId?: ProfileId;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof ARAccountCommentCriteriaType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}
@@ -141,7 +141,7 @@ export function ARAccountCommentCriteriaTypeFromJSONTyped(json: any, ignoreDiscr
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
 }
@@ -165,7 +165,7 @@ export function ARAccountCommentCriteriaTypeToJSON(value?: ARAccountCommentCrite
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'profileId': ProfileIdToJSON(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'type': value.type,
     };
 }

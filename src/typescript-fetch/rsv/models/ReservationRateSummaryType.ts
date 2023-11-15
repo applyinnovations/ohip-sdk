@@ -46,10 +46,10 @@ export interface ReservationRateSummaryType {
     details?: Array<ReservationRateSummaryDetailType>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryType
      */
-    end?: Date;
+    end?: string;
     /**
      * Amount of automatically posted charges along with room and taxes.
      * @type {number}
@@ -94,10 +94,10 @@ export interface ReservationRateSummaryType {
     routing?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryType
      */
-    start?: Date;
+    start?: string;
     /**
      * Amount of total cost of stay.
      * @type {number}
@@ -128,7 +128,7 @@ export function ReservationRateSummaryTypeFromJSONTyped(json: any, ignoreDiscrim
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'deposit': !exists(json, 'deposit') ? undefined : json['deposit'],
         'details': !exists(json, 'details') ? undefined : ((json['details'] as Array<any>).map(ReservationRateSummaryDetailTypeFromJSON)),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'fixedCharges': !exists(json, 'fixedCharges') ? undefined : json['fixedCharges'],
         'gross': !exists(json, 'gross') ? undefined : json['gross'],
         'guestPay': !exists(json, 'guestPay') ? undefined : json['guestPay'],
@@ -136,7 +136,7 @@ export function ReservationRateSummaryTypeFromJSONTyped(json: any, ignoreDiscrim
         'net': !exists(json, 'net') ? undefined : json['net'],
         'outStandingCostOfStay': !exists(json, 'outStandingCostOfStay') ? undefined : json['outStandingCostOfStay'],
         'routing': !exists(json, 'routing') ? undefined : json['routing'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'totalCostOfStay': !exists(json, 'totalCostOfStay') ? undefined : json['totalCostOfStay'],
     };
 }
@@ -153,7 +153,7 @@ export function ReservationRateSummaryTypeToJSON(value?: ReservationRateSummaryT
         'currencyCode': value.currencyCode,
         'deposit': value.deposit,
         'details': value.details === undefined ? undefined : ((value.details as Array<any>).map(ReservationRateSummaryDetailTypeToJSON)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'fixedCharges': value.fixedCharges,
         'gross': value.gross,
         'guestPay': value.guestPay,
@@ -161,7 +161,7 @@ export function ReservationRateSummaryTypeToJSON(value?: ReservationRateSummaryT
         'net': value.net,
         'outStandingCostOfStay': value.outStandingCostOfStay,
         'routing': value.routing,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'totalCostOfStay': value.totalCostOfStay,
     };
 }

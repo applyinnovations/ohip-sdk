@@ -63,10 +63,10 @@ class RSVStatsApi extends runtime.BaseAPI {
                 queryParameters['excludeBlocksWithoutQuoteID'] = requestParameters.excludeBlocksWithoutQuoteID;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -117,7 +117,7 @@ class RSVStatsApi extends runtime.BaseAPI {
                 queryParameters['hotelId'] = requestParameters.hotelId;
             }
             if (requestParameters.stayDate !== undefined) {
-                queryParameters['stayDate'] = requestParameters.stayDate.toISOString().substring(0, 10);
+                queryParameters['stayDate'] = requestParameters.stayDate;
             }
             if (requestParameters.leadDays !== undefined) {
                 queryParameters['leadDays'] = requestParameters.leadDays;

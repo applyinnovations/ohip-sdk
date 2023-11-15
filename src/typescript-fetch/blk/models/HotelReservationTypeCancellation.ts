@@ -40,10 +40,10 @@ export interface HotelReservationTypeCancellation {
     code?: string;
     /**
      * Date when reservation was last cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationTypeCancellation
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {string}
@@ -73,7 +73,7 @@ export function HotelReservationTypeCancellationFromJSONTyped(json: any, ignoreD
         
         'cancellationNo': !exists(json, 'cancellationNo') ? undefined : UniqueIDTypeFromJSON(json['cancellationNo']),
         'code': !exists(json, 'code') ? undefined : json['code'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'description': !exists(json, 'description') ? undefined : json['description'],
     };
 }
@@ -89,7 +89,7 @@ export function HotelReservationTypeCancellationToJSON(value?: HotelReservationT
         
         'cancellationNo': UniqueIDTypeToJSON(value.cancellationNo),
         'code': value.code,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'description': value.description,
     };
 }

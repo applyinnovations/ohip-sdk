@@ -46,10 +46,10 @@ export interface RotationPeriodType {
     periodFrequency?: RotationPeriodFrequencyType;
     /**
      * Represents Effective start date for the Room Rotation Period Setup.
-     * @type {Date}
+     * @type {string}
      * @memberof RotationPeriodType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -74,7 +74,7 @@ export function RotationPeriodTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'forceRecalculate': !exists(json, 'forceRecalculate') ? undefined : json['forceRecalculate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'periodFrequency': !exists(json, 'periodFrequency') ? undefined : RotationPeriodFrequencyTypeFromJSON(json['periodFrequency']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -90,7 +90,7 @@ export function RotationPeriodTypeToJSON(value?: RotationPeriodType | null): any
         'forceRecalculate': value.forceRecalculate,
         'hotelId': value.hotelId,
         'periodFrequency': RotationPeriodFrequencyTypeToJSON(value.periodFrequency),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

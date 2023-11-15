@@ -33,7 +33,7 @@ function CommentTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'actionDate': !(0, runtime_1.exists)(json, 'actionDate') ? undefined : (new Date(json['actionDate'])),
+        'actionDate': !(0, runtime_1.exists)(json, 'actionDate') ? undefined : json['actionDate'],
         'actionType': !(0, runtime_1.exists)(json, 'actionType') ? undefined : json['actionType'],
         'commentTitle': !(0, runtime_1.exists)(json, 'commentTitle') ? undefined : json['commentTitle'],
         'confidential': !(0, runtime_1.exists)(json, 'confidential') ? undefined : json['confidential'],
@@ -60,7 +60,7 @@ function CommentTypeToJSON(value) {
         return null;
     }
     return {
-        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substring(0, 10)),
+        'actionDate': value.actionDate,
         'actionType': value.actionType,
         'commentTitle': value.commentTitle,
         'confidential': value.confidential,

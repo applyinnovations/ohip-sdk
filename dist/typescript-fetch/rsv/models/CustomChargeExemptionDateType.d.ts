@@ -18,10 +18,10 @@ import type { CustomChargeGuestInfoType } from './CustomChargeGuestInfoType';
 export interface CustomChargeExemptionDateType {
     /**
      * Contains Custom Charge Exemption date.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * List of guests.
      * @type {Array<CustomChargeGuestInfoType>}

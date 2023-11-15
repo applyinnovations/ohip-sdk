@@ -47,16 +47,16 @@ export interface OtherAvailabilityType {
     pointsRequired?: number;
     /**
      * Beginning date of the award.
-     * @type {Date}
+     * @type {string}
      * @memberof OtherAvailabilityType
      */
-    sellBeginDate?: Date;
+    sellBeginDate?: string;
     /**
      * End date that the award will be available.
-     * @type {Date}
+     * @type {string}
      * @memberof OtherAvailabilityType
      */
-    sellEndDate?: Date;
+    sellEndDate?: string;
     /**
      * Descriptive name of the award.
      * @type {string}

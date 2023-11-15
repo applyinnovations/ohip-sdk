@@ -37,16 +37,16 @@ export interface ReservationRotationPointsDetailsType {
     currentPoints?: number;
     /**
      * End date of reservation
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRotationPointsDetailsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Start date of reservation
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRotationPointsDetailsType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
      * @type {RotationRuleCalculationRuleType}

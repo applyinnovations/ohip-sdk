@@ -473,7 +473,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -572,7 +572,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['emailFolioPrimaryInd'] = requestParameters.emailFolioPrimaryInd;
             }
             if (requestParameters.emailFolioPurgeDate !== undefined) {
-                queryParameters['emailFolioPurgeDate'] = requestParameters.emailFolioPurgeDate.toISOString().substring(0, 10);
+                queryParameters['emailFolioPurgeDate'] = requestParameters.emailFolioPurgeDate;
             }
             if (requestParameters.emailFolioType !== undefined) {
                 queryParameters['emailFolioType'] = requestParameters.emailFolioType;
@@ -1714,10 +1714,10 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['id'] = requestParameters.id;
             }
             if (requestParameters.reservationTimeSpanStartDate !== undefined) {
-                queryParameters['reservationTimeSpanStartDate'] = requestParameters.reservationTimeSpanStartDate.toISOString().substring(0, 10);
+                queryParameters['reservationTimeSpanStartDate'] = requestParameters.reservationTimeSpanStartDate;
             }
             if (requestParameters.reservationTimeSpanEndDate !== undefined) {
-                queryParameters['reservationTimeSpanEndDate'] = requestParameters.reservationTimeSpanEndDate.toISOString().substring(0, 10);
+                queryParameters['reservationTimeSpanEndDate'] = requestParameters.reservationTimeSpanEndDate;
             }
             if (requestParameters.reservationTimeSpanDuration !== undefined) {
                 queryParameters['reservationTimeSpanDuration'] = requestParameters.reservationTimeSpanDuration;
@@ -1867,10 +1867,10 @@ class ReservationApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             const queryParameters = {};
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.domain !== undefined) {
                 queryParameters['domain'] = requestParameters.domain;
@@ -1930,10 +1930,10 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['hotelName'] = requestParameters.hotelName;
             }
             if (requestParameters.roomStayStartDate !== undefined) {
-                queryParameters['roomStayStartDate'] = requestParameters.roomStayStartDate.toISOString().substring(0, 10);
+                queryParameters['roomStayStartDate'] = requestParameters.roomStayStartDate;
             }
             if (requestParameters.roomStayEndDate !== undefined) {
-                queryParameters['roomStayEndDate'] = requestParameters.roomStayEndDate.toISOString().substring(0, 10);
+                queryParameters['roomStayEndDate'] = requestParameters.roomStayEndDate;
             }
             if (requestParameters.roomStayDuration !== undefined) {
                 queryParameters['roomStayDuration'] = requestParameters.roomStayDuration;
@@ -1987,7 +1987,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['membershipId'] = requestParameters.membershipId;
             }
             if (requestParameters.lastStayDate !== undefined) {
-                queryParameters['lastStayDate'] = requestParameters.lastStayDate.toISOString().substring(0, 10);
+                queryParameters['lastStayDate'] = requestParameters.lastStayDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -2044,16 +2044,16 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['sent'] = requestParameters.sent;
             }
             if (requestParameters.createdOnEndDate !== undefined) {
-                queryParameters['createdOnEndDate'] = requestParameters.createdOnEndDate.toISOString().substring(0, 10);
+                queryParameters['createdOnEndDate'] = requestParameters.createdOnEndDate;
             }
             if (requestParameters.createdOnStartDate !== undefined) {
-                queryParameters['createdOnStartDate'] = requestParameters.createdOnStartDate.toISOString().substring(0, 10);
+                queryParameters['createdOnStartDate'] = requestParameters.createdOnStartDate;
             }
             if (requestParameters.arrivalEndDate !== undefined) {
-                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate.toISOString().substring(0, 10);
+                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate;
             }
             if (requestParameters.arrivalStartDate !== undefined) {
-                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate.toISOString().substring(0, 10);
+                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate;
             }
             if (requestParameters.letterStyleId) {
                 queryParameters['letterStyleId'] = requestParameters.letterStyleId;
@@ -2272,16 +2272,16 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['text'] = requestParameters.text;
             }
             if (requestParameters.arrivalEndDate !== undefined) {
-                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate.toISOString().substring(0, 10);
+                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate;
             }
             if (requestParameters.arrivalStartDate !== undefined) {
-                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate.toISOString().substring(0, 10);
+                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate;
             }
             if (requestParameters.departureEndDate !== undefined) {
-                queryParameters['departureEndDate'] = requestParameters.departureEndDate.toISOString().substring(0, 10);
+                queryParameters['departureEndDate'] = requestParameters.departureEndDate;
             }
             if (requestParameters.departureStartDate !== undefined) {
-                queryParameters['departureStartDate'] = requestParameters.departureStartDate.toISOString().substring(0, 10);
+                queryParameters['departureStartDate'] = requestParameters.departureStartDate;
             }
             if (requestParameters.expectedArrivalStartTime !== undefined) {
                 queryParameters['expectedArrivalStartTime'] = requestParameters.expectedArrivalStartTime;
@@ -2359,7 +2359,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['cancelledByList'] = requestParameters.cancelledByList;
             }
             if (requestParameters.cancelledOn !== undefined) {
-                queryParameters['cancelledOn'] = requestParameters.cancelledOn.toISOString().substring(0, 10);
+                queryParameters['cancelledOn'] = requestParameters.cancelledOn;
             }
             if (requestParameters.ratePlanCodes) {
                 queryParameters['ratePlanCodes'] = requestParameters.ratePlanCodes;
@@ -2491,7 +2491,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['stayovers'] = requestParameters.stayovers;
             }
             if (requestParameters.stayDate !== undefined) {
-                queryParameters['stayDate'] = requestParameters.stayDate.toISOString().substring(0, 10);
+                queryParameters['stayDate'] = requestParameters.stayDate;
             }
             if (requestParameters.roomRoutingId !== undefined) {
                 queryParameters['roomRoutingId'] = requestParameters.roomRoutingId;
@@ -2770,22 +2770,22 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['externalSystemCodes'] = requestParameters.externalSystemCodes;
             }
             if (requestParameters.arrivalEndDate !== undefined) {
-                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate.toISOString().substring(0, 10);
+                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate;
             }
             if (requestParameters.arrivalStartDate !== undefined) {
-                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate.toISOString().substring(0, 10);
+                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate;
             }
             if (requestParameters.departureEndDate !== undefined) {
-                queryParameters['departureEndDate'] = requestParameters.departureEndDate.toISOString().substring(0, 10);
+                queryParameters['departureEndDate'] = requestParameters.departureEndDate;
             }
             if (requestParameters.departureStartDate !== undefined) {
-                queryParameters['departureStartDate'] = requestParameters.departureStartDate.toISOString().substring(0, 10);
+                queryParameters['departureStartDate'] = requestParameters.departureStartDate;
             }
             if (requestParameters.stayOnStartDate !== undefined) {
-                queryParameters['stayOnStartDate'] = requestParameters.stayOnStartDate.toISOString().substring(0, 10);
+                queryParameters['stayOnStartDate'] = requestParameters.stayOnStartDate;
             }
             if (requestParameters.createdOnStartDate !== undefined) {
-                queryParameters['createdOnStartDate'] = requestParameters.createdOnStartDate.toISOString().substring(0, 10);
+                queryParameters['createdOnStartDate'] = requestParameters.createdOnStartDate;
             }
             if (requestParameters.expectedArrivalEndTime !== undefined) {
                 queryParameters['expectedArrivalEndTime'] = requestParameters.expectedArrivalEndTime;
@@ -2794,10 +2794,10 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['expectedArrivalStartTime'] = requestParameters.expectedArrivalStartTime;
             }
             if (requestParameters.depositDueEndDate !== undefined) {
-                queryParameters['depositDueEndDate'] = requestParameters.depositDueEndDate.toISOString().substring(0, 10);
+                queryParameters['depositDueEndDate'] = requestParameters.depositDueEndDate;
             }
             if (requestParameters.depositDueStartDate !== undefined) {
-                queryParameters['depositDueStartDate'] = requestParameters.depositDueStartDate.toISOString().substring(0, 10);
+                queryParameters['depositDueStartDate'] = requestParameters.depositDueStartDate;
             }
             if (requestParameters.expectedReturnEndTime !== undefined) {
                 queryParameters['expectedReturnEndTime'] = requestParameters.expectedReturnEndTime;
@@ -2887,7 +2887,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['cancelledByList'] = requestParameters.cancelledByList;
             }
             if (requestParameters.cancelledOn !== undefined) {
-                queryParameters['cancelledOn'] = requestParameters.cancelledOn.toISOString().substring(0, 10);
+                queryParameters['cancelledOn'] = requestParameters.cancelledOn;
             }
             if (requestParameters.ratePlanCodes) {
                 queryParameters['ratePlanCodes'] = requestParameters.ratePlanCodes;
@@ -3031,7 +3031,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['stayovers'] = requestParameters.stayovers;
             }
             if (requestParameters.stayDate !== undefined) {
-                queryParameters['stayDate'] = requestParameters.stayDate.toISOString().substring(0, 10);
+                queryParameters['stayDate'] = requestParameters.stayDate;
             }
             if (requestParameters.roomRoutingId !== undefined) {
                 queryParameters['roomRoutingId'] = requestParameters.roomRoutingId;
@@ -3283,16 +3283,16 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['ratePlanCode'] = requestParameters.ratePlanCode;
             }
             if (requestParameters.reservationTimeSpanStartDate !== undefined) {
-                queryParameters['reservationTimeSpanStartDate'] = requestParameters.reservationTimeSpanStartDate.toISOString().substring(0, 10);
+                queryParameters['reservationTimeSpanStartDate'] = requestParameters.reservationTimeSpanStartDate;
             }
             if (requestParameters.reservationTimeSpanEndDate !== undefined) {
-                queryParameters['reservationTimeSpanEndDate'] = requestParameters.reservationTimeSpanEndDate.toISOString().substring(0, 10);
+                queryParameters['reservationTimeSpanEndDate'] = requestParameters.reservationTimeSpanEndDate;
             }
             if (requestParameters.packageTimeSpanStartDate !== undefined) {
-                queryParameters['packageTimeSpanStartDate'] = requestParameters.packageTimeSpanStartDate.toISOString().substring(0, 10);
+                queryParameters['packageTimeSpanStartDate'] = requestParameters.packageTimeSpanStartDate;
             }
             if (requestParameters.packageTimeSpanEndDate !== undefined) {
-                queryParameters['packageTimeSpanEndDate'] = requestParameters.packageTimeSpanEndDate.toISOString().substring(0, 10);
+                queryParameters['packageTimeSpanEndDate'] = requestParameters.packageTimeSpanEndDate;
             }
             if (requestParameters.packageQuantity !== undefined) {
                 queryParameters['packageQuantity'] = requestParameters.packageQuantity;
@@ -3406,10 +3406,10 @@ class ReservationApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.membershipType !== undefined) {
                 queryParameters['membershipType'] = requestParameters.membershipType;
@@ -3568,10 +3568,10 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['summaryInfo'] = requestParameters.summaryInfo;
             }
             if (requestParameters.criteriaStartDate !== undefined) {
-                queryParameters['criteriaStartDate'] = requestParameters.criteriaStartDate.toISOString().substring(0, 10);
+                queryParameters['criteriaStartDate'] = requestParameters.criteriaStartDate;
             }
             if (requestParameters.criteriaEndDate !== undefined) {
-                queryParameters['criteriaEndDate'] = requestParameters.criteriaEndDate.toISOString().substring(0, 10);
+                queryParameters['criteriaEndDate'] = requestParameters.criteriaEndDate;
             }
             if (requestParameters.adults !== undefined) {
                 queryParameters['adults'] = requestParameters.adults;
@@ -3598,7 +3598,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['bucket5Count'] = requestParameters.bucket5Count;
             }
             if (requestParameters.detailDate !== undefined) {
-                queryParameters['detailDate'] = requestParameters.detailDate.toISOString().substring(0, 10);
+                queryParameters['detailDate'] = requestParameters.detailDate;
             }
             if (requestParameters.blockId !== undefined) {
                 queryParameters['blockId'] = requestParameters.blockId;
@@ -3874,10 +3874,10 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['activityType'] = requestParameters.activityType;
             }
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.toDate !== undefined) {
-                queryParameters['toDate'] = requestParameters.toDate.toISOString().substring(0, 10);
+                queryParameters['toDate'] = requestParameters.toDate;
             }
             if (requestParameters.searchText !== undefined) {
                 queryParameters['searchText'] = requestParameters.searchText;
@@ -4375,16 +4375,16 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['externalSystemCodes'] = requestParameters.externalSystemCodes;
             }
             if (requestParameters.arrivalEndDate !== undefined) {
-                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate.toISOString().substring(0, 10);
+                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate;
             }
             if (requestParameters.arrivalStartDate !== undefined) {
-                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate.toISOString().substring(0, 10);
+                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate;
             }
             if (requestParameters.departureEndDate !== undefined) {
-                queryParameters['departureEndDate'] = requestParameters.departureEndDate.toISOString().substring(0, 10);
+                queryParameters['departureEndDate'] = requestParameters.departureEndDate;
             }
             if (requestParameters.departureStartDate !== undefined) {
-                queryParameters['departureStartDate'] = requestParameters.departureStartDate.toISOString().substring(0, 10);
+                queryParameters['departureStartDate'] = requestParameters.departureStartDate;
             }
             if (requestParameters.expectedArrivalStartTime !== undefined) {
                 queryParameters['expectedArrivalStartTime'] = requestParameters.expectedArrivalStartTime;
@@ -4471,7 +4471,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['cancelledByList'] = requestParameters.cancelledByList;
             }
             if (requestParameters.cancelledOn !== undefined) {
-                queryParameters['cancelledOn'] = requestParameters.cancelledOn.toISOString().substring(0, 10);
+                queryParameters['cancelledOn'] = requestParameters.cancelledOn;
             }
             if (requestParameters.ratePlanCodes) {
                 queryParameters['ratePlanCodes'] = requestParameters.ratePlanCodes;
@@ -4606,7 +4606,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['stayovers'] = requestParameters.stayovers;
             }
             if (requestParameters.stayDate !== undefined) {
-                queryParameters['stayDate'] = requestParameters.stayDate.toISOString().substring(0, 10);
+                queryParameters['stayDate'] = requestParameters.stayDate;
             }
             if (requestParameters.roomRoutingId !== undefined) {
                 queryParameters['roomRoutingId'] = requestParameters.roomRoutingId;
@@ -4666,10 +4666,10 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['optedForCommunication'] = requestParameters.optedForCommunication;
             }
             if (requestParameters.createdOn !== undefined) {
-                queryParameters['createdOn'] = requestParameters.createdOn.toISOString().substring(0, 10);
+                queryParameters['createdOn'] = requestParameters.createdOn;
             }
             if (requestParameters.stayOn !== undefined) {
-                queryParameters['stayOn'] = requestParameters.stayOn.toISOString().substring(0, 10);
+                queryParameters['stayOn'] = requestParameters.stayOn;
             }
             if (requestParameters.contactNames) {
                 queryParameters['contactNames'] = requestParameters.contactNames;
@@ -4732,19 +4732,19 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['preRegistered'] = requestParameters.preRegistered;
             }
             if (requestParameters.arrivalDate !== undefined) {
-                queryParameters['arrivalDate'] = requestParameters.arrivalDate.toISOString().substring(0, 10);
+                queryParameters['arrivalDate'] = requestParameters.arrivalDate;
             }
             if (requestParameters.departureDate !== undefined) {
-                queryParameters['departureDate'] = requestParameters.departureDate.toISOString().substring(0, 10);
+                queryParameters['departureDate'] = requestParameters.departureDate;
             }
             if (requestParameters.createDateTime !== undefined) {
-                queryParameters['createDateTime'] = requestParameters.createDateTime.toISOString().substring(0, 10);
+                queryParameters['createDateTime'] = requestParameters.createDateTime;
             }
             if (requestParameters.cancelledOn !== undefined) {
-                queryParameters['cancelledOn'] = requestParameters.cancelledOn.toISOString().substring(0, 10);
+                queryParameters['cancelledOn'] = requestParameters.cancelledOn;
             }
             if (requestParameters.folioClosedOn !== undefined) {
-                queryParameters['folioClosedOn'] = requestParameters.folioClosedOn.toISOString().substring(0, 10);
+                queryParameters['folioClosedOn'] = requestParameters.folioClosedOn;
             }
             if (requestParameters.lastName !== undefined) {
                 queryParameters['lastName'] = requestParameters.lastName;
@@ -5050,7 +5050,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['dueOut'] = requestParameters.dueOut;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.isSortDescending !== undefined) {
                 queryParameters['isSortDescending'] = requestParameters.isSortDescending;
@@ -5083,7 +5083,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['includeComponentRoomBlockOutDates'] = requestParameters.includeComponentRoomBlockOutDates;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.unassignedRooms !== undefined) {
                 queryParameters['unassignedRooms'] = requestParameters.unassignedRooms;
@@ -5173,7 +5173,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['includeCompRoutingRequests'] = requestParameters.includeCompRoutingRequests;
             }
             if (requestParameters.effectiveOn !== undefined) {
-                queryParameters['effectiveOn'] = requestParameters.effectiveOn.toISOString().substring(0, 10);
+                queryParameters['effectiveOn'] = requestParameters.effectiveOn;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -5308,7 +5308,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['croCode'] = requestParameters.croCode;
             }
             if (requestParameters.displayDate !== undefined) {
-                queryParameters['displayDate'] = requestParameters.displayDate.toISOString().substring(0, 10);
+                queryParameters['displayDate'] = requestParameters.displayDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -5389,7 +5389,7 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['croCode'] = requestParameters.croCode;
             }
             if (requestParameters.displayDate !== undefined) {
-                queryParameters['displayDate'] = requestParameters.displayDate.toISOString().substring(0, 10);
+                queryParameters['displayDate'] = requestParameters.displayDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -5461,10 +5461,10 @@ class ReservationApi extends runtime.BaseAPI {
                 queryParameters['criteriaType'] = requestParameters.criteriaType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -5908,10 +5908,10 @@ class ReservationApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.arrivalEndDate !== undefined) {
-                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate.toISOString().substring(0, 10);
+                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate;
             }
             if (requestParameters.arrivalStartDate !== undefined) {
-                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate.toISOString().substring(0, 10);
+                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate;
             }
             if (requestParameters.membershipType !== undefined) {
                 queryParameters['membershipType'] = requestParameters.membershipType;

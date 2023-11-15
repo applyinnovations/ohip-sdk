@@ -29,10 +29,10 @@ export interface AssociatedBillInfoType {
     associatedBillFolioType?: string;
     /**
      * The bill generation date of the original bill for which the Credit Bill is being generated.
-     * @type {Date}
+     * @type {string}
      * @memberof AssociatedBillInfoType
      */
-    associatedBillGenerationDate?: Date;
+    associatedBillGenerationDate?: string;
     /**
      * The bill number of the original bill for which the Credit Bill is being generated.
      * @type {number}

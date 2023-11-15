@@ -77,10 +77,10 @@ export interface ProfileMembershipType {
     earningPreference?: MembershipEarningPreferenceType;
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Resort/CRO where enrollment is done.
      * @type {string}
@@ -101,10 +101,10 @@ export interface ProfileMembershipType {
     excludeFromBatch?: boolean;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -245,10 +245,10 @@ export interface ProfileMembershipType {
     reIssueNewCard?: CardReIssueType;
     /**
      * Indicates when the member signed up for the loyalty program.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileMembershipType
      */
-    signupDate?: Date;
+    signupDate?: string;
     /**
      *
      * @type {TierAdministrationType}

@@ -34,10 +34,10 @@ import {
 export interface PublishRatePlanType {
     /**
      * Date from which rate code will be effective on the channel.
-     * @type {Date}
+     * @type {string}
      * @memberof PublishRatePlanType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The target channel to send the updated rate information to the external channel.
      * @type {string}
@@ -52,10 +52,10 @@ export interface PublishRatePlanType {
     channelCodes?: PublishRatePlanTypeChannelCodes;
     /**
      * Date on which rate code will cease to be effective.
-     * @type {Date}
+     * @type {string}
      * @memberof PublishRatePlanType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {PublishRatePlanTypeHotelCodes}
@@ -89,10 +89,10 @@ export function PublishRatePlanTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'channel': !exists(json, 'channel') ? undefined : json['channel'],
         'channelCodes': !exists(json, 'channelCodes') ? undefined : PublishRatePlanTypeChannelCodesFromJSON(json['channelCodes']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelCodes': !exists(json, 'hotelCodes') ? undefined : PublishRatePlanTypeHotelCodesFromJSON(json['hotelCodes']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
@@ -107,10 +107,10 @@ export function PublishRatePlanTypeToJSON(value?: PublishRatePlanType | null): a
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'channel': value.channel,
         'channelCodes': PublishRatePlanTypeChannelCodesToJSON(value.channelCodes),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelCodes': PublishRatePlanTypeHotelCodesToJSON(value.hotelCodes),
         'hotelId': value.hotelId,
     };

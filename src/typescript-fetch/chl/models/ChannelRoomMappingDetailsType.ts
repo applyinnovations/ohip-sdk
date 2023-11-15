@@ -88,10 +88,10 @@ export interface ChannelRoomMappingDetailsType {
     description?: ChannelRoomMappingDescriptionType;
     /**
      * End date of the hotel-channel room type mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingDetailsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {ChannelMappingEnhancedDescriptionType}
@@ -100,10 +100,10 @@ export interface ChannelRoomMappingDetailsType {
     globalDescription?: ChannelMappingEnhancedDescriptionType;
     /**
      * Begin date of the channel room type mapping. This element is used for sending modified Begin date value for operation ChangeChannelRoomMapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingDetailsType
      */
-    newBeginDate?: Date;
+    newBeginDate?: string;
     /**
      * Channel Room Type. This element is used for sending modified Channel room type value for operation ChangeChannelRoomMapping.
      * @type {string}
@@ -151,9 +151,9 @@ export function ChannelRoomMappingDetailsTypeFromJSONTyped(json: any, ignoreDisc
         'channelRateCodes': !exists(json, 'channelRateCodes') ? undefined : json['channelRateCodes'],
         'channelRoomTypeOrder': !exists(json, 'channelRoomTypeOrder') ? undefined : json['channelRoomTypeOrder'],
         'description': !exists(json, 'description') ? undefined : ChannelRoomMappingDescriptionTypeFromJSON(json['description']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'globalDescription': !exists(json, 'globalDescription') ? undefined : ChannelMappingEnhancedDescriptionTypeFromJSON(json['globalDescription']),
-        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : (new Date(json['newBeginDate'])),
+        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : json['newBeginDate'],
         'newChannelRoomType': !exists(json, 'newChannelRoomType') ? undefined : json['newChannelRoomType'],
         'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
         'sellSequence': !exists(json, 'sellSequence') ? undefined : json['sellSequence'],
@@ -177,9 +177,9 @@ export function ChannelRoomMappingDetailsTypeToJSON(value?: ChannelRoomMappingDe
         'channelRateCodes': value.channelRateCodes,
         'channelRoomTypeOrder': value.channelRoomTypeOrder,
         'description': ChannelRoomMappingDescriptionTypeToJSON(value.description),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'globalDescription': ChannelMappingEnhancedDescriptionTypeToJSON(value.globalDescription),
-        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substring(0,10)),
+        'newBeginDate': value.newBeginDate,
         'newChannelRoomType': value.newChannelRoomType,
         'rateCodes': value.rateCodes,
         'sellSequence': value.sellSequence,

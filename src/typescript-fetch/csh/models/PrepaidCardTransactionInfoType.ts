@@ -58,10 +58,10 @@ export interface PrepaidCardTransactionInfoType {
     cancellable?: boolean;
     /**
      * Prepaid card transaction date.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardTransactionInfoType
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -115,7 +115,7 @@ export function PrepaidCardTransactionInfoTypeFromJSONTyped(json: any, ignoreDis
         
         'amount': !exists(json, 'amount') ? undefined : CurrencyAmountTypeFromJSON(json['amount']),
         'cancellable': !exists(json, 'cancellable') ? undefined : json['cancellable'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'source': !exists(json, 'source') ? undefined : PrepaidCardTransactionSourceTypeFromJSON(json['source']),
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
@@ -135,7 +135,7 @@ export function PrepaidCardTransactionInfoTypeToJSON(value?: PrepaidCardTransact
         
         'amount': CurrencyAmountTypeToJSON(value.amount),
         'cancellable': value.cancellable,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'source': PrepaidCardTransactionSourceTypeToJSON(value.source),
         'transactionNo': value.transactionNo,

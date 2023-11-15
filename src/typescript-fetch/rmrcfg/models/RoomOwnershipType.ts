@@ -40,10 +40,10 @@ export interface RoomOwnershipType {
     contractNumber?: string;
     /**
      * End Date of the Room Ownership record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnershipType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code of Room Ownership record.
      * @type {string}
@@ -94,10 +94,10 @@ export interface RoomOwnershipType {
     roomType?: string;
     /**
      * Start Date of the Room Ownership record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnershipType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Status of the Room Ownership record. (Active or Inactive)
      * @type {string}
@@ -126,7 +126,7 @@ export function RoomOwnershipTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'contractNumber': !exists(json, 'contractNumber') ? undefined : json['contractNumber'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'ownerExclusive': !exists(json, 'ownerExclusive') ? undefined : json['ownerExclusive'],
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
@@ -135,7 +135,7 @@ export function RoomOwnershipTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomOwnershipId': !exists(json, 'roomOwnershipId') ? undefined : json['roomOwnershipId'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'status': !exists(json, 'status') ? undefined : json['status'],
     };
 }
@@ -150,7 +150,7 @@ export function RoomOwnershipTypeToJSON(value?: RoomOwnershipType | null): any {
     return {
         
         'contractNumber': value.contractNumber,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'ownerExclusive': value.ownerExclusive,
         'profileId': UniqueIDTypeToJSON(value.profileId),
@@ -159,7 +159,7 @@ export function RoomOwnershipTypeToJSON(value?: RoomOwnershipType | null): any {
         'roomId': value.roomId,
         'roomOwnershipId': value.roomOwnershipId,
         'roomType': value.roomType,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'status': value.status,
     };
 }

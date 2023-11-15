@@ -36,13 +36,13 @@ function ReceiptSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'customNumbers': !(0, runtime_1.exists)(json, 'customNumbers') ? undefined : json['customNumbers'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'payeeInfo': !(0, runtime_1.exists)(json, 'payeeInfo') ? undefined : (0, PayeeInfoType_1.PayeeInfoTypeFromJSON)(json['payeeInfo']),
         'receiptAmount': !(0, runtime_1.exists)(json, 'receiptAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['receiptAmount']),
         'receiptNo': !(0, runtime_1.exists)(json, 'receiptNo') ? undefined : json['receiptNo'],
         'receiptType': !(0, runtime_1.exists)(json, 'receiptType') ? undefined : (0, ReceiptType_1.ReceiptTypeFromJSON)(json['receiptType']),
         'receiptTypeDescription': !(0, runtime_1.exists)(json, 'receiptTypeDescription') ? undefined : json['receiptTypeDescription'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'taxInvoice': !(0, runtime_1.exists)(json, 'taxInvoice') ? undefined : json['taxInvoice'],
         'transactionNo': !(0, runtime_1.exists)(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
@@ -57,13 +57,13 @@ function ReceiptSummaryTypeToJSON(value) {
     }
     return {
         'customNumbers': value.customNumbers,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'payeeInfo': (0, PayeeInfoType_1.PayeeInfoTypeToJSON)(value.payeeInfo),
         'receiptAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.receiptAmount),
         'receiptNo': value.receiptNo,
         'receiptType': (0, ReceiptType_1.ReceiptTypeToJSON)(value.receiptType),
         'receiptTypeDescription': value.receiptTypeDescription,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'taxInvoice': value.taxInvoice,
         'transactionNo': value.transactionNo,
     };

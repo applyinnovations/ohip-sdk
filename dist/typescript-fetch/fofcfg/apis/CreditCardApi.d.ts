@@ -167,7 +167,7 @@ export interface ValidateCreditCardTypeRequest {
     cardNumberMasked?: string;
     cardNumberType?: ValidateCreditCardTypeCardNumberTypeEnum;
     cardType?: ValidateCreditCardTypeCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: ValidateCreditCardTypeProcessingEnum;
@@ -200,7 +200,7 @@ export interface ValidateCreditCardTypeRequest {
     emailFolioInfoLastModifyDateTime?: string;
     emailFolioInfoOrderSequence?: number;
     emailFolioInfoPrimaryInd?: boolean;
-    emailFolioInfoPurgeDate?: Date;
+    emailFolioInfoPurgeDate?: string;
     emailEmailFolioInfoType?: string;
     emailFolioInfoTypeDescription?: string;
     xExternalsystem?: string;

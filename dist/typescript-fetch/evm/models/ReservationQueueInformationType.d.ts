@@ -49,10 +49,10 @@ export interface ReservationQueueInformationType {
     priority?: number;
     /**
      * The Business date on which the reservation was due to arrive and is currently placed on Queue for Check In.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationType
      */
-    queueDate?: Date;
+    queueDate?: string;
 }
 /**
  * Check if a given object implements the ReservationQueueInformationType interface.

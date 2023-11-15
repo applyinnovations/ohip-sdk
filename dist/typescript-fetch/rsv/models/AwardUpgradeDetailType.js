@@ -32,7 +32,7 @@ function AwardUpgradeDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'penaltyPoints': !(0, runtime_1.exists)(json, 'penaltyPoints') ? undefined : json['penaltyPoints'],
         'pointsRequired': !(0, runtime_1.exists)(json, 'pointsRequired') ? undefined : json['pointsRequired'],
     };
@@ -46,7 +46,7 @@ function AwardUpgradeDetailTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'penaltyPoints': value.penaltyPoints,
         'pointsRequired': value.pointsRequired,
     };

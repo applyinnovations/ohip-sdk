@@ -19,10 +19,10 @@ import type { WarningType } from './WarningType';
 export interface CheckDetails {
     /**
      * Indicates the Cheque date.
-     * @type {Date}
+     * @type {string}
      * @memberof CheckDetails
      */
-    checkDate?: Date;
+    checkDate?: string;
     /**
      * Used for Character Strings, length 0 to 32000.
      * @type {string}

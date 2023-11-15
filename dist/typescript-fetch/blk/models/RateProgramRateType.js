@@ -35,7 +35,7 @@ function RateProgramRateTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'commissionable': !(0, runtime_1.exists)(json, 'commissionable') ? undefined : json['commissionable'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'mobileCheckout': !(0, runtime_1.exists)(json, 'mobileCheckout') ? undefined : json['mobileCheckout'],
         'primary': !(0, runtime_1.exists)(json, 'primary') ? undefined : json['primary'],
         'rateAmounts': !(0, runtime_1.exists)(json, 'rateAmounts') ? undefined : (0, BlockGridRatesType_1.BlockGridRatesTypeFromJSON)(json['rateAmounts']),
@@ -43,7 +43,7 @@ function RateProgramRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateMarketCode': !(0, runtime_1.exists)(json, 'rateMarketCode') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['rateMarketCode']),
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.RateProgramRateTypeFromJSONTyped = RateProgramRateTypeFromJSONTyped;
@@ -56,7 +56,7 @@ function RateProgramRateTypeToJSON(value) {
     }
     return {
         'commissionable': value.commissionable,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'mobileCheckout': value.mobileCheckout,
         'primary': value.primary,
         'rateAmounts': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.rateAmounts),
@@ -64,7 +64,7 @@ function RateProgramRateTypeToJSON(value) {
         'rateMarketCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.rateMarketCode),
         'roomTypes': value.roomTypes,
         'sequence': value.sequence,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.RateProgramRateTypeToJSON = RateProgramRateTypeToJSON;

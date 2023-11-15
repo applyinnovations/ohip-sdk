@@ -103,10 +103,10 @@ export interface RoomRateType {
     eligibilityCode?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    end?: Date;
+    end?: string;
     /**
      * Fixed Rate Indicator.
      * @type {boolean}
@@ -235,10 +235,10 @@ export interface RoomRateType {
     sourceCodeDescription?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    start?: Date;
+    start?: string;
     /**
      * Profile associated with the room Stay.
      * @type {Array<ReservationProfileType>}

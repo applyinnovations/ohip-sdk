@@ -17,7 +17,7 @@ export interface GetFrontOfficeStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    date?: Date;
+    date?: string;
     metric?: Set<GetFrontOfficeStatisticsMetricEnum>;
     parameterNames?: Array<string>;
     parameterValues?: Array<string>;
@@ -31,8 +31,8 @@ export interface GetFrontOfficeStatisticsWithDateRangeRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    endDate?: Date;
-    date?: Date;
+    endDate?: string;
+    date?: string;
     metric?: Set<GetFrontOfficeStatisticsWithDateRangeMetricEnum>;
     parameterNames?: Array<string>;
     parameterValues?: Array<string>;

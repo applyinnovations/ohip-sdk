@@ -24,10 +24,10 @@ export interface FolioReportCriteriaType {
     billNumber?: number;
     /**
      * Optional folio generation date - defaults to hotel business date.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioReportCriteriaType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Optional folio type.
      * @type {string}

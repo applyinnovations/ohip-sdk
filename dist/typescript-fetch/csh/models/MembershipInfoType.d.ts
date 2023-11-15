@@ -29,10 +29,10 @@ export interface MembershipInfoType {
     bonusCode?: string;
     /**
      * Indicates the end date of membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipInfoType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * Indicates whether membership is active or inactive.
      * @type {boolean}

@@ -379,7 +379,7 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.scheduleDate !== undefined) {
-                queryParameters['scheduleDate'] = requestParameters.scheduleDate.toISOString().substring(0, 10);
+                queryParameters['scheduleDate'] = requestParameters.scheduleDate;
             }
             if (requestParameters.attendantId) {
                 queryParameters['attendantId'] = requestParameters.attendantId;
@@ -439,10 +439,10 @@ class HousekeepingApi extends runtime.BaseAPI {
                 queryParameters['cycleStartDay'] = requestParameters.cycleStartDay;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.facilityTaskCode !== undefined) {
                 queryParameters['facilityTaskCode'] = requestParameters.facilityTaskCode;
@@ -592,7 +592,7 @@ class HousekeepingApi extends runtime.BaseAPI {
                 queryParameters['taskCodes'] = requestParameters.taskCodes;
             }
             if (requestParameters.date !== undefined) {
-                queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
+                queryParameters['date'] = requestParameters.date;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -652,7 +652,7 @@ class HousekeepingApi extends runtime.BaseAPI {
                 queryParameters['taskCodes'] = requestParameters.taskCodes;
             }
             if (requestParameters.date !== undefined) {
-                queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
+                queryParameters['date'] = requestParameters.date;
             }
             if (requestParameters.roomId) {
                 queryParameters['roomId'] = requestParameters.roomId;
@@ -857,10 +857,10 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -980,7 +980,7 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.taskDate !== undefined) {
-                queryParameters['taskDate'] = requestParameters.taskDate.toISOString().substring(0, 10);
+                queryParameters['taskDate'] = requestParameters.taskDate;
             }
             if (requestParameters.attendantInRoomOnly !== undefined) {
                 queryParameters['attendantInRoomOnly'] = requestParameters.attendantInRoomOnly;
@@ -1094,10 +1094,10 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.scheduleStartDate !== undefined) {
-                queryParameters['scheduleStartDate'] = requestParameters.scheduleStartDate.toISOString().substring(0, 10);
+                queryParameters['scheduleStartDate'] = requestParameters.scheduleStartDate;
             }
             if (requestParameters.scheduleEndDate !== undefined) {
-                queryParameters['scheduleEndDate'] = requestParameters.scheduleEndDate.toISOString().substring(0, 10);
+                queryParameters['scheduleEndDate'] = requestParameters.scheduleEndDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -1157,10 +1157,10 @@ class HousekeepingApi extends runtime.BaseAPI {
                 queryParameters['roomClass'] = requestParameters.roomClass;
             }
             if (requestParameters.housekeepingEndDate !== undefined) {
-                queryParameters['housekeepingEndDate'] = requestParameters.housekeepingEndDate.toISOString().substring(0, 10);
+                queryParameters['housekeepingEndDate'] = requestParameters.housekeepingEndDate;
             }
             if (requestParameters.housekeepingStartDate !== undefined) {
-                queryParameters['housekeepingStartDate'] = requestParameters.housekeepingStartDate.toISOString().substring(0, 10);
+                queryParameters['housekeepingStartDate'] = requestParameters.housekeepingStartDate;
             }
             if (requestParameters.floor) {
                 queryParameters['floor'] = requestParameters.floor;
@@ -1331,13 +1331,13 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.roomId !== undefined) {
                 queryParameters['roomId'] = requestParameters.roomId;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.roomTypes) {
                 queryParameters['roomTypes'] = requestParameters.roomTypes;
@@ -1394,13 +1394,13 @@ class HousekeepingApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.roomId !== undefined) {
                 queryParameters['roomId'] = requestParameters.roomId;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.roomTypes) {
                 queryParameters['roomTypes'] = requestParameters.roomTypes;
@@ -1463,10 +1463,10 @@ class HousekeepingApi extends runtime.BaseAPI {
                 queryParameters['reservationIdType'] = requestParameters.reservationIdType;
             }
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.fetchInstructions) {
                 queryParameters['fetchInstructions'] = requestParameters.fetchInstructions;
@@ -1652,10 +1652,10 @@ class HousekeepingApi extends runtime.BaseAPI {
                 queryParameters['maintenanceIdType'] = requestParameters.maintenanceIdType;
             }
             if (requestParameters.resolvedEndDate !== undefined) {
-                queryParameters['resolvedEndDate'] = requestParameters.resolvedEndDate.toISOString().substring(0, 10);
+                queryParameters['resolvedEndDate'] = requestParameters.resolvedEndDate;
             }
             if (requestParameters.resolvedStartDate !== undefined) {
-                queryParameters['resolvedStartDate'] = requestParameters.resolvedStartDate.toISOString().substring(0, 10);
+                queryParameters['resolvedStartDate'] = requestParameters.resolvedStartDate;
             }
             if (requestParameters.includeImages !== undefined) {
                 queryParameters['includeImages'] = requestParameters.includeImages;
@@ -1715,7 +1715,7 @@ class HousekeepingApi extends runtime.BaseAPI {
                 queryParameters['taskCodes'] = requestParameters.taskCodes;
             }
             if (requestParameters.taskDate !== undefined) {
-                queryParameters['taskDate'] = requestParameters.taskDate.toISOString().substring(0, 10);
+                queryParameters['taskDate'] = requestParameters.taskDate;
             }
             if (requestParameters.roomId !== undefined) {
                 queryParameters['roomId'] = requestParameters.roomId;

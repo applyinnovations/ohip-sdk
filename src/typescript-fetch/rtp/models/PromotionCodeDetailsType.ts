@@ -70,10 +70,10 @@ export interface PromotionCodeDetailsType {
     description?: string;
     /**
      * Date the promotion is inactived.
-     * @type {Date}
+     * @type {string}
      * @memberof PromotionCodeDetailsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Free text comments that further describe the promotion code
      * @type {string}
@@ -148,7 +148,7 @@ export function PromotionCodeDetailsTypeFromJSONTyped(json: any, ignoreDiscrimin
         'categoryDesc': !exists(json, 'categoryDesc') ? undefined : json['categoryDesc'],
         'checkInOutTime': !exists(json, 'checkInOutTime') ? undefined : DateTimeSpanTypeFromJSON(json['checkInOutTime']),
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'promoInformation': !exists(json, 'promoInformation') ? undefined : json['promoInformation'],
         'promoInstructions': !exists(json, 'promoInstructions') ? undefined : json['promoInstructions'],
         'promotionGroup': !exists(json, 'promotionGroup') ? undefined : json['promotionGroup'],
@@ -174,7 +174,7 @@ export function PromotionCodeDetailsTypeToJSON(value?: PromotionCodeDetailsType 
         'categoryDesc': value.categoryDesc,
         'checkInOutTime': DateTimeSpanTypeToJSON(value.checkInOutTime),
         'description': value.description,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'promoInformation': value.promoInformation,
         'promoInstructions': value.promoInstructions,
         'promotionGroup': value.promotionGroup,

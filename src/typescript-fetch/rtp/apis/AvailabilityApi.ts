@@ -52,8 +52,8 @@ export interface ValidateRatePromotionCouponRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -203,11 +203,11 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

@@ -20,10 +20,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface OverlappingStayInfoType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof OverlappingStayInfoType
      */
-    end?: Date;
+    end?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -50,10 +50,10 @@ export interface OverlappingStayInfoType {
     reservationId?: ReservationId;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof OverlappingStayInfoType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the OverlappingStayInfoType interface.

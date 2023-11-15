@@ -19,10 +19,10 @@ import type { PublishRatePlanTypeHotelCodes } from './PublishRatePlanTypeHotelCo
 export interface PublishRatePlanType {
     /**
      * Date from which rate code will be effective on the channel.
-     * @type {Date}
+     * @type {string}
      * @memberof PublishRatePlanType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The target channel to send the updated rate information to the external channel.
      * @type {string}
@@ -37,10 +37,10 @@ export interface PublishRatePlanType {
     channelCodes?: PublishRatePlanTypeChannelCodes;
     /**
      * Date on which rate code will cease to be effective.
-     * @type {Date}
+     * @type {string}
      * @memberof PublishRatePlanType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {PublishRatePlanTypeHotelCodes}

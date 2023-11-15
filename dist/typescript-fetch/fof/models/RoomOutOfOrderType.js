@@ -34,14 +34,14 @@ function RoomOutOfOrderTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'newDateRange': !(0, runtime_1.exists)(json, 'newDateRange') ? undefined : (0, DateRangeType_1.DateRangeTypeFromJSON)(json['newDateRange']),
         'reasonCode': !(0, runtime_1.exists)(json, 'reasonCode') ? undefined : json['reasonCode'],
         'reasonDesc': !(0, runtime_1.exists)(json, 'reasonDesc') ? undefined : json['reasonDesc'],
         'repairRemarks': !(0, runtime_1.exists)(json, 'repairRemarks') ? undefined : json['repairRemarks'],
         'returnStatus': !(0, runtime_1.exists)(json, 'returnStatus') ? undefined : (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeFromJSON)(json['returnStatus']),
         'roomStatus': !(0, runtime_1.exists)(json, 'roomStatus') ? undefined : (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeFromJSON)(json['roomStatus']),
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.RoomOutOfOrderTypeFromJSONTyped = RoomOutOfOrderTypeFromJSONTyped;
@@ -53,14 +53,14 @@ function RoomOutOfOrderTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'newDateRange': (0, DateRangeType_1.DateRangeTypeToJSON)(value.newDateRange),
         'reasonCode': value.reasonCode,
         'reasonDesc': value.reasonDesc,
         'repairRemarks': value.repairRemarks,
         'returnStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.returnStatus),
         'roomStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.roomStatus),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.RoomOutOfOrderTypeToJSON = RoomOutOfOrderTypeToJSON;

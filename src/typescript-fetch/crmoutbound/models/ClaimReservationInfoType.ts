@@ -40,16 +40,16 @@ export interface ClaimReservationInfoType {
     confirmationNo?: Array<UniqueIDType>;
     /**
      * Arrival date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Departure date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    departure?: Date;
+    departure?: string;
 }
 
 /**
@@ -73,8 +73,8 @@ export function ClaimReservationInfoTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'confirmationNo': !exists(json, 'confirmationNo') ? undefined : ((json['confirmationNo'] as Array<any>).map(UniqueIDTypeFromJSON)),
-        'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
-        'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'arrival': !exists(json, 'arrival') ? undefined : json['arrival'],
+        'departure': !exists(json, 'departure') ? undefined : json['departure'],
     };
 }
 
@@ -89,8 +89,8 @@ export function ClaimReservationInfoTypeToJSON(value?: ClaimReservationInfoType 
         
         'hotelId': value.hotelId,
         'confirmationNo': value.confirmationNo === undefined ? undefined : ((value.confirmationNo as Array<any>).map(UniqueIDTypeToJSON)),
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
+        'arrival': value.arrival,
+        'departure': value.departure,
     };
 }
 

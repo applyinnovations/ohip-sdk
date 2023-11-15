@@ -18,10 +18,10 @@ import type { FixedChargeFrequencyType } from './FixedChargeFrequencyType';
 export interface FixedChargeScheduleType {
     /**
      * Date of when to execute yearly fixed charge. Applicable when frequency is Yearly.
-     * @type {Date}
+     * @type {string}
      * @memberof FixedChargeScheduleType
      */
-    dateToExecute?: Date;
+    dateToExecute?: string;
     /**
      * Day of when to execute fixed charge. Applicable when frequency is Daily or Weekly.
      * @type {string}
@@ -30,16 +30,16 @@ export interface FixedChargeScheduleType {
     dayToExecute?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FixedChargeScheduleType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FixedChargeScheduleType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      *
      * @type {FixedChargeFrequencyType}

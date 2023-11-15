@@ -34,10 +34,10 @@ import {
 export interface TrackItLogType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof TrackItLogType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * 
      * @type {string}
@@ -107,7 +107,7 @@ export function TrackItLogTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'logDate': !exists(json, 'logDate') ? undefined : json['logDate'],
@@ -128,7 +128,7 @@ export function TrackItLogTypeToJSON(value?: TrackItLogType | null): any {
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'description': value.description,
         'hotelId': value.hotelId,
         'logDate': value.logDate,

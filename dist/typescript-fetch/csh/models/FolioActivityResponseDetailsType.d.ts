@@ -17,10 +17,10 @@
 export interface FolioActivityResponseDetailsType {
     /**
      * Business Date.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioActivityResponseDetailsType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * Number of fiscal response attempt made for the folio
      * @type {number}

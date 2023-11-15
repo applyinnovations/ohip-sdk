@@ -58,10 +58,10 @@ export interface BlockAllocationWashType {
     byValue?: boolean;
     /**
      * End date for the wash operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationWashType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if the Allocation objects refer to Generic Room Types (Room Pools).
      * @type {boolean}
@@ -100,10 +100,10 @@ export interface BlockAllocationWashType {
     roomTypes?: Array<string>;
     /**
      * Start date for the wash operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationWashType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -128,14 +128,14 @@ export function BlockAllocationWashTypeFromJSONTyped(json: any, ignoreDiscrimina
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
         'blockInventory': !exists(json, 'blockInventory') ? undefined : BlockGridInvTypeFromJSON(json['blockInventory']),
         'byValue': !exists(json, 'byValue') ? undefined : json['byValue'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'genericRoomType': !exists(json, 'genericRoomType') ? undefined : json['genericRoomType'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'includedDays': !exists(json, 'includedDays') ? undefined : json['includedDays'],
         'occPercentByDay': !exists(json, 'occPercentByDay') ? undefined : BlockAllocationWashTypeOccPercentByDayFromJSON(json['occPercentByDay']),
         'percentByDay': !exists(json, 'percentByDay') ? undefined : json['percentByDay'],
         'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -151,14 +151,14 @@ export function BlockAllocationWashTypeToJSON(value?: BlockAllocationWashType | 
         'blockId': BlockIdToJSON(value.blockId),
         'blockInventory': BlockGridInvTypeToJSON(value.blockInventory),
         'byValue': value.byValue,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'genericRoomType': value.genericRoomType,
         'hotelId': value.hotelId,
         'includedDays': value.includedDays,
         'occPercentByDay': BlockAllocationWashTypeOccPercentByDayToJSON(value.occPercentByDay),
         'percentByDay': value.percentByDay,
         'roomTypes': value.roomTypes,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

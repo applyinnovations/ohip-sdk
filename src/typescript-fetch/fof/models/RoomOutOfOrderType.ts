@@ -34,10 +34,10 @@ import {
 export interface RoomOutOfOrderType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOutOfOrderType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {DateRangeType}
@@ -76,10 +76,10 @@ export interface RoomOutOfOrderType {
     roomStatus?: HousekeepingRoomStatusType;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOutOfOrderType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -101,14 +101,14 @@ export function RoomOutOfOrderTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'newDateRange': !exists(json, 'newDateRange') ? undefined : DateRangeTypeFromJSON(json['newDateRange']),
         'reasonCode': !exists(json, 'reasonCode') ? undefined : json['reasonCode'],
         'reasonDesc': !exists(json, 'reasonDesc') ? undefined : json['reasonDesc'],
         'repairRemarks': !exists(json, 'repairRemarks') ? undefined : json['repairRemarks'],
         'returnStatus': !exists(json, 'returnStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['returnStatus']),
         'roomStatus': !exists(json, 'roomStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['roomStatus']),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -121,14 +121,14 @@ export function RoomOutOfOrderTypeToJSON(value?: RoomOutOfOrderType | null): any
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'newDateRange': DateRangeTypeToJSON(value.newDateRange),
         'reasonCode': value.reasonCode,
         'reasonDesc': value.reasonDesc,
         'repairRemarks': value.repairRemarks,
         'returnStatus': HousekeepingRoomStatusTypeToJSON(value.returnStatus),
         'roomStatus': HousekeepingRoomStatusTypeToJSON(value.roomStatus),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

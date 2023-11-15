@@ -76,10 +76,10 @@ export interface BlockHeaderInfoType {
     currencyCode?: string;
     /**
      * End date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Guarantee Code for the block.
      * @type {string}
@@ -118,16 +118,16 @@ export interface BlockHeaderInfoType {
     rateCode?: string;
     /**
      * Shoulder end date of the block, applicable if the block is elastic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Shoulder start date of the block, applicable if the block is elastic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      * 
      * @type {BlockSourceOfSaleType}
@@ -136,10 +136,10 @@ export interface BlockHeaderInfoType {
     sourceOfSale?: BlockSourceOfSaleType;
     /**
      * Start date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Indicates whether rates are suppressed.
      * @type {boolean}
@@ -172,17 +172,17 @@ export function BlockHeaderInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : CodeDescriptionTypeFromJSON(json['blockStatus']),
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !exists(json, 'hotelName') ? undefined : json['hotelName'],
         'inventoryControl': !exists(json, 'inventoryControl') ? undefined : BlockInventoryControlTypeFromJSON(json['inventoryControl']),
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
-        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : (new Date(json['shoulderEndDate'])),
-        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : (new Date(json['shoulderStartDate'])),
+        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : json['shoulderEndDate'],
+        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : json['shoulderStartDate'],
         'sourceOfSale': !exists(json, 'sourceOfSale') ? undefined : BlockSourceOfSaleTypeFromJSON(json['sourceOfSale']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'suppressRate': !exists(json, 'suppressRate') ? undefined : json['suppressRate'],
     };
 }
@@ -201,17 +201,17 @@ export function BlockHeaderInfoTypeToJSON(value?: BlockHeaderInfoType | null): a
         'blockName': value.blockName,
         'blockStatus': CodeDescriptionTypeToJSON(value.blockStatus),
         'currencyCode': value.currencyCode,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,
         'inventoryControl': BlockInventoryControlTypeToJSON(value.inventoryControl),
         'marketCode': value.marketCode,
         'rateCode': value.rateCode,
-        'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0,10)),
-        'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0,10)),
+        'shoulderEndDate': value.shoulderEndDate,
+        'shoulderStartDate': value.shoulderStartDate,
         'sourceOfSale': BlockSourceOfSaleTypeToJSON(value.sourceOfSale),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'suppressRate': value.suppressRate,
     };
 }

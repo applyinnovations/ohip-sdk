@@ -256,7 +256,7 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['roomCategory'] = requestParameters.roomCategory;
             }
             if (requestParameters.stayDate !== undefined) {
-                queryParameters['stayDate'] = requestParameters.stayDate.toISOString().substring(0, 10);
+                queryParameters['stayDate'] = requestParameters.stayDate;
             }
             if (requestParameters.awardType !== undefined) {
                 queryParameters['awardType'] = requestParameters.awardType;
@@ -295,10 +295,10 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['packageDescription'] = requestParameters.packageDescription;
             }
             if (requestParameters.awardValidFrom !== undefined) {
-                queryParameters['awardValidFrom'] = requestParameters.awardValidFrom.toISOString().substring(0, 10);
+                queryParameters['awardValidFrom'] = requestParameters.awardValidFrom;
             }
             if (requestParameters.awardValidTo !== undefined) {
-                queryParameters['awardValidTo'] = requestParameters.awardValidTo.toISOString().substring(0, 10);
+                queryParameters['awardValidTo'] = requestParameters.awardValidTo;
             }
             if (requestParameters.upgradeInfoAwardType !== undefined) {
                 queryParameters['upgradeInfoAwardType'] = requestParameters.upgradeInfoAwardType;
@@ -349,16 +349,16 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['toRoom'] = requestParameters.toRoom;
             }
             if (requestParameters.upgradeInfoStayDate !== undefined) {
-                queryParameters['upgradeInfoStayDate'] = requestParameters.upgradeInfoStayDate.toISOString().substring(0, 10);
+                queryParameters['upgradeInfoStayDate'] = requestParameters.upgradeInfoStayDate;
             }
             if (requestParameters.otherInfoAwardType !== undefined) {
                 queryParameters['otherInfoAwardType'] = requestParameters.otherInfoAwardType;
             }
             if (requestParameters.sellBeginDate !== undefined) {
-                queryParameters['sellBeginDate'] = requestParameters.sellBeginDate.toISOString().substring(0, 10);
+                queryParameters['sellBeginDate'] = requestParameters.sellBeginDate;
             }
             if (requestParameters.sellEndDate !== undefined) {
-                queryParameters['sellEndDate'] = requestParameters.sellEndDate.toISOString().substring(0, 10);
+                queryParameters['sellEndDate'] = requestParameters.sellEndDate;
             }
             if (requestParameters.shortDescription !== undefined) {
                 queryParameters['shortDescription'] = requestParameters.shortDescription;
@@ -391,10 +391,10 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['awardSource'] = requestParameters.awardSource;
             }
             if (requestParameters.arrivalDate !== undefined) {
-                queryParameters['arrivalDate'] = requestParameters.arrivalDate.toISOString().substring(0, 10);
+                queryParameters['arrivalDate'] = requestParameters.arrivalDate;
             }
             if (requestParameters.departureDate !== undefined) {
-                queryParameters['departureDate'] = requestParameters.departureDate.toISOString().substring(0, 10);
+                queryParameters['departureDate'] = requestParameters.departureDate;
             }
             if (requestParameters.exportInfoAwardNumber !== undefined) {
                 queryParameters['exportInfoAwardNumber'] = requestParameters.exportInfoAwardNumber;
@@ -457,7 +457,7 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['primaryInd'] = requestParameters.primaryInd;
             }
             if (requestParameters.purgeDate !== undefined) {
-                queryParameters['purgeDate'] = requestParameters.purgeDate.toISOString().substring(0, 10);
+                queryParameters['purgeDate'] = requestParameters.purgeDate;
             }
             if (requestParameters.type !== undefined) {
                 queryParameters['type'] = requestParameters.type;
@@ -624,7 +624,7 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['batchIdType'] = requestParameters.batchIdType;
             }
             if (requestParameters.importDate !== undefined) {
-                queryParameters['importDate'] = requestParameters.importDate.toISOString().substring(0, 10);
+                queryParameters['importDate'] = requestParameters.importDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -720,34 +720,34 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['claimStatus'] = requestParameters.claimStatus;
             }
             if (requestParameters.closeDateEnd !== undefined) {
-                queryParameters['closeDateEnd'] = requestParameters.closeDateEnd.toISOString().substring(0, 10);
+                queryParameters['closeDateEnd'] = requestParameters.closeDateEnd;
             }
             if (requestParameters.closeDateStart !== undefined) {
-                queryParameters['closeDateStart'] = requestParameters.closeDateStart.toISOString().substring(0, 10);
+                queryParameters['closeDateStart'] = requestParameters.closeDateStart;
             }
             if (requestParameters.claimDateEnd !== undefined) {
-                queryParameters['claimDateEnd'] = requestParameters.claimDateEnd.toISOString().substring(0, 10);
+                queryParameters['claimDateEnd'] = requestParameters.claimDateEnd;
             }
             if (requestParameters.claimDateStart !== undefined) {
-                queryParameters['claimDateStart'] = requestParameters.claimDateStart.toISOString().substring(0, 10);
+                queryParameters['claimDateStart'] = requestParameters.claimDateStart;
             }
             if (requestParameters.replyByEnd !== undefined) {
-                queryParameters['replyByEnd'] = requestParameters.replyByEnd.toISOString().substring(0, 10);
+                queryParameters['replyByEnd'] = requestParameters.replyByEnd;
             }
             if (requestParameters.replyByStart !== undefined) {
-                queryParameters['replyByStart'] = requestParameters.replyByStart.toISOString().substring(0, 10);
+                queryParameters['replyByStart'] = requestParameters.replyByStart;
             }
             if (requestParameters.arrivalEnd !== undefined) {
-                queryParameters['arrivalEnd'] = requestParameters.arrivalEnd.toISOString().substring(0, 10);
+                queryParameters['arrivalEnd'] = requestParameters.arrivalEnd;
             }
             if (requestParameters.arrivalStart !== undefined) {
-                queryParameters['arrivalStart'] = requestParameters.arrivalStart.toISOString().substring(0, 10);
+                queryParameters['arrivalStart'] = requestParameters.arrivalStart;
             }
             if (requestParameters.departureEnd !== undefined) {
-                queryParameters['departureEnd'] = requestParameters.departureEnd.toISOString().substring(0, 10);
+                queryParameters['departureEnd'] = requestParameters.departureEnd;
             }
             if (requestParameters.departureStart !== undefined) {
-                queryParameters['departureStart'] = requestParameters.departureStart.toISOString().substring(0, 10);
+                queryParameters['departureStart'] = requestParameters.departureStart;
             }
             if (requestParameters.approvalStatus !== undefined) {
                 queryParameters['approvalStatus'] = requestParameters.approvalStatus;
@@ -804,13 +804,13 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['rateCriteriaHotelId'] = requestParameters.rateCriteriaHotelId;
             }
             if (requestParameters.arrivalDate !== undefined) {
-                queryParameters['arrivalDate'] = requestParameters.arrivalDate.toISOString().substring(0, 10);
+                queryParameters['arrivalDate'] = requestParameters.arrivalDate;
             }
             if (requestParameters.departureDate !== undefined) {
-                queryParameters['departureDate'] = requestParameters.departureDate.toISOString().substring(0, 10);
+                queryParameters['departureDate'] = requestParameters.departureDate;
             }
             if (requestParameters.bookingDate !== undefined) {
-                queryParameters['bookingDate'] = requestParameters.bookingDate.toISOString().substring(0, 10);
+                queryParameters['bookingDate'] = requestParameters.bookingDate;
             }
             if (requestParameters.pointsBelow !== undefined) {
                 queryParameters['pointsBelow'] = requestParameters.pointsBelow;
@@ -837,13 +837,13 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['productCriteriaHotelId'] = requestParameters.productCriteriaHotelId;
             }
             if (requestParameters.productCriteriaArrivalDate !== undefined) {
-                queryParameters['productCriteriaArrivalDate'] = requestParameters.productCriteriaArrivalDate.toISOString().substring(0, 10);
+                queryParameters['productCriteriaArrivalDate'] = requestParameters.productCriteriaArrivalDate;
             }
             if (requestParameters.productCriteriaDepartureDate !== undefined) {
-                queryParameters['productCriteriaDepartureDate'] = requestParameters.productCriteriaDepartureDate.toISOString().substring(0, 10);
+                queryParameters['productCriteriaDepartureDate'] = requestParameters.productCriteriaDepartureDate;
             }
             if (requestParameters.productCriteriaBookingDate !== undefined) {
-                queryParameters['productCriteriaBookingDate'] = requestParameters.productCriteriaBookingDate.toISOString().substring(0, 10);
+                queryParameters['productCriteriaBookingDate'] = requestParameters.productCriteriaBookingDate;
             }
             if (requestParameters.productCriteriaPointsBelow !== undefined) {
                 queryParameters['productCriteriaPointsBelow'] = requestParameters.productCriteriaPointsBelow;
@@ -861,13 +861,13 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['upgradeCriteriaHotelId'] = requestParameters.upgradeCriteriaHotelId;
             }
             if (requestParameters.upgradeCriteriaArrivalDate !== undefined) {
-                queryParameters['upgradeCriteriaArrivalDate'] = requestParameters.upgradeCriteriaArrivalDate.toISOString().substring(0, 10);
+                queryParameters['upgradeCriteriaArrivalDate'] = requestParameters.upgradeCriteriaArrivalDate;
             }
             if (requestParameters.upgradeCriteriaDepartureDate !== undefined) {
-                queryParameters['upgradeCriteriaDepartureDate'] = requestParameters.upgradeCriteriaDepartureDate.toISOString().substring(0, 10);
+                queryParameters['upgradeCriteriaDepartureDate'] = requestParameters.upgradeCriteriaDepartureDate;
             }
             if (requestParameters.upgradeCriteriaBookingDate !== undefined) {
-                queryParameters['upgradeCriteriaBookingDate'] = requestParameters.upgradeCriteriaBookingDate.toISOString().substring(0, 10);
+                queryParameters['upgradeCriteriaBookingDate'] = requestParameters.upgradeCriteriaBookingDate;
             }
             if (requestParameters.upgradeCriteriaPointsBelow !== undefined) {
                 queryParameters['upgradeCriteriaPointsBelow'] = requestParameters.upgradeCriteriaPointsBelow;
@@ -1497,34 +1497,34 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['claimStatus'] = requestParameters.claimStatus;
             }
             if (requestParameters.closeDateEnd !== undefined) {
-                queryParameters['closeDateEnd'] = requestParameters.closeDateEnd.toISOString().substring(0, 10);
+                queryParameters['closeDateEnd'] = requestParameters.closeDateEnd;
             }
             if (requestParameters.closeDateStart !== undefined) {
-                queryParameters['closeDateStart'] = requestParameters.closeDateStart.toISOString().substring(0, 10);
+                queryParameters['closeDateStart'] = requestParameters.closeDateStart;
             }
             if (requestParameters.claimDateEnd !== undefined) {
-                queryParameters['claimDateEnd'] = requestParameters.claimDateEnd.toISOString().substring(0, 10);
+                queryParameters['claimDateEnd'] = requestParameters.claimDateEnd;
             }
             if (requestParameters.claimDateStart !== undefined) {
-                queryParameters['claimDateStart'] = requestParameters.claimDateStart.toISOString().substring(0, 10);
+                queryParameters['claimDateStart'] = requestParameters.claimDateStart;
             }
             if (requestParameters.replyByEnd !== undefined) {
-                queryParameters['replyByEnd'] = requestParameters.replyByEnd.toISOString().substring(0, 10);
+                queryParameters['replyByEnd'] = requestParameters.replyByEnd;
             }
             if (requestParameters.replyByStart !== undefined) {
-                queryParameters['replyByStart'] = requestParameters.replyByStart.toISOString().substring(0, 10);
+                queryParameters['replyByStart'] = requestParameters.replyByStart;
             }
             if (requestParameters.arrivalEnd !== undefined) {
-                queryParameters['arrivalEnd'] = requestParameters.arrivalEnd.toISOString().substring(0, 10);
+                queryParameters['arrivalEnd'] = requestParameters.arrivalEnd;
             }
             if (requestParameters.arrivalStart !== undefined) {
-                queryParameters['arrivalStart'] = requestParameters.arrivalStart.toISOString().substring(0, 10);
+                queryParameters['arrivalStart'] = requestParameters.arrivalStart;
             }
             if (requestParameters.departureEnd !== undefined) {
-                queryParameters['departureEnd'] = requestParameters.departureEnd.toISOString().substring(0, 10);
+                queryParameters['departureEnd'] = requestParameters.departureEnd;
             }
             if (requestParameters.departureStart !== undefined) {
-                queryParameters['departureStart'] = requestParameters.departureStart.toISOString().substring(0, 10);
+                queryParameters['departureStart'] = requestParameters.departureStart;
             }
             if (requestParameters.approvalStatus !== undefined) {
                 queryParameters['approvalStatus'] = requestParameters.approvalStatus;
@@ -1593,10 +1593,10 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['hotelId'] = requestParameters.hotelId;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1812,10 +1812,10 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['hotelId'] = requestParameters.hotelId;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.id !== undefined) {
                 queryParameters['id'] = requestParameters.id;

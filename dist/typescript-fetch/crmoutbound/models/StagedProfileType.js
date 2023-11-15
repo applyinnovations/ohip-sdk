@@ -67,7 +67,7 @@ function StagedProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         'privacyInfo': !(0, runtime_1.exists)(json, 'privacyInfo') ? undefined : (0, PrivacyInfoType_1.PrivacyInfoTypeFromJSON)(json['privacyInfo']),
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : (json['comments'].map(StagedProfileCommentInfoType_1.StagedProfileCommentInfoTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : (new Date(json['importDate'])),
+        'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : json['importDate'],
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : json['profileType'],
         'stageStatus': !(0, runtime_1.exists)(json, 'stageStatus') ? undefined : json['stageStatus'],
     };
@@ -99,7 +99,7 @@ function StagedProfileTypeToJSON(value) {
         'privacyInfo': (0, PrivacyInfoType_1.PrivacyInfoTypeToJSON)(value.privacyInfo),
         'comments': value.comments === undefined ? undefined : (value.comments.map(StagedProfileCommentInfoType_1.StagedProfileCommentInfoTypeToJSON)),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
+        'importDate': value.importDate,
         'profileType': value.profileType,
         'stageStatus': value.stageStatus,
     };

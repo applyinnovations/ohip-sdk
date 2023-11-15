@@ -19,16 +19,16 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ReservationDetailsType {
     /**
      * Reservation arrival date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDetailsType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Reservation departure date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDetailsType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Given name, first name or names
      * @type {string}

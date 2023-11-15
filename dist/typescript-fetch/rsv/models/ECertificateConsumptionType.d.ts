@@ -19,10 +19,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ECertificateConsumptionType {
     /**
      * Date the certificate was consumed.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    date?: Date;
+    date?: string;
     /**
      * Email of the person who consumed the certificate.
      * @type {string}

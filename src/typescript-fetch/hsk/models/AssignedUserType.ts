@@ -40,10 +40,10 @@ export interface AssignedUserType {
     assignedByUserName?: string;
     /**
      * Date when this task was assigned.
-     * @type {Date}
+     * @type {string}
      * @memberof AssignedUserType
      */
-    assignedDate?: Date;
+    assignedDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -58,10 +58,10 @@ export interface AssignedUserType {
     assignedToUserName?: string;
     /**
      * Date when this task is due.
-     * @type {Date}
+     * @type {string}
      * @memberof AssignedUserType
      */
-    expectedByDate?: Date;
+    expectedByDate?: string;
 }
 
 /**
@@ -85,10 +85,10 @@ export function AssignedUserTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'assignedByUser': !exists(json, 'assignedByUser') ? undefined : UniqueIDTypeFromJSON(json['assignedByUser']),
         'assignedByUserName': !exists(json, 'assignedByUserName') ? undefined : json['assignedByUserName'],
-        'assignedDate': !exists(json, 'assignedDate') ? undefined : (new Date(json['assignedDate'])),
+        'assignedDate': !exists(json, 'assignedDate') ? undefined : json['assignedDate'],
         'assignedToUser': !exists(json, 'assignedToUser') ? undefined : UniqueIDTypeFromJSON(json['assignedToUser']),
         'assignedToUserName': !exists(json, 'assignedToUserName') ? undefined : json['assignedToUserName'],
-        'expectedByDate': !exists(json, 'expectedByDate') ? undefined : (new Date(json['expectedByDate'])),
+        'expectedByDate': !exists(json, 'expectedByDate') ? undefined : json['expectedByDate'],
     };
 }
 
@@ -103,10 +103,10 @@ export function AssignedUserTypeToJSON(value?: AssignedUserType | null): any {
         
         'assignedByUser': UniqueIDTypeToJSON(value.assignedByUser),
         'assignedByUserName': value.assignedByUserName,
-        'assignedDate': value.assignedDate === undefined ? undefined : (value.assignedDate.toISOString().substring(0,10)),
+        'assignedDate': value.assignedDate,
         'assignedToUser': UniqueIDTypeToJSON(value.assignedToUser),
         'assignedToUserName': value.assignedToUserName,
-        'expectedByDate': value.expectedByDate === undefined ? undefined : (value.expectedByDate.toISOString().substring(0,10)),
+        'expectedByDate': value.expectedByDate,
     };
 }
 

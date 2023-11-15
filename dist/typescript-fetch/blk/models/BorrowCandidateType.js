@@ -36,7 +36,7 @@ function BorrowCandidateTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
-        'borrowDate': !(0, runtime_1.exists)(json, 'borrowDate') ? undefined : (new Date(json['borrowDate'])),
+        'borrowDate': !(0, runtime_1.exists)(json, 'borrowDate') ? undefined : json['borrowDate'],
         'borrowableInventoryList': !(0, runtime_1.exists)(json, 'borrowableInventoryList') ? undefined : (json['borrowableInventoryList'].map(BorrowableInventoryType_1.BorrowableInventoryTypeFromJSON)),
         'existingReservationId': !(0, runtime_1.exists)(json, 'existingReservationId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['existingReservationId']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -53,7 +53,7 @@ function BorrowCandidateTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0, 10)),
+        'borrowDate': value.borrowDate,
         'borrowableInventoryList': value.borrowableInventoryList === undefined ? undefined : (value.borrowableInventoryList.map(BorrowableInventoryType_1.BorrowableInventoryTypeToJSON)),
         'existingReservationId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.existingReservationId),
         'hotelId': value.hotelId,

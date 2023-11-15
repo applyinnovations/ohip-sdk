@@ -43,10 +43,10 @@ export interface MembershipTypeRuleDefinitionType {
     ruleCode?: string;
     /**
      * Date on which the rule will be expired.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRuleDefinitionType
      */
-    ruleExpirationDate?: Date;
+    ruleExpirationDate?: string;
     /**
      * This field will be used to store export label and will be used only for exporting purposes.
      * @type {string}

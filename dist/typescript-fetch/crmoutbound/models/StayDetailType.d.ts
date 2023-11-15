@@ -93,10 +93,10 @@ export interface StayDetailType {
     specials?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * Color setting of the reservation.
      * @type {string}
@@ -279,10 +279,10 @@ export interface StayDetailType {
     lastModifierId?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {PMSResStatusType}
@@ -375,28 +375,28 @@ export interface StayDetailType {
     shareNumber?: string;
     /**
      * Booking date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookingDate?: Date;
+    bookingDate?: string;
     /**
      * Booked arrival date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedArrivalDate?: Date;
+    bookedArrivalDate?: string;
     /**
      * Booked departure date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedDepartureDate?: Date;
+    bookedDepartureDate?: string;
     /**
      * Cancellation date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    cancellationDate?: Date;
+    cancellationDate?: string;
     /**
      * Number of cancelled room nights.
      * @type {number}

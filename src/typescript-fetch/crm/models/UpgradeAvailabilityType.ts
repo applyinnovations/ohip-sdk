@@ -93,10 +93,10 @@ export interface UpgradeAvailabilityType {
     rawIssueKey?: string;
     /**
      * The date of the reservation associated with the award. There may be more than one date (multiple nights) associated with award.
-     * @type {Date}
+     * @type {string}
      * @memberof UpgradeAvailabilityType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Indicates room type code of the upgrade room.
      * @type {string}
@@ -154,7 +154,7 @@ export function UpgradeAvailabilityTypeFromJSONTyped(json: any, ignoreDiscrimina
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'pointsRequired': !exists(json, 'pointsRequired') ? undefined : json['pointsRequired'],
         'rawIssueKey': !exists(json, 'rawIssueKey') ? undefined : json['rawIssueKey'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
         'toRoom': !exists(json, 'toRoom') ? undefined : json['toRoom'],
         'toRoomCategory': !exists(json, 'toRoomCategory') ? undefined : json['toRoomCategory'],
         'toRoomDescription': !exists(json, 'toRoomDescription') ? undefined : json['toRoomDescription'],
@@ -183,7 +183,7 @@ export function UpgradeAvailabilityTypeToJSON(value?: UpgradeAvailabilityType | 
         'hotelId': value.hotelId,
         'pointsRequired': value.pointsRequired,
         'rawIssueKey': value.rawIssueKey,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
         'toRoom': value.toRoom,
         'toRoomCategory': value.toRoomCategory,
         'toRoomDescription': value.toRoomDescription,

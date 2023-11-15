@@ -30,10 +30,10 @@ export interface LastStayInfoType {
     lastRoom?: string;
     /**
      * Used to hold last stay information for the profile.
-     * @type {Date}
+     * @type {string}
      * @memberof LastStayInfoType
      */
-    lastVisit?: Date;
+    lastVisit?: string;
     /**
      * The total number of previous stay of the profile.
      * @type {number}

@@ -34,11 +34,11 @@ function BlockPostingReservationsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['blockId']),
         'confirmationNumber': !(0, runtime_1.exists)(json, 'confirmationNumber') ? undefined : json['confirmationNumber'],
         'defaultPostingAccount': !(0, runtime_1.exists)(json, 'defaultPostingAccount') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['defaultPostingAccount']),
-        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : json['departureDate'],
         'eventId': !(0, runtime_1.exists)(json, 'eventId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['eventId']),
         'guestFirstName': !(0, runtime_1.exists)(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
@@ -60,11 +60,11 @@ function BlockPostingReservationsTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
         'blockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.blockId),
         'confirmationNumber': value.confirmationNumber,
         'defaultPostingAccount': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.defaultPostingAccount),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
+        'departureDate': value.departureDate,
         'eventId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.eventId),
         'guestFirstName': value.guestFirstName,
         'guestName': value.guestName,

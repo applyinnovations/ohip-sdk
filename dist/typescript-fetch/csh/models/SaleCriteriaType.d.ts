@@ -58,10 +58,10 @@ export interface SaleCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof SaleCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * The payment information to be posted.
      * @type {Array<PaymentCriteriaType>}

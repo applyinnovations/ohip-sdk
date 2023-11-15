@@ -25,10 +25,10 @@ export interface CancellationDetailsType {
     cancellationCode?: CodeDescriptionType;
     /**
      * Date on which block was canceled.
-     * @type {Date}
+     * @type {string}
      * @memberof CancellationDetailsType
      */
-    cancellationDate?: Date;
+    cancellationDate?: string;
     /**
      * Cancellation information provided by the customer.
      * @type {string}

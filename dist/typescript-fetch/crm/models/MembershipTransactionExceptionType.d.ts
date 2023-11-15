@@ -48,10 +48,10 @@ export interface MembershipTransactionExceptionType {
     backToBack?: string;
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
     /**
      *
      * @type {MembershipTransactionExceptionComputePointsType}
@@ -78,10 +78,10 @@ export interface MembershipTransactionExceptionType {
     hotelId?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * The card number associated with this membership.
      * @type {string}

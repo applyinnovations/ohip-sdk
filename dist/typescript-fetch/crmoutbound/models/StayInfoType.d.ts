@@ -25,16 +25,16 @@ import type { TimeSpanType } from './TimeSpanType';
 export interface StayInfoType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      *
      * @type {TimeSpanType}
@@ -199,10 +199,10 @@ export interface StayInfoType {
     guestServiceStatus?: GuestHousekeepingServiceRequestType;
     /**
      * Indicates that this reservation is scheduled for automated check out.
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    scheduledCheckoutTime?: Date;
+    scheduledCheckoutTime?: string;
     /**
      * When true, indicates a room number cannot be changed. When false, indicates a room number may be changed.
      * @type {boolean}

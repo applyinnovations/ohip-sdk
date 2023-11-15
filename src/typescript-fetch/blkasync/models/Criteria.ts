@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface Criteria {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof Criteria
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {string}
@@ -33,16 +33,16 @@ export interface Criteria {
     endLastModifiedDate?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof Criteria
      */
-    occupancyDate?: Date;
+    occupancyDate?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof Criteria
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * 
      * @type {string}
@@ -70,10 +70,10 @@ export function CriteriaFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'endLastModifiedDate': !exists(json, 'endLastModifiedDate') ? undefined : json['endLastModifiedDate'],
-        'occupancyDate': !exists(json, 'occupancyDate') ? undefined : (new Date(json['occupancyDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'occupancyDate': !exists(json, 'occupancyDate') ? undefined : json['occupancyDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'startLastModifiedDate': !exists(json, 'startLastModifiedDate') ? undefined : json['startLastModifiedDate'],
     };
 }
@@ -87,10 +87,10 @@ export function CriteriaToJSON(value?: Criteria | null): any {
     }
     return {
         
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'endLastModifiedDate': value.endLastModifiedDate,
-        'occupancyDate': value.occupancyDate === undefined ? undefined : (value.occupancyDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'occupancyDate': value.occupancyDate,
+        'startDate': value.startDate,
         'startLastModifiedDate': value.startLastModifiedDate,
     };
 }

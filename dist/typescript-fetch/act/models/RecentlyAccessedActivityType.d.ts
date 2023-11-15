@@ -19,10 +19,10 @@ import type { TimeSpanType } from './TimeSpanType';
 export interface RecentlyAccessedActivityType {
     /**
      * The date the record was accessed.
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedActivityType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Unique identifier for the Activity.
      * @type {Array<ActivityId>}

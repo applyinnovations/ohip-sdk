@@ -41,10 +41,10 @@ export interface RevenueInventoryStatisticsType {
     noShowRooms?: string;
     /**
      * The occupancy date for which the revenue inventory statistics are fetched.
-     * @type {Date}
+     * @type {string}
      * @memberof RevenueInventoryStatisticsType
      */
-    occupancyDate?: Date;
+    occupancyDate?: string;
     /**
      * The statistical figure for out of order rooms.
      * @type {string}

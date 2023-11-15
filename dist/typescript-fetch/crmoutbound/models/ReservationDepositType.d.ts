@@ -35,16 +35,16 @@ export interface ReservationDepositType {
     amountOwed?: number;
     /**
      * Deposit Due Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    dueDate?: Date;
+    dueDate?: string;
     /**
      * Deposit Posting Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * Resolves whether reservation has paid deposit.
      * @type {boolean}

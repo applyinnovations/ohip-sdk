@@ -534,7 +534,7 @@ class MembershipConfigApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.validForDate !== undefined) {
-                queryParameters['validForDate'] = requestParameters.validForDate.toISOString().substring(0, 10);
+                queryParameters['validForDate'] = requestParameters.validForDate;
             }
             if (requestParameters.includeInactive !== undefined) {
                 queryParameters['includeInactive'] = requestParameters.includeInactive;
@@ -591,10 +591,10 @@ class MembershipConfigApi extends runtime.BaseAPI {
                 queryParameters['code'] = requestParameters.code;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.minimumLevel !== undefined) {
                 queryParameters['minimumLevel'] = requestParameters.minimumLevel;

@@ -18,10 +18,10 @@ import type { UsedInModuleType } from './UsedInModuleType';
 export interface SellMessageType {
     /**
      * This is the Begin date for the configured SellMessage.
-     * @type {Date}
+     * @type {string}
      * @memberof SellMessageType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * This is the chain code.
      * @type {string}

@@ -38,10 +38,10 @@ export interface EventCodeDetailType {
     color?: StatusColorType;
     /**
      * Date for which the event code is applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof EventCodeDetailType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {CodeDescriptionType}

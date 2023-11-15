@@ -34,7 +34,7 @@ function FacilityTaskTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'supplies': !(0, runtime_1.exists)(json, 'supplies') ? undefined : (json['supplies'].map(FacilityCodeType_1.FacilityCodeTypeFromJSON)),
         'task': !(0, runtime_1.exists)(json, 'task') ? undefined : (0, HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeFromJSON)(json['task']),
     };
@@ -48,7 +48,7 @@ function FacilityTaskTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'supplies': value.supplies === undefined ? undefined : (value.supplies.map(FacilityCodeType_1.FacilityCodeTypeToJSON)),
         'task': (0, HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeToJSON)(value.task),
     };

@@ -36,7 +36,7 @@ function ChannelGuaranteeCodeMappingTypeFromJSONTyped(json, ignoreDiscriminator)
         'channelGuaranteeCode': !(0, runtime_1.exists)(json, 'channelGuaranteeCode') ? undefined : json['channelGuaranteeCode'],
         'guaranteeCode': !(0, runtime_1.exists)(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'newChannelGuaranteeCode': !(0, runtime_1.exists)(json, 'newChannelGuaranteeCode') ? undefined : json['newChannelGuaranteeCode'],
         'paymentType': !(0, runtime_1.exists)(json, 'paymentType') ? undefined : json['paymentType'],
     };
@@ -54,7 +54,7 @@ function ChannelGuaranteeCodeMappingTypeToJSON(value) {
         'channelGuaranteeCode': value.channelGuaranteeCode,
         'guaranteeCode': value.guaranteeCode,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'newChannelGuaranteeCode': value.newChannelGuaranteeCode,
         'paymentType': value.paymentType,
     };

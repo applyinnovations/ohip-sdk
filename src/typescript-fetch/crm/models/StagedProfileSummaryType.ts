@@ -58,10 +58,10 @@ export interface StagedProfileSummaryType {
     hotelId?: string;
     /**
      * The date on which the staged profile has been received.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileSummaryType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -115,7 +115,7 @@ export function StagedProfileSummaryTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'country': !exists(json, 'country') ? undefined : CountryNameTypeFromJSON(json['country']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'importDate': !exists(json, 'importDate') ? undefined : (new Date(json['importDate'])),
+        'importDate': !exists(json, 'importDate') ? undefined : json['importDate'],
         'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'profileName': !exists(json, 'profileName') ? undefined : ProfileNameTypeFromJSON(json['profileName']),
         'profileType': !exists(json, 'profileType') ? undefined : json['profileType'],
@@ -135,7 +135,7 @@ export function StagedProfileSummaryTypeToJSON(value?: StagedProfileSummaryType 
         
         'country': CountryNameTypeToJSON(value.country),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
+        'importDate': value.importDate,
         'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'profileName': ProfileNameTypeToJSON(value.profileName),
         'profileType': value.profileType,

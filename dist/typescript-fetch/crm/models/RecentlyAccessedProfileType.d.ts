@@ -19,10 +19,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface RecentlyAccessedProfileType {
     /**
      * The date the record was accessed.
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedProfileType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Given name, first name or names
      * @type {string}

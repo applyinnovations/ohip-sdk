@@ -33,9 +33,9 @@ function ActivityStatSetTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'owner': !(0, runtime_1.exists)(json, 'owner') ? undefined : json['owner'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'stat': !(0, runtime_1.exists)(json, 'stat') ? undefined : (json['stat'].map(ActivityStatType_1.ActivityStatTypeFromJSON)),
     };
 }
@@ -48,9 +48,9 @@ function ActivityStatSetTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'owner': value.owner,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'stat': value.stat === undefined ? undefined : (value.stat.map(ActivityStatType_1.ActivityStatTypeToJSON)),
     };
 }

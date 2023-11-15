@@ -18,10 +18,10 @@ import type { BlockRoomStatisticsType } from './BlockRoomStatisticsType';
 export interface BlockStatisticsDateType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatisticsDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Collection of room type level statistics.
      * @type {Array<BlockRoomStatisticsType>}

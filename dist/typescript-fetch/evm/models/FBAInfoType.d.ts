@@ -42,10 +42,10 @@ export interface FBAInfoType {
     decimalPlaces?: number;
     /**
      * Business date of the FBA bill generation.
-     * @type {Date}
+     * @type {string}
      * @memberof FBAInfoType
      */
-    fbaBillGenDate?: Date;
+    fbaBillGenDate?: string;
     /**
      * Indicates if this certificate is a Flexible Benefit Award certificate.
      * @type {boolean}
@@ -78,16 +78,16 @@ export interface FBAInfoType {
     postedAmount?: number;
     /**
      * Business date of the FBA posting.
-     * @type {Date}
+     * @type {string}
      * @memberof FBAInfoType
      */
-    postingBusinessDate?: Date;
+    postingBusinessDate?: string;
     /**
      * Date and time of the FBA posting.
-     * @type {Date}
+     * @type {string}
      * @memberof FBAInfoType
      */
-    postingDateTime?: Date;
+    postingDateTime?: string;
     /**
      * Marks if the certificate is eligible for reimbursement.
      * @type {boolean}
@@ -108,16 +108,16 @@ export interface FBAInfoType {
     reimbursedAmount?: number;
     /**
      * Business date of the FBA reimbursement.
-     * @type {Date}
+     * @type {string}
      * @memberof FBAInfoType
      */
-    reimbursementBusinessDate?: Date;
+    reimbursementBusinessDate?: string;
     /**
      * Date and time of the FBA reimbursement.
-     * @type {Date}
+     * @type {string}
      * @memberof FBAInfoType
      */
-    reimbursementDateTime?: Date;
+    reimbursementDateTime?: string;
     /**
      * Marks if the certificate is eligible for resettlement
      * @type {boolean}
@@ -132,16 +132,16 @@ export interface FBAInfoType {
     settled?: boolean;
     /**
      * Business date of the FBA settlement.
-     * @type {Date}
+     * @type {string}
      * @memberof FBAInfoType
      */
-    settlementBusinessDate?: Date;
+    settlementBusinessDate?: string;
     /**
      * Date and time of the FBA settlement.
-     * @type {Date}
+     * @type {string}
      * @memberof FBAInfoType
      */
-    settlementDateTime?: Date;
+    settlementDateTime?: string;
     /**
      *
      * @type {FBAStatusType}

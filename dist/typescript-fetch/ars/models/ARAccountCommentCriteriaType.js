@@ -45,7 +45,7 @@ function ARAccountCommentCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
     };
 }
@@ -68,7 +68,7 @@ function ARAccountCommentCriteriaTypeToJSON(value) {
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'type': value.type,
     };
 }

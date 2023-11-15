@@ -24,10 +24,10 @@ export interface ConfigTemplateAmenityType {
     amenityType?: AmenityTypeType;
     /**
      * The date the amenity is scheduled to become active.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigTemplateAmenityType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The comments about amenity of the hotel.
      * @type {string}
@@ -42,10 +42,10 @@ export interface ConfigTemplateAmenityType {
     description?: string;
     /**
      * The date the amenity is scheduled to become inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigTemplateAmenityType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Specifies the feature code (aka amenity code).
      * @type {string}

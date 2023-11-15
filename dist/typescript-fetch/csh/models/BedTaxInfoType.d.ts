@@ -18,10 +18,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface BedTaxInfoType {
     /**
      * Arrival Date of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Arrival Carrier code of the mode of transportation (Airline No. or Railway No., etc.)
      * @type {string}
@@ -36,10 +36,10 @@ export interface BedTaxInfoType {
     country?: string;
     /**
      * Departure Date with time of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Departure Carrier code of the mode of transportation (Airline No. or Railway No., etc.)
      * @type {string}
@@ -108,16 +108,16 @@ export interface BedTaxInfoType {
     reservationNameId?: UniqueIDType;
     /**
      * Arrival Date with time of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    taxArrivaldate?: Date;
+    taxArrivaldate?: string;
     /**
      * Departure Date with time of the reservation
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    taxDepartureDate?: Date;
+    taxDepartureDate?: string;
     /**
      * Total number of tax stays at the property
      * @type {number}
@@ -132,16 +132,16 @@ export interface BedTaxInfoType {
     taxRegistrationNo?: number;
     /**
      * Expiration date of visa
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    visaExpirationDate?: Date;
+    visaExpirationDate?: string;
     /**
      * Issue date of the Visa
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxInfoType
      */
-    visaIssueDate?: Date;
+    visaIssueDate?: string;
     /**
      * Visa Number
      * @type {string}

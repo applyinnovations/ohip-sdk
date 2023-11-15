@@ -32,11 +32,11 @@ function OperaHotelContextDetailsHotelContextFromJSONTyped(json, ignoreDiscrimin
         return json;
     }
     return {
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'cateringCurrencyCode': !(0, runtime_1.exists)(json, 'cateringCurrencyCode') ? undefined : json['cateringCurrencyCode'],
         'chainCode': !(0, runtime_1.exists)(json, 'chainCode') ? undefined : json['chainCode'],
-        'checkInTime': !(0, runtime_1.exists)(json, 'checkInTime') ? undefined : (new Date(json['checkInTime'])),
-        'checkOutTime': !(0, runtime_1.exists)(json, 'checkOutTime') ? undefined : (new Date(json['checkOutTime'])),
+        'checkInTime': !(0, runtime_1.exists)(json, 'checkInTime') ? undefined : json['checkInTime'],
+        'checkOutTime': !(0, runtime_1.exists)(json, 'checkOutTime') ? undefined : json['checkOutTime'],
         'configurationMode': !(0, runtime_1.exists)(json, 'configurationMode') ? undefined : json['configurationMode'],
         'countryMode': !(0, runtime_1.exists)(json, 'countryMode') ? undefined : json['countryMode'],
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
@@ -56,11 +56,11 @@ function OperaHotelContextDetailsHotelContextToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'cateringCurrencyCode': value.cateringCurrencyCode,
         'chainCode': value.chainCode,
-        'checkInTime': value.checkInTime === undefined ? undefined : (value.checkInTime.toISOString().substring(0, 10)),
-        'checkOutTime': value.checkOutTime === undefined ? undefined : (value.checkOutTime.toISOString().substring(0, 10)),
+        'checkInTime': value.checkInTime,
+        'checkOutTime': value.checkOutTime,
         'configurationMode': value.configurationMode,
         'countryMode': value.countryMode,
         'currencyCode': value.currencyCode,

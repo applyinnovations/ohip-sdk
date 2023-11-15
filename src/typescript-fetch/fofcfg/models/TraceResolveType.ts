@@ -27,10 +27,10 @@ export interface TraceResolveType {
     resolvedBy?: string;
     /**
      * Date the trace was resolved
-     * @type {Date}
+     * @type {string}
      * @memberof TraceResolveType
      */
-    resolvedOn?: Date;
+    resolvedOn?: string;
 }
 
 /**
@@ -53,7 +53,7 @@ export function TraceResolveTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'resolvedBy': !exists(json, 'resolvedBy') ? undefined : json['resolvedBy'],
-        'resolvedOn': !exists(json, 'resolvedOn') ? undefined : (new Date(json['resolvedOn'])),
+        'resolvedOn': !exists(json, 'resolvedOn') ? undefined : json['resolvedOn'],
     };
 }
 
@@ -67,7 +67,7 @@ export function TraceResolveTypeToJSON(value?: TraceResolveType | null): any {
     return {
         
         'resolvedBy': value.resolvedBy,
-        'resolvedOn': value.resolvedOn === undefined ? undefined : (value.resolvedOn.toISOString().substring(0,10)),
+        'resolvedOn': value.resolvedOn,
     };
 }
 

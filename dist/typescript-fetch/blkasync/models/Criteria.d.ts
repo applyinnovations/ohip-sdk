@@ -17,10 +17,10 @@
 export interface Criteria {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof Criteria
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {string}
@@ -29,16 +29,16 @@ export interface Criteria {
     endLastModifiedDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof Criteria
      */
-    occupancyDate?: Date;
+    occupancyDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof Criteria
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
      * @type {string}

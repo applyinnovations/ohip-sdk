@@ -100,10 +100,10 @@ export interface RoomMaintenanceType {
     maintenanceId?: UniqueIDType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof RoomMaintenanceType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Maintenance remarks
      * @type {string}
@@ -151,7 +151,7 @@ export function RoomMaintenanceTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'maintenanceCode': !exists(json, 'maintenanceCode') ? undefined : json['maintenanceCode'],
         'maintenanceId': !exists(json, 'maintenanceId') ? undefined : UniqueIDTypeFromJSON(json['maintenanceId']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'remarks': !exists(json, 'remarks') ? undefined : json['remarks'],
         'resolveInfo': !exists(json, 'resolveInfo') ? undefined : ResolveRoomMaintenanceTypeFromJSON(json['resolveInfo']),
         'roomInfo': !exists(json, 'roomInfo') ? undefined : RoomTypeFromJSON(json['roomInfo']),
@@ -175,7 +175,7 @@ export function RoomMaintenanceTypeToJSON(value?: RoomMaintenanceType | null): a
         'lastModifyDateTime': value.lastModifyDateTime,
         'maintenanceCode': value.maintenanceCode,
         'maintenanceId': UniqueIDTypeToJSON(value.maintenanceId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'remarks': value.remarks,
         'resolveInfo': ResolveRoomMaintenanceTypeToJSON(value.resolveInfo),
         'roomInfo': RoomTypeToJSON(value.roomInfo),

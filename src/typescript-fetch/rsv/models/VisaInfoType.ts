@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface VisaInfoType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof VisaInfoType
      */
-    visaExpiryDate?: Date;
+    visaExpiryDate?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof VisaInfoType
      */
-    visaIssueDate?: Date;
+    visaIssueDate?: string;
     /**
      * 
      * @type {string}
@@ -58,8 +58,8 @@ export function VisaInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'visaExpiryDate': !exists(json, 'visaExpiryDate') ? undefined : (new Date(json['visaExpiryDate'])),
-        'visaIssueDate': !exists(json, 'visaIssueDate') ? undefined : (new Date(json['visaIssueDate'])),
+        'visaExpiryDate': !exists(json, 'visaExpiryDate') ? undefined : json['visaExpiryDate'],
+        'visaIssueDate': !exists(json, 'visaIssueDate') ? undefined : json['visaIssueDate'],
         'visaNumber': !exists(json, 'visaNumber') ? undefined : json['visaNumber'],
     };
 }
@@ -73,8 +73,8 @@ export function VisaInfoTypeToJSON(value?: VisaInfoType | null): any {
     }
     return {
         
-        'visaExpiryDate': value.visaExpiryDate === undefined ? undefined : (value.visaExpiryDate.toISOString().substring(0,10)),
-        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substring(0,10)),
+        'visaExpiryDate': value.visaExpiryDate,
+        'visaIssueDate': value.visaIssueDate,
         'visaNumber': value.visaNumber,
     };
 }

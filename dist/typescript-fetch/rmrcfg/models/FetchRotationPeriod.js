@@ -35,11 +35,11 @@ function FetchRotationPeriodFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'currentPeriodStartDate': !(0, runtime_1.exists)(json, 'currentPeriodStartDate') ? undefined : (new Date(json['currentPeriodStartDate'])),
+        'currentPeriodStartDate': !(0, runtime_1.exists)(json, 'currentPeriodStartDate') ? undefined : json['currentPeriodStartDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'periodFrequency': !(0, runtime_1.exists)(json, 'periodFrequency') ? undefined : (0, RotationPeriodFrequencyType_1.RotationPeriodFrequencyTypeFromJSON)(json['periodFrequency']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
     };
 }
@@ -52,11 +52,11 @@ function FetchRotationPeriodToJSON(value) {
         return null;
     }
     return {
-        'currentPeriodStartDate': value.currentPeriodStartDate === undefined ? undefined : (value.currentPeriodStartDate.toISOString().substring(0, 10)),
+        'currentPeriodStartDate': value.currentPeriodStartDate,
         'hotelId': value.hotelId,
         'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'periodFrequency': (0, RotationPeriodFrequencyType_1.RotationPeriodFrequencyTypeToJSON)(value.periodFrequency),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),
     };
 }

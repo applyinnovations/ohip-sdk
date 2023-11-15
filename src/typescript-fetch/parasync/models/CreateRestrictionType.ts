@@ -58,16 +58,16 @@ export interface CreateRestrictionType {
     bookingChannels?: Array<string>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateRestrictionType
      */
-    dateRangeEnd?: Date;
+    dateRangeEnd?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateRestrictionType
      */
-    dateRangeStart?: Date;
+    dateRangeStart?: string;
     /**
      * 
      * @type {boolean}
@@ -182,8 +182,8 @@ export function CreateRestrictionTypeFromJSONTyped(json: any, ignoreDiscriminato
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
         'bookingChannelOnRequest': !exists(json, 'bookingChannelOnRequest') ? undefined : json['bookingChannelOnRequest'],
         'bookingChannels': !exists(json, 'bookingChannels') ? undefined : json['bookingChannels'],
-        'dateRangeEnd': !exists(json, 'dateRangeEnd') ? undefined : (new Date(json['dateRangeEnd'])),
-        'dateRangeStart': !exists(json, 'dateRangeStart') ? undefined : (new Date(json['dateRangeStart'])),
+        'dateRangeEnd': !exists(json, 'dateRangeEnd') ? undefined : json['dateRangeEnd'],
+        'dateRangeStart': !exists(json, 'dateRangeStart') ? undefined : json['dateRangeStart'],
         'friday': !exists(json, 'friday') ? undefined : json['friday'],
         'monday': !exists(json, 'monday') ? undefined : json['monday'],
         'rateClasses': !exists(json, 'rateClasses') ? undefined : json['rateClasses'],
@@ -214,8 +214,8 @@ export function CreateRestrictionTypeToJSON(value?: CreateRestrictionType | null
         'blockId': BlockIdToJSON(value.blockId),
         'bookingChannelOnRequest': value.bookingChannelOnRequest,
         'bookingChannels': value.bookingChannels,
-        'dateRangeEnd': value.dateRangeEnd === undefined ? undefined : (value.dateRangeEnd.toISOString().substring(0,10)),
-        'dateRangeStart': value.dateRangeStart === undefined ? undefined : (value.dateRangeStart.toISOString().substring(0,10)),
+        'dateRangeEnd': value.dateRangeEnd,
+        'dateRangeStart': value.dateRangeStart,
         'friday': value.friday,
         'monday': value.monday,
         'rateClasses': value.rateClasses,

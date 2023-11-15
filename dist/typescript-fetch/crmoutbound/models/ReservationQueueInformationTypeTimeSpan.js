@@ -32,8 +32,8 @@ function ReservationQueueInformationTypeTimeSpanFromJSONTyped(json, ignoreDiscri
         return json;
     }
     return {
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'duration': !(0, runtime_1.exists)(json, 'duration') ? undefined : json['duration'],
         'durationInSeconds': !(0, runtime_1.exists)(json, 'durationInSeconds') ? undefined : json['durationInSeconds'],
     };
@@ -47,8 +47,8 @@ function ReservationQueueInformationTypeTimeSpanToJSON(value) {
         return null;
     }
     return {
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
+        'endDate': value.endDate,
         'duration': value.duration,
         'durationInSeconds': value.durationInSeconds,
     };

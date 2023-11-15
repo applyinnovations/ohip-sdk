@@ -18,10 +18,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ClaimReservationInfoType {
     /**
      * Arrival date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -30,10 +30,10 @@ export interface ClaimReservationInfoType {
     confirmationNo?: Array<UniqueIDType>;
     /**
      * Departure date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Property where the stay associated with this claim.
      * @type {string}

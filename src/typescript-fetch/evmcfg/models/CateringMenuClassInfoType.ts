@@ -33,10 +33,10 @@ export interface CateringMenuClassInfoType {
     inactive?: boolean;
     /**
      * Inactive date of menu class.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringMenuClassInfoType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * This type holds name of Menu Class.
      * @type {string}
@@ -72,7 +72,7 @@ export function CateringMenuClassInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'eventTypes': !exists(json, 'eventTypes') ? undefined : json['eventTypes'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'webBookable': !exists(json, 'webBookable') ? undefined : json['webBookable'],
     };
@@ -89,7 +89,7 @@ export function CateringMenuClassInfoTypeToJSON(value?: CateringMenuClassInfoTyp
         
         'eventTypes': value.eventTypes,
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'name': value.name,
         'webBookable': value.webBookable,
     };

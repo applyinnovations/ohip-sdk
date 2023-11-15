@@ -34,10 +34,10 @@ export interface RoomOwnershipType {
     contractNumber?: string;
     /**
      * End Date of the functionSpaceDetails ownership record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnershipType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -70,10 +70,10 @@ export interface RoomOwnershipType {
     roomType?: string;
     /**
      * Start Date of the functionSpaceDetails ownership record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnershipType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Status of the functionSpaceDetails ownership record.
      * @type {string}
@@ -102,13 +102,13 @@ export function RoomOwnershipTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'contractNumber': !exists(json, 'contractNumber') ? undefined : json['contractNumber'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'roomCategory': !exists(json, 'roomCategory') ? undefined : json['roomCategory'],
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomOwnershipId': !exists(json, 'roomOwnershipId') ? undefined : json['roomOwnershipId'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'status': !exists(json, 'status') ? undefined : json['status'],
     };
 }
@@ -123,13 +123,13 @@ export function RoomOwnershipTypeToJSON(value?: RoomOwnershipType | null): any {
     return {
         
         'contractNumber': value.contractNumber,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'roomCategory': value.roomCategory,
         'roomId': value.roomId,
         'roomOwnershipId': value.roomOwnershipId,
         'roomType': value.roomType,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'status': value.status,
     };
 }

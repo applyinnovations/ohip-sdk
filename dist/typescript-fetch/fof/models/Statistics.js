@@ -36,7 +36,7 @@ function StatisticsFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'calendarDate': !(0, runtime_1.exists)(json, 'calendarDate') ? undefined : (new Date(json['calendarDate'])),
+        'calendarDate': !(0, runtime_1.exists)(json, 'calendarDate') ? undefined : json['calendarDate'],
         'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'metricSet': !(0, runtime_1.exists)(json, 'metricSet') ? undefined : (json['metricSet'].map(StatisticsMetricSetInner_1.StatisticsMetricSetInnerFromJSON)),
         'statisticsCode': !(0, runtime_1.exists)(json, 'statisticsCode') ? undefined : (0, HSKStatReportCodeType_1.HSKStatReportCodeTypeFromJSON)(json['statisticsCode']),
@@ -52,7 +52,7 @@ function StatisticsToJSON(value) {
         return null;
     }
     return {
-        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0, 10)),
+        'calendarDate': value.calendarDate,
         'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'metricSet': value.metricSet === undefined ? undefined : (value.metricSet.map(StatisticsMetricSetInner_1.StatisticsMetricSetInnerToJSON)),
         'statisticsCode': (0, HSKStatReportCodeType_1.HSKStatReportCodeTypeToJSON)(value.statisticsCode),

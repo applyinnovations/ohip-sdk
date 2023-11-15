@@ -330,10 +330,10 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -480,10 +480,10 @@ class CustomerManagementApi extends runtime.BaseAPI {
                 queryParameters['room'] = requestParameters.room;
             }
             if (requestParameters.followUpDate !== undefined) {
-                queryParameters['followUpDate'] = requestParameters.followUpDate.toISOString().substring(0, 10);
+                queryParameters['followUpDate'] = requestParameters.followUpDate;
             }
             if (requestParameters.createdOn !== undefined) {
-                queryParameters['createdOn'] = requestParameters.createdOn.toISOString().substring(0, 10);
+                queryParameters['createdOn'] = requestParameters.createdOn;
             }
             if (requestParameters.createdByUserId !== undefined) {
                 queryParameters['createdByUserId'] = requestParameters.createdByUserId;

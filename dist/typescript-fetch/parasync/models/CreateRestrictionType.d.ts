@@ -38,16 +38,16 @@ export interface CreateRestrictionType {
     bookingChannels?: Array<string>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateRestrictionType
      */
-    dateRangeEnd?: Date;
+    dateRangeEnd?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateRestrictionType
      */
-    dateRangeStart?: Date;
+    dateRangeStart?: string;
     /**
      *
      * @type {boolean}

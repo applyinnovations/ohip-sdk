@@ -27,10 +27,10 @@ export interface StagedProfileURLType {
     errorDescription?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileURLType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Indicates whether the phone is the default confirmation method.
      * @type {boolean}
@@ -71,7 +71,7 @@ export function StagedProfileURLTypeFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'defaultConfirmation': !exists(json, 'defaultConfirmation') ? undefined : json['defaultConfirmation'],
         'id': !exists(json, 'id') ? undefined : json['id'],
         'type': !exists(json, 'type') ? undefined : json['type'],
@@ -88,7 +88,7 @@ export function StagedProfileURLTypeToJSON(value?: StagedProfileURLType | null):
     return {
         
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'defaultConfirmation': value.defaultConfirmation,
         'id': value.id,
         'type': value.type,

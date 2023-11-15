@@ -190,10 +190,10 @@ export interface WaitlistedEventType {
     subEventsDetail?: Array<LightEventDetailType>;
     /**
      * Date when waitlist was modified.
-     * @type {Date}
+     * @type {string}
      * @memberof WaitlistedEventType
      */
-    updateDate?: Date;
+    updateDate?: string;
     /**
      * User id who modified the waitlist record.
      * @type {number}
@@ -202,10 +202,10 @@ export interface WaitlistedEventType {
     updateUser?: number;
     /**
      * Date when function space got waitlisted.
-     * @type {Date}
+     * @type {string}
      * @memberof WaitlistedEventType
      */
-    waitlistDate?: Date;
+    waitlistDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -248,9 +248,9 @@ export function WaitlistedEventTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'priority': !exists(json, 'priority') ? undefined : json['priority'],
         'processInstructions': !exists(json, 'processInstructions') ? undefined : EventProcessInstructionsTypeFromJSON(json['processInstructions']),
         'subEventsDetail': !exists(json, 'subEventsDetail') ? undefined : ((json['subEventsDetail'] as Array<any>).map(LightEventDetailTypeFromJSON)),
-        'updateDate': !exists(json, 'updateDate') ? undefined : (new Date(json['updateDate'])),
+        'updateDate': !exists(json, 'updateDate') ? undefined : json['updateDate'],
         'updateUser': !exists(json, 'updateUser') ? undefined : json['updateUser'],
-        'waitlistDate': !exists(json, 'waitlistDate') ? undefined : (new Date(json['waitlistDate'])),
+        'waitlistDate': !exists(json, 'waitlistDate') ? undefined : json['waitlistDate'],
         'waitlistId': !exists(json, 'waitlistId') ? undefined : UniqueIDTypeFromJSON(json['waitlistId']),
     };
 }
@@ -279,9 +279,9 @@ export function WaitlistedEventTypeToJSON(value?: WaitlistedEventType | null): a
         'priority': value.priority,
         'processInstructions': EventProcessInstructionsTypeToJSON(value.processInstructions),
         'subEventsDetail': value.subEventsDetail === undefined ? undefined : ((value.subEventsDetail as Array<any>).map(LightEventDetailTypeToJSON)),
-        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0,10)),
+        'updateDate': value.updateDate,
         'updateUser': value.updateUser,
-        'waitlistDate': value.waitlistDate === undefined ? undefined : (value.waitlistDate.toISOString().substring(0,10)),
+        'waitlistDate': value.waitlistDate,
         'waitlistId': UniqueIDTypeToJSON(value.waitlistId),
     };
 }

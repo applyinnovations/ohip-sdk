@@ -30,16 +30,16 @@ export interface ChannelNegRateAccessType {
     accessInfoDetail?: ChannelNegRateAccessDetailType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelNegRateAccessType
      */
-    end?: Date;
+    end?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelNegRateAccessType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the ChannelNegRateAccessType interface.

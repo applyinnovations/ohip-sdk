@@ -27,10 +27,10 @@ export interface ARReminderHistoryType {
     age?: number;
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
-     * @type {Date}
+     * @type {string}
      * @memberof ARReminderHistoryType
      */
-    dateSent?: Date;
+    dateSent?: string;
     /**
      * Report file name when exists to allow report re-printing.
      * @type {string}
@@ -65,7 +65,7 @@ export function ARReminderHistoryTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'age': !exists(json, 'age') ? undefined : json['age'],
-        'dateSent': !exists(json, 'dateSent') ? undefined : (new Date(json['dateSent'])),
+        'dateSent': !exists(json, 'dateSent') ? undefined : json['dateSent'],
         'reportFileName': !exists(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportName': !exists(json, 'reportName') ? undefined : json['reportName'],
     };
@@ -81,7 +81,7 @@ export function ARReminderHistoryTypeToJSON(value?: ARReminderHistoryType | null
     return {
         
         'age': value.age,
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0,10)),
+        'dateSent': value.dateSent,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,
     };

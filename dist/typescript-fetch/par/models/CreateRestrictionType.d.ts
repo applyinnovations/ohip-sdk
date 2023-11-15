@@ -38,10 +38,10 @@ export interface CreateRestrictionType {
     bookingChannels?: Array<string>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateRestrictionType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -110,10 +110,10 @@ export interface CreateRestrictionType {
     seasonCode?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateRestrictionType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

@@ -37,7 +37,7 @@ function BlockCateringPackageTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'attendees': !(0, runtime_1.exists)(json, 'attendees') ? undefined : (0, CateringEventsAttendeesType_1.CateringEventsAttendeesTypeFromJSON)(json['attendees']),
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['blockId']),
         'cateringPackageRemovable': !(0, runtime_1.exists)(json, 'cateringPackageRemovable') ? undefined : json['cateringPackageRemovable'],
         'duration': !(0, runtime_1.exists)(json, 'duration') ? undefined : json['duration'],
@@ -66,7 +66,7 @@ function BlockCateringPackageTypeToJSON(value) {
     }
     return {
         'attendees': (0, CateringEventsAttendeesType_1.CateringEventsAttendeesTypeToJSON)(value.attendees),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'blockId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.blockId),
         'cateringPackageRemovable': value.cateringPackageRemovable,
         'duration': value.duration,

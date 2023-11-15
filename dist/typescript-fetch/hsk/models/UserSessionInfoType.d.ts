@@ -20,10 +20,10 @@ import type { UserSessionDefaultsType } from './UserSessionDefaultsType';
 export interface UserSessionInfoType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof UserSessionInfoType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      *
      * @type {string}
@@ -74,10 +74,10 @@ export interface UserSessionInfoType {
     shareProfiles?: boolean;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof UserSessionInfoType
      */
-    systemDate?: Date;
+    systemDate?: string;
     /**
      *
      * @type {string}

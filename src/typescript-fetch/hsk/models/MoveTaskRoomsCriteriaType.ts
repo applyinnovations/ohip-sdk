@@ -58,10 +58,10 @@ export interface MoveTaskRoomsCriteriaType {
     taskCode?: Array<HousekeepingTaskCodeType>;
     /**
      * The date of the task sheet.
-     * @type {Date}
+     * @type {string}
      * @memberof MoveTaskRoomsCriteriaType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * The task sheet number to which the rooms should be moved.
      * @type {number}
@@ -93,7 +93,7 @@ export function MoveTaskRoomsCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimi
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'rooms': !exists(json, 'rooms') ? undefined : ((json['rooms'] as Array<any>).map(RoomTypeFromJSON)),
         'taskCode': !exists(json, 'taskCode') ? undefined : ((json['taskCode'] as Array<any>).map(HousekeepingTaskCodeTypeFromJSON)),
-        'taskDate': !exists(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !exists(json, 'taskDate') ? undefined : json['taskDate'],
         'toTaskSheetNumber': !exists(json, 'toTaskSheetNumber') ? undefined : json['toTaskSheetNumber'],
     };
 }
@@ -111,7 +111,7 @@ export function MoveTaskRoomsCriteriaTypeToJSON(value?: MoveTaskRoomsCriteriaTyp
         'hotelId': value.hotelId,
         'rooms': value.rooms === undefined ? undefined : ((value.rooms as Array<any>).map(RoomTypeToJSON)),
         'taskCode': value.taskCode === undefined ? undefined : ((value.taskCode as Array<any>).map(HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
+        'taskDate': value.taskDate,
         'toTaskSheetNumber': value.toTaskSheetNumber,
     };
 }

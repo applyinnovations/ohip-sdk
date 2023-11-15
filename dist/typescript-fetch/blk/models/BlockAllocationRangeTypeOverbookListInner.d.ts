@@ -29,10 +29,10 @@ export interface BlockAllocationRangeTypeOverbookListInner {
     roomType?: string;
     /**
      * Date which has to be overbooked or excluded.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeTypeOverbookListInner
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 /**
  * Check if a given object implements the BlockAllocationRangeTypeOverbookListInner interface.

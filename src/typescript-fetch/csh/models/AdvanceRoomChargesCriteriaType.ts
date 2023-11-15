@@ -40,10 +40,10 @@ export interface AdvanceRoomChargesCriteriaType {
     cashierId?: number;
     /**
      * Indicates the last date until which the Advance Room Charges have to be posted.
-     * @type {Date}
+     * @type {string}
      * @memberof AdvanceRoomChargesCriteriaType
      */
-    endDateToCharge?: Date;
+    endDateToCharge?: string;
     /**
      * 
      * @type {CashieringEventType}
@@ -96,7 +96,7 @@ export function AdvanceRoomChargesCriteriaTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'endDateToCharge': !exists(json, 'endDateToCharge') ? undefined : (new Date(json['endDateToCharge'])),
+        'endDateToCharge': !exists(json, 'endDateToCharge') ? undefined : json['endDateToCharge'],
         'eventType': !exists(json, 'eventType') ? undefined : CashieringEventTypeFromJSON(json['eventType']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'postForEntireStay': !exists(json, 'postForEntireStay') ? undefined : json['postForEntireStay'],
@@ -115,7 +115,7 @@ export function AdvanceRoomChargesCriteriaTypeToJSON(value?: AdvanceRoomChargesC
     return {
         
         'cashierId': value.cashierId,
-        'endDateToCharge': value.endDateToCharge === undefined ? undefined : (value.endDateToCharge.toISOString().substring(0,10)),
+        'endDateToCharge': value.endDateToCharge,
         'eventType': CashieringEventTypeToJSON(value.eventType),
         'hotelId': value.hotelId,
         'postForEntireStay': value.postForEntireStay,

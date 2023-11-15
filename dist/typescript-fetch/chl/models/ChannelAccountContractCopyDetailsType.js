@@ -33,9 +33,9 @@ function ChannelAccountContractCopyDetailsTypeFromJSONTyped(json, ignoreDiscrimi
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'contractNo': !(0, runtime_1.exists)(json, 'contractNo') ? undefined : json['contractNo'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'note': !(0, runtime_1.exists)(json, 'note') ? undefined : json['note'],
         'retainContractNo': !(0, runtime_1.exists)(json, 'retainContractNo') ? undefined : json['retainContractNo'],
         'sourceContractId': !(0, runtime_1.exists)(json, 'sourceContractId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['sourceContractId']),
@@ -51,9 +51,9 @@ function ChannelAccountContractCopyDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'contractNo': value.contractNo,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'note': value.note,
         'retainContractNo': value.retainContractNo,
         'sourceContractId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.sourceContractId),

@@ -324,10 +324,10 @@ class ActivityApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.ownerCode) {
                 queryParameters['ownerCode'] = requestParameters.ownerCode;
@@ -411,10 +411,10 @@ class ActivityApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.ownerCode) {
                 queryParameters['ownerCode'] = requestParameters.ownerCode;
@@ -603,10 +603,10 @@ class ActivityApi extends runtime.BaseAPI {
                 queryParameters['activityType'] = requestParameters.activityType;
             }
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.toDate !== undefined) {
-                queryParameters['toDate'] = requestParameters.toDate.toISOString().substring(0, 10);
+                queryParameters['toDate'] = requestParameters.toDate;
             }
             if (requestParameters.searchText !== undefined) {
                 queryParameters['searchText'] = requestParameters.searchText;
@@ -663,7 +663,7 @@ class ActivityApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.reportStartDate !== undefined) {
-                queryParameters['reportStartDate'] = requestParameters.reportStartDate.toISOString().substring(0, 10);
+                queryParameters['reportStartDate'] = requestParameters.reportStartDate;
             }
             if (requestParameters.activityTypeCodes) {
                 queryParameters['activityTypeCodes'] = requestParameters.activityTypeCodes;
@@ -831,10 +831,10 @@ class ActivityApi extends runtime.BaseAPI {
                 queryParameters['senderEmailAddress'] = requestParameters.senderEmailAddress;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;

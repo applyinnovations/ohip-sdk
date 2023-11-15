@@ -54,10 +54,10 @@ export interface PackageElementType {
     description?: Array<string>;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof PackageElementType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {string}
@@ -96,10 +96,10 @@ export interface PackageElementType {
     sellSeparate?: boolean;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof PackageElementType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
      * @type {string}

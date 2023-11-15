@@ -52,10 +52,10 @@ export interface SupportingDocumentType {
     documentCategory?: FiscalSupportingDocumentCategory;
     /**
      * Supporting document creation date.
-     * @type {Date}
+     * @type {string}
      * @memberof SupportingDocumentType
      */
-    documentDate?: Date;
+    documentDate?: string;
     /**
      * Supporting document number.
      * @type {number}
@@ -122,7 +122,7 @@ export function SupportingDocumentTypeFromJSONTyped(json: any, ignoreDiscriminat
         'confirmationNo': !exists(json, 'confirmationNo') ? undefined : json['confirmationNo'],
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'documentCategory': !exists(json, 'documentCategory') ? undefined : FiscalSupportingDocumentCategoryFromJSON(json['documentCategory']),
-        'documentDate': !exists(json, 'documentDate') ? undefined : (new Date(json['documentDate'])),
+        'documentDate': !exists(json, 'documentDate') ? undefined : json['documentDate'],
         'documentNo': !exists(json, 'documentNo') ? undefined : json['documentNo'],
         'documentType': !exists(json, 'documentType') ? undefined : FiscalSupportingDocumentTypeFromJSON(json['documentType']),
         'fiscalStatus': !exists(json, 'fiscalStatus') ? undefined : json['fiscalStatus'],
@@ -145,7 +145,7 @@ export function SupportingDocumentTypeToJSON(value?: SupportingDocumentType | nu
         'confirmationNo': value.confirmationNo,
         'createDateTime': value.createDateTime,
         'documentCategory': FiscalSupportingDocumentCategoryToJSON(value.documentCategory),
-        'documentDate': value.documentDate === undefined ? undefined : (value.documentDate.toISOString().substring(0,10)),
+        'documentDate': value.documentDate,
         'documentNo': value.documentNo,
         'documentType': FiscalSupportingDocumentTypeToJSON(value.documentType),
         'fiscalStatus': value.fiscalStatus,

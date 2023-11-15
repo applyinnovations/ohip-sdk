@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface BestAvailableRateType {
     /**
      * Best available rate date available
-     * @type {Date}
+     * @type {string}
      * @memberof BestAvailableRateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Best available rate length of stay
      * @type {number}
@@ -58,7 +58,7 @@ export function BestAvailableRateTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'lengthOfStay': !exists(json, 'lengthOfStay') ? undefined : json['lengthOfStay'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
     };
@@ -73,7 +73,7 @@ export function BestAvailableRateTypeToJSON(value?: BestAvailableRateType | null
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'lengthOfStay': value.lengthOfStay,
         'rateCode': value.rateCode,
     };

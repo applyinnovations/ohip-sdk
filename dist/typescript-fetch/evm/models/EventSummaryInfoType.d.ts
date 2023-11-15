@@ -198,10 +198,10 @@ export interface EventSummaryInfoType {
     hotelId?: string;
     /**
      * Inactivation date of the event.
-     * @type {Date}
+     * @type {string}
      * @memberof EventSummaryInfoType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Flag to indicate if the event space is associated from the Package.
      * @type {boolean}

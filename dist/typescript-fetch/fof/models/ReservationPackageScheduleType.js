@@ -33,10 +33,10 @@ function ReservationPackageScheduleTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'computedResvPrice': !(0, runtime_1.exists)(json, 'computedResvPrice') ? undefined : json['computedResvPrice'],
-        'consumptionDate': !(0, runtime_1.exists)(json, 'consumptionDate') ? undefined : (new Date(json['consumptionDate'])),
+        'consumptionDate': !(0, runtime_1.exists)(json, 'consumptionDate') ? undefined : json['consumptionDate'],
         'originalUnitAllowance': !(0, runtime_1.exists)(json, 'originalUnitAllowance') ? undefined : json['originalUnitAllowance'],
         'originalUnitPrice': !(0, runtime_1.exists)(json, 'originalUnitPrice') ? undefined : json['originalUnitPrice'],
-        'reservationDate': !(0, runtime_1.exists)(json, 'reservationDate') ? undefined : (new Date(json['reservationDate'])),
+        'reservationDate': !(0, runtime_1.exists)(json, 'reservationDate') ? undefined : json['reservationDate'],
         'totalQuantity': !(0, runtime_1.exists)(json, 'totalQuantity') ? undefined : json['totalQuantity'],
         'unitAllowance': !(0, runtime_1.exists)(json, 'unitAllowance') ? undefined : json['unitAllowance'],
         'unitPrice': !(0, runtime_1.exists)(json, 'unitPrice') ? undefined : json['unitPrice'],
@@ -52,10 +52,10 @@ function ReservationPackageScheduleTypeToJSON(value) {
     }
     return {
         'computedResvPrice': value.computedResvPrice,
-        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substring(0, 10)),
+        'consumptionDate': value.consumptionDate,
         'originalUnitAllowance': value.originalUnitAllowance,
         'originalUnitPrice': value.originalUnitPrice,
-        'reservationDate': value.reservationDate === undefined ? undefined : (value.reservationDate.toISOString().substring(0, 10)),
+        'reservationDate': value.reservationDate,
         'totalQuantity': value.totalQuantity,
         'unitAllowance': value.unitAllowance,
         'unitPrice': value.unitPrice,

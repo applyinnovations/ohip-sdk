@@ -21,10 +21,10 @@ import type { WarningType } from './WarningType';
 export interface Statistics {
     /**
      * Statistical date of the requested report.
-     * @type {Date}
+     * @type {string}
      * @memberof Statistics
      */
-    calendarDate?: Date;
+    calendarDate?: string;
     /**
      *
      * @type {Array<InstanceLink>}

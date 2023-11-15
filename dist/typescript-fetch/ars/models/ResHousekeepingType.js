@@ -39,7 +39,7 @@ function ResHousekeepingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'instructions': !(0, runtime_1.exists)(json, 'instructions') ? undefined : json['instructions'],
         'linenChange': !(0, runtime_1.exists)(json, 'linenChange') ? undefined : json['linenChange'],
         'roomStatus': !(0, runtime_1.exists)(json, 'roomStatus') ? undefined : (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeFromJSON)(json['roomStatus']),
-        'serviceTime': !(0, runtime_1.exists)(json, 'serviceTime') ? undefined : (new Date(json['serviceTime'])),
+        'serviceTime': !(0, runtime_1.exists)(json, 'serviceTime') ? undefined : json['serviceTime'],
         'turndownRequested': !(0, runtime_1.exists)(json, 'turndownRequested') ? undefined : json['turndownRequested'],
     };
 }
@@ -57,7 +57,7 @@ function ResHousekeepingTypeToJSON(value) {
         'instructions': value.instructions,
         'linenChange': value.linenChange,
         'roomStatus': (0, HousekeepingRoomStatusType_1.HousekeepingRoomStatusTypeToJSON)(value.roomStatus),
-        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substring(0, 10)),
+        'serviceTime': value.serviceTime,
         'turndownRequested': value.turndownRequested,
     };
 }

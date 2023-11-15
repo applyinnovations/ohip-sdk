@@ -34,10 +34,10 @@ export interface AssociatedRoomOwnershipInfoType {
     associatedRoomOwnershipType?: AssociatedRoomOwnershipType;
     /**
      * End date of Room Ownership contract
-     * @type {Date}
+     * @type {string}
      * @memberof AssociatedRoomOwnershipInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Id
      * @type {string}
@@ -70,10 +70,10 @@ export interface AssociatedRoomOwnershipInfoType {
     roomType?: string;
     /**
      * Start date of Room Ownership contract
-     * @type {Date}
+     * @type {string}
      * @memberof AssociatedRoomOwnershipInfoType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -96,13 +96,13 @@ export function AssociatedRoomOwnershipInfoTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'associatedRoomOwnershipType': !exists(json, 'associatedRoomOwnershipType') ? undefined : AssociatedRoomOwnershipTypeFromJSON(json['associatedRoomOwnershipType']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'ownerExclusive': !exists(json, 'ownerExclusive') ? undefined : json['ownerExclusive'],
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomOwnershipId': !exists(json, 'roomOwnershipId') ? undefined : json['roomOwnershipId'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -116,13 +116,13 @@ export function AssociatedRoomOwnershipInfoTypeToJSON(value?: AssociatedRoomOwne
     return {
         
         'associatedRoomOwnershipType': AssociatedRoomOwnershipTypeToJSON(value.associatedRoomOwnershipType),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'ownerExclusive': value.ownerExclusive,
         'roomId': value.roomId,
         'roomOwnershipId': value.roomOwnershipId,
         'roomType': value.roomType,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

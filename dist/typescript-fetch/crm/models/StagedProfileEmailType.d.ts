@@ -42,10 +42,10 @@ export interface StagedProfileEmailType {
     id?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileEmailType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}

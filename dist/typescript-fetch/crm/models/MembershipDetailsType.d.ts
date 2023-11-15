@@ -20,16 +20,16 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface MembershipDetailsType {
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * The card number associated with this membership.
      * @type {string}

@@ -23,10 +23,10 @@ export interface ReservationPackageScheduleType {
     computedResvPrice?: number;
     /**
      * The date the package was used or can be used.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageScheduleType
      */
-    consumptionDate?: Date;
+    consumptionDate?: string;
     /**
      * The original allowance per unit of the package if it has been changed.
      * @type {number}
@@ -41,10 +41,10 @@ export interface ReservationPackageScheduleType {
     originalUnitPrice?: number;
     /**
      * The date of the Reservation when this package is applicable. This can be different from the date the package will be consumed. Example are next day packages. Reservation date is when the package is applied to the guest and Consumption date is when the guest can consume the package.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPackageScheduleType
      */
-    reservationDate?: Date;
+    reservationDate?: string;
     /**
      * The total quantity of the package for this date, calculated based on the calculation rule as defined in the PackageHeaderType
      * @type {number}

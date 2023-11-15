@@ -34,10 +34,10 @@ export interface BlockRateProtectionType {
     criteria?: RateProtectionType;
     /**
      * Specifies a single date.
-     * @type {Array<Date>}
+     * @type {Array<string>}
      * @memberof BlockRateProtectionType
      */
-    protectedDates?: Array<Date>;
+    protectedDates?: Array<string>;
 }
 
 /**

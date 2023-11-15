@@ -37,10 +37,10 @@ export interface BillingChargesCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingChargesCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * Flag to indicate it is part of a PostIt Sale.
      * @type {boolean}

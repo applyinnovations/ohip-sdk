@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface ResolveRoomMaintenanceType {
     /**
      * Resolve date.
-     * @type {Date}
+     * @type {string}
      * @memberof ResolveRoomMaintenanceType
      */
-    resolveDate?: Date;
+    resolveDate?: string;
     /**
      * Resolved by user.
      * @type {string}
@@ -52,7 +52,7 @@ export function ResolveRoomMaintenanceTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'resolveDate': !exists(json, 'resolveDate') ? undefined : (new Date(json['resolveDate'])),
+        'resolveDate': !exists(json, 'resolveDate') ? undefined : json['resolveDate'],
         'resolveUser': !exists(json, 'resolveUser') ? undefined : json['resolveUser'],
     };
 }
@@ -66,7 +66,7 @@ export function ResolveRoomMaintenanceTypeToJSON(value?: ResolveRoomMaintenanceT
     }
     return {
         
-        'resolveDate': value.resolveDate === undefined ? undefined : (value.resolveDate.toISOString().substring(0,10)),
+        'resolveDate': value.resolveDate,
         'resolveUser': value.resolveUser,
     };
 }

@@ -64,10 +64,10 @@ export interface ResHousekeepingType {
     roomStatus?: HousekeepingRoomStatusType;
     /**
      * This is the Turndown functionSpaceDetails service time.
-     * @type {Date}
+     * @type {string}
      * @memberof ResHousekeepingType
      */
-    serviceTime?: Date;
+    serviceTime?: string;
     /**
      * Indicates whether guest wants turndown facility or not.
      * @type {boolean}
@@ -100,7 +100,7 @@ export function ResHousekeepingTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'instructions': !exists(json, 'instructions') ? undefined : json['instructions'],
         'linenChange': !exists(json, 'linenChange') ? undefined : json['linenChange'],
         'roomStatus': !exists(json, 'roomStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['roomStatus']),
-        'serviceTime': !exists(json, 'serviceTime') ? undefined : (new Date(json['serviceTime'])),
+        'serviceTime': !exists(json, 'serviceTime') ? undefined : json['serviceTime'],
         'turndownRequested': !exists(json, 'turndownRequested') ? undefined : json['turndownRequested'],
     };
 }
@@ -119,7 +119,7 @@ export function ResHousekeepingTypeToJSON(value?: ResHousekeepingType | null): a
         'instructions': value.instructions,
         'linenChange': value.linenChange,
         'roomStatus': HousekeepingRoomStatusTypeToJSON(value.roomStatus),
-        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substring(0,10)),
+        'serviceTime': value.serviceTime,
         'turndownRequested': value.turndownRequested,
     };
 }

@@ -35,7 +35,7 @@ function BorrowInventoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
-        'borrowDate': !(0, runtime_1.exists)(json, 'borrowDate') ? undefined : (new Date(json['borrowDate'])),
+        'borrowDate': !(0, runtime_1.exists)(json, 'borrowDate') ? undefined : json['borrowDate'],
         'borrowRooms': !(0, runtime_1.exists)(json, 'borrowRooms') ? undefined : (json['borrowRooms'].map(BorrowRoomType_1.BorrowRoomTypeFromJSON)),
     };
 }
@@ -49,7 +49,7 @@ function BorrowInventoryTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0, 10)),
+        'borrowDate': value.borrowDate,
         'borrowRooms': value.borrowRooms === undefined ? undefined : (value.borrowRooms.map(BorrowRoomType_1.BorrowRoomTypeToJSON)),
     };
 }

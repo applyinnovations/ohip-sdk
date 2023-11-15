@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface ForeignExchangeType {
     /**
      * Effective Exchange date for the foreign currency posting.
-     * @type {Date}
+     * @type {string}
      * @memberof ForeignExchangeType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Exchange Type for the postings.
      * @type {string}
@@ -52,7 +52,7 @@ export function ForeignExchangeTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
+        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : json['effectiveDate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
 }
@@ -66,7 +66,7 @@ export function ForeignExchangeTypeToJSON(value?: ForeignExchangeType | null): a
     }
     return {
         
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
+        'effectiveDate': value.effectiveDate,
         'type': value.type,
     };
 }

@@ -34,7 +34,7 @@ function RecentlyAccessedActivityTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : json['accessDate'],
         'activityIdList': !(0, runtime_1.exists)(json, 'activityIdList') ? undefined : (json['activityIdList'].map(ActivityId_1.ActivityIdFromJSON)),
         'activityOwnerCode': !(0, runtime_1.exists)(json, 'activityOwnerCode') ? undefined : json['activityOwnerCode'],
         'activityTypeDescription': !(0, runtime_1.exists)(json, 'activityTypeDescription') ? undefined : json['activityTypeDescription'],
@@ -51,7 +51,7 @@ function RecentlyAccessedActivityTypeToJSON(value) {
         return null;
     }
     return {
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
+        'accessDate': value.accessDate,
         'activityIdList': value.activityIdList === undefined ? undefined : (value.activityIdList.map(ActivityId_1.ActivityIdToJSON)),
         'activityOwnerCode': value.activityOwnerCode,
         'activityTypeDescription': value.activityTypeDescription,

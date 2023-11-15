@@ -49,7 +49,7 @@ function PrepaidCardTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
     };
 }
@@ -75,7 +75,7 @@ function PrepaidCardTypeToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'name': value.name,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
     };
 }

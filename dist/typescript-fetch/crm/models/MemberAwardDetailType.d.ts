@@ -151,10 +151,10 @@ export interface MemberAwardDetailType {
     roomType?: string;
     /**
      * Date of stay.
-     * @type {Date}
+     * @type {string}
      * @memberof MemberAwardDetailType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Room type label after the upgrade for an upgrade award.
      * @type {string}

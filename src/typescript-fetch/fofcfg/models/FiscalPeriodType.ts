@@ -40,10 +40,10 @@ export interface FiscalPeriodType {
     description?: string;
     /**
      * End Date of the Period.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalPeriodType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Resort for which the Period is defined.
      * @type {string}
@@ -58,10 +58,10 @@ export interface FiscalPeriodType {
     periodType?: YearTypeType;
     /**
      * Start Date of the Period
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalPeriodType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Year for the current Period.
      * @type {number}
@@ -97,10 +97,10 @@ export function FiscalPeriodTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'code': !exists(json, 'code') ? undefined : json['code'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'periodType': !exists(json, 'periodType') ? undefined : YearTypeTypeFromJSON(json['periodType']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'year': !exists(json, 'year') ? undefined : json['year'],
         'yearId': !exists(json, 'yearId') ? undefined : json['yearId'],
     };
@@ -117,10 +117,10 @@ export function FiscalPeriodTypeToJSON(value?: FiscalPeriodType | null): any {
         
         'code': value.code,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'periodType': YearTypeTypeToJSON(value.periodType),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'year': value.year,
         'yearId': value.yearId,
     };

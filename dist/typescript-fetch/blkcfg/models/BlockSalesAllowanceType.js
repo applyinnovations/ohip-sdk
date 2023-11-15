@@ -34,12 +34,12 @@ function BlockSalesAllowanceTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'allowance': !(0, runtime_1.exists)(json, 'allowance') ? undefined : json['allowance'],
         'booked': !(0, runtime_1.exists)(json, 'booked') ? undefined : json['booked'],
-        'cutoffDate': !(0, runtime_1.exists)(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
+        'cutoffDate': !(0, runtime_1.exists)(json, 'cutoffDate') ? undefined : json['cutoffDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'overBooked': !(0, runtime_1.exists)(json, 'overBooked') ? undefined : json['overBooked'],
         'roomPool': !(0, runtime_1.exists)(json, 'roomPool') ? undefined : json['roomPool'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
-        'salesAllowanceDate': !(0, runtime_1.exists)(json, 'salesAllowanceDate') ? undefined : (new Date(json['salesAllowanceDate'])),
+        'salesAllowanceDate': !(0, runtime_1.exists)(json, 'salesAllowanceDate') ? undefined : json['salesAllowanceDate'],
     };
 }
 exports.BlockSalesAllowanceTypeFromJSONTyped = BlockSalesAllowanceTypeFromJSONTyped;
@@ -53,12 +53,12 @@ function BlockSalesAllowanceTypeToJSON(value) {
     return {
         'allowance': value.allowance,
         'booked': value.booked,
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0, 10)),
+        'cutoffDate': value.cutoffDate,
         'hotelId': value.hotelId,
         'overBooked': value.overBooked,
         'roomPool': value.roomPool,
         'roomType': value.roomType,
-        'salesAllowanceDate': value.salesAllowanceDate === undefined ? undefined : (value.salesAllowanceDate.toISOString().substring(0, 10)),
+        'salesAllowanceDate': value.salesAllowanceDate,
     };
 }
 exports.BlockSalesAllowanceTypeToJSON = BlockSalesAllowanceTypeToJSON;

@@ -27,16 +27,16 @@ export interface ResPeriodicFolioType {
     frequency?: number;
     /**
      * Latest date when a folio was printed using the "Periodic Batch Folios" option
-     * @type {Date}
+     * @type {string}
      * @memberof ResPeriodicFolioType
      */
-    lastFolioDate?: Date;
+    lastFolioDate?: string;
     /**
      * Latest date when a direct bill settlement was automatically done using the "Direct Bill Batch Folios" option.
-     * @type {Date}
+     * @type {string}
      * @memberof ResPeriodicFolioType
      */
-    lastSettlementDate?: Date;
+    lastSettlementDate?: string;
 }
 
 /**
@@ -59,8 +59,8 @@ export function ResPeriodicFolioTypeFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'frequency': !exists(json, 'frequency') ? undefined : json['frequency'],
-        'lastFolioDate': !exists(json, 'lastFolioDate') ? undefined : (new Date(json['lastFolioDate'])),
-        'lastSettlementDate': !exists(json, 'lastSettlementDate') ? undefined : (new Date(json['lastSettlementDate'])),
+        'lastFolioDate': !exists(json, 'lastFolioDate') ? undefined : json['lastFolioDate'],
+        'lastSettlementDate': !exists(json, 'lastSettlementDate') ? undefined : json['lastSettlementDate'],
     };
 }
 
@@ -74,8 +74,8 @@ export function ResPeriodicFolioTypeToJSON(value?: ResPeriodicFolioType | null):
     return {
         
         'frequency': value.frequency,
-        'lastFolioDate': value.lastFolioDate === undefined ? undefined : (value.lastFolioDate.toISOString().substring(0,10)),
-        'lastSettlementDate': value.lastSettlementDate === undefined ? undefined : (value.lastSettlementDate.toISOString().substring(0,10)),
+        'lastFolioDate': value.lastFolioDate,
+        'lastSettlementDate': value.lastSettlementDate,
     };
 }
 

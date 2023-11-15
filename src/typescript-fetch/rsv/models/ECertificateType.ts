@@ -70,16 +70,16 @@ export interface ECertificateType {
     eCertificateInfo?: ECertificateInfoType;
     /**
      * Date of expiry.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * Date when certificate was issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * Print status of the certificate.
      * @type {boolean}
@@ -134,8 +134,8 @@ export function ECertificateTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'certificateNo': !exists(json, 'certificateNo') ? undefined : json['certificateNo'],
         'consumptionDetail': !exists(json, 'consumptionDetail') ? undefined : ECertificateConsumptionTypeFromJSON(json['consumptionDetail']),
         'eCertificateInfo': !exists(json, 'eCertificateInfo') ? undefined : ECertificateInfoTypeFromJSON(json['eCertificateInfo']),
-        'expiryDate': !exists(json, 'expiryDate') ? undefined : (new Date(json['expiryDate'])),
-        'issueDate': !exists(json, 'issueDate') ? undefined : (new Date(json['issueDate'])),
+        'expiryDate': !exists(json, 'expiryDate') ? undefined : json['expiryDate'],
+        'issueDate': !exists(json, 'issueDate') ? undefined : json['issueDate'],
         'printed': !exists(json, 'printed') ? undefined : json['printed'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'source': !exists(json, 'source') ? undefined : ECertificateIssueSourceTypeFromJSON(json['source']),
@@ -156,8 +156,8 @@ export function ECertificateTypeToJSON(value?: ECertificateType | null): any {
         'certificateNo': value.certificateNo,
         'consumptionDetail': ECertificateConsumptionTypeToJSON(value.consumptionDetail),
         'eCertificateInfo': ECertificateInfoTypeToJSON(value.eCertificateInfo),
-        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substring(0,10)),
-        'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substring(0,10)),
+        'expiryDate': value.expiryDate,
+        'issueDate': value.issueDate,
         'printed': value.printed,
         'profileId': ProfileIdToJSON(value.profileId),
         'source': ECertificateIssueSourceTypeToJSON(value.source),

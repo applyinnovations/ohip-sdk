@@ -33,10 +33,10 @@ function BedTaxInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : json['arrival'],
         'arrivalCarrierCode': !(0, runtime_1.exists)(json, 'arrivalCarrierCode') ? undefined : json['arrivalCarrierCode'],
         'country': !(0, runtime_1.exists)(json, 'country') ? undefined : json['country'],
-        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : json['departure'],
         'departureCarrierCode': !(0, runtime_1.exists)(json, 'departureCarrierCode') ? undefined : json['departureCarrierCode'],
         'guestAge': !(0, runtime_1.exists)(json, 'guestAge') ? undefined : json['guestAge'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
@@ -48,12 +48,12 @@ function BedTaxInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'profession': !(0, runtime_1.exists)(json, 'profession') ? undefined : json['profession'],
         'remark': !(0, runtime_1.exists)(json, 'remark') ? undefined : json['remark'],
         'reservationNameId': !(0, runtime_1.exists)(json, 'reservationNameId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['reservationNameId']),
-        'taxArrivaldate': !(0, runtime_1.exists)(json, 'taxArrivaldate') ? undefined : (new Date(json['taxArrivaldate'])),
-        'taxDepartureDate': !(0, runtime_1.exists)(json, 'taxDepartureDate') ? undefined : (new Date(json['taxDepartureDate'])),
+        'taxArrivaldate': !(0, runtime_1.exists)(json, 'taxArrivaldate') ? undefined : json['taxArrivaldate'],
+        'taxDepartureDate': !(0, runtime_1.exists)(json, 'taxDepartureDate') ? undefined : json['taxDepartureDate'],
         'taxNoOfStays': !(0, runtime_1.exists)(json, 'taxNoOfStays') ? undefined : json['taxNoOfStays'],
         'taxRegistrationNo': !(0, runtime_1.exists)(json, 'taxRegistrationNo') ? undefined : json['taxRegistrationNo'],
-        'visaExpirationDate': !(0, runtime_1.exists)(json, 'visaExpirationDate') ? undefined : (new Date(json['visaExpirationDate'])),
-        'visaIssueDate': !(0, runtime_1.exists)(json, 'visaIssueDate') ? undefined : (new Date(json['visaIssueDate'])),
+        'visaExpirationDate': !(0, runtime_1.exists)(json, 'visaExpirationDate') ? undefined : json['visaExpirationDate'],
+        'visaIssueDate': !(0, runtime_1.exists)(json, 'visaIssueDate') ? undefined : json['visaIssueDate'],
         'visaNumber': !(0, runtime_1.exists)(json, 'visaNumber') ? undefined : json['visaNumber'],
     };
 }
@@ -66,10 +66,10 @@ function BedTaxInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
+        'arrival': value.arrival,
         'arrivalCarrierCode': value.arrivalCarrierCode,
         'country': value.country,
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
+        'departure': value.departure,
         'departureCarrierCode': value.departureCarrierCode,
         'guestAge': value.guestAge,
         'guestName': value.guestName,
@@ -81,12 +81,12 @@ function BedTaxInfoTypeToJSON(value) {
         'profession': value.profession,
         'remark': value.remark,
         'reservationNameId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.reservationNameId),
-        'taxArrivaldate': value.taxArrivaldate === undefined ? undefined : (value.taxArrivaldate.toISOString().substring(0, 10)),
-        'taxDepartureDate': value.taxDepartureDate === undefined ? undefined : (value.taxDepartureDate.toISOString().substring(0, 10)),
+        'taxArrivaldate': value.taxArrivaldate,
+        'taxDepartureDate': value.taxDepartureDate,
         'taxNoOfStays': value.taxNoOfStays,
         'taxRegistrationNo': value.taxRegistrationNo,
-        'visaExpirationDate': value.visaExpirationDate === undefined ? undefined : (value.visaExpirationDate.toISOString().substring(0, 10)),
-        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substring(0, 10)),
+        'visaExpirationDate': value.visaExpirationDate,
+        'visaIssueDate': value.visaIssueDate,
         'visaNumber': value.visaNumber,
     };
 }

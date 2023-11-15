@@ -33,7 +33,7 @@ function BlockDailyStatisticsDateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'genericRoomTypeStatisticsList': !(0, runtime_1.exists)(json, 'genericRoomTypeStatisticsList') ? undefined : (json['genericRoomTypeStatisticsList'].map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeFromJSON)),
         'roomTypeStatisticsList': !(0, runtime_1.exists)(json, 'roomTypeStatisticsList') ? undefined : (json['roomTypeStatisticsList'].map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeFromJSON)),
     };
@@ -47,7 +47,7 @@ function BlockDailyStatisticsDateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'genericRoomTypeStatisticsList': value.genericRoomTypeStatisticsList === undefined ? undefined : (value.genericRoomTypeStatisticsList.map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeToJSON)),
         'roomTypeStatisticsList': value.roomTypeStatisticsList === undefined ? undefined : (value.roomTypeStatisticsList.map(BlockDailyRoomStatisticsType_1.BlockDailyRoomStatisticsTypeToJSON)),
     };

@@ -17,10 +17,10 @@
 export interface RegionalParityRateType {
     /**
      * Arrival Date.
-     * @type {Date}
+     * @type {string}
      * @memberof RegionalParityRateType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      *
      * @type {string}

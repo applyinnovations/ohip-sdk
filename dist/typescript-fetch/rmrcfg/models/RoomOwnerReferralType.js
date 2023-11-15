@@ -36,10 +36,10 @@ function RoomOwnerReferralTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'profileAddress': !(0, runtime_1.exists)(json, 'profileAddress') ? undefined : (0, AddressType_1.AddressTypeFromJSON)(json['profileAddress']),
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'profileName': !(0, runtime_1.exists)(json, 'profileName') ? undefined : (0, ProfileNameType_1.ProfileNameTypeFromJSON)(json['profileName']),
@@ -47,7 +47,7 @@ function RoomOwnerReferralTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomOwnerId': !(0, runtime_1.exists)(json, 'roomOwnerId') ? undefined : json['roomOwnerId'],
         'roomOwnerReferralId': !(0, runtime_1.exists)(json, 'roomOwnerReferralId') ? undefined : json['roomOwnerReferralId'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.RoomOwnerReferralTypeFromJSONTyped = RoomOwnerReferralTypeFromJSONTyped;
@@ -59,10 +59,10 @@ function RoomOwnerReferralTypeToJSON(value) {
         return null;
     }
     return {
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'profileAddress': (0, AddressType_1.AddressTypeToJSON)(value.profileAddress),
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'profileName': (0, ProfileNameType_1.ProfileNameTypeToJSON)(value.profileName),
@@ -70,7 +70,7 @@ function RoomOwnerReferralTypeToJSON(value) {
         'roomId': value.roomId,
         'roomOwnerId': value.roomOwnerId,
         'roomOwnerReferralId': value.roomOwnerReferralId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.RoomOwnerReferralTypeToJSON = RoomOwnerReferralTypeToJSON;

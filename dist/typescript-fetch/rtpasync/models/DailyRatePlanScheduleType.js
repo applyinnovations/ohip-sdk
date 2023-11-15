@@ -34,7 +34,7 @@ function DailyRatePlanScheduleTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'rateAmounts': !(0, runtime_1.exists)(json, 'rateAmounts') ? undefined : (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeFromJSON)(json['rateAmounts']),
-        'rateDate': !(0, runtime_1.exists)(json, 'rateDate') ? undefined : (new Date(json['rateDate'])),
+        'rateDate': !(0, runtime_1.exists)(json, 'rateDate') ? undefined : json['rateDate'],
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
     };
@@ -49,7 +49,7 @@ function DailyRatePlanScheduleTypeToJSON(value) {
     }
     return {
         'rateAmounts': (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeToJSON)(value.rateAmounts),
-        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0, 10)),
+        'rateDate': value.rateDate,
         'ratePlanCode': value.ratePlanCode,
         'roomType': value.roomType,
     };

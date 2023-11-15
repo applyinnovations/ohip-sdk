@@ -88,10 +88,10 @@ export interface SuspendedAddressesInfoType {
     profileType?: string;
     /**
      * Validate Date.
-     * @type {Date}
+     * @type {string}
      * @memberof SuspendedAddressesInfoType
      */
-    validateDate?: Date;
+    validateDate?: string;
 }
 
 /**
@@ -122,7 +122,7 @@ export function SuspendedAddressesInfoTypeFromJSONTyped(json: any, ignoreDiscrim
         'name': !exists(json, 'name') ? undefined : json['name'],
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'profileType': !exists(json, 'profileType') ? undefined : json['profileType'],
-        'validateDate': !exists(json, 'validateDate') ? undefined : (new Date(json['validateDate'])),
+        'validateDate': !exists(json, 'validateDate') ? undefined : json['validateDate'],
     };
 }
 
@@ -144,7 +144,7 @@ export function SuspendedAddressesInfoTypeToJSON(value?: SuspendedAddressesInfoT
         'name': value.name,
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'profileType': value.profileType,
-        'validateDate': value.validateDate === undefined ? undefined : (value.validateDate.toISOString().substring(0,10)),
+        'validateDate': value.validateDate,
     };
 }
 

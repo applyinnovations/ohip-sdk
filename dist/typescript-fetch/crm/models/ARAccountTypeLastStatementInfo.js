@@ -32,7 +32,7 @@ function ARAccountTypeLastStatementInfoFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : (new Date(json['dateSent'])),
+        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : json['dateSent'],
         'historyExists': !(0, runtime_1.exists)(json, 'historyExists') ? undefined : json['historyExists'],
         'reportFileName': !(0, runtime_1.exists)(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportName': !(0, runtime_1.exists)(json, 'reportName') ? undefined : json['reportName'],
@@ -48,7 +48,7 @@ function ARAccountTypeLastStatementInfoToJSON(value) {
         return null;
     }
     return {
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0, 10)),
+        'dateSent': value.dateSent,
         'historyExists': value.historyExists,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,

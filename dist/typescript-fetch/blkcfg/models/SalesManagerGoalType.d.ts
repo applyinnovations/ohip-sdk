@@ -37,10 +37,10 @@ export interface SalesManagerGoalType {
     activityType?: string;
     /**
      * Specifies the Arrival End Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    arrivalEndDate?: Date;
+    arrivalEndDate?: string;
     /**
      * Specifies if this is a Arrival or a Production Goal
      * @type {boolean}
@@ -55,10 +55,10 @@ export interface SalesManagerGoalType {
     arrivalPeriodCode?: string;
     /**
      * Specifies the Arrival Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    arrivalStartDate?: Date;
+    arrivalStartDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -133,10 +133,10 @@ export interface SalesManagerGoalType {
     otherRevenue?: CurrencyAmountType;
     /**
      * Specifies the Production End Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    productionEndDate?: Date;
+    productionEndDate?: string;
     /**
      * Specifies the Production Period Code
      * @type {string}
@@ -145,10 +145,10 @@ export interface SalesManagerGoalType {
     productionPeriodCode?: string;
     /**
      * Specifies the Production Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    productionStartDate?: Date;
+    productionStartDate?: string;
     /**
      * Room Nights assigned for the goal
      * @type {number}

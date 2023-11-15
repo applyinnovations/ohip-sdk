@@ -27,10 +27,10 @@ export interface ItemQuantityDateType {
     dailyQuantity?: number;
     /**
      * Date of the item quantity.
-     * @type {Date}
+     * @type {string}
      * @memberof ItemQuantityDateType
      */
-    quantityDate?: Date;
+    quantityDate?: string;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ItemQuantityDateTypeFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'dailyQuantity': !exists(json, 'dailyQuantity') ? undefined : json['dailyQuantity'],
-        'quantityDate': !exists(json, 'quantityDate') ? undefined : (new Date(json['quantityDate'])),
+        'quantityDate': !exists(json, 'quantityDate') ? undefined : json['quantityDate'],
     };
 }
 
@@ -67,7 +67,7 @@ export function ItemQuantityDateTypeToJSON(value?: ItemQuantityDateType | null):
     return {
         
         'dailyQuantity': value.dailyQuantity,
-        'quantityDate': value.quantityDate === undefined ? undefined : (value.quantityDate.toISOString().substring(0,10)),
+        'quantityDate': value.quantityDate,
     };
 }
 

@@ -41,10 +41,10 @@ export interface TourSeriesBlockType {
     hotelId?: string;
     /**
      * The start date of the tour series block.
-     * @type {Date}
+     * @type {string}
      * @memberof TourSeriesBlockType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the TourSeriesBlockType interface.

@@ -28,10 +28,10 @@ import {
 export interface FixedChargeScheduleType {
     /**
      * Date of when to execute yearly fixed charge. Applicable when frequency is Yearly.
-     * @type {Date}
+     * @type {string}
      * @memberof FixedChargeScheduleType
      */
-    dateToExecute?: Date;
+    dateToExecute?: string;
     /**
      * Day of when to execute fixed charge. Applicable when frequency is Daily or Weekly.
      * @type {string}
@@ -40,16 +40,16 @@ export interface FixedChargeScheduleType {
     dayToExecute?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FixedChargeScheduleType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FixedChargeScheduleType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * 
      * @type {FixedChargeFrequencyType}
@@ -77,10 +77,10 @@ export function FixedChargeScheduleTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'dateToExecute': !exists(json, 'dateToExecute') ? undefined : (new Date(json['dateToExecute'])),
+        'dateToExecute': !exists(json, 'dateToExecute') ? undefined : json['dateToExecute'],
         'dayToExecute': !exists(json, 'dayToExecute') ? undefined : json['dayToExecute'],
-        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
-        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
+        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
+        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : json['eventStartDate'],
         'frequency': !exists(json, 'frequency') ? undefined : FixedChargeFrequencyTypeFromJSON(json['frequency']),
     };
 }
@@ -94,10 +94,10 @@ export function FixedChargeScheduleTypeToJSON(value?: FixedChargeScheduleType | 
     }
     return {
         
-        'dateToExecute': value.dateToExecute === undefined ? undefined : (value.dateToExecute.toISOString().substring(0,10)),
+        'dateToExecute': value.dateToExecute,
         'dayToExecute': value.dayToExecute,
-        'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0,10)),
-        'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0,10)),
+        'eventEndDate': value.eventEndDate,
+        'eventStartDate': value.eventStartDate,
         'frequency': FixedChargeFrequencyTypeToJSON(value.frequency),
     };
 }

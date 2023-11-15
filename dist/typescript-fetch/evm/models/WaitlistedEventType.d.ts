@@ -120,10 +120,10 @@ export interface WaitlistedEventType {
     subEventsDetail?: Array<LightEventDetailType>;
     /**
      * Date when waitlist was modified.
-     * @type {Date}
+     * @type {string}
      * @memberof WaitlistedEventType
      */
-    updateDate?: Date;
+    updateDate?: string;
     /**
      * User id who modified the waitlist record.
      * @type {number}
@@ -132,10 +132,10 @@ export interface WaitlistedEventType {
     updateUser?: number;
     /**
      * Date when function space got waitlisted.
-     * @type {Date}
+     * @type {string}
      * @memberof WaitlistedEventType
      */
-    waitlistDate?: Date;
+    waitlistDate?: string;
     /**
      *
      * @type {UniqueIDType}

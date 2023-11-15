@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface HotelStayType {
     /**
      * Guest arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelStayType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Hotel Name.
      * @type {string}
@@ -64,7 +64,7 @@ export function HotelStayTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'hotelName': !exists(json, 'hotelName') ? undefined : json['hotelName'],
         'pointsMiles': !exists(json, 'pointsMiles') ? undefined : json['pointsMiles'],
         'pointsMilesEarned': !exists(json, 'pointsMilesEarned') ? undefined : json['pointsMilesEarned'],
@@ -80,7 +80,7 @@ export function HotelStayTypeToJSON(value?: HotelStayType | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'hotelName': value.hotelName,
         'pointsMiles': value.pointsMiles,
         'pointsMilesEarned': value.pointsMilesEarned,

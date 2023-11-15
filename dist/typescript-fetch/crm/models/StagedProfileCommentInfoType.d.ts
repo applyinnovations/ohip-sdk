@@ -60,10 +60,10 @@ export interface StagedProfileCommentInfoType {
     id?: string;
     /**
      * Indicates comment inactive date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileCommentInfoType
      */
-    inActiveDate?: Date;
+    inActiveDate?: string;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}

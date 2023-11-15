@@ -73,10 +73,10 @@ export interface DepositFolioCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof DepositFolioCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * Manual Folio Number used for deposit folio.This applies to certain country requirements.
      * @type {number}

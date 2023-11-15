@@ -58,10 +58,10 @@ export interface FulfillmentExportInfoType {
     extractCode?: string;
     /**
      * ExtractDate of the membership fulfillment export logs.
-     * @type {Date}
+     * @type {string}
      * @memberof FulfillmentExportInfoType
      */
-    extractDate?: Date;
+    extractDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -111,7 +111,7 @@ export function FulfillmentExportInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
         'excludeExtract': !exists(json, 'excludeExtract') ? undefined : json['excludeExtract'],
         'extractBatchId': !exists(json, 'extractBatchId') ? undefined : UniqueIDTypeFromJSON(json['extractBatchId']),
         'extractCode': !exists(json, 'extractCode') ? undefined : json['extractCode'],
-        'extractDate': !exists(json, 'extractDate') ? undefined : (new Date(json['extractDate'])),
+        'extractDate': !exists(json, 'extractDate') ? undefined : json['extractDate'],
         'extractId': !exists(json, 'extractId') ? undefined : UniqueIDTypeFromJSON(json['extractId']),
         'extractLogId': !exists(json, 'extractLogId') ? undefined : UniqueIDTypeFromJSON(json['extractLogId']),
         'membershipCard': !exists(json, 'membershipCard') ? undefined : json['membershipCard'],
@@ -132,7 +132,7 @@ export function FulfillmentExportInfoTypeToJSON(value?: FulfillmentExportInfoTyp
         'excludeExtract': value.excludeExtract,
         'extractBatchId': UniqueIDTypeToJSON(value.extractBatchId),
         'extractCode': value.extractCode,
-        'extractDate': value.extractDate === undefined ? undefined : (value.extractDate.toISOString().substring(0,10)),
+        'extractDate': value.extractDate,
         'extractId': UniqueIDTypeToJSON(value.extractId),
         'extractLogId': UniqueIDTypeToJSON(value.extractLogId),
         'membershipCard': value.membershipCard,

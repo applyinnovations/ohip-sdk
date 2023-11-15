@@ -27,10 +27,10 @@ export interface CustomChargeExemptionConfigType {
     description?: string;
     /**
      * Date till the Exemption will be effective.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionConfigType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Exemption
      * @type {string}
@@ -45,10 +45,10 @@ export interface CustomChargeExemptionConfigType {
     hotelId?: string;
     /**
      * Date when this Exemption is Inactive
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionConfigType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Indicator that tells whether to include inactive Custom Charge Ememptions.
      * @type {boolean}
@@ -69,10 +69,10 @@ export interface CustomChargeExemptionConfigType {
     propertyExemption?: boolean;
     /**
      * Date when this Exemption will be effective
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionConfigType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -95,14 +95,14 @@ export function CustomChargeExemptionConfigTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'exemption': !exists(json, 'exemption') ? undefined : json['exemption'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'includeInactive': !exists(json, 'includeInactive') ? undefined : json['includeInactive'],
         'percentage': !exists(json, 'percentage') ? undefined : json['percentage'],
         'propertyExemption': !exists(json, 'propertyExemption') ? undefined : json['propertyExemption'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -116,14 +116,14 @@ export function CustomChargeExemptionConfigTypeToJSON(value?: CustomChargeExempt
     return {
         
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'exemption': value.exemption,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'includeInactive': value.includeInactive,
         'percentage': value.percentage,
         'propertyExemption': value.propertyExemption,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

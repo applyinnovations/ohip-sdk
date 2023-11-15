@@ -205,10 +205,10 @@ export interface DepositDetailPostingType {
     postedAmount?: CurrencyAmountType;
     /**
      * Date and time of posting.
-     * @type {Date}
+     * @type {string}
      * @memberof DepositDetailPostingType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -259,10 +259,10 @@ export interface DepositDetailPostingType {
     remark?: string;
     /**
      * The date on which the transaction has its revenue effect.
-     * @type {Date}
+     * @type {string}
      * @memberof DepositDetailPostingType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Reverse payment transaction unique identifier.
      * @type {number}
@@ -313,10 +313,10 @@ export interface DepositDetailPostingType {
     transactionCode?: string;
     /**
      * Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof DepositDetailPostingType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Billing Transaction Description.
      * @type {string}

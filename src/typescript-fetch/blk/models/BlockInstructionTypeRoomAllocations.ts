@@ -64,10 +64,10 @@ export interface BlockInstructionTypeRoomAllocations {
     roomAllocationType?: Array<RoomAllocationTypeType>;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInstructionTypeRoomAllocations
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Total number of rows queried
      * @type {number}
@@ -100,7 +100,7 @@ export function BlockInstructionTypeRoomAllocationsFromJSONTyped(json: any, igno
         'masterInfo': !exists(json, 'masterInfo') ? undefined : RoomAllocationMasterInfoTypeFromJSON(json['masterInfo']),
         'numberOfDays': !exists(json, 'numberOfDays') ? undefined : json['numberOfDays'],
         'roomAllocationType': !exists(json, 'roomAllocationType') ? undefined : ((json['roomAllocationType'] as Array<any>).map(RoomAllocationTypeTypeFromJSON)),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'totalResults': !exists(json, 'totalResults') ? undefined : json['totalResults'],
     };
 }
@@ -119,7 +119,7 @@ export function BlockInstructionTypeRoomAllocationsToJSON(value?: BlockInstructi
         'masterInfo': RoomAllocationMasterInfoTypeToJSON(value.masterInfo),
         'numberOfDays': value.numberOfDays,
         'roomAllocationType': value.roomAllocationType === undefined ? undefined : ((value.roomAllocationType as Array<any>).map(RoomAllocationTypeTypeToJSON)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'totalResults': value.totalResults,
     };
 }

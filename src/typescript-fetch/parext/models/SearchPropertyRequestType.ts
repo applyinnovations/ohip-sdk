@@ -40,16 +40,16 @@ export interface SearchPropertyRequestType {
     accountId?: string;
     /**
      * Arrival/Check-in Date
-     * @type {Date}
+     * @type {string}
      * @memberof SearchPropertyRequestType
      */
-    arrivalDate: Date;
+    arrivalDate: string;
     /**
      * Departure/Check-out Date
-     * @type {Date}
+     * @type {string}
      * @memberof SearchPropertyRequestType
      */
-    departureDate: Date;
+    departureDate: string;
     /**
      * List of hotelIds for search criteria.
      * @type {Array<string>}
@@ -116,8 +116,8 @@ export function SearchPropertyRequestTypeFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'accountId': !exists(json, 'accountId') ? undefined : json['accountId'],
-        'arrivalDate': (new Date(json['arrivalDate'])),
-        'departureDate': (new Date(json['departureDate'])),
+        'arrivalDate': json['arrivalDate'],
+        'departureDate': json['departureDate'],
         'hotelIds': !exists(json, 'hotelIds') ? undefined : json['hotelIds'],
         'includePublicRates': !exists(json, 'includePublicRates') ? undefined : json['includePublicRates'],
         'limit': !exists(json, 'limit') ? undefined : json['limit'],
@@ -138,8 +138,8 @@ export function SearchPropertyRequestTypeToJSON(value?: SearchPropertyRequestTyp
     return {
         
         'accountId': value.accountId,
-        'arrivalDate': (value.arrivalDate.toISOString().substring(0,10)),
-        'departureDate': (value.departureDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'hotelIds': value.hotelIds,
         'includePublicRates': value.includePublicRates,
         'limit': value.limit,

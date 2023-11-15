@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface CustomChargeExemptionDateType {
     /**
      * Contains Custom Charge Exemption date.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Contains number of Custom Charge Exemption for a day.
      * @type {number}
@@ -52,7 +52,7 @@ export function CustomChargeExemptionDateTypeFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
     };
 }
@@ -66,7 +66,7 @@ export function CustomChargeExemptionDateTypeToJSON(value?: CustomChargeExemptio
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'quantity': value.quantity,
     };
 }

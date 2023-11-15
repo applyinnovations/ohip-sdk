@@ -56,16 +56,16 @@ export interface MembershipDetailsType {
     membershipLevel?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
 }
 /**
  * Check if a given object implements the MembershipDetailsType interface.

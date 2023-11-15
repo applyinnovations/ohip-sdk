@@ -106,10 +106,10 @@ export interface UpsellInfoTypeUpsellInfo {
     totalUpsellPoints?: number;
     /**
      * The date on which reservation is upgraded.
-     * @type {Date}
+     * @type {string}
      * @memberof UpsellInfoTypeUpsellInfo
      */
-    upsellDate?: Date;
+    upsellDate?: string;
     /**
      * User who upgraded the reservation.
      * @type {string}
@@ -149,7 +149,7 @@ export function UpsellInfoTypeUpsellInfoFromJSONTyped(json: any, ignoreDiscrimin
         'totalUpsellCharge': !exists(json, 'totalUpsellCharge') ? undefined : CurrencyAmountTypeFromJSON(json['totalUpsellCharge']),
         'totalUpsellMoneyAmount': !exists(json, 'totalUpsellMoneyAmount') ? undefined : CurrencyAmountTypeFromJSON(json['totalUpsellMoneyAmount']),
         'totalUpsellPoints': !exists(json, 'totalUpsellPoints') ? undefined : json['totalUpsellPoints'],
-        'upsellDate': !exists(json, 'upsellDate') ? undefined : (new Date(json['upsellDate'])),
+        'upsellDate': !exists(json, 'upsellDate') ? undefined : json['upsellDate'],
         'upsellUser': !exists(json, 'upsellUser') ? undefined : json['upsellUser'],
     };
 }
@@ -175,7 +175,7 @@ export function UpsellInfoTypeUpsellInfoToJSON(value?: UpsellInfoTypeUpsellInfo 
         'totalUpsellCharge': CurrencyAmountTypeToJSON(value.totalUpsellCharge),
         'totalUpsellMoneyAmount': CurrencyAmountTypeToJSON(value.totalUpsellMoneyAmount),
         'totalUpsellPoints': value.totalUpsellPoints,
-        'upsellDate': value.upsellDate === undefined ? undefined : (value.upsellDate.toISOString().substring(0,10)),
+        'upsellDate': value.upsellDate,
         'upsellUser': value.upsellUser,
     };
 }

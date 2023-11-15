@@ -29,10 +29,10 @@ export interface RoomRatePriceInfoType {
     amountBeforeTax?: number;
     /**
      * Stay Date
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRatePriceInfoType
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 /**
  * Check if a given object implements the RoomRatePriceInfoType interface.

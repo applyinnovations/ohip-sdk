@@ -43,10 +43,10 @@ export interface ResHousekeepingType {
     turndownRequested?: boolean;
     /**
      * This is the Turndown room service time.
-     * @type {Date}
+     * @type {string}
      * @memberof ResHousekeepingType
      */
-    serviceTime?: Date;
+    serviceTime?: string;
     /**
      * Expected Start Time for housekeeping task(s).
      * @type {string}

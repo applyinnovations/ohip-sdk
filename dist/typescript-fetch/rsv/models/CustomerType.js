@@ -36,7 +36,7 @@ function CustomerTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'anonymization': !(0, runtime_1.exists)(json, 'anonymization') ? undefined : (0, AnonymizationType_1.AnonymizationTypeFromJSON)(json['anonymization']),
-        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !(0, runtime_1.exists)(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'birthPlace': !(0, runtime_1.exists)(json, 'birthPlace') ? undefined : json['birthPlace'],
         'blacklist': !(0, runtime_1.exists)(json, 'blacklist') ? undefined : json['blacklist'],
@@ -63,7 +63,7 @@ function CustomerTypeToJSON(value) {
     }
     return {
         'anonymization': (0, AnonymizationType_1.AnonymizationTypeToJSON)(value.anonymization),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0, 10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'birthPlace': value.birthPlace,
         'blacklist': value.blacklist,

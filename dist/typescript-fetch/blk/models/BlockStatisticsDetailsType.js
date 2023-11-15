@@ -34,7 +34,7 @@ function BlockStatisticsDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'numberOfDays': !(0, runtime_1.exists)(json, 'numberOfDays') ? undefined : json['numberOfDays'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'statisticsDetail': !(0, runtime_1.exists)(json, 'statisticsDetail') ? undefined : (json['statisticsDetail'].map(BlockStatisticsDetailType_1.BlockStatisticsDetailTypeFromJSON)),
     };
 }
@@ -48,7 +48,7 @@ function BlockStatisticsDetailsTypeToJSON(value) {
     }
     return {
         'numberOfDays': value.numberOfDays,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'statisticsDetail': value.statisticsDetail === undefined ? undefined : (value.statisticsDetail.map(BlockStatisticsDetailType_1.BlockStatisticsDetailTypeToJSON)),
     };
 }

@@ -30,10 +30,10 @@ export interface AssignedUserType {
     assignedByUserName?: string;
     /**
      * Date when this task was assigned.
-     * @type {Date}
+     * @type {string}
      * @memberof AssignedUserType
      */
-    assignedDate?: Date;
+    assignedDate?: string;
     /**
      *
      * @type {UniqueIDType}
@@ -48,10 +48,10 @@ export interface AssignedUserType {
     assignedToUserName?: string;
     /**
      * Date when this task is due.
-     * @type {Date}
+     * @type {string}
      * @memberof AssignedUserType
      */
-    expectedByDate?: Date;
+    expectedByDate?: string;
 }
 /**
  * Check if a given object implements the AssignedUserType interface.

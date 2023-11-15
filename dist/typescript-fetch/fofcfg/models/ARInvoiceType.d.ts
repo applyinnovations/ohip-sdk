@@ -80,10 +80,10 @@ export interface ARInvoiceType {
     cashierInfo?: CashierInfoType;
     /**
      * Close date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      *
      * @type {boolean}
@@ -92,10 +92,10 @@ export interface ARInvoiceType {
     compressed?: boolean;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    compressedDate?: Date;
+    compressedDate?: string;
     /**
      * Unique Custom Numbers associated with this record.
      * @type {Array<string>}
@@ -116,10 +116,10 @@ export interface ARInvoiceType {
     fiscalResponseType?: FiscalResponseType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -218,10 +218,10 @@ export interface ARInvoiceType {
     payments?: CurrencyAmountType;
     /**
      * Posting date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * Flag to check Invoice Statement is Printed.
      * @type {boolean}
@@ -230,10 +230,10 @@ export interface ARInvoiceType {
     printed?: boolean;
     /**
      * Invoice Statement Printed Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    printedDate?: Date;
+    printedDate?: string;
     /**
      * User-defined posting reference.
      * @type {string}
@@ -260,10 +260,10 @@ export interface ARInvoiceType {
     reservationInfo?: ReservationInfoType;
     /**
      * Revenue date ID of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      *
      * @type {RoomClassCodeInfoType}
@@ -320,10 +320,10 @@ export interface ARInvoiceType {
     transactionCode?: string;
     /**
      * Transaction Date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      *
      * @type {TrxInfoType}
@@ -338,10 +338,10 @@ export interface ARInvoiceType {
     transactionNo?: number;
     /**
      * Transfer date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceType
      */
-    transferDate?: Date;
+    transferDate?: string;
     /**
      *
      * @type {boolean}

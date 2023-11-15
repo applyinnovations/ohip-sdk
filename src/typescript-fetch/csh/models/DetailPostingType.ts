@@ -340,10 +340,10 @@ export interface DetailPostingType {
     postedAmount?: CurrencyAmountType;
     /**
      * Date and time of posting.
-     * @type {Date}
+     * @type {string}
      * @memberof DetailPostingType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -394,10 +394,10 @@ export interface DetailPostingType {
     remark?: string;
     /**
      * The date on which the transaction has its revenue effect.
-     * @type {Date}
+     * @type {string}
      * @memberof DetailPostingType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Reverse payment transaction unique identifier.
      * @type {number}
@@ -460,10 +460,10 @@ export interface DetailPostingType {
     transactionCode?: string;
     /**
      * Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof DetailPostingType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Billing Transaction Description.
      * @type {string}
@@ -546,7 +546,7 @@ export function DetailPostingTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'payeeInfo': !exists(json, 'payeeInfo') ? undefined : PayeeInfoTypeFromJSON(json['payeeInfo']),
         'paymentMethod': !exists(json, 'paymentMethod') ? undefined : ReservationPaymentMethodTypeFromJSON(json['paymentMethod']),
         'postedAmount': !exists(json, 'postedAmount') ? undefined : CurrencyAmountTypeFromJSON(json['postedAmount']),
-        'postingDate': !exists(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'postingDate': !exists(json, 'postingDate') ? undefined : json['postingDate'],
         'price': !exists(json, 'price') ? undefined : CurrencyAmountTypeFromJSON(json['price']),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
@@ -555,7 +555,7 @@ export function DetailPostingTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'referencePackageTransactionNo': !exists(json, 'referencePackageTransactionNo') ? undefined : json['referencePackageTransactionNo'],
         'referenceTransactionNo': !exists(json, 'referenceTransactionNo') ? undefined : json['referenceTransactionNo'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
-        'revenueDate': !exists(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !exists(json, 'revenueDate') ? undefined : json['revenueDate'],
         'reversePaymentTransactionNo': !exists(json, 'reversePaymentTransactionNo') ? undefined : json['reversePaymentTransactionNo'],
         'revisionNo': !exists(json, 'revisionNo') ? undefined : json['revisionNo'],
         'roundingDifferenceTrx': !exists(json, 'roundingDifferenceTrx') ? undefined : json['roundingDifferenceTrx'],
@@ -566,7 +566,7 @@ export function DetailPostingTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'taxInvoiceNo': !exists(json, 'taxInvoiceNo') ? undefined : json['taxInvoiceNo'],
         'transactionAmount': !exists(json, 'transactionAmount') ? undefined : json['transactionAmount'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionDescription': !exists(json, 'transactionDescription') ? undefined : json['transactionDescription'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
         'transactionType': !exists(json, 'transactionType') ? undefined : CashieringTransactionTypeTypeFromJSON(json['transactionType']),
@@ -620,7 +620,7 @@ export function DetailPostingTypeToJSON(value?: DetailPostingType | null): any {
         'payeeInfo': PayeeInfoTypeToJSON(value.payeeInfo),
         'paymentMethod': ReservationPaymentMethodTypeToJSON(value.paymentMethod),
         'postedAmount': CurrencyAmountTypeToJSON(value.postedAmount),
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
+        'postingDate': value.postingDate,
         'price': CurrencyAmountTypeToJSON(value.price),
         'quantity': value.quantity,
         'rateCode': value.rateCode,
@@ -629,7 +629,7 @@ export function DetailPostingTypeToJSON(value?: DetailPostingType | null): any {
         'referencePackageTransactionNo': value.referencePackageTransactionNo,
         'referenceTransactionNo': value.referenceTransactionNo,
         'remark': value.remark,
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
+        'revenueDate': value.revenueDate,
         'reversePaymentTransactionNo': value.reversePaymentTransactionNo,
         'revisionNo': value.revisionNo,
         'roundingDifferenceTrx': value.roundingDifferenceTrx,
@@ -640,7 +640,7 @@ export function DetailPostingTypeToJSON(value?: DetailPostingType | null): any {
         'taxInvoiceNo': value.taxInvoiceNo,
         'transactionAmount': value.transactionAmount,
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionDescription': value.transactionDescription,
         'transactionNo': value.transactionNo,
         'transactionType': CashieringTransactionTypeTypeToJSON(value.transactionType),

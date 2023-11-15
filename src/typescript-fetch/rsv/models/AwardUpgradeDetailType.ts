@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface AwardUpgradeDetailType {
     /**
      * Date on which the award details like points required and penalty points are applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof AwardUpgradeDetailType
      */
-    date?: Date;
+    date?: string;
     /**
      * Penalty Points applicable for the award detail date.
      * @type {number}
@@ -58,7 +58,7 @@ export function AwardUpgradeDetailTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'penaltyPoints': !exists(json, 'penaltyPoints') ? undefined : json['penaltyPoints'],
         'pointsRequired': !exists(json, 'pointsRequired') ? undefined : json['pointsRequired'],
     };
@@ -73,7 +73,7 @@ export function AwardUpgradeDetailTypeToJSON(value?: AwardUpgradeDetailType | nu
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'penaltyPoints': value.penaltyPoints,
         'pointsRequired': value.pointsRequired,
     };

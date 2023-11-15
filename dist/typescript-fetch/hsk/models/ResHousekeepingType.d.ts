@@ -56,10 +56,10 @@ export interface ResHousekeepingType {
     linenChange?: boolean;
     /**
      * This is the Turndown room service time.
-     * @type {Date}
+     * @type {string}
      * @memberof ResHousekeepingType
      */
-    serviceTime?: Date;
+    serviceTime?: string;
     /**
      *
      * @type {GuestHousekeepingServiceRequestType}

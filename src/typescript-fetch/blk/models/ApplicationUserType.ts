@@ -106,16 +106,16 @@ export interface ApplicationUserType {
     departmentLocation?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ApplicationUserType
      */
-    disabledUntil?: Date;
+    disabledUntil?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ApplicationUserType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * 
      * @type {CodeDescriptionType}
@@ -130,10 +130,10 @@ export interface ApplicationUserType {
     lDAPUser?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ApplicationUserType
      */
-    passwordChangeDate?: Date;
+    passwordChangeDate?: string;
     /**
      * 
      * @type {string}
@@ -188,11 +188,11 @@ export function ApplicationUserTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'cashierTitle': !exists(json, 'cashierTitle') ? undefined : json['cashierTitle'],
         'department': !exists(json, 'department') ? undefined : json['department'],
         'departmentLocation': !exists(json, 'departmentLocation') ? undefined : json['departmentLocation'],
-        'disabledUntil': !exists(json, 'disabledUntil') ? undefined : (new Date(json['disabledUntil'])),
-        'expiryDate': !exists(json, 'expiryDate') ? undefined : (new Date(json['expiryDate'])),
+        'disabledUntil': !exists(json, 'disabledUntil') ? undefined : json['disabledUntil'],
+        'expiryDate': !exists(json, 'expiryDate') ? undefined : json['expiryDate'],
         'hotel': !exists(json, 'hotel') ? undefined : CodeDescriptionTypeFromJSON(json['hotel']),
         'lDAPUser': !exists(json, 'lDAPUser') ? undefined : json['lDAPUser'],
-        'passwordChangeDate': !exists(json, 'passwordChangeDate') ? undefined : (new Date(json['passwordChangeDate'])),
+        'passwordChangeDate': !exists(json, 'passwordChangeDate') ? undefined : json['passwordChangeDate'],
         'salesRepCode': !exists(json, 'salesRepCode') ? undefined : json['salesRepCode'],
         'userDefaultLanguage': !exists(json, 'userDefaultLanguage') ? undefined : json['userDefaultLanguage'],
         'userInfo': !exists(json, 'userInfo') ? undefined : EmployeeInfoTypeFromJSON(json['userInfo']),
@@ -218,11 +218,11 @@ export function ApplicationUserTypeToJSON(value?: ApplicationUserType | null): a
         'cashierTitle': value.cashierTitle,
         'department': value.department,
         'departmentLocation': value.departmentLocation,
-        'disabledUntil': value.disabledUntil === undefined ? undefined : (value.disabledUntil.toISOString().substring(0,10)),
-        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substring(0,10)),
+        'disabledUntil': value.disabledUntil,
+        'expiryDate': value.expiryDate,
         'hotel': CodeDescriptionTypeToJSON(value.hotel),
         'lDAPUser': value.lDAPUser,
-        'passwordChangeDate': value.passwordChangeDate === undefined ? undefined : (value.passwordChangeDate.toISOString().substring(0,10)),
+        'passwordChangeDate': value.passwordChangeDate,
         'salesRepCode': value.salesRepCode,
         'userDefaultLanguage': value.userDefaultLanguage,
         'userInfo': EmployeeInfoTypeToJSON(value.userInfo),

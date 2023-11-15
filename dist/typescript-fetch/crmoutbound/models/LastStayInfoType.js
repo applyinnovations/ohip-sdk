@@ -33,7 +33,7 @@ function LastStayInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'lastVisit': !(0, runtime_1.exists)(json, 'lastVisit') ? undefined : (new Date(json['lastVisit'])),
+        'lastVisit': !(0, runtime_1.exists)(json, 'lastVisit') ? undefined : json['lastVisit'],
         'lastRoom': !(0, runtime_1.exists)(json, 'lastRoom') ? undefined : json['lastRoom'],
         'lastRate': !(0, runtime_1.exists)(json, 'lastRate') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['lastRate']),
         'totalStay': !(0, runtime_1.exists)(json, 'totalStay') ? undefined : json['totalStay'],
@@ -48,7 +48,7 @@ function LastStayInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'lastVisit': value.lastVisit === undefined ? undefined : (value.lastVisit.toISOString().substring(0, 10)),
+        'lastVisit': value.lastVisit,
         'lastRoom': value.lastRoom,
         'lastRate': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.lastRate),
         'totalStay': value.totalStay,

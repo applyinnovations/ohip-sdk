@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface BlockGridInvType {
     /**
      * Indicates the cutoff date.Date when inventory left in the block will be cut-off.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockGridInvType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Indicates the four person inventory value ( occupancy or availability ).
      * @type {number}
@@ -76,7 +76,7 @@ export function BlockGridInvTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
+        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : json['cutoffDate'],
         'fourPerson': !exists(json, 'fourPerson') ? undefined : json['fourPerson'],
         'onePerson': !exists(json, 'onePerson') ? undefined : json['onePerson'],
         'sellLimit': !exists(json, 'sellLimit') ? undefined : json['sellLimit'],
@@ -94,7 +94,7 @@ export function BlockGridInvTypeToJSON(value?: BlockGridInvType | null): any {
     }
     return {
         
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
+        'cutoffDate': value.cutoffDate,
         'fourPerson': value.fourPerson,
         'onePerson': value.onePerson,
         'sellLimit': value.sellLimit,

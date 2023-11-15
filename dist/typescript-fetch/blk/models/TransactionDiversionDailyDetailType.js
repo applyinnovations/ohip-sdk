@@ -32,7 +32,7 @@ function TransactionDiversionDailyDetailTypeFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'diverted': !(0, runtime_1.exists)(json, 'diverted') ? undefined : json['diverted'],
         'posted': !(0, runtime_1.exists)(json, 'posted') ? undefined : json['posted'],
     };
@@ -46,7 +46,7 @@ function TransactionDiversionDailyDetailTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'diverted': value.diverted,
         'posted': value.posted,
     };

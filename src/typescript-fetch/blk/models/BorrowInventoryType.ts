@@ -40,10 +40,10 @@ export interface BorrowInventoryType {
     blockId?: BlockId;
     /**
      * The date on which rooms need to be borrowed for the block either from another room type in the block or from House if the block is elastic.
-     * @type {Date}
+     * @type {string}
      * @memberof BorrowInventoryType
      */
-    borrowDate?: Date;
+    borrowDate?: string;
     /**
      * Specifies the number of rooms to be borrowed from the room type or House.
      * @type {Array<BorrowRoomType>}
@@ -72,7 +72,7 @@ export function BorrowInventoryTypeFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'borrowDate': !exists(json, 'borrowDate') ? undefined : (new Date(json['borrowDate'])),
+        'borrowDate': !exists(json, 'borrowDate') ? undefined : json['borrowDate'],
         'borrowRooms': !exists(json, 'borrowRooms') ? undefined : ((json['borrowRooms'] as Array<any>).map(BorrowRoomTypeFromJSON)),
     };
 }
@@ -87,7 +87,7 @@ export function BorrowInventoryTypeToJSON(value?: BorrowInventoryType | null): a
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0,10)),
+        'borrowDate': value.borrowDate,
         'borrowRooms': value.borrowRooms === undefined ? undefined : ((value.borrowRooms as Array<any>).map(BorrowRoomTypeToJSON)),
     };
 }

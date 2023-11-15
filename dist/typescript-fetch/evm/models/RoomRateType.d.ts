@@ -94,16 +94,16 @@ export interface RoomRateType {
     discountAllowed?: boolean;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * Fixed Rate Indicator.
      * @type {boolean}

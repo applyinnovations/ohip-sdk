@@ -49,16 +49,16 @@ export interface ECertificateType {
     eCertificateInfo?: ECertificateInfoType;
     /**
      * Date of expiry.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * New Date of expiry to extend e-certificate.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    newExpiryDate?: Date;
+    newExpiryDate?: string;
     /**
      *
      * @type {ProfileId}
@@ -85,10 +85,10 @@ export interface ECertificateType {
     printed?: boolean;
     /**
      * Date the record was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {AwardId}
@@ -115,10 +115,10 @@ export interface ECertificateType {
     issueType?: ECertificateIssueType;
     /**
      * Date when certificate was issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * Award points if any in case of certificate use membership award.
      * @type {number}
@@ -151,10 +151,10 @@ export interface ECertificateType {
     inLieuSeq?: number;
     /**
      * Date on which the cancellation was requested.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    cancelRequestDate?: Date;
+    cancelRequestDate?: string;
     /**
      * Number of times e-certificate is already extended.
      * @type {number}

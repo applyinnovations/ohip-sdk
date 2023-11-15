@@ -37,10 +37,10 @@ function CashierClosureInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cashierClosureNo': !(0, runtime_1.exists)(json, 'cashierClosureNo') ? undefined : (0, CashierClosureNoType_1.CashierClosureNoTypeFromJSON)(json['cashierClosureNo']),
         'cashierTitle': !(0, runtime_1.exists)(json, 'cashierTitle') ? undefined : json['cashierTitle'],
         'cashierUser': !(0, runtime_1.exists)(json, 'cashierUser') ? undefined : json['cashierUser'],
-        'closeDate': !(0, runtime_1.exists)(json, 'closeDate') ? undefined : (new Date(json['closeDate'])),
-        'closureBusinessDate': !(0, runtime_1.exists)(json, 'closureBusinessDate') ? undefined : (new Date(json['closureBusinessDate'])),
+        'closeDate': !(0, runtime_1.exists)(json, 'closeDate') ? undefined : json['closeDate'],
+        'closureBusinessDate': !(0, runtime_1.exists)(json, 'closureBusinessDate') ? undefined : json['closureBusinessDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'openDate': !(0, runtime_1.exists)(json, 'openDate') ? undefined : (new Date(json['openDate'])),
+        'openDate': !(0, runtime_1.exists)(json, 'openDate') ? undefined : json['openDate'],
         'reportsList': !(0, runtime_1.exists)(json, 'reportsList') ? undefined : (json['reportsList'].map(CashierReportType_1.CashierReportTypeFromJSON)),
     };
 }
@@ -56,10 +56,10 @@ function CashierClosureInfoTypeToJSON(value) {
         'cashierClosureNo': (0, CashierClosureNoType_1.CashierClosureNoTypeToJSON)(value.cashierClosureNo),
         'cashierTitle': value.cashierTitle,
         'cashierUser': value.cashierUser,
-        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0, 10)),
-        'closureBusinessDate': value.closureBusinessDate === undefined ? undefined : (value.closureBusinessDate.toISOString().substring(0, 10)),
+        'closeDate': value.closeDate,
+        'closureBusinessDate': value.closureBusinessDate,
         'hotelId': value.hotelId,
-        'openDate': value.openDate === undefined ? undefined : (value.openDate.toISOString().substring(0, 10)),
+        'openDate': value.openDate,
         'reportsList': value.reportsList === undefined ? undefined : (value.reportsList.map(CashierReportType_1.CashierReportTypeToJSON)),
     };
 }

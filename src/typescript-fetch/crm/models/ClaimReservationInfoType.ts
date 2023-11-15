@@ -28,10 +28,10 @@ import {
 export interface ClaimReservationInfoType {
     /**
      * Arrival date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -40,10 +40,10 @@ export interface ClaimReservationInfoType {
     confirmationNo?: Array<UniqueIDType>;
     /**
      * Departure date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Property where the stay associated with this claim.
      * @type {string}
@@ -71,9 +71,9 @@ export function ClaimReservationInfoTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !exists(json, 'arrival') ? undefined : json['arrival'],
         'confirmationNo': !exists(json, 'confirmationNo') ? undefined : ((json['confirmationNo'] as Array<any>).map(UniqueIDTypeFromJSON)),
-        'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !exists(json, 'departure') ? undefined : json['departure'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -87,9 +87,9 @@ export function ClaimReservationInfoTypeToJSON(value?: ClaimReservationInfoType 
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
+        'arrival': value.arrival,
         'confirmationNo': value.confirmationNo === undefined ? undefined : ((value.confirmationNo as Array<any>).map(UniqueIDTypeToJSON)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
+        'departure': value.departure,
         'hotelId': value.hotelId,
     };
 }

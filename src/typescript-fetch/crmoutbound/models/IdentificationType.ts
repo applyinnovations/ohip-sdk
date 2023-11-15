@@ -45,10 +45,10 @@ export interface IdentificationType {
     issuedCountry?: string;
     /**
      * Issued date of Identification.
-     * @type {Date}
+     * @type {string}
      * @memberof IdentificationType
      */
-    issuedDate?: Date;
+    issuedDate?: string;
     /**
      * The place where Identification was issued.
      * @type {string}
@@ -57,10 +57,10 @@ export interface IdentificationType {
     issuedPlace?: string;
     /**
      * Expiration date of Identification.
-     * @type {Date}
+     * @type {string}
      * @memberof IdentificationType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * Property where the identification belongs to.
      * @type {string}
@@ -104,9 +104,9 @@ export function IdentificationTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'idNumber': !exists(json, 'idNumber') ? undefined : json['idNumber'],
         'idNumberMasked': !exists(json, 'idNumberMasked') ? undefined : json['idNumberMasked'],
         'issuedCountry': !exists(json, 'issuedCountry') ? undefined : json['issuedCountry'],
-        'issuedDate': !exists(json, 'issuedDate') ? undefined : (new Date(json['issuedDate'])),
+        'issuedDate': !exists(json, 'issuedDate') ? undefined : json['issuedDate'],
         'issuedPlace': !exists(json, 'issuedPlace') ? undefined : json['issuedPlace'],
-        'expirationDate': !exists(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !exists(json, 'expirationDate') ? undefined : json['expirationDate'],
         'registeredProperty': !exists(json, 'registeredProperty') ? undefined : json['registeredProperty'],
         'primaryInd': !exists(json, 'primaryInd') ? undefined : json['primaryInd'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
@@ -126,9 +126,9 @@ export function IdentificationTypeToJSON(value?: IdentificationType | null): any
         'idNumber': value.idNumber,
         'idNumberMasked': value.idNumberMasked,
         'issuedCountry': value.issuedCountry,
-        'issuedDate': value.issuedDate === undefined ? undefined : (value.issuedDate.toISOString().substring(0,10)),
+        'issuedDate': value.issuedDate,
         'issuedPlace': value.issuedPlace,
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
+        'expirationDate': value.expirationDate,
         'registeredProperty': value.registeredProperty,
         'primaryInd': value.primaryInd,
         'orderSequence': value.orderSequence,

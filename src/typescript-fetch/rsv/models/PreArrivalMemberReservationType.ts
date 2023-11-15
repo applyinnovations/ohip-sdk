@@ -28,10 +28,10 @@ import {
 export interface PreArrivalMemberReservationType {
     /**
      * Arrival Date.
-     * @type {Date}
+     * @type {string}
      * @memberof PreArrivalMemberReservationType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Date on which Reservation is Created.
      * @type {string}
@@ -71,7 +71,7 @@ export function PreArrivalMemberReservationTypeFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
         'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
@@ -87,7 +87,7 @@ export function PreArrivalMemberReservationTypeToJSON(value?: PreArrivalMemberRe
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'createDateTime': value.createDateTime,
         'membershipId': value.membershipId,
         'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),

@@ -25,10 +25,10 @@ export interface ECertificateToExtend {
     certificateId?: number;
     /**
      * Indicates E-Certificate extended expiry date.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateToExtend
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      *
      * @type {Array<InstanceLink>}

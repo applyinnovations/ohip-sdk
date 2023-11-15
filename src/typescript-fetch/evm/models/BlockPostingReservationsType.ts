@@ -34,10 +34,10 @@ import {
 export interface BlockPostingReservationsType {
     /**
      * Arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPostingReservationsType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -58,10 +58,10 @@ export interface BlockPostingReservationsType {
     defaultPostingAccount?: UniqueIDType;
     /**
      * Departure date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPostingReservationsType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -143,11 +143,11 @@ export function BlockPostingReservationsTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'blockId': !exists(json, 'blockId') ? undefined : UniqueIDTypeFromJSON(json['blockId']),
         'confirmationNumber': !exists(json, 'confirmationNumber') ? undefined : json['confirmationNumber'],
         'defaultPostingAccount': !exists(json, 'defaultPostingAccount') ? undefined : UniqueIDTypeFromJSON(json['defaultPostingAccount']),
-        'departureDate': !exists(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
         'eventId': !exists(json, 'eventId') ? undefined : UniqueIDTypeFromJSON(json['eventId']),
         'guestFirstName': !exists(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
@@ -170,11 +170,11 @@ export function BlockPostingReservationsTypeToJSON(value?: BlockPostingReservati
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'blockId': UniqueIDTypeToJSON(value.blockId),
         'confirmationNumber': value.confirmationNumber,
         'defaultPostingAccount': UniqueIDTypeToJSON(value.defaultPostingAccount),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
+        'departureDate': value.departureDate,
         'eventId': UniqueIDTypeToJSON(value.eventId),
         'guestFirstName': value.guestFirstName,
         'guestName': value.guestName,

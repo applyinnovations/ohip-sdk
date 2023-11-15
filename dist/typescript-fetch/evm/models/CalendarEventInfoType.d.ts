@@ -29,10 +29,10 @@ export interface CalendarEventInfoType {
     attendees?: number;
     /**
      * Date the event was created.
-     * @type {Date}
+     * @type {string}
      * @memberof CalendarEventInfoType
      */
-    createdOn?: Date;
+    createdOn?: string;
     /**
      *
      * @type {EventBookingInfoType}

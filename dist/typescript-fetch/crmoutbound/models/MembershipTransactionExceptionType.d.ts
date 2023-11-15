@@ -60,16 +60,16 @@ export interface MembershipTransactionExceptionType {
     membershipLevel?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
     /**
      *
      * @type {MembershipTransactionId}

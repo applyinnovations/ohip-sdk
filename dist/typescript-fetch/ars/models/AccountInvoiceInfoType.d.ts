@@ -98,10 +98,10 @@ export interface AccountInvoiceInfoType {
     cashierInfo?: CashierInfoType;
     /**
      * Close date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      *
      * @type {boolean}
@@ -110,10 +110,10 @@ export interface AccountInvoiceInfoType {
     compressed?: boolean;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    compressedDate?: Date;
+    compressedDate?: string;
     /**
      * Unique Custom Numbers associated with this record.
      * @type {Array<string>}
@@ -134,10 +134,10 @@ export interface AccountInvoiceInfoType {
     fiscalResponseType?: FiscalResponseType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -236,10 +236,10 @@ export interface AccountInvoiceInfoType {
     payments?: CurrencyAmountType;
     /**
      * Posting date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * Flag to check Invoice Statement is Printed.
      * @type {boolean}
@@ -248,10 +248,10 @@ export interface AccountInvoiceInfoType {
     printed?: boolean;
     /**
      * Invoice Statement Printed Date.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    printedDate?: Date;
+    printedDate?: string;
     /**
      * User-defined posting reference.
      * @type {string}
@@ -278,10 +278,10 @@ export interface AccountInvoiceInfoType {
     reservationInfo?: ReservationInfoType;
     /**
      * Revenue date ID of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      *
      * @type {RoomClassCodeInfoType}
@@ -338,10 +338,10 @@ export interface AccountInvoiceInfoType {
     transactionCode?: string;
     /**
      * Transaction Date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      *
      * @type {TrxInfoType}
@@ -356,10 +356,10 @@ export interface AccountInvoiceInfoType {
     transactionNo?: number;
     /**
      * Transfer date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    transferDate?: Date;
+    transferDate?: string;
     /**
      *
      * @type {boolean}

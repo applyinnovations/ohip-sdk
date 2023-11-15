@@ -34,10 +34,10 @@ export interface BlockStatisticsDetailsType {
     numberOfDays?: number;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatisticsDetailsType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * 
      * @type {Array<BlockStatisticsDetailType>}
@@ -66,7 +66,7 @@ export function BlockStatisticsDetailsTypeFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'numberOfDays': !exists(json, 'numberOfDays') ? undefined : json['numberOfDays'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'statisticsDetail': !exists(json, 'statisticsDetail') ? undefined : ((json['statisticsDetail'] as Array<any>).map(BlockStatisticsDetailTypeFromJSON)),
     };
 }
@@ -81,7 +81,7 @@ export function BlockStatisticsDetailsTypeToJSON(value?: BlockStatisticsDetailsT
     return {
         
         'numberOfDays': value.numberOfDays,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'statisticsDetail': value.statisticsDetail === undefined ? undefined : ((value.statisticsDetail as Array<any>).map(BlockStatisticsDetailTypeToJSON)),
     };
 }

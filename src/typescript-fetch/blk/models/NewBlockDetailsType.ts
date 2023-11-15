@@ -106,10 +106,10 @@ export interface NewBlockDetailsType {
     sourceDateRangeToCopy?: DateRangeType;
     /**
      * The start date of the new block.
-     * @type {Date}
+     * @type {string}
      * @memberof NewBlockDetailsType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -144,7 +144,7 @@ export function NewBlockDetailsTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
         'sourceCode': !exists(json, 'sourceCode') ? undefined : json['sourceCode'],
         'sourceDateRangeToCopy': !exists(json, 'sourceDateRangeToCopy') ? undefined : DateRangeTypeFromJSON(json['sourceDateRangeToCopy']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -170,7 +170,7 @@ export function NewBlockDetailsTypeToJSON(value?: NewBlockDetailsType | null): a
         'rateCode': value.rateCode,
         'sourceCode': value.sourceCode,
         'sourceDateRangeToCopy': DateRangeTypeToJSON(value.sourceDateRangeToCopy),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

@@ -40,8 +40,8 @@ export interface GetHoldItemsInventoryRequest {
 }
 export interface GetHotelInventoryRequest {
     hotelId: string;
-    dateRangeStart: Date;
-    dateRangeEnd: Date;
+    dateRangeStart: string;
+    dateRangeEnd: string;
     roomCountRequested: number;
     authorization?: string;
     xAppKey?: string;
@@ -59,8 +59,8 @@ export interface GetItemInventoryRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     endTime?: string;
     startTime?: string;

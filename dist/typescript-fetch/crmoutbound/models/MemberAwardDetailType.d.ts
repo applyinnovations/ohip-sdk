@@ -54,10 +54,10 @@ export interface MemberAwardDetailType {
     cancelPenaltyPoints?: number;
     /**
      * Date of stay.
-     * @type {Date}
+     * @type {string}
      * @memberof MemberAwardDetailType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Rate code associated with the reservation.
      * @type {string}

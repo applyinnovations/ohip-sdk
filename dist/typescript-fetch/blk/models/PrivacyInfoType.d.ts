@@ -47,10 +47,10 @@ export interface PrivacyInfoType {
     infoFromThirdParty?: boolean;
     /**
      * Indicate the last privacy prompt date of the guest.
-     * @type {Date}
+     * @type {string}
      * @memberof PrivacyInfoType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * Indicates if the profile participates in market research.
      * @type {boolean}

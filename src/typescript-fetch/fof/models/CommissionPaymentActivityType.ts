@@ -94,10 +94,10 @@ export interface CommissionPaymentActivityType {
     payee?: string;
     /**
      * Payment date of commission
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentActivityType
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -112,10 +112,10 @@ export interface CommissionPaymentActivityType {
     status?: CommissionPaymentActivityStatusType;
     /**
      * Status date of payment activity
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentActivityType
      */
-    statusDate?: Date;
+    statusDate?: string;
 }
 
 /**
@@ -146,10 +146,10 @@ export function CommissionPaymentActivityTypeFromJSONTyped(json: any, ignoreDisc
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'onCommission': !exists(json, 'onCommission') ? undefined : json['onCommission'],
         'payee': !exists(json, 'payee') ? undefined : json['payee'],
-        'paymentDate': !exists(json, 'paymentDate') ? undefined : (new Date(json['paymentDate'])),
+        'paymentDate': !exists(json, 'paymentDate') ? undefined : json['paymentDate'],
         'paymentId': !exists(json, 'paymentId') ? undefined : UniqueIDTypeFromJSON(json['paymentId']),
         'status': !exists(json, 'status') ? undefined : CommissionPaymentActivityStatusTypeFromJSON(json['status']),
-        'statusDate': !exists(json, 'statusDate') ? undefined : (new Date(json['statusDate'])),
+        'statusDate': !exists(json, 'statusDate') ? undefined : json['statusDate'],
     };
 }
 
@@ -171,10 +171,10 @@ export function CommissionPaymentActivityTypeToJSON(value?: CommissionPaymentAct
         'hotelId': value.hotelId,
         'onCommission': value.onCommission,
         'payee': value.payee,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0,10)),
+        'paymentDate': value.paymentDate,
         'paymentId': UniqueIDTypeToJSON(value.paymentId),
         'status': CommissionPaymentActivityStatusTypeToJSON(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0,10)),
+        'statusDate': value.statusDate,
     };
 }
 

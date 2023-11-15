@@ -24,10 +24,10 @@ export interface StatisticsMetricSetInner {
     code?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticsMetricSetInner
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {Array<HSKStatType>}
@@ -36,10 +36,10 @@ export interface StatisticsMetricSetInner {
     metrics?: Array<HSKStatType>;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticsMetricSetInner
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the StatisticsMetricSetInner interface.

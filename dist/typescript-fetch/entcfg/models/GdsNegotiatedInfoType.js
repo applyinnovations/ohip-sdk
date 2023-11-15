@@ -33,10 +33,10 @@ function GdsNegotiatedInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'accessCode': !(0, runtime_1.exists)(json, 'accessCode') ? undefined : json['accessCode'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'order': !(0, runtime_1.exists)(json, 'order') ? undefined : json['order'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.GdsNegotiatedInfoTypeFromJSONTyped = GdsNegotiatedInfoTypeFromJSONTyped;
@@ -49,10 +49,10 @@ function GdsNegotiatedInfoTypeToJSON(value) {
     }
     return {
         'accessCode': value.accessCode,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'inactive': value.inactive,
         'order': value.order,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.GdsNegotiatedInfoTypeToJSON = GdsNegotiatedInfoTypeToJSON;

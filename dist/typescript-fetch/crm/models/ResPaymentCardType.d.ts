@@ -100,10 +100,10 @@ export interface ResPaymentCardType {
     currentAuthorizedAmount?: CurrencyAmountType;
     /**
      * Expiration date of the credit card
-     * @type {Date}
+     * @type {string}
      * @memberof ResPaymentCardType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      *
      * @type {boolean}

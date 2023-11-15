@@ -101,7 +101,7 @@ export interface DeletePreCheckInReservationRequest {
     cardNumberMasked?: string;
     cardOrToken?: DeletePreCheckInReservationCardOrTokenEnum;
     cardType?: DeletePreCheckInReservationCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: DeletePreCheckInReservationProcessingEnum;
@@ -134,7 +134,7 @@ export interface DeletePreCheckInReservationRequest {
     emailFolioLastModifyDateTime?: string;
     emailFolioOrderSequence?: number;
     emailFolioPrimaryInd?: boolean;
-    emailFolioPurgeDate?: Date;
+    emailFolioPurgeDate?: string;
     emailFolioType?: string;
     emailFolioTypeDescription?: string;
     arrivalCarrierCode?: string;
@@ -360,8 +360,8 @@ export interface GetAwardUpgradesRequest {
     membershipCardNo?: string;
     membershipPoints?: number;
     id?: Array<string>;
-    reservationTimeSpanStartDate?: Date;
-    reservationTimeSpanEndDate?: Date;
+    reservationTimeSpanStartDate?: string;
+    reservationTimeSpanEndDate?: string;
     reservationTimeSpanDuration?: string;
     numberOfRooms?: number;
     roomType?: string;
@@ -390,8 +390,8 @@ export interface GetCallStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     domain?: string;
     appUserName?: Array<string>;
     xExternalsystem?: string;
@@ -404,8 +404,8 @@ export interface GetCancellationHistoryRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelName?: string;
-    roomStayStartDate?: Date;
-    roomStayEndDate?: Date;
+    roomStayStartDate?: string;
+    roomStayEndDate?: string;
     roomStayDuration?: string;
     roomClass?: string;
     roomType?: string;
@@ -423,7 +423,7 @@ export interface GetCancellationHistoryRequest {
     membershipBonusCode?: string;
     membershipLevel?: string;
     membershipId?: number;
-    lastStayDate?: Date;
+    lastStayDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -435,10 +435,10 @@ export interface GetConfirmationLettersRequest {
     notAttached?: boolean;
     pending?: boolean;
     sent?: boolean;
-    createdOnEndDate?: Date;
-    createdOnStartDate?: Date;
-    arrivalEndDate?: Date;
-    arrivalStartDate?: Date;
+    createdOnEndDate?: string;
+    createdOnStartDate?: string;
+    arrivalEndDate?: string;
+    arrivalStartDate?: string;
     letterStyleId?: Array<string>;
     letterStyle?: Array<string>;
     letterStyleIdType?: Array<string>;
@@ -489,10 +489,10 @@ export interface GetExternalSystemReservationsRequest {
     searchType?: GetExternalSystemReservationsSearchTypeEnum;
     hotelIds?: Array<string>;
     text?: string;
-    arrivalEndDate?: Date;
-    arrivalStartDate?: Date;
-    departureEndDate?: Date;
-    departureStartDate?: Date;
+    arrivalEndDate?: string;
+    arrivalStartDate?: string;
+    departureEndDate?: string;
+    departureStartDate?: string;
     expectedArrivalStartTime?: string;
     expectedArrivalEndTime?: string;
     expectedReturnEndTime?: string;
@@ -518,7 +518,7 @@ export interface GetExternalSystemReservationsRequest {
     user?: Array<string>;
     createdBy?: string;
     cancelledByList?: Array<string>;
-    cancelledOn?: Date;
+    cancelledOn?: string;
     ratePlanCodes?: Array<string>;
     sourceCodes?: Array<string>;
     marketCodes?: Array<string>;
@@ -562,7 +562,7 @@ export interface GetExternalSystemReservationsRequest {
     extendedStays?: boolean;
     houseUseReservations?: boolean;
     stayovers?: boolean;
-    stayDate?: Date;
+    stayDate?: string;
     roomRoutingId?: string;
     excludePseudoRoomReservations?: boolean;
     excludeReservationIds?: Array<string>;
@@ -634,16 +634,16 @@ export interface GetHotelReservationsRequest {
     cancellationNumberList?: Array<string>;
     externalReferenceIds?: Array<string>;
     externalSystemCodes?: Array<string>;
-    arrivalEndDate?: Date;
-    arrivalStartDate?: Date;
-    departureEndDate?: Date;
-    departureStartDate?: Date;
-    stayOnStartDate?: Date;
-    createdOnStartDate?: Date;
+    arrivalEndDate?: string;
+    arrivalStartDate?: string;
+    departureEndDate?: string;
+    departureStartDate?: string;
+    stayOnStartDate?: string;
+    createdOnStartDate?: string;
     expectedArrivalEndTime?: string;
     expectedArrivalStartTime?: string;
-    depositDueEndDate?: Date;
-    depositDueStartDate?: Date;
+    depositDueEndDate?: string;
+    depositDueStartDate?: string;
     expectedReturnEndTime?: string;
     expectedReturnStartTime?: string;
     companyNames?: Array<string>;
@@ -673,7 +673,7 @@ export interface GetHotelReservationsRequest {
     user?: Array<string>;
     createdBy?: string;
     cancelledByList?: Array<string>;
-    cancelledOn?: Date;
+    cancelledOn?: string;
     ratePlanCodes?: Array<string>;
     sourceCodes?: Array<string>;
     marketCodes?: Array<string>;
@@ -721,7 +721,7 @@ export interface GetHotelReservationsRequest {
     extendedStays?: boolean;
     houseUseReservations?: boolean;
     stayovers?: boolean;
-    stayDate?: Date;
+    stayDate?: string;
     roomRoutingId?: string;
     periodicFolio?: GetHotelReservationsPeriodicFolioEnum;
     folioSettlementTypes?: string;
@@ -784,10 +784,10 @@ export interface GetPackageRequest {
     postingRhythm?: string;
     productCode?: string;
     ratePlanCode?: string;
-    reservationTimeSpanStartDate?: Date;
-    reservationTimeSpanEndDate?: Date;
-    packageTimeSpanStartDate?: Date;
-    packageTimeSpanEndDate?: Date;
+    reservationTimeSpanStartDate?: string;
+    reservationTimeSpanEndDate?: string;
+    packageTimeSpanStartDate?: string;
+    packageTimeSpanEndDate?: string;
     packageQuantity?: number;
     packageExcludedQuantity?: number;
     reservationAdults?: number;
@@ -811,8 +811,8 @@ export interface GetPreArrivalMemberReservationsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     membershipType?: string;
     externalReferenceType?: string;
     xExternalsystem?: string;
@@ -851,8 +851,8 @@ export interface GetRateInfoRequest {
     xHotelid?: string;
     currencyCode?: string;
     summaryInfo?: boolean;
-    criteriaStartDate?: Date;
-    criteriaEndDate?: Date;
+    criteriaStartDate?: string;
+    criteriaEndDate?: string;
     adults?: number;
     children?: number;
     childAge?: Array<number>;
@@ -861,7 +861,7 @@ export interface GetRateInfoRequest {
     bucket3Count?: number;
     bucket4Count?: number;
     bucket5Count?: number;
-    detailDate?: Date;
+    detailDate?: string;
     blockId?: string;
     blockIdType?: string;
     id?: string;
@@ -869,8 +869,8 @@ export interface GetRateInfoRequest {
     idContext?: string;
     type?: string;
     ratePlanCode?: string;
-    effectiveRateEnd?: Array<Date>;
-    effectiveRateStart?: Array<Date>;
+    effectiveRateEnd?: Array<string>;
+    effectiveRateStart?: Array<string>;
     roomType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -895,8 +895,8 @@ export interface GetReprintTicketsRequest {
     reservationProductIdType?: string;
     ticketNumberId?: string;
     ticketNumberIdType?: string;
-    ticketIssueDate?: Array<Date>;
-    ticketConsumptionDate?: Array<Date>;
+    ticketIssueDate?: Array<string>;
+    ticketConsumptionDate?: Array<string>;
     ticketRateCode?: Array<string>;
     ticketStatus?: Array<string>;
     xExternalsystem?: string;
@@ -925,8 +925,8 @@ export interface GetReservationActivityLogRequest {
     parameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userByIdsUserId?: Array<number>;
     userForIdsUserId?: Array<number>;
@@ -1029,10 +1029,10 @@ export interface GetReservationsRequest {
     cancellationNumberList?: Array<string>;
     externalReferenceIds?: Array<string>;
     externalSystemCodes?: Array<string>;
-    arrivalEndDate?: Date;
-    arrivalStartDate?: Date;
-    departureEndDate?: Date;
-    departureStartDate?: Date;
+    arrivalEndDate?: string;
+    arrivalStartDate?: string;
+    departureEndDate?: string;
+    departureStartDate?: string;
     expectedArrivalStartTime?: string;
     expectedArrivalEndTime?: string;
     expectedReturnEndTime?: string;
@@ -1061,7 +1061,7 @@ export interface GetReservationsRequest {
     user?: Array<string>;
     createdBy?: string;
     cancelledByList?: Array<string>;
-    cancelledOn?: Date;
+    cancelledOn?: string;
     ratePlanCodes?: Array<string>;
     sourceCodes?: Array<string>;
     marketCodes?: Array<string>;
@@ -1106,7 +1106,7 @@ export interface GetReservationsRequest {
     extendedStays?: boolean;
     houseUseReservations?: boolean;
     stayovers?: boolean;
-    stayDate?: Date;
+    stayDate?: string;
     roomRoutingId?: string;
     excludePseudoRoomReservations?: boolean;
     excludeReservationIds?: Array<string>;
@@ -1126,8 +1126,8 @@ export interface GetReservationsRequest {
     roomReadyStatuses?: Set<GetReservationsRoomReadyStatusesEnum>;
     checkoutMessageReceived?: boolean;
     optedForCommunication?: boolean;
-    createdOn?: Date;
-    stayOn?: Date;
+    createdOn?: string;
+    stayOn?: string;
     contactNames?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1141,11 +1141,11 @@ export interface GetReservationsSummaryRequest {
     limit?: number;
     offset?: number;
     preRegistered?: boolean;
-    arrivalDate?: Date;
-    departureDate?: Date;
-    createDateTime?: Date;
-    cancelledOn?: Date;
-    folioClosedOn?: Date;
+    arrivalDate?: string;
+    departureDate?: string;
+    createDateTime?: string;
+    cancelledOn?: string;
+    folioClosedOn?: string;
     lastName?: string;
     companyId?: number;
     guestNameId?: number;
@@ -1219,7 +1219,7 @@ export interface GetRoomCalendarRequest {
     componentRooms?: string;
     connectingRoomsOnly?: string;
     dueOut?: string;
-    endDate?: Date;
+    endDate?: string;
     isSortDescending?: boolean;
     pageIndex?: number;
     partiallyAssignedRooms?: string;
@@ -1230,7 +1230,7 @@ export interface GetRoomCalendarRequest {
     sortingBy?: GetRoomCalendarSortingByEnum;
     includeRoomMoveHistory?: boolean;
     includeComponentRoomBlockOutDates?: boolean;
-    startDate?: Date;
+    startDate?: string;
     unassignedRooms?: string;
     roomId?: Array<string>;
     roomType?: Array<string>;
@@ -1253,7 +1253,7 @@ export interface GetRoutingInstructionsRequest {
     includeRoomRouting?: boolean;
     includeCompRouting?: boolean;
     includeCompRoutingRequests?: boolean;
-    effectiveOn?: Date;
+    effectiveOn?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1284,7 +1284,7 @@ export interface GetSellMessageConfigRequest {
     blockCode?: string;
     languageCode?: string;
     croCode?: string;
-    displayDate?: Date;
+    displayDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1304,7 +1304,7 @@ export interface GetSellMessageConfigByChainRequest {
     hotelIds?: Array<string>;
     chainId?: string;
     croCode?: string;
-    displayDate?: Date;
+    displayDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1321,8 +1321,8 @@ export interface GetSellMessagesRequest {
     roomType?: string;
     stickyFlagYn?: string;
     criteriaType?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     fetchInstructions?: Set<GetSellMessagesFetchInstructionsEnum>;
     usedInModule?: GetSellMessagesUsedInModuleEnum;
@@ -1373,8 +1373,8 @@ export interface GetTicketsInquiryRequest {
     reservationProductIdType?: string;
     ticketNumberId?: string;
     ticketNumberIdType?: string;
-    ticketIssueDate?: Array<Date>;
-    ticketConsumptionDate?: Array<Date>;
+    ticketIssueDate?: Array<string>;
+    ticketConsumptionDate?: Array<string>;
     ticketRateCode?: Array<string>;
     ticketStatus?: Array<string>;
     xExternalsystem?: string;
@@ -1414,8 +1414,8 @@ export interface GetUpgradeEligibilityReservationsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    arrivalEndDate?: Date;
-    arrivalStartDate?: Date;
+    arrivalEndDate?: string;
+    arrivalStartDate?: string;
     membershipType?: string;
     externalReferenceType?: string;
     xExternalsystem?: string;

@@ -32,7 +32,7 @@ function AutoFolioSettlementCriteriaTypeFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'dateSinceLastAutoSettled': !(0, runtime_1.exists)(json, 'dateSinceLastAutoSettled') ? undefined : (new Date(json['dateSinceLastAutoSettled'])),
+        'dateSinceLastAutoSettled': !(0, runtime_1.exists)(json, 'dateSinceLastAutoSettled') ? undefined : json['dateSinceLastAutoSettled'],
         'daysSinceLastAutoSettled': !(0, runtime_1.exists)(json, 'daysSinceLastAutoSettled') ? undefined : json['daysSinceLastAutoSettled'],
         'defaultDays': !(0, runtime_1.exists)(json, 'defaultDays') ? undefined : json['defaultDays'],
         'folioSettlementTypes': !(0, runtime_1.exists)(json, 'folioSettlementTypes') ? undefined : json['folioSettlementTypes'],
@@ -47,7 +47,7 @@ function AutoFolioSettlementCriteriaTypeToJSON(value) {
         return null;
     }
     return {
-        'dateSinceLastAutoSettled': value.dateSinceLastAutoSettled === undefined ? undefined : (value.dateSinceLastAutoSettled.toISOString().substring(0, 10)),
+        'dateSinceLastAutoSettled': value.dateSinceLastAutoSettled,
         'daysSinceLastAutoSettled': value.daysSinceLastAutoSettled,
         'defaultDays': value.defaultDays,
         'folioSettlementTypes': value.folioSettlementTypes,

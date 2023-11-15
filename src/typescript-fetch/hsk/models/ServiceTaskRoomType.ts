@@ -88,10 +88,10 @@ export interface ServiceTaskRoomType {
     taskCodes?: Array<string>;
     /**
      * Date for which the task sheet was created. By default this would be the current business date.
-     * @type {Date}
+     * @type {string}
      * @memberof ServiceTaskRoomType
      */
-    taskDate?: Date;
+    taskDate?: string;
 }
 
 /**
@@ -122,7 +122,7 @@ export function ServiceTaskRoomTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'roomTaskCode': !exists(json, 'roomTaskCode') ? undefined : json['roomTaskCode'],
         'sheetNumber': !exists(json, 'sheetNumber') ? undefined : json['sheetNumber'],
         'taskCodes': !exists(json, 'taskCodes') ? undefined : json['taskCodes'],
-        'taskDate': !exists(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !exists(json, 'taskDate') ? undefined : json['taskDate'],
     };
 }
 
@@ -144,7 +144,7 @@ export function ServiceTaskRoomTypeToJSON(value?: ServiceTaskRoomType | null): a
         'roomTaskCode': value.roomTaskCode,
         'sheetNumber': value.sheetNumber,
         'taskCodes': value.taskCodes,
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
+        'taskDate': value.taskDate,
     };
 }
 

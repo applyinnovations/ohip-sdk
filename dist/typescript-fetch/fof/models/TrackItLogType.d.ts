@@ -19,10 +19,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface TrackItLogType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof TrackItLogType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      *
      * @type {string}

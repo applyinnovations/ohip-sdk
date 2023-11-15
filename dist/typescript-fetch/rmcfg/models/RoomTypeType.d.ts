@@ -28,10 +28,10 @@ export interface RoomTypeType {
     accessible?: boolean;
     /**
      * Active date of the room type.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomTypeType
      */
-    activeDate?: Date;
+    activeDate?: string;
     /**
      * Creates a new linked Reservation, and proceeds within check-in of the new reservation.
      * @type {boolean}

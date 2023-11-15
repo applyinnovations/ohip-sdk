@@ -55,10 +55,10 @@ export interface MembershipTransactionInfoType {
     stayTimeSpan?: TimeSpanType;
     /**
      * Membership Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionInfoType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Membership Transaction Type.
      * @type {string}

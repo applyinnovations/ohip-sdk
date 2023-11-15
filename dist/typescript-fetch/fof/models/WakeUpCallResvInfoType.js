@@ -37,10 +37,10 @@ function WakeUpCallResvInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : json['arrival'],
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
-        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : json['departure'],
         'extensionNumber': !(0, runtime_1.exists)(json, 'extensionNumber') ? undefined : json['extensionNumber'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -64,10 +64,10 @@ function WakeUpCallResvInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
+        'arrival': value.arrival,
         'blockCode': value.blockCode,
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
+        'departure': value.departure,
         'extensionNumber': value.extensionNumber,
         'guestName': value.guestName,
         'hotelId': value.hotelId,

@@ -103,7 +103,7 @@ export interface GetMembershipAwardsRequest {
     awardCodes?: Array<string>;
     wildCard?: string;
     description?: string;
-    validForDate?: Date;
+    validForDate?: string;
     includeInactive?: boolean;
     includeDetails?: boolean;
     xExternalsystem?: string;
@@ -115,8 +115,8 @@ export interface GetMembershipBenefitProgramsRequest {
     xHotelid?: string;
     membershipType?: string;
     code?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     minimumLevel?: string;
     includeInactive?: boolean;
     xExternalsystem?: string;

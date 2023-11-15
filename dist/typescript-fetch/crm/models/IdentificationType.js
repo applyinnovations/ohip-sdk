@@ -32,12 +32,12 @@ function IdentificationTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'expirationDate': !(0, runtime_1.exists)(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !(0, runtime_1.exists)(json, 'expirationDate') ? undefined : json['expirationDate'],
         'idNumber': !(0, runtime_1.exists)(json, 'idNumber') ? undefined : json['idNumber'],
         'idNumberMasked': !(0, runtime_1.exists)(json, 'idNumberMasked') ? undefined : json['idNumberMasked'],
         'idType': !(0, runtime_1.exists)(json, 'idType') ? undefined : json['idType'],
         'issuedCountry': !(0, runtime_1.exists)(json, 'issuedCountry') ? undefined : json['issuedCountry'],
-        'issuedDate': !(0, runtime_1.exists)(json, 'issuedDate') ? undefined : (new Date(json['issuedDate'])),
+        'issuedDate': !(0, runtime_1.exists)(json, 'issuedDate') ? undefined : json['issuedDate'],
         'issuedPlace': !(0, runtime_1.exists)(json, 'issuedPlace') ? undefined : json['issuedPlace'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
         'primaryInd': !(0, runtime_1.exists)(json, 'primaryInd') ? undefined : json['primaryInd'],
@@ -53,12 +53,12 @@ function IdentificationTypeToJSON(value) {
         return null;
     }
     return {
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0, 10)),
+        'expirationDate': value.expirationDate,
         'idNumber': value.idNumber,
         'idNumberMasked': value.idNumberMasked,
         'idType': value.idType,
         'issuedCountry': value.issuedCountry,
-        'issuedDate': value.issuedDate === undefined ? undefined : (value.issuedDate.toISOString().substring(0, 10)),
+        'issuedDate': value.issuedDate,
         'issuedPlace': value.issuedPlace,
         'orderSequence': value.orderSequence,
         'primaryInd': value.primaryInd,

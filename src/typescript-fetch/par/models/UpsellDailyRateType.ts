@@ -28,10 +28,10 @@ import {
 export interface UpsellDailyRateType {
     /**
      * Reservation date
-     * @type {Date}
+     * @type {string}
      * @memberof UpsellDailyRateType
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {AmountPointsType}
@@ -59,7 +59,7 @@ export function UpsellDailyRateTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'requiredAmount': !exists(json, 'requiredAmount') ? undefined : AmountPointsTypeFromJSON(json['requiredAmount']),
     };
 }
@@ -73,7 +73,7 @@ export function UpsellDailyRateTypeToJSON(value?: UpsellDailyRateType | null): a
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'requiredAmount': AmountPointsTypeToJSON(value.requiredAmount),
     };
 }

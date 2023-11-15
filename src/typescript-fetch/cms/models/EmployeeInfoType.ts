@@ -64,10 +64,10 @@ export interface EmployeeInfoType {
     addressInfo?: AddressInfoType;
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof EmployeeInfoType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -132,7 +132,7 @@ export function EmployeeInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'addressInfo': !exists(json, 'addressInfo') ? undefined : AddressInfoTypeFromJSON(json['addressInfo']),
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !exists(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'department': !exists(json, 'department') ? undefined : CodeDescriptionTypeFromJSON(json['department']),
         'emailInfo': !exists(json, 'emailInfo') ? undefined : EmailInfoTypeFromJSON(json['emailInfo']),
@@ -153,7 +153,7 @@ export function EmployeeInfoTypeToJSON(value?: EmployeeInfoType | null): any {
     return {
         
         'addressInfo': AddressInfoTypeToJSON(value.addressInfo),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'department': CodeDescriptionTypeToJSON(value.department),
         'emailInfo': EmailInfoTypeToJSON(value.emailInfo),

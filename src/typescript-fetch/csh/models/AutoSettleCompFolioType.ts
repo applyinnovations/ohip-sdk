@@ -40,10 +40,10 @@ export interface AutoSettleCompFolioType {
     fiscalBillNo?: string;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof AutoSettleCompFolioType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -126,7 +126,7 @@ export function AutoSettleCompFolioTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioSeqNo': !exists(json, 'folioSeqNo') ? undefined : json['folioSeqNo'],
@@ -150,7 +150,7 @@ export function AutoSettleCompFolioTypeToJSON(value?: AutoSettleCompFolioType | 
     return {
         
         'fiscalBillNo': value.fiscalBillNo,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,

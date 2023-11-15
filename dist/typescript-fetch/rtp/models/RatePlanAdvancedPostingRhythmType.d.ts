@@ -17,10 +17,10 @@
 export interface RatePlanAdvancedPostingRhythmType {
     /**
      * Date which the posting rhythm becomes applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanAdvancedPostingRhythmType
      */
-    beginSellDate?: Date;
+    beginSellDate?: string;
     /**
      * Code identifying the posting rhythm within the rate plan.
      * @type {string}
@@ -41,10 +41,10 @@ export interface RatePlanAdvancedPostingRhythmType {
     eligibleFreeNights?: number;
     /**
      * Date which the posting rhythm ceases to be applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanAdvancedPostingRhythmType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      * Indicates if the posting rhythm offer can be repeated more than once within a specific sell segment of the reservation.
      * @type {boolean}

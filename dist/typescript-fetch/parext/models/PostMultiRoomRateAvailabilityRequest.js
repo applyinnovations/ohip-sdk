@@ -38,8 +38,8 @@ function PostMultiRoomRateAvailabilityRequestFromJSONTyped(json, ignoreDiscrimin
         return json;
     }
     return {
-        'arrivalDate': (new Date(json['arrivalDate'])),
-        'departureDate': (new Date(json['departureDate'])),
+        'arrivalDate': json['arrivalDate'],
+        'departureDate': json['departureDate'],
         'hotelIds': json['hotelIds'],
         'rates': (0, RatesSearchType_1.RatesSearchTypeFromJSON)(json['rates']),
         'rooms': (json['rooms'].map(RoomsSearchType_1.RoomsSearchTypeFromJSON)),
@@ -54,8 +54,8 @@ function PostMultiRoomRateAvailabilityRequestToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': (value.arrivalDate.toISOString().substring(0, 10)),
-        'departureDate': (value.departureDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'hotelIds': value.hotelIds,
         'rates': (0, RatesSearchType_1.RatesSearchTypeToJSON)(value.rates),
         'rooms': (value.rooms.map(RoomsSearchType_1.RoomsSearchTypeToJSON)),

@@ -501,10 +501,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -963,7 +963,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -1056,7 +1056,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['storedDebitFolioName'] = requestParameters.storedDebitFolioName;
             }
             if (requestParameters.balanceForwardDate !== undefined) {
-                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate.toISOString().substring(0, 10);
+                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate;
             }
             if (requestParameters.inclFolios !== undefined) {
                 queryParameters['inclFolios'] = requestParameters.inclFolios;
@@ -1068,10 +1068,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['inclZero'] = requestParameters.inclZero;
             }
             if (requestParameters.filterEndDate !== undefined) {
-                queryParameters['filterEndDate'] = requestParameters.filterEndDate.toISOString().substring(0, 10);
+                queryParameters['filterEndDate'] = requestParameters.filterEndDate;
             }
             if (requestParameters.filterStartDate !== undefined) {
-                queryParameters['filterStartDate'] = requestParameters.filterStartDate.toISOString().substring(0, 10);
+                queryParameters['filterStartDate'] = requestParameters.filterStartDate;
             }
             if (requestParameters.statementText !== undefined) {
                 queryParameters['statementText'] = requestParameters.statementText;
@@ -1128,10 +1128,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accounts'] = requestParameters.accounts;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.fromAmount !== undefined) {
                 queryParameters['fromAmount'] = requestParameters.fromAmount;
@@ -1553,13 +1553,13 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['canBeModified'] = requestParameters.canBeModified;
             }
             if (requestParameters.closeDate !== undefined) {
-                queryParameters['closeDate'] = requestParameters.closeDate.toISOString().substring(0, 10);
+                queryParameters['closeDate'] = requestParameters.closeDate;
             }
             if (requestParameters.fiscalBillNo !== undefined) {
                 queryParameters['fiscalBillNo'] = requestParameters.fiscalBillNo;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate;
             }
             if (requestParameters.folioNo !== undefined) {
                 queryParameters['folioNo'] = requestParameters.folioNo;
@@ -1580,10 +1580,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['invoiceType'] = requestParameters.invoiceType;
             }
             if (requestParameters.postingDate !== undefined) {
-                queryParameters['postingDate'] = requestParameters.postingDate.toISOString().substring(0, 10);
+                queryParameters['postingDate'] = requestParameters.postingDate;
             }
             if (requestParameters.revenueDate !== undefined) {
-                queryParameters['revenueDate'] = requestParameters.revenueDate.toISOString().substring(0, 10);
+                queryParameters['revenueDate'] = requestParameters.revenueDate;
             }
             if (requestParameters.statementNo !== undefined) {
                 queryParameters['statementNo'] = requestParameters.statementNo;
@@ -1592,13 +1592,13 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['status'] = requestParameters.status;
             }
             if (requestParameters.transferDate !== undefined) {
-                queryParameters['transferDate'] = requestParameters.transferDate.toISOString().substring(0, 10);
+                queryParameters['transferDate'] = requestParameters.transferDate;
             }
             if (requestParameters.postingTransactionCode !== undefined) {
                 queryParameters['postingTransactionCode'] = requestParameters.postingTransactionCode;
             }
             if (requestParameters.transactionDate !== undefined) {
-                queryParameters['transactionDate'] = requestParameters.transactionDate.toISOString().substring(0, 10);
+                queryParameters['transactionDate'] = requestParameters.transactionDate;
             }
             if (requestParameters.transactionNo !== undefined) {
                 queryParameters['transactionNo'] = requestParameters.transactionNo;
@@ -1673,7 +1673,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['compressed'] = requestParameters.compressed;
             }
             if (requestParameters.compressedDate !== undefined) {
-                queryParameters['compressedDate'] = requestParameters.compressedDate.toISOString().substring(0, 10);
+                queryParameters['compressedDate'] = requestParameters.compressedDate;
             }
             if (requestParameters.transferredOut !== undefined) {
                 queryParameters['transferredOut'] = requestParameters.transferredOut;
@@ -1799,7 +1799,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -1865,7 +1865,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['printed'] = requestParameters.printed;
             }
             if (requestParameters.printedDate !== undefined) {
-                queryParameters['printedDate'] = requestParameters.printedDate.toISOString().substring(0, 10);
+                queryParameters['printedDate'] = requestParameters.printedDate;
             }
             if (requestParameters.storedFolioId !== undefined) {
                 queryParameters['storedFolioId'] = requestParameters.storedFolioId;
@@ -1922,10 +1922,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['additionalFilterTransactionSubGroupCode'] = requestParameters.additionalFilterTransactionSubGroupCode;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.referenceWildCard !== undefined) {
                 queryParameters['referenceWildCard'] = requestParameters.referenceWildCard;
@@ -2006,10 +2006,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accountName'] = requestParameters.accountName;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.folios !== undefined) {
                 queryParameters['folios'] = requestParameters.folios;
@@ -2084,10 +2084,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.guestDisplayName !== undefined) {
                 queryParameters['guestDisplayName'] = requestParameters.guestDisplayName;
@@ -2357,7 +2357,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accountName'] = requestParameters.accountName;
             }
             if (requestParameters.dateSent !== undefined) {
-                queryParameters['dateSent'] = requestParameters.dateSent.toISOString().substring(0, 10);
+                queryParameters['dateSent'] = requestParameters.dateSent;
             }
             if (requestParameters.reportFileNameWildCard !== undefined) {
                 queryParameters['reportFileNameWildCard'] = requestParameters.reportFileNameWildCard;
@@ -2673,7 +2673,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -2766,7 +2766,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['storedDebitFolioName'] = requestParameters.storedDebitFolioName;
             }
             if (requestParameters.balanceForwardDate !== undefined) {
-                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate.toISOString().substring(0, 10);
+                queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate;
             }
             if (requestParameters.inclFolios !== undefined) {
                 queryParameters['inclFolios'] = requestParameters.inclFolios;
@@ -2778,10 +2778,10 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['inclZero'] = requestParameters.inclZero;
             }
             if (requestParameters.filterEndDate !== undefined) {
-                queryParameters['filterEndDate'] = requestParameters.filterEndDate.toISOString().substring(0, 10);
+                queryParameters['filterEndDate'] = requestParameters.filterEndDate;
             }
             if (requestParameters.filterStartDate !== undefined) {
-                queryParameters['filterStartDate'] = requestParameters.filterStartDate.toISOString().substring(0, 10);
+                queryParameters['filterStartDate'] = requestParameters.filterStartDate;
             }
             if (requestParameters.statementText !== undefined) {
                 queryParameters['statementText'] = requestParameters.statementText;
@@ -2845,7 +2845,7 @@ class AccountsReceivablesApi extends runtime.BaseAPI {
                 queryParameters['accountName'] = requestParameters.accountName;
             }
             if (requestParameters.dateSent !== undefined) {
-                queryParameters['dateSent'] = requestParameters.dateSent.toISOString().substring(0, 10);
+                queryParameters['dateSent'] = requestParameters.dateSent;
             }
             if (requestParameters.reportFileNameWildCard !== undefined) {
                 queryParameters['reportFileNameWildCard'] = requestParameters.reportFileNameWildCard;

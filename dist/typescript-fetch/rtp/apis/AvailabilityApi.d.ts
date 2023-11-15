@@ -36,8 +36,8 @@ export interface ValidateRatePromotionCouponRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

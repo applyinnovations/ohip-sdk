@@ -148,16 +148,16 @@ export interface BlockSummaryType {
     customFields?: CustomFieldsType;
     /**
      * Date after which unused block rooms should be returned to house.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Contains information about the date by which the group must make a decision on the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    decisionDate?: Date;
+    decisionDate?: string;
     /**
      * Indicates if blocked rooms are deducted from inventory.
      * @type {boolean}
@@ -166,10 +166,10 @@ export interface BlockSummaryType {
     deductInventory?: boolean;
     /**
      * End date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if alternate dates are allowed for the booking.
      * @type {boolean}
@@ -178,10 +178,10 @@ export interface BlockSummaryType {
     flexibleDates?: boolean;
     /**
      * Contains information to follow up on the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    followupDate?: Date;
+    followupDate?: string;
     /**
      * Group name for this block.
      * @type {string}
@@ -250,22 +250,22 @@ export interface BlockSummaryType {
     searchMatches?: Array<SearchMatchType>;
     /**
      * Shoulder end date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Shoulder begin date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      * Start date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Internal status for the block.
      * @type {string}
@@ -324,12 +324,12 @@ export function BlockSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'customFields': !exists(json, 'customFields') ? undefined : CustomFieldsTypeFromJSON(json['customFields']),
-        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
-        'decisionDate': !exists(json, 'decisionDate') ? undefined : (new Date(json['decisionDate'])),
+        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : json['cutoffDate'],
+        'decisionDate': !exists(json, 'decisionDate') ? undefined : json['decisionDate'],
         'deductInventory': !exists(json, 'deductInventory') ? undefined : json['deductInventory'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'flexibleDates': !exists(json, 'flexibleDates') ? undefined : json['flexibleDates'],
-        'followupDate': !exists(json, 'followupDate') ? undefined : (new Date(json['followupDate'])),
+        'followupDate': !exists(json, 'followupDate') ? undefined : json['followupDate'],
         'groupName': !exists(json, 'groupName') ? undefined : json['groupName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelUse': !exists(json, 'hotelUse') ? undefined : HotelUseTypeFromJSON(json['hotelUse']),
@@ -341,9 +341,9 @@ export function BlockSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'reservationType': !exists(json, 'reservationType') ? undefined : json['reservationType'],
         'rooms': !exists(json, 'rooms') ? undefined : json['rooms'],
         'searchMatches': !exists(json, 'searchMatches') ? undefined : ((json['searchMatches'] as Array<any>).map(SearchMatchTypeFromJSON)),
-        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : (new Date(json['shoulderEndDate'])),
-        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : (new Date(json['shoulderStartDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'shoulderEndDate': !exists(json, 'shoulderEndDate') ? undefined : json['shoulderEndDate'],
+        'shoulderStartDate': !exists(json, 'shoulderStartDate') ? undefined : json['shoulderStartDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'status': !exists(json, 'status') ? undefined : json['status'],
         '_synchronized': !exists(json, 'synchronized') ? undefined : json['synchronized'],
         'tentativeBlock': !exists(json, 'tentativeBlock') ? undefined : json['tentativeBlock'],
@@ -373,12 +373,12 @@ export function BlockSummaryTypeToJSON(value?: BlockSummaryType | null): any {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'customFields': CustomFieldsTypeToJSON(value.customFields),
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
-        'decisionDate': value.decisionDate === undefined ? undefined : (value.decisionDate.toISOString().substring(0,10)),
+        'cutoffDate': value.cutoffDate,
+        'decisionDate': value.decisionDate,
         'deductInventory': value.deductInventory,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'flexibleDates': value.flexibleDates,
-        'followupDate': value.followupDate === undefined ? undefined : (value.followupDate.toISOString().substring(0,10)),
+        'followupDate': value.followupDate,
         'groupName': value.groupName,
         'hotelId': value.hotelId,
         'hotelUse': HotelUseTypeToJSON(value.hotelUse),
@@ -390,9 +390,9 @@ export function BlockSummaryTypeToJSON(value?: BlockSummaryType | null): any {
         'reservationType': value.reservationType,
         'rooms': value.rooms,
         'searchMatches': value.searchMatches === undefined ? undefined : ((value.searchMatches as Array<any>).map(SearchMatchTypeToJSON)),
-        'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0,10)),
-        'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'shoulderEndDate': value.shoulderEndDate,
+        'shoulderStartDate': value.shoulderStartDate,
+        'startDate': value.startDate,
         'status': value.status,
         'synchronized': value._synchronized,
         'tentativeBlock': value.tentativeBlock,

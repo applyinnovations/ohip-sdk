@@ -34,7 +34,7 @@ function MembershipPointsCalculationTypeFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'awardCode': !(0, runtime_1.exists)(json, 'awardCode') ? undefined : json['awardCode'],
-        'calculateUntilDate': !(0, runtime_1.exists)(json, 'calculateUntilDate') ? undefined : (new Date(json['calculateUntilDate'])),
+        'calculateUntilDate': !(0, runtime_1.exists)(json, 'calculateUntilDate') ? undefined : json['calculateUntilDate'],
         'membershipType': !(0, runtime_1.exists)(json, 'membershipType') ? undefined : json['membershipType'],
         'processType': !(0, runtime_1.exists)(json, 'processType') ? undefined : (0, MembershipPointsCalculationProcessType_1.MembershipPointsCalculationProcessTypeFromJSON)(json['processType']),
     };
@@ -49,7 +49,7 @@ function MembershipPointsCalculationTypeToJSON(value) {
     }
     return {
         'awardCode': value.awardCode,
-        'calculateUntilDate': value.calculateUntilDate === undefined ? undefined : (value.calculateUntilDate.toISOString().substring(0, 10)),
+        'calculateUntilDate': value.calculateUntilDate,
         'membershipType': value.membershipType,
         'processType': (0, MembershipPointsCalculationProcessType_1.MembershipPointsCalculationProcessTypeToJSON)(value.processType),
     };

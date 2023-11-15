@@ -123,8 +123,8 @@ export interface GetActivitiesRequest {
     offset?: number;
     text?: string;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     ownerCode?: Array<string>;
     activityClass?: GetActivitiesActivityClassEnum;
     activityType?: Array<string>;
@@ -146,8 +146,8 @@ export interface GetActivitiesByMultipleHotelIdsRequest {
     offset?: number;
     text?: string;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     ownerCode?: Array<string>;
     activityClass?: GetActivitiesByMultipleHotelIdsActivityClassEnum;
     activityType?: Array<string>;
@@ -192,8 +192,8 @@ export interface GetActivityLogRequest {
     moduleParamsParameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userByIdUserIds?: Array<number>;
     userForIdUserIds?: Array<number>;
@@ -206,7 +206,7 @@ export interface GetActivityStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    reportStartDate?: Date;
+    reportStartDate?: string;
     activityTypeCodes?: Array<string>;
     ownerCodeList?: Array<string>;
     xExternalsystem?: string;
@@ -250,8 +250,8 @@ export interface GetEmailsRequest {
     senderLastName?: string;
     senderFirstName?: string;
     senderEmailAddress?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -651,11 +651,11 @@ export class ActivityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.ownerCode) {
@@ -759,11 +759,11 @@ export class ActivityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.ownerCode) {
@@ -991,11 +991,11 @@ export class ActivityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
+            queryParameters['toDate'] = requestParameters.toDate;
         }
 
         if (requestParameters.searchText !== undefined) {
@@ -1063,7 +1063,7 @@ export class ActivityApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.reportStartDate !== undefined) {
-            queryParameters['reportStartDate'] = (requestParameters.reportStartDate as any).toISOString().substring(0,10);
+            queryParameters['reportStartDate'] = requestParameters.reportStartDate;
         }
 
         if (requestParameters.activityTypeCodes) {
@@ -1271,11 +1271,11 @@ export class ActivityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {

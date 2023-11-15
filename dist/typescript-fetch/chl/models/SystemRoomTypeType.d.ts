@@ -18,10 +18,10 @@ import type { CodeDescriptionType } from './CodeDescriptionType';
 export interface SystemRoomTypeType {
     /**
      * Inactive date of room type external system.
-     * @type {Date}
+     * @type {string}
      * @memberof SystemRoomTypeType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {CodeDescriptionType}

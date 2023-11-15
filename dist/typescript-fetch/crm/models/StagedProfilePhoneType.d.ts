@@ -36,10 +36,10 @@ export interface StagedProfilePhoneType {
     id?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfilePhoneType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {TelephoneType}

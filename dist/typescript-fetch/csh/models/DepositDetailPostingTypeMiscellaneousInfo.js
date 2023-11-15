@@ -32,7 +32,7 @@ function DepositDetailPostingTypeMiscellaneousInfoFromJSONTyped(json, ignoreDisc
         return json;
     }
     return {
-        'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : (new Date(json['createDateTime'])),
+        'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'paidOut': !(0, runtime_1.exists)(json, 'paidOut') ? undefined : json['paidOut'],
     };
 }
@@ -45,7 +45,7 @@ function DepositDetailPostingTypeMiscellaneousInfoToJSON(value) {
         return null;
     }
     return {
-        'createDateTime': value.createDateTime === undefined ? undefined : (value.createDateTime.toISOString().substring(0, 10)),
+        'createDateTime': value.createDateTime,
         'paidOut': value.paidOut,
     };
 }

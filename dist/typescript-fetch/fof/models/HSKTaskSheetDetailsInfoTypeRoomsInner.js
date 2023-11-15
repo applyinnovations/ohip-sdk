@@ -84,7 +84,7 @@ function HSKTaskSheetDetailsInfoTypeRoomsInnerFromJSONTyped(json, ignoreDiscrimi
         'smokingPreferenceDescription': !(0, runtime_1.exists)(json, 'smokingPreferenceDescription') ? undefined : json['smokingPreferenceDescription'],
         'totalCredits': !(0, runtime_1.exists)(json, 'totalCredits') ? undefined : json['totalCredits'],
         'turndownInfo': !(0, runtime_1.exists)(json, 'turndownInfo') ? undefined : (0, TurndownInfoType_1.TurndownInfoTypeFromJSON)(json['turndownInfo']),
-        'wakeUpTime': !(0, runtime_1.exists)(json, 'wakeUpTime') ? undefined : (new Date(json['wakeUpTime'])),
+        'wakeUpTime': !(0, runtime_1.exists)(json, 'wakeUpTime') ? undefined : json['wakeUpTime'],
     };
 }
 exports.HSKTaskSheetDetailsInfoTypeRoomsInnerFromJSONTyped = HSKTaskSheetDetailsInfoTypeRoomsInnerFromJSONTyped;
@@ -132,7 +132,7 @@ function HSKTaskSheetDetailsInfoTypeRoomsInnerToJSON(value) {
         'smokingPreferenceDescription': value.smokingPreferenceDescription,
         'totalCredits': value.totalCredits,
         'turndownInfo': (0, TurndownInfoType_1.TurndownInfoTypeToJSON)(value.turndownInfo),
-        'wakeUpTime': value.wakeUpTime === undefined ? undefined : (value.wakeUpTime.toISOString().substring(0, 10)),
+        'wakeUpTime': value.wakeUpTime,
     };
 }
 exports.HSKTaskSheetDetailsInfoTypeRoomsInnerToJSON = HSKTaskSheetDetailsInfoTypeRoomsInnerToJSON;

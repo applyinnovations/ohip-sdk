@@ -40,7 +40,7 @@ function RoomClassSellLimitTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : json['amount'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'flatOrPercentage': !(0, runtime_1.exists)(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
         'roomClass': !(0, runtime_1.exists)(json, 'roomClass') ? undefined : json['roomClass'],
     };
@@ -55,7 +55,7 @@ function RoomClassSellLimitTypeToJSON(value) {
     }
     return {
         'amount': value.amount,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'flatOrPercentage': value.flatOrPercentage,
         'roomClass': value.roomClass,
     };

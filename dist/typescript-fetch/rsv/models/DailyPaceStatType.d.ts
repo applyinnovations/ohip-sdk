@@ -23,10 +23,10 @@ export interface DailyPaceStatType {
     channel?: string;
     /**
      * The day to which the information belongs.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyPaceStatType
      */
-    consideredDate?: Date;
+    consideredDate?: string;
     /**
      * Number of rooms reserved.
      * @type {number}

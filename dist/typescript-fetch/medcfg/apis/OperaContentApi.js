@@ -280,7 +280,7 @@ class OperaContentApi extends runtime.BaseAPI {
                 queryParameters['folioType'] = requestParameters.folioType;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate;
             }
             if (requestParameters.referenceCurrency !== undefined) {
                 queryParameters['referenceCurrency'] = requestParameters.referenceCurrency;

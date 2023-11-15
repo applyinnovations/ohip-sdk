@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface ClaimMembershipType {
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -94,8 +94,8 @@ export function ClaimMembershipTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
-        'expireDate': !exists(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : json['effectiveDate'],
+        'expireDate': !exists(json, 'expireDate') ? undefined : json['expireDate'],
         'expireDateExclusiveIndicator': !exists(json, 'expireDateExclusiveIndicator') ? undefined : json['expireDateExclusiveIndicator'],
         'membershipClass': !exists(json, 'membershipClass') ? undefined : json['membershipClass'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
@@ -115,8 +115,8 @@ export function ClaimMembershipTypeToJSON(value?: ClaimMembershipType | null): a
     }
     return {
         
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
+        'effectiveDate': value.effectiveDate,
+        'expireDate': value.expireDate,
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
         'membershipClass': value.membershipClass,
         'membershipId': value.membershipId,

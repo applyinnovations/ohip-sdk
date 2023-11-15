@@ -27,10 +27,10 @@ export interface ConvertFolioType {
     cashierId?: number;
     /**
      * Date of folio generation.
-     * @type {Date}
+     * @type {string}
      * @memberof ConvertFolioType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio number of the Folio which is going to be converted.
      * @type {number}
@@ -71,7 +71,7 @@ export function ConvertFolioTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioTypeName': !exists(json, 'folioTypeName') ? undefined : json['folioTypeName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -88,7 +88,7 @@ export function ConvertFolioTypeToJSON(value?: ConvertFolioType | null): any {
     return {
         
         'cashierId': value.cashierId,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioTypeName': value.folioTypeName,
         'hotelId': value.hotelId,

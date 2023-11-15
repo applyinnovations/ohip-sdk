@@ -25,10 +25,10 @@ export interface CancellationActivityType {
     cancellationIdList?: Array<UniqueIDType>;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof CancellationActivityType
      */
-    cxlDate?: Date;
+    cxlDate?: string;
     /**
      *
      * @type {CancellationReasonType}

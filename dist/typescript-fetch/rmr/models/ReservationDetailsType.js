@@ -34,8 +34,8 @@ function ReservationDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
-        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : json['arrival'],
+        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : json['departure'],
         'givenName': !(0, runtime_1.exists)(json, 'givenName') ? undefined : json['givenName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'nights': !(0, runtime_1.exists)(json, 'nights') ? undefined : json['nights'],
@@ -54,8 +54,8 @@ function ReservationDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
+        'arrival': value.arrival,
+        'departure': value.departure,
         'givenName': value.givenName,
         'hotelId': value.hotelId,
         'nights': value.nights,

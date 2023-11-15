@@ -860,13 +860,13 @@ class EventManagementApi extends runtime.BaseAPI {
                 queryParameters['userListCode'] = requestParameters.userListCode;
             }
             if (requestParameters.eventDate !== undefined) {
-                queryParameters['eventDate'] = requestParameters.eventDate.toISOString().substring(0, 10);
+                queryParameters['eventDate'] = requestParameters.eventDate;
             }
             if (requestParameters.eventEndDate !== undefined) {
-                queryParameters['eventEndDate'] = requestParameters.eventEndDate.toISOString().substring(0, 10);
+                queryParameters['eventEndDate'] = requestParameters.eventEndDate;
             }
             if (requestParameters.eventStartDate !== undefined) {
-                queryParameters['eventStartDate'] = requestParameters.eventStartDate.toISOString().substring(0, 10);
+                queryParameters['eventStartDate'] = requestParameters.eventStartDate;
             }
             if (requestParameters.priorStatus !== undefined) {
                 queryParameters['priorStatus'] = requestParameters.priorStatus;
@@ -1160,7 +1160,7 @@ class EventManagementApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.eventEndDate !== undefined) {
-                queryParameters['eventEndDate'] = requestParameters.eventEndDate.toISOString().substring(0, 10);
+                queryParameters['eventEndDate'] = requestParameters.eventEndDate;
             }
             if (requestParameters.includeHidden !== undefined) {
                 queryParameters['includeHidden'] = requestParameters.includeHidden;
@@ -1190,7 +1190,7 @@ class EventManagementApi extends runtime.BaseAPI {
                 queryParameters['sortingBy'] = requestParameters.sortingBy;
             }
             if (requestParameters.eventStartDate !== undefined) {
-                queryParameters['eventStartDate'] = requestParameters.eventStartDate.toISOString().substring(0, 10);
+                queryParameters['eventStartDate'] = requestParameters.eventStartDate;
             }
             if (requestParameters.functionSpaceDetails) {
                 queryParameters['functionSpaceDetails'] = requestParameters.functionSpaceDetails;
@@ -1289,7 +1289,7 @@ class EventManagementApi extends runtime.BaseAPI {
         return __awaiter(this, void 0, void 0, function* () {
             const queryParameters = {};
             if (requestParameters.eventEndDate !== undefined) {
-                queryParameters['eventEndDate'] = requestParameters.eventEndDate.toISOString().substring(0, 10);
+                queryParameters['eventEndDate'] = requestParameters.eventEndDate;
             }
             if (requestParameters.includeHidden !== undefined) {
                 queryParameters['includeHidden'] = requestParameters.includeHidden;
@@ -1319,7 +1319,7 @@ class EventManagementApi extends runtime.BaseAPI {
                 queryParameters['sortingBy'] = requestParameters.sortingBy;
             }
             if (requestParameters.eventStartDate !== undefined) {
-                queryParameters['eventStartDate'] = requestParameters.eventStartDate.toISOString().substring(0, 10);
+                queryParameters['eventStartDate'] = requestParameters.eventStartDate;
             }
             if (requestParameters.functionSpaceDetails) {
                 queryParameters['functionSpaceDetails'] = requestParameters.functionSpaceDetails;
@@ -1565,10 +1565,10 @@ class EventManagementApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.eventStartDate !== undefined) {
-                queryParameters['eventStartDate'] = requestParameters.eventStartDate.toISOString().substring(0, 10);
+                queryParameters['eventStartDate'] = requestParameters.eventStartDate;
             }
             if (requestParameters.eventEndDate !== undefined) {
-                queryParameters['eventEndDate'] = requestParameters.eventEndDate.toISOString().substring(0, 10);
+                queryParameters['eventEndDate'] = requestParameters.eventEndDate;
             }
             if (requestParameters.blockId) {
                 queryParameters['blockId'] = requestParameters.blockId;
@@ -1667,10 +1667,10 @@ class EventManagementApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.eventStartDate !== undefined) {
-                queryParameters['eventStartDate'] = requestParameters.eventStartDate.toISOString().substring(0, 10);
+                queryParameters['eventStartDate'] = requestParameters.eventStartDate;
             }
             if (requestParameters.eventEndDate !== undefined) {
-                queryParameters['eventEndDate'] = requestParameters.eventEndDate.toISOString().substring(0, 10);
+                queryParameters['eventEndDate'] = requestParameters.eventEndDate;
             }
             if (requestParameters.blockId) {
                 queryParameters['blockId'] = requestParameters.blockId;

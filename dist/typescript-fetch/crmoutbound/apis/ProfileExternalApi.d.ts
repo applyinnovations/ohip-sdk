@@ -51,7 +51,7 @@ export interface GetExternalProfilesRequest {
     membershipNumber?: string;
     membershipType?: string;
     arNumber?: string;
-    birthDate?: Date;
+    birthDate?: string;
     acceptLanguage?: string;
 }
 export interface GetGamingOffersRequest {
@@ -60,8 +60,8 @@ export interface GetGamingOffersRequest {
     authorization?: string;
     xAppKey?: string;
     hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     acceptLanguage?: string;
 }
 export interface GetPlayerStatisticsRequest {

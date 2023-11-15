@@ -96,10 +96,10 @@ export interface NewBlockDetailsType {
     sourceDateRangeToCopy?: DateRangeType;
     /**
      * The start date of the new block.
-     * @type {Date}
+     * @type {string}
      * @memberof NewBlockDetailsType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the NewBlockDetailsType interface.

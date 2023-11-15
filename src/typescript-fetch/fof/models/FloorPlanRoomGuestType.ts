@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface FloorPlanRoomGuestType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof FloorPlanRoomGuestType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * 
      * @type {string}
@@ -33,10 +33,10 @@ export interface FloorPlanRoomGuestType {
     confirmationNo?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof FloorPlanRoomGuestType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * 
      * @type {string}
@@ -76,9 +76,9 @@ export function FloorPlanRoomGuestTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !exists(json, 'arrival') ? undefined : json['arrival'],
         'confirmationNo': !exists(json, 'confirmationNo') ? undefined : json['confirmationNo'],
-        'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !exists(json, 'departure') ? undefined : json['departure'],
         'firstName': !exists(json, 'firstName') ? undefined : json['firstName'],
         'lastName': !exists(json, 'lastName') ? undefined : json['lastName'],
         'shareID': !exists(json, 'shareID') ? undefined : json['shareID'],
@@ -94,9 +94,9 @@ export function FloorPlanRoomGuestTypeToJSON(value?: FloorPlanRoomGuestType | nu
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
+        'arrival': value.arrival,
         'confirmationNo': value.confirmationNo,
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
+        'departure': value.departure,
         'firstName': value.firstName,
         'lastName': value.lastName,
         'shareID': value.shareID,

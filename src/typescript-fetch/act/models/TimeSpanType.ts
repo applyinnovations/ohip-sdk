@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface TimeSpanType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof TimeSpanType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof TimeSpanType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -52,8 +52,8 @@ export function TimeSpanTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -66,8 +66,8 @@ export function TimeSpanTypeToJSON(value?: TimeSpanType | null): any {
     }
     return {
         
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
+        'startDate': value.startDate,
     };
 }
 

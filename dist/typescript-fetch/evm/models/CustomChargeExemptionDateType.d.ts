@@ -17,10 +17,10 @@
 export interface CustomChargeExemptionDateType {
     /**
      * Contains Custom Charge Exemption date.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Contains number of Custom Charge Exemption for a day.
      * @type {number}

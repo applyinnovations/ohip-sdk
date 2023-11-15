@@ -65,10 +65,10 @@ export interface StagedProfileMembershipType {
     deviceCode?: string;
     /**
      * Device disabled date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    deviceDisabledDate?: Date;
+    deviceDisabledDate?: string;
     /**
      *
      * @type {DowngradeType}
@@ -89,10 +89,10 @@ export interface StagedProfileMembershipType {
     earningPreference?: MembershipEarningPreferenceType;
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Enrollment code.
      * @type {string}
@@ -125,10 +125,10 @@ export interface StagedProfileMembershipType {
     excludeFromBatch?: boolean;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -149,10 +149,10 @@ export interface StagedProfileMembershipType {
     inactive?: boolean;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -293,10 +293,10 @@ export interface StagedProfileMembershipType {
     registrationResort?: string;
     /**
      * Indicates when the member signed up for the loyalty program.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    signupDate?: Date;
+    signupDate?: string;
     /**
      *
      * @type {TierAdministrationType}

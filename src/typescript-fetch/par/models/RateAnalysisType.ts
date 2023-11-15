@@ -34,10 +34,10 @@ export interface RateAnalysisType {
     code?: RateAnalysisCodeType;
     /**
      * The date of the analysis.
-     * @type {Date}
+     * @type {string}
      * @memberof RateAnalysisType
      */
-    date?: Date;
+    date?: string;
     /**
      * The description of the restriction which was analyzed.
      * @type {string}
@@ -66,7 +66,7 @@ export function RateAnalysisTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'code': !exists(json, 'code') ? undefined : RateAnalysisCodeTypeFromJSON(json['code']),
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'description': !exists(json, 'description') ? undefined : json['description'],
     };
 }
@@ -81,7 +81,7 @@ export function RateAnalysisTypeToJSON(value?: RateAnalysisType | null): any {
     return {
         
         'code': RateAnalysisCodeTypeToJSON(value.code),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'description': value.description,
     };
 }

@@ -401,8 +401,8 @@ export interface GetCateringMenusRequest {
     inactive?: boolean;
     multiChoice?: boolean;
     webBookable?: boolean;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     fetchInstructions?: Set<GetCateringMenusFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -449,7 +449,7 @@ export interface GetCateringPackagesRequest {
     priceCode?: string;
     minAttendees?: number;
     maxAttendees?: number;
-    sellDate?: Date;
+    sellDate?: string;
     startDateTime?: string;
     endDateTime?: string;
     bookingType?: string;
@@ -473,7 +473,7 @@ export interface GetCateringPackagesMultiPropertiesRequest {
     priceCode?: string;
     minAttendees?: number;
     maxAttendees?: number;
-    sellDate?: Date;
+    sellDate?: string;
     startDateTime?: string;
     endDateTime?: string;
     bookingType?: string;
@@ -506,8 +506,8 @@ export interface GetDailyInventoryItemsRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -524,7 +524,7 @@ export interface GetEventForecastsRequest {
     eventTypeWildCard?: string;
     revenueTypeCodes?: Array<string>;
     revenueTypeWildCard?: string;
-    eventDate?: Date;
+    eventDate?: string;
     blockTypeCodes?: Array<string>;
     marketCodes?: Array<string>;
     xExternalsystem?: string;

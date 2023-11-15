@@ -33,7 +33,7 @@ function BlockStatusStatisticTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : json['statisticDate'],
         'statusSummaryStatistic': !(0, runtime_1.exists)(json, 'statusSummaryStatistic') ? undefined : (json['statusSummaryStatistic'].map(StatisticUnitType_1.StatisticUnitTypeFromJSON)),
     };
 }
@@ -46,7 +46,7 @@ function BlockStatusStatisticTypeToJSON(value) {
         return null;
     }
     return {
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
+        'statisticDate': value.statisticDate,
         'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : (value.statusSummaryStatistic.map(StatisticUnitType_1.StatisticUnitTypeToJSON)),
     };
 }

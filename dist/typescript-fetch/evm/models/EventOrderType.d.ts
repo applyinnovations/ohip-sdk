@@ -23,10 +23,10 @@ export interface EventOrderType {
     distributed?: boolean;
     /**
      * This indicates which exchange rate date will be used for blocks when printing Banquet Event Orders. When the Distributed attribute is true this contains the date stamp of when the Distributed attribute was updated. When Distributed attribute is false, this is left blank. This date can also be taken into consideration as the 'Exchange Rate Date' when, for instance, converting catering revenue to base currency.
-     * @type {Date}
+     * @type {string}
      * @memberof EventOrderType
      */
-    distributedDate?: Date;
+    distributedDate?: string;
     /**
      * This indicates which exchange rate date will be used for blocks when printing Banquet Event Orders. When the Distributed attribute is true this contains the date/time stamp of when the Distributed attribute was updated. When Distributed attribute is false, this is left blank. This date can also be taken into consideration as the 'Exchange Rate Date' when, for instance, converting catering revenue to base currency.
      * @type {string}

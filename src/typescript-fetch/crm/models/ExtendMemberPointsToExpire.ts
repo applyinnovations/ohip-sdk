@@ -34,10 +34,10 @@ import {
 export interface ExtendMemberPointsToExpire {
     /**
      * Expiration date to be extended.
-     * @type {Date}
+     * @type {string}
      * @memberof ExtendMemberPointsToExpire
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * 
      * @type {Array<InstanceLink>}
@@ -77,7 +77,7 @@ export function ExtendMemberPointsToExpireFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'expirationDate': !exists(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !exists(json, 'expirationDate') ? undefined : json['expirationDate'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
         'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
@@ -93,7 +93,7 @@ export function ExtendMemberPointsToExpireToJSON(value?: ExtendMemberPointsToExp
     }
     return {
         
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
+        'expirationDate': value.expirationDate,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'membershipId': value.membershipId,
         'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),

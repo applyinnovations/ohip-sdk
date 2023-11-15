@@ -32,7 +32,7 @@ function ForeignExchangeTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'effectiveDate': !(0, runtime_1.exists)(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
+        'effectiveDate': !(0, runtime_1.exists)(json, 'effectiveDate') ? undefined : json['effectiveDate'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
     };
 }
@@ -45,7 +45,7 @@ function ForeignExchangeTypeToJSON(value) {
         return null;
     }
     return {
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0, 10)),
+        'effectiveDate': value.effectiveDate,
         'type': value.type,
     };
 }

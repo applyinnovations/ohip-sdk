@@ -39,7 +39,7 @@ function EmployeeInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'addressInfo': !(0, runtime_1.exists)(json, 'addressInfo') ? undefined : (0, AddressInfoType_1.AddressInfoTypeFromJSON)(json['addressInfo']),
-        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !(0, runtime_1.exists)(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'department': !(0, runtime_1.exists)(json, 'department') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['department']),
         'emailInfo': !(0, runtime_1.exists)(json, 'emailInfo') ? undefined : (0, EmailInfoType_1.EmailInfoTypeFromJSON)(json['emailInfo']),
@@ -59,7 +59,7 @@ function EmployeeInfoTypeToJSON(value) {
     }
     return {
         'addressInfo': (0, AddressInfoType_1.AddressInfoTypeToJSON)(value.addressInfo),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0, 10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'department': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.department),
         'emailInfo': (0, EmailInfoType_1.EmailInfoTypeToJSON)(value.emailInfo),

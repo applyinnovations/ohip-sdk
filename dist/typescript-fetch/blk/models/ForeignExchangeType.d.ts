@@ -17,10 +17,10 @@
 export interface ForeignExchangeType {
     /**
      * Effective Exchange date for the foreign currency posting.
-     * @type {Date}
+     * @type {string}
      * @memberof ForeignExchangeType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Exchange Type for the postings.
      * @type {string}

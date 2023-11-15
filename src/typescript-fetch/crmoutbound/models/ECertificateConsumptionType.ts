@@ -70,10 +70,10 @@ export interface ECertificateConsumptionType {
     email?: string;
     /**
      * Date the certificate was consumed.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    date?: Date;
+    date?: string;
     /**
      * Application user who created the consumption.
      * @type {string}
@@ -106,10 +106,10 @@ export interface ECertificateConsumptionType {
     authCode?: string;
     /**
      * Date on which the service is due (arrival date in case of reservation).
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    serviceDate?: Date;
+    serviceDate?: string;
 }
 
 /**
@@ -137,13 +137,13 @@ export function ECertificateConsumptionTypeFromJSONTyped(json: any, ignoreDiscri
         'firstName': !exists(json, 'firstName') ? undefined : json['firstName'],
         'middleName': !exists(json, 'middleName') ? undefined : json['middleName'],
         'email': !exists(json, 'email') ? undefined : json['email'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'userName': !exists(json, 'userName') ? undefined : json['userName'],
         'userNotes': !exists(json, 'userNotes') ? undefined : json['userNotes'],
         'referenceId': !exists(json, 'referenceId') ? undefined : UniqueIDTypeFromJSON(json['referenceId']),
         'locationType': !exists(json, 'locationType') ? undefined : json['locationType'],
         'authCode': !exists(json, 'authCode') ? undefined : json['authCode'],
-        'serviceDate': !exists(json, 'serviceDate') ? undefined : (new Date(json['serviceDate'])),
+        'serviceDate': !exists(json, 'serviceDate') ? undefined : json['serviceDate'],
     };
 }
 
@@ -162,13 +162,13 @@ export function ECertificateConsumptionTypeToJSON(value?: ECertificateConsumptio
         'firstName': value.firstName,
         'middleName': value.middleName,
         'email': value.email,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'userName': value.userName,
         'userNotes': value.userNotes,
         'referenceId': UniqueIDTypeToJSON(value.referenceId),
         'locationType': value.locationType,
         'authCode': value.authCode,
-        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substring(0,10)),
+        'serviceDate': value.serviceDate,
     };
 }
 

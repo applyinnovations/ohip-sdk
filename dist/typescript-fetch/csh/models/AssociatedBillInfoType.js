@@ -34,7 +34,7 @@ function AssociatedBillInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'associatedBillFiscalBillNumber': !(0, runtime_1.exists)(json, 'associatedBillFiscalBillNumber') ? undefined : json['associatedBillFiscalBillNumber'],
         'associatedBillFolioType': !(0, runtime_1.exists)(json, 'associatedBillFolioType') ? undefined : json['associatedBillFolioType'],
-        'associatedBillGenerationDate': !(0, runtime_1.exists)(json, 'associatedBillGenerationDate') ? undefined : (new Date(json['associatedBillGenerationDate'])),
+        'associatedBillGenerationDate': !(0, runtime_1.exists)(json, 'associatedBillGenerationDate') ? undefined : json['associatedBillGenerationDate'],
         'associatedBillNumber': !(0, runtime_1.exists)(json, 'associatedBillNumber') ? undefined : json['associatedBillNumber'],
         'associatedBillQueueName': !(0, runtime_1.exists)(json, 'associatedBillQueueName') ? undefined : json['associatedBillQueueName'],
     };
@@ -50,7 +50,7 @@ function AssociatedBillInfoTypeToJSON(value) {
     return {
         'associatedBillFiscalBillNumber': value.associatedBillFiscalBillNumber,
         'associatedBillFolioType': value.associatedBillFolioType,
-        'associatedBillGenerationDate': value.associatedBillGenerationDate === undefined ? undefined : (value.associatedBillGenerationDate.toISOString().substring(0, 10)),
+        'associatedBillGenerationDate': value.associatedBillGenerationDate,
         'associatedBillNumber': value.associatedBillNumber,
         'associatedBillQueueName': value.associatedBillQueueName,
     };

@@ -70,10 +70,10 @@ export interface ChannelRoomMappingType {
     bedTypeCode?: string;
     /**
      * Begin Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Booking Channel Code.
      * @type {string}
@@ -118,10 +118,10 @@ export interface ChannelRoomMappingType {
     description?: ChannelRoomMappingDescriptionType;
     /**
      * End date of the hotel-channel room type mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {ChannelMappingEnhancedDescriptionType}
@@ -136,10 +136,10 @@ export interface ChannelRoomMappingType {
     hotelId?: string;
     /**
      * Begin date of the channel room type mapping. This element is used for sending modified Begin date value for operation ChangeChannelRoomMapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingType
      */
-    newBeginDate?: Date;
+    newBeginDate?: string;
     /**
      * Channel Room Type. This element is used for sending modified Channel room type value for operation ChangeChannelRoomMapping.
      * @type {string}
@@ -189,7 +189,7 @@ export function ChannelRoomMappingTypeFromJSONTyped(json: any, ignoreDiscriminat
         'alternateChannelRoomType': !exists(json, 'alternateChannelRoomType') ? undefined : json['alternateChannelRoomType'],
         'baseAllocation': !exists(json, 'baseAllocation') ? undefined : json['baseAllocation'],
         'bedTypeCode': !exists(json, 'bedTypeCode') ? undefined : json['bedTypeCode'],
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'bookingChannelInfo': !exists(json, 'bookingChannelInfo') ? undefined : BookingChannelInfoTypeFromJSON(json['bookingChannelInfo']),
         'channelRateCodes': !exists(json, 'channelRateCodes') ? undefined : json['channelRateCodes'],
@@ -197,10 +197,10 @@ export function ChannelRoomMappingTypeFromJSONTyped(json: any, ignoreDiscriminat
         'channelRoomType': !exists(json, 'channelRoomType') ? undefined : json['channelRoomType'],
         'channelRoomTypeOrder': !exists(json, 'channelRoomTypeOrder') ? undefined : json['channelRoomTypeOrder'],
         'description': !exists(json, 'description') ? undefined : ChannelRoomMappingDescriptionTypeFromJSON(json['description']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'globalDescription': !exists(json, 'globalDescription') ? undefined : ChannelMappingEnhancedDescriptionTypeFromJSON(json['globalDescription']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : (new Date(json['newBeginDate'])),
+        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : json['newBeginDate'],
         'newChannelRoomType': !exists(json, 'newChannelRoomType') ? undefined : json['newChannelRoomType'],
         'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
@@ -221,7 +221,7 @@ export function ChannelRoomMappingTypeToJSON(value?: ChannelRoomMappingType | nu
         'alternateChannelRoomType': value.alternateChannelRoomType,
         'baseAllocation': value.baseAllocation,
         'bedTypeCode': value.bedTypeCode,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'bookingChannelCode': value.bookingChannelCode,
         'bookingChannelInfo': BookingChannelInfoTypeToJSON(value.bookingChannelInfo),
         'channelRateCodes': value.channelRateCodes,
@@ -229,10 +229,10 @@ export function ChannelRoomMappingTypeToJSON(value?: ChannelRoomMappingType | nu
         'channelRoomType': value.channelRoomType,
         'channelRoomTypeOrder': value.channelRoomTypeOrder,
         'description': ChannelRoomMappingDescriptionTypeToJSON(value.description),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'globalDescription': ChannelMappingEnhancedDescriptionTypeToJSON(value.globalDescription),
         'hotelId': value.hotelId,
-        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substring(0,10)),
+        'newBeginDate': value.newBeginDate,
         'newChannelRoomType': value.newChannelRoomType,
         'rateCodes': value.rateCodes,
         'roomType': value.roomType,

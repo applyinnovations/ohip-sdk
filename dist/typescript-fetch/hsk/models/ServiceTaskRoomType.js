@@ -43,7 +43,7 @@ function ServiceTaskRoomTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomTaskCode': !(0, runtime_1.exists)(json, 'roomTaskCode') ? undefined : json['roomTaskCode'],
         'sheetNumber': !(0, runtime_1.exists)(json, 'sheetNumber') ? undefined : json['sheetNumber'],
         'taskCodes': !(0, runtime_1.exists)(json, 'taskCodes') ? undefined : json['taskCodes'],
-        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : json['taskDate'],
     };
 }
 exports.ServiceTaskRoomTypeFromJSONTyped = ServiceTaskRoomTypeFromJSONTyped;
@@ -64,7 +64,7 @@ function ServiceTaskRoomTypeToJSON(value) {
         'roomTaskCode': value.roomTaskCode,
         'sheetNumber': value.sheetNumber,
         'taskCodes': value.taskCodes,
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
+        'taskDate': value.taskDate,
     };
 }
 exports.ServiceTaskRoomTypeToJSON = ServiceTaskRoomTypeToJSON;

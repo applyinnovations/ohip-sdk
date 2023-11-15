@@ -112,10 +112,10 @@ export interface AddressType {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof AddressType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * State or Province name (e.g., Texas).
      * @type {string}
@@ -175,7 +175,7 @@ export function AddressTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'postalCode': !exists(json, 'postalCode') ? undefined : json['postalCode'],
         'primaryInd': !exists(json, 'primaryInd') ? undefined : json['primaryInd'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'state': !exists(json, 'state') ? undefined : json['state'],
         'type': !exists(json, 'type') ? undefined : json['type'],
         'typeDescription': !exists(json, 'typeDescription') ? undefined : json['typeDescription'],
@@ -206,7 +206,7 @@ export function AddressTypeToJSON(value?: AddressType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'postalCode': value.postalCode,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'state': value.state,
         'type': value.type,
         'typeDescription': value.typeDescription,

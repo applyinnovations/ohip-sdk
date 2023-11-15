@@ -49,10 +49,10 @@ export interface BlockInstructionTypeRoomAllocations {
     roomAllocationType?: Array<RoomAllocationTypeType>;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInstructionTypeRoomAllocations
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Total number of rows queried
      * @type {number}

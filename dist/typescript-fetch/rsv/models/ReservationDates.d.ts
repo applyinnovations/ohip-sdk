@@ -17,16 +17,16 @@
 export interface ReservationDates {
     /**
      * Date of arrival.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Date when reservation(s) was cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    cancelledOn?: Date;
+    cancelledOn?: string;
     /**
      * Date when reservation(s) was created.
      * @type {string}
@@ -35,16 +35,16 @@ export interface ReservationDates {
     createDateTime?: string;
     /**
      * Date of departure.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * Date when folio was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    folioClosedOn?: Date;
+    folioClosedOn?: string;
     /**
      * Date when reservation(s) was updated.
      * @type {string}

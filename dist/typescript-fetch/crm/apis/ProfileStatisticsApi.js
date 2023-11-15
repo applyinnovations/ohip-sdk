@@ -78,10 +78,10 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
                 queryParameters['membershipType'] = requestParameters.membershipType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -150,10 +150,10 @@ class ProfileStatisticsApi extends runtime.BaseAPI {
                 queryParameters['reportType'] = requestParameters.reportType;
             }
             if (requestParameters.stayFrom !== undefined) {
-                queryParameters['stayFrom'] = requestParameters.stayFrom.toISOString().substring(0, 10);
+                queryParameters['stayFrom'] = requestParameters.stayFrom;
             }
             if (requestParameters.stayTo !== undefined) {
-                queryParameters['stayTo'] = requestParameters.stayTo.toISOString().substring(0, 10);
+                queryParameters['stayTo'] = requestParameters.stayTo;
             }
             if (requestParameters.summary !== undefined) {
                 queryParameters['summary'] = requestParameters.summary;

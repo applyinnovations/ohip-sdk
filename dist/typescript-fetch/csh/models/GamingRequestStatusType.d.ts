@@ -35,10 +35,10 @@ export interface GamingRequestStatusType {
     messageText?: string;
     /**
      * Date the request was sent.
-     * @type {Date}
+     * @type {string}
      * @memberof GamingRequestStatusType
      */
-    requestDate?: Date;
+    requestDate?: string;
     /**
      * Status of the request.
      * @type {string}

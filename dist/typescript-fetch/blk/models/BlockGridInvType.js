@@ -32,7 +32,7 @@ function BlockGridInvTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cutoffDate': !(0, runtime_1.exists)(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
+        'cutoffDate': !(0, runtime_1.exists)(json, 'cutoffDate') ? undefined : json['cutoffDate'],
         'fourPerson': !(0, runtime_1.exists)(json, 'fourPerson') ? undefined : json['fourPerson'],
         'onePerson': !(0, runtime_1.exists)(json, 'onePerson') ? undefined : json['onePerson'],
         'sellLimit': !(0, runtime_1.exists)(json, 'sellLimit') ? undefined : json['sellLimit'],
@@ -49,7 +49,7 @@ function BlockGridInvTypeToJSON(value) {
         return null;
     }
     return {
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0, 10)),
+        'cutoffDate': value.cutoffDate,
         'fourPerson': value.fourPerson,
         'onePerson': value.onePerson,
         'sellLimit': value.sellLimit,

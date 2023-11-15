@@ -34,7 +34,7 @@ function ChannelSnapshotTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'availableRooms': !(0, runtime_1.exists)(json, 'availableRooms') ? undefined : json['availableRooms'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'inventoryRooms': !(0, runtime_1.exists)(json, 'inventoryRooms') ? undefined : json['inventoryRooms'],
         'restrictionsInfo': !(0, runtime_1.exists)(json, 'restrictionsInfo') ? undefined : (json['restrictionsInfo'].map(RestrictionInfoType_1.RestrictionInfoTypeFromJSON)),
         'roomsSold': !(0, runtime_1.exists)(json, 'roomsSold') ? undefined : json['roomsSold'],
@@ -52,7 +52,7 @@ function ChannelSnapshotTypeToJSON(value) {
     }
     return {
         'availableRooms': value.availableRooms,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'inventoryRooms': value.inventoryRooms,
         'restrictionsInfo': value.restrictionsInfo === undefined ? undefined : (value.restrictionsInfo.map(RestrictionInfoType_1.RestrictionInfoTypeToJSON)),
         'roomsSold': value.roomsSold,

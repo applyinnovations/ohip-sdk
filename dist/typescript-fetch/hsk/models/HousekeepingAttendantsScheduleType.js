@@ -35,7 +35,7 @@ function HousekeepingAttendantsScheduleTypeFromJSONTyped(json, ignoreDiscriminat
     return {
         'attendantsSchedule': !(0, runtime_1.exists)(json, 'attendantsSchedule') ? undefined : (json['attendantsSchedule'].map(HousekeepingAttendantScheduleType_1.HousekeepingAttendantScheduleTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'scheduleDate': !(0, runtime_1.exists)(json, 'scheduleDate') ? undefined : (new Date(json['scheduleDate'])),
+        'scheduleDate': !(0, runtime_1.exists)(json, 'scheduleDate') ? undefined : json['scheduleDate'],
     };
 }
 exports.HousekeepingAttendantsScheduleTypeFromJSONTyped = HousekeepingAttendantsScheduleTypeFromJSONTyped;
@@ -49,7 +49,7 @@ function HousekeepingAttendantsScheduleTypeToJSON(value) {
     return {
         'attendantsSchedule': value.attendantsSchedule === undefined ? undefined : (value.attendantsSchedule.map(HousekeepingAttendantScheduleType_1.HousekeepingAttendantScheduleTypeToJSON)),
         'hotelId': value.hotelId,
-        'scheduleDate': value.scheduleDate === undefined ? undefined : (value.scheduleDate.toISOString().substring(0, 10)),
+        'scheduleDate': value.scheduleDate,
     };
 }
 exports.HousekeepingAttendantsScheduleTypeToJSON = HousekeepingAttendantsScheduleTypeToJSON;

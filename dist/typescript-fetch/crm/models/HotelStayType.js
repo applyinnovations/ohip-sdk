@@ -32,7 +32,7 @@ function HotelStayTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'hotelName': !(0, runtime_1.exists)(json, 'hotelName') ? undefined : json['hotelName'],
         'pointsMiles': !(0, runtime_1.exists)(json, 'pointsMiles') ? undefined : json['pointsMiles'],
         'pointsMilesEarned': !(0, runtime_1.exists)(json, 'pointsMilesEarned') ? undefined : json['pointsMilesEarned'],
@@ -47,7 +47,7 @@ function HotelStayTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
         'hotelName': value.hotelName,
         'pointsMiles': value.pointsMiles,
         'pointsMilesEarned': value.pointsMilesEarned,

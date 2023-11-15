@@ -34,10 +34,10 @@ export interface FolioReportCriteriaType {
     billNumber?: number;
     /**
      * Optional folio generation date - defaults to hotel business date.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioReportCriteriaType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Optional folio type.
      * @type {string}
@@ -90,7 +90,7 @@ export function FolioReportCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'billNumber': !exists(json, 'billNumber') ? undefined : json['billNumber'],
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioType': !exists(json, 'folioType') ? undefined : json['folioType'],
         'folioWindowNo': !exists(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -109,7 +109,7 @@ export function FolioReportCriteriaTypeToJSON(value?: FolioReportCriteriaType | 
     return {
         
         'billNumber': value.billNumber,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioType': value.folioType,
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,

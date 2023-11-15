@@ -249,10 +249,10 @@ export interface HSKTaskSheetDetailsInfoTypeRoomsInner {
     turndownInfo?: TurndownInfoType;
     /**
      * The wake up time of the current date
-     * @type {Date}
+     * @type {string}
      * @memberof HSKTaskSheetDetailsInfoTypeRoomsInner
      */
-    wakeUpTime?: Date;
+    wakeUpTime?: string;
 }
 /**
  * Check if a given object implements the HSKTaskSheetDetailsInfoTypeRoomsInner interface.

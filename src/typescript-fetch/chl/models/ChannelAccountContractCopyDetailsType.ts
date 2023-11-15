@@ -28,10 +28,10 @@ import {
 export interface ChannelAccountContractCopyDetailsType {
     /**
      * Holds begin date of the new contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractCopyDetailsType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Holds contract No of the new contract to create.
      * @type {string}
@@ -40,10 +40,10 @@ export interface ChannelAccountContractCopyDetailsType {
     contractNo?: string;
     /**
      * Holds end date of the new contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractCopyDetailsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Holds Note for the new contract.
      * @type {string}
@@ -89,9 +89,9 @@ export function ChannelAccountContractCopyDetailsTypeFromJSONTyped(json: any, ig
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'contractNo': !exists(json, 'contractNo') ? undefined : json['contractNo'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'note': !exists(json, 'note') ? undefined : json['note'],
         'retainContractNo': !exists(json, 'retainContractNo') ? undefined : json['retainContractNo'],
         'sourceContractId': !exists(json, 'sourceContractId') ? undefined : UniqueIDTypeFromJSON(json['sourceContractId']),
@@ -108,9 +108,9 @@ export function ChannelAccountContractCopyDetailsTypeToJSON(value?: ChannelAccou
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'contractNo': value.contractNo,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'note': value.note,
         'retainContractNo': value.retainContractNo,
         'sourceContractId': UniqueIDTypeToJSON(value.sourceContractId),

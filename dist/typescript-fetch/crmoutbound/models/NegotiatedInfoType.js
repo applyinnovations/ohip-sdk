@@ -36,8 +36,8 @@ function NegotiatedInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'comissionCode': !(0, runtime_1.exists)(json, 'comissionCode') ? undefined : json['comissionCode'],
         'order': !(0, runtime_1.exists)(json, 'order') ? undefined : json['order'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
     };
 }
 exports.NegotiatedInfoTypeFromJSONTyped = NegotiatedInfoTypeFromJSONTyped;
@@ -53,8 +53,8 @@ function NegotiatedInfoTypeToJSON(value) {
         'comissionCode': value.comissionCode,
         'order': value.order,
         'inactive': value.inactive,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'start': value.start,
+        'end': value.end,
     };
 }
 exports.NegotiatedInfoTypeToJSON = NegotiatedInfoTypeToJSON;

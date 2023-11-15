@@ -40,10 +40,10 @@ import {
 export interface OverlappingStayInfoType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof OverlappingStayInfoType
      */
-    end?: Date;
+    end?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -70,10 +70,10 @@ export interface OverlappingStayInfoType {
     reservationId?: ReservationId;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof OverlappingStayInfoType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -95,12 +95,12 @@ export function OverlappingStayInfoTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'excludedReservations': !exists(json, 'excludedReservations') ? undefined : ((json['excludedReservations'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -113,12 +113,12 @@ export function OverlappingStayInfoTypeToJSON(value?: OverlappingStayInfoType | 
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'excludedReservations': value.excludedReservations === undefined ? undefined : ((value.excludedReservations as Array<any>).map(UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
         'profileId': ProfileIdToJSON(value.profileId),
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

@@ -52,10 +52,10 @@ import {
 export interface WakeUpCallResvInfoType {
     /**
      * Reservation arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallResvInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Block code with which wake up call is associated.
      * @type {string}
@@ -70,10 +70,10 @@ export interface WakeUpCallResvInfoType {
     blockId?: BlockId;
     /**
      * Reservation departure date.
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallResvInfoType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Room Phone Extension Number.
      * @type {string}
@@ -167,10 +167,10 @@ export function WakeUpCallResvInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !exists(json, 'arrival') ? undefined : json['arrival'],
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !exists(json, 'departure') ? undefined : json['departure'],
         'extensionNumber': !exists(json, 'extensionNumber') ? undefined : json['extensionNumber'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -195,10 +195,10 @@ export function WakeUpCallResvInfoTypeToJSON(value?: WakeUpCallResvInfoType | nu
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
+        'arrival': value.arrival,
         'blockCode': value.blockCode,
         'blockId': BlockIdToJSON(value.blockId),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
+        'departure': value.departure,
         'extensionNumber': value.extensionNumber,
         'guestName': value.guestName,
         'hotelId': value.hotelId,

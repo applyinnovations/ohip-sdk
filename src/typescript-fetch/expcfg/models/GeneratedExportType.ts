@@ -46,10 +46,10 @@ export interface GeneratedExportType {
     checksumEnabled?: boolean;
     /**
      * The beginning date for the export.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratedExportType
      */
-    dataFromDate?: Date;
+    dataFromDate?: string;
     /**
      * 
      * @type {ExportHeaderSummaryType}
@@ -58,10 +58,10 @@ export interface GeneratedExportType {
     dataHeader?: ExportHeaderSummaryType;
     /**
      * The ending date for the export.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratedExportType
      */
-    dataToDate?: Date;
+    dataToDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -70,10 +70,10 @@ export interface GeneratedExportType {
     exportDataId?: UniqueIDType;
     /**
      * The date that the export was generated.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratedExportType
      */
-    generatedDate?: Date;
+    generatedDate?: string;
     /**
      * The errors generated during the export.
      * @type {string}
@@ -162,11 +162,11 @@ export function GeneratedExportTypeFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'checksumEnabled': !exists(json, 'checksumEnabled') ? undefined : json['checksumEnabled'],
-        'dataFromDate': !exists(json, 'dataFromDate') ? undefined : (new Date(json['dataFromDate'])),
+        'dataFromDate': !exists(json, 'dataFromDate') ? undefined : json['dataFromDate'],
         'dataHeader': !exists(json, 'dataHeader') ? undefined : ExportHeaderSummaryTypeFromJSON(json['dataHeader']),
-        'dataToDate': !exists(json, 'dataToDate') ? undefined : (new Date(json['dataToDate'])),
+        'dataToDate': !exists(json, 'dataToDate') ? undefined : json['dataToDate'],
         'exportDataId': !exists(json, 'exportDataId') ? undefined : UniqueIDTypeFromJSON(json['exportDataId']),
-        'generatedDate': !exists(json, 'generatedDate') ? undefined : (new Date(json['generatedDate'])),
+        'generatedDate': !exists(json, 'generatedDate') ? undefined : json['generatedDate'],
         'generatedErrors': !exists(json, 'generatedErrors') ? undefined : json['generatedErrors'],
         'generatedFileExtension': !exists(json, 'generatedFileExtension') ? undefined : json['generatedFileExtension'],
         'generatedFileLocation': !exists(json, 'generatedFileLocation') ? undefined : json['generatedFileLocation'],
@@ -191,11 +191,11 @@ export function GeneratedExportTypeToJSON(value?: GeneratedExportType | null): a
     return {
         
         'checksumEnabled': value.checksumEnabled,
-        'dataFromDate': value.dataFromDate === undefined ? undefined : (value.dataFromDate.toISOString().substring(0,10)),
+        'dataFromDate': value.dataFromDate,
         'dataHeader': ExportHeaderSummaryTypeToJSON(value.dataHeader),
-        'dataToDate': value.dataToDate === undefined ? undefined : (value.dataToDate.toISOString().substring(0,10)),
+        'dataToDate': value.dataToDate,
         'exportDataId': UniqueIDTypeToJSON(value.exportDataId),
-        'generatedDate': value.generatedDate === undefined ? undefined : (value.generatedDate.toISOString().substring(0,10)),
+        'generatedDate': value.generatedDate,
         'generatedErrors': value.generatedErrors,
         'generatedFileExtension': value.generatedFileExtension,
         'generatedFileLocation': value.generatedFileLocation,

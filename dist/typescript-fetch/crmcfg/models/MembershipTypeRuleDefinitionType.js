@@ -38,7 +38,7 @@ function MembershipTypeRuleDefinitionTypeFromJSONTyped(json, ignoreDiscriminator
         'programType': !(0, runtime_1.exists)(json, 'programType') ? undefined : (0, MembershipTypeRuleType_1.MembershipTypeRuleTypeFromJSON)(json['programType']),
         'ruleAppliesOn': !(0, runtime_1.exists)(json, 'ruleAppliesOn') ? undefined : (0, RuleAppliesOnType_1.RuleAppliesOnTypeFromJSON)(json['ruleAppliesOn']),
         'ruleCode': !(0, runtime_1.exists)(json, 'ruleCode') ? undefined : json['ruleCode'],
-        'ruleExpirationDate': !(0, runtime_1.exists)(json, 'ruleExpirationDate') ? undefined : (new Date(json['ruleExpirationDate'])),
+        'ruleExpirationDate': !(0, runtime_1.exists)(json, 'ruleExpirationDate') ? undefined : json['ruleExpirationDate'],
         'ruleExportLabel': !(0, runtime_1.exists)(json, 'ruleExportLabel') ? undefined : json['ruleExportLabel'],
     };
 }
@@ -55,7 +55,7 @@ function MembershipTypeRuleDefinitionTypeToJSON(value) {
         'programType': (0, MembershipTypeRuleType_1.MembershipTypeRuleTypeToJSON)(value.programType),
         'ruleAppliesOn': (0, RuleAppliesOnType_1.RuleAppliesOnTypeToJSON)(value.ruleAppliesOn),
         'ruleCode': value.ruleCode,
-        'ruleExpirationDate': value.ruleExpirationDate === undefined ? undefined : (value.ruleExpirationDate.toISOString().substring(0, 10)),
+        'ruleExpirationDate': value.ruleExpirationDate,
         'ruleExportLabel': value.ruleExportLabel,
     };
 }

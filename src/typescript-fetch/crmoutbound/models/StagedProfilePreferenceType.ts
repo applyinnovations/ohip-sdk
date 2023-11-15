@@ -69,10 +69,10 @@ export interface StagedProfilePreferenceType {
     errorDescription?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfilePreferenceType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Prefernce resort.
      * @type {string}
@@ -126,7 +126,7 @@ export function StagedProfilePreferenceTypeFromJSONTyped(json: any, ignoreDiscri
         'preferenceCode': !exists(json, 'preferenceCode') ? undefined : json['preferenceCode'],
         'excludedPreferencesCount': !exists(json, 'excludedPreferencesCount') ? undefined : json['excludedPreferencesCount'],
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'resortPrefernce': !exists(json, 'resortPrefernce') ? undefined : json['resortPrefernce'],
         'valid': !exists(json, 'valid') ? undefined : json['valid'],
         'id': !exists(json, 'id') ? undefined : json['id'],
@@ -151,7 +151,7 @@ export function StagedProfilePreferenceTypeToJSON(value?: StagedProfilePreferenc
         'preferenceCode': value.preferenceCode,
         'excludedPreferencesCount': value.excludedPreferencesCount,
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'resortPrefernce': value.resortPrefernce,
         'valid': value.valid,
         'id': value.id,

@@ -38,7 +38,7 @@ function PrepaidCardTransactionInfoTypeFromJSONTyped(json, ignoreDiscriminator) 
     return {
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['amount']),
         'cancellable': !(0, runtime_1.exists)(json, 'cancellable') ? undefined : json['cancellable'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'source': !(0, runtime_1.exists)(json, 'source') ? undefined : (0, PrepaidCardTransactionSourceType_1.PrepaidCardTransactionSourceTypeFromJSON)(json['source']),
         'transactionNo': !(0, runtime_1.exists)(json, 'transactionNo') ? undefined : json['transactionNo'],
@@ -57,7 +57,7 @@ function PrepaidCardTransactionInfoTypeToJSON(value) {
     return {
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
         'cancellable': value.cancellable,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'source': (0, PrepaidCardTransactionSourceType_1.PrepaidCardTransactionSourceTypeToJSON)(value.source),
         'transactionNo': value.transactionNo,

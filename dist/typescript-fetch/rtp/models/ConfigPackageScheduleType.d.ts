@@ -19,10 +19,10 @@ import type { TimeSpanType } from './TimeSpanType';
 export interface ConfigPackageScheduleType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackageScheduleType
      */
-    end?: Date;
+    end?: string;
     /**
      * Maximum number of nights that are required on a reservation to avail the package.
      * @type {number}
@@ -91,10 +91,10 @@ export interface ConfigPackageScheduleType {
     schedulePrices?: Array<HotelPackageSchedulePriceType>;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackageScheduleType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the ConfigPackageScheduleType interface.

@@ -78,10 +78,10 @@ export interface AwardType {
     displaySequence?: number;
     /**
      * Expiration Date.
-     * @type {Date}
+     * @type {string}
      * @memberof AwardType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * Confirmation Number given by a CRS application for this reservation.
      * @type {string}
@@ -180,10 +180,10 @@ export interface AwardType {
     profileId?: ProfileId;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof AwardType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Quantity of such awards needed to be ordered.
      * @type {number}

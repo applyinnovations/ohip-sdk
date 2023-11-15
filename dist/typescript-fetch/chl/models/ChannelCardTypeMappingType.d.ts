@@ -41,10 +41,10 @@ export interface ChannelCardTypeMappingType {
     hotelId?: string;
     /**
      * Inactive date of card type mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelCardTypeMappingType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * New channel card type for the existing card type mapping.
      * @type {string}

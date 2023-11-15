@@ -37,7 +37,7 @@ function StagedProfileIdentificationsTypeFromJSONTyped(json, ignoreDiscriminator
         'errorDescription': !(0, runtime_1.exists)(json, 'errorDescription') ? undefined : json['errorDescription'],
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : json['id'],
         'identification': !(0, runtime_1.exists)(json, 'identification') ? undefined : (0, IdentificationType_1.IdentificationTypeFromJSON)(json['identification']),
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
     };
 }
@@ -54,7 +54,7 @@ function StagedProfileIdentificationsTypeToJSON(value) {
         'errorDescription': value.errorDescription,
         'id': value.id,
         'identification': (0, IdentificationType_1.IdentificationTypeToJSON)(value.identification),
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'type': value.type,
     };
 }

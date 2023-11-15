@@ -78,10 +78,10 @@ export interface PreferenceTypeType {
     preferenceTypeDescription?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof PreferenceTypeType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Whether this preference is reservation preference or not.
      * @type {boolean}

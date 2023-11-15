@@ -32,9 +32,9 @@ function FloorPlanRoomGuestTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : json['arrival'],
         'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : json['confirmationNo'],
-        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : json['departure'],
         'firstName': !(0, runtime_1.exists)(json, 'firstName') ? undefined : json['firstName'],
         'lastName': !(0, runtime_1.exists)(json, 'lastName') ? undefined : json['lastName'],
         'shareID': !(0, runtime_1.exists)(json, 'shareID') ? undefined : json['shareID'],
@@ -49,9 +49,9 @@ function FloorPlanRoomGuestTypeToJSON(value) {
         return null;
     }
     return {
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
+        'arrival': value.arrival,
         'confirmationNo': value.confirmationNo,
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
+        'departure': value.departure,
         'firstName': value.firstName,
         'lastName': value.lastName,
         'shareID': value.shareID,

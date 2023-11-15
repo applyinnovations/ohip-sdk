@@ -57,10 +57,10 @@ export interface HousekeepingTaskType {
     breakOutId?: number;
     /**
      * Date the task was completed.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingTaskType
      */
-    completedDate?: Date;
+    completedDate?: string;
     /**
      * Credits information for this Task Sheet. This could have the Total Credit information and the Travelling credits if required.
      * @type {Array<HousekeepingCreditsType>}
@@ -69,10 +69,10 @@ export interface HousekeepingTaskType {
     credits?: Array<HousekeepingCreditsType>;
     /**
      * The date for which the task sheet applies.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingTaskType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {DepartureTaskInfoType}

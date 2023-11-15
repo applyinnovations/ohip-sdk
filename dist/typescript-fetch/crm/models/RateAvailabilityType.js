@@ -46,7 +46,7 @@ function RateAvailabilityTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomCategory': !(0, runtime_1.exists)(json, 'roomCategory') ? undefined : json['roomCategory'],
         'roomDescription': !(0, runtime_1.exists)(json, 'roomDescription') ? undefined : json['roomDescription'],
         'roomLabel': !(0, runtime_1.exists)(json, 'roomLabel') ? undefined : json['roomLabel'],
-        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : json['stayDate'],
         'totalAvailablePoints': !(0, runtime_1.exists)(json, 'totalAvailablePoints') ? undefined : json['totalAvailablePoints'],
     };
 }
@@ -73,7 +73,7 @@ function RateAvailabilityTypeToJSON(value) {
         'roomCategory': value.roomCategory,
         'roomDescription': value.roomDescription,
         'roomLabel': value.roomLabel,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
+        'stayDate': value.stayDate,
         'totalAvailablePoints': value.totalAvailablePoints,
     };
 }

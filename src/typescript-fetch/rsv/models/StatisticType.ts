@@ -46,10 +46,10 @@ export interface StatisticType {
     description?: string;
     /**
      * Hotel fiscal date for statistics.
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticType
      */
-    fiscalDate?: Date;
+    fiscalDate?: string;
     /**
      * The IATA city code; for example DCA, ORD.
      * @type {string}
@@ -110,7 +110,7 @@ export function StatisticTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'chainName': !exists(json, 'chainName') ? undefined : json['chainName'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'fiscalDate': !exists(json, 'fiscalDate') ? undefined : (new Date(json['fiscalDate'])),
+        'fiscalDate': !exists(json, 'fiscalDate') ? undefined : json['fiscalDate'],
         'hotelCityCode': !exists(json, 'hotelCityCode') ? undefined : json['hotelCityCode'],
         'hotelCodeContext': !exists(json, 'hotelCodeContext') ? undefined : json['hotelCodeContext'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -132,7 +132,7 @@ export function StatisticTypeToJSON(value?: StatisticType | null): any {
         'chainCode': value.chainCode,
         'chainName': value.chainName,
         'description': value.description,
-        'fiscalDate': value.fiscalDate === undefined ? undefined : (value.fiscalDate.toISOString().substring(0,10)),
+        'fiscalDate': value.fiscalDate,
         'hotelCityCode': value.hotelCityCode,
         'hotelCodeContext': value.hotelCodeContext,
         'hotelId': value.hotelId,

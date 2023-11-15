@@ -47,7 +47,7 @@ function EmailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
         'primaryInd': !(0, runtime_1.exists)(json, 'primaryInd') ? undefined : json['primaryInd'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
         'typeDescription': !(0, runtime_1.exists)(json, 'typeDescription') ? undefined : json['typeDescription'],
     };
@@ -69,7 +69,7 @@ function EmailTypeToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'orderSequence': value.orderSequence,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'type': value.type,
         'typeDescription': value.typeDescription,
     };

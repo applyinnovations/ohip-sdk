@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface IdentificationType {
     /**
      * Expiration date of Identification.
-     * @type {Date}
+     * @type {string}
      * @memberof IdentificationType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * Identification Number.
      * @type {string}
@@ -51,10 +51,10 @@ export interface IdentificationType {
     issuedCountry?: string;
     /**
      * Issued date of Identification.
-     * @type {Date}
+     * @type {string}
      * @memberof IdentificationType
      */
-    issuedDate?: Date;
+    issuedDate?: string;
     /**
      * The place where Identification was issued.
      * @type {string}
@@ -100,12 +100,12 @@ export function IdentificationTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'expirationDate': !exists(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !exists(json, 'expirationDate') ? undefined : json['expirationDate'],
         'idNumber': !exists(json, 'idNumber') ? undefined : json['idNumber'],
         'idNumberMasked': !exists(json, 'idNumberMasked') ? undefined : json['idNumberMasked'],
         'idType': !exists(json, 'idType') ? undefined : json['idType'],
         'issuedCountry': !exists(json, 'issuedCountry') ? undefined : json['issuedCountry'],
-        'issuedDate': !exists(json, 'issuedDate') ? undefined : (new Date(json['issuedDate'])),
+        'issuedDate': !exists(json, 'issuedDate') ? undefined : json['issuedDate'],
         'issuedPlace': !exists(json, 'issuedPlace') ? undefined : json['issuedPlace'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
         'primaryInd': !exists(json, 'primaryInd') ? undefined : json['primaryInd'],
@@ -122,12 +122,12 @@ export function IdentificationTypeToJSON(value?: IdentificationType | null): any
     }
     return {
         
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
+        'expirationDate': value.expirationDate,
         'idNumber': value.idNumber,
         'idNumberMasked': value.idNumberMasked,
         'idType': value.idType,
         'issuedCountry': value.issuedCountry,
-        'issuedDate': value.issuedDate === undefined ? undefined : (value.issuedDate.toISOString().substring(0,10)),
+        'issuedDate': value.issuedDate,
         'issuedPlace': value.issuedPlace,
         'orderSequence': value.orderSequence,
         'primaryInd': value.primaryInd,

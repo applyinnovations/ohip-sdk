@@ -45,10 +45,10 @@ export interface RevenueInventoryStatisticsType {
     noShowRooms?: string;
     /**
      * The occupancy date for which the revenue inventory statistics are fetched.
-     * @type {Date}
+     * @type {string}
      * @memberof RevenueInventoryStatisticsType
      */
-    occupancyDate?: Date;
+    occupancyDate?: string;
     /**
      * The statistical figure for out of order rooms.
      * @type {string}
@@ -140,7 +140,7 @@ export function RevenueInventoryStatisticsTypeFromJSONTyped(json: any, ignoreDis
         'foodRevenue': !exists(json, 'foodRevenue') ? undefined : json['foodRevenue'],
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
         'noShowRooms': !exists(json, 'noShowRooms') ? undefined : json['noShowRooms'],
-        'occupancyDate': !exists(json, 'occupancyDate') ? undefined : (new Date(json['occupancyDate'])),
+        'occupancyDate': !exists(json, 'occupancyDate') ? undefined : json['occupancyDate'],
         'ooRooms': !exists(json, 'ooRooms') ? undefined : json['ooRooms'],
         'osRooms': !exists(json, 'osRooms') ? undefined : json['osRooms'],
         'physicalRooms': !exists(json, 'physicalRooms') ? undefined : json['physicalRooms'],
@@ -168,7 +168,7 @@ export function RevenueInventoryStatisticsTypeToJSON(value?: RevenueInventorySta
         'foodRevenue': value.foodRevenue,
         'marketCode': value.marketCode,
         'noShowRooms': value.noShowRooms,
-        'occupancyDate': value.occupancyDate === undefined ? undefined : (value.occupancyDate.toISOString().substring(0,10)),
+        'occupancyDate': value.occupancyDate,
         'ooRooms': value.ooRooms,
         'osRooms': value.osRooms,
         'physicalRooms': value.physicalRooms,

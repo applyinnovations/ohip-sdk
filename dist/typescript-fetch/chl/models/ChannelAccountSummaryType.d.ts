@@ -41,10 +41,10 @@ export interface ChannelAccountSummaryType {
     channelAccountIndicators?: Array<IndicatorType>;
     /**
      * Channel account contract ends on date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSummaryType
      */
-    contractEndsOn?: Date;
+    contractEndsOn?: string;
     /**
      *
      * @type {EmailInfoType}

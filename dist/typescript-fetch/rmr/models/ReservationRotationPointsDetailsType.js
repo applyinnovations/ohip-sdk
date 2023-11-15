@@ -37,8 +37,8 @@ function ReservationRotationPointsDetailsTypeFromJSONTyped(json, ignoreDiscrimin
         'adjustPointsTo': !(0, runtime_1.exists)(json, 'adjustPointsTo') ? undefined : json['adjustPointsTo'],
         'adjustmentReason': !(0, runtime_1.exists)(json, 'adjustmentReason') ? undefined : (0, ReservationRotationPointsAdjustmentReasonType_1.ReservationRotationPointsAdjustmentReasonTypeFromJSON)(json['adjustmentReason']),
         'currentPoints': !(0, runtime_1.exists)(json, 'currentPoints') ? undefined : json['currentPoints'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : (0, RotationRuleCalculationRuleType_1.RotationRuleCalculationRuleTypeFromJSON)(json['type']),
     };
 }
@@ -54,8 +54,8 @@ function ReservationRotationPointsDetailsTypeToJSON(value) {
         'adjustPointsTo': value.adjustPointsTo,
         'adjustmentReason': (0, ReservationRotationPointsAdjustmentReasonType_1.ReservationRotationPointsAdjustmentReasonTypeToJSON)(value.adjustmentReason),
         'currentPoints': value.currentPoints,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
+        'startDate': value.startDate,
         'type': (0, RotationRuleCalculationRuleType_1.RotationRuleCalculationRuleTypeToJSON)(value.type),
     };
 }

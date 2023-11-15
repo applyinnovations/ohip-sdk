@@ -74,10 +74,10 @@ export interface AuthorizerCreditType {
     inheritAuthorizerRateCode?: boolean;
     /**
      * Transaction Date associated with the transaction.
-     * @type {Date}
+     * @type {string}
      * @memberof AuthorizerCreditType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
 }
 /**
  * Check if a given object implements the AuthorizerCreditType interface.

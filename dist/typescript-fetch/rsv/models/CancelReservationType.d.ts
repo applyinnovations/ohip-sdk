@@ -197,10 +197,10 @@ export interface CancelReservationType {
     lastModifyDateTime?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof CancelReservationType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      *
      * @type {ResMobileNotificationsType}
@@ -239,10 +239,10 @@ export interface CancelReservationType {
     preRegistered?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CancelReservationType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {ReservationQueueInformationType}

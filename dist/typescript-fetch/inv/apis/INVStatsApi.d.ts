@@ -22,8 +22,8 @@ export interface GetBlockInventoryStatisticsRequest {
     includeTentativeInventory?: boolean;
     limit?: number;
     offset?: number;
-    endDateRange?: Date;
-    startDateRange?: Date;
+    endDateRange?: string;
+    startDateRange?: string;
     blockStatusCodes?: Array<string>;
     originCodes?: Array<string>;
     roomOwnerCodes?: Array<string>;
@@ -52,8 +52,8 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
     includeTentativeInventory?: boolean;
     limit?: number;
     offset?: number;
-    endDateRange?: Date;
-    startDateRange?: Date;
+    endDateRange?: string;
+    startDateRange?: string;
     blockStatusCodes?: Array<string>;
     originCodes?: Array<string>;
     roomOwnerCodes?: Array<string>;
@@ -73,9 +73,9 @@ export interface GetBlockInventoryStatisticsMultipleHotelIdsRequest {
 }
 export interface GetInventoryStatisticsRequest {
     hotelId: string;
-    dateRangeEnd: Date;
+    dateRangeEnd: string;
     reportCode: GetInventoryStatisticsReportCodeEnum;
-    dateRangeStart: Date;
+    dateRangeStart: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

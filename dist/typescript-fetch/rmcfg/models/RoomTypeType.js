@@ -38,7 +38,7 @@ function RoomTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'accessible': !(0, runtime_1.exists)(json, 'accessible') ? undefined : json['accessible'],
-        'activeDate': !(0, runtime_1.exists)(json, 'activeDate') ? undefined : (new Date(json['activeDate'])),
+        'activeDate': !(0, runtime_1.exists)(json, 'activeDate') ? undefined : json['activeDate'],
         'autoCheckin': !(0, runtime_1.exists)(json, 'autoCheckin') ? undefined : json['autoCheckin'],
         'autoPopulate': !(0, runtime_1.exists)(json, 'autoPopulate') ? undefined : json['autoPopulate'],
         'autoRoomAssign': !(0, runtime_1.exists)(json, 'autoRoomAssign') ? undefined : json['autoRoomAssign'],
@@ -82,7 +82,7 @@ function RoomTypeTypeToJSON(value) {
     }
     return {
         'accessible': value.accessible,
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0, 10)),
+        'activeDate': value.activeDate,
         'autoCheckin': value.autoCheckin,
         'autoPopulate': value.autoPopulate,
         'autoRoomAssign': value.autoRoomAssign,

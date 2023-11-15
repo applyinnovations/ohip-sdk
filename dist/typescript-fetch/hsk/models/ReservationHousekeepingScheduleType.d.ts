@@ -30,10 +30,10 @@ export interface ReservationHousekeepingScheduleType {
     cycleStartDay?: number;
     /**
      * Date at which facility tasks stopped being retrieved.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationHousekeepingScheduleType
      */
-    end?: Date;
+    end?: string;
     /**
      * List of the facility tasks.
      * @type {Array<FacilityHousekeepingTaskType>}
@@ -42,10 +42,10 @@ export interface ReservationHousekeepingScheduleType {
     facilityHousekeepingTasks?: Array<FacilityHousekeepingTaskType>;
     /**
      * Date at which facility tasks started being retrieved.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationHousekeepingScheduleType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the ReservationHousekeepingScheduleType interface.

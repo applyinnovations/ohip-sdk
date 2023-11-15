@@ -106,10 +106,10 @@ export interface ARInvoiceCriteriaType {
     cashierInfo?: CashierInfoType;
     /**
      * Close date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      *
      * @type {boolean}
@@ -118,10 +118,10 @@ export interface ARInvoiceCriteriaType {
     compressed?: boolean;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    compressedDate?: Date;
+    compressedDate?: string;
     /**
      * Unique Custom Numbers associated with this record.
      * @type {Array<string>}
@@ -142,10 +142,10 @@ export interface ARInvoiceCriteriaType {
     fiscalResponseType?: FiscalResponseType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -244,10 +244,10 @@ export interface ARInvoiceCriteriaType {
     payments?: CurrencyAmountType;
     /**
      * Posting date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * Flag to check Invoice Statement is Printed.
      * @type {boolean}
@@ -256,10 +256,10 @@ export interface ARInvoiceCriteriaType {
     printed?: boolean;
     /**
      * Invoice Statement Printed Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    printedDate?: Date;
+    printedDate?: string;
     /**
      *
      * @type {ProfileId}
@@ -292,10 +292,10 @@ export interface ARInvoiceCriteriaType {
     reservationInfo?: ReservationInfoType;
     /**
      * Revenue date ID of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      *
      * @type {RoomClassCodeInfoType}
@@ -352,10 +352,10 @@ export interface ARInvoiceCriteriaType {
     transactionCode?: string;
     /**
      * Transaction Date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      *
      * @type {TrxInfoType}
@@ -370,10 +370,10 @@ export interface ARInvoiceCriteriaType {
     transactionNo?: number;
     /**
      * Transfer date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoiceCriteriaType
      */
-    transferDate?: Date;
+    transferDate?: string;
     /**
      *
      * @type {boolean}

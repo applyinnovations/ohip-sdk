@@ -50,10 +50,10 @@ export interface PromotionCodeDetailsType {
     description?: string;
     /**
      * Date the promotion is inactived.
-     * @type {Date}
+     * @type {string}
      * @memberof PromotionCodeDetailsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Free text comments that further describe the promotion code
      * @type {string}

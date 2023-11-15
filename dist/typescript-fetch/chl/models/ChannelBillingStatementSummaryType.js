@@ -35,13 +35,13 @@ function ChannelBillingStatementSummaryTypeFromJSONTyped(json, ignoreDiscriminat
     }
     return {
         'accountCodeList': !(0, runtime_1.exists)(json, 'accountCodeList') ? undefined : json['accountCodeList'],
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'dirty': !(0, runtime_1.exists)(json, 'dirty') ? undefined : json['dirty'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'generated': !(0, runtime_1.exists)(json, 'generated') ? undefined : json['generated'],
-        'lockDate': !(0, runtime_1.exists)(json, 'lockDate') ? undefined : (new Date(json['lockDate'])),
+        'lockDate': !(0, runtime_1.exists)(json, 'lockDate') ? undefined : json['lockDate'],
         'note': !(0, runtime_1.exists)(json, 'note') ? undefined : json['note'],
-        'statementDate': !(0, runtime_1.exists)(json, 'statementDate') ? undefined : (new Date(json['statementDate'])),
+        'statementDate': !(0, runtime_1.exists)(json, 'statementDate') ? undefined : json['statementDate'],
         'statementId': !(0, runtime_1.exists)(json, 'statementId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['statementId']),
         'totalAmount': !(0, runtime_1.exists)(json, 'totalAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalAmount']),
     };
@@ -56,13 +56,13 @@ function ChannelBillingStatementSummaryTypeToJSON(value) {
     }
     return {
         'accountCodeList': value.accountCodeList,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'dirty': value.dirty,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'generated': value.generated,
-        'lockDate': value.lockDate === undefined ? undefined : (value.lockDate.toISOString().substring(0, 10)),
+        'lockDate': value.lockDate,
         'note': value.note,
-        'statementDate': value.statementDate === undefined ? undefined : (value.statementDate.toISOString().substring(0, 10)),
+        'statementDate': value.statementDate,
         'statementId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.statementId),
         'totalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalAmount),
     };

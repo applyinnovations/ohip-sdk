@@ -35,7 +35,7 @@ function CancellationActivityTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cancellationIdList': !(0, runtime_1.exists)(json, 'cancellationIdList') ? undefined : (json['cancellationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
-        'cxlDate': !(0, runtime_1.exists)(json, 'cxlDate') ? undefined : (new Date(json['cxlDate'])),
+        'cxlDate': !(0, runtime_1.exists)(json, 'cxlDate') ? undefined : json['cxlDate'],
         'reason': !(0, runtime_1.exists)(json, 'reason') ? undefined : (0, CancellationReasonType_1.CancellationReasonTypeFromJSON)(json['reason']),
         'userId': !(0, runtime_1.exists)(json, 'userId') ? undefined : json['userId'],
         'userName': !(0, runtime_1.exists)(json, 'userName') ? undefined : json['userName'],
@@ -51,7 +51,7 @@ function CancellationActivityTypeToJSON(value) {
     }
     return {
         'cancellationIdList': value.cancellationIdList === undefined ? undefined : (value.cancellationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
-        'cxlDate': value.cxlDate === undefined ? undefined : (value.cxlDate.toISOString().substring(0, 10)),
+        'cxlDate': value.cxlDate,
         'reason': (0, CancellationReasonType_1.CancellationReasonTypeToJSON)(value.reason),
         'userId': value.userId,
         'userName': value.userName,

@@ -54,10 +54,10 @@ export interface StagedProfileCommentInfoType {
     lineNo?: number;
     /**
      * Indicates comment inactive date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileCommentInfoType
      */
-    inActiveDate?: Date;
+    inActiveDate?: string;
     /**
      * The error in a user defined field in a staged profile with an invalid status.
      * @type {string}

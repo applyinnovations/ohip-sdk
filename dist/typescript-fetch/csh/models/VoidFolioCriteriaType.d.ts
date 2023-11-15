@@ -51,10 +51,10 @@ export interface VoidFolioCriteriaType {
     fiscalFolioInfo?: FiscalServiceType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof VoidFolioCriteriaType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}

@@ -19,10 +19,10 @@ import type { VIPStatusType } from './VIPStatusType';
 export interface AlertGuestInfoType {
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof AlertGuestInfoType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -55,10 +55,10 @@ export interface AlertGuestInfoType {
     lastHotelCode?: string;
     /**
      * Last stay date at the property.
-     * @type {Date}
+     * @type {string}
      * @memberof AlertGuestInfoType
      */
-    lastStayDate?: Date;
+    lastStayDate?: string;
     /**
      *
      * @type {MembershipType}

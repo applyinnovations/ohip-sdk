@@ -32,10 +32,10 @@ export interface DeliveryHistoryType {
     creatorId?: string;
     /**
      * Delivery Date.
-     * @type {Date}
+     * @type {string}
      * @memberof DeliveryHistoryType
      */
-    deliveryDate?: Date;
+    deliveryDate?: string;
     /**
      *
      * @type {UniqueIDType}
@@ -86,10 +86,10 @@ export interface DeliveryHistoryType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof DeliveryHistoryType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {UniqueIDType}

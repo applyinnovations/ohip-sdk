@@ -70,10 +70,10 @@ export interface MembershipClaimSummaryType {
     approvalStatus?: ClaimApprovalStatusType;
     /**
      * Arrival date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * More information related to call that help to resolve the claim..
      * @type {string}
@@ -88,10 +88,10 @@ export interface MembershipClaimSummaryType {
     callerName?: string;
     /**
      * Date the claim was made.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    claimDate?: Date;
+    claimDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -112,10 +112,10 @@ export interface MembershipClaimSummaryType {
     claimType?: string;
     /**
      * If the status is closed, the date the claim was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -124,10 +124,10 @@ export interface MembershipClaimSummaryType {
     confirmationNo?: Array<UniqueIDType>;
     /**
      * Departure date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Property where the stay took place.
      * @type {string}
@@ -178,10 +178,10 @@ export interface MembershipClaimSummaryType {
     recordType?: ClaimRecordType;
     /**
      * The date, if any, by which a response to the caller was promised.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    replyBy?: Date;
+    replyBy?: string;
     /**
      * 
      * @type {ClaimSourceType}
@@ -217,16 +217,16 @@ export function MembershipClaimSummaryTypeFromJSONTyped(json: any, ignoreDiscrim
         
         'activityLog': !exists(json, 'activityLog') ? undefined : ((json['activityLog'] as Array<any>).map(ClaimActivityLogTypeFromJSON)),
         'approvalStatus': !exists(json, 'approvalStatus') ? undefined : ClaimApprovalStatusTypeFromJSON(json['approvalStatus']),
-        'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
+        'arrival': !exists(json, 'arrival') ? undefined : json['arrival'],
         'callerInformation': !exists(json, 'callerInformation') ? undefined : json['callerInformation'],
         'callerName': !exists(json, 'callerName') ? undefined : json['callerName'],
-        'claimDate': !exists(json, 'claimDate') ? undefined : (new Date(json['claimDate'])),
+        'claimDate': !exists(json, 'claimDate') ? undefined : json['claimDate'],
         'claimNo': !exists(json, 'claimNo') ? undefined : UniqueIDTypeFromJSON(json['claimNo']),
         'claimStatus': !exists(json, 'claimStatus') ? undefined : json['claimStatus'],
         'claimType': !exists(json, 'claimType') ? undefined : json['claimType'],
-        'closeDate': !exists(json, 'closeDate') ? undefined : (new Date(json['closeDate'])),
+        'closeDate': !exists(json, 'closeDate') ? undefined : json['closeDate'],
         'confirmationNo': !exists(json, 'confirmationNo') ? undefined : ((json['confirmationNo'] as Array<any>).map(UniqueIDTypeFromJSON)),
-        'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'departure': !exists(json, 'departure') ? undefined : json['departure'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
         'membershipIdNo': !exists(json, 'membershipIdNo') ? undefined : json['membershipIdNo'],
@@ -235,7 +235,7 @@ export function MembershipClaimSummaryTypeFromJSONTyped(json: any, ignoreDiscrim
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'recordType': !exists(json, 'recordType') ? undefined : ClaimRecordTypeFromJSON(json['recordType']),
-        'replyBy': !exists(json, 'replyBy') ? undefined : (new Date(json['replyBy'])),
+        'replyBy': !exists(json, 'replyBy') ? undefined : json['replyBy'],
         'source': !exists(json, 'source') ? undefined : ClaimSourceTypeFromJSON(json['source']),
         'submitter': !exists(json, 'submitter') ? undefined : json['submitter'],
     };
@@ -252,16 +252,16 @@ export function MembershipClaimSummaryTypeToJSON(value?: MembershipClaimSummaryT
         
         'activityLog': value.activityLog === undefined ? undefined : ((value.activityLog as Array<any>).map(ClaimActivityLogTypeToJSON)),
         'approvalStatus': ClaimApprovalStatusTypeToJSON(value.approvalStatus),
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
+        'arrival': value.arrival,
         'callerInformation': value.callerInformation,
         'callerName': value.callerName,
-        'claimDate': value.claimDate === undefined ? undefined : (value.claimDate.toISOString().substring(0,10)),
+        'claimDate': value.claimDate,
         'claimNo': UniqueIDTypeToJSON(value.claimNo),
         'claimStatus': value.claimStatus,
         'claimType': value.claimType,
-        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0,10)),
+        'closeDate': value.closeDate,
         'confirmationNo': value.confirmationNo === undefined ? undefined : ((value.confirmationNo as Array<any>).map(UniqueIDTypeToJSON)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
+        'departure': value.departure,
         'hotelId': value.hotelId,
         'membershipId': value.membershipId,
         'membershipIdNo': value.membershipIdNo,
@@ -270,7 +270,7 @@ export function MembershipClaimSummaryTypeToJSON(value?: MembershipClaimSummaryT
         'owner': value.owner,
         'profileId': ProfileIdToJSON(value.profileId),
         'recordType': ClaimRecordTypeToJSON(value.recordType),
-        'replyBy': value.replyBy === undefined ? undefined : (value.replyBy.toISOString().substring(0,10)),
+        'replyBy': value.replyBy,
         'source': ClaimSourceTypeToJSON(value.source),
         'submitter': value.submitter,
     };

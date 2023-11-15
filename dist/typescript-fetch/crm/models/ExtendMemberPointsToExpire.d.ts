@@ -19,10 +19,10 @@ import type { WarningType } from './WarningType';
 export interface ExtendMemberPointsToExpire {
     /**
      * Expiration date to be extended.
-     * @type {Date}
+     * @type {string}
      * @memberof ExtendMemberPointsToExpire
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      *
      * @type {Array<InstanceLink>}

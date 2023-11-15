@@ -116,10 +116,10 @@ export interface PostRateCodeCriteriaType {
     reservationId?: ReservationId;
     /**
      * Revenue Date or the business date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof PostRateCodeCriteriaType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
 }
 /**
  * Check if a given object implements the PostRateCodeCriteriaType interface.

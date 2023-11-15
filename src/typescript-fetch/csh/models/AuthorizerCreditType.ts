@@ -94,10 +94,10 @@ export interface AuthorizerCreditType {
     inheritAuthorizerRateCode?: boolean;
     /**
      * Transaction Date associated with the transaction.
-     * @type {Date}
+     * @type {string}
      * @memberof AuthorizerCreditType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
 }
 
 /**
@@ -128,7 +128,7 @@ export function AuthorizerCreditTypeFromJSONTyped(json: any, ignoreDiscriminator
         'creditLimit': !exists(json, 'creditLimit') ? undefined : CurrencyAmountTypeFromJSON(json['creditLimit']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inheritAuthorizerRateCode': !exists(json, 'inheritAuthorizerRateCode') ? undefined : json['inheritAuthorizerRateCode'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
     };
 }
 
@@ -150,7 +150,7 @@ export function AuthorizerCreditTypeToJSON(value?: AuthorizerCreditType | null):
         'creditLimit': CurrencyAmountTypeToJSON(value.creditLimit),
         'hotelId': value.hotelId,
         'inheritAuthorizerRateCode': value.inheritAuthorizerRateCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
     };
 }
 

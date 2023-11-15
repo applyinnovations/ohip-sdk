@@ -24,10 +24,10 @@ export interface BlockStatisticsDetailsType {
     numberOfDays?: number;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatisticsDetailsType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
      * @type {Array<BlockStatisticsDetailType>}

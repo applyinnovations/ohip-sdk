@@ -20,10 +20,10 @@ import type { WarningType } from './WarningType';
 export interface FetchRotationPeriod {
     /**
      * The start date for the property's current Rotation Period.
-     * @type {Date}
+     * @type {string}
      * @memberof FetchRotationPeriod
      */
-    currentPeriodStartDate?: Date;
+    currentPeriodStartDate?: string;
     /**
      * Property code for Room Rotation Period.
      * @type {string}
@@ -44,10 +44,10 @@ export interface FetchRotationPeriod {
     periodFrequency?: RotationPeriodFrequencyType;
     /**
      * Represents Effective start date for the Room Rotation Period Setup.
-     * @type {Date}
+     * @type {string}
      * @memberof FetchRotationPeriod
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Used in conjunction with the Success element to define a business error.
      * @type {Array<WarningType>}

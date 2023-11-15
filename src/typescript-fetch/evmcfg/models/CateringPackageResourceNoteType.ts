@@ -70,10 +70,10 @@ export interface CateringPackageResourceNoteType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CateringPackageResourceNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Title of the Catering Package Resource Note.
      * @type {string}
@@ -108,7 +108,7 @@ export function CateringPackageResourceNoteTypeFromJSONTyped(json: any, ignoreDi
         'internal': !exists(json, 'internal') ? undefined : json['internal'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'title': !exists(json, 'title') ? undefined : json['title'],
     };
 }
@@ -129,7 +129,7 @@ export function CateringPackageResourceNoteTypeToJSON(value?: CateringPackageRes
         'internal': value.internal,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'title': value.title,
     };
 }

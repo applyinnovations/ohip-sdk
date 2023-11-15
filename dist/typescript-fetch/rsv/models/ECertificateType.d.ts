@@ -40,16 +40,16 @@ export interface ECertificateType {
     eCertificateInfo?: ECertificateInfoType;
     /**
      * Date of expiry.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * Date when certificate was issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * Print status of the certificate.
      * @type {boolean}

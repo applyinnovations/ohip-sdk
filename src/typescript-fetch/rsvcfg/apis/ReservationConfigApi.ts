@@ -564,7 +564,7 @@ export interface GetUpsellRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stayDate?: Date;
+    stayDate?: string;
     rule?: string;
     searchByRoomType?: boolean;
     fromCodes?: Array<string>;
@@ -3184,7 +3184,7 @@ export class ReservationConfigApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.stayDate !== undefined) {
-            queryParameters['stayDate'] = (requestParameters.stayDate as any).toISOString().substring(0,10);
+            queryParameters['stayDate'] = requestParameters.stayDate;
         }
 
         if (requestParameters.rule !== undefined) {

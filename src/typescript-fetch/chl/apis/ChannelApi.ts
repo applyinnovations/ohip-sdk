@@ -264,8 +264,8 @@ export interface DeleteAmenitiesMappingRequest {
     localSystemCode?: Array<string>;
     externalSystemCode?: Array<string>;
     description?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     amenityGroup?: Set<DeleteAmenitiesMappingAmenityGroupEnum>;
     xExternalsystem?: string;
@@ -361,9 +361,9 @@ export interface DeleteChannelMarketingTextRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    beginDate?: Array<Date>;
+    beginDate?: Array<string>;
     bookingChannelCode?: Array<string>;
-    endDate?: Array<Date>;
+    endDate?: Array<string>;
     globalTextYN?: Array<boolean>;
     hotelId?: Array<string>;
     marketingText?: Array<string>;
@@ -374,7 +374,7 @@ export interface DeleteChannelMarketingTextRequest {
     newTransactionType?: Array<string>;
     newPolicyType?: Array<string>;
     newPolicyDetail?: Array<string>;
-    newBeginDate?: Array<Date>;
+    newBeginDate?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -402,12 +402,12 @@ export interface DeleteChannelNegotiatedRateRequest {
     envelopeGreeting?: string;
     salutation?: string;
     accessCode?: Array<string>;
-    end?: Array<Date>;
-    start?: Array<Date>;
+    end?: Array<string>;
+    start?: Array<string>;
     newAccessCode?: string;
     channelRatePlanCodeOrder?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -479,9 +479,9 @@ export interface DeleteChannelRoomMappingRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    beginDate?: Date;
+    beginDate?: string;
     channelRoomType?: string;
-    endDate?: Date;
+    endDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -524,8 +524,8 @@ export interface DeleteCreditCardsMappingRequest {
     localSystemCode?: Array<string>;
     externalSystemCode?: Array<string>;
     description?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -545,8 +545,8 @@ export interface DeleteCurrenciesMappingRequest {
     localSystemCode?: Array<string>;
     externalSystemCode?: Array<string>;
     description?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     lanyonDecimalPosition?: Array<number>;
     channelDecimalPosition?: Array<number>;
@@ -579,8 +579,8 @@ export interface DeleteGuaranteesMappingRequest {
     localSystemCode?: Array<string>;
     externalSystemCode?: Array<string>;
     description?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     requirementCode?: Array<string>;
     xExternalsystem?: string;
@@ -601,8 +601,8 @@ export interface DeleteHotelsMappingRequest {
     localSystemCode?: Array<string>;
     externalSystemCode?: Array<string>;
     description?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     city?: Array<string>;
     roomLimit?: Array<number>;
@@ -746,8 +746,8 @@ export interface GetChannelBillingStatementsRequest {
     offset?: number;
     statementId?: string;
     statementIdType?: string;
-    beginDate?: Date;
-    endDate?: Date;
+    beginDate?: string;
+    endDate?: string;
     profileId?: Array<string>;
     profileIdType?: Array<string>;
     xExternalsystem?: string;
@@ -819,7 +819,7 @@ export interface GetChannelMarketingTextRequest {
     transactionType?: string;
     policyType?: string;
     policyDetail?: string;
-    beginDate?: Date;
+    beginDate?: string;
     filterHotelIds?: Array<string>;
     bookingChannelCode?: Array<string>;
     transactionTypes?: Array<string>;
@@ -878,8 +878,8 @@ export interface GetChannelPoliciesRequest {
     xAppKey?: string;
     xHotelid?: string;
     requestType?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     channelRatePlanCode?: Array<string>;
     channelRoomTypeCode?: Array<string>;
@@ -974,7 +974,7 @@ export interface GetChannelRoomMappingByIdRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    beginDate?: Date;
+    beginDate?: string;
     channelRoomType?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1949,11 +1949,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -2669,11 +2669,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3073,7 +3073,7 @@ export class ChannelApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
+            queryParameters['beginDate'] = requestParameters.beginDate;
         }
 
         if (requestParameters.channelRoomType !== undefined) {
@@ -3081,7 +3081,7 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -3309,11 +3309,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3409,11 +3409,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3577,11 +3577,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3681,11 +3681,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -4424,11 +4424,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
+            queryParameters['beginDate'] = requestParameters.beginDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.profileId) {
@@ -4800,7 +4800,7 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
+            queryParameters['beginDate'] = requestParameters.beginDate;
         }
 
         if (requestParameters.filterHotelIds) {
@@ -5100,11 +5100,11 @@ export class ChannelApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -5580,7 +5580,7 @@ export class ChannelApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
+            queryParameters['beginDate'] = requestParameters.beginDate;
         }
 
         if (requestParameters.channelRoomType !== undefined) {

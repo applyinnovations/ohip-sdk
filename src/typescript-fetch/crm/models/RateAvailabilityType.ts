@@ -105,10 +105,10 @@ export interface RateAvailabilityType {
     roomLabel?: string;
     /**
      * The date of the reservation associated with the award. There may be more than one date (multiple nights) associated with award.
-     * @type {Date}
+     * @type {string}
      * @memberof RateAvailabilityType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Total award points available for redemption.
      * @type {number}
@@ -150,7 +150,7 @@ export function RateAvailabilityTypeFromJSONTyped(json: any, ignoreDiscriminator
         'roomCategory': !exists(json, 'roomCategory') ? undefined : json['roomCategory'],
         'roomDescription': !exists(json, 'roomDescription') ? undefined : json['roomDescription'],
         'roomLabel': !exists(json, 'roomLabel') ? undefined : json['roomLabel'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
         'totalAvailablePoints': !exists(json, 'totalAvailablePoints') ? undefined : json['totalAvailablePoints'],
     };
 }
@@ -178,7 +178,7 @@ export function RateAvailabilityTypeToJSON(value?: RateAvailabilityType | null):
         'roomCategory': value.roomCategory,
         'roomDescription': value.roomDescription,
         'roomLabel': value.roomLabel,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
         'totalAvailablePoints': value.totalAvailablePoints,
     };
 }

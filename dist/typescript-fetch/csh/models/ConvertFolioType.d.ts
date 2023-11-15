@@ -23,10 +23,10 @@ export interface ConvertFolioType {
     cashierId?: number;
     /**
      * Date of folio generation.
-     * @type {Date}
+     * @type {string}
      * @memberof ConvertFolioType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio number of the Folio which is going to be converted.
      * @type {number}

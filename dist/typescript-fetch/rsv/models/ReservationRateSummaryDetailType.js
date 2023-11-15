@@ -39,8 +39,8 @@ function ReservationRateSummaryDetailTypeFromJSONTyped(json, ignoreDiscriminator
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'rateSuppressed': !(0, runtime_1.exists)(json, 'rateSuppressed') ? undefined : json['rateSuppressed'],
         'revenue': !(0, runtime_1.exists)(json, 'revenue') ? undefined : json['revenue'],
-        'revenueSimulationDate': !(0, runtime_1.exists)(json, 'revenueSimulationDate') ? undefined : (new Date(json['revenueSimulationDate'])),
-        'summaryDate': !(0, runtime_1.exists)(json, 'summaryDate') ? undefined : (new Date(json['summaryDate'])),
+        'revenueSimulationDate': !(0, runtime_1.exists)(json, 'revenueSimulationDate') ? undefined : json['revenueSimulationDate'],
+        'summaryDate': !(0, runtime_1.exists)(json, 'summaryDate') ? undefined : json['summaryDate'],
         'tax': !(0, runtime_1.exists)(json, 'tax') ? undefined : json['tax'],
     };
 }
@@ -60,8 +60,8 @@ function ReservationRateSummaryDetailTypeToJSON(value) {
         'ratePlanCode': value.ratePlanCode,
         'rateSuppressed': value.rateSuppressed,
         'revenue': value.revenue,
-        'revenueSimulationDate': value.revenueSimulationDate === undefined ? undefined : (value.revenueSimulationDate.toISOString().substring(0, 10)),
-        'summaryDate': value.summaryDate === undefined ? undefined : (value.summaryDate.toISOString().substring(0, 10)),
+        'revenueSimulationDate': value.revenueSimulationDate,
+        'summaryDate': value.summaryDate,
         'tax': value.tax,
     };
 }

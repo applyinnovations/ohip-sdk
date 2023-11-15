@@ -29,16 +29,16 @@ export interface WebUserHistoryType {
     creatorId?: string;
     /**
      * Inactive date.
-     * @type {Date}
+     * @type {string}
      * @memberof WebUserHistoryType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Last login date.
-     * @type {Date}
+     * @type {string}
      * @memberof WebUserHistoryType
      */
-    lastLogin?: Date;
+    lastLogin?: string;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -53,10 +53,10 @@ export interface WebUserHistoryType {
     lastModifyDateTime?: string;
     /**
      * Last Password change date.
-     * @type {Date}
+     * @type {string}
      * @memberof WebUserHistoryType
      */
-    lastPasswordChange?: Date;
+    lastPasswordChange?: string;
 }
 /**
  * Check if a given object implements the WebUserHistoryType interface.

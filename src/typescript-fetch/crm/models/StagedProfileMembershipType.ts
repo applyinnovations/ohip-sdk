@@ -100,10 +100,10 @@ export interface StagedProfileMembershipType {
     deviceCode?: string;
     /**
      * Device disabled date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    deviceDisabledDate?: Date;
+    deviceDisabledDate?: string;
     /**
      * 
      * @type {DowngradeType}
@@ -124,10 +124,10 @@ export interface StagedProfileMembershipType {
     earningPreference?: MembershipEarningPreferenceType;
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Enrollment code.
      * @type {string}
@@ -160,10 +160,10 @@ export interface StagedProfileMembershipType {
     excludeFromBatch?: boolean;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -184,10 +184,10 @@ export interface StagedProfileMembershipType {
     inactive?: boolean;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -328,10 +328,10 @@ export interface StagedProfileMembershipType {
     registrationResort?: string;
     /**
      * Indicates when the member signed up for the loyalty program.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    signupDate?: Date;
+    signupDate?: string;
     /**
      * 
      * @type {TierAdministrationType}
@@ -384,21 +384,21 @@ export function StagedProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscri
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'currentPoints': !exists(json, 'currentPoints') ? undefined : json['currentPoints'],
         'deviceCode': !exists(json, 'deviceCode') ? undefined : json['deviceCode'],
-        'deviceDisabledDate': !exists(json, 'deviceDisabledDate') ? undefined : (new Date(json['deviceDisabledDate'])),
+        'deviceDisabledDate': !exists(json, 'deviceDisabledDate') ? undefined : json['deviceDisabledDate'],
         'downgrade': !exists(json, 'downgrade') ? undefined : DowngradeTypeFromJSON(json['downgrade']),
         'downgradeDescription': !exists(json, 'downgradeDescription') ? undefined : json['downgradeDescription'],
         'earningPreference': !exists(json, 'earningPreference') ? undefined : MembershipEarningPreferenceTypeFromJSON(json['earningPreference']),
-        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
+        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : json['effectiveDate'],
         'enrollmentCode': !exists(json, 'enrollmentCode') ? undefined : json['enrollmentCode'],
         'enrollmentResort': !exists(json, 'enrollmentResort') ? undefined : json['enrollmentResort'],
         'enrollmentSource': !exists(json, 'enrollmentSource') ? undefined : json['enrollmentSource'],
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'excludeFromBatch': !exists(json, 'excludeFromBatch') ? undefined : json['excludeFromBatch'],
-        'expireDate': !exists(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'expireDate': !exists(json, 'expireDate') ? undefined : json['expireDate'],
         'expireDateExclusiveIndicator': !exists(json, 'expireDateExclusiveIndicator') ? undefined : json['expireDateExclusiveIndicator'],
         'id': !exists(json, 'id') ? undefined : json['id'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'memberStatus': !exists(json, 'memberStatus') ? undefined : json['memberStatus'],
@@ -422,7 +422,7 @@ export function StagedProfileMembershipTypeFromJSONTyped(json: any, ignoreDiscri
         'rating': !exists(json, 'rating') ? undefined : json['rating'],
         'reIssueNewCard': !exists(json, 'reIssueNewCard') ? undefined : CardReIssueTypeFromJSON(json['reIssueNewCard']),
         'registrationResort': !exists(json, 'registrationResort') ? undefined : json['registrationResort'],
-        'signupDate': !exists(json, 'signupDate') ? undefined : (new Date(json['signupDate'])),
+        'signupDate': !exists(json, 'signupDate') ? undefined : json['signupDate'],
         'tierAdministration': !exists(json, 'tierAdministration') ? undefined : TierAdministrationTypeFromJSON(json['tierAdministration']),
         'type': !exists(json, 'type') ? undefined : json['type'],
         'updateExistingMembership': !exists(json, 'updateExistingMembership') ? undefined : json['updateExistingMembership'],
@@ -446,21 +446,21 @@ export function StagedProfileMembershipTypeToJSON(value?: StagedProfileMembershi
         'creatorId': value.creatorId,
         'currentPoints': value.currentPoints,
         'deviceCode': value.deviceCode,
-        'deviceDisabledDate': value.deviceDisabledDate === undefined ? undefined : (value.deviceDisabledDate.toISOString().substring(0,10)),
+        'deviceDisabledDate': value.deviceDisabledDate,
         'downgrade': DowngradeTypeToJSON(value.downgrade),
         'downgradeDescription': value.downgradeDescription,
         'earningPreference': MembershipEarningPreferenceTypeToJSON(value.earningPreference),
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
+        'effectiveDate': value.effectiveDate,
         'enrollmentCode': value.enrollmentCode,
         'enrollmentResort': value.enrollmentResort,
         'enrollmentSource': value.enrollmentSource,
         'errorDescription': value.errorDescription,
         'excludeFromBatch': value.excludeFromBatch,
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
+        'expireDate': value.expireDate,
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
         'id': value.id,
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'memberStatus': value.memberStatus,
@@ -484,7 +484,7 @@ export function StagedProfileMembershipTypeToJSON(value?: StagedProfileMembershi
         'rating': value.rating,
         'reIssueNewCard': CardReIssueTypeToJSON(value.reIssueNewCard),
         'registrationResort': value.registrationResort,
-        'signupDate': value.signupDate === undefined ? undefined : (value.signupDate.toISOString().substring(0,10)),
+        'signupDate': value.signupDate,
         'tierAdministration': TierAdministrationTypeToJSON(value.tierAdministration),
         'type': value.type,
         'updateExistingMembership': value.updateExistingMembership,

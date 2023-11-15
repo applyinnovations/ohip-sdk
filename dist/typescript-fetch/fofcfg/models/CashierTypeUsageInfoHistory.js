@@ -32,7 +32,7 @@ function CashierTypeUsageInfoHistoryFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'lastOpened': !(0, runtime_1.exists)(json, 'lastOpened') ? undefined : (new Date(json['lastOpened'])),
+        'lastOpened': !(0, runtime_1.exists)(json, 'lastOpened') ? undefined : json['lastOpened'],
         'timesOpened': !(0, runtime_1.exists)(json, 'timesOpened') ? undefined : json['timesOpened'],
     };
 }
@@ -45,7 +45,7 @@ function CashierTypeUsageInfoHistoryToJSON(value) {
         return null;
     }
     return {
-        'lastOpened': value.lastOpened === undefined ? undefined : (value.lastOpened.toISOString().substring(0, 10)),
+        'lastOpened': value.lastOpened,
         'timesOpened': value.timesOpened,
     };
 }

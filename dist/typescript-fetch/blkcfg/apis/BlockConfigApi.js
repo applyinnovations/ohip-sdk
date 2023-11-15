@@ -69,10 +69,10 @@ class BlockConfigApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.friday !== undefined) {
                 queryParameters['friday'] = requestParameters.friday;
@@ -234,10 +234,10 @@ class BlockConfigApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.endDateRange !== undefined) {
-                queryParameters['endDateRange'] = requestParameters.endDateRange.toISOString().substring(0, 10);
+                queryParameters['endDateRange'] = requestParameters.endDateRange;
             }
             if (requestParameters.startDateRange !== undefined) {
-                queryParameters['startDateRange'] = requestParameters.startDateRange.toISOString().substring(0, 10);
+                queryParameters['startDateRange'] = requestParameters.startDateRange;
             }
             if (requestParameters.includeRestricted !== undefined) {
                 queryParameters['includeRestricted'] = requestParameters.includeRestricted;

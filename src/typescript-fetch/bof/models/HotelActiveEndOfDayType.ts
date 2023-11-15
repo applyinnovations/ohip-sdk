@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface HotelActiveEndOfDayType {
     /**
      * Current open business date of hotel.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelActiveEndOfDayType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * Hotel code of the active end of days.
      * @type {string}
@@ -52,7 +52,7 @@ export function HotelActiveEndOfDayTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -66,7 +66,7 @@ export function HotelActiveEndOfDayTypeToJSON(value?: HotelActiveEndOfDayType | 
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'hotelId': value.hotelId,
     };
 }

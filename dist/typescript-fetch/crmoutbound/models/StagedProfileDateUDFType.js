@@ -33,7 +33,7 @@ function StagedProfileDateUDFTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
-        'value': !(0, runtime_1.exists)(json, 'value') ? undefined : (new Date(json['value'])),
+        'value': !(0, runtime_1.exists)(json, 'value') ? undefined : json['value'],
         'altname': !(0, runtime_1.exists)(json, 'altname') ? undefined : json['altname'],
         'errorDescription': !(0, runtime_1.exists)(json, 'errorDescription') ? undefined : json['errorDescription'],
         'tableName': !(0, runtime_1.exists)(json, 'tableName') ? undefined : json['tableName'],
@@ -52,7 +52,7 @@ function StagedProfileDateUDFTypeToJSON(value) {
     }
     return {
         'name': value.name,
-        'value': value.value === undefined ? undefined : (value.value.toISOString().substring(0, 10)),
+        'value': value.value,
         'altname': value.altname,
         'errorDescription': value.errorDescription,
         'tableName': value.tableName,

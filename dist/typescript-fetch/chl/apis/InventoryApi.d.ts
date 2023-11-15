@@ -41,7 +41,7 @@ export interface DeleteChannelSellLimitsRequest {
 }
 export interface GetChannelSellLimitsRequest {
     hotelId: string;
-    fromDate: Date;
+    fromDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

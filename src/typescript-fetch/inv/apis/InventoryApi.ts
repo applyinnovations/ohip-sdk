@@ -87,8 +87,8 @@ export interface GetHoldItemsInventoryRequest {
 
 export interface GetHotelInventoryRequest {
     hotelId: string;
-    dateRangeStart: Date;
-    dateRangeEnd: Date;
+    dateRangeStart: string;
+    dateRangeEnd: string;
     roomCountRequested: number;
     authorization?: string;
     xAppKey?: string;
@@ -107,8 +107,8 @@ export interface GetItemInventoryRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     endTime?: string;
     startTime?: string;
@@ -359,11 +359,11 @@ export class InventoryApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.dateRangeStart !== undefined) {
-            queryParameters['dateRangeStart'] = (requestParameters.dateRangeStart as any).toISOString().substring(0,10);
+            queryParameters['dateRangeStart'] = requestParameters.dateRangeStart;
         }
 
         if (requestParameters.dateRangeEnd !== undefined) {
-            queryParameters['dateRangeEnd'] = (requestParameters.dateRangeEnd as any).toISOString().substring(0,10);
+            queryParameters['dateRangeEnd'] = requestParameters.dateRangeEnd;
         }
 
         if (requestParameters.roomCountRequested !== undefined) {
@@ -443,11 +443,11 @@ export class InventoryApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {

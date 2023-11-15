@@ -18,10 +18,10 @@ import type { BlockGridRatesType } from './BlockGridRatesType';
 export interface BlockAlternateDateType {
     /**
      * Alternate Begin date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAlternateDateType
      */
-    alternateBeginDate?: Date;
+    alternateBeginDate?: string;
     /**
      *
      * @type {BlockGridRatesType}

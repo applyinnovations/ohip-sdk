@@ -40,8 +40,8 @@ function StayInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
-        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
+        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : json['departureDate'],
         'originalTimeSpan': !(0, runtime_1.exists)(json, 'originalTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['originalTimeSpan']),
         'expectedTimes': !(0, runtime_1.exists)(json, 'expectedTimes') ? undefined : (0, ResExpectedTimesType_1.ResExpectedTimesTypeFromJSON)(json['expectedTimes']),
         'adultCount': !(0, runtime_1.exists)(json, 'adultCount') ? undefined : json['adultCount'],
@@ -69,7 +69,7 @@ function StayInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomTypeCharged': !(0, runtime_1.exists)(json, 'roomTypeCharged') ? undefined : json['roomTypeCharged'],
         'depositPayments': !(0, runtime_1.exists)(json, 'depositPayments') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['depositPayments']),
         'guestServiceStatus': !(0, runtime_1.exists)(json, 'guestServiceStatus') ? undefined : (0, GuestHousekeepingServiceRequestType_1.GuestHousekeepingServiceRequestTypeFromJSON)(json['guestServiceStatus']),
-        'scheduledCheckoutTime': !(0, runtime_1.exists)(json, 'scheduledCheckoutTime') ? undefined : (new Date(json['scheduledCheckoutTime'])),
+        'scheduledCheckoutTime': !(0, runtime_1.exists)(json, 'scheduledCheckoutTime') ? undefined : json['scheduledCheckoutTime'],
         'roomNumberLocked': !(0, runtime_1.exists)(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'pseudoRoom': !(0, runtime_1.exists)(json, 'pseudoRoom') ? undefined : json['pseudoRoom'],
     };
@@ -83,8 +83,8 @@ function StayInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'originalTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.originalTimeSpan),
         'expectedTimes': (0, ResExpectedTimesType_1.ResExpectedTimesTypeToJSON)(value.expectedTimes),
         'adultCount': value.adultCount,
@@ -112,7 +112,7 @@ function StayInfoTypeToJSON(value) {
         'roomTypeCharged': value.roomTypeCharged,
         'depositPayments': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.depositPayments),
         'guestServiceStatus': (0, GuestHousekeepingServiceRequestType_1.GuestHousekeepingServiceRequestTypeToJSON)(value.guestServiceStatus),
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0, 10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime,
         'roomNumberLocked': value.roomNumberLocked,
         'pseudoRoom': value.pseudoRoom,
     };

@@ -110,10 +110,10 @@ export interface ResGuestInfoType {
     email?: string;
     /**
      * Date of birth
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuestInfoType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Language identification.
      * @type {string}

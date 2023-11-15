@@ -17,10 +17,10 @@
 export interface OperaHotelContextDetailsHotelContext {
     /**
      * The hotel's business date.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaHotelContextDetailsHotelContext
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * Catering Currency Code, used when Catering Currency differs from base currency.
      * @type {string}
@@ -35,16 +35,16 @@ export interface OperaHotelContextDetailsHotelContext {
     chainCode?: string;
     /**
      * The hotel's check-in time.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaHotelContextDetailsHotelContext
      */
-    checkInTime?: Date;
+    checkInTime?: string;
     /**
      * The hotel's check-out time.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaHotelContextDetailsHotelContext
      */
-    checkOutTime?: Date;
+    checkOutTime?: string;
     /**
      * The hotel's configuration mode if applicable.
      * @type {string}

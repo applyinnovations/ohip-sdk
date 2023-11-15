@@ -70,10 +70,10 @@ export interface MembershipTransactionInfoType {
     stayTimeSpan?: TimeSpanType;
     /**
      * Membership Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionInfoType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Membership Transaction Type.
      * @type {string}
@@ -107,7 +107,7 @@ export function MembershipTransactionInfoTypeFromJSONTyped(json: any, ignoreDisc
         'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'stay': !exists(json, 'stay') ? undefined : json['stay'],
         'stayTimeSpan': !exists(json, 'stayTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['stayTimeSpan']),
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionType': !exists(json, 'transactionType') ? undefined : json['transactionType'],
     };
 }
@@ -127,7 +127,7 @@ export function MembershipTransactionInfoTypeToJSON(value?: MembershipTransactio
         'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'stay': value.stay,
         'stayTimeSpan': TimeSpanTypeToJSON(value.stayTimeSpan),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionType': value.transactionType,
     };
 }

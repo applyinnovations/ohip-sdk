@@ -36,8 +36,8 @@ export interface GetBlockReservationStatisticsByDateAndRoomPoolRequest {
     xAppKey?: string;
     xHotelid?: string;
     excludeBlocksWithoutQuoteID?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -48,7 +48,7 @@ export interface GetReservationPaceRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: string;
-    stayDate?: Date;
+    stayDate?: string;
     leadDays?: number;
     channels?: string;
     xExternalsystem?: string;
@@ -64,10 +64,10 @@ export interface GetReservationStatisticsRequest {
     hotelId?: Array<string>;
     hotelCodeContext?: Array<string>;
     hotelName?: Array<string>;
-    requestedReportsTypeEndDate?: Array<Date>;
-    fiscalDate?: Array<Date>;
+    requestedReportsTypeEndDate?: Array<string>;
+    fiscalDate?: Array<string>;
     reportCode?: Array<GetReservationStatisticsReportCodeEnum>;
-    requestedReportsTypeStartDate?: Array<Date>;
+    requestedReportsTypeStartDate?: Array<string>;
     requestedReportsTypeParameterName?: Array<string>;
     requestedReportsTypeParameterValue?: Array<string>;
     xExternalsystem?: string;
@@ -91,11 +91,11 @@ export class RSVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -155,7 +155,7 @@ export class RSVStatsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.stayDate !== undefined) {
-            queryParameters['stayDate'] = (requestParameters.stayDate as any).toISOString().substring(0,10);
+            queryParameters['stayDate'] = requestParameters.stayDate;
         }
 
         if (requestParameters.leadDays !== undefined) {

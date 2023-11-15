@@ -32,10 +32,10 @@ export interface RestrictionSetType {
     actualTimeSpan?: TimeSpanType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RestrictionSetType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -74,10 +74,10 @@ export interface RestrictionSetType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RestrictionSetType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

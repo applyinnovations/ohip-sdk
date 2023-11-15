@@ -23,10 +23,10 @@ export interface ConfigTestUpsellRuleSearchType {
     adults?: number;
     /**
      * Arrival date set in the test reservation.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigTestUpsellRuleSearchType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Signifies the channel for which the upsell rule test has to be run.
      * @type {string}

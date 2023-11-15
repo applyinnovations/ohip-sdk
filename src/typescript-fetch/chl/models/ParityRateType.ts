@@ -70,10 +70,10 @@ export interface ParityRateType {
     amount?: number;
     /**
      * Arrival Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ParityRateType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * 
      * @type {number}
@@ -182,7 +182,7 @@ export function ParityRateTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'additionalAmounts': !exists(json, 'additionalAmounts') ? undefined : ((json['additionalAmounts'] as Array<any>).map(AdditionalAmountTypeFromJSON)),
         'additionalDetailList': !exists(json, 'additionalDetailList') ? undefined : ((json['additionalDetailList'] as Array<any>).map(AdditionalDetailTypeFromJSON)),
         'amount': !exists(json, 'amount') ? undefined : json['amount'],
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'availableRooms': !exists(json, 'availableRooms') ? undefined : json['availableRooms'],
         'channelRatePlanCategory': !exists(json, 'channelRatePlanCategory') ? undefined : json['channelRatePlanCategory'],
         'closed': !exists(json, 'closed') ? undefined : json['closed'],
@@ -212,7 +212,7 @@ export function ParityRateTypeToJSON(value?: ParityRateType | null): any {
         'additionalAmounts': value.additionalAmounts === undefined ? undefined : ((value.additionalAmounts as Array<any>).map(AdditionalAmountTypeToJSON)),
         'additionalDetailList': value.additionalDetailList === undefined ? undefined : ((value.additionalDetailList as Array<any>).map(AdditionalDetailTypeToJSON)),
         'amount': value.amount,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'availableRooms': value.availableRooms,
         'channelRatePlanCategory': value.channelRatePlanCategory,
         'closed': value.closed,

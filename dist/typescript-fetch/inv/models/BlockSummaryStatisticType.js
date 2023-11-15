@@ -36,7 +36,7 @@ function BlockSummaryStatisticTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'bookingSummaryStatistic': !(0, runtime_1.exists)(json, 'bookingSummaryStatistic') ? undefined : (json['bookingSummaryStatistic'].map(StatisticUnitType_1.StatisticUnitTypeFromJSON)),
         'dailyTargetsSummaryStatistic': !(0, runtime_1.exists)(json, 'dailyTargetsSummaryStatistic') ? undefined : (json['dailyTargetsSummaryStatistic'].map(StatisticUnitType_1.StatisticUnitTypeFromJSON)),
-        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : json['statisticDate'],
         'statusSummaryStatistic': !(0, runtime_1.exists)(json, 'statusSummaryStatistic') ? undefined : (json['statusSummaryStatistic'].map(StatusStatisticType_1.StatusStatisticTypeFromJSON)),
     };
 }
@@ -51,7 +51,7 @@ function BlockSummaryStatisticTypeToJSON(value) {
     return {
         'bookingSummaryStatistic': value.bookingSummaryStatistic === undefined ? undefined : (value.bookingSummaryStatistic.map(StatisticUnitType_1.StatisticUnitTypeToJSON)),
         'dailyTargetsSummaryStatistic': value.dailyTargetsSummaryStatistic === undefined ? undefined : (value.dailyTargetsSummaryStatistic.map(StatisticUnitType_1.StatisticUnitTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
+        'statisticDate': value.statisticDate,
         'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : (value.statusSummaryStatistic.map(StatusStatisticType_1.StatusStatisticTypeToJSON)),
     };
 }

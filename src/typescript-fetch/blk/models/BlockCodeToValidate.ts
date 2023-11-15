@@ -46,10 +46,10 @@ export interface BlockCodeToValidate {
     blockIdList?: Array<UniqueIDType>;
     /**
      * End date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockCodeToValidate
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -64,10 +64,10 @@ export interface BlockCodeToValidate {
     links?: Array<InstanceLink>;
     /**
      * Start date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockCodeToValidate
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Used in conjunction with the Success element to define a business error.
      * @type {Array<WarningType>}
@@ -96,10 +96,10 @@ export function BlockCodeToValidateFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
@@ -114,10 +114,10 @@ export function BlockCodeToValidateToJSON(value?: BlockCodeToValidate | null): a
     return {
         
         'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }

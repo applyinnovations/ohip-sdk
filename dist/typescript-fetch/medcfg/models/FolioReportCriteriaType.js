@@ -34,7 +34,7 @@ function FolioReportCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'billNumber': !(0, runtime_1.exists)(json, 'billNumber') ? undefined : json['billNumber'],
-        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : json['folioDate'],
         'folioType': !(0, runtime_1.exists)(json, 'folioType') ? undefined : json['folioType'],
         'folioWindowNo': !(0, runtime_1.exists)(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -52,7 +52,7 @@ function FolioReportCriteriaTypeToJSON(value) {
     }
     return {
         'billNumber': value.billNumber,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0, 10)),
+        'folioDate': value.folioDate,
         'folioType': value.folioType,
         'folioWindowNo': value.folioWindowNo,
         'hotelId': value.hotelId,

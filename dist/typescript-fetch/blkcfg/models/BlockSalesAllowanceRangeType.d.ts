@@ -23,10 +23,10 @@ export interface BlockSalesAllowanceRangeType {
     cutoffDays?: number;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSalesAllowanceRangeType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -71,10 +71,10 @@ export interface BlockSalesAllowanceRangeType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSalesAllowanceRangeType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

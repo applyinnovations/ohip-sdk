@@ -34,7 +34,7 @@ function DateUDFTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'alternateName': !(0, runtime_1.exists)(json, 'alternateName') ? undefined : json['alternateName'],
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
-        'value': !(0, runtime_1.exists)(json, 'value') ? undefined : (new Date(json['value'])),
+        'value': !(0, runtime_1.exists)(json, 'value') ? undefined : json['value'],
     };
 }
 exports.DateUDFTypeFromJSONTyped = DateUDFTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function DateUDFTypeToJSON(value) {
     return {
         'alternateName': value.alternateName,
         'name': value.name,
-        'value': value.value === undefined ? undefined : (value.value.toISOString().substring(0, 10)),
+        'value': value.value,
     };
 }
 exports.DateUDFTypeToJSON = DateUDFTypeToJSON;

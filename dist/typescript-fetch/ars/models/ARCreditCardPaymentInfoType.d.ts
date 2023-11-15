@@ -43,10 +43,10 @@ export interface ARCreditCardPaymentInfoType {
     guestName?: string;
     /**
      * Date of posting.
-     * @type {Date}
+     * @type {string}
      * @memberof ARCreditCardPaymentInfoType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      *
      * @type {ProfileId}
@@ -67,10 +67,10 @@ export interface ARCreditCardPaymentInfoType {
     remark?: string;
     /**
      * Transaction Date of the payment.
-     * @type {Date}
+     * @type {string}
      * @memberof ARCreditCardPaymentInfoType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction number of the payment.
      * @type {number}

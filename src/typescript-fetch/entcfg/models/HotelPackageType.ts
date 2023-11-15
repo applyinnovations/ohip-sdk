@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface HotelPackageType {
     /**
      * The begin date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelPackageType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The end date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelPackageType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {string}
@@ -82,8 +82,8 @@ export function HotelPackageTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'packageCode': !exists(json, 'packageCode') ? undefined : json['packageCode'],
         'packageName': !exists(json, 'packageName') ? undefined : json['packageName'],
         'packagePrice': !exists(json, 'packagePrice') ? undefined : json['packagePrice'],
@@ -101,8 +101,8 @@ export function HotelPackageTypeToJSON(value?: HotelPackageType | null): any {
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
+        'endDate': value.endDate,
         'packageCode': value.packageCode,
         'packageName': value.packageName,
         'packagePrice': value.packagePrice,

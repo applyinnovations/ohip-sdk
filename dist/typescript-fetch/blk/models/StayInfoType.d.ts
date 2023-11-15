@@ -31,10 +31,10 @@ export interface StayInfoType {
     adultCount?: number;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Represents the room was assigned by AI Room Assignment.
      * @type {boolean}
@@ -73,10 +73,10 @@ export interface StayInfoType {
     componentRoomType?: boolean;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -211,10 +211,10 @@ export interface StayInfoType {
     roomTypeCharged?: string;
     /**
      * Indicates that this reservation is scheduled for automated check out.
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    scheduledCheckoutTime?: Date;
+    scheduledCheckoutTime?: string;
     /**
      * Source of business
      * @type {string}

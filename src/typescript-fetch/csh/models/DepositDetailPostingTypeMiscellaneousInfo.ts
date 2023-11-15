@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface DepositDetailPostingTypeMiscellaneousInfo {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof DepositDetailPostingTypeMiscellaneousInfo
      */
-    createDateTime?: Date;
+    createDateTime?: string;
     /**
      * 
      * @type {boolean}
@@ -52,7 +52,7 @@ export function DepositDetailPostingTypeMiscellaneousInfoFromJSONTyped(json: any
     }
     return {
         
-        'createDateTime': !exists(json, 'createDateTime') ? undefined : (new Date(json['createDateTime'])),
+        'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'paidOut': !exists(json, 'paidOut') ? undefined : json['paidOut'],
     };
 }
@@ -66,7 +66,7 @@ export function DepositDetailPostingTypeMiscellaneousInfoToJSON(value?: DepositD
     }
     return {
         
-        'createDateTime': value.createDateTime === undefined ? undefined : (value.createDateTime.toISOString().substring(0,10)),
+        'createDateTime': value.createDateTime,
         'paidOut': value.paidOut,
     };
 }

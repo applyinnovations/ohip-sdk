@@ -136,10 +136,10 @@ export interface PostRateCodeCriteriaType {
     reservationId?: ReservationId;
     /**
      * Revenue Date or the business date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof PostRateCodeCriteriaType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
 }
 
 /**
@@ -177,7 +177,7 @@ export function PostRateCodeCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimin
         'reference': !exists(json, 'reference') ? undefined : json['reference'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
-        'revenueDate': !exists(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !exists(json, 'revenueDate') ? undefined : json['revenueDate'],
     };
 }
 
@@ -206,7 +206,7 @@ export function PostRateCodeCriteriaTypeToJSON(value?: PostRateCodeCriteriaType 
         'reference': value.reference,
         'remark': value.remark,
         'reservationId': ReservationIdToJSON(value.reservationId),
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
+        'revenueDate': value.revenueDate,
     };
 }
 

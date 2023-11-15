@@ -64,10 +64,10 @@ export interface CalendarEventInfoType {
     attendees?: number;
     /**
      * Date the event was created.
-     * @type {Date}
+     * @type {string}
      * @memberof CalendarEventInfoType
      */
-    createdOn?: Date;
+    createdOn?: string;
     /**
      * 
      * @type {EventBookingInfoType}
@@ -216,7 +216,7 @@ export function CalendarEventInfoTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'attendees': !exists(json, 'attendees') ? undefined : json['attendees'],
-        'createdOn': !exists(json, 'createdOn') ? undefined : (new Date(json['createdOn'])),
+        'createdOn': !exists(json, 'createdOn') ? undefined : json['createdOn'],
         'eventBookingInfo': !exists(json, 'eventBookingInfo') ? undefined : EventBookingInfoTypeFromJSON(json['eventBookingInfo']),
         'eventDisplay': !exists(json, 'eventDisplay') ? undefined : EventDisplayTypeFromJSON(json['eventDisplay']),
         'eventName': !exists(json, 'eventName') ? undefined : json['eventName'],
@@ -251,7 +251,7 @@ export function CalendarEventInfoTypeToJSON(value?: CalendarEventInfoType | null
     return {
         
         'attendees': value.attendees,
-        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substring(0,10)),
+        'createdOn': value.createdOn,
         'eventBookingInfo': EventBookingInfoTypeToJSON(value.eventBookingInfo),
         'eventDisplay': EventDisplayTypeToJSON(value.eventDisplay),
         'eventName': value.eventName,

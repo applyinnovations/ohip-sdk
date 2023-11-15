@@ -33,7 +33,7 @@ function ConvertFolioTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !(0, runtime_1.exists)(json, 'folioNo') ? undefined : json['folioNo'],
         'folioTypeName': !(0, runtime_1.exists)(json, 'folioTypeName') ? undefined : json['folioTypeName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -49,7 +49,7 @@ function ConvertFolioTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0, 10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioTypeName': value.folioTypeName,
         'hotelId': value.hotelId,

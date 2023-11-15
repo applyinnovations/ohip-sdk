@@ -55,10 +55,10 @@ export interface ResGuestInfoType {
     anonymization?: AnonymizationType;
     /**
      * Date of birth
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuestInfoType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Email address
      * @type {string}

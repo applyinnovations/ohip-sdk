@@ -39,10 +39,10 @@ export interface CateringEventResourceType {
     discount?: number;
     /**
      * Event End Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * Contains event resource comment information.
      * @type {Array<EventResourceNoteType>}
@@ -51,10 +51,10 @@ export interface CateringEventResourceType {
     eventResourceNotes?: Array<EventResourceNoteType>;
     /**
      * Event Start Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * Indicates that item must be ordered externally.
      * @type {boolean}
@@ -165,16 +165,16 @@ export interface CateringEventResourceType {
     revenue?: CurrencyAmountType;
     /**
      * Sell End Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    sellEndDate?: Date;
+    sellEndDate?: string;
     /**
      * Sell Start Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    sellStartDate?: Date;
+    sellStartDate?: string;
     /**
      * Setup style for the function space.
      * @type {string}

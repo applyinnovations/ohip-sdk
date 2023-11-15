@@ -73,10 +73,10 @@ export interface DailyRateType {
     discount?: DiscountType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateType
      */
-    end?: Date;
+    end?: string;
     /**
      * When true indicates that the rate amount has been overridden.
      * @type {boolean}
@@ -85,10 +85,10 @@ export interface DailyRateType {
     rateOverride?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {TaxesType}

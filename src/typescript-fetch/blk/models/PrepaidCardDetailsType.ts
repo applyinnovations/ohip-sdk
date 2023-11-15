@@ -34,10 +34,10 @@ import {
 export interface PrepaidCardDetailsType {
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    activateDate?: Date;
+    activateDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -58,10 +58,10 @@ export interface PrepaidCardDetailsType {
     debitTotal?: CurrencyAmountType;
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    expiredDate?: Date;
+    expiredDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -70,10 +70,10 @@ export interface PrepaidCardDetailsType {
     initialCreditTotal?: CurrencyAmountType;
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    initialLoadDate?: Date;
+    initialLoadDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -88,10 +88,10 @@ export interface PrepaidCardDetailsType {
     transactions?: Array<PrepaidCardTransactionType>;
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    validUntilDate?: Date;
+    validUntilDate?: string;
 }
 
 /**
@@ -113,16 +113,16 @@ export function PrepaidCardDetailsTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'activateDate': !exists(json, 'activateDate') ? undefined : (new Date(json['activateDate'])),
+        'activateDate': !exists(json, 'activateDate') ? undefined : json['activateDate'],
         'balanceTotal': !exists(json, 'balanceTotal') ? undefined : CurrencyAmountTypeFromJSON(json['balanceTotal']),
         'creditTotal': !exists(json, 'creditTotal') ? undefined : CurrencyAmountTypeFromJSON(json['creditTotal']),
         'debitTotal': !exists(json, 'debitTotal') ? undefined : CurrencyAmountTypeFromJSON(json['debitTotal']),
-        'expiredDate': !exists(json, 'expiredDate') ? undefined : (new Date(json['expiredDate'])),
+        'expiredDate': !exists(json, 'expiredDate') ? undefined : json['expiredDate'],
         'initialCreditTotal': !exists(json, 'initialCreditTotal') ? undefined : CurrencyAmountTypeFromJSON(json['initialCreditTotal']),
-        'initialLoadDate': !exists(json, 'initialLoadDate') ? undefined : (new Date(json['initialLoadDate'])),
+        'initialLoadDate': !exists(json, 'initialLoadDate') ? undefined : json['initialLoadDate'],
         'reservedTotal': !exists(json, 'reservedTotal') ? undefined : CurrencyAmountTypeFromJSON(json['reservedTotal']),
         'transactions': !exists(json, 'transactions') ? undefined : ((json['transactions'] as Array<any>).map(PrepaidCardTransactionTypeFromJSON)),
-        'validUntilDate': !exists(json, 'validUntilDate') ? undefined : (new Date(json['validUntilDate'])),
+        'validUntilDate': !exists(json, 'validUntilDate') ? undefined : json['validUntilDate'],
     };
 }
 
@@ -135,16 +135,16 @@ export function PrepaidCardDetailsTypeToJSON(value?: PrepaidCardDetailsType | nu
     }
     return {
         
-        'activateDate': value.activateDate === undefined ? undefined : (value.activateDate.toISOString().substring(0,10)),
+        'activateDate': value.activateDate,
         'balanceTotal': CurrencyAmountTypeToJSON(value.balanceTotal),
         'creditTotal': CurrencyAmountTypeToJSON(value.creditTotal),
         'debitTotal': CurrencyAmountTypeToJSON(value.debitTotal),
-        'expiredDate': value.expiredDate === undefined ? undefined : (value.expiredDate.toISOString().substring(0,10)),
+        'expiredDate': value.expiredDate,
         'initialCreditTotal': CurrencyAmountTypeToJSON(value.initialCreditTotal),
-        'initialLoadDate': value.initialLoadDate === undefined ? undefined : (value.initialLoadDate.toISOString().substring(0,10)),
+        'initialLoadDate': value.initialLoadDate,
         'reservedTotal': CurrencyAmountTypeToJSON(value.reservedTotal),
         'transactions': value.transactions === undefined ? undefined : ((value.transactions as Array<any>).map(PrepaidCardTransactionTypeToJSON)),
-        'validUntilDate': value.validUntilDate === undefined ? undefined : (value.validUntilDate.toISOString().substring(0,10)),
+        'validUntilDate': value.validUntilDate,
     };
 }
 

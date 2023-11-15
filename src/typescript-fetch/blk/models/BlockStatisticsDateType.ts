@@ -28,10 +28,10 @@ import {
 export interface BlockStatisticsDateType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatisticsDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Collection of room type level statistics.
      * @type {Array<BlockRoomStatisticsType>}
@@ -65,7 +65,7 @@ export function BlockStatisticsDateTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'roomStatisticsList': !exists(json, 'roomStatisticsList') ? undefined : ((json['roomStatisticsList'] as Array<any>).map(BlockRoomStatisticsTypeFromJSON)),
         'total': !exists(json, 'total') ? undefined : json['total'],
     };
@@ -80,7 +80,7 @@ export function BlockStatisticsDateTypeToJSON(value?: BlockStatisticsDateType | 
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'roomStatisticsList': value.roomStatisticsList === undefined ? undefined : ((value.roomStatisticsList as Array<any>).map(BlockRoomStatisticsTypeToJSON)),
         'total': value.total,
     };

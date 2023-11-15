@@ -44,10 +44,10 @@ function CommissionPaymentActivityTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'onCommission': !(0, runtime_1.exists)(json, 'onCommission') ? undefined : json['onCommission'],
         'payee': !(0, runtime_1.exists)(json, 'payee') ? undefined : json['payee'],
-        'paymentDate': !(0, runtime_1.exists)(json, 'paymentDate') ? undefined : (new Date(json['paymentDate'])),
+        'paymentDate': !(0, runtime_1.exists)(json, 'paymentDate') ? undefined : json['paymentDate'],
         'paymentId': !(0, runtime_1.exists)(json, 'paymentId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['paymentId']),
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, CommissionPaymentActivityStatusType_1.CommissionPaymentActivityStatusTypeFromJSON)(json['status']),
-        'statusDate': !(0, runtime_1.exists)(json, 'statusDate') ? undefined : (new Date(json['statusDate'])),
+        'statusDate': !(0, runtime_1.exists)(json, 'statusDate') ? undefined : json['statusDate'],
     };
 }
 exports.CommissionPaymentActivityTypeFromJSONTyped = CommissionPaymentActivityTypeFromJSONTyped;
@@ -68,10 +68,10 @@ function CommissionPaymentActivityTypeToJSON(value) {
         'hotelId': value.hotelId,
         'onCommission': value.onCommission,
         'payee': value.payee,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0, 10)),
+        'paymentDate': value.paymentDate,
         'paymentId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.paymentId),
         'status': (0, CommissionPaymentActivityStatusType_1.CommissionPaymentActivityStatusTypeToJSON)(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0, 10)),
+        'statusDate': value.statusDate,
     };
 }
 exports.CommissionPaymentActivityTypeToJSON = CommissionPaymentActivityTypeToJSON;

@@ -35,10 +35,10 @@ export interface HurdleRateType {
     hurdle?: number;
     /**
      * Hurdle date for which the hurdle rate is scheduled.
-     * @type {Date}
+     * @type {string}
      * @memberof HurdleRateType
      */
-    hurdleDate?: Date;
+    hurdleDate?: string;
     /**
      * Length of stay for which the hurdle rate applies to.
      * @type {number}

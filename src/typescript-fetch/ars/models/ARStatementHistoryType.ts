@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface ARStatementHistoryType {
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
-     * @type {Date}
+     * @type {string}
      * @memberof ARStatementHistoryType
      */
-    dateSent?: Date;
+    dateSent?: string;
     /**
      * Report file name when exists to allow report re-printing.
      * @type {string}
@@ -64,7 +64,7 @@ export function ARStatementHistoryTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'dateSent': !exists(json, 'dateSent') ? undefined : (new Date(json['dateSent'])),
+        'dateSent': !exists(json, 'dateSent') ? undefined : json['dateSent'],
         'reportFileName': !exists(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportName': !exists(json, 'reportName') ? undefined : json['reportName'],
         'statementNo': !exists(json, 'statementNo') ? undefined : json['statementNo'],
@@ -80,7 +80,7 @@ export function ARStatementHistoryTypeToJSON(value?: ARStatementHistoryType | nu
     }
     return {
         
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0,10)),
+        'dateSent': value.dateSent,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,
         'statementNo': value.statementNo,

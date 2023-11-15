@@ -64,10 +64,10 @@ export interface StagedProfileAddressType {
     id?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileAddressType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Postal code extension.
      * @type {string}
@@ -106,7 +106,7 @@ export function StagedProfileAddressTypeFromJSONTyped(json: any, ignoreDiscrimin
         'cleansStatus': !exists(json, 'cleansStatus') ? undefined : StagedAddressCleansStatusFromJSON(json['cleansStatus']),
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'id': !exists(json, 'id') ? undefined : json['id'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'postalCodeExtension': !exists(json, 'postalCodeExtension') ? undefined : json['postalCodeExtension'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
@@ -126,7 +126,7 @@ export function StagedProfileAddressTypeToJSON(value?: StagedProfileAddressType 
         'cleansStatus': StagedAddressCleansStatusToJSON(value.cleansStatus),
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'postalCodeExtension': value.postalCodeExtension,
         'type': value.type,
     };

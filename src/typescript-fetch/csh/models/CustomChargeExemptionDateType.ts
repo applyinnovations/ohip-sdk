@@ -28,10 +28,10 @@ import {
 export interface CustomChargeExemptionDateType {
     /**
      * Contains Custom Charge Exemption date.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * List of guests.
      * @type {Array<CustomChargeGuestInfoType>}
@@ -65,7 +65,7 @@ export function CustomChargeExemptionDateTypeFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'guests': !exists(json, 'guests') ? undefined : ((json['guests'] as Array<any>).map(CustomChargeGuestInfoTypeFromJSON)),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
     };
@@ -80,7 +80,7 @@ export function CustomChargeExemptionDateTypeToJSON(value?: CustomChargeExemptio
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'guests': value.guests === undefined ? undefined : ((value.guests as Array<any>).map(CustomChargeGuestInfoTypeToJSON)),
         'quantity': value.quantity,
     };

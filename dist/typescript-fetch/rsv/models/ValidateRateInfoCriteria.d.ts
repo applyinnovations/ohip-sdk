@@ -49,10 +49,10 @@ export interface ValidateRateInfoCriteria {
     decimalPlaces?: number;
     /**
      * This field is only required when the criteria is meant for a detailed results. The date for the rate detail is needed.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidateRateInfoCriteria
      */
-    detailDate?: Date;
+    detailDate?: string;
     /**
      * Collection of effective rate amount per guest on specific dates.
      * @type {Array<EffectiveRateType>}

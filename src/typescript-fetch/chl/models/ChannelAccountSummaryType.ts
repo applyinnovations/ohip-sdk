@@ -76,10 +76,10 @@ export interface ChannelAccountSummaryType {
     channelAccountIndicators?: Array<IndicatorType>;
     /**
      * Channel account contract ends on date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSummaryType
      */
-    contractEndsOn?: Date;
+    contractEndsOn?: string;
     /**
      * 
      * @type {EmailInfoType}
@@ -140,7 +140,7 @@ export function ChannelAccountSummaryTypeFromJSONTyped(json: any, ignoreDiscrimi
         'accountDetails': !exists(json, 'accountDetails') ? undefined : ChannelAccountDetailsTypeFromJSON(json['accountDetails']),
         'addressInfo': !exists(json, 'addressInfo') ? undefined : AddressInfoTypeFromJSON(json['addressInfo']),
         'channelAccountIndicators': !exists(json, 'channelAccountIndicators') ? undefined : ((json['channelAccountIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
-        'contractEndsOn': !exists(json, 'contractEndsOn') ? undefined : (new Date(json['contractEndsOn'])),
+        'contractEndsOn': !exists(json, 'contractEndsOn') ? undefined : json['contractEndsOn'],
         'emailInfo': !exists(json, 'emailInfo') ? undefined : EmailInfoTypeFromJSON(json['emailInfo']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hotels': !exists(json, 'hotels') ? undefined : json['hotels'],
@@ -162,7 +162,7 @@ export function ChannelAccountSummaryTypeToJSON(value?: ChannelAccountSummaryTyp
         'accountDetails': ChannelAccountDetailsTypeToJSON(value.accountDetails),
         'addressInfo': AddressInfoTypeToJSON(value.addressInfo),
         'channelAccountIndicators': value.channelAccountIndicators === undefined ? undefined : ((value.channelAccountIndicators as Array<any>).map(IndicatorTypeToJSON)),
-        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0,10)),
+        'contractEndsOn': value.contractEndsOn,
         'emailInfo': EmailInfoTypeToJSON(value.emailInfo),
         'hotelId': value.hotelId,
         'hotels': value.hotels,

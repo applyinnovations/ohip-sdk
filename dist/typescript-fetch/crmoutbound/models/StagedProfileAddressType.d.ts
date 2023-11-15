@@ -31,10 +31,10 @@ export interface StagedProfileAddressType {
     errorDescription?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileAddressType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Postal code extension.
      * @type {string}

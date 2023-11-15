@@ -24,10 +24,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ResGuaranteeSearchType {
     /**
      * Arrival Date of the guest.
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuaranteeSearchType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      *
      * @type {BlockId}

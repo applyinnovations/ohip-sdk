@@ -1956,10 +1956,10 @@ class ResourceConfigApi extends runtime.BaseAPI {
                 queryParameters['webBookable'] = requestParameters.webBookable;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.fetchInstructions) {
                 queryParameters['fetchInstructions'] = requestParameters.fetchInstructions;
@@ -2163,7 +2163,7 @@ class ResourceConfigApi extends runtime.BaseAPI {
                 queryParameters['maxAttendees'] = requestParameters.maxAttendees;
             }
             if (requestParameters.sellDate !== undefined) {
-                queryParameters['sellDate'] = requestParameters.sellDate.toISOString().substring(0, 10);
+                queryParameters['sellDate'] = requestParameters.sellDate;
             }
             if (requestParameters.startDateTime !== undefined) {
                 queryParameters['startDateTime'] = requestParameters.startDateTime;
@@ -2256,7 +2256,7 @@ class ResourceConfigApi extends runtime.BaseAPI {
                 queryParameters['maxAttendees'] = requestParameters.maxAttendees;
             }
             if (requestParameters.sellDate !== undefined) {
-                queryParameters['sellDate'] = requestParameters.sellDate.toISOString().substring(0, 10);
+                queryParameters['sellDate'] = requestParameters.sellDate;
             }
             if (requestParameters.startDateTime !== undefined) {
                 queryParameters['startDateTime'] = requestParameters.startDateTime;
@@ -2397,10 +2397,10 @@ class ResourceConfigApi extends runtime.BaseAPI {
                 queryParameters['wednesday'] = requestParameters.wednesday;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -2475,7 +2475,7 @@ class ResourceConfigApi extends runtime.BaseAPI {
                 queryParameters['revenueTypeWildCard'] = requestParameters.revenueTypeWildCard;
             }
             if (requestParameters.eventDate !== undefined) {
-                queryParameters['eventDate'] = requestParameters.eventDate.toISOString().substring(0, 10);
+                queryParameters['eventDate'] = requestParameters.eventDate;
             }
             if (requestParameters.blockTypeCodes) {
                 queryParameters['blockTypeCodes'] = requestParameters.blockTypeCodes;

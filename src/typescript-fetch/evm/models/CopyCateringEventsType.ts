@@ -70,10 +70,10 @@ export interface CopyCateringEventsType {
     copyStatusMode?: CopyStatusModeType;
     /**
      * Specifies a single date.
-     * @type {Array<Date>}
+     * @type {Array<string>}
      * @memberof CopyCateringEventsType
      */
-    copyToDates?: Array<Date>;
+    copyToDates?: Array<string>;
     /**
      * 
      * @type {UniqueIDType}

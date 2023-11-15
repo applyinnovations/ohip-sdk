@@ -23,10 +23,10 @@ export interface RoomTypeSummaryType {
     accessible?: boolean;
     /**
      * Active date of the room type.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomTypeSummaryType
      */
-    activeDate?: Date;
+    activeDate?: string;
     /**
      * Indicates the room type is inactive or not.
      * @type {boolean}

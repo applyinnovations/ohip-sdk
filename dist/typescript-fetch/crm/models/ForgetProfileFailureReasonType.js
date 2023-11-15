@@ -32,7 +32,7 @@ function ForgetProfileFailureReasonTypeFromJSONTyped(json, ignoreDiscriminator) 
         return json;
     }
     return {
-        'expectedResolutionDate': !(0, runtime_1.exists)(json, 'expectedResolutionDate') ? undefined : (new Date(json['expectedResolutionDate'])),
+        'expectedResolutionDate': !(0, runtime_1.exists)(json, 'expectedResolutionDate') ? undefined : json['expectedResolutionDate'],
         'reasonCode': !(0, runtime_1.exists)(json, 'reasonCode') ? undefined : json['reasonCode'],
         'reasonDescription': !(0, runtime_1.exists)(json, 'reasonDescription') ? undefined : json['reasonDescription'],
     };
@@ -46,7 +46,7 @@ function ForgetProfileFailureReasonTypeToJSON(value) {
         return null;
     }
     return {
-        'expectedResolutionDate': value.expectedResolutionDate === undefined ? undefined : (value.expectedResolutionDate.toISOString().substring(0, 10)),
+        'expectedResolutionDate': value.expectedResolutionDate,
         'reasonCode': value.reasonCode,
         'reasonDescription': value.reasonDescription,
     };

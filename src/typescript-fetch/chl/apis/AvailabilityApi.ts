@@ -36,7 +36,7 @@ import {
 
 export interface GetChannelInventorySnapshotRequest {
     hotelId: string;
-    fromDate: Date;
+    fromDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -47,7 +47,7 @@ export interface GetChannelInventorySnapshotRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    endDate?: Date;
+    endDate?: string;
     duration?: string;
     bookingChannelCodes?: Array<string>;
     channelRoomTypes?: Array<string>;
@@ -60,7 +60,7 @@ export interface GetChannelInventorySnapshotByRoomTypeRequest {
     roomTypeCode: string;
     channelCode: string;
     hotelId: string;
-    fromDate: Date;
+    fromDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -71,7 +71,7 @@ export interface GetChannelInventorySnapshotByRoomTypeRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    endDate?: Date;
+    endDate?: string;
     duration?: string;
     snapshotLevel?: GetChannelInventorySnapshotByRoomTypeSnapshotLevelEnum;
     xExternalsystem?: string;
@@ -85,7 +85,7 @@ export interface GetGeneralAvailabilitySimulatorRequest {
     xHotelid?: string;
     limit?: number;
     bookingChannelCode?: string;
-    arrival?: Date;
+    arrival?: string;
     adults?: number;
     nights?: number;
     children?: number;
@@ -165,7 +165,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.friday !== undefined) {
@@ -197,7 +197,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -281,7 +281,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.friday !== undefined) {
@@ -313,7 +313,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -385,7 +385,7 @@ export class AvailabilityApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.arrival !== undefined) {
-            queryParameters['arrival'] = (requestParameters.arrival as any).toISOString().substring(0,10);
+            queryParameters['arrival'] = requestParameters.arrival;
         }
 
         if (requestParameters.adults !== undefined) {

@@ -29,10 +29,10 @@ export interface BlockAllocationRangeType {
     allocationType?: AllocationType;
     /**
      * Begin date for range update operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      *
      * @type {BlockId}
@@ -53,10 +53,10 @@ export interface BlockAllocationRangeType {
     blockRates?: BlockGridRatesType;
     /**
      * Date after which unused block rooms should be returned to house.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Number of days from block start date after which unused block rooms should be returned to house.
      * @type {number}
@@ -65,10 +65,10 @@ export interface BlockAllocationRangeType {
     cutoffDays?: number;
     /**
      * End date for range update operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if the Allocation objects refer to Generic Room Types (Room Pools).
      * @type {boolean}

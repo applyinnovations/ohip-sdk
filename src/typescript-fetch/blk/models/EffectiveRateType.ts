@@ -34,10 +34,10 @@ export interface EffectiveRateType {
     amountBeforeTax?: number;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof EffectiveRateType
      */
-    end?: Date;
+    end?: string;
     /**
      * Rate amount for each extra Child.
      * @type {number}
@@ -130,10 +130,10 @@ export interface EffectiveRateType {
     roomType?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof EffectiveRateType
      */
-    start?: Date;
+    start?: string;
     /**
      * Rate amount for three Children.
      * @type {number}
@@ -180,7 +180,7 @@ export function EffectiveRateTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'amountBeforeTax': !exists(json, 'amountBeforeTax') ? undefined : json['amountBeforeTax'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'extraChildRate': !exists(json, 'extraChildRate') ? undefined : json['extraChildRate'],
         'extraPersonRate': !exists(json, 'extraPersonRate') ? undefined : json['extraPersonRate'],
         'fivePersonRate': !exists(json, 'fivePersonRate') ? undefined : json['fivePersonRate'],
@@ -196,7 +196,7 @@ export function EffectiveRateTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'rateByAgeBuckets': !exists(json, 'rateByAgeBuckets') ? undefined : ((json['rateByAgeBuckets'] as Array<any>).map(RateByAgeBucketTypeFromJSON)),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'threeChildrenRate': !exists(json, 'threeChildrenRate') ? undefined : json['threeChildrenRate'],
         'threePersonRate': !exists(json, 'threePersonRate') ? undefined : json['threePersonRate'],
         'twoChildrenRate': !exists(json, 'twoChildrenRate') ? undefined : json['twoChildrenRate'],
@@ -214,7 +214,7 @@ export function EffectiveRateTypeToJSON(value?: EffectiveRateType | null): any {
     return {
         
         'amountBeforeTax': value.amountBeforeTax,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'extraChildRate': value.extraChildRate,
         'extraPersonRate': value.extraPersonRate,
         'fivePersonRate': value.fivePersonRate,
@@ -230,7 +230,7 @@ export function EffectiveRateTypeToJSON(value?: EffectiveRateType | null): any {
         'rateByAgeBuckets': value.rateByAgeBuckets === undefined ? undefined : ((value.rateByAgeBuckets as Array<any>).map(RateByAgeBucketTypeToJSON)),
         'ratePlanCode': value.ratePlanCode,
         'roomType': value.roomType,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'threeChildrenRate': value.threeChildrenRate,
         'threePersonRate': value.threePersonRate,
         'twoChildrenRate': value.twoChildrenRate,

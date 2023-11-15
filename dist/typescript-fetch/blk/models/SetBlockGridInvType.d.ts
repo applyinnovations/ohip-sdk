@@ -17,10 +17,10 @@
 export interface SetBlockGridInvType {
     /**
      * Indicates the cutoff date.Date when inventory left in the block will be cut-off.
-     * @type {Date}
+     * @type {string}
      * @memberof SetBlockGridInvType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Indicates whether to overbook the rooms in case there are not enough rooms at the house or room type level.
      * @type {boolean}

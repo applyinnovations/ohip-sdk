@@ -33,10 +33,10 @@ export interface RoomRatePriceInfoType {
     amountBeforeTax?: number;
     /**
      * Stay Date
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRatePriceInfoType
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 
 /**
@@ -60,7 +60,7 @@ export function RoomRatePriceInfoTypeFromJSONTyped(json: any, ignoreDiscriminato
         
         'amountAfterTax': !exists(json, 'amountAfterTax') ? undefined : json['amountAfterTax'],
         'amountBeforeTax': !exists(json, 'amountBeforeTax') ? undefined : json['amountBeforeTax'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 
@@ -75,7 +75,7 @@ export function RoomRatePriceInfoTypeToJSON(value?: RoomRatePriceInfoType | null
         
         'amountAfterTax': value.amountAfterTax,
         'amountBeforeTax': value.amountBeforeTax,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
     };
 }
 

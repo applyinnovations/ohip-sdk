@@ -17,10 +17,10 @@
 export interface IdentificationType {
     /**
      * Expiration date of Identification.
-     * @type {Date}
+     * @type {string}
      * @memberof IdentificationType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * Identification Number.
      * @type {string}
@@ -47,10 +47,10 @@ export interface IdentificationType {
     issuedCountry?: string;
     /**
      * Issued date of Identification.
-     * @type {Date}
+     * @type {string}
      * @memberof IdentificationType
      */
-    issuedDate?: Date;
+    issuedDate?: string;
     /**
      * The place where Identification was issued.
      * @type {string}

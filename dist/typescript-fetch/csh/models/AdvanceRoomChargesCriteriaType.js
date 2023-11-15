@@ -35,7 +35,7 @@ function AdvanceRoomChargesCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'cashierId': !(0, runtime_1.exists)(json, 'cashierId') ? undefined : json['cashierId'],
-        'endDateToCharge': !(0, runtime_1.exists)(json, 'endDateToCharge') ? undefined : (new Date(json['endDateToCharge'])),
+        'endDateToCharge': !(0, runtime_1.exists)(json, 'endDateToCharge') ? undefined : json['endDateToCharge'],
         'eventType': !(0, runtime_1.exists)(json, 'eventType') ? undefined : (0, CashieringEventType_1.CashieringEventTypeFromJSON)(json['eventType']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'postForEntireStay': !(0, runtime_1.exists)(json, 'postForEntireStay') ? undefined : json['postForEntireStay'],
@@ -53,7 +53,7 @@ function AdvanceRoomChargesCriteriaTypeToJSON(value) {
     }
     return {
         'cashierId': value.cashierId,
-        'endDateToCharge': value.endDateToCharge === undefined ? undefined : (value.endDateToCharge.toISOString().substring(0, 10)),
+        'endDateToCharge': value.endDateToCharge,
         'eventType': (0, CashieringEventType_1.CashieringEventTypeToJSON)(value.eventType),
         'hotelId': value.hotelId,
         'postForEntireStay': value.postForEntireStay,

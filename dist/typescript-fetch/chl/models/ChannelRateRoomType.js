@@ -33,12 +33,12 @@ function ChannelRateRoomTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'bookingChannelCode': !(0, runtime_1.exists)(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'channelRatePlanCode': !(0, runtime_1.exists)(json, 'channelRatePlanCode') ? undefined : json['channelRatePlanCode'],
         'channelRateRoomDetail': !(0, runtime_1.exists)(json, 'channelRateRoomDetail') ? undefined : (0, ChannelRateRoomDetailType_1.ChannelRateRoomDetailTypeFromJSON)(json['channelRateRoomDetail']),
         'channelRoomType': !(0, runtime_1.exists)(json, 'channelRoomType') ? undefined : json['channelRoomType'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
@@ -54,12 +54,12 @@ function ChannelRateRoomTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'bookingChannelCode': value.bookingChannelCode,
         'channelRatePlanCode': value.channelRatePlanCode,
         'channelRateRoomDetail': (0, ChannelRateRoomDetailType_1.ChannelRateRoomDetailTypeToJSON)(value.channelRateRoomDetail),
         'channelRoomType': value.channelRoomType,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'ratePlanCode': value.ratePlanCode,

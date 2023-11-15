@@ -208,8 +208,8 @@ export interface DeleteCompRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     creditLimit?: Array<number>;
     percentageLimit?: Array<number>;
     covers?: Array<number>;
@@ -238,8 +238,8 @@ export interface DeleteFolioRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     creditLimit?: Array<number>;
     percentageLimit?: Array<number>;
     covers?: Array<number>;
@@ -268,8 +268,8 @@ export interface DeleteRequestRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -290,8 +290,8 @@ export interface DeleteRoomRoutingInstructionsRequest {
     thursday?: boolean;
     friday?: boolean;
     saturday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     creditLimit?: Array<number>;
     percentageLimit?: Array<number>;
     covers?: Array<number>;
@@ -361,7 +361,7 @@ export interface GetAdvancePaymentBalanceRequest {
     xHotelid?: string;
     idContext?: string;
     type?: string;
-    fromDate?: Date;
+    fromDate?: string;
     numberOfNights?: number;
     eventType?: GetAdvancePaymentBalanceEventTypeEnum;
     xExternalsystem?: string;
@@ -399,8 +399,8 @@ export interface GetAuthorizersCreditInfoRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     code?: Array<string>;
     includeCreditDetails?: boolean;
@@ -446,7 +446,7 @@ export interface GetBalanceInfoRequest {
     policyIdIdContext?: string;
     policyIdType?: string;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioNo?: number;
     folioStatus?: GetBalanceInfoFolioStatusEnum;
     folioTypeName?: string;
@@ -461,7 +461,7 @@ export interface GetBatchCCSettlementsRequest {
     xAppKey?: string;
     xHotelid?: string;
     offlineSettlement?: boolean;
-    transactionDate?: Date;
+    transactionDate?: string;
     guestName?: string;
     roomId?: string;
     xExternalsystem?: string;
@@ -484,7 +484,7 @@ export interface GetBedTaxInfoRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    arrival?: Date;
+    arrival?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -532,7 +532,7 @@ export interface GetCCAuthorizationInstructionsRequest {
     cardOrToken?: GetCCAuthorizationInstructionsCardOrTokenEnum;
     storeToCreditCardWallet?: boolean;
     cardType?: GetCCAuthorizationInstructionsCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetCCAuthorizationInstructionsProcessingEnum;
@@ -565,7 +565,7 @@ export interface GetCCAuthorizationInstructionsRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -606,7 +606,7 @@ export interface GetCCAuthorizationInstructionsByProfileRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetCCAuthorizationInstructionsByProfileCardOrTokenEnum;
     cardType?: GetCCAuthorizationInstructionsByProfileCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetCCAuthorizationInstructionsByProfileProcessingEnum;
@@ -639,7 +639,7 @@ export interface GetCCAuthorizationInstructionsByProfileRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -670,7 +670,7 @@ export interface GetCCSurchargeInfoRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetCCSurchargeInfoCardOrTokenEnum;
     cardType?: GetCCSurchargeInfoCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetCCSurchargeInfoProcessingEnum;
@@ -701,7 +701,7 @@ export interface GetCCSurchargeInfoRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -734,7 +734,7 @@ export interface GetCashierClosureInfoRequest {
     shiftDropLocationCode?: string;
     bagNumberForOthers?: string;
     bagNumberForCash?: string;
-    closureBusinessDate?: Date;
+    closureBusinessDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -764,8 +764,8 @@ export interface GetCashierReportPostingsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     requestType?: GetCashierReportPostingsRequestTypeEnum;
     closureNo?: number;
@@ -803,8 +803,8 @@ export interface GetCompAccountingJournalRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     filterTransactionCode?: Array<string>;
     hotelId?: Array<string>;
@@ -827,8 +827,8 @@ export interface GetCompPostingJournalRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     filterTransactionCode?: Array<string>;
     filterRoomNumber?: Array<string>;
@@ -848,8 +848,8 @@ export interface GetCompRoutingInstructionsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     nameWildcard?: string;
     firstNameWildCard?: string;
     roomNumberCodes?: Array<string>;
@@ -946,8 +946,8 @@ export interface GetFinancialPostingsRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     cashierId?: number;
     filterTransactionCode?: Array<string>;
@@ -966,7 +966,7 @@ export interface GetFinancialPostingsRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetFinancialPostingsCardOrTokenEnum;
     cardType?: GetFinancialPostingsCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetFinancialPostingsProcessingEnum;
@@ -990,8 +990,8 @@ export interface GetFinancialPostingsNetVatRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
@@ -1039,10 +1039,10 @@ export interface GetFiscalSupportingDocumentsRequest {
     surname?: string;
     givenName?: string;
     confirmationNo?: string;
-    arrivalStartDate?: Date;
-    arrivalEndDate?: Date;
-    departureStartDate?: Date;
-    departureEndDate?: Date;
+    arrivalStartDate?: string;
+    arrivalEndDate?: string;
+    departureStartDate?: string;
+    departureEndDate?: string;
     roomId?: string;
     documentType?: Set<GetFiscalSupportingDocumentsDocumentTypeEnum>;
     documentNo?: string;
@@ -1076,11 +1076,11 @@ export interface GetFolioRequest {
     includeFolioHistory?: boolean;
     reservationBalanceOnly?: boolean;
     fetchInstructions?: Set<GetFolioFetchInstructionsEnum>;
-    end?: Array<Date>;
+    end?: Array<string>;
     folioWindowNo?: Array<number>;
     limit?: Array<number>;
     offset?: Array<number>;
-    start?: Array<Date>;
+    start?: Array<string>;
     summaryOnly?: boolean;
     groupType?: GetFolioGroupTypeEnum;
     exchangeCurrency?: string;
@@ -1109,7 +1109,7 @@ export interface GetFolioHistoryRequest {
     passerBy?: boolean;
     postIt?: boolean;
     videoCheckOut?: boolean;
-    folioDate?: Date;
+    folioDate?: string;
     reservationIdId?: string;
     reservationIdIdContext?: string;
     reservationIdType?: string;
@@ -1147,7 +1147,7 @@ export interface GetFolioPrintersRequest {
     associatedBillFolioType?: string;
     associatedBillQueueName?: string;
     associatedBillFiscalBillNumber?: string;
-    associatedBillGenerationDate?: Date;
+    associatedBillGenerationDate?: string;
     folioType?: string;
     generateFiscalFolio?: boolean;
     queueName?: string;
@@ -1178,7 +1178,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetFolioTaxPaymentsInfoCardOrTokenEnum;
     cardType?: GetFolioTaxPaymentsInfoCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetFolioTaxPaymentsInfoProcessingEnum;
@@ -1209,7 +1209,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     approvalCode?: string;
@@ -1225,7 +1225,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     applyCCSurcharge?: boolean;
     manualPaymentTaxInfoFolioWindowNo?: number;
     transactionCode?: string;
-    transactionDate?: Date;
+    transactionDate?: string;
     transactionDescription?: string;
     transactionNo?: number;
     taxInvoiceNo?: string;
@@ -1238,10 +1238,10 @@ export interface GetFolioTaxPaymentsInfoRequest {
     nonTaxableAmountCurrencyCode?: string;
     availableCreditAmount?: number;
     availableCreditCurrencyCode?: string;
-    paymentDate?: Date;
+    paymentDate?: string;
     taxFolioWindowNo?: Array<number>;
     taxTransactionCode?: Array<string>;
-    taxTransactionDate?: Array<Date>;
+    taxTransactionDate?: Array<string>;
     taxTransactionDescription?: Array<string>;
     taxTransactionNo?: Array<number>;
     taxTaxInvoiceNo?: Array<string>;
@@ -1254,7 +1254,7 @@ export interface GetFolioTaxPaymentsInfoRequest {
     creditablePaymentNonTaxableCurrencyCode?: string;
     availableTaxCreditAmount?: number;
     availableTaxCreditCurrencyCode?: string;
-    taxPaymentDate?: Array<Date>;
+    taxPaymentDate?: Array<string>;
     terminalId?: string;
     overrideInsufficientCC?: boolean;
     changeDueAmount?: number;
@@ -1340,8 +1340,8 @@ export interface GetGuestsTransactionsRequest {
     supplementWildCard?: string;
     windowNo?: Array<number>;
     cashieringTransactionType?: Set<GetGuestsTransactionsCashieringTransactionTypeEnum>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     cashierId?: number;
     code?: Array<string>;
     commissionable?: boolean;
@@ -1364,7 +1364,7 @@ export interface GetHotelRevenueRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    businessDate?: Date;
+    businessDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1434,7 +1434,7 @@ export interface GetPostingSummaryRequest {
     xAppKey?: string;
     xHotelid?: string;
     includeGenerates?: boolean;
-    postingDate?: Date;
+    postingDate?: string;
     checkPostings?: boolean;
     postingsByExternalSystem?: boolean;
     cashierId?: number;
@@ -1462,8 +1462,8 @@ export interface GetPostingsForRefreshRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     transactionHotelId?: Array<string>;
     printTrxReceipt?: Array<boolean>;
     transactionCode?: Array<string>;
@@ -1502,8 +1502,8 @@ export interface GetReceiptHistoryRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     name?: string;
     firstName?: string;
     receiptTypeName?: string;
@@ -1556,7 +1556,7 @@ export interface GetRoundingDifferenceRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetRoundingDifferenceCardOrTokenEnum;
     cardType?: GetRoundingDifferenceCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetRoundingDifferenceProcessingEnum;
@@ -1583,7 +1583,7 @@ export interface GetRoundingDifferenceRequest {
     lastModifyDateTime?: string;
     orderSequence?: number;
     primaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     emailType?: string;
     typeDescription?: string;
     xExternalsystem?: string;
@@ -1600,7 +1600,7 @@ export interface GetRoutingInstructionsRequest {
     includeRoomRouting?: boolean;
     includeCompRouting?: boolean;
     includeCompRoutingRequests?: boolean;
-    effectiveOn?: Date;
+    effectiveOn?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1611,7 +1611,7 @@ export interface GetStoredFolioDetailsRequest {
     xAppKey?: string;
     xHotelid?: string;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioStatus?: GetStoredFolioDetailsFolioStatusEnum;
     folioTypeName?: string;
     internalFolioWindowID?: string;
@@ -1632,7 +1632,7 @@ export interface GetTransactionCodesRequest {
     description?: string;
     wildCard?: string;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioNo?: number;
     folioStatus?: GetTransactionCodesFolioStatusEnum;
     folioTypeName?: string;
@@ -2448,7 +2448,7 @@ export interface ValidateTransactionCodesRequest {
     xHotelid?: string;
     event?: ValidateTransactionCodesEventEnum;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioNo?: number;
     folioStatus?: ValidateTransactionCodesFolioStatusEnum;
     folioTypeName?: string;
@@ -2479,7 +2479,7 @@ export interface VoidBillingCheckChargesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    revenueDate?: Date;
+    revenueDate?: string;
     amount?: number;
     currencyCode?: string;
     reservationId?: string;

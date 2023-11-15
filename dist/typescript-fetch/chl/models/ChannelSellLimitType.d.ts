@@ -23,10 +23,10 @@ export interface ChannelSellLimitType {
     bookingChannelCode?: string;
     /**
      * Date on which this sell limit is applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelSellLimitType
      */
-    date?: Date;
+    date?: string;
     /**
      * Number of rooms that can be sold for this particular sell limit date.
      * @type {number}

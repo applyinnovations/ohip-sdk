@@ -94,10 +94,10 @@ export interface ARReminderType {
     lastCycle?: number;
     /**
      * The date of the Last Reminder Sent.
-     * @type {Date}
+     * @type {string}
      * @memberof ARReminderType
      */
-    lastReminderSent?: Date;
+    lastReminderSent?: string;
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
      * @type {string}
@@ -146,7 +146,7 @@ export function ARReminderTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'invoices': !exists(json, 'invoices') ? undefined : ((json['invoices'] as Array<any>).map(ARInvoiceTypeFromJSON)),
         'isHistoryExists': !exists(json, 'isHistoryExists') ? undefined : json['isHistoryExists'],
         'lastCycle': !exists(json, 'lastCycle') ? undefined : json['lastCycle'],
-        'lastReminderSent': !exists(json, 'lastReminderSent') ? undefined : (new Date(json['lastReminderSent'])),
+        'lastReminderSent': !exists(json, 'lastReminderSent') ? undefined : json['lastReminderSent'],
         'letterName': !exists(json, 'letterName') ? undefined : json['letterName'],
         'maxAge': !exists(json, 'maxAge') ? undefined : json['maxAge'],
         'reportFileName': !exists(json, 'reportFileName') ? undefined : json['reportFileName'],
@@ -171,7 +171,7 @@ export function ARReminderTypeToJSON(value?: ARReminderType | null): any {
         'invoices': value.invoices === undefined ? undefined : ((value.invoices as Array<any>).map(ARInvoiceTypeToJSON)),
         'isHistoryExists': value.isHistoryExists,
         'lastCycle': value.lastCycle,
-        'lastReminderSent': value.lastReminderSent === undefined ? undefined : (value.lastReminderSent.toISOString().substring(0,10)),
+        'lastReminderSent': value.lastReminderSent,
         'letterName': value.letterName,
         'maxAge': value.maxAge,
         'reportFileName': value.reportFileName,

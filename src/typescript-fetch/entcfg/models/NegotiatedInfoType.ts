@@ -33,10 +33,10 @@ export interface NegotiatedInfoType {
     corporateAgreementId?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    end?: Date;
+    end?: string;
     /**
      * Negotiated Rate is inactive or not
      * @type {boolean}
@@ -51,10 +51,10 @@ export interface NegotiatedInfoType {
     order?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -78,10 +78,10 @@ export function NegotiatedInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'comissionCode': !exists(json, 'comissionCode') ? undefined : json['comissionCode'],
         'corporateAgreementId': !exists(json, 'corporateAgreementId') ? undefined : json['corporateAgreementId'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'order': !exists(json, 'order') ? undefined : json['order'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -96,10 +96,10 @@ export function NegotiatedInfoTypeToJSON(value?: NegotiatedInfoType | null): any
         
         'comissionCode': value.comissionCode,
         'corporateAgreementId': value.corporateAgreementId,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'inactive': value.inactive,
         'order': value.order,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

@@ -27,10 +27,10 @@ export interface HouseSellLimitType {
     amount?: number;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof HouseSellLimitType
      */
-    date?: Date;
+    date?: string;
     /**
      * Indicates if sell limit is flat or percentage.
      * @type {string}
@@ -70,7 +70,7 @@ export function HouseSellLimitTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'amount': !exists(json, 'amount') ? undefined : json['amount'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'flatOrPercentage': !exists(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
     };
 }
@@ -85,7 +85,7 @@ export function HouseSellLimitTypeToJSON(value?: HouseSellLimitType | null): any
     return {
         
         'amount': value.amount,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'flatOrPercentage': value.flatOrPercentage,
     };
 }

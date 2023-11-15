@@ -35,7 +35,7 @@ function CateringEventsProcessedInfoTypeFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
-        'eventDate': !(0, runtime_1.exists)(json, 'eventDate') ? undefined : (new Date(json['eventDate'])),
+        'eventDate': !(0, runtime_1.exists)(json, 'eventDate') ? undefined : json['eventDate'],
         'eventName': !(0, runtime_1.exists)(json, 'eventName') ? undefined : json['eventName'],
         'eventType': !(0, runtime_1.exists)(json, 'eventType') ? undefined : json['eventType'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -56,7 +56,7 @@ function CateringEventsProcessedInfoTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substring(0, 10)),
+        'eventDate': value.eventDate,
         'eventName': value.eventName,
         'eventType': value.eventType,
         'hotelId': value.hotelId,

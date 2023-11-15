@@ -33,7 +33,7 @@ function ItemQuantityDateTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'dailyQuantity': !(0, runtime_1.exists)(json, 'dailyQuantity') ? undefined : json['dailyQuantity'],
-        'quantityDate': !(0, runtime_1.exists)(json, 'quantityDate') ? undefined : (new Date(json['quantityDate'])),
+        'quantityDate': !(0, runtime_1.exists)(json, 'quantityDate') ? undefined : json['quantityDate'],
     };
 }
 exports.ItemQuantityDateTypeFromJSONTyped = ItemQuantityDateTypeFromJSONTyped;
@@ -46,7 +46,7 @@ function ItemQuantityDateTypeToJSON(value) {
     }
     return {
         'dailyQuantity': value.dailyQuantity,
-        'quantityDate': value.quantityDate === undefined ? undefined : (value.quantityDate.toISOString().substring(0, 10)),
+        'quantityDate': value.quantityDate,
     };
 }
 exports.ItemQuantityDateTypeToJSON = ItemQuantityDateTypeToJSON;

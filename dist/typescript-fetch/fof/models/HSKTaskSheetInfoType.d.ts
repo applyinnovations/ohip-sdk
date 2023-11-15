@@ -45,10 +45,10 @@ export interface HSKTaskSheetInfoType {
     roomSummary?: Array<HSKTaskSheetInfoTypeRoomSummaryInner>;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof HSKTaskSheetInfoType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      *
      * @type {number}

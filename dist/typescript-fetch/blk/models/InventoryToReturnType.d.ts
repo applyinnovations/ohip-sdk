@@ -25,10 +25,10 @@ export interface InventoryToReturnType {
     blockId?: BlockId;
     /**
      * The date on which rooms need to be returned for the block either to another room type in the block or to House if the borrowed room was from House.
-     * @type {Date}
+     * @type {string}
      * @memberof InventoryToReturnType
      */
-    returnDate?: Date;
+    returnDate?: string;
     /**
      * Specifies the collection of number of rooms to be returned to room types or House.
      * @type {Array<ReturnRoomType>}

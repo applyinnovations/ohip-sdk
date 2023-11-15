@@ -33,10 +33,10 @@ export interface StayDetailTypeCancellationInfo {
     code?: string;
     /**
      * Date when reservation was last cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailTypeCancellationInfo
      */
-    date?: Date;
+    date?: string;
 }
 
 /**
@@ -60,7 +60,7 @@ export function StayDetailTypeCancellationInfoFromJSONTyped(json: any, ignoreDis
         
         'description': !exists(json, 'description') ? undefined : json['description'],
         'code': !exists(json, 'code') ? undefined : json['code'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
     };
 }
 
@@ -75,7 +75,7 @@ export function StayDetailTypeCancellationInfoToJSON(value?: StayDetailTypeCance
         
         'description': value.description,
         'code': value.code,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
     };
 }
 

@@ -46,10 +46,10 @@ export interface StatisticSetType {
     revenue?: Array<RevenueCategorySummaryType>;
     /**
      * Date of the statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticSetType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
     /**
      * Determines whether statistic date is a weekend date.
      * @type {boolean}
@@ -79,7 +79,7 @@ export function StatisticSetTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'inventory': !exists(json, 'inventory') ? undefined : ((json['inventory'] as Array<any>).map(NumericCategorySummaryTypeFromJSON)),
         'revenue': !exists(json, 'revenue') ? undefined : ((json['revenue'] as Array<any>).map(RevenueCategorySummaryTypeFromJSON)),
-        'statisticDate': !exists(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !exists(json, 'statisticDate') ? undefined : json['statisticDate'],
         'weekendDate': !exists(json, 'weekendDate') ? undefined : json['weekendDate'],
     };
 }
@@ -95,7 +95,7 @@ export function StatisticSetTypeToJSON(value?: StatisticSetType | null): any {
         
         'inventory': value.inventory === undefined ? undefined : ((value.inventory as Array<any>).map(NumericCategorySummaryTypeToJSON)),
         'revenue': value.revenue === undefined ? undefined : ((value.revenue as Array<any>).map(RevenueCategorySummaryTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
+        'statisticDate': value.statisticDate,
         'weekendDate': value.weekendDate,
     };
 }

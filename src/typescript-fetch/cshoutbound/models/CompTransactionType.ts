@@ -82,10 +82,10 @@ export interface CompTransactionType {
     membershipType?: string;
     /**
      * Approval date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CompTransactionType
      */
-    approvalDate?: Date;
+    approvalDate?: string;
     /**
      * Approval status of the posting.
      * @type {string}
@@ -178,10 +178,10 @@ export interface CompTransactionType {
     transactionStatus?: string;
     /**
      * Transaction date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CompTransactionType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * User name.
      * @type {string}
@@ -229,7 +229,7 @@ export function CompTransactionTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'firstName': !exists(json, 'firstName') ? undefined : json['firstName'],
         'membershipId': !exists(json, 'membershipId') ? undefined : json['membershipId'],
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
-        'approvalDate': !exists(json, 'approvalDate') ? undefined : (new Date(json['approvalDate'])),
+        'approvalDate': !exists(json, 'approvalDate') ? undefined : json['approvalDate'],
         'approvalStatus': !exists(json, 'approvalStatus') ? undefined : json['approvalStatus'],
         'approvalCode': !exists(json, 'approvalCode') ? undefined : json['approvalCode'],
         'authorizerId': !exists(json, 'authorizerId') ? undefined : UniqueIDTypeFromJSON(json['authorizerId']),
@@ -245,7 +245,7 @@ export function CompTransactionTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
         'transactionDescription': !exists(json, 'transactionDescription') ? undefined : json['transactionDescription'],
         'transactionStatus': !exists(json, 'transactionStatus') ? undefined : json['transactionStatus'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'userName': !exists(json, 'userName') ? undefined : json['userName'],
         'externalUserId': !exists(json, 'externalUserId') ? undefined : UniqueIDTypeFromJSON(json['externalUserId']),
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
@@ -269,7 +269,7 @@ export function CompTransactionTypeToJSON(value?: CompTransactionType | null): a
         'firstName': value.firstName,
         'membershipId': value.membershipId,
         'membershipType': value.membershipType,
-        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substring(0,10)),
+        'approvalDate': value.approvalDate,
         'approvalStatus': value.approvalStatus,
         'approvalCode': value.approvalCode,
         'authorizerId': UniqueIDTypeToJSON(value.authorizerId),
@@ -285,7 +285,7 @@ export function CompTransactionTypeToJSON(value?: CompTransactionType | null): a
         'transactionCode': value.transactionCode,
         'transactionDescription': value.transactionDescription,
         'transactionStatus': value.transactionStatus,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'userName': value.userName,
         'externalUserId': UniqueIDTypeToJSON(value.externalUserId),
         'cashierId': value.cashierId,

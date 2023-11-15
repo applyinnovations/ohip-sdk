@@ -19,10 +19,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ChannelAccountContractInformationType {
     /**
      * Holds begin date of the contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractInformationType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Channel account contract elements information object to hold details of contract elements.
      * @type {Array<ContractElementInformationType>}
@@ -43,10 +43,10 @@ export interface ChannelAccountContractInformationType {
     contractNo?: string;
     /**
      * Holds end date of the contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractInformationType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Flag to mark respective statements which were generated on these contracts to be regenerated.
      * @type {boolean}

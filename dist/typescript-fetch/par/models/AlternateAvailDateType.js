@@ -34,7 +34,7 @@ function AlternateAvailDateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'rateAmount': !(0, runtime_1.exists)(json, 'rateAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['rateAmount']),
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, AvailabilityStatusType_1.AvailabilityStatusTypeFromJSON)(json['status']),
     };
@@ -48,7 +48,7 @@ function AlternateAvailDateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'rateAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.rateAmount),
         'status': (0, AvailabilityStatusType_1.AvailabilityStatusTypeToJSON)(value.status),
     };

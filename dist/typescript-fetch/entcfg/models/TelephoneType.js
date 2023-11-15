@@ -43,7 +43,7 @@ function TelephoneTypeFromJSONTyped(json, ignoreDiscriminator) {
         'phoneUseType': !(0, runtime_1.exists)(json, 'phoneUseType') ? undefined : json['phoneUseType'],
         'phoneUseTypeDescription': !(0, runtime_1.exists)(json, 'phoneUseTypeDescription') ? undefined : json['phoneUseTypeDescription'],
         'primaryInd': !(0, runtime_1.exists)(json, 'primaryInd') ? undefined : json['primaryInd'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
     };
 }
 exports.TelephoneTypeFromJSONTyped = TelephoneTypeFromJSONTyped;
@@ -66,7 +66,7 @@ function TelephoneTypeToJSON(value) {
         'phoneUseType': value.phoneUseType,
         'phoneUseTypeDescription': value.phoneUseTypeDescription,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
     };
 }
 exports.TelephoneTypeToJSON = TelephoneTypeToJSON;

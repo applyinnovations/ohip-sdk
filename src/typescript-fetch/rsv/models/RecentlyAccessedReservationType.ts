@@ -40,10 +40,10 @@ import {
 export interface RecentlyAccessedReservationType {
     /**
      * The date the record was accessed.
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedReservationType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Given name, first name or names
      * @type {string}
@@ -107,7 +107,7 @@ export function RecentlyAccessedReservationTypeFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'accessDate': !exists(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !exists(json, 'accessDate') ? undefined : json['accessDate'],
         'guestFirstName': !exists(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !exists(json, 'guestLastName') ? undefined : json['guestLastName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -127,7 +127,7 @@ export function RecentlyAccessedReservationTypeToJSON(value?: RecentlyAccessedRe
     }
     return {
         
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
+        'accessDate': value.accessDate,
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'hotelId': value.hotelId,

@@ -58,10 +58,10 @@ export interface DailyRateDetailType {
     discountAllowed?: boolean;
     /**
      * The date of the reservation stay. If the same details need to be applied to a date range of the stay, then the Start Date and End Date would specify the range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateDetailType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if the rate is fixed and could be different from the default rate amount of the rate code.
      * @type {boolean}
@@ -124,10 +124,10 @@ export interface DailyRateDetailType {
     sourceCode?: string;
     /**
      * The date of the reservation stay.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateDetailType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -152,7 +152,7 @@ export function DailyRateDetailTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'changeAllSharers': !exists(json, 'changeAllSharers') ? undefined : json['changeAllSharers'],
         'commissionCode': !exists(json, 'commissionCode') ? undefined : json['commissionCode'],
         'discountAllowed': !exists(json, 'discountAllowed') ? undefined : json['discountAllowed'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'fixedRate': !exists(json, 'fixedRate') ? undefined : json['fixedRate'],
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
@@ -163,7 +163,7 @@ export function DailyRateDetailTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
         'roomTypeToCharge': !exists(json, 'roomTypeToCharge') ? undefined : json['roomTypeToCharge'],
         'sourceCode': !exists(json, 'sourceCode') ? undefined : json['sourceCode'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -179,7 +179,7 @@ export function DailyRateDetailTypeToJSON(value?: DailyRateDetailType | null): a
         'changeAllSharers': value.changeAllSharers,
         'commissionCode': value.commissionCode,
         'discountAllowed': value.discountAllowed,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'fixedRate': value.fixedRate,
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),
         'marketCode': value.marketCode,
@@ -190,7 +190,7 @@ export function DailyRateDetailTypeToJSON(value?: DailyRateDetailType | null): a
         'roomType': value.roomType,
         'roomTypeToCharge': value.roomTypeToCharge,
         'sourceCode': value.sourceCode,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

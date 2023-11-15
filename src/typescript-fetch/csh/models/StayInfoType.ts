@@ -82,10 +82,10 @@ export interface StayInfoType {
     adultCount?: number;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Represents the room was assigned by AI Room Assignment.
      * @type {boolean}
@@ -124,10 +124,10 @@ export interface StayInfoType {
     componentRoomType?: boolean;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -268,10 +268,10 @@ export interface StayInfoType {
     roomTypeCharged?: string;
     /**
      * Indicates that this reservation is scheduled for automated check out.
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    scheduledCheckoutTime?: Date;
+    scheduledCheckoutTime?: string;
     /**
      * Source of business
      * @type {string}
@@ -318,14 +318,14 @@ export function StayInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'adultCount': !exists(json, 'adultCount') ? undefined : json['adultCount'],
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'assignedByAI': !exists(json, 'assignedByAI') ? undefined : json['assignedByAI'],
         'balance': !exists(json, 'balance') ? undefined : CurrencyAmountTypeFromJSON(json['balance']),
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'childCount': !exists(json, 'childCount') ? undefined : json['childCount'],
         'compBalance': !exists(json, 'compBalance') ? undefined : CurrencyAmountTypeFromJSON(json['compBalance']),
         'componentRoomType': !exists(json, 'componentRoomType') ? undefined : json['componentRoomType'],
-        'departureDate': !exists(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
         'depositPayments': !exists(json, 'depositPayments') ? undefined : CurrencyAmountTypeFromJSON(json['depositPayments']),
         'expectedTimes': !exists(json, 'expectedTimes') ? undefined : ResExpectedTimesTypeFromJSON(json['expectedTimes']),
         'fixedRate': !exists(json, 'fixedRate') ? undefined : json['fixedRate'],
@@ -349,7 +349,7 @@ export function StayInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'roomOwnershipType': !exists(json, 'roomOwnershipType') ? undefined : ReservationRoomOwnershipTypeFromJSON(json['roomOwnershipType']),
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
         'roomTypeCharged': !exists(json, 'roomTypeCharged') ? undefined : json['roomTypeCharged'],
-        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : (new Date(json['scheduledCheckoutTime'])),
+        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : json['scheduledCheckoutTime'],
         'sourceCode': !exists(json, 'sourceCode') ? undefined : json['sourceCode'],
         'sourceCodeDescription': !exists(json, 'sourceCodeDescription') ? undefined : json['sourceCodeDescription'],
         'totalAmount': !exists(json, 'totalAmount') ? undefined : CurrencyAmountTypeFromJSON(json['totalAmount']),
@@ -367,14 +367,14 @@ export function StayInfoTypeToJSON(value?: StayInfoType | null): any {
     return {
         
         'adultCount': value.adultCount,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'assignedByAI': value.assignedByAI,
         'balance': CurrencyAmountTypeToJSON(value.balance),
         'bookingChannelCode': value.bookingChannelCode,
         'childCount': value.childCount,
         'compBalance': CurrencyAmountTypeToJSON(value.compBalance),
         'componentRoomType': value.componentRoomType,
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
+        'departureDate': value.departureDate,
         'depositPayments': CurrencyAmountTypeToJSON(value.depositPayments),
         'expectedTimes': ResExpectedTimesTypeToJSON(value.expectedTimes),
         'fixedRate': value.fixedRate,
@@ -398,7 +398,7 @@ export function StayInfoTypeToJSON(value?: StayInfoType | null): any {
         'roomOwnershipType': ReservationRoomOwnershipTypeToJSON(value.roomOwnershipType),
         'roomType': value.roomType,
         'roomTypeCharged': value.roomTypeCharged,
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0,10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime,
         'sourceCode': value.sourceCode,
         'sourceCodeDescription': value.sourceCodeDescription,
         'totalAmount': CurrencyAmountTypeToJSON(value.totalAmount),

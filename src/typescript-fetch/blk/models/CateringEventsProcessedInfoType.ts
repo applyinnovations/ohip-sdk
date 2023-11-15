@@ -40,10 +40,10 @@ export interface CateringEventsProcessedInfoType {
     blockId?: BlockId;
     /**
      * Date of the event
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventsProcessedInfoType
      */
-    eventDate?: Date;
+    eventDate?: string;
     /**
      * Name of event.
      * @type {string}
@@ -114,7 +114,7 @@ export function CateringEventsProcessedInfoTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'eventDate': !exists(json, 'eventDate') ? undefined : (new Date(json['eventDate'])),
+        'eventDate': !exists(json, 'eventDate') ? undefined : json['eventDate'],
         'eventName': !exists(json, 'eventName') ? undefined : json['eventName'],
         'eventType': !exists(json, 'eventType') ? undefined : json['eventType'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -136,7 +136,7 @@ export function CateringEventsProcessedInfoTypeToJSON(value?: CateringEventsProc
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substring(0,10)),
+        'eventDate': value.eventDate,
         'eventName': value.eventName,
         'eventType': value.eventType,
         'hotelId': value.hotelId,

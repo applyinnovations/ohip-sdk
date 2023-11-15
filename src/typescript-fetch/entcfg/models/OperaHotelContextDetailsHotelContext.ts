@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface OperaHotelContextDetailsHotelContext {
     /**
      * The hotel's business date.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaHotelContextDetailsHotelContext
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * Catering Currency Code, used when Catering Currency differs from base currency.
      * @type {string}
@@ -39,16 +39,16 @@ export interface OperaHotelContextDetailsHotelContext {
     chainCode?: string;
     /**
      * The hotel's check-in time.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaHotelContextDetailsHotelContext
      */
-    checkInTime?: Date;
+    checkInTime?: string;
     /**
      * The hotel's check-out time.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaHotelContextDetailsHotelContext
      */
-    checkOutTime?: Date;
+    checkOutTime?: string;
     /**
      * The hotel's configuration mode if applicable.
      * @type {string}
@@ -118,11 +118,11 @@ export function OperaHotelContextDetailsHotelContextFromJSONTyped(json: any, ign
     }
     return {
         
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'cateringCurrencyCode': !exists(json, 'cateringCurrencyCode') ? undefined : json['cateringCurrencyCode'],
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
-        'checkInTime': !exists(json, 'checkInTime') ? undefined : (new Date(json['checkInTime'])),
-        'checkOutTime': !exists(json, 'checkOutTime') ? undefined : (new Date(json['checkOutTime'])),
+        'checkInTime': !exists(json, 'checkInTime') ? undefined : json['checkInTime'],
+        'checkOutTime': !exists(json, 'checkOutTime') ? undefined : json['checkOutTime'],
         'configurationMode': !exists(json, 'configurationMode') ? undefined : json['configurationMode'],
         'countryMode': !exists(json, 'countryMode') ? undefined : json['countryMode'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
@@ -143,11 +143,11 @@ export function OperaHotelContextDetailsHotelContextToJSON(value?: OperaHotelCon
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'cateringCurrencyCode': value.cateringCurrencyCode,
         'chainCode': value.chainCode,
-        'checkInTime': value.checkInTime === undefined ? undefined : (value.checkInTime.toISOString().substring(0,10)),
-        'checkOutTime': value.checkOutTime === undefined ? undefined : (value.checkOutTime.toISOString().substring(0,10)),
+        'checkInTime': value.checkInTime,
+        'checkOutTime': value.checkOutTime,
         'configurationMode': value.configurationMode,
         'countryMode': value.countryMode,
         'currencyCode': value.currencyCode,

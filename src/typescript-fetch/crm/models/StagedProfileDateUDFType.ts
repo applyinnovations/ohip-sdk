@@ -63,10 +63,10 @@ export interface StagedProfileDateUDFType {
     valid?: boolean;
     /**
      * Value of user defined field.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileDateUDFType
      */
-    value?: Date;
+    value?: string;
 }
 
 /**
@@ -95,7 +95,7 @@ export function StagedProfileDateUDFTypeFromJSONTyped(json: any, ignoreDiscrimin
         'tableName': !exists(json, 'tableName') ? undefined : json['tableName'],
         'type': !exists(json, 'type') ? undefined : json['type'],
         'valid': !exists(json, 'valid') ? undefined : json['valid'],
-        'value': !exists(json, 'value') ? undefined : (new Date(json['value'])),
+        'value': !exists(json, 'value') ? undefined : json['value'],
     };
 }
 
@@ -115,7 +115,7 @@ export function StagedProfileDateUDFTypeToJSON(value?: StagedProfileDateUDFType 
         'tableName': value.tableName,
         'type': value.type,
         'valid': value.valid,
-        'value': value.value === undefined ? undefined : (value.value.toISOString().substring(0,10)),
+        'value': value.value,
     };
 }
 

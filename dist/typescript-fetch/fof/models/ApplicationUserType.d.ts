@@ -76,16 +76,16 @@ export interface ApplicationUserType {
     departmentLocation?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ApplicationUserType
      */
-    disabledUntil?: Date;
+    disabledUntil?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ApplicationUserType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      *
      * @type {CodeDescriptionType}
@@ -100,10 +100,10 @@ export interface ApplicationUserType {
     lDAPUser?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ApplicationUserType
      */
-    passwordChangeDate?: Date;
+    passwordChangeDate?: string;
     /**
      *
      * @type {string}

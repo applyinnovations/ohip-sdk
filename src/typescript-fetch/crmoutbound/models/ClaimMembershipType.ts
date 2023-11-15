@@ -57,16 +57,16 @@ export interface ClaimMembershipType {
     membershipLevel?: string;
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -100,8 +100,8 @@ export function ClaimMembershipTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'membershipIdNo': !exists(json, 'membershipIdNo') ? undefined : json['membershipIdNo'],
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
-        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : (new Date(json['effectiveDate'])),
-        'expireDate': !exists(json, 'expireDate') ? undefined : (new Date(json['expireDate'])),
+        'effectiveDate': !exists(json, 'effectiveDate') ? undefined : json['effectiveDate'],
+        'expireDate': !exists(json, 'expireDate') ? undefined : json['expireDate'],
         'expireDateExclusiveIndicator': !exists(json, 'expireDateExclusiveIndicator') ? undefined : json['expireDateExclusiveIndicator'],
     };
 }
@@ -121,8 +121,8 @@ export function ClaimMembershipTypeToJSON(value?: ClaimMembershipType | null): a
         'membershipIdNo': value.membershipIdNo,
         'membershipType': value.membershipType,
         'membershipLevel': value.membershipLevel,
-        'effectiveDate': value.effectiveDate === undefined ? undefined : (value.effectiveDate.toISOString().substring(0,10)),
-        'expireDate': value.expireDate === undefined ? undefined : (value.expireDate.toISOString().substring(0,10)),
+        'effectiveDate': value.effectiveDate,
+        'expireDate': value.expireDate,
         'expireDateExclusiveIndicator': value.expireDateExclusiveIndicator,
     };
 }

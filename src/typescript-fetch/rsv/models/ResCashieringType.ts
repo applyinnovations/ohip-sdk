@@ -88,10 +88,10 @@ export interface ResCashieringType {
     folioTexts?: Array<FolioTextsTypeInner>;
     /**
      * Date of the last Room And Tax posting. Used primarily to know the date in case of Advance Billing.
-     * @type {Date}
+     * @type {string}
      * @memberof ResCashieringType
      */
-    lastRoomAndTaxPostedDate?: Date;
+    lastRoomAndTaxPostedDate?: string;
     /**
      * 
      * @type {ResPreConfiguredRoutingInstrType}
@@ -153,7 +153,7 @@ export function ResCashieringTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'billingPrivileges': !exists(json, 'billingPrivileges') ? undefined : BillingPrivilegesTypeFromJSON(json['billingPrivileges']),
         'compAccounting': !exists(json, 'compAccounting') ? undefined : ResCompAccountingTypeFromJSON(json['compAccounting']),
         'folioTexts': !exists(json, 'folioTexts') ? undefined : ((json['folioTexts'] as Array<any>).map(FolioTextsTypeInnerFromJSON)),
-        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
+        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : json['lastRoomAndTaxPostedDate'],
         'reservationPreConfiguredRoutingInstruction': !exists(json, 'reservationPreConfiguredRoutingInstruction') ? undefined : ResPreConfiguredRoutingInstrTypeFromJSON(json['reservationPreConfiguredRoutingInstruction']),
         'revenuesAndBalances': !exists(json, 'revenuesAndBalances') ? undefined : ResRevenueBalanceTypeFromJSON(json['revenuesAndBalances']),
         'reverseAdvanceCheckInAllowed': !exists(json, 'reverseAdvanceCheckInAllowed') ? undefined : json['reverseAdvanceCheckInAllowed'],
@@ -176,7 +176,7 @@ export function ResCashieringTypeToJSON(value?: ResCashieringType | null): any {
         'billingPrivileges': BillingPrivilegesTypeToJSON(value.billingPrivileges),
         'compAccounting': ResCompAccountingTypeToJSON(value.compAccounting),
         'folioTexts': value.folioTexts === undefined ? undefined : ((value.folioTexts as Array<any>).map(FolioTextsTypeInnerToJSON)),
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0,10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate,
         'reservationPreConfiguredRoutingInstruction': ResPreConfiguredRoutingInstrTypeToJSON(value.reservationPreConfiguredRoutingInstruction),
         'revenuesAndBalances': ResRevenueBalanceTypeToJSON(value.revenuesAndBalances),
         'reverseAdvanceCheckInAllowed': value.reverseAdvanceCheckInAllowed,

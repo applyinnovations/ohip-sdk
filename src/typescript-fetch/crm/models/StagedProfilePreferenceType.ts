@@ -63,10 +63,10 @@ export interface StagedProfilePreferenceType {
     id?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfilePreferenceType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * 
      * @type {string}
@@ -131,7 +131,7 @@ export function StagedProfilePreferenceTypeFromJSONTyped(json: any, ignoreDiscri
         'global': !exists(json, 'global') ? undefined : json['global'],
         'hotels': !exists(json, 'hotels') ? undefined : json['hotels'],
         'id': !exists(json, 'id') ? undefined : json['id'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'preferenceCode': !exists(json, 'preferenceCode') ? undefined : json['preferenceCode'],
         'preferenceValue': !exists(json, 'preferenceValue') ? undefined : json['preferenceValue'],
         'resortPrefernce': !exists(json, 'resortPrefernce') ? undefined : json['resortPrefernce'],
@@ -157,7 +157,7 @@ export function StagedProfilePreferenceTypeToJSON(value?: StagedProfilePreferenc
         'global': value.global,
         'hotels': value.hotels,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'preferenceCode': value.preferenceCode,
         'preferenceValue': value.preferenceValue,
         'resortPrefernce': value.resortPrefernce,

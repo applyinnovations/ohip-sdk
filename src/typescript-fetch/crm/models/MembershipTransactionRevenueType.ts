@@ -34,10 +34,10 @@ export interface MembershipTransactionRevenueType {
     centralRevenue?: CurrencyAmountType;
     /**
      * Indicates the Date when the revenue was recognized.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionRevenueType
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -78,7 +78,7 @@ export function MembershipTransactionRevenueTypeFromJSONTyped(json: any, ignoreD
     return {
         
         'centralRevenue': !exists(json, 'centralRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['centralRevenue']),
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'pMSRevenue': !exists(json, 'pMSRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['pMSRevenue']),
         'qualified': !exists(json, 'qualified') ? undefined : json['qualified'],
         'revenueType': !exists(json, 'revenueType') ? undefined : json['revenueType'],
@@ -95,7 +95,7 @@ export function MembershipTransactionRevenueTypeToJSON(value?: MembershipTransac
     return {
         
         'centralRevenue': CurrencyAmountTypeToJSON(value.centralRevenue),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'pMSRevenue': CurrencyAmountTypeToJSON(value.pMSRevenue),
         'qualified': value.qualified,
         'revenueType': value.revenueType,

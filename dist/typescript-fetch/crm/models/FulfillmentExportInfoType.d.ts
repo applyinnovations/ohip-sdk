@@ -43,10 +43,10 @@ export interface FulfillmentExportInfoType {
     extractCode?: string;
     /**
      * ExtractDate of the membership fulfillment export logs.
-     * @type {Date}
+     * @type {string}
      * @memberof FulfillmentExportInfoType
      */
-    extractDate?: Date;
+    extractDate?: string;
     /**
      *
      * @type {UniqueIDType}

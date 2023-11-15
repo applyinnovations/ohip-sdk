@@ -33,7 +33,7 @@ function CommentTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'actionDate': !(0, runtime_1.exists)(json, 'actionDate') ? undefined : (new Date(json['actionDate'])),
+        'actionDate': !(0, runtime_1.exists)(json, 'actionDate') ? undefined : json['actionDate'],
         'actionType': !(0, runtime_1.exists)(json, 'actionType') ? undefined : json['actionType'],
         'commentTitle': !(0, runtime_1.exists)(json, 'commentTitle') ? undefined : json['commentTitle'],
         'confidential': !(0, runtime_1.exists)(json, 'confidential') ? undefined : json['confidential'],
@@ -47,7 +47,7 @@ function CommentTypeFromJSONTyped(json, ignoreDiscriminator) {
         'notificationLocation': !(0, runtime_1.exists)(json, 'notificationLocation') ? undefined : json['notificationLocation'],
         'overrideInternal': !(0, runtime_1.exists)(json, 'overrideInternal') ? undefined : json['overrideInternal'],
         'protectDescription': !(0, runtime_1.exists)(json, 'protectDescription') ? undefined : json['protectDescription'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'text': !(0, runtime_1.exists)(json, 'text') ? undefined : (0, FormattedTextTextType_1.FormattedTextTextTypeFromJSON)(json['text']),
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
         'typeDescription': !(0, runtime_1.exists)(json, 'typeDescription') ? undefined : json['typeDescription'],
@@ -63,7 +63,7 @@ function CommentTypeToJSON(value) {
         return null;
     }
     return {
-        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substring(0, 10)),
+        'actionDate': value.actionDate,
         'actionType': value.actionType,
         'commentTitle': value.commentTitle,
         'confidential': value.confidential,
@@ -77,7 +77,7 @@ function CommentTypeToJSON(value) {
         'notificationLocation': value.notificationLocation,
         'overrideInternal': value.overrideInternal,
         'protectDescription': value.protectDescription,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'text': (0, FormattedTextTextType_1.FormattedTextTextTypeToJSON)(value.text),
         'type': value.type,
         'typeDescription': value.typeDescription,

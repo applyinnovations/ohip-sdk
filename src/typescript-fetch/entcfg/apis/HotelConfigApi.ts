@@ -765,8 +765,8 @@ export interface GetConfigActivityLogRequest {
     parameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userByIds?: Array<number>;
     userForIds?: Array<number>;
@@ -846,8 +846,8 @@ export interface GetHotelBrochureRequest {
 
 export interface GetHotelCalendarRequest {
     hotelId: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     fetchInstructions: Set<GetHotelCalendarFetchInstructionsEnum>;
     authorization?: string;
     xAppKey?: string;
@@ -958,8 +958,8 @@ export interface GetOperaSettingsRequest {
 }
 
 export interface GetPropertyCalendarRequest {
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     fetchInstructions: Set<GetPropertyCalendarFetchInstructionsEnum>;
     authorization?: string;
     xAppKey?: string;
@@ -1434,7 +1434,7 @@ export interface RemoveAmenitiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    beginDate?: Array<Date>;
+    beginDate?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1492,8 +1492,8 @@ export interface RemoveDayTypesRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1543,8 +1543,8 @@ export interface RemoveHotelEventsRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1564,8 +1564,8 @@ export interface RemoveHotelRateRangesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1729,7 +1729,7 @@ export interface RemoveTransportationRequest {
     phoneUseType?: string;
     phoneUseTypeDescription?: string;
     phoneNumberPrimaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     distance?: number;
     distanceType?: string;
     drivingTime?: string;
@@ -4272,11 +4272,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
+            queryParameters['toDate'] = requestParameters.toDate;
         }
 
         if (requestParameters.searchText !== undefined) {
@@ -4732,11 +4732,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.fetchInstructions) {
@@ -5352,11 +5352,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.fetchInstructions) {
@@ -8398,11 +8398,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -8666,11 +8666,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -8782,11 +8782,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -9682,7 +9682,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.purgeDate !== undefined) {
-            queryParameters['purgeDate'] = (requestParameters.purgeDate as any).toISOString().substring(0,10);
+            queryParameters['purgeDate'] = requestParameters.purgeDate;
         }
 
         if (requestParameters.distance !== undefined) {

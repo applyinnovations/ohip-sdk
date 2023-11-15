@@ -166,10 +166,10 @@ export interface MemberAwardDetailType {
     roomType?: string;
     /**
      * Date of stay.
-     * @type {Date}
+     * @type {string}
      * @memberof MemberAwardDetailType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Room type label after the upgrade for an upgrade award.
      * @type {string}
@@ -243,7 +243,7 @@ export function MemberAwardDetailTypeFromJSONTyped(json: any, ignoreDiscriminato
         'redeemedCentralAmount': !exists(json, 'redeemedCentralAmount') ? undefined : json['redeemedCentralAmount'],
         'redeemedLocalAmount': !exists(json, 'redeemedLocalAmount') ? undefined : json['redeemedLocalAmount'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
         'toRoomType': !exists(json, 'toRoomType') ? undefined : json['toRoomType'],
         'totalCentralAmount': !exists(json, 'totalCentralAmount') ? undefined : json['totalCentralAmount'],
         'totalLocalAmount': !exists(json, 'totalLocalAmount') ? undefined : json['totalLocalAmount'],
@@ -283,7 +283,7 @@ export function MemberAwardDetailTypeToJSON(value?: MemberAwardDetailType | null
         'redeemedCentralAmount': value.redeemedCentralAmount,
         'redeemedLocalAmount': value.redeemedLocalAmount,
         'roomType': value.roomType,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
         'toRoomType': value.toRoomType,
         'totalCentralAmount': value.totalCentralAmount,
         'totalLocalAmount': value.totalLocalAmount,

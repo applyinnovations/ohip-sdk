@@ -23,10 +23,10 @@ export interface ARReminderHistoryType {
     age?: number;
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
-     * @type {Date}
+     * @type {string}
      * @memberof ARReminderHistoryType
      */
-    dateSent?: Date;
+    dateSent?: string;
     /**
      * Report file name when exists to allow report re-printing.
      * @type {string}

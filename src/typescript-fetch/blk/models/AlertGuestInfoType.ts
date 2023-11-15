@@ -34,10 +34,10 @@ import {
 export interface AlertGuestInfoType {
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof AlertGuestInfoType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -70,10 +70,10 @@ export interface AlertGuestInfoType {
     lastHotelCode?: string;
     /**
      * Last stay date at the property.
-     * @type {Date}
+     * @type {string}
      * @memberof AlertGuestInfoType
      */
-    lastStayDate?: Date;
+    lastStayDate?: string;
     /**
      * 
      * @type {MembershipType}
@@ -131,13 +131,13 @@ export function AlertGuestInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !exists(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
         'guestPreferredLanguage': !exists(json, 'guestPreferredLanguage') ? undefined : json['guestPreferredLanguage'],
         'lastHotelCode': !exists(json, 'lastHotelCode') ? undefined : json['lastHotelCode'],
-        'lastStayDate': !exists(json, 'lastStayDate') ? undefined : (new Date(json['lastStayDate'])),
+        'lastStayDate': !exists(json, 'lastStayDate') ? undefined : json['lastStayDate'],
         'membership': !exists(json, 'membership') ? undefined : MembershipTypeFromJSON(json['membership']),
         'preference': !exists(json, 'preference') ? undefined : json['preference'],
         'preference2': !exists(json, 'preference2') ? undefined : json['preference2'],
@@ -156,13 +156,13 @@ export function AlertGuestInfoTypeToJSON(value?: AlertGuestInfoType | null): any
     }
     return {
         
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'comments': value.comments,
         'guestName': value.guestName,
         'guestPreferredLanguage': value.guestPreferredLanguage,
         'lastHotelCode': value.lastHotelCode,
-        'lastStayDate': value.lastStayDate === undefined ? undefined : (value.lastStayDate.toISOString().substring(0,10)),
+        'lastStayDate': value.lastStayDate,
         'membership': MembershipTypeToJSON(value.membership),
         'preference': value.preference,
         'preference2': value.preference2,

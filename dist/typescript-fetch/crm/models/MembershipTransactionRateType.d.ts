@@ -30,10 +30,10 @@ export interface MembershipTransactionRateType {
     currency?: string;
     /**
      * Indicates start date of the reservation.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionRateType
      */
-    fromDate?: Date;
+    fromDate?: string;
     /**
      * Indicates the Market code linked to rate code.
      * @type {string}
@@ -54,10 +54,10 @@ export interface MembershipTransactionRateType {
     rateCode?: string;
     /**
      * Indicates end date of the reservation.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionRateType
      */
-    toDate?: Date;
+    toDate?: string;
 }
 /**
  * Check if a given object implements the MembershipTransactionRateType interface.

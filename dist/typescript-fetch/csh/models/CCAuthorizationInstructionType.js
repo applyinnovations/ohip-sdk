@@ -37,7 +37,7 @@ function CCAuthorizationInstructionTypeFromJSONTyped(json, ignoreDiscriminator) 
     }
     return {
         'authorizationSetup': !(0, runtime_1.exists)(json, 'authorizationSetup') ? undefined : (0, CCAuthorizationInstructionTypeAuthorizationSetup_1.CCAuthorizationInstructionTypeAuthorizationSetupFromJSON)(json['authorizationSetup']),
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'currentApprovalAmount': !(0, runtime_1.exists)(json, 'currentApprovalAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['currentApprovalAmount']),
         'incidentalAmount': !(0, runtime_1.exists)(json, 'incidentalAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['incidentalAmount']),
         'initialAuthorizationRequired': !(0, runtime_1.exists)(json, 'initialAuthorizationRequired') ? undefined : json['initialAuthorizationRequired'],
@@ -61,7 +61,7 @@ function CCAuthorizationInstructionTypeToJSON(value) {
     }
     return {
         'authorizationSetup': (0, CCAuthorizationInstructionTypeAuthorizationSetup_1.CCAuthorizationInstructionTypeAuthorizationSetupToJSON)(value.authorizationSetup),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'currentApprovalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.currentApprovalAmount),
         'incidentalAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.incidentalAmount),
         'initialAuthorizationRequired': value.initialAuthorizationRequired,

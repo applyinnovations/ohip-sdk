@@ -33,7 +33,7 @@ function ARAccountTypeLastReminderInfoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'age': !(0, runtime_1.exists)(json, 'age') ? undefined : json['age'],
-        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : (new Date(json['dateSent'])),
+        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : json['dateSent'],
         'historyExists': !(0, runtime_1.exists)(json, 'historyExists') ? undefined : json['historyExists'],
         'reportFileName': !(0, runtime_1.exists)(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportName': !(0, runtime_1.exists)(json, 'reportName') ? undefined : json['reportName'],
@@ -49,7 +49,7 @@ function ARAccountTypeLastReminderInfoToJSON(value) {
     }
     return {
         'age': value.age,
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0, 10)),
+        'dateSent': value.dateSent,
         'historyExists': value.historyExists,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,

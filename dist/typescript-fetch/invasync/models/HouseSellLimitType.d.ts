@@ -23,10 +23,10 @@ export interface HouseSellLimitType {
     amount?: number;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof HouseSellLimitType
      */
-    date?: Date;
+    date?: string;
     /**
      * Indicates if sell limit is flat or percentage.
      * @type {string}

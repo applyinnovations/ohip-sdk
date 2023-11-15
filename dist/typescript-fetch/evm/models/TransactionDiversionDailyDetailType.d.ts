@@ -17,10 +17,10 @@
 export interface TransactionDiversionDailyDetailType {
     /**
      * Daily details Date about when the rules are posted or diverted.
-     * @type {Date}
+     * @type {string}
      * @memberof TransactionDiversionDailyDetailType
      */
-    date?: Date;
+    date?: string;
     /**
      * Transaction diversion rules that are diverted .
      * @type {number}

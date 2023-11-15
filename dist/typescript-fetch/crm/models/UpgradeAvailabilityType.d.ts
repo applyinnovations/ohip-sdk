@@ -89,10 +89,10 @@ export interface UpgradeAvailabilityType {
     rawIssueKey?: string;
     /**
      * The date of the reservation associated with the award. There may be more than one date (multiple nights) associated with award.
-     * @type {Date}
+     * @type {string}
      * @memberof UpgradeAvailabilityType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Indicates room type code of the upgrade room.
      * @type {string}

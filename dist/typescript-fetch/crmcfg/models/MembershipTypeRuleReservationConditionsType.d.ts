@@ -47,16 +47,16 @@ export interface MembershipTypeRuleReservationConditionsType {
     monday?: boolean;
     /**
      * Reservations with end date for which the rule is applied.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRuleReservationConditionsType
      */
-    reservationEndDate?: Date;
+    reservationEndDate?: string;
     /**
      * Reservations with start date for which the rule is applied.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRuleReservationConditionsType
      */
-    reservationStartDate?: Date;
+    reservationStartDate?: string;
     /**
      *
      * @type {boolean}

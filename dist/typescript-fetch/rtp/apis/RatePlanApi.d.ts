@@ -53,8 +53,8 @@ export interface CopyTieredRateSchedulesRequest {
 export interface DeleteBestAvailableRatesRequest {
     hotelId: string;
     code: Array<string>;
-    end: Date;
-    start: Date;
+    end: string;
+    start: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -79,8 +79,8 @@ export interface DeleteBestAvailableRatesRequest {
 export interface DeleteDailyRatePlanScheduleRangeRequest {
     ratePlanCode: string;
     hotelId: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -177,8 +177,8 @@ export interface DeleteRateAccessExclusionsRequest {
     inactive?: Array<boolean>;
     sourceType?: Array<string>;
     sourceValue?: Array<string>;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -229,8 +229,8 @@ export interface DeleteRatePlanSchedulesRequest {
     xHotelid?: string;
     tierID?: number;
     seasonCode?: string;
-    start?: Date;
-    end?: Date;
+    start?: string;
+    end?: string;
     roomType?: Array<string>;
     sunday?: boolean;
     monday?: boolean;
@@ -286,14 +286,14 @@ export interface DownloadExternalRatePlanRequest {
 }
 export interface GetBestAvailableRatesRequest {
     hotelId: string;
-    startDay: Date;
+    startDay: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
     offset?: number;
     rateCode?: Array<string>;
-    endDay?: Date;
+    endDay?: string;
     daysOfWeek?: Set<GetBestAvailableRatesDaysOfWeekEnum>;
     lengthOfStay?: Set<GetBestAvailableRatesLengthOfStayEnum>;
     xExternalsystem?: string;
@@ -328,8 +328,8 @@ export interface GetNegotiatedRatesRequest {
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     includeInactiveNegotiatedRates?: boolean;
     fetchInstructionsLimit?: number;
     fetchInstructions?: Set<GetNegotiatedRatesFetchInstructionsEnum>;
@@ -343,8 +343,8 @@ export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     includeInactiveNegotiatedRates?: boolean;
     fetchInstructionsLimit?: number;
     fetchInstructions?: Set<GetNegotiatedRatesForGivenHotelAndRateFetchInstructionsEnum>;
@@ -357,8 +357,8 @@ export interface GetNegotiatedRatesForGivenProfileRequest {
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     hotelCode?: string;
     ratePlanCode?: string;
     includeInactiveNegotiatedRates?: boolean;
@@ -416,8 +416,8 @@ export interface GetPackagesRequest {
     hotelId?: Array<string>;
     packageCode?: Array<string>;
     descriptionWildCard?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     adults?: number;
     children?: number;
     bucket1Count?: number;
@@ -475,8 +475,8 @@ export interface GetRateActivityLogRequest {
     offset?: number;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userId?: Array<number>;
     userForIdsUserId?: Array<number>;
@@ -529,8 +529,8 @@ export interface GetRatePlanSchedulesRequest {
     tierId?: number;
     ratePlanScheduleId?: string;
     ratePlanScheduleIdType?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     roomType?: Array<string>;
     roomClass?: Array<string>;
@@ -548,7 +548,7 @@ export interface GetRatePlansRequest {
     offset?: number;
     ratePlanCode?: Array<string>;
     rateCategory?: Array<string>;
-    sellDate?: Date;
+    sellDate?: string;
     displaySet?: string;
     id?: string;
     idExtension?: number;
@@ -578,8 +578,8 @@ export interface GetRatePlansForBlockRequest {
     xAppKey?: string;
     xHotelid?: string;
     ratePlanCode?: Array<string>;
-    beginDate?: Date;
-    endDate?: Date;
+    beginDate?: string;
+    endDate?: string;
     companyId?: string;
     companyIdType?: string;
     sourceId?: string;
@@ -598,7 +598,7 @@ export interface GetRateStrategiesRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    restrictionDate?: Date;
+    restrictionDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

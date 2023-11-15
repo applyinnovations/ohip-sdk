@@ -154,16 +154,16 @@ export interface RoomRateType {
     discountAllowed?: boolean;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * Fixed Rate Indicator.
      * @type {boolean}
@@ -376,8 +376,8 @@ export function RoomRateTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'complimentary': !exists(json, 'complimentary') ? undefined : json['complimentary'],
         'credentialsRequired': !exists(json, 'credentialsRequired') ? undefined : json['credentialsRequired'],
         'discountAllowed': !exists(json, 'discountAllowed') ? undefined : json['discountAllowed'],
-        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
-        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
+        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
+        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : json['eventStartDate'],
         'fixedRate': !exists(json, 'fixedRate') ? undefined : json['fixedRate'],
         'foreignExchange': !exists(json, 'foreignExchange') ? undefined : ForeignExchangeTypeFromJSON(json['foreignExchange']),
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
@@ -431,8 +431,8 @@ export function RoomRateTypeToJSON(value?: RoomRateType | null): any {
         'complimentary': value.complimentary,
         'credentialsRequired': value.credentialsRequired,
         'discountAllowed': value.discountAllowed,
-        'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0,10)),
-        'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0,10)),
+        'eventEndDate': value.eventEndDate,
+        'eventStartDate': value.eventStartDate,
         'fixedRate': value.fixedRate,
         'foreignExchange': ForeignExchangeTypeToJSON(value.foreignExchange),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),

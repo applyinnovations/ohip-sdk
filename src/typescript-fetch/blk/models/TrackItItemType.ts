@@ -88,10 +88,10 @@ export interface TrackItItemType {
     description?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof TrackItItemType
      */
-    followUpDate?: Date;
+    followUpDate?: string;
     /**
      * 
      * @type {TrackItGroup}
@@ -176,7 +176,7 @@ export function TrackItItemTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'action': !exists(json, 'action') ? undefined : TrackItActionTypeFromJSON(json['action']),
         'assignedTo': !exists(json, 'assignedTo') ? undefined : ApplicationUserTypeFromJSON(json['assignedTo']),
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'followUpDate': !exists(json, 'followUpDate') ? undefined : (new Date(json['followUpDate'])),
+        'followUpDate': !exists(json, 'followUpDate') ? undefined : json['followUpDate'],
         'group': !exists(json, 'group') ? undefined : TrackItGroupFromJSON(json['group']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'location': !exists(json, 'location') ? undefined : CodeDescriptionTypeFromJSON(json['location']),
@@ -202,7 +202,7 @@ export function TrackItItemTypeToJSON(value?: TrackItItemType | null): any {
         'action': TrackItActionTypeToJSON(value.action),
         'assignedTo': ApplicationUserTypeToJSON(value.assignedTo),
         'description': value.description,
-        'followUpDate': value.followUpDate === undefined ? undefined : (value.followUpDate.toISOString().substring(0,10)),
+        'followUpDate': value.followUpDate,
         'group': TrackItGroupToJSON(value.group),
         'hotelId': value.hotelId,
         'location': CodeDescriptionTypeToJSON(value.location),

@@ -26,10 +26,10 @@ export interface BlockPackageType {
     consumptionDetails?: PackageConsumptionType;
     /**
      * Required value when changing a package. If the original end date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPackageType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {TimeSpanType}
@@ -62,10 +62,10 @@ export interface BlockPackageType {
     ratePlanCode?: string;
     /**
      * Required value when changing a package. If the original start date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPackageType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the BlockPackageType interface.

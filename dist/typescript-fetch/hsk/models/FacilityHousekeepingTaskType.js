@@ -42,9 +42,9 @@ function FacilityHousekeepingTaskTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomId': !(0, runtime_1.exists)(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
         'stayPeriod': !(0, runtime_1.exists)(json, 'stayPeriod') ? undefined : (0, HousekeepingTaskStayPeriodType_1.HousekeepingTaskStayPeriodTypeFromJSON)(json['stayPeriod']),
-        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
-        'taskEndDate': !(0, runtime_1.exists)(json, 'taskEndDate') ? undefined : (new Date(json['taskEndDate'])),
-        'taskStartDate': !(0, runtime_1.exists)(json, 'taskStartDate') ? undefined : (new Date(json['taskStartDate'])),
+        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : json['taskDate'],
+        'taskEndDate': !(0, runtime_1.exists)(json, 'taskEndDate') ? undefined : json['taskEndDate'],
+        'taskStartDate': !(0, runtime_1.exists)(json, 'taskStartDate') ? undefined : json['taskStartDate'],
     };
 }
 exports.FacilityHousekeepingTaskTypeFromJSONTyped = FacilityHousekeepingTaskTypeFromJSONTyped;
@@ -63,9 +63,9 @@ function FacilityHousekeepingTaskTypeToJSON(value) {
         'roomId': value.roomId,
         'roomType': value.roomType,
         'stayPeriod': (0, HousekeepingTaskStayPeriodType_1.HousekeepingTaskStayPeriodTypeToJSON)(value.stayPeriod),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
-        'taskEndDate': value.taskEndDate === undefined ? undefined : (value.taskEndDate.toISOString().substring(0, 10)),
-        'taskStartDate': value.taskStartDate === undefined ? undefined : (value.taskStartDate.toISOString().substring(0, 10)),
+        'taskDate': value.taskDate,
+        'taskEndDate': value.taskEndDate,
+        'taskStartDate': value.taskStartDate,
     };
 }
 exports.FacilityHousekeepingTaskTypeToJSON = FacilityHousekeepingTaskTypeToJSON;

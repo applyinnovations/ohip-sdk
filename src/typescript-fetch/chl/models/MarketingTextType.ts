@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface MarketingTextType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof MarketingTextType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The code that identifies a Booking Channel.
      * @type {string}
@@ -33,10 +33,10 @@ export interface MarketingTextType {
     bookingChannelCode?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof MarketingTextType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {boolean}
@@ -57,10 +57,10 @@ export interface MarketingTextType {
     marketingText?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof MarketingTextType
      */
-    newBeginDate?: Date;
+    newBeginDate?: string;
     /**
      * 
      * @type {string}
@@ -124,13 +124,13 @@ export function MarketingTextTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'globalTextYN': !exists(json, 'globalTextYN') ? undefined : json['globalTextYN'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'marketingText': !exists(json, 'marketingText') ? undefined : json['marketingText'],
-        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : (new Date(json['newBeginDate'])),
+        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : json['newBeginDate'],
         'newHotelCode': !exists(json, 'newHotelCode') ? undefined : json['newHotelCode'],
         'newPolicyDetail': !exists(json, 'newPolicyDetail') ? undefined : json['newPolicyDetail'],
         'newPolicyType': !exists(json, 'newPolicyType') ? undefined : json['newPolicyType'],
@@ -150,13 +150,13 @@ export function MarketingTextTypeToJSON(value?: MarketingTextType | null): any {
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'bookingChannelCode': value.bookingChannelCode,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'globalTextYN': value.globalTextYN,
         'hotelId': value.hotelId,
         'marketingText': value.marketingText,
-        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substring(0,10)),
+        'newBeginDate': value.newBeginDate,
         'newHotelCode': value.newHotelCode,
         'newPolicyDetail': value.newPolicyDetail,
         'newPolicyType': value.newPolicyType,

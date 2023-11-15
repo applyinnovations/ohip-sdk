@@ -46,7 +46,7 @@ function RatePlanShortInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'primaryDetails': !(0, runtime_1.exists)(json, 'primaryDetails') ? undefined : (0, RatePlanPrimaryDetailsType_1.RatePlanPrimaryDetailsTypeFromJSON)(json['primaryDetails']),
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
     };
 }
@@ -69,7 +69,7 @@ function RatePlanShortInfoTypeToJSON(value) {
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'primaryDetails': (0, RatePlanPrimaryDetailsType_1.RatePlanPrimaryDetailsTypeToJSON)(value.primaryDetails),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'ratePlanCode': value.ratePlanCode,
     };
 }

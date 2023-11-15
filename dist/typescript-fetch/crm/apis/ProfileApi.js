@@ -1879,7 +1879,7 @@ class ProfileApi extends runtime.BaseAPI {
                 queryParameters['type'] = requestParameters.type;
             }
             if (requestParameters.projectionDate !== undefined) {
-                queryParameters['projectionDate'] = requestParameters.projectionDate.toISOString().substring(0, 10);
+                queryParameters['projectionDate'] = requestParameters.projectionDate;
             }
             if (requestParameters.projectionType !== undefined) {
                 queryParameters['projectionType'] = requestParameters.projectionType;
@@ -2260,10 +2260,10 @@ class ProfileApi extends runtime.BaseAPI {
                 queryParameters['activityType'] = requestParameters.activityType;
             }
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.toDate !== undefined) {
-                queryParameters['toDate'] = requestParameters.toDate.toISOString().substring(0, 10);
+                queryParameters['toDate'] = requestParameters.toDate;
             }
             if (requestParameters.searchText !== undefined) {
                 queryParameters['searchText'] = requestParameters.searchText;
@@ -2995,7 +2995,7 @@ class ProfileApi extends runtime.BaseAPI {
                 queryParameters['profileType'] = requestParameters.profileType;
             }
             if (requestParameters.importDate !== undefined) {
-                queryParameters['importDate'] = requestParameters.importDate.toISOString().substring(0, 10);
+                queryParameters['importDate'] = requestParameters.importDate;
             }
             if (requestParameters.stageStatus !== undefined) {
                 queryParameters['stageStatus'] = requestParameters.stageStatus;
@@ -3127,7 +3127,7 @@ class ProfileApi extends runtime.BaseAPI {
                 queryParameters['countryCode'] = requestParameters.countryCode;
             }
             if (requestParameters.validateDate !== undefined) {
-                queryParameters['validateDate'] = requestParameters.validateDate.toISOString().substring(0, 10);
+                queryParameters['validateDate'] = requestParameters.validateDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {

@@ -198,16 +198,16 @@ class RoomRotationApi extends runtime.BaseAPI {
                 queryParameters['givenName'] = requestParameters.givenName;
             }
             if (requestParameters.startDateFrom !== undefined) {
-                queryParameters['startDateFrom'] = requestParameters.startDateFrom.toISOString().substring(0, 10);
+                queryParameters['startDateFrom'] = requestParameters.startDateFrom;
             }
             if (requestParameters.startDateTo !== undefined) {
-                queryParameters['startDateTo'] = requestParameters.startDateTo.toISOString().substring(0, 10);
+                queryParameters['startDateTo'] = requestParameters.startDateTo;
             }
             if (requestParameters.endDateFrom !== undefined) {
-                queryParameters['endDateFrom'] = requestParameters.endDateFrom.toISOString().substring(0, 10);
+                queryParameters['endDateFrom'] = requestParameters.endDateFrom;
             }
             if (requestParameters.endDateTo !== undefined) {
-                queryParameters['endDateTo'] = requestParameters.endDateTo.toISOString().substring(0, 10);
+                queryParameters['endDateTo'] = requestParameters.endDateTo;
             }
             if (requestParameters.roomClasses) {
                 queryParameters['roomClasses'] = requestParameters.roomClasses;
@@ -279,10 +279,10 @@ class RoomRotationApi extends runtime.BaseAPI {
                 queryParameters['hotelIds'] = requestParameters.hotelIds;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.includeReferral !== undefined) {
                 queryParameters['includeReferral'] = requestParameters.includeReferral;
@@ -339,7 +339,7 @@ class RoomRotationApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.roomRotationPointsDate !== undefined) {
-                queryParameters['roomRotationPointsDate'] = requestParameters.roomRotationPointsDate.toISOString().substring(0, 10);
+                queryParameters['roomRotationPointsDate'] = requestParameters.roomRotationPointsDate;
             }
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;

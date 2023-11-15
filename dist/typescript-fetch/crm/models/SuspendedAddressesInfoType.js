@@ -43,7 +43,7 @@ function SuspendedAddressesInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'profileType': !(0, runtime_1.exists)(json, 'profileType') ? undefined : json['profileType'],
-        'validateDate': !(0, runtime_1.exists)(json, 'validateDate') ? undefined : (new Date(json['validateDate'])),
+        'validateDate': !(0, runtime_1.exists)(json, 'validateDate') ? undefined : json['validateDate'],
     };
 }
 exports.SuspendedAddressesInfoTypeFromJSONTyped = SuspendedAddressesInfoTypeFromJSONTyped;
@@ -64,7 +64,7 @@ function SuspendedAddressesInfoTypeToJSON(value) {
         'name': value.name,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'profileType': value.profileType,
-        'validateDate': value.validateDate === undefined ? undefined : (value.validateDate.toISOString().substring(0, 10)),
+        'validateDate': value.validateDate,
     };
 }
 exports.SuspendedAddressesInfoTypeToJSON = SuspendedAddressesInfoTypeToJSON;

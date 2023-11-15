@@ -33,10 +33,10 @@ export interface AssociatedBillInfoType {
     associatedBillFolioType?: string;
     /**
      * The bill generation date of the original bill for which the Credit Bill is being generated.
-     * @type {Date}
+     * @type {string}
      * @memberof AssociatedBillInfoType
      */
-    associatedBillGenerationDate?: Date;
+    associatedBillGenerationDate?: string;
     /**
      * The bill number of the original bill for which the Credit Bill is being generated.
      * @type {number}
@@ -72,7 +72,7 @@ export function AssociatedBillInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         
         'associatedBillFiscalBillNumber': !exists(json, 'associatedBillFiscalBillNumber') ? undefined : json['associatedBillFiscalBillNumber'],
         'associatedBillFolioType': !exists(json, 'associatedBillFolioType') ? undefined : json['associatedBillFolioType'],
-        'associatedBillGenerationDate': !exists(json, 'associatedBillGenerationDate') ? undefined : (new Date(json['associatedBillGenerationDate'])),
+        'associatedBillGenerationDate': !exists(json, 'associatedBillGenerationDate') ? undefined : json['associatedBillGenerationDate'],
         'associatedBillNumber': !exists(json, 'associatedBillNumber') ? undefined : json['associatedBillNumber'],
         'associatedBillQueueName': !exists(json, 'associatedBillQueueName') ? undefined : json['associatedBillQueueName'],
     };
@@ -89,7 +89,7 @@ export function AssociatedBillInfoTypeToJSON(value?: AssociatedBillInfoType | nu
         
         'associatedBillFiscalBillNumber': value.associatedBillFiscalBillNumber,
         'associatedBillFolioType': value.associatedBillFolioType,
-        'associatedBillGenerationDate': value.associatedBillGenerationDate === undefined ? undefined : (value.associatedBillGenerationDate.toISOString().substring(0,10)),
+        'associatedBillGenerationDate': value.associatedBillGenerationDate,
         'associatedBillNumber': value.associatedBillNumber,
         'associatedBillQueueName': value.associatedBillQueueName,
     };

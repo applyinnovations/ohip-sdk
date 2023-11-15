@@ -106,10 +106,10 @@ export interface CustomerType {
     gender?: string;
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomerType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -206,7 +206,7 @@ export function CustomerTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'birthCountry': !exists(json, 'birthCountry') ? undefined : CountryNameTypeFromJSON(json['birthCountry']),
         'businessTitle': !exists(json, 'businessTitle') ? undefined : json['businessTitle'],
         'gender': !exists(json, 'gender') ? undefined : json['gender'],
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !exists(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'language': !exists(json, 'language') ? undefined : json['language'],
         'nationality': !exists(json, 'nationality') ? undefined : json['nationality'],
@@ -239,7 +239,7 @@ export function CustomerTypeToJSON(value?: CustomerType | null): any {
         'birthCountry': CountryNameTypeToJSON(value.birthCountry),
         'businessTitle': value.businessTitle,
         'gender': value.gender,
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'language': value.language,
         'nationality': value.nationality,

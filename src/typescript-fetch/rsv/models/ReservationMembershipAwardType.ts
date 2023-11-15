@@ -27,10 +27,10 @@ export interface ReservationMembershipAwardType {
     actualCancelPoints?: number;
     /**
      * The arrival date of the stay for when the award is associated.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationMembershipAwardType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Indicates if the Award is based on RATE, PRODUCT or UPGRADE.
      * @type {string}
@@ -39,10 +39,10 @@ export interface ReservationMembershipAwardType {
     awardBasedOn?: string;
     /**
      * If the reservation associated with the award was cancelled, the reservation cancellation date appears here.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationMembershipAwardType
      */
-    awardCancelDate?: Date;
+    awardCancelDate?: string;
     /**
      * Unique ID for the award cancellation if cancelled.
      * @type {number}
@@ -69,10 +69,10 @@ export interface ReservationMembershipAwardType {
     cancelPenaltyPoints?: number;
     /**
      * Date when the award was issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationMembershipAwardType
      */
-    dateAwarded?: Date;
+    dateAwarded?: string;
     /**
      * The card number associated with this membership.
      * @type {string}
@@ -119,14 +119,14 @@ export function ReservationMembershipAwardTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'actualCancelPoints': !exists(json, 'actualCancelPoints') ? undefined : json['actualCancelPoints'],
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'awardBasedOn': !exists(json, 'awardBasedOn') ? undefined : json['awardBasedOn'],
-        'awardCancelDate': !exists(json, 'awardCancelDate') ? undefined : (new Date(json['awardCancelDate'])),
+        'awardCancelDate': !exists(json, 'awardCancelDate') ? undefined : json['awardCancelDate'],
         'awardCancellationNo': !exists(json, 'awardCancellationNo') ? undefined : json['awardCancellationNo'],
         'awardType': !exists(json, 'awardType') ? undefined : json['awardType'],
         'cancelPenaltyDays': !exists(json, 'cancelPenaltyDays') ? undefined : json['cancelPenaltyDays'],
         'cancelPenaltyPoints': !exists(json, 'cancelPenaltyPoints') ? undefined : json['cancelPenaltyPoints'],
-        'dateAwarded': !exists(json, 'dateAwarded') ? undefined : (new Date(json['dateAwarded'])),
+        'dateAwarded': !exists(json, 'dateAwarded') ? undefined : json['dateAwarded'],
         'membershipCardNo': !exists(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipType': !exists(json, 'membershipType') ? undefined : json['membershipType'],
         'nameOnCard': !exists(json, 'nameOnCard') ? undefined : json['nameOnCard'],
@@ -144,14 +144,14 @@ export function ReservationMembershipAwardTypeToJSON(value?: ReservationMembersh
     return {
         
         'actualCancelPoints': value.actualCancelPoints,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'awardBasedOn': value.awardBasedOn,
-        'awardCancelDate': value.awardCancelDate === undefined ? undefined : (value.awardCancelDate.toISOString().substring(0,10)),
+        'awardCancelDate': value.awardCancelDate,
         'awardCancellationNo': value.awardCancellationNo,
         'awardType': value.awardType,
         'cancelPenaltyDays': value.cancelPenaltyDays,
         'cancelPenaltyPoints': value.cancelPenaltyPoints,
-        'dateAwarded': value.dateAwarded === undefined ? undefined : (value.dateAwarded.toISOString().substring(0,10)),
+        'dateAwarded': value.dateAwarded,
         'membershipCardNo': value.membershipCardNo,
         'membershipType': value.membershipType,
         'nameOnCard': value.nameOnCard,

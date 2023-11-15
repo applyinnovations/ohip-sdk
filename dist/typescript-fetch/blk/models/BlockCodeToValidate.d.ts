@@ -26,10 +26,10 @@ export interface BlockCodeToValidate {
     blockIdList?: Array<UniqueIDType>;
     /**
      * End date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockCodeToValidate
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -44,10 +44,10 @@ export interface BlockCodeToValidate {
     links?: Array<InstanceLink>;
     /**
      * Start date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockCodeToValidate
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Used in conjunction with the Success element to define a business error.
      * @type {Array<WarningType>}

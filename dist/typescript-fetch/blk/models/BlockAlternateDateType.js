@@ -33,7 +33,7 @@ function BlockAlternateDateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'alternateBeginDate': !(0, runtime_1.exists)(json, 'alternateBeginDate') ? undefined : (new Date(json['alternateBeginDate'])),
+        'alternateBeginDate': !(0, runtime_1.exists)(json, 'alternateBeginDate') ? undefined : json['alternateBeginDate'],
         'blockRates': !(0, runtime_1.exists)(json, 'blockRates') ? undefined : (0, BlockGridRatesType_1.BlockGridRatesTypeFromJSON)(json['blockRates']),
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
         'roomCategory': !(0, runtime_1.exists)(json, 'roomCategory') ? undefined : json['roomCategory'],
@@ -48,7 +48,7 @@ function BlockAlternateDateTypeToJSON(value) {
         return null;
     }
     return {
-        'alternateBeginDate': value.alternateBeginDate === undefined ? undefined : (value.alternateBeginDate.toISOString().substring(0, 10)),
+        'alternateBeginDate': value.alternateBeginDate,
         'blockRates': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.blockRates),
         'priority': value.priority,
         'roomCategory': value.roomCategory,

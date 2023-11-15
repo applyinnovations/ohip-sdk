@@ -64,10 +64,10 @@ export interface AmountType {
     effectiveRate?: TotalType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {PointsType}
@@ -88,10 +88,10 @@ export interface AmountType {
     shareRatePercentage?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {TotalType}
@@ -122,11 +122,11 @@ export function AmountTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'base': !exists(json, 'base') ? undefined : TotalTypeFromJSON(json['base']),
         'discount': !exists(json, 'discount') ? undefined : DiscountTypeFromJSON(json['discount']),
         'effectiveRate': !exists(json, 'effectiveRate') ? undefined : TotalTypeFromJSON(json['effectiveRate']),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'requiredPoints': !exists(json, 'requiredPoints') ? undefined : PointsTypeFromJSON(json['requiredPoints']),
         'shareDistributionInstruction': !exists(json, 'shareDistributionInstruction') ? undefined : ShareDistributionInstructionTypeFromJSON(json['shareDistributionInstruction']),
         'shareRatePercentage': !exists(json, 'shareRatePercentage') ? undefined : json['shareRatePercentage'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'total': !exists(json, 'total') ? undefined : TotalTypeFromJSON(json['total']),
     };
 }
@@ -143,11 +143,11 @@ export function AmountTypeToJSON(value?: AmountType | null): any {
         'base': TotalTypeToJSON(value.base),
         'discount': DiscountTypeToJSON(value.discount),
         'effectiveRate': TotalTypeToJSON(value.effectiveRate),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'requiredPoints': PointsTypeToJSON(value.requiredPoints),
         'shareDistributionInstruction': ShareDistributionInstructionTypeToJSON(value.shareDistributionInstruction),
         'shareRatePercentage': value.shareRatePercentage,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'total': TotalTypeToJSON(value.total),
     };
 }

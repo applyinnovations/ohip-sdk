@@ -82,10 +82,10 @@ export interface AttractionCodeType {
     hotelId?: string;
     /**
      * The date the record was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof AttractionCodeType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * 
      * @type {number}
@@ -167,7 +167,7 @@ export function AttractionCodeTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'displaySeq': !exists(json, 'displaySeq') ? undefined : json['displaySeq'],
         'generalDirections': !exists(json, 'generalDirections') ? undefined : json['generalDirections'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'latitude': !exists(json, 'latitude') ? undefined : json['latitude'],
         'longitude': !exists(json, 'longitude') ? undefined : json['longitude'],
         'name': !exists(json, 'name') ? undefined : TranslationTextType2000FromJSON(json['name']),
@@ -195,7 +195,7 @@ export function AttractionCodeTypeToJSON(value?: AttractionCodeType | null): any
         'displaySeq': value.displaySeq,
         'generalDirections': value.generalDirections,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'latitude': value.latitude,
         'longitude': value.longitude,
         'name': TranslationTextType2000ToJSON(value.name),

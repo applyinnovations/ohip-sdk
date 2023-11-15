@@ -26,10 +26,10 @@ export interface BlockRevenueChangesDetailType {
     blockOwner?: Array<BlockOwnersType>;
     /**
      * Change date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRevenueChangesDetailType
      */
-    changeDate?: Date;
+    changeDate?: string;
     /**
      * Number of nights room is occupied.
      * @type {number}
@@ -50,10 +50,10 @@ export interface BlockRevenueChangesDetailType {
     roomStatus?: string;
     /**
      * Date of stay.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRevenueChangesDetailType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      *
      * @type {LogUserInfoType}

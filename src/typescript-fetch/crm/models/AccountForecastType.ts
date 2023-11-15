@@ -88,16 +88,16 @@ export interface AccountForecastType {
     periodDescription?: string;
     /**
      * Specifies the Period End Date
-     * @type {Date}
+     * @type {string}
      * @memberof AccountForecastType
      */
-    periodEndDate?: Date;
+    periodEndDate?: string;
     /**
      * Specifies the Period Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof AccountForecastType
      */
-    periodStartDate?: Date;
+    periodStartDate?: string;
     /**
      * Room Nights for the forecast
      * @type {number}
@@ -145,8 +145,8 @@ export function AccountForecastTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'overrideForecast': !exists(json, 'overrideForecast') ? undefined : OverrideForecastTypeTypeFromJSON(json['overrideForecast']),
         'periodCode': !exists(json, 'periodCode') ? undefined : json['periodCode'],
         'periodDescription': !exists(json, 'periodDescription') ? undefined : json['periodDescription'],
-        'periodEndDate': !exists(json, 'periodEndDate') ? undefined : (new Date(json['periodEndDate'])),
-        'periodStartDate': !exists(json, 'periodStartDate') ? undefined : (new Date(json['periodStartDate'])),
+        'periodEndDate': !exists(json, 'periodEndDate') ? undefined : json['periodEndDate'],
+        'periodStartDate': !exists(json, 'periodStartDate') ? undefined : json['periodStartDate'],
         'roomNights': !exists(json, 'roomNights') ? undefined : json['roomNights'],
         'roomRevenue': !exists(json, 'roomRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['roomRevenue']),
         'totalRevenue': !exists(json, 'totalRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['totalRevenue']),
@@ -170,8 +170,8 @@ export function AccountForecastTypeToJSON(value?: AccountForecastType | null): a
         'overrideForecast': OverrideForecastTypeTypeToJSON(value.overrideForecast),
         'periodCode': value.periodCode,
         'periodDescription': value.periodDescription,
-        'periodEndDate': value.periodEndDate === undefined ? undefined : (value.periodEndDate.toISOString().substring(0,10)),
-        'periodStartDate': value.periodStartDate === undefined ? undefined : (value.periodStartDate.toISOString().substring(0,10)),
+        'periodEndDate': value.periodEndDate,
+        'periodStartDate': value.periodStartDate,
         'roomNights': value.roomNights,
         'roomRevenue': CurrencyAmountTypeToJSON(value.roomRevenue),
         'totalRevenue': CurrencyAmountTypeToJSON(value.totalRevenue),

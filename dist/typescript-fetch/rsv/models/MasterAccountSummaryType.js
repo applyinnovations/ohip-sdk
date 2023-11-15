@@ -33,12 +33,12 @@ function MasterAccountSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'createBusinessDate': !(0, runtime_1.exists)(json, 'createBusinessDate') ? undefined : (new Date(json['createBusinessDate'])),
+        'createBusinessDate': !(0, runtime_1.exists)(json, 'createBusinessDate') ? undefined : json['createBusinessDate'],
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationIdList': !(0, runtime_1.exists)(json, 'reservationIdList') ? undefined : (json['reservationIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
     };
 }
@@ -51,12 +51,12 @@ function MasterAccountSummaryTypeToJSON(value) {
         return null;
     }
     return {
-        'createBusinessDate': value.createBusinessDate === undefined ? undefined : (value.createBusinessDate.toISOString().substring(0, 10)),
+        'createBusinessDate': value.createBusinessDate,
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'reservationIdList': value.reservationIdList === undefined ? undefined : (value.reservationIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
     };
 }

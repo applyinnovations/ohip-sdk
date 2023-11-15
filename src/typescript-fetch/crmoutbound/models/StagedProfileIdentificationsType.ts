@@ -46,10 +46,10 @@ export interface StagedProfileIdentificationsType {
     documentResort?: string;
     /**
      * The date when the record was inactivated.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileIdentificationsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * A unique identifying value assigned by the creating system. The ID attribute may be used to reference a primary-key value within a database or in a particular implementation.
      * @type {string}
@@ -86,7 +86,7 @@ export function StagedProfileIdentificationsTypeFromJSONTyped(json: any, ignoreD
         'identification': !exists(json, 'identification') ? undefined : IdentificationTypeFromJSON(json['identification']),
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'documentResort': !exists(json, 'documentResort') ? undefined : json['documentResort'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'id': !exists(json, 'id') ? undefined : json['id'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
@@ -104,7 +104,7 @@ export function StagedProfileIdentificationsTypeToJSON(value?: StagedProfileIden
         'identification': IdentificationTypeToJSON(value.identification),
         'errorDescription': value.errorDescription,
         'documentResort': value.documentResort,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'id': value.id,
         'type': value.type,
     };

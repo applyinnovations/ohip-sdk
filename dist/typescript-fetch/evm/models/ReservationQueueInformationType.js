@@ -39,7 +39,7 @@ function ReservationQueueInformationTypeFromJSONTyped(json, ignoreDiscriminator)
         'blockDates': !(0, runtime_1.exists)(json, 'blockDates') ? undefined : (0, ReservationQueueInformationTypeBlockDates_1.ReservationQueueInformationTypeBlockDatesFromJSON)(json['blockDates']),
         'guestTextInfo': !(0, runtime_1.exists)(json, 'guestTextInfo') ? undefined : (0, QueueTextInfoType_1.QueueTextInfoTypeFromJSON)(json['guestTextInfo']),
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
-        'queueDate': !(0, runtime_1.exists)(json, 'queueDate') ? undefined : (new Date(json['queueDate'])),
+        'queueDate': !(0, runtime_1.exists)(json, 'queueDate') ? undefined : json['queueDate'],
     };
 }
 exports.ReservationQueueInformationTypeFromJSONTyped = ReservationQueueInformationTypeFromJSONTyped;
@@ -56,7 +56,7 @@ function ReservationQueueInformationTypeToJSON(value) {
         'blockDates': (0, ReservationQueueInformationTypeBlockDates_1.ReservationQueueInformationTypeBlockDatesToJSON)(value.blockDates),
         'guestTextInfo': (0, QueueTextInfoType_1.QueueTextInfoTypeToJSON)(value.guestTextInfo),
         'priority': value.priority,
-        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substring(0, 10)),
+        'queueDate': value.queueDate,
     };
 }
 exports.ReservationQueueInformationTypeToJSON = ReservationQueueInformationTypeToJSON;

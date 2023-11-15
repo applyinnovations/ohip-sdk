@@ -40,7 +40,7 @@ function CateringPackageResourceNoteTypeFromJSONTyped(json, ignoreDiscriminator)
         'internal': !(0, runtime_1.exists)(json, 'internal') ? undefined : json['internal'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'title': !(0, runtime_1.exists)(json, 'title') ? undefined : json['title'],
     };
 }
@@ -60,7 +60,7 @@ function CateringPackageResourceNoteTypeToJSON(value) {
         'internal': value.internal,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'title': value.title,
     };
 }

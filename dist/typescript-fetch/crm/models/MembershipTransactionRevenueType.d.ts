@@ -24,10 +24,10 @@ export interface MembershipTransactionRevenueType {
     centralRevenue?: CurrencyAmountType;
     /**
      * Indicates the Date when the revenue was recognized.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionRevenueType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {CurrencyAmountType}

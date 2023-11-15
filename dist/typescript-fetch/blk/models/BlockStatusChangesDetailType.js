@@ -35,7 +35,7 @@ function BlockStatusChangesDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'changeDate': !(0, runtime_1.exists)(json, 'changeDate') ? undefined : (new Date(json['changeDate'])),
+        'changeDate': !(0, runtime_1.exists)(json, 'changeDate') ? undefined : json['changeDate'],
         'currentStatus': !(0, runtime_1.exists)(json, 'currentStatus') ? undefined : json['currentStatus'],
         'priorStatus': !(0, runtime_1.exists)(json, 'priorStatus') ? undefined : json['priorStatus'],
         'revenue': !(0, runtime_1.exists)(json, 'revenue') ? undefined : (0, RevenueSummaryType_1.RevenueSummaryTypeFromJSON)(json['revenue']),
@@ -52,7 +52,7 @@ function BlockStatusChangesDetailTypeToJSON(value) {
         return null;
     }
     return {
-        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substring(0, 10)),
+        'changeDate': value.changeDate,
         'currentStatus': value.currentStatus,
         'priorStatus': value.priorStatus,
         'revenue': (0, RevenueSummaryType_1.RevenueSummaryTypeToJSON)(value.revenue),

@@ -30,10 +30,10 @@ export interface BlockAvailabilityInfoType {
     roomInfo?: Array<BlockAvailabilityRoomInfoType>;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAvailabilityInfoType
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 /**
  * Check if a given object implements the BlockAvailabilityInfoType interface.

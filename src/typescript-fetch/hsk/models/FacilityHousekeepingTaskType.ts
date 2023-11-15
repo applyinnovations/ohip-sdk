@@ -82,22 +82,22 @@ export interface FacilityHousekeepingTaskType {
     stayPeriod?: HousekeepingTaskStayPeriodType;
     /**
      * A reservation date on which task must occur.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityHousekeepingTaskType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * Date on which task will stop being performed.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityHousekeepingTaskType
      */
-    taskEndDate?: Date;
+    taskEndDate?: string;
     /**
      * Date on which the task needs to start being performed.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityHousekeepingTaskType
      */
-    taskStartDate?: Date;
+    taskStartDate?: string;
 }
 
 /**
@@ -126,9 +126,9 @@ export function FacilityHousekeepingTaskTypeFromJSONTyped(json: any, ignoreDiscr
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
         'stayPeriod': !exists(json, 'stayPeriod') ? undefined : HousekeepingTaskStayPeriodTypeFromJSON(json['stayPeriod']),
-        'taskDate': !exists(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
-        'taskEndDate': !exists(json, 'taskEndDate') ? undefined : (new Date(json['taskEndDate'])),
-        'taskStartDate': !exists(json, 'taskStartDate') ? undefined : (new Date(json['taskStartDate'])),
+        'taskDate': !exists(json, 'taskDate') ? undefined : json['taskDate'],
+        'taskEndDate': !exists(json, 'taskEndDate') ? undefined : json['taskEndDate'],
+        'taskStartDate': !exists(json, 'taskStartDate') ? undefined : json['taskStartDate'],
     };
 }
 
@@ -148,9 +148,9 @@ export function FacilityHousekeepingTaskTypeToJSON(value?: FacilityHousekeepingT
         'roomId': value.roomId,
         'roomType': value.roomType,
         'stayPeriod': HousekeepingTaskStayPeriodTypeToJSON(value.stayPeriod),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
-        'taskEndDate': value.taskEndDate === undefined ? undefined : (value.taskEndDate.toISOString().substring(0,10)),
-        'taskStartDate': value.taskStartDate === undefined ? undefined : (value.taskStartDate.toISOString().substring(0,10)),
+        'taskDate': value.taskDate,
+        'taskEndDate': value.taskEndDate,
+        'taskStartDate': value.taskStartDate,
     };
 }
 

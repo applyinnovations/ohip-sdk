@@ -30,16 +30,16 @@ export interface ClaimReservationInfoType {
     confirmationNo?: Array<UniqueIDType>;
     /**
      * Arrival date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Departure date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimReservationInfoType
      */
-    departure?: Date;
+    departure?: string;
 }
 /**
  * Check if a given object implements the ClaimReservationInfoType interface.

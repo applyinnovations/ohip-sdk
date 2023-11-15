@@ -76,10 +76,10 @@ export interface BlockReservationDetailsType {
     controlBlockLocally?: boolean;
     /**
      * Cut off date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    cutOffDate?: Date;
+    cutOffDate?: string;
     /**
      * Cut off days of the block.
      * @type {number}
@@ -88,10 +88,10 @@ export interface BlockReservationDetailsType {
     cutOffDays?: number;
     /**
      * Contains information about the date by which the group must make a decision on the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    decisionDate?: Date;
+    decisionDate?: string;
     /**
      * Indicates the approximate check out time for the reservations made for the block.
      * @type {string}
@@ -106,10 +106,10 @@ export interface BlockReservationDetailsType {
     elastic?: number;
     /**
      * This element informs about the systematic follow up on this business block. A Group Reservations Agent or Reservations Manager can use this date to identify when to followup with the customer.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    followupDate?: Date;
+    followupDate?: string;
     /**
      * Determines whether the CRS guarantee is required or not for the block.
      * @type {boolean}
@@ -166,10 +166,10 @@ export interface BlockReservationDetailsType {
     ratePlanCode?: Array<BlockRatePlanInfoType>;
     /**
      * Due date for the rooming list for the block. This is the date by which the guest list should be provided by the customer.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    roomingListDueDate?: Date;
+    roomingListDueDate?: string;
     /**
      * Are Rate amounts suppressed for the block.
      * @type {boolean}
@@ -225,12 +225,12 @@ export function BlockReservationDetailsTypeFromJSONTyped(json: any, ignoreDiscri
         'arrivalTime': !exists(json, 'arrivalTime') ? undefined : json['arrivalTime'],
         'breakfast': !exists(json, 'breakfast') ? undefined : BreakfastTypeFromJSON(json['breakfast']),
         'controlBlockLocally': !exists(json, 'controlBlockLocally') ? undefined : json['controlBlockLocally'],
-        'cutOffDate': !exists(json, 'cutOffDate') ? undefined : (new Date(json['cutOffDate'])),
+        'cutOffDate': !exists(json, 'cutOffDate') ? undefined : json['cutOffDate'],
         'cutOffDays': !exists(json, 'cutOffDays') ? undefined : json['cutOffDays'],
-        'decisionDate': !exists(json, 'decisionDate') ? undefined : (new Date(json['decisionDate'])),
+        'decisionDate': !exists(json, 'decisionDate') ? undefined : json['decisionDate'],
         'departureTime': !exists(json, 'departureTime') ? undefined : json['departureTime'],
         'elastic': !exists(json, 'elastic') ? undefined : json['elastic'],
-        'followupDate': !exists(json, 'followupDate') ? undefined : (new Date(json['followupDate'])),
+        'followupDate': !exists(json, 'followupDate') ? undefined : json['followupDate'],
         'guaranteeRequired': !exists(json, 'guaranteeRequired') ? undefined : json['guaranteeRequired'],
         'housing': !exists(json, 'housing') ? undefined : json['housing'],
         'inventoryControl': !exists(json, 'inventoryControl') ? undefined : BlockInventoryControlTypeFromJSON(json['inventoryControl']),
@@ -240,7 +240,7 @@ export function BlockReservationDetailsTypeFromJSONTyped(json: any, ignoreDiscri
         'printRate': !exists(json, 'printRate') ? undefined : json['printRate'],
         'rateGuarantee': !exists(json, 'rateGuarantee') ? undefined : json['rateGuarantee'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : ((json['ratePlanCode'] as Array<any>).map(BlockRatePlanInfoTypeFromJSON)),
-        'roomingListDueDate': !exists(json, 'roomingListDueDate') ? undefined : (new Date(json['roomingListDueDate'])),
+        'roomingListDueDate': !exists(json, 'roomingListDueDate') ? undefined : json['roomingListDueDate'],
         'suppressRate': !exists(json, 'suppressRate') ? undefined : json['suppressRate'],
         'taRecordLocator': !exists(json, 'taRecordLocator') ? undefined : json['taRecordLocator'],
         'traceCode': !exists(json, 'traceCode') ? undefined : CodeDescriptionTypeFromJSON(json['traceCode']),
@@ -262,12 +262,12 @@ export function BlockReservationDetailsTypeToJSON(value?: BlockReservationDetail
         'arrivalTime': value.arrivalTime,
         'breakfast': BreakfastTypeToJSON(value.breakfast),
         'controlBlockLocally': value.controlBlockLocally,
-        'cutOffDate': value.cutOffDate === undefined ? undefined : (value.cutOffDate.toISOString().substring(0,10)),
+        'cutOffDate': value.cutOffDate,
         'cutOffDays': value.cutOffDays,
-        'decisionDate': value.decisionDate === undefined ? undefined : (value.decisionDate.toISOString().substring(0,10)),
+        'decisionDate': value.decisionDate,
         'departureTime': value.departureTime,
         'elastic': value.elastic,
-        'followupDate': value.followupDate === undefined ? undefined : (value.followupDate.toISOString().substring(0,10)),
+        'followupDate': value.followupDate,
         'guaranteeRequired': value.guaranteeRequired,
         'housing': value.housing,
         'inventoryControl': BlockInventoryControlTypeToJSON(value.inventoryControl),
@@ -277,7 +277,7 @@ export function BlockReservationDetailsTypeToJSON(value?: BlockReservationDetail
         'printRate': value.printRate,
         'rateGuarantee': value.rateGuarantee,
         'ratePlanCode': value.ratePlanCode === undefined ? undefined : ((value.ratePlanCode as Array<any>).map(BlockRatePlanInfoTypeToJSON)),
-        'roomingListDueDate': value.roomingListDueDate === undefined ? undefined : (value.roomingListDueDate.toISOString().substring(0,10)),
+        'roomingListDueDate': value.roomingListDueDate,
         'suppressRate': value.suppressRate,
         'taRecordLocator': value.taRecordLocator,
         'traceCode': CodeDescriptionTypeToJSON(value.traceCode),

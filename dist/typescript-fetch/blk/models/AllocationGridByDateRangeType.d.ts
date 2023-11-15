@@ -19,10 +19,10 @@ import type { SetBlockGridInvType } from './SetBlockGridInvType';
 export interface AllocationGridByDateRangeType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AllocationGridByDateRangeType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -55,10 +55,10 @@ export interface AllocationGridByDateRangeType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AllocationGridByDateRangeType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

@@ -316,10 +316,10 @@ export interface RatePlanType {
     printRate?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {RatePlanCommissionType}
@@ -450,7 +450,7 @@ export function RatePlanTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'ownerRate': !exists(json, 'ownerRate') ? undefined : json['ownerRate'],
         'primaryDetails': !exists(json, 'primaryDetails') ? undefined : RatePlanPrimaryDetailsTypeFromJSON(json['primaryDetails']),
         'printRate': !exists(json, 'printRate') ? undefined : json['printRate'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'rateCommission': !exists(json, 'rateCommission') ? undefined : RatePlanCommissionTypeFromJSON(json['rateCommission']),
         'rateDeposit': !exists(json, 'rateDeposit') ? undefined : RatePlanDepositTypeFromJSON(json['rateDeposit']),
         'ratePackages': !exists(json, 'ratePackages') ? undefined : RatePackagesTypeFromJSON(json['ratePackages']),
@@ -507,7 +507,7 @@ export function RatePlanTypeToJSON(value?: RatePlanType | null): any {
         'ownerRate': value.ownerRate,
         'primaryDetails': RatePlanPrimaryDetailsTypeToJSON(value.primaryDetails),
         'printRate': value.printRate,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'rateCommission': RatePlanCommissionTypeToJSON(value.rateCommission),
         'rateDeposit': RatePlanDepositTypeToJSON(value.rateDeposit),
         'ratePackages': RatePackagesTypeToJSON(value.ratePackages),

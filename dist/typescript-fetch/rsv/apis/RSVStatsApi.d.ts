@@ -16,8 +16,8 @@ export interface GetBlockReservationStatisticsByDateAndRoomPoolRequest {
     xAppKey?: string;
     xHotelid?: string;
     excludeBlocksWithoutQuoteID?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -27,7 +27,7 @@ export interface GetReservationPaceRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: string;
-    stayDate?: Date;
+    stayDate?: string;
     leadDays?: number;
     channels?: string;
     xExternalsystem?: string;
@@ -42,10 +42,10 @@ export interface GetReservationStatisticsRequest {
     hotelId?: Array<string>;
     hotelCodeContext?: Array<string>;
     hotelName?: Array<string>;
-    requestedReportsTypeEndDate?: Array<Date>;
-    fiscalDate?: Array<Date>;
+    requestedReportsTypeEndDate?: Array<string>;
+    fiscalDate?: Array<string>;
     reportCode?: Array<GetReservationStatisticsReportCodeEnum>;
-    requestedReportsTypeStartDate?: Array<Date>;
+    requestedReportsTypeStartDate?: Array<string>;
     requestedReportsTypeParameterName?: Array<string>;
     requestedReportsTypeParameterValue?: Array<string>;
     xExternalsystem?: string;

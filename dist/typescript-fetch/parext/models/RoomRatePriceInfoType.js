@@ -34,7 +34,7 @@ function RoomRatePriceInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'amountAfterTax': !(0, runtime_1.exists)(json, 'amountAfterTax') ? undefined : json['amountAfterTax'],
         'amountBeforeTax': !(0, runtime_1.exists)(json, 'amountBeforeTax') ? undefined : json['amountBeforeTax'],
-        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 exports.RoomRatePriceInfoTypeFromJSONTyped = RoomRatePriceInfoTypeFromJSONTyped;
@@ -48,7 +48,7 @@ function RoomRatePriceInfoTypeToJSON(value) {
     return {
         'amountAfterTax': value.amountAfterTax,
         'amountBeforeTax': value.amountBeforeTax,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
+        'stayDate': value.stayDate,
     };
 }
 exports.RoomRatePriceInfoTypeToJSON = RoomRatePriceInfoTypeToJSON;

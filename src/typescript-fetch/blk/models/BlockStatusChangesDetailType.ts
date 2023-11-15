@@ -40,10 +40,10 @@ import {
 export interface BlockStatusChangesDetailType {
     /**
      * Change date for this block .
-     * @type {Date}
+     * @type {string}
      * @memberof BlockStatusChangesDetailType
      */
-    changeDate?: Date;
+    changeDate?: string;
     /**
      * Current Status for this block .
      * @type {string}
@@ -95,7 +95,7 @@ export function BlockStatusChangesDetailTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'changeDate': !exists(json, 'changeDate') ? undefined : (new Date(json['changeDate'])),
+        'changeDate': !exists(json, 'changeDate') ? undefined : json['changeDate'],
         'currentStatus': !exists(json, 'currentStatus') ? undefined : json['currentStatus'],
         'priorStatus': !exists(json, 'priorStatus') ? undefined : json['priorStatus'],
         'revenue': !exists(json, 'revenue') ? undefined : RevenueSummaryTypeFromJSON(json['revenue']),
@@ -113,7 +113,7 @@ export function BlockStatusChangesDetailTypeToJSON(value?: BlockStatusChangesDet
     }
     return {
         
-        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substring(0,10)),
+        'changeDate': value.changeDate,
         'currentStatus': value.currentStatus,
         'priorStatus': value.priorStatus,
         'revenue': RevenueSummaryTypeToJSON(value.revenue),

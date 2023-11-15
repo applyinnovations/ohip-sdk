@@ -80,10 +80,10 @@ export interface ConfigDepositPolicyType {
     sequence?: number;
     /**
      * Transaction Date associated with the deposit policy
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigDepositPolicyType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      *
      * @type {DepositCancelRevenueType}

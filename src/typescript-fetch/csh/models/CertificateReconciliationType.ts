@@ -70,10 +70,10 @@ export interface CertificateReconciliationType {
     fBAStatus?: FBAStatusType;
     /**
      * Business date of the FBA bill generation.
-     * @type {Date}
+     * @type {string}
      * @memberof CertificateReconciliationType
      */
-    fbaBillGenDate?: Date;
+    fbaBillGenDate?: string;
     /**
      * Indicates if this certificate is a Flexible Benefit Award certificate.
      * @type {boolean}
@@ -112,16 +112,16 @@ export interface CertificateReconciliationType {
     postedAmount?: number;
     /**
      * Business date of the FBA posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CertificateReconciliationType
      */
-    postingBusinessDate?: Date;
+    postingBusinessDate?: string;
     /**
      * Date and time of the FBA posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CertificateReconciliationType
      */
-    postingDateTime?: Date;
+    postingDateTime?: string;
     /**
      * Marks if the certificate is eligible for reimbursement.
      * @type {boolean}
@@ -142,16 +142,16 @@ export interface CertificateReconciliationType {
     reimbursedAmount?: number;
     /**
      * Business date of the FBA reimbursement.
-     * @type {Date}
+     * @type {string}
      * @memberof CertificateReconciliationType
      */
-    reimbursementBusinessDate?: Date;
+    reimbursementBusinessDate?: string;
     /**
      * Date and time of the FBA reimbursement.
-     * @type {Date}
+     * @type {string}
      * @memberof CertificateReconciliationType
      */
-    reimbursementDateTime?: Date;
+    reimbursementDateTime?: string;
     /**
      * 
      * @type {ReservationId}
@@ -172,16 +172,16 @@ export interface CertificateReconciliationType {
     settled?: boolean;
     /**
      * Business date of the FBA settlement.
-     * @type {Date}
+     * @type {string}
      * @memberof CertificateReconciliationType
      */
-    settlementBusinessDate?: Date;
+    settlementBusinessDate?: string;
     /**
      * Date and time of the FBA settlement.
-     * @type {Date}
+     * @type {string}
      * @memberof CertificateReconciliationType
      */
-    settlementDateTime?: Date;
+    settlementDateTime?: string;
     /**
      * 
      * @type {FBAStatusType}
@@ -215,25 +215,25 @@ export function CertificateReconciliationTypeFromJSONTyped(json: any, ignoreDisc
         'currencySymbol': !exists(json, 'currencySymbol') ? undefined : json['currencySymbol'],
         'decimalPlaces': !exists(json, 'decimalPlaces') ? undefined : json['decimalPlaces'],
         'fBAStatus': !exists(json, 'fBAStatus') ? undefined : FBAStatusTypeFromJSON(json['fBAStatus']),
-        'fbaBillGenDate': !exists(json, 'fbaBillGenDate') ? undefined : (new Date(json['fbaBillGenDate'])),
+        'fbaBillGenDate': !exists(json, 'fbaBillGenDate') ? undefined : json['fbaBillGenDate'],
         'flexibleBenefitAward': !exists(json, 'flexibleBenefitAward') ? undefined : json['flexibleBenefitAward'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'monetaryValue': !exists(json, 'monetaryValue') ? undefined : json['monetaryValue'],
         'orphanCertificate': !exists(json, 'orphanCertificate') ? undefined : json['orphanCertificate'],
         'posted': !exists(json, 'posted') ? undefined : json['posted'],
         'postedAmount': !exists(json, 'postedAmount') ? undefined : json['postedAmount'],
-        'postingBusinessDate': !exists(json, 'postingBusinessDate') ? undefined : (new Date(json['postingBusinessDate'])),
-        'postingDateTime': !exists(json, 'postingDateTime') ? undefined : (new Date(json['postingDateTime'])),
+        'postingBusinessDate': !exists(json, 'postingBusinessDate') ? undefined : json['postingBusinessDate'],
+        'postingDateTime': !exists(json, 'postingDateTime') ? undefined : json['postingDateTime'],
         'reimburseAllowed': !exists(json, 'reimburseAllowed') ? undefined : json['reimburseAllowed'],
         'reimbursed': !exists(json, 'reimbursed') ? undefined : json['reimbursed'],
         'reimbursedAmount': !exists(json, 'reimbursedAmount') ? undefined : json['reimbursedAmount'],
-        'reimbursementBusinessDate': !exists(json, 'reimbursementBusinessDate') ? undefined : (new Date(json['reimbursementBusinessDate'])),
-        'reimbursementDateTime': !exists(json, 'reimbursementDateTime') ? undefined : (new Date(json['reimbursementDateTime'])),
+        'reimbursementBusinessDate': !exists(json, 'reimbursementBusinessDate') ? undefined : json['reimbursementBusinessDate'],
+        'reimbursementDateTime': !exists(json, 'reimbursementDateTime') ? undefined : json['reimbursementDateTime'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'resettleAllowed': !exists(json, 'resettleAllowed') ? undefined : json['resettleAllowed'],
         'settled': !exists(json, 'settled') ? undefined : json['settled'],
-        'settlementBusinessDate': !exists(json, 'settlementBusinessDate') ? undefined : (new Date(json['settlementBusinessDate'])),
-        'settlementDateTime': !exists(json, 'settlementDateTime') ? undefined : (new Date(json['settlementDateTime'])),
+        'settlementBusinessDate': !exists(json, 'settlementBusinessDate') ? undefined : json['settlementBusinessDate'],
+        'settlementDateTime': !exists(json, 'settlementDateTime') ? undefined : json['settlementDateTime'],
         'status': !exists(json, 'status') ? undefined : FBAStatusTypeFromJSON(json['status']),
     };
 }
@@ -253,25 +253,25 @@ export function CertificateReconciliationTypeToJSON(value?: CertificateReconcili
         'currencySymbol': value.currencySymbol,
         'decimalPlaces': value.decimalPlaces,
         'fBAStatus': FBAStatusTypeToJSON(value.fBAStatus),
-        'fbaBillGenDate': value.fbaBillGenDate === undefined ? undefined : (value.fbaBillGenDate.toISOString().substring(0,10)),
+        'fbaBillGenDate': value.fbaBillGenDate,
         'flexibleBenefitAward': value.flexibleBenefitAward,
         'hotelId': value.hotelId,
         'monetaryValue': value.monetaryValue,
         'orphanCertificate': value.orphanCertificate,
         'posted': value.posted,
         'postedAmount': value.postedAmount,
-        'postingBusinessDate': value.postingBusinessDate === undefined ? undefined : (value.postingBusinessDate.toISOString().substring(0,10)),
-        'postingDateTime': value.postingDateTime === undefined ? undefined : (value.postingDateTime.toISOString().substring(0,10)),
+        'postingBusinessDate': value.postingBusinessDate,
+        'postingDateTime': value.postingDateTime,
         'reimburseAllowed': value.reimburseAllowed,
         'reimbursed': value.reimbursed,
         'reimbursedAmount': value.reimbursedAmount,
-        'reimbursementBusinessDate': value.reimbursementBusinessDate === undefined ? undefined : (value.reimbursementBusinessDate.toISOString().substring(0,10)),
-        'reimbursementDateTime': value.reimbursementDateTime === undefined ? undefined : (value.reimbursementDateTime.toISOString().substring(0,10)),
+        'reimbursementBusinessDate': value.reimbursementBusinessDate,
+        'reimbursementDateTime': value.reimbursementDateTime,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'resettleAllowed': value.resettleAllowed,
         'settled': value.settled,
-        'settlementBusinessDate': value.settlementBusinessDate === undefined ? undefined : (value.settlementBusinessDate.toISOString().substring(0,10)),
-        'settlementDateTime': value.settlementDateTime === undefined ? undefined : (value.settlementDateTime.toISOString().substring(0,10)),
+        'settlementBusinessDate': value.settlementBusinessDate,
+        'settlementDateTime': value.settlementDateTime,
         'status': FBAStatusTypeToJSON(value.status),
     };
 }

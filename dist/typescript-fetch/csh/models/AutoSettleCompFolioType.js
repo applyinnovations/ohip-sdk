@@ -35,7 +35,7 @@ function AutoSettleCompFolioTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'fiscalBillNo': !(0, runtime_1.exists)(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
-        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !(0, runtime_1.exists)(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !(0, runtime_1.exists)(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioSeqNo': !(0, runtime_1.exists)(json, 'folioSeqNo') ? undefined : json['folioSeqNo'],
@@ -58,7 +58,7 @@ function AutoSettleCompFolioTypeToJSON(value) {
     }
     return {
         'fiscalBillNo': value.fiscalBillNo,
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0, 10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,

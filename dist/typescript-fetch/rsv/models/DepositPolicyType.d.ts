@@ -68,10 +68,10 @@ export interface DepositPolicyType {
     policyCode?: string;
     /**
      * Transaction Date associated with the deposit policy
-     * @type {Date}
+     * @type {string}
      * @memberof DepositPolicyType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      *
      * @type {DepositCancelRevenueType}

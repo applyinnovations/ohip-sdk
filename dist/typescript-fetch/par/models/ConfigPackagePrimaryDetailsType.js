@@ -33,9 +33,9 @@ function ConfigPackagePrimaryDetailsTypeFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'arrangementCode': !(0, runtime_1.exists)(json, 'arrangementCode') ? undefined : json['arrangementCode'],
-        'beginSellDate': !(0, runtime_1.exists)(json, 'beginSellDate') ? undefined : (new Date(json['beginSellDate'])),
+        'beginSellDate': !(0, runtime_1.exists)(json, 'beginSellDate') ? undefined : json['beginSellDate'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : json['endSellDate'],
         'forecastGroup': !(0, runtime_1.exists)(json, 'forecastGroup') ? undefined : json['forecastGroup'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : json['shortDescription'],
     };
@@ -50,9 +50,9 @@ function ConfigPackagePrimaryDetailsTypeToJSON(value) {
     }
     return {
         'arrangementCode': value.arrangementCode,
-        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substring(0, 10)),
+        'beginSellDate': value.beginSellDate,
         'description': value.description,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
+        'endSellDate': value.endSellDate,
         'forecastGroup': value.forecastGroup,
         'shortDescription': value.shortDescription,
     };

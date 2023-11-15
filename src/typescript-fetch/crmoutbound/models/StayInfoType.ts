@@ -70,16 +70,16 @@ import {
 export interface StayInfoType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * 
      * @type {TimeSpanType}
@@ -244,10 +244,10 @@ export interface StayInfoType {
     guestServiceStatus?: GuestHousekeepingServiceRequestType;
     /**
      * Indicates that this reservation is scheduled for automated check out.
-     * @type {Date}
+     * @type {string}
      * @memberof StayInfoType
      */
-    scheduledCheckoutTime?: Date;
+    scheduledCheckoutTime?: string;
     /**
      * When true, indicates a room number cannot be changed. When false, indicates a room number may be changed.
      * @type {boolean}
@@ -281,8 +281,8 @@ export function StayInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
-        'departureDate': !exists(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
+        'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
         'originalTimeSpan': !exists(json, 'originalTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['originalTimeSpan']),
         'expectedTimes': !exists(json, 'expectedTimes') ? undefined : ResExpectedTimesTypeFromJSON(json['expectedTimes']),
         'adultCount': !exists(json, 'adultCount') ? undefined : json['adultCount'],
@@ -310,7 +310,7 @@ export function StayInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'roomTypeCharged': !exists(json, 'roomTypeCharged') ? undefined : json['roomTypeCharged'],
         'depositPayments': !exists(json, 'depositPayments') ? undefined : CurrencyAmountTypeFromJSON(json['depositPayments']),
         'guestServiceStatus': !exists(json, 'guestServiceStatus') ? undefined : GuestHousekeepingServiceRequestTypeFromJSON(json['guestServiceStatus']),
-        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : (new Date(json['scheduledCheckoutTime'])),
+        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : json['scheduledCheckoutTime'],
         'roomNumberLocked': !exists(json, 'roomNumberLocked') ? undefined : json['roomNumberLocked'],
         'pseudoRoom': !exists(json, 'pseudoRoom') ? undefined : json['pseudoRoom'],
     };
@@ -325,8 +325,8 @@ export function StayInfoTypeToJSON(value?: StayInfoType | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'originalTimeSpan': TimeSpanTypeToJSON(value.originalTimeSpan),
         'expectedTimes': ResExpectedTimesTypeToJSON(value.expectedTimes),
         'adultCount': value.adultCount,
@@ -354,7 +354,7 @@ export function StayInfoTypeToJSON(value?: StayInfoType | null): any {
         'roomTypeCharged': value.roomTypeCharged,
         'depositPayments': CurrencyAmountTypeToJSON(value.depositPayments),
         'guestServiceStatus': GuestHousekeepingServiceRequestTypeToJSON(value.guestServiceStatus),
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0,10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime,
         'roomNumberLocked': value.roomNumberLocked,
         'pseudoRoom': value.pseudoRoom,
     };

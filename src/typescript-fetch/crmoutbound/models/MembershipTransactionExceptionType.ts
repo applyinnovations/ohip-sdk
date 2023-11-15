@@ -100,16 +100,16 @@ export interface MembershipTransactionExceptionType {
     membershipLevel?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
     /**
      * 
      * @type {MembershipTransactionId}
@@ -257,8 +257,8 @@ export function MembershipTransactionExceptionTypeFromJSONTyped(json: any, ignor
         'membershipCardNo': !exists(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipType': !exists(json, 'membershipType') ? undefined : CodeDescriptionTypeFromJSON(json['membershipType']),
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
-        'joinedDate': !exists(json, 'joinedDate') ? undefined : (new Date(json['joinedDate'])),
-        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : (new Date(json['cardExpirationDate'])),
+        'joinedDate': !exists(json, 'joinedDate') ? undefined : json['joinedDate'],
+        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : json['cardExpirationDate'],
         'membershipTransactionId': !exists(json, 'membershipTransactionId') ? undefined : MembershipTransactionIdFromJSON(json['membershipTransactionId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'fromToRangeDate': !exists(json, 'fromToRangeDate') ? undefined : DateRangeTypeFromJSON(json['fromToRangeDate']),
@@ -297,8 +297,8 @@ export function MembershipTransactionExceptionTypeToJSON(value?: MembershipTrans
         'membershipCardNo': value.membershipCardNo,
         'membershipType': CodeDescriptionTypeToJSON(value.membershipType),
         'membershipLevel': value.membershipLevel,
-        'joinedDate': value.joinedDate === undefined ? undefined : (value.joinedDate.toISOString().substring(0,10)),
-        'cardExpirationDate': value.cardExpirationDate === undefined ? undefined : (value.cardExpirationDate.toISOString().substring(0,10)),
+        'joinedDate': value.joinedDate,
+        'cardExpirationDate': value.cardExpirationDate,
         'membershipTransactionId': MembershipTransactionIdToJSON(value.membershipTransactionId),
         'hotelId': value.hotelId,
         'fromToRangeDate': DateRangeTypeToJSON(value.fromToRangeDate),

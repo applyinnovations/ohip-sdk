@@ -100,10 +100,10 @@ export interface ResPaymentCardType {
     cardNumberLast4Digits?: string;
     /**
      * Expiration date of the credit card
-     * @type {Date}
+     * @type {string}
      * @memberof ResPaymentCardType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * Masked Expiration date of the credit card
      * @type {string}
@@ -175,7 +175,7 @@ export function ResPaymentCardTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'cardNumber': !exists(json, 'cardNumber') ? undefined : json['cardNumber'],
         'cardNumberMasked': !exists(json, 'cardNumberMasked') ? undefined : json['cardNumberMasked'],
         'cardNumberLast4Digits': !exists(json, 'cardNumberLast4Digits') ? undefined : json['cardNumberLast4Digits'],
-        'expirationDate': !exists(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !exists(json, 'expirationDate') ? undefined : json['expirationDate'],
         'expirationDateMasked': !exists(json, 'expirationDateMasked') ? undefined : json['expirationDateMasked'],
         'expirationDateExpired': !exists(json, 'expirationDateExpired') ? undefined : json['expirationDateExpired'],
         'cardHolderName': !exists(json, 'cardHolderName') ? undefined : json['cardHolderName'],
@@ -203,7 +203,7 @@ export function ResPaymentCardTypeToJSON(value?: ResPaymentCardType | null): any
         'cardNumber': value.cardNumber,
         'cardNumberMasked': value.cardNumberMasked,
         'cardNumberLast4Digits': value.cardNumberLast4Digits,
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0,10)),
+        'expirationDate': value.expirationDate,
         'expirationDateMasked': value.expirationDateMasked,
         'expirationDateExpired': value.expirationDateExpired,
         'cardHolderName': value.cardHolderName,

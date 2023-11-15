@@ -41,10 +41,10 @@ export interface ChannelGuaranteeCodeMappingType {
     hotelId?: string;
     /**
      * Inactive date of guarantee code mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelGuaranteeCodeMappingType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * New channel guarantee code for the existing guarantee code mapping.
      * @type {string}

@@ -23,10 +23,10 @@ export interface DepositDetailPostingTypeUpdateInfo {
     updateBy?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof DepositDetailPostingTypeUpdateInfo
      */
-    updateDate?: Date;
+    updateDate?: string;
 }
 /**
  * Check if a given object implements the DepositDetailPostingTypeUpdateInfo interface.

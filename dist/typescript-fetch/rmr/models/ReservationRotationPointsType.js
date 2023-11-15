@@ -34,8 +34,8 @@ function ReservationRotationPointsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
-        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
+        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : json['departureDate'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
         'nights': !(0, runtime_1.exists)(json, 'nights') ? undefined : json['nights'],
         'pointsAdjusted': !(0, runtime_1.exists)(json, 'pointsAdjusted') ? undefined : json['pointsAdjusted'],
@@ -54,8 +54,8 @@ function ReservationRotationPointsTypeToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'guestName': value.guestName,
         'nights': value.nights,
         'pointsAdjusted': value.pointsAdjusted,

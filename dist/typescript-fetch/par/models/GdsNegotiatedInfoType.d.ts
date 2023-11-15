@@ -23,10 +23,10 @@ export interface GdsNegotiatedInfoType {
     accessCode?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof GdsNegotiatedInfoType
      */
-    end?: Date;
+    end?: string;
     /**
      * The GDS Negotiated Rate is inactive or not
      * @type {boolean}
@@ -41,10 +41,10 @@ export interface GdsNegotiatedInfoType {
     order?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof GdsNegotiatedInfoType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the GdsNegotiatedInfoType interface.

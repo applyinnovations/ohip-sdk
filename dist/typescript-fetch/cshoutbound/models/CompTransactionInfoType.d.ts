@@ -48,10 +48,10 @@ export interface CompTransactionInfoType {
     confirmationNo?: string;
     /**
      * Approval date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CompTransactionInfoType
      */
-    approvalDate?: Date;
+    approvalDate?: string;
     /**
      * Approval status of the posting.
      * @type {string}

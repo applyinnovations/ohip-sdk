@@ -32,8 +32,8 @@ function ResPeriodicFolioTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'lastSettlementDate': !(0, runtime_1.exists)(json, 'lastSettlementDate') ? undefined : (new Date(json['lastSettlementDate'])),
-        'lastFolioDate': !(0, runtime_1.exists)(json, 'lastFolioDate') ? undefined : (new Date(json['lastFolioDate'])),
+        'lastSettlementDate': !(0, runtime_1.exists)(json, 'lastSettlementDate') ? undefined : json['lastSettlementDate'],
+        'lastFolioDate': !(0, runtime_1.exists)(json, 'lastFolioDate') ? undefined : json['lastFolioDate'],
         'frequency': !(0, runtime_1.exists)(json, 'frequency') ? undefined : json['frequency'],
     };
 }
@@ -46,8 +46,8 @@ function ResPeriodicFolioTypeToJSON(value) {
         return null;
     }
     return {
-        'lastSettlementDate': value.lastSettlementDate === undefined ? undefined : (value.lastSettlementDate.toISOString().substring(0, 10)),
-        'lastFolioDate': value.lastFolioDate === undefined ? undefined : (value.lastFolioDate.toISOString().substring(0, 10)),
+        'lastSettlementDate': value.lastSettlementDate,
+        'lastFolioDate': value.lastFolioDate,
         'frequency': value.frequency,
     };
 }

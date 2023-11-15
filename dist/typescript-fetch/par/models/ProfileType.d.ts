@@ -267,10 +267,10 @@ export interface ProfileType {
     protectedBy?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Hotel which this profile is registered with. This attribute is not used for configuration.
      * @type {string}

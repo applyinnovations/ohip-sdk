@@ -52,10 +52,10 @@ export interface AuthorizationHistoryType {
     approvalAmount?: CurrencyAmountType;
     /**
      * The corresponding business date for this record.
-     * @type {Date}
+     * @type {string}
      * @memberof AuthorizationHistoryType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * 
      * @type {AuthorizationHistoryTypeCardPaymentInformation}
@@ -88,10 +88,10 @@ export interface AuthorizationHistoryType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof AuthorizationHistoryType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {AuthorizationHistoryTypeStatus}
@@ -145,13 +145,13 @@ export function AuthorizationHistoryTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'approvalAmount': !exists(json, 'approvalAmount') ? undefined : CurrencyAmountTypeFromJSON(json['approvalAmount']),
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'cardPaymentInformation': !exists(json, 'cardPaymentInformation') ? undefined : AuthorizationHistoryTypeCardPaymentInformationFromJSON(json['cardPaymentInformation']),
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'status': !exists(json, 'status') ? undefined : AuthorizationHistoryTypeStatusFromJSON(json['status']),
         'transactionType': !exists(json, 'transactionType') ? undefined : CardAuthorizationTransactionTypeFromJSON(json['transactionType']),
         'type': !exists(json, 'type') ? undefined : json['type'],
@@ -168,13 +168,13 @@ export function AuthorizationHistoryTypeToJSON(value?: AuthorizationHistoryType 
     return {
         
         'approvalAmount': CurrencyAmountTypeToJSON(value.approvalAmount),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'cardPaymentInformation': AuthorizationHistoryTypeCardPaymentInformationToJSON(value.cardPaymentInformation),
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'status': AuthorizationHistoryTypeStatusToJSON(value.status),
         'transactionType': CardAuthorizationTransactionTypeToJSON(value.transactionType),
         'type': value.type,

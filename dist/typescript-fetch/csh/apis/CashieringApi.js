@@ -1050,10 +1050,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['saturday'] = requestParameters.saturday;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.creditLimit) {
                 queryParameters['creditLimit'] = requestParameters.creditLimit;
@@ -1161,10 +1161,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['saturday'] = requestParameters.saturday;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.creditLimit) {
                 queryParameters['creditLimit'] = requestParameters.creditLimit;
@@ -1272,10 +1272,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['saturday'] = requestParameters.saturday;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -1359,10 +1359,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['saturday'] = requestParameters.saturday;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.creditLimit) {
                 queryParameters['creditLimit'] = requestParameters.creditLimit;
@@ -1706,7 +1706,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['type'] = requestParameters.type;
             }
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.numberOfNights !== undefined) {
                 queryParameters['numberOfNights'] = requestParameters.numberOfNights;
@@ -1885,10 +1885,10 @@ class CashieringApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -2047,7 +2047,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['fiscalBillNo'] = requestParameters.fiscalBillNo;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate;
             }
             if (requestParameters.folioNo !== undefined) {
                 queryParameters['folioNo'] = requestParameters.folioNo;
@@ -2113,7 +2113,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['offlineSettlement'] = requestParameters.offlineSettlement;
             }
             if (requestParameters.transactionDate !== undefined) {
-                queryParameters['transactionDate'] = requestParameters.transactionDate.toISOString().substring(0, 10);
+                queryParameters['transactionDate'] = requestParameters.transactionDate;
             }
             if (requestParameters.guestName !== undefined) {
                 queryParameters['guestName'] = requestParameters.guestName;
@@ -2224,7 +2224,7 @@ class CashieringApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.arrival !== undefined) {
-                queryParameters['arrival'] = requestParameters.arrival.toISOString().substring(0, 10);
+                queryParameters['arrival'] = requestParameters.arrival;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -2410,7 +2410,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -2509,7 +2509,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['primaryInd'] = requestParameters.primaryInd;
             }
             if (requestParameters.purgeDate !== undefined) {
-                queryParameters['purgeDate'] = requestParameters.purgeDate.toISOString().substring(0, 10);
+                queryParameters['purgeDate'] = requestParameters.purgeDate;
             }
             if (requestParameters.emailType !== undefined) {
                 queryParameters['emailType'] = requestParameters.emailType;
@@ -2653,7 +2653,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -2752,7 +2752,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['primaryInd'] = requestParameters.primaryInd;
             }
             if (requestParameters.purgeDate !== undefined) {
-                queryParameters['purgeDate'] = requestParameters.purgeDate.toISOString().substring(0, 10);
+                queryParameters['purgeDate'] = requestParameters.purgeDate;
             }
             if (requestParameters.emailType !== undefined) {
                 queryParameters['emailType'] = requestParameters.emailType;
@@ -2866,7 +2866,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -2959,7 +2959,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['primaryInd'] = requestParameters.primaryInd;
             }
             if (requestParameters.purgeDate !== undefined) {
-                queryParameters['purgeDate'] = requestParameters.purgeDate.toISOString().substring(0, 10);
+                queryParameters['purgeDate'] = requestParameters.purgeDate;
             }
             if (requestParameters.emailType !== undefined) {
                 queryParameters['emailType'] = requestParameters.emailType;
@@ -3100,7 +3100,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['bagNumberForCash'] = requestParameters.bagNumberForCash;
             }
             if (requestParameters.closureBusinessDate !== undefined) {
-                queryParameters['closureBusinessDate'] = requestParameters.closureBusinessDate.toISOString().substring(0, 10);
+                queryParameters['closureBusinessDate'] = requestParameters.closureBusinessDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -3253,10 +3253,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['hotelId'] = requestParameters.hotelId;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -3434,10 +3434,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['offset'] = requestParameters.offset;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -3528,10 +3528,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['offset'] = requestParameters.offset;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -3612,10 +3612,10 @@ class CashieringApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.nameWildcard !== undefined) {
                 queryParameters['nameWildcard'] = requestParameters.nameWildcard;
@@ -4053,10 +4053,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['offset'] = requestParameters.offset;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -4113,7 +4113,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -4212,10 +4212,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['folioWindowNo'] = requestParameters.folioWindowNo;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -4445,16 +4445,16 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['confirmationNo'] = requestParameters.confirmationNo;
             }
             if (requestParameters.arrivalStartDate !== undefined) {
-                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate.toISOString().substring(0, 10);
+                queryParameters['arrivalStartDate'] = requestParameters.arrivalStartDate;
             }
             if (requestParameters.arrivalEndDate !== undefined) {
-                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate.toISOString().substring(0, 10);
+                queryParameters['arrivalEndDate'] = requestParameters.arrivalEndDate;
             }
             if (requestParameters.departureStartDate !== undefined) {
-                queryParameters['departureStartDate'] = requestParameters.departureStartDate.toISOString().substring(0, 10);
+                queryParameters['departureStartDate'] = requestParameters.departureStartDate;
             }
             if (requestParameters.departureEndDate !== undefined) {
-                queryParameters['departureEndDate'] = requestParameters.departureEndDate.toISOString().substring(0, 10);
+                queryParameters['departureEndDate'] = requestParameters.departureEndDate;
             }
             if (requestParameters.roomId !== undefined) {
                 queryParameters['roomId'] = requestParameters.roomId;
@@ -4718,7 +4718,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['videoCheckOut'] = requestParameters.videoCheckOut;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate;
             }
             if (requestParameters.reservationIdId !== undefined) {
                 queryParameters['reservationIdId'] = requestParameters.reservationIdId;
@@ -4853,7 +4853,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['associatedBillFiscalBillNumber'] = requestParameters.associatedBillFiscalBillNumber;
             }
             if (requestParameters.associatedBillGenerationDate !== undefined) {
-                queryParameters['associatedBillGenerationDate'] = requestParameters.associatedBillGenerationDate.toISOString().substring(0, 10);
+                queryParameters['associatedBillGenerationDate'] = requestParameters.associatedBillGenerationDate;
             }
             if (requestParameters.folioType !== undefined) {
                 queryParameters['folioType'] = requestParameters.folioType;
@@ -4967,7 +4967,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -5060,7 +5060,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['primaryInd'] = requestParameters.primaryInd;
             }
             if (requestParameters.purgeDate !== undefined) {
-                queryParameters['purgeDate'] = requestParameters.purgeDate.toISOString().substring(0, 10);
+                queryParameters['purgeDate'] = requestParameters.purgeDate;
             }
             if (requestParameters.emailType !== undefined) {
                 queryParameters['emailType'] = requestParameters.emailType;
@@ -5108,7 +5108,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['transactionCode'] = requestParameters.transactionCode;
             }
             if (requestParameters.transactionDate !== undefined) {
-                queryParameters['transactionDate'] = requestParameters.transactionDate.toISOString().substring(0, 10);
+                queryParameters['transactionDate'] = requestParameters.transactionDate;
             }
             if (requestParameters.transactionDescription !== undefined) {
                 queryParameters['transactionDescription'] = requestParameters.transactionDescription;
@@ -5147,7 +5147,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['availableCreditCurrencyCode'] = requestParameters.availableCreditCurrencyCode;
             }
             if (requestParameters.paymentDate !== undefined) {
-                queryParameters['paymentDate'] = requestParameters.paymentDate.toISOString().substring(0, 10);
+                queryParameters['paymentDate'] = requestParameters.paymentDate;
             }
             if (requestParameters.taxFolioWindowNo) {
                 queryParameters['taxFolioWindowNo'] = requestParameters.taxFolioWindowNo;
@@ -5561,10 +5561,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['cashieringTransactionType'] = requestParameters.cashieringTransactionType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.cashierId !== undefined) {
                 queryParameters['cashierId'] = requestParameters.cashierId;
@@ -5675,7 +5675,7 @@ class CashieringApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.businessDate !== undefined) {
-                queryParameters['businessDate'] = requestParameters.businessDate.toISOString().substring(0, 10);
+                queryParameters['businessDate'] = requestParameters.businessDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -5969,7 +5969,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['includeGenerates'] = requestParameters.includeGenerates;
             }
             if (requestParameters.postingDate !== undefined) {
-                queryParameters['postingDate'] = requestParameters.postingDate.toISOString().substring(0, 10);
+                queryParameters['postingDate'] = requestParameters.postingDate;
             }
             if (requestParameters.checkPostings !== undefined) {
                 queryParameters['checkPostings'] = requestParameters.checkPostings;
@@ -6074,10 +6074,10 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['wednesday'] = requestParameters.wednesday;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.transactionHotelId) {
                 queryParameters['transactionHotelId'] = requestParameters.transactionHotelId;
@@ -6215,10 +6215,10 @@ class CashieringApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.toDate !== undefined) {
-                queryParameters['toDate'] = requestParameters.toDate.toISOString().substring(0, 10);
+                queryParameters['toDate'] = requestParameters.toDate;
             }
             if (requestParameters.name !== undefined) {
                 queryParameters['name'] = requestParameters.name;
@@ -6440,7 +6440,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -6521,7 +6521,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['primaryInd'] = requestParameters.primaryInd;
             }
             if (requestParameters.purgeDate !== undefined) {
-                queryParameters['purgeDate'] = requestParameters.purgeDate.toISOString().substring(0, 10);
+                queryParameters['purgeDate'] = requestParameters.purgeDate;
             }
             if (requestParameters.emailType !== undefined) {
                 queryParameters['emailType'] = requestParameters.emailType;
@@ -6593,7 +6593,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['includeCompRoutingRequests'] = requestParameters.includeCompRoutingRequests;
             }
             if (requestParameters.effectiveOn !== undefined) {
-                queryParameters['effectiveOn'] = requestParameters.effectiveOn.toISOString().substring(0, 10);
+                queryParameters['effectiveOn'] = requestParameters.effectiveOn;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -6647,7 +6647,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['fiscalBillNo'] = requestParameters.fiscalBillNo;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate;
             }
             if (requestParameters.folioStatus !== undefined) {
                 queryParameters['folioStatus'] = requestParameters.folioStatus;
@@ -6731,7 +6731,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['fiscalBillNo'] = requestParameters.fiscalBillNo;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate;
             }
             if (requestParameters.folioNo !== undefined) {
                 queryParameters['folioNo'] = requestParameters.folioNo;
@@ -11074,7 +11074,7 @@ class CashieringApi extends runtime.BaseAPI {
                 queryParameters['fiscalBillNo'] = requestParameters.fiscalBillNo;
             }
             if (requestParameters.folioDate !== undefined) {
-                queryParameters['folioDate'] = requestParameters.folioDate.toISOString().substring(0, 10);
+                queryParameters['folioDate'] = requestParameters.folioDate;
             }
             if (requestParameters.folioNo !== undefined) {
                 queryParameters['folioNo'] = requestParameters.folioNo;
@@ -11209,7 +11209,7 @@ class CashieringApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.revenueDate !== undefined) {
-                queryParameters['revenueDate'] = requestParameters.revenueDate.toISOString().substring(0, 10);
+                queryParameters['revenueDate'] = requestParameters.revenueDate;
             }
             if (requestParameters.amount !== undefined) {
                 queryParameters['amount'] = requestParameters.amount;

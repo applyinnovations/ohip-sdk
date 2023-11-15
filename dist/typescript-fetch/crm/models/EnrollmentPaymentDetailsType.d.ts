@@ -36,10 +36,10 @@ export interface EnrollmentPaymentDetailsType {
     comments?: string;
     /**
      * The date of Payment for enrollment to membership program.
-     * @type {Date}
+     * @type {string}
      * @memberof EnrollmentPaymentDetailsType
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      *
      * @type {CodeDescriptionType}

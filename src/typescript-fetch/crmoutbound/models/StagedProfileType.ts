@@ -232,10 +232,10 @@ export interface StagedProfileType {
     hotelId?: string;
     /**
      * The date on which the staged profile has been received.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      * Type of the staged profile.
      * @type {string}
@@ -287,7 +287,7 @@ export function StagedProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'privacyInfo': !exists(json, 'privacyInfo') ? undefined : PrivacyInfoTypeFromJSON(json['privacyInfo']),
         'comments': !exists(json, 'comments') ? undefined : ((json['comments'] as Array<any>).map(StagedProfileCommentInfoTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'importDate': !exists(json, 'importDate') ? undefined : (new Date(json['importDate'])),
+        'importDate': !exists(json, 'importDate') ? undefined : json['importDate'],
         'profileType': !exists(json, 'profileType') ? undefined : json['profileType'],
         'stageStatus': !exists(json, 'stageStatus') ? undefined : json['stageStatus'],
     };
@@ -320,7 +320,7 @@ export function StagedProfileTypeToJSON(value?: StagedProfileType | null): any {
         'privacyInfo': PrivacyInfoTypeToJSON(value.privacyInfo),
         'comments': value.comments === undefined ? undefined : ((value.comments as Array<any>).map(StagedProfileCommentInfoTypeToJSON)),
         'hotelId': value.hotelId,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
+        'importDate': value.importDate,
         'profileType': value.profileType,
         'stageStatus': value.stageStatus,
     };

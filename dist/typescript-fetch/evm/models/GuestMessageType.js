@@ -44,7 +44,7 @@ function GuestMessageTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'message': !(0, runtime_1.exists)(json, 'message') ? undefined : (0, MessageType_1.MessageTypeFromJSON)(json['message']),
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
         'url': !(0, runtime_1.exists)(json, 'url') ? undefined : json['url'],
     };
@@ -68,7 +68,7 @@ function GuestMessageTypeToJSON(value) {
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'message': (0, MessageType_1.MessageTypeToJSON)(value.message),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'type': value.type,
         'url': value.url,
     };

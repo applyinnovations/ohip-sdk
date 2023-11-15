@@ -33,7 +33,7 @@ function ExcludedDateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'reason': !(0, runtime_1.exists)(json, 'reason') ? undefined : (0, ExclusionReasonType_1.ExclusionReasonTypeFromJSON)(json['reason']),
     };
 }
@@ -46,7 +46,7 @@ function ExcludedDateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'reason': (0, ExclusionReasonType_1.ExclusionReasonTypeToJSON)(value.reason),
     };
 }

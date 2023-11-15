@@ -51,10 +51,10 @@ export interface AttractionTemplateType {
     generalDirections?: string;
     /**
      * The date the record was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof AttractionTemplateType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {number}

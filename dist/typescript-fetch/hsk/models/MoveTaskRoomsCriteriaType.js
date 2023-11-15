@@ -38,7 +38,7 @@ function MoveTaskRoomsCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'rooms': !(0, runtime_1.exists)(json, 'rooms') ? undefined : (json['rooms'].map(RoomType_1.RoomTypeFromJSON)),
         'taskCode': !(0, runtime_1.exists)(json, 'taskCode') ? undefined : (json['taskCode'].map(HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeFromJSON)),
-        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : json['taskDate'],
         'toTaskSheetNumber': !(0, runtime_1.exists)(json, 'toTaskSheetNumber') ? undefined : json['toTaskSheetNumber'],
     };
 }
@@ -55,7 +55,7 @@ function MoveTaskRoomsCriteriaTypeToJSON(value) {
         'hotelId': value.hotelId,
         'rooms': value.rooms === undefined ? undefined : (value.rooms.map(RoomType_1.RoomTypeToJSON)),
         'taskCode': value.taskCode === undefined ? undefined : (value.taskCode.map(HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
+        'taskDate': value.taskDate,
         'toTaskSheetNumber': value.toTaskSheetNumber,
     };
 }

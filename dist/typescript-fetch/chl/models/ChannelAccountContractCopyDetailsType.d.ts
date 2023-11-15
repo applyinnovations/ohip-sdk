@@ -18,10 +18,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface ChannelAccountContractCopyDetailsType {
     /**
      * Holds begin date of the new contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractCopyDetailsType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Holds contract No of the new contract to create.
      * @type {string}
@@ -30,10 +30,10 @@ export interface ChannelAccountContractCopyDetailsType {
     contractNo?: string;
     /**
      * Holds end date of the new contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractCopyDetailsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Holds Note for the new contract.
      * @type {string}

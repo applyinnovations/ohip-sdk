@@ -31,10 +31,10 @@ export interface BlockWashInfoTypeBlockInfo {
     blockId?: BlockId;
     /**
      * End date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code to which the block belongs to.
      * @type {string}
@@ -49,22 +49,22 @@ export interface BlockWashInfoTypeBlockInfo {
     inventoryControl?: BlockInventoryControlType;
     /**
      * Shoulder end date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Shoulder start date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      * Start date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashInfoTypeBlockInfo
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the BlockWashInfoTypeBlockInfo interface.

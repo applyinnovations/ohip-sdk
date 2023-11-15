@@ -33,7 +33,7 @@ function ResGuestAdditionalInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dateOfEntry': !(0, runtime_1.exists)(json, 'dateOfEntry') ? undefined : (new Date(json['dateOfEntry'])),
+        'dateOfEntry': !(0, runtime_1.exists)(json, 'dateOfEntry') ? undefined : json['dateOfEntry'],
         'guestClassification': !(0, runtime_1.exists)(json, 'guestClassification') ? undefined : json['guestClassification'],
         'guestStatus': !(0, runtime_1.exists)(json, 'guestStatus') ? undefined : json['guestStatus'],
         'lastStay': !(0, runtime_1.exists)(json, 'lastStay') ? undefined : (0, GuestLastStayInfoType_1.GuestLastStayInfoTypeFromJSON)(json['lastStay']),
@@ -52,7 +52,7 @@ function ResGuestAdditionalInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'dateOfEntry': value.dateOfEntry === undefined ? undefined : (value.dateOfEntry.toISOString().substring(0, 10)),
+        'dateOfEntry': value.dateOfEntry,
         'guestClassification': value.guestClassification,
         'guestStatus': value.guestStatus,
         'lastStay': (0, GuestLastStayInfoType_1.GuestLastStayInfoTypeToJSON)(value.lastStay),

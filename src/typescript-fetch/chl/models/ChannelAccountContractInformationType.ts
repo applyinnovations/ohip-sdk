@@ -34,10 +34,10 @@ import {
 export interface ChannelAccountContractInformationType {
     /**
      * Holds begin date of the contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractInformationType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Channel account contract elements information object to hold details of contract elements.
      * @type {Array<ContractElementInformationType>}
@@ -58,10 +58,10 @@ export interface ChannelAccountContractInformationType {
     contractNo?: string;
     /**
      * Holds end date of the contract.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountContractInformationType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Flag to mark respective statements which were generated on these contracts to be regenerated.
      * @type {boolean}
@@ -95,11 +95,11 @@ export function ChannelAccountContractInformationTypeFromJSONTyped(json: any, ig
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'channelAccountContractElements': !exists(json, 'channelAccountContractElements') ? undefined : ((json['channelAccountContractElements'] as Array<any>).map(ContractElementInformationTypeFromJSON)),
         'contractId': !exists(json, 'contractId') ? undefined : UniqueIDTypeFromJSON(json['contractId']),
         'contractNo': !exists(json, 'contractNo') ? undefined : json['contractNo'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'markStatementsToRegenerate': !exists(json, 'markStatementsToRegenerate') ? undefined : json['markStatementsToRegenerate'],
         'note': !exists(json, 'note') ? undefined : json['note'],
     };
@@ -114,11 +114,11 @@ export function ChannelAccountContractInformationTypeToJSON(value?: ChannelAccou
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'channelAccountContractElements': value.channelAccountContractElements === undefined ? undefined : ((value.channelAccountContractElements as Array<any>).map(ContractElementInformationTypeToJSON)),
         'contractId': UniqueIDTypeToJSON(value.contractId),
         'contractNo': value.contractNo,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'markStatementsToRegenerate': value.markStatementsToRegenerate,
         'note': value.note,
     };

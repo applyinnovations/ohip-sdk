@@ -126,10 +126,10 @@ export interface EventDetailType {
     hasPostings?: boolean;
     /**
      * Inactivation date of the event.
-     * @type {Date}
+     * @type {string}
      * @memberof EventDetailType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Flag to indicate if the event space is associated from the Package
      * @type {boolean}
@@ -198,10 +198,10 @@ export interface EventDetailType {
     packageName?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof EventDetailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Flag to indicate if the event is a sub event.
      * @type {boolean}

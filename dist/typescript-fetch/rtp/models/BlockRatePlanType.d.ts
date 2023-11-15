@@ -29,10 +29,10 @@ export interface BlockRatePlanType {
     description?: string;
     /**
      * End sell date of the rate code.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRatePlanType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      * Market code associated with the rate code.
      * @type {string}
@@ -71,10 +71,10 @@ export interface BlockRatePlanType {
     sourceCode?: string;
     /**
      * Start sell date of the rate code.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRatePlanType
      */
-    startSellDate?: Date;
+    startSellDate?: string;
 }
 /**
  * Check if a given object implements the BlockRatePlanType interface.

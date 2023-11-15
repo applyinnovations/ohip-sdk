@@ -64,10 +64,10 @@ export interface ReservationQueueInformationType {
     avgQueueTimeCurrentReservations?: number;
     /**
      * The Business date on which the reservation was due to arrive and is currently placed on Queue for Check In.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationType
      */
-    queueDate?: Date;
+    queueDate?: string;
 }
 
 /**
@@ -94,7 +94,7 @@ export function ReservationQueueInformationTypeFromJSONTyped(json: any, ignoreDi
         'priority': !exists(json, 'priority') ? undefined : json['priority'],
         'avgQueueTimeToCheckIn': !exists(json, 'avgQueueTimeToCheckIn') ? undefined : json['avgQueueTimeToCheckIn'],
         'avgQueueTimeCurrentReservations': !exists(json, 'avgQueueTimeCurrentReservations') ? undefined : json['avgQueueTimeCurrentReservations'],
-        'queueDate': !exists(json, 'queueDate') ? undefined : (new Date(json['queueDate'])),
+        'queueDate': !exists(json, 'queueDate') ? undefined : json['queueDate'],
     };
 }
 
@@ -112,7 +112,7 @@ export function ReservationQueueInformationTypeToJSON(value?: ReservationQueueIn
         'priority': value.priority,
         'avgQueueTimeToCheckIn': value.avgQueueTimeToCheckIn,
         'avgQueueTimeCurrentReservations': value.avgQueueTimeCurrentReservations,
-        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substring(0,10)),
+        'queueDate': value.queueDate,
     };
 }
 

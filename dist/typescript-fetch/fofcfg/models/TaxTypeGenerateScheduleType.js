@@ -34,7 +34,7 @@ function TaxTypeGenerateScheduleTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'rule': !(0, runtime_1.exists)(json, 'rule') ? undefined : (0, TaxTypeCalcRuleType_1.TaxTypeCalcRuleTypeFromJSON)(json['rule']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.TaxTypeGenerateScheduleTypeFromJSONTyped = TaxTypeGenerateScheduleTypeFromJSONTyped;
@@ -47,7 +47,7 @@ function TaxTypeGenerateScheduleTypeToJSON(value) {
     }
     return {
         'rule': (0, TaxTypeCalcRuleType_1.TaxTypeCalcRuleTypeToJSON)(value.rule),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.TaxTypeGenerateScheduleTypeToJSON = TaxTypeGenerateScheduleTypeToJSON;

@@ -60,9 +60,9 @@ function WaitlistedEventTypeFromJSONTyped(json, ignoreDiscriminator) {
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
         'processInstructions': !(0, runtime_1.exists)(json, 'processInstructions') ? undefined : (0, EventProcessInstructionsType_1.EventProcessInstructionsTypeFromJSON)(json['processInstructions']),
         'subEventsDetail': !(0, runtime_1.exists)(json, 'subEventsDetail') ? undefined : (json['subEventsDetail'].map(LightEventDetailType_1.LightEventDetailTypeFromJSON)),
-        'updateDate': !(0, runtime_1.exists)(json, 'updateDate') ? undefined : (new Date(json['updateDate'])),
+        'updateDate': !(0, runtime_1.exists)(json, 'updateDate') ? undefined : json['updateDate'],
         'updateUser': !(0, runtime_1.exists)(json, 'updateUser') ? undefined : json['updateUser'],
-        'waitlistDate': !(0, runtime_1.exists)(json, 'waitlistDate') ? undefined : (new Date(json['waitlistDate'])),
+        'waitlistDate': !(0, runtime_1.exists)(json, 'waitlistDate') ? undefined : json['waitlistDate'],
         'waitlistId': !(0, runtime_1.exists)(json, 'waitlistId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['waitlistId']),
     };
 }
@@ -90,9 +90,9 @@ function WaitlistedEventTypeToJSON(value) {
         'priority': value.priority,
         'processInstructions': (0, EventProcessInstructionsType_1.EventProcessInstructionsTypeToJSON)(value.processInstructions),
         'subEventsDetail': value.subEventsDetail === undefined ? undefined : (value.subEventsDetail.map(LightEventDetailType_1.LightEventDetailTypeToJSON)),
-        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0, 10)),
+        'updateDate': value.updateDate,
         'updateUser': value.updateUser,
-        'waitlistDate': value.waitlistDate === undefined ? undefined : (value.waitlistDate.toISOString().substring(0, 10)),
+        'waitlistDate': value.waitlistDate,
         'waitlistId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.waitlistId),
     };
 }

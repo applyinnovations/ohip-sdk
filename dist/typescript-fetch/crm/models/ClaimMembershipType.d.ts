@@ -17,16 +17,16 @@
 export interface ClaimMembershipType {
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof ClaimMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}

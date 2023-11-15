@@ -32,8 +32,8 @@ function HotelPackageTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'packageCode': !(0, runtime_1.exists)(json, 'packageCode') ? undefined : json['packageCode'],
         'packageName': !(0, runtime_1.exists)(json, 'packageName') ? undefined : json['packageName'],
         'packagePrice': !(0, runtime_1.exists)(json, 'packagePrice') ? undefined : json['packagePrice'],
@@ -50,8 +50,8 @@ function HotelPackageTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
+        'endDate': value.endDate,
         'packageCode': value.packageCode,
         'packageName': value.packageName,
         'packagePrice': value.packagePrice,

@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface CashierTypeUsageInfoHistory {
     /**
      * The date that the cashier last opened.
-     * @type {Date}
+     * @type {string}
      * @memberof CashierTypeUsageInfoHistory
      */
-    lastOpened?: Date;
+    lastOpened?: string;
     /**
      * The number of times the cashier has opened their account today.
      * @type {number}
@@ -52,7 +52,7 @@ export function CashierTypeUsageInfoHistoryFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'lastOpened': !exists(json, 'lastOpened') ? undefined : (new Date(json['lastOpened'])),
+        'lastOpened': !exists(json, 'lastOpened') ? undefined : json['lastOpened'],
         'timesOpened': !exists(json, 'timesOpened') ? undefined : json['timesOpened'],
     };
 }
@@ -66,7 +66,7 @@ export function CashierTypeUsageInfoHistoryToJSON(value?: CashierTypeUsageInfoHi
     }
     return {
         
-        'lastOpened': value.lastOpened === undefined ? undefined : (value.lastOpened.toISOString().substring(0,10)),
+        'lastOpened': value.lastOpened,
         'timesOpened': value.timesOpened,
     };
 }

@@ -39,10 +39,10 @@ export interface RatePlanPrimaryDetailsType {
     description?: TranslationTextType2000;
     /**
      * End sell date of the rate plan.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanPrimaryDetailsType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      *
      * @type {RateCodeLockStatusType}
@@ -69,10 +69,10 @@ export interface RatePlanPrimaryDetailsType {
     sellSequence?: number;
     /**
      * Start sell date of the rate plan.
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanPrimaryDetailsType
      */
-    startSellDate?: Date;
+    startSellDate?: string;
 }
 /**
  * Check if a given object implements the RatePlanPrimaryDetailsType interface.

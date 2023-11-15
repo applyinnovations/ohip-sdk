@@ -76,10 +76,10 @@ export interface ResHousekeepingType {
     linenChange?: boolean;
     /**
      * This is the Turndown room service time.
-     * @type {Date}
+     * @type {string}
      * @memberof ResHousekeepingType
      */
-    serviceTime?: Date;
+    serviceTime?: string;
     /**
      * 
      * @type {GuestHousekeepingServiceRequestType}
@@ -119,7 +119,7 @@ export function ResHousekeepingTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'housekeepingRoomStatus': !exists(json, 'housekeepingRoomStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['housekeepingRoomStatus']),
         'instructions': !exists(json, 'instructions') ? undefined : json['instructions'],
         'linenChange': !exists(json, 'linenChange') ? undefined : json['linenChange'],
-        'serviceTime': !exists(json, 'serviceTime') ? undefined : (new Date(json['serviceTime'])),
+        'serviceTime': !exists(json, 'serviceTime') ? undefined : json['serviceTime'],
         'status': !exists(json, 'status') ? undefined : GuestHousekeepingServiceRequestTypeFromJSON(json['status']),
         'turndownRequested': !exists(json, 'turndownRequested') ? undefined : json['turndownRequested'],
     };
@@ -140,7 +140,7 @@ export function ResHousekeepingTypeToJSON(value?: ResHousekeepingType | null): a
         'housekeepingRoomStatus': HousekeepingRoomStatusTypeToJSON(value.housekeepingRoomStatus),
         'instructions': value.instructions,
         'linenChange': value.linenChange,
-        'serviceTime': value.serviceTime === undefined ? undefined : (value.serviceTime.toISOString().substring(0,10)),
+        'serviceTime': value.serviceTime,
         'status': GuestHousekeepingServiceRequestTypeToJSON(value.status),
         'turndownRequested': value.turndownRequested,
     };

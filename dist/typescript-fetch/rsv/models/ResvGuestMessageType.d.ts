@@ -79,10 +79,10 @@ export interface ResvGuestMessageType {
     message?: ResvMessageType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof ResvGuestMessageType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}

@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface DateRangeType {
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DateRangeType
      */
-    start?: Date;
+    start?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DateRangeType
      */
-    end?: Date;
+    end?: string;
 }
 
 /**
@@ -52,8 +52,8 @@ export function DateRangeTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
+        'end': !exists(json, 'end') ? undefined : json['end'],
     };
 }
 
@@ -66,8 +66,8 @@ export function DateRangeTypeToJSON(value?: DateRangeType | null): any {
     }
     return {
         
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'start': value.start,
+        'end': value.end,
     };
 }
 

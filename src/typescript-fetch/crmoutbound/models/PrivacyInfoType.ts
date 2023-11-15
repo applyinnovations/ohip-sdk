@@ -27,10 +27,10 @@ export interface PrivacyInfoType {
     marketResearchParticipation?: boolean;
     /**
      * Indicate the last privacy prompt date of the guest.
-     * @type {Date}
+     * @type {string}
      * @memberof PrivacyInfoType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * Indicates if the profile is ok getting info from third parties.
      * @type {boolean}
@@ -125,7 +125,7 @@ export function PrivacyInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'marketResearchParticipation': !exists(json, 'marketResearchParticipation') ? undefined : json['marketResearchParticipation'],
-        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
+        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : json['lastPrivacyPromptDate'],
         'infoFromThirdParty': !exists(json, 'infoFromThirdParty') ? undefined : json['infoFromThirdParty'],
         'autoEnrollLoyaltyProgram': !exists(json, 'autoEnrollLoyaltyProgram') ? undefined : json['autoEnrollLoyaltyProgram'],
         'allowPhone': !exists(json, 'allowPhone') ? undefined : json['allowPhone'],
@@ -151,7 +151,7 @@ export function PrivacyInfoTypeToJSON(value?: PrivacyInfoType | null): any {
     return {
         
         'marketResearchParticipation': value.marketResearchParticipation,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate,
         'infoFromThirdParty': value.infoFromThirdParty,
         'autoEnrollLoyaltyProgram': value.autoEnrollLoyaltyProgram,
         'allowPhone': value.allowPhone,

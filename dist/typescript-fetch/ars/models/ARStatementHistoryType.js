@@ -32,7 +32,7 @@ function ARStatementHistoryTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : (new Date(json['dateSent'])),
+        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : json['dateSent'],
         'reportFileName': !(0, runtime_1.exists)(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportName': !(0, runtime_1.exists)(json, 'reportName') ? undefined : json['reportName'],
         'statementNo': !(0, runtime_1.exists)(json, 'statementNo') ? undefined : json['statementNo'],
@@ -47,7 +47,7 @@ function ARStatementHistoryTypeToJSON(value) {
         return null;
     }
     return {
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0, 10)),
+        'dateSent': value.dateSent,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,
         'statementNo': value.statementNo,

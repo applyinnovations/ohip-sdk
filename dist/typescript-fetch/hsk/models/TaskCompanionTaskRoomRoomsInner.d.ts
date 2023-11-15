@@ -218,10 +218,10 @@ export interface TaskCompanionTaskRoomRoomsInner {
     turndownInfo?: TurndownInfoType;
     /**
      * The wake up time of the current date
-     * @type {Date}
+     * @type {string}
      * @memberof TaskCompanionTaskRoomRoomsInner
      */
-    wakeUpTime?: Date;
+    wakeUpTime?: string;
 }
 /**
  * Check if a given object implements the TaskCompanionTaskRoomRoomsInner interface.

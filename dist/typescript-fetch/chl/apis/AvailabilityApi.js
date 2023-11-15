@@ -66,7 +66,7 @@ class AvailabilityApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.friday !== undefined) {
                 queryParameters['friday'] = requestParameters.friday;
@@ -90,7 +90,7 @@ class AvailabilityApi extends runtime.BaseAPI {
                 queryParameters['wednesday'] = requestParameters.wednesday;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -159,7 +159,7 @@ class AvailabilityApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.friday !== undefined) {
                 queryParameters['friday'] = requestParameters.friday;
@@ -183,7 +183,7 @@ class AvailabilityApi extends runtime.BaseAPI {
                 queryParameters['wednesday'] = requestParameters.wednesday;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -243,7 +243,7 @@ class AvailabilityApi extends runtime.BaseAPI {
                 queryParameters['bookingChannelCode'] = requestParameters.bookingChannelCode;
             }
             if (requestParameters.arrival !== undefined) {
-                queryParameters['arrival'] = requestParameters.arrival.toISOString().substring(0, 10);
+                queryParameters['arrival'] = requestParameters.arrival;
             }
             if (requestParameters.adults !== undefined) {
                 queryParameters['adults'] = requestParameters.adults;

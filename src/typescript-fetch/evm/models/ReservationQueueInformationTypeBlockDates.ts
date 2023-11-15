@@ -33,16 +33,16 @@ export interface ReservationQueueInformationTypeBlockDates {
     durationInSeconds?: number;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeBlockDates
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeBlockDates
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -66,8 +66,8 @@ export function ReservationQueueInformationTypeBlockDatesFromJSONTyped(json: any
         
         'duration': !exists(json, 'duration') ? undefined : json['duration'],
         'durationInSeconds': !exists(json, 'durationInSeconds') ? undefined : json['durationInSeconds'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -82,8 +82,8 @@ export function ReservationQueueInformationTypeBlockDatesToJSON(value?: Reservat
         
         'duration': value.duration,
         'durationInSeconds': value.durationInSeconds,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
+        'startDate': value.startDate,
     };
 }
 

@@ -24,10 +24,10 @@ export interface MembershipAwardListType {
     actualCancelPoints?: number;
     /**
      * The arrival date of the stay for when the award is associated.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      *
      * @type {MembershipAwardBasedOnType}
@@ -36,10 +36,10 @@ export interface MembershipAwardListType {
     awardBasedOn?: MembershipAwardBasedOnType;
     /**
      * If the reservation associated with the award was cancelled, the reservation cancellation date appears here.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    awardCancelDate?: Date;
+    awardCancelDate?: string;
     /**
      * If the award was cancelled, the system-generated award cancellation number appears here.
      * @type {number}
@@ -120,22 +120,22 @@ export interface MembershipAwardListType {
     crsBookNo?: string;
     /**
      * Date when the award was issued
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    dateAwarded?: Date;
+    dateAwarded?: string;
     /**
      * The date of the departure of the reservation associated with the award. There may be more than one date (multiple nights) associated with award
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * Expiry date on the Card.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * Property Reservation number.
      * @type {string}
@@ -150,10 +150,10 @@ export interface MembershipAwardListType {
     hotelId?: string;
     /**
      * Joined date on the Card.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    joinDate?: Date;
+    joinDate?: string;
     /**
      * If this award was included on a statement, the member statement ID appears here. The field is blank if the award has not yet been reported on a statement
      * @type {number}
@@ -228,10 +228,10 @@ export interface MembershipAwardListType {
     statementId?: number;
     /**
      * The date of the reservation associated with the award. There may be more than one date (multiple nights) associated with award
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardListType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Indicates member is below the threshold limit or not to request award.
      * @type {number}

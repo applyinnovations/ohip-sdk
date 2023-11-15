@@ -52,10 +52,10 @@ export interface PostForeignCurrencyExchangeType {
     cashierId?: number;
     /**
      * Date on which exchange rate was obtained.
-     * @type {Date}
+     * @type {string}
      * @memberof PostForeignCurrencyExchangeType
      */
-    exchangeDate?: Date;
+    exchangeDate?: string;
     /**
      * Exchange references.
      * @type {string}
@@ -138,7 +138,7 @@ export function PostForeignCurrencyExchangeTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
-        'exchangeDate': !exists(json, 'exchangeDate') ? undefined : (new Date(json['exchangeDate'])),
+        'exchangeDate': !exists(json, 'exchangeDate') ? undefined : json['exchangeDate'],
         'exchangeReference': !exists(json, 'exchangeReference') ? undefined : json['exchangeReference'],
         'exchangeType': !exists(json, 'exchangeType') ? undefined : CurrencyExchangeTypeFromJSON(json['exchangeType']),
         'fromCurrencyAmount': !exists(json, 'fromCurrencyAmount') ? undefined : CurrencyAmountTypeFromJSON(json['fromCurrencyAmount']),
@@ -162,7 +162,7 @@ export function PostForeignCurrencyExchangeTypeToJSON(value?: PostForeignCurrenc
     return {
         
         'cashierId': value.cashierId,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0,10)),
+        'exchangeDate': value.exchangeDate,
         'exchangeReference': value.exchangeReference,
         'exchangeType': CurrencyExchangeTypeToJSON(value.exchangeType),
         'fromCurrencyAmount': CurrencyAmountTypeToJSON(value.fromCurrencyAmount),

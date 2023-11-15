@@ -27,10 +27,10 @@ export interface MembershipTypeRulePrimaryDetailsType {
     description?: string;
     /**
      * The date that Membership type rule is marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRulePrimaryDetailsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {MembershipTypeRuleIDType}
@@ -51,16 +51,16 @@ export interface MembershipTypeRulePrimaryDetailsType {
     ruleBasedOn?: MembershipTypeRuleBasedOnType;
     /**
      * End date for this points calculation rule.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRulePrimaryDetailsType
      */
-    ruleEndDate?: Date;
+    ruleEndDate?: string;
     /**
      * Start date indicates the begin date for this points calculation rule.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRulePrimaryDetailsType
      */
-    ruleStartDate?: Date;
+    ruleStartDate?: string;
     /**
      *
      * @type {MembershipTypeRuleTransactionCodeType}

@@ -28,10 +28,10 @@ import {
 export interface ChannelRateRoomType {
     /**
      * Begin Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRateRoomType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Booking Channel Code.
      * @type {string}
@@ -58,10 +58,10 @@ export interface ChannelRateRoomType {
     channelRoomType?: string;
     /**
      * End Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRateRoomType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code.
      * @type {string}
@@ -107,12 +107,12 @@ export function ChannelRateRoomTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'channelRatePlanCode': !exists(json, 'channelRatePlanCode') ? undefined : json['channelRatePlanCode'],
         'channelRateRoomDetail': !exists(json, 'channelRateRoomDetail') ? undefined : ChannelRateRoomDetailTypeFromJSON(json['channelRateRoomDetail']),
         'channelRoomType': !exists(json, 'channelRoomType') ? undefined : json['channelRoomType'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
@@ -129,12 +129,12 @@ export function ChannelRateRoomTypeToJSON(value?: ChannelRateRoomType | null): a
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'bookingChannelCode': value.bookingChannelCode,
         'channelRatePlanCode': value.channelRatePlanCode,
         'channelRateRoomDetail': ChannelRateRoomDetailTypeToJSON(value.channelRateRoomDetail),
         'channelRoomType': value.channelRoomType,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
         'ratePlanCode': value.ratePlanCode,

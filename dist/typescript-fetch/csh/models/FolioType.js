@@ -37,10 +37,10 @@ function FolioTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'allowConvertFolioYn': !(0, runtime_1.exists)(json, 'allowConvertFolioYn') ? undefined : json['allowConvertFolioYn'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'fiscalBillNo': !(0, runtime_1.exists)(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'folioAmount': !(0, runtime_1.exists)(json, 'folioAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['folioAmount']),
-        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !(0, runtime_1.exists)(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !(0, runtime_1.exists)(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !(0, runtime_1.exists)(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioSeqNo': !(0, runtime_1.exists)(json, 'folioSeqNo') ? undefined : json['folioSeqNo'],
@@ -51,7 +51,7 @@ function FolioTypeFromJSONTyped(json, ignoreDiscriminator) {
         'payeeInfo': !(0, runtime_1.exists)(json, 'payeeInfo') ? undefined : (0, PayeeInfoType_1.PayeeInfoTypeFromJSON)(json['payeeInfo']),
         'postings': !(0, runtime_1.exists)(json, 'postings') ? undefined : (json['postings'].map(SummaryPostingType_1.SummaryPostingTypeFromJSON)),
         'revisionNo': !(0, runtime_1.exists)(json, 'revisionNo') ? undefined : json['revisionNo'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.FolioTypeFromJSONTyped = FolioTypeFromJSONTyped;
@@ -64,10 +64,10 @@ function FolioTypeToJSON(value) {
     }
     return {
         'allowConvertFolioYn': value.allowConvertFolioYn,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'fiscalBillNo': value.fiscalBillNo,
         'folioAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.folioAmount),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0, 10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,
@@ -78,7 +78,7 @@ function FolioTypeToJSON(value) {
         'payeeInfo': (0, PayeeInfoType_1.PayeeInfoTypeToJSON)(value.payeeInfo),
         'postings': value.postings === undefined ? undefined : (value.postings.map(SummaryPostingType_1.SummaryPostingTypeToJSON)),
         'revisionNo': value.revisionNo,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.FolioTypeToJSON = FolioTypeToJSON;

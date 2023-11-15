@@ -82,10 +82,10 @@ export interface ExternalProfileSummaryTypeFormerName {
     gender?: string;
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof ExternalProfileSummaryTypeFormerName
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -152,7 +152,7 @@ export function ExternalProfileSummaryTypeFormerNameFromJSONTyped(json: any, ign
         'nameTitle': !exists(json, 'nameTitle') ? undefined : json['nameTitle'],
         'nameType': !exists(json, 'nameType') ? undefined : PersonNameTypeTypeFromJSON(json['nameType']),
         'gender': !exists(json, 'gender') ? undefined : json['gender'],
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !exists(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'currencySymbol': !exists(json, 'currencySymbol') ? undefined : json['currencySymbol'],
@@ -180,7 +180,7 @@ export function ExternalProfileSummaryTypeFormerNameToJSON(value?: ExternalProfi
         'nameTitle': value.nameTitle,
         'nameType': PersonNameTypeTypeToJSON(value.nameType),
         'gender': value.gender,
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'currencyCode': value.currencyCode,
         'currencySymbol': value.currencySymbol,

@@ -48,10 +48,10 @@ export interface TransactionCurrencyExchangeInfoType {
     description?: string;
     /**
      * The date when this exchange rate was set.
-     * @type {Date}
+     * @type {string}
      * @memberof TransactionCurrencyExchangeInfoType
      */
-    exchangeDate?: Date;
+    exchangeDate?: string;
     /**
      *
      * @type {CurrencyAmountType}

@@ -39,7 +39,7 @@ function RatePlanNoteTypeFromJSONTyped(json, ignoreDiscriminator) {
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'note': !(0, runtime_1.exists)(json, 'note') ? undefined : json['note'],
         'noteId': !(0, runtime_1.exists)(json, 'noteId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['noteId']),
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
     };
 }
 exports.RatePlanNoteTypeFromJSONTyped = RatePlanNoteTypeFromJSONTyped;
@@ -57,7 +57,7 @@ function RatePlanNoteTypeToJSON(value) {
         'lastModifyDateTime': value.lastModifyDateTime,
         'note': value.note,
         'noteId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.noteId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
     };
 }
 exports.RatePlanNoteTypeToJSON = RatePlanNoteTypeToJSON;

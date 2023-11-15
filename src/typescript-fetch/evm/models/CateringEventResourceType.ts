@@ -64,10 +64,10 @@ export interface CateringEventResourceType {
     discount?: number;
     /**
      * Event End Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * Contains event resource comment information.
      * @type {Array<EventResourceNoteType>}
@@ -76,10 +76,10 @@ export interface CateringEventResourceType {
     eventResourceNotes?: Array<EventResourceNoteType>;
     /**
      * Event Start Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * Indicates that item must be ordered externally.
      * @type {boolean}
@@ -190,16 +190,16 @@ export interface CateringEventResourceType {
     revenue?: CurrencyAmountType;
     /**
      * Sell End Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    sellEndDate?: Date;
+    sellEndDate?: string;
     /**
      * Sell Start Date of resource of type Menu.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventResourceType
      */
-    sellStartDate?: Date;
+    sellStartDate?: string;
     /**
      * Setup style for the function space.
      * @type {string}
@@ -236,9 +236,9 @@ export function CateringEventResourceTypeFromJSONTyped(json: any, ignoreDiscrimi
         'consumptionBased': !exists(json, 'consumptionBased') ? undefined : json['consumptionBased'],
         'custom': !exists(json, 'custom') ? undefined : json['custom'],
         'discount': !exists(json, 'discount') ? undefined : json['discount'],
-        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
+        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
         'eventResourceNotes': !exists(json, 'eventResourceNotes') ? undefined : ((json['eventResourceNotes'] as Array<any>).map(EventResourceNoteTypeFromJSON)),
-        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
+        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : json['eventStartDate'],
         'external': !exists(json, 'external') ? undefined : json['external'],
         'hasDiscountMenuItem': !exists(json, 'hasDiscountMenuItem') ? undefined : json['hasDiscountMenuItem'],
         'hasNotes': !exists(json, 'hasNotes') ? undefined : json['hasNotes'],
@@ -257,8 +257,8 @@ export function CateringEventResourceTypeFromJSONTyped(json: any, ignoreDiscrimi
         'resourceName': !exists(json, 'resourceName') ? undefined : json['resourceName'],
         'resourceType': !exists(json, 'resourceType') ? undefined : ResourceTypeFromJSON(json['resourceType']),
         'revenue': !exists(json, 'revenue') ? undefined : CurrencyAmountTypeFromJSON(json['revenue']),
-        'sellEndDate': !exists(json, 'sellEndDate') ? undefined : (new Date(json['sellEndDate'])),
-        'sellStartDate': !exists(json, 'sellStartDate') ? undefined : (new Date(json['sellStartDate'])),
+        'sellEndDate': !exists(json, 'sellEndDate') ? undefined : json['sellEndDate'],
+        'sellStartDate': !exists(json, 'sellStartDate') ? undefined : json['sellStartDate'],
         'setupCode': !exists(json, 'setupCode') ? undefined : json['setupCode'],
         'unitPrice': !exists(json, 'unitPrice') ? undefined : CurrencyAmountTypeFromJSON(json['unitPrice']),
     };
@@ -276,9 +276,9 @@ export function CateringEventResourceTypeToJSON(value?: CateringEventResourceTyp
         'consumptionBased': value.consumptionBased,
         'custom': value.custom,
         'discount': value.discount,
-        'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0,10)),
+        'eventEndDate': value.eventEndDate,
         'eventResourceNotes': value.eventResourceNotes === undefined ? undefined : ((value.eventResourceNotes as Array<any>).map(EventResourceNoteTypeToJSON)),
-        'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0,10)),
+        'eventStartDate': value.eventStartDate,
         'external': value.external,
         'hasDiscountMenuItem': value.hasDiscountMenuItem,
         'hasNotes': value.hasNotes,
@@ -297,8 +297,8 @@ export function CateringEventResourceTypeToJSON(value?: CateringEventResourceTyp
         'resourceName': value.resourceName,
         'resourceType': ResourceTypeToJSON(value.resourceType),
         'revenue': CurrencyAmountTypeToJSON(value.revenue),
-        'sellEndDate': value.sellEndDate === undefined ? undefined : (value.sellEndDate.toISOString().substring(0,10)),
-        'sellStartDate': value.sellStartDate === undefined ? undefined : (value.sellStartDate.toISOString().substring(0,10)),
+        'sellEndDate': value.sellEndDate,
+        'sellStartDate': value.sellStartDate,
         'setupCode': value.setupCode,
         'unitPrice': CurrencyAmountTypeToJSON(value.unitPrice),
     };

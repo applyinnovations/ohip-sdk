@@ -29,10 +29,10 @@ export interface CalendarTaskTypeStatus {
     completedBy?: string;
     /**
      * Date on which the task was completed. Ignored when task is not marked as completed.
-     * @type {Date}
+     * @type {string}
      * @memberof CalendarTaskTypeStatus
      */
-    completedOn?: Date;
+    completedOn?: string;
 }
 /**
  * Check if a given object implements the CalendarTaskTypeStatus interface.

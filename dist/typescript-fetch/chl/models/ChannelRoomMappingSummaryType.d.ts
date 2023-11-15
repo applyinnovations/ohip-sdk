@@ -42,10 +42,10 @@ export interface ChannelRoomMappingSummaryType {
     bedTypeCode?: string;
     /**
      * Begin Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingSummaryType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Booking Channel Code.
      * @type {string}
@@ -84,10 +84,10 @@ export interface ChannelRoomMappingSummaryType {
     description?: ChannelRoomMappingDescriptionType;
     /**
      * End date of the hotel-channel room type mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingSummaryType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code.
      * @type {string}

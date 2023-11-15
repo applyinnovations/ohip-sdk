@@ -19,10 +19,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface RecentlyAccessedBlockType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedBlockType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Business Block Code
      * @type {string}

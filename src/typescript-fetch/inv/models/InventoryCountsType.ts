@@ -39,16 +39,16 @@ export interface InventoryCountsType {
     availableTentativeCount?: number;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof InventoryCountsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof InventoryCountsType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -73,8 +73,8 @@ export function InventoryCountsTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'available': !exists(json, 'available') ? undefined : json['available'],
         'availableCount': !exists(json, 'availableCount') ? undefined : json['availableCount'],
         'availableTentativeCount': !exists(json, 'availableTentativeCount') ? undefined : json['availableTentativeCount'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -90,8 +90,8 @@ export function InventoryCountsTypeToJSON(value?: InventoryCountsType | null): a
         'available': value.available,
         'availableCount': value.availableCount,
         'availableTentativeCount': value.availableTentativeCount,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
+        'startDate': value.startDate,
     };
 }
 

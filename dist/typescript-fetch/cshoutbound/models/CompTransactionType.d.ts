@@ -67,10 +67,10 @@ export interface CompTransactionType {
     membershipType?: string;
     /**
      * Approval date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CompTransactionType
      */
-    approvalDate?: Date;
+    approvalDate?: string;
     /**
      * Approval status of the posting.
      * @type {string}
@@ -163,10 +163,10 @@ export interface CompTransactionType {
     transactionStatus?: string;
     /**
      * Transaction date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof CompTransactionType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * User name.
      * @type {string}

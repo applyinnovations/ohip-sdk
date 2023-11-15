@@ -17,10 +17,10 @@
 export interface MarketingTextType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof MarketingTextType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The code that identifies a Booking Channel.
      * @type {string}
@@ -29,10 +29,10 @@ export interface MarketingTextType {
     bookingChannelCode?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof MarketingTextType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {boolean}
@@ -53,10 +53,10 @@ export interface MarketingTextType {
     marketingText?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof MarketingTextType
      */
-    newBeginDate?: Date;
+    newBeginDate?: string;
     /**
      *
      * @type {string}

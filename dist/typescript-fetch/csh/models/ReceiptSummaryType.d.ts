@@ -26,10 +26,10 @@ export interface ReceiptSummaryType {
     customNumbers?: Array<string>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReceiptSummaryType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {PayeeInfoType}
@@ -62,10 +62,10 @@ export interface ReceiptSummaryType {
     receiptTypeDescription?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ReceiptSummaryType
      */
-    start?: Date;
+    start?: string;
     /**
      * Tax Invoice Number of the Receipt.
      * @type {string}

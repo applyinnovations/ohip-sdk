@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface AutoFolioSettlementCriteriaType {
     /**
      * Date since the last auto folio settlement.
-     * @type {Date}
+     * @type {string}
      * @memberof AutoFolioSettlementCriteriaType
      */
-    dateSinceLastAutoSettled?: Date;
+    dateSinceLastAutoSettled?: string;
     /**
      * Days since the last auto folio settlement.
      * @type {number}
@@ -64,7 +64,7 @@ export function AutoFolioSettlementCriteriaTypeFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'dateSinceLastAutoSettled': !exists(json, 'dateSinceLastAutoSettled') ? undefined : (new Date(json['dateSinceLastAutoSettled'])),
+        'dateSinceLastAutoSettled': !exists(json, 'dateSinceLastAutoSettled') ? undefined : json['dateSinceLastAutoSettled'],
         'daysSinceLastAutoSettled': !exists(json, 'daysSinceLastAutoSettled') ? undefined : json['daysSinceLastAutoSettled'],
         'defaultDays': !exists(json, 'defaultDays') ? undefined : json['defaultDays'],
         'folioSettlementTypes': !exists(json, 'folioSettlementTypes') ? undefined : json['folioSettlementTypes'],
@@ -80,7 +80,7 @@ export function AutoFolioSettlementCriteriaTypeToJSON(value?: AutoFolioSettlemen
     }
     return {
         
-        'dateSinceLastAutoSettled': value.dateSinceLastAutoSettled === undefined ? undefined : (value.dateSinceLastAutoSettled.toISOString().substring(0,10)),
+        'dateSinceLastAutoSettled': value.dateSinceLastAutoSettled,
         'daysSinceLastAutoSettled': value.daysSinceLastAutoSettled,
         'defaultDays': value.defaultDays,
         'folioSettlementTypes': value.folioSettlementTypes,

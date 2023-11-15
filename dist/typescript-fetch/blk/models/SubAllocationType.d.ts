@@ -196,10 +196,10 @@ export interface SubAllocationType {
     masterBlockInfo?: MasterBlockInfoType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof SubAllocationType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Rate Program contains rate information required for block creation, like room pool, rate amount, market code, etc. Only available if configured in OPERA Cloud.
      * @type {Array<RateProgramType>}

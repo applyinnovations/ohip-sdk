@@ -46,10 +46,10 @@ export interface BlockReservationDetailsType {
     controlBlockLocally?: boolean;
     /**
      * Cut off date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    cutOffDate?: Date;
+    cutOffDate?: string;
     /**
      * Cut off days of the block.
      * @type {number}
@@ -58,10 +58,10 @@ export interface BlockReservationDetailsType {
     cutOffDays?: number;
     /**
      * Contains information about the date by which the group must make a decision on the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    decisionDate?: Date;
+    decisionDate?: string;
     /**
      * Indicates the approximate check out time for the reservations made for the block.
      * @type {string}
@@ -76,10 +76,10 @@ export interface BlockReservationDetailsType {
     elastic?: number;
     /**
      * This element informs about the systematic follow up on this business block. A Group Reservations Agent or Reservations Manager can use this date to identify when to followup with the customer.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    followupDate?: Date;
+    followupDate?: string;
     /**
      * Determines whether the CRS guarantee is required or not for the block.
      * @type {boolean}
@@ -136,10 +136,10 @@ export interface BlockReservationDetailsType {
     ratePlanCode?: Array<BlockRatePlanInfoType>;
     /**
      * Due date for the rooming list for the block. This is the date by which the guest list should be provided by the customer.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockReservationDetailsType
      */
-    roomingListDueDate?: Date;
+    roomingListDueDate?: string;
     /**
      * Are Rate amounts suppressed for the block.
      * @type {boolean}

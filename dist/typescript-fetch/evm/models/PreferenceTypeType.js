@@ -43,7 +43,7 @@ function PreferenceTypeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'preference': !(0, runtime_1.exists)(json, 'preference') ? undefined : (json['preference'].map(PreferenceType_1.PreferenceTypeFromJSON)),
         'preferenceType': !(0, runtime_1.exists)(json, 'preferenceType') ? undefined : json['preferenceType'],
         'preferenceTypeDescription': !(0, runtime_1.exists)(json, 'preferenceTypeDescription') ? undefined : json['preferenceTypeDescription'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationPreference': !(0, runtime_1.exists)(json, 'reservationPreference') ? undefined : json['reservationPreference'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
     };
@@ -67,7 +67,7 @@ function PreferenceTypeTypeToJSON(value) {
         'preference': value.preference === undefined ? undefined : (value.preference.map(PreferenceType_1.PreferenceTypeToJSON)),
         'preferenceType': value.preferenceType,
         'preferenceTypeDescription': value.preferenceTypeDescription,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'reservationPreference': value.reservationPreference,
         'sequence': value.sequence,
     };

@@ -18,10 +18,10 @@ import type { AmountPointsType } from './AmountPointsType';
 export interface UpsellDailyRateType {
     /**
      * Reservation date
-     * @type {Date}
+     * @type {string}
      * @memberof UpsellDailyRateType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {AmountPointsType}

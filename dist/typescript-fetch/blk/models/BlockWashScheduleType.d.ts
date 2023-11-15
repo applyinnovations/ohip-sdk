@@ -36,10 +36,10 @@ export interface BlockWashScheduleType {
     washByRooms?: BlockGridInvType;
     /**
      * Date on which the block wash operation will be performed.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashScheduleType
      */
-    washDate?: Date;
+    washDate?: string;
 }
 /**
  * Check if a given object implements the BlockWashScheduleType interface.

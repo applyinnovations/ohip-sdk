@@ -34,16 +34,16 @@ import {
 export interface MultiRoomRateAvailabilityRequestType {
     /**
      * Arrival/Check-in Date
-     * @type {Date}
+     * @type {string}
      * @memberof MultiRoomRateAvailabilityRequestType
      */
-    arrivalDate: Date;
+    arrivalDate: string;
     /**
      * Departure/Check-out Date
-     * @type {Date}
+     * @type {string}
      * @memberof MultiRoomRateAvailabilityRequestType
      */
-    departureDate: Date;
+    departureDate: string;
     /**
      * List of hotelIds for search criteria.
      * @type {Array<string>}
@@ -88,8 +88,8 @@ export function MultiRoomRateAvailabilityRequestTypeFromJSONTyped(json: any, ign
     }
     return {
         
-        'arrivalDate': (new Date(json['arrivalDate'])),
-        'departureDate': (new Date(json['departureDate'])),
+        'arrivalDate': json['arrivalDate'],
+        'departureDate': json['departureDate'],
         'hotelIds': json['hotelIds'],
         'rates': RatesSearchTypeFromJSON(json['rates']),
         'rooms': ((json['rooms'] as Array<any>).map(RoomsSearchTypeFromJSON)),
@@ -105,8 +105,8 @@ export function MultiRoomRateAvailabilityRequestTypeToJSON(value?: MultiRoomRate
     }
     return {
         
-        'arrivalDate': (value.arrivalDate.toISOString().substring(0,10)),
-        'departureDate': (value.departureDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'hotelIds': value.hotelIds,
         'rates': RatesSearchTypeToJSON(value.rates),
         'rooms': ((value.rooms as Array<any>).map(RoomsSearchTypeToJSON)),

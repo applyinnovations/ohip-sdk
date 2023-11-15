@@ -51,10 +51,10 @@ export interface PrivacyInfoType {
     infoFromThirdParty?: boolean;
     /**
      * Indicate the last privacy prompt date of the guest.
-     * @type {Date}
+     * @type {string}
      * @memberof PrivacyInfoType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * Indicates if the profile participates in market research.
      * @type {boolean}
@@ -129,7 +129,7 @@ export function PrivacyInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'allowSMS': !exists(json, 'allowSMS') ? undefined : json['allowSMS'],
         'autoEnrollLoyaltyProgram': !exists(json, 'autoEnrollLoyaltyProgram') ? undefined : json['autoEnrollLoyaltyProgram'],
         'infoFromThirdParty': !exists(json, 'infoFromThirdParty') ? undefined : json['infoFromThirdParty'],
-        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
+        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : json['lastPrivacyPromptDate'],
         'marketResearchParticipation': !exists(json, 'marketResearchParticipation') ? undefined : json['marketResearchParticipation'],
         'optInAutoEnrollmentMember': !exists(json, 'optInAutoEnrollmentMember') ? undefined : json['optInAutoEnrollmentMember'],
         'optInEmail': !exists(json, 'optInEmail') ? undefined : json['optInEmail'],
@@ -155,7 +155,7 @@ export function PrivacyInfoTypeToJSON(value?: PrivacyInfoType | null): any {
         'allowSMS': value.allowSMS,
         'autoEnrollLoyaltyProgram': value.autoEnrollLoyaltyProgram,
         'infoFromThirdParty': value.infoFromThirdParty,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate,
         'marketResearchParticipation': value.marketResearchParticipation,
         'optInAutoEnrollmentMember': value.optInAutoEnrollmentMember,
         'optInEmail': value.optInEmail,

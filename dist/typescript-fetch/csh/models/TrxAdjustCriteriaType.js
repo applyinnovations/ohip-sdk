@@ -41,7 +41,7 @@ function TrxAdjustCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'customChargeExemptionDetails': !(0, runtime_1.exists)(json, 'customChargeExemptionDetails') ? undefined : (json['customChargeExemptionDetails'].map(CustomChargeExemptionType_1.CustomChargeExemptionTypeFromJSON)),
         'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (0, AdjustmentDetailsType_1.AdjustmentDetailsTypeFromJSON)(json['details']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'incomeAuditDate': !(0, runtime_1.exists)(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
+        'incomeAuditDate': !(0, runtime_1.exists)(json, 'incomeAuditDate') ? undefined : json['incomeAuditDate'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
         'transactionList': !(0, runtime_1.exists)(json, 'transactionList') ? undefined : json['transactionList'],
     };
@@ -61,7 +61,7 @@ function TrxAdjustCriteriaTypeToJSON(value) {
         'customChargeExemptionDetails': value.customChargeExemptionDetails === undefined ? undefined : (value.customChargeExemptionDetails.map(CustomChargeExemptionType_1.CustomChargeExemptionTypeToJSON)),
         'details': (0, AdjustmentDetailsType_1.AdjustmentDetailsTypeToJSON)(value.details),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0, 10)),
+        'incomeAuditDate': value.incomeAuditDate,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
         'transactionList': value.transactionList,
     };

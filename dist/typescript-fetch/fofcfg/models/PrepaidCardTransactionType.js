@@ -39,8 +39,8 @@ function PrepaidCardTransactionTypeFromJSONTyped(json, ignoreDiscriminator) {
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionNo': !(0, runtime_1.exists)(json, 'transactionNo') ? undefined : json['transactionNo'],
         'transactionType': !(0, runtime_1.exists)(json, 'transactionType') ? undefined : (0, PrepaidCardTrxTypeType_1.PrepaidCardTrxTypeTypeFromJSON)(json['transactionType']),
     };
@@ -59,8 +59,8 @@ function PrepaidCardTransactionTypeToJSON(value) {
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
+        'transactionDate': value.transactionDate,
         'transactionNo': value.transactionNo,
         'transactionType': (0, PrepaidCardTrxTypeType_1.PrepaidCardTrxTypeTypeToJSON)(value.transactionType),
     };

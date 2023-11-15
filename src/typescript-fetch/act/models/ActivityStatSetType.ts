@@ -28,10 +28,10 @@ import {
 export interface ActivityStatSetType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ActivityStatSetType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {string}
@@ -40,10 +40,10 @@ export interface ActivityStatSetType {
     owner?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ActivityStatSetType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {Array<ActivityStatType>}
@@ -71,9 +71,9 @@ export function ActivityStatSetTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'stat': !exists(json, 'stat') ? undefined : ((json['stat'] as Array<any>).map(ActivityStatTypeFromJSON)),
     };
 }
@@ -87,9 +87,9 @@ export function ActivityStatSetTypeToJSON(value?: ActivityStatSetType | null): a
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'owner': value.owner,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'stat': value.stat === undefined ? undefined : ((value.stat as Array<any>).map(ActivityStatTypeToJSON)),
     };
 }

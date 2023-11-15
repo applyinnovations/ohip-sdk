@@ -64,10 +64,10 @@ export interface CommentInfoType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CommentInfoType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}
@@ -101,7 +101,7 @@ export function CommentInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'id': !exists(json, 'id') ? undefined : json['id'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
 }
@@ -121,7 +121,7 @@ export function CommentInfoTypeToJSON(value?: CommentInfoType | null): any {
         'id': value.id,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'type': value.type,
     };
 }

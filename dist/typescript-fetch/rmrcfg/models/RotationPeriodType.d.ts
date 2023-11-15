@@ -36,10 +36,10 @@ export interface RotationPeriodType {
     periodFrequency?: RotationPeriodFrequencyType;
     /**
      * Represents Effective start date for the Room Rotation Period Setup.
-     * @type {Date}
+     * @type {string}
      * @memberof RotationPeriodType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the RotationPeriodType interface.

@@ -96,10 +96,10 @@ export interface ConfigBankAccountType {
     language?: string;
     /**
      * Used to hold last exported date for commission export.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigBankAccountType
      */
-    lastExportDate?: Date;
+    lastExportDate?: string;
     /**
      * Used to hold last exported filename for commission export.
      * @type {number}

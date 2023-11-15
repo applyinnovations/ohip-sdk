@@ -45,7 +45,7 @@ function ConfigDepositPolicyTypeFromJSONTyped(json, ignoreDiscriminator) {
         'manual': !(0, runtime_1.exists)(json, 'manual') ? undefined : json['manual'],
         'policyCode': !(0, runtime_1.exists)(json, 'policyCode') ? undefined : json['policyCode'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
         'typeOfCharges': !(0, runtime_1.exists)(json, 'typeOfCharges') ? undefined : (0, DepositCancelRevenueType_1.DepositCancelRevenueTypeFromJSON)(json['typeOfCharges']),
     };
 }
@@ -68,7 +68,7 @@ function ConfigDepositPolicyTypeToJSON(value) {
         'manual': value.manual,
         'policyCode': value.policyCode,
         'sequence': value.sequence,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'transactionDate': value.transactionDate,
         'typeOfCharges': (0, DepositCancelRevenueType_1.DepositCancelRevenueTypeToJSON)(value.typeOfCharges),
     };
 }

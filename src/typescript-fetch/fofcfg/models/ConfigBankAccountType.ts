@@ -106,10 +106,10 @@ export interface ConfigBankAccountType {
     language?: string;
     /**
      * Used to hold last exported date for commission export.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigBankAccountType
      */
-    lastExportDate?: Date;
+    lastExportDate?: string;
     /**
      * Used to hold last exported filename for commission export.
      * @type {number}
@@ -204,7 +204,7 @@ export function ConfigBankAccountTypeFromJSONTyped(json: any, ignoreDiscriminato
         'format': !exists(json, 'format') ? undefined : json['format'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'language': !exists(json, 'language') ? undefined : json['language'],
-        'lastExportDate': !exists(json, 'lastExportDate') ? undefined : (new Date(json['lastExportDate'])),
+        'lastExportDate': !exists(json, 'lastExportDate') ? undefined : json['lastExportDate'],
         'lastExportFileNo': !exists(json, 'lastExportFileNo') ? undefined : json['lastExportFileNo'],
         'minProcessingAmount': !exists(json, 'minProcessingAmount') ? undefined : json['minProcessingAmount'],
         'nextCheckNumber': !exists(json, 'nextCheckNumber') ? undefined : json['nextCheckNumber'],
@@ -240,7 +240,7 @@ export function ConfigBankAccountTypeToJSON(value?: ConfigBankAccountType | null
         'format': value.format,
         'hotelId': value.hotelId,
         'language': value.language,
-        'lastExportDate': value.lastExportDate === undefined ? undefined : (value.lastExportDate.toISOString().substring(0,10)),
+        'lastExportDate': value.lastExportDate,
         'lastExportFileNo': value.lastExportFileNo,
         'minProcessingAmount': value.minProcessingAmount,
         'nextCheckNumber': value.nextCheckNumber,

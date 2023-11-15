@@ -87,10 +87,10 @@ export interface TelephoneType {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof TelephoneType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
 }
 
 /**
@@ -123,7 +123,7 @@ export function TelephoneTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'phoneUseType': !exists(json, 'phoneUseType') ? undefined : json['phoneUseType'],
         'phoneUseTypeDescription': !exists(json, 'phoneUseTypeDescription') ? undefined : json['phoneUseTypeDescription'],
         'primaryInd': !exists(json, 'primaryInd') ? undefined : json['primaryInd'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
     };
 }
 
@@ -147,7 +147,7 @@ export function TelephoneTypeToJSON(value?: TelephoneType | null): any {
         'phoneUseType': value.phoneUseType,
         'phoneUseTypeDescription': value.phoneUseTypeDescription,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
     };
 }
 

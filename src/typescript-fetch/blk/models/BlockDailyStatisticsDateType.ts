@@ -28,10 +28,10 @@ import {
 export interface BlockDailyStatisticsDateType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof BlockDailyStatisticsDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * Collection of room type level statistics.
      * @type {Array<BlockDailyRoomStatisticsType>}
@@ -65,7 +65,7 @@ export function BlockDailyStatisticsDateTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'genericRoomTypeStatisticsList': !exists(json, 'genericRoomTypeStatisticsList') ? undefined : ((json['genericRoomTypeStatisticsList'] as Array<any>).map(BlockDailyRoomStatisticsTypeFromJSON)),
         'roomTypeStatisticsList': !exists(json, 'roomTypeStatisticsList') ? undefined : ((json['roomTypeStatisticsList'] as Array<any>).map(BlockDailyRoomStatisticsTypeFromJSON)),
     };
@@ -80,7 +80,7 @@ export function BlockDailyStatisticsDateTypeToJSON(value?: BlockDailyStatisticsD
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'genericRoomTypeStatisticsList': value.genericRoomTypeStatisticsList === undefined ? undefined : ((value.genericRoomTypeStatisticsList as Array<any>).map(BlockDailyRoomStatisticsTypeToJSON)),
         'roomTypeStatisticsList': value.roomTypeStatisticsList === undefined ? undefined : ((value.roomTypeStatisticsList as Array<any>).map(BlockDailyRoomStatisticsTypeToJSON)),
     };

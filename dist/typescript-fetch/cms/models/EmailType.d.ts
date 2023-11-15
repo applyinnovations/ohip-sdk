@@ -65,10 +65,10 @@ export interface EmailType {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof EmailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Defines the purpose of the e-mail address (e.g. personal, business, listserve).
      * @type {string}

@@ -60,10 +60,10 @@ export interface CateringPackageResourceNoteType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CateringPackageResourceNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Title of the Catering Package Resource Note.
      * @type {string}

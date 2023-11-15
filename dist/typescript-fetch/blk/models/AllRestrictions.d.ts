@@ -26,10 +26,10 @@ export interface AllRestrictions {
     blockId?: BlockId;
     /**
      * Date for which restrictions should be cleared.
-     * @type {Date}
+     * @type {string}
      * @memberof AllRestrictions
      */
-    date?: Date;
+    date?: string;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}

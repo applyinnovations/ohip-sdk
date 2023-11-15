@@ -25,10 +25,10 @@ export interface CateringEventsProcessedInfoType {
     blockId?: BlockId;
     /**
      * Date of the event
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventsProcessedInfoType
      */
-    eventDate?: Date;
+    eventDate?: string;
     /**
      * Name of event.
      * @type {string}

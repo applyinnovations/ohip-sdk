@@ -48,8 +48,8 @@ import {
 
 export interface GetReservationRotationPointsRequest {
     hotelId: string;
-    departureStartDate: Date;
-    departureEndDate: Date;
+    departureStartDate: string;
+    departureEndDate: string;
     roomIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
@@ -82,10 +82,10 @@ export interface GetRoomOwnersRequest {
     xHotelid?: string;
     surname?: string;
     givenName?: string;
-    startDateFrom?: Date;
-    startDateTo?: Date;
-    endDateFrom?: Date;
-    endDateTo?: Date;
+    startDateFrom?: string;
+    startDateTo?: string;
+    endDateFrom?: string;
+    endDateTo?: string;
     roomClasses?: Array<string>;
     roomTypes?: Array<string>;
     roomIds?: Array<string>;
@@ -103,8 +103,8 @@ export interface GetRoomOwnershipsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     includeReferral?: boolean;
     includeAvailableRoomsOnly?: boolean;
     xExternalsystem?: string;
@@ -113,7 +113,7 @@ export interface GetRoomOwnershipsRequest {
 
 export interface GetRoomRotationPointsRequest {
     hotelId: string;
-    roomRotationPointsDate: Date;
+    roomRotationPointsDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -329,19 +329,19 @@ export class RoomRotationApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDateFrom !== undefined) {
-            queryParameters['startDateFrom'] = (requestParameters.startDateFrom as any).toISOString().substring(0,10);
+            queryParameters['startDateFrom'] = requestParameters.startDateFrom;
         }
 
         if (requestParameters.startDateTo !== undefined) {
-            queryParameters['startDateTo'] = (requestParameters.startDateTo as any).toISOString().substring(0,10);
+            queryParameters['startDateTo'] = requestParameters.startDateTo;
         }
 
         if (requestParameters.endDateFrom !== undefined) {
-            queryParameters['endDateFrom'] = (requestParameters.endDateFrom as any).toISOString().substring(0,10);
+            queryParameters['endDateFrom'] = requestParameters.endDateFrom;
         }
 
         if (requestParameters.endDateTo !== undefined) {
-            queryParameters['endDateTo'] = (requestParameters.endDateTo as any).toISOString().substring(0,10);
+            queryParameters['endDateTo'] = requestParameters.endDateTo;
         }
 
         if (requestParameters.roomClasses) {
@@ -429,11 +429,11 @@ export class RoomRotationApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.includeReferral !== undefined) {
@@ -501,7 +501,7 @@ export class RoomRotationApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.roomRotationPointsDate !== undefined) {
-            queryParameters['roomRotationPointsDate'] = (requestParameters.roomRotationPointsDate as any).toISOString().substring(0,10);
+            queryParameters['roomRotationPointsDate'] = requestParameters.roomRotationPointsDate;
         }
 
         if (requestParameters.limit !== undefined) {

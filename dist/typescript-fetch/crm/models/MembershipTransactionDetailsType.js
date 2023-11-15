@@ -52,7 +52,7 @@ function MembershipTransactionDetailsTypeFromJSONTyped(json, ignoreDiscriminator
         'notes': !(0, runtime_1.exists)(json, 'notes') ? undefined : json['notes'],
         'pointsCalculated': !(0, runtime_1.exists)(json, 'pointsCalculated') ? undefined : json['pointsCalculated'],
         'pointsCost': !(0, runtime_1.exists)(json, 'pointsCost') ? undefined : json['pointsCost'],
-        'pointsCreditDate': !(0, runtime_1.exists)(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
+        'pointsCreditDate': !(0, runtime_1.exists)(json, 'pointsCreditDate') ? undefined : json['pointsCreditDate'],
         'processingMessages': !(0, runtime_1.exists)(json, 'processingMessages') ? undefined : json['processingMessages'],
         'profilePromotions': !(0, runtime_1.exists)(json, 'profilePromotions') ? undefined : json['profilePromotions'],
         'ratePromotion': !(0, runtime_1.exists)(json, 'ratePromotion') ? undefined : json['ratePromotion'],
@@ -61,7 +61,7 @@ function MembershipTransactionDetailsTypeFromJSONTyped(json, ignoreDiscriminator
         'statementId': !(0, runtime_1.exists)(json, 'statementId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['statementId']),
         'stayTimeSpan': !(0, runtime_1.exists)(json, 'stayTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['stayTimeSpan']),
         'tierPoints': !(0, runtime_1.exists)(json, 'tierPoints') ? undefined : (0, MembershipTransactionTierPointsType_1.MembershipTransactionTierPointsTypeFromJSON)(json['tierPoints']),
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionType': !(0, runtime_1.exists)(json, 'transactionType') ? undefined : json['transactionType'],
     };
 }
@@ -89,7 +89,7 @@ function MembershipTransactionDetailsTypeToJSON(value) {
         'notes': value.notes,
         'pointsCalculated': value.pointsCalculated,
         'pointsCost': value.pointsCost,
-        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0, 10)),
+        'pointsCreditDate': value.pointsCreditDate,
         'processingMessages': value.processingMessages,
         'profilePromotions': value.profilePromotions,
         'ratePromotion': value.ratePromotion,
@@ -98,7 +98,7 @@ function MembershipTransactionDetailsTypeToJSON(value) {
         'statementId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.statementId),
         'stayTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.stayTimeSpan),
         'tierPoints': (0, MembershipTransactionTierPointsType_1.MembershipTransactionTierPointsTypeToJSON)(value.tierPoints),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'transactionDate': value.transactionDate,
         'transactionType': value.transactionType,
     };
 }

@@ -39,7 +39,7 @@ function ReservationPackageTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'awardCode': !(0, runtime_1.exists)(json, 'awardCode') ? undefined : json['awardCode'],
         'consumptionDetails': !(0, runtime_1.exists)(json, 'consumptionDetails') ? undefined : (0, PackageConsumptionType_1.PackageConsumptionTypeFromJSON)(json['consumptionDetails']),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'internalID': !(0, runtime_1.exists)(json, 'internalID') ? undefined : json['internalID'],
         'newTimeSpan': !(0, runtime_1.exists)(json, 'newTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['newTimeSpan']),
         'packageCode': !(0, runtime_1.exists)(json, 'packageCode') ? undefined : json['packageCode'],
@@ -49,7 +49,7 @@ function ReservationPackageTypeFromJSONTyped(json, ignoreDiscriminator) {
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'scheduleList': !(0, runtime_1.exists)(json, 'scheduleList') ? undefined : (json['scheduleList'].map(ReservationPackageScheduleType_1.ReservationPackageScheduleTypeFromJSON)),
         'source': !(0, runtime_1.exists)(json, 'source') ? undefined : (0, ProductSourceType_1.ProductSourceTypeFromJSON)(json['source']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.ReservationPackageTypeFromJSONTyped = ReservationPackageTypeFromJSONTyped;
@@ -63,7 +63,7 @@ function ReservationPackageTypeToJSON(value) {
     return {
         'awardCode': value.awardCode,
         'consumptionDetails': (0, PackageConsumptionType_1.PackageConsumptionTypeToJSON)(value.consumptionDetails),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'internalID': value.internalID,
         'newTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.newTimeSpan),
         'packageCode': value.packageCode,
@@ -73,7 +73,7 @@ function ReservationPackageTypeToJSON(value) {
         'ratePlanCode': value.ratePlanCode,
         'scheduleList': value.scheduleList === undefined ? undefined : (value.scheduleList.map(ReservationPackageScheduleType_1.ReservationPackageScheduleTypeToJSON)),
         'source': (0, ProductSourceType_1.ProductSourceTypeToJSON)(value.source),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.ReservationPackageTypeToJSON = ReservationPackageTypeToJSON;

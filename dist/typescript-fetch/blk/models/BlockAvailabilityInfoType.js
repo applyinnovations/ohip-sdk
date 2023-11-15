@@ -35,7 +35,7 @@ function BlockAvailabilityInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'extendedStay': !(0, runtime_1.exists)(json, 'extendedStay') ? undefined : json['extendedStay'],
         'roomInfo': !(0, runtime_1.exists)(json, 'roomInfo') ? undefined : (json['roomInfo'].map(BlockAvailabilityRoomInfoType_1.BlockAvailabilityRoomInfoTypeFromJSON)),
-        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 exports.BlockAvailabilityInfoTypeFromJSONTyped = BlockAvailabilityInfoTypeFromJSONTyped;
@@ -49,7 +49,7 @@ function BlockAvailabilityInfoTypeToJSON(value) {
     return {
         'extendedStay': value.extendedStay,
         'roomInfo': value.roomInfo === undefined ? undefined : (value.roomInfo.map(BlockAvailabilityRoomInfoType_1.BlockAvailabilityRoomInfoTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
+        'stayDate': value.stayDate,
     };
 }
 exports.BlockAvailabilityInfoTypeToJSON = BlockAvailabilityInfoTypeToJSON;

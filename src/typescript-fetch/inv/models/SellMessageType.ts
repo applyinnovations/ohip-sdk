@@ -28,10 +28,10 @@ import {
 export interface SellMessageType {
     /**
      * This is the Begin date for the configured SellMessage.
-     * @type {Date}
+     * @type {string}
      * @memberof SellMessageType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * This is the chain code.
      * @type {string}
@@ -143,7 +143,7 @@ export function SellMessageTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'croCode': !exists(json, 'croCode') ? undefined : json['croCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -171,7 +171,7 @@ export function SellMessageTypeToJSON(value?: SellMessageType | null): any {
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'chainCode': value.chainCode,
         'croCode': value.croCode,
         'hotelId': value.hotelId,

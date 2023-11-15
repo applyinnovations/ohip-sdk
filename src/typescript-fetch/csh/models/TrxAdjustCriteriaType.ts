@@ -76,10 +76,10 @@ export interface TrxAdjustCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof TrxAdjustCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * 
      * @type {ReservationId}
@@ -119,7 +119,7 @@ export function TrxAdjustCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminato
         'customChargeExemptionDetails': !exists(json, 'customChargeExemptionDetails') ? undefined : ((json['customChargeExemptionDetails'] as Array<any>).map(CustomChargeExemptionTypeFromJSON)),
         'details': !exists(json, 'details') ? undefined : AdjustmentDetailsTypeFromJSON(json['details']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
+        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : json['incomeAuditDate'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'transactionList': !exists(json, 'transactionList') ? undefined : json['transactionList'],
     };
@@ -140,7 +140,7 @@ export function TrxAdjustCriteriaTypeToJSON(value?: TrxAdjustCriteriaType | null
         'customChargeExemptionDetails': value.customChargeExemptionDetails === undefined ? undefined : ((value.customChargeExemptionDetails as Array<any>).map(CustomChargeExemptionTypeToJSON)),
         'details': AdjustmentDetailsTypeToJSON(value.details),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
+        'incomeAuditDate': value.incomeAuditDate,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'transactionList': value.transactionList,
     };

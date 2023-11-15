@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface ForgetProfileFailureReasonType {
     /**
      * Expected resolution date for this reason.
-     * @type {Date}
+     * @type {string}
      * @memberof ForgetProfileFailureReasonType
      */
-    expectedResolutionDate?: Date;
+    expectedResolutionDate?: string;
     /**
      * Code representing the reason why the profile is not eligible to be forgotten.
      * @type {string}
@@ -58,7 +58,7 @@ export function ForgetProfileFailureReasonTypeFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'expectedResolutionDate': !exists(json, 'expectedResolutionDate') ? undefined : (new Date(json['expectedResolutionDate'])),
+        'expectedResolutionDate': !exists(json, 'expectedResolutionDate') ? undefined : json['expectedResolutionDate'],
         'reasonCode': !exists(json, 'reasonCode') ? undefined : json['reasonCode'],
         'reasonDescription': !exists(json, 'reasonDescription') ? undefined : json['reasonDescription'],
     };
@@ -73,7 +73,7 @@ export function ForgetProfileFailureReasonTypeToJSON(value?: ForgetProfileFailur
     }
     return {
         
-        'expectedResolutionDate': value.expectedResolutionDate === undefined ? undefined : (value.expectedResolutionDate.toISOString().substring(0,10)),
+        'expectedResolutionDate': value.expectedResolutionDate,
         'reasonCode': value.reasonCode,
         'reasonDescription': value.reasonDescription,
     };

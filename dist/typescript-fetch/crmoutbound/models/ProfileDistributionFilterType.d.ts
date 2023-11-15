@@ -114,16 +114,16 @@ export interface ProfileDistributionFilterType {
     guestLanguages?: string;
     /**
      * From date range from for arrival or departure date on stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileDistributionFilterType
      */
-    fromStayDate?: Date;
+    fromStayDate?: string;
     /**
      * To date range from for arrival or departure date on stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileDistributionFilterType
      */
-    toStayDate?: Date;
+    toStayDate?: string;
     /**
      *
      * @type {Array<string>}
@@ -174,10 +174,10 @@ export interface ProfileDistributionFilterType {
     minimumStayResorts?: number;
     /**
      * Last server date time when the query was run.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileDistributionFilterType
      */
-    lastRunDate?: Date;
+    lastRunDate?: string;
     /**
      * Include inactive profiles also. Inactive profiles are profiles which are marked as N on active_yn flag.
      * @type {boolean}

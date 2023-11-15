@@ -40,10 +40,10 @@ import {
 export interface FetchRotationPeriod {
     /**
      * The start date for the property's current Rotation Period.
-     * @type {Date}
+     * @type {string}
      * @memberof FetchRotationPeriod
      */
-    currentPeriodStartDate?: Date;
+    currentPeriodStartDate?: string;
     /**
      * Property code for Room Rotation Period.
      * @type {string}
@@ -64,10 +64,10 @@ export interface FetchRotationPeriod {
     periodFrequency?: RotationPeriodFrequencyType;
     /**
      * Represents Effective start date for the Room Rotation Period Setup.
-     * @type {Date}
+     * @type {string}
      * @memberof FetchRotationPeriod
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Used in conjunction with the Success element to define a business error.
      * @type {Array<WarningType>}
@@ -95,11 +95,11 @@ export function FetchRotationPeriodFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'currentPeriodStartDate': !exists(json, 'currentPeriodStartDate') ? undefined : (new Date(json['currentPeriodStartDate'])),
+        'currentPeriodStartDate': !exists(json, 'currentPeriodStartDate') ? undefined : json['currentPeriodStartDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'periodFrequency': !exists(json, 'periodFrequency') ? undefined : RotationPeriodFrequencyTypeFromJSON(json['periodFrequency']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
 }
@@ -113,11 +113,11 @@ export function FetchRotationPeriodToJSON(value?: FetchRotationPeriod | null): a
     }
     return {
         
-        'currentPeriodStartDate': value.currentPeriodStartDate === undefined ? undefined : (value.currentPeriodStartDate.toISOString().substring(0,10)),
+        'currentPeriodStartDate': value.currentPeriodStartDate,
         'hotelId': value.hotelId,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'periodFrequency': RotationPeriodFrequencyTypeToJSON(value.periodFrequency),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };
 }

@@ -217,7 +217,7 @@ class InventoryApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.bookingChannelCode !== undefined) {
                 queryParameters['bookingChannelCode'] = requestParameters.bookingChannelCode;

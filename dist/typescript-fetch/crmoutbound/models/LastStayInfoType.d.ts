@@ -18,10 +18,10 @@ import type { CurrencyAmountType } from './CurrencyAmountType';
 export interface LastStayInfoType {
     /**
      * Used to hold last stay information for the profile.
-     * @type {Date}
+     * @type {string}
      * @memberof LastStayInfoType
      */
-    lastVisit?: Date;
+    lastVisit?: string;
     /**
      * Used to hold last room information for the profile.
      * @type {string}

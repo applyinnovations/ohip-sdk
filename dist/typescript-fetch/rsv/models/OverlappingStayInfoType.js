@@ -35,12 +35,12 @@ function OverlappingStayInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'excludedReservations': !(0, runtime_1.exists)(json, 'excludedReservations') ? undefined : (json['excludedReservations'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, ProfileId_1.ProfileIdFromJSON)(json['profileId']),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.OverlappingStayInfoTypeFromJSONTyped = OverlappingStayInfoTypeFromJSONTyped;
@@ -52,12 +52,12 @@ function OverlappingStayInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'excludedReservations': value.excludedReservations === undefined ? undefined : (value.excludedReservations.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'hotelId': value.hotelId,
         'profileId': (0, ProfileId_1.ProfileIdToJSON)(value.profileId),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.OverlappingStayInfoTypeToJSON = OverlappingStayInfoTypeToJSON;

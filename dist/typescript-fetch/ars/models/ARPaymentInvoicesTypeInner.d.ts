@@ -86,10 +86,10 @@ export interface ARPaymentInvoicesTypeInner {
     cashierInfo?: CashierInfoType;
     /**
      * Close date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      *
      * @type {boolean}
@@ -98,10 +98,10 @@ export interface ARPaymentInvoicesTypeInner {
     compressed?: boolean;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    compressedDate?: Date;
+    compressedDate?: string;
     /**
      * Unique Custom Numbers associated with this record.
      * @type {Array<string>}
@@ -122,10 +122,10 @@ export interface ARPaymentInvoicesTypeInner {
     fiscalResponseType?: FiscalResponseType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -224,10 +224,10 @@ export interface ARPaymentInvoicesTypeInner {
     payments?: CurrencyAmountType;
     /**
      * Posting date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * Flag to check Invoice Statement is Printed.
      * @type {boolean}
@@ -236,10 +236,10 @@ export interface ARPaymentInvoicesTypeInner {
     printed?: boolean;
     /**
      * Invoice Statement Printed Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    printedDate?: Date;
+    printedDate?: string;
     /**
      * User-defined posting reference.
      * @type {string}
@@ -266,10 +266,10 @@ export interface ARPaymentInvoicesTypeInner {
     reservationInfo?: ReservationInfoType;
     /**
      * Revenue date ID of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      *
      * @type {RoomClassCodeInfoType}
@@ -326,10 +326,10 @@ export interface ARPaymentInvoicesTypeInner {
     transactionCode?: string;
     /**
      * Transaction Date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      *
      * @type {TrxInfoType}
@@ -344,10 +344,10 @@ export interface ARPaymentInvoicesTypeInner {
     transactionNo?: number;
     /**
      * Transfer date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof ARPaymentInvoicesTypeInner
      */
-    transferDate?: Date;
+    transferDate?: string;
     /**
      *
      * @type {boolean}

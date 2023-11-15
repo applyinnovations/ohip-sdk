@@ -157,10 +157,10 @@ export interface ARInvoicePostingType {
     postedAmount?: CurrencyAmountType;
     /**
      * Date and time of posting.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoicePostingType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -205,10 +205,10 @@ export interface ARInvoicePostingType {
     remark?: string;
     /**
      * The date on which the transaction has its revenue effect.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoicePostingType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Reverse payment transaction unique identifier.
      * @type {number}
@@ -253,10 +253,10 @@ export interface ARInvoicePostingType {
     transactionCode?: string;
     /**
      * Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoicePostingType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Billing Transaction Description.
      * @type {string}

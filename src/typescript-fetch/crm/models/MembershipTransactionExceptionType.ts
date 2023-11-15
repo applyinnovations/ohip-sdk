@@ -88,10 +88,10 @@ export interface MembershipTransactionExceptionType {
     backToBack?: string;
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
     /**
      * 
      * @type {MembershipTransactionExceptionComputePointsType}
@@ -118,10 +118,10 @@ export interface MembershipTransactionExceptionType {
     hotelId?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionExceptionType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * The card number associated with this membership.
      * @type {string}
@@ -255,12 +255,12 @@ export function MembershipTransactionExceptionTypeFromJSONTyped(json: any, ignor
         'awardBasePoints': !exists(json, 'awardBasePoints') ? undefined : json['awardBasePoints'],
         'awardBonusPoints': !exists(json, 'awardBonusPoints') ? undefined : json['awardBonusPoints'],
         'backToBack': !exists(json, 'backToBack') ? undefined : json['backToBack'],
-        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : (new Date(json['cardExpirationDate'])),
+        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : json['cardExpirationDate'],
         'computedPoints': !exists(json, 'computedPoints') ? undefined : MembershipTransactionExceptionComputePointsTypeFromJSON(json['computedPoints']),
         'exceptionType': !exists(json, 'exceptionType') ? undefined : json['exceptionType'],
         'fromToRangeDate': !exists(json, 'fromToRangeDate') ? undefined : DateRangeTypeFromJSON(json['fromToRangeDate']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'joinedDate': !exists(json, 'joinedDate') ? undefined : (new Date(json['joinedDate'])),
+        'joinedDate': !exists(json, 'joinedDate') ? undefined : json['joinedDate'],
         'membershipCardNo': !exists(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipId': !exists(json, 'membershipId') ? undefined : UniqueIDTypeFromJSON(json['membershipId']),
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
@@ -295,12 +295,12 @@ export function MembershipTransactionExceptionTypeToJSON(value?: MembershipTrans
         'awardBasePoints': value.awardBasePoints,
         'awardBonusPoints': value.awardBonusPoints,
         'backToBack': value.backToBack,
-        'cardExpirationDate': value.cardExpirationDate === undefined ? undefined : (value.cardExpirationDate.toISOString().substring(0,10)),
+        'cardExpirationDate': value.cardExpirationDate,
         'computedPoints': MembershipTransactionExceptionComputePointsTypeToJSON(value.computedPoints),
         'exceptionType': value.exceptionType,
         'fromToRangeDate': DateRangeTypeToJSON(value.fromToRangeDate),
         'hotelId': value.hotelId,
-        'joinedDate': value.joinedDate === undefined ? undefined : (value.joinedDate.toISOString().substring(0,10)),
+        'joinedDate': value.joinedDate,
         'membershipCardNo': value.membershipCardNo,
         'membershipId': UniqueIDTypeToJSON(value.membershipId),
         'membershipLevel': value.membershipLevel,

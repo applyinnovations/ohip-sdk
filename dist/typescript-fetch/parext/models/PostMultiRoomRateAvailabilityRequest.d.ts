@@ -19,16 +19,16 @@ import type { RoomsSearchType } from './RoomsSearchType';
 export interface PostMultiRoomRateAvailabilityRequest {
     /**
      * Arrival/Check-in Date
-     * @type {Date}
+     * @type {string}
      * @memberof PostMultiRoomRateAvailabilityRequest
      */
-    arrivalDate: Date;
+    arrivalDate: string;
     /**
      * Departure/Check-out Date
-     * @type {Date}
+     * @type {string}
      * @memberof PostMultiRoomRateAvailabilityRequest
      */
-    departureDate: Date;
+    departureDate: string;
     /**
      * List of hotelIds for search criteria.
      * @type {Array<string>}

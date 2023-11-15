@@ -34,7 +34,7 @@ function ExtendMemberPointsToExpireFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'expirationDate': !(0, runtime_1.exists)(json, 'expirationDate') ? undefined : (new Date(json['expirationDate'])),
+        'expirationDate': !(0, runtime_1.exists)(json, 'expirationDate') ? undefined : json['expirationDate'],
         'links': !(0, runtime_1.exists)(json, 'links') ? undefined : (json['links'].map(InstanceLink_1.InstanceLinkFromJSON)),
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : json['membershipId'],
         'warnings': !(0, runtime_1.exists)(json, 'warnings') ? undefined : (json['warnings'].map(WarningType_1.WarningTypeFromJSON)),
@@ -49,7 +49,7 @@ function ExtendMemberPointsToExpireToJSON(value) {
         return null;
     }
     return {
-        'expirationDate': value.expirationDate === undefined ? undefined : (value.expirationDate.toISOString().substring(0, 10)),
+        'expirationDate': value.expirationDate,
         'links': value.links === undefined ? undefined : (value.links.map(InstanceLink_1.InstanceLinkToJSON)),
         'membershipId': value.membershipId,
         'warnings': value.warnings === undefined ? undefined : (value.warnings.map(WarningType_1.WarningTypeToJSON)),

@@ -17,10 +17,10 @@
 export interface AwardUpgradeDetailType {
     /**
      * Date on which the award details like points required and penalty points are applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof AwardUpgradeDetailType
      */
-    date?: Date;
+    date?: string;
     /**
      * Penalty Points applicable for the award detail date.
      * @type {number}

@@ -29,10 +29,10 @@ export interface CateringMenuClassInfoType {
     inactive?: boolean;
     /**
      * Inactive date of menu class.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringMenuClassInfoType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * This type holds name of Menu Class.
      * @type {string}

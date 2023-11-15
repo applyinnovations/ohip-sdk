@@ -102,10 +102,10 @@ export interface AddressType {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof AddressType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * State or Province name (e.g., Texas).
      * @type {string}

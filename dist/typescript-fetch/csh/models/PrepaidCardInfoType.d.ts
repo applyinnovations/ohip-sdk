@@ -44,10 +44,10 @@ export interface PrepaidCardInfoType {
     cardNumberMasked?: string;
     /**
      * Expiry Date of the prepaid card.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * Hotel context for the prepaid card.
      * @type {string}
@@ -62,10 +62,10 @@ export interface PrepaidCardInfoType {
     initialCredit?: CurrencyAmountType;
     /**
      * Initial Load Date of the prepaid card.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    initialLoadDate?: Date;
+    initialLoadDate?: string;
     /**
      *
      * @type {UniqueIDType}
@@ -74,10 +74,10 @@ export interface PrepaidCardInfoType {
     interfaceId?: UniqueIDType;
     /**
      * Issue Date of the prepaid card.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * Indicate if opera transactions are included on the transactions list.
      * @type {boolean}
@@ -116,10 +116,10 @@ export interface PrepaidCardInfoType {
     totalDebit?: CurrencyAmountType;
     /**
      * Validity of the prepaid card amount.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    validUntil?: Date;
+    validUntil?: string;
     /**
      * Indicate if vendor transactions are included on the transactions list.
      * @type {boolean}

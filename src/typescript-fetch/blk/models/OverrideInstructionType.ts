@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface OverrideInstructionType {
     /**
      * The date when the override was done.
-     * @type {Date}
+     * @type {string}
      * @memberof OverrideInstructionType
      */
-    date?: Date;
+    date?: string;
     /**
      * The description of the restriction for which the override was done.
      * @type {string}
@@ -64,7 +64,7 @@ export function OverrideInstructionTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'type': !exists(json, 'type') ? undefined : json['type'],
         'userId': !exists(json, 'userId') ? undefined : json['userId'],
@@ -80,7 +80,7 @@ export function OverrideInstructionTypeToJSON(value?: OverrideInstructionType | 
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'description': value.description,
         'type': value.type,
         'userId': value.userId,

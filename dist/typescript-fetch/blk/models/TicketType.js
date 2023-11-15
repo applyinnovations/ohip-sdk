@@ -33,9 +33,9 @@ function TicketTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'consumptionDate': !(0, runtime_1.exists)(json, 'consumptionDate') ? undefined : (new Date(json['consumptionDate'])),
+        'consumptionDate': !(0, runtime_1.exists)(json, 'consumptionDate') ? undefined : json['consumptionDate'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'issueDate': !(0, runtime_1.exists)(json, 'issueDate') ? undefined : (new Date(json['issueDate'])),
+        'issueDate': !(0, runtime_1.exists)(json, 'issueDate') ? undefined : json['issueDate'],
         'packageCode': !(0, runtime_1.exists)(json, 'packageCode') ? undefined : json['packageCode'],
         'price': !(0, runtime_1.exists)(json, 'price') ? undefined : json['price'],
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
@@ -57,9 +57,9 @@ function TicketTypeToJSON(value) {
         return null;
     }
     return {
-        'consumptionDate': value.consumptionDate === undefined ? undefined : (value.consumptionDate.toISOString().substring(0, 10)),
+        'consumptionDate': value.consumptionDate,
         'description': value.description,
-        'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substring(0, 10)),
+        'issueDate': value.issueDate,
         'packageCode': value.packageCode,
         'price': value.price,
         'quantity': value.quantity,

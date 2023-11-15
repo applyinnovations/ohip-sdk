@@ -34,7 +34,7 @@ function RecentlyAccessedBlockTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : json['accessDate'],
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
         'blockIdList': !(0, runtime_1.exists)(json, 'blockIdList') ? undefined : (json['blockIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
         'blockName': !(0, runtime_1.exists)(json, 'blockName') ? undefined : json['blockName'],
@@ -52,7 +52,7 @@ function RecentlyAccessedBlockTypeToJSON(value) {
         return null;
     }
     return {
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
+        'accessDate': value.accessDate,
         'blockCode': value.blockCode,
         'blockIdList': value.blockIdList === undefined ? undefined : (value.blockIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),
         'blockName': value.blockName,

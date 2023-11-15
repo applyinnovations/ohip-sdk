@@ -46,10 +46,10 @@ export interface AmountType {
     effectiveRate?: TotalType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {PointsType}
@@ -70,10 +70,10 @@ export interface AmountType {
     shareRatePercentage?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {TotalType}

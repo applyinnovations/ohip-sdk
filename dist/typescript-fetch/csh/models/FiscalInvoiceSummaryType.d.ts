@@ -30,10 +30,10 @@ export interface FiscalInvoiceSummaryType {
     fiscalTerminalId?: string;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalInvoiceSummaryType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}

@@ -58,10 +58,10 @@ export interface MembershipTypeRuleDefinitionType {
     ruleCode?: string;
     /**
      * Date on which the rule will be expired.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRuleDefinitionType
      */
-    ruleExpirationDate?: Date;
+    ruleExpirationDate?: string;
     /**
      * This field will be used to store export label and will be used only for exporting purposes.
      * @type {string}
@@ -93,7 +93,7 @@ export function MembershipTypeRuleDefinitionTypeFromJSONTyped(json: any, ignoreD
         'programType': !exists(json, 'programType') ? undefined : MembershipTypeRuleTypeFromJSON(json['programType']),
         'ruleAppliesOn': !exists(json, 'ruleAppliesOn') ? undefined : RuleAppliesOnTypeFromJSON(json['ruleAppliesOn']),
         'ruleCode': !exists(json, 'ruleCode') ? undefined : json['ruleCode'],
-        'ruleExpirationDate': !exists(json, 'ruleExpirationDate') ? undefined : (new Date(json['ruleExpirationDate'])),
+        'ruleExpirationDate': !exists(json, 'ruleExpirationDate') ? undefined : json['ruleExpirationDate'],
         'ruleExportLabel': !exists(json, 'ruleExportLabel') ? undefined : json['ruleExportLabel'],
     };
 }
@@ -111,7 +111,7 @@ export function MembershipTypeRuleDefinitionTypeToJSON(value?: MembershipTypeRul
         'programType': MembershipTypeRuleTypeToJSON(value.programType),
         'ruleAppliesOn': RuleAppliesOnTypeToJSON(value.ruleAppliesOn),
         'ruleCode': value.ruleCode,
-        'ruleExpirationDate': value.ruleExpirationDate === undefined ? undefined : (value.ruleExpirationDate.toISOString().substring(0,10)),
+        'ruleExpirationDate': value.ruleExpirationDate,
         'ruleExportLabel': value.ruleExportLabel,
     };
 }

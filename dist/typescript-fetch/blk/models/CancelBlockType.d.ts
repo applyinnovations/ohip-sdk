@@ -43,10 +43,10 @@ export interface CancelBlockType {
     pMReservationsCancellationDetails?: CancellationDetailsType;
     /**
      * Start date of the block to be cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof CancelBlockType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the CancelBlockType interface.

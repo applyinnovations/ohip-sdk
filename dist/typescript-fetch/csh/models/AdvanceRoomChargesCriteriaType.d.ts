@@ -25,10 +25,10 @@ export interface AdvanceRoomChargesCriteriaType {
     cashierId?: number;
     /**
      * Indicates the last date until which the Advance Room Charges have to be posted.
-     * @type {Date}
+     * @type {string}
      * @memberof AdvanceRoomChargesCriteriaType
      */
-    endDateToCharge?: Date;
+    endDateToCharge?: string;
     /**
      *
      * @type {CashieringEventType}

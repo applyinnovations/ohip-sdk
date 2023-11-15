@@ -34,10 +34,10 @@ export interface ChannelSnapshotType {
     availableRooms?: number;
     /**
      * Date of the statistics and restrictions.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelSnapshotType
      */
-    date?: Date;
+    date?: string;
     /**
      * Number of rooms in inventory.
      * @type {number}
@@ -90,7 +90,7 @@ export function ChannelSnapshotTypeFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'availableRooms': !exists(json, 'availableRooms') ? undefined : json['availableRooms'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'inventoryRooms': !exists(json, 'inventoryRooms') ? undefined : json['inventoryRooms'],
         'restrictionsInfo': !exists(json, 'restrictionsInfo') ? undefined : ((json['restrictionsInfo'] as Array<any>).map(RestrictionInfoTypeFromJSON)),
         'roomsSold': !exists(json, 'roomsSold') ? undefined : json['roomsSold'],
@@ -109,7 +109,7 @@ export function ChannelSnapshotTypeToJSON(value?: ChannelSnapshotType | null): a
     return {
         
         'availableRooms': value.availableRooms,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'inventoryRooms': value.inventoryRooms,
         'restrictionsInfo': value.restrictionsInfo === undefined ? undefined : ((value.restrictionsInfo as Array<any>).map(RestrictionInfoTypeToJSON)),
         'roomsSold': value.roomsSold,

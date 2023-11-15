@@ -178,10 +178,10 @@ export interface AccountInvoiceInfoType {
     cashierInfo?: CashierInfoType;
     /**
      * Close date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      * 
      * @type {boolean}
@@ -190,10 +190,10 @@ export interface AccountInvoiceInfoType {
     compressed?: boolean;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    compressedDate?: Date;
+    compressedDate?: string;
     /**
      * Unique Custom Numbers associated with this record.
      * @type {Array<string>}
@@ -214,10 +214,10 @@ export interface AccountInvoiceInfoType {
     fiscalResponseType?: FiscalResponseType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -316,10 +316,10 @@ export interface AccountInvoiceInfoType {
     payments?: CurrencyAmountType;
     /**
      * Posting date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * Flag to check Invoice Statement is Printed.
      * @type {boolean}
@@ -328,10 +328,10 @@ export interface AccountInvoiceInfoType {
     printed?: boolean;
     /**
      * Invoice Statement Printed Date.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    printedDate?: Date;
+    printedDate?: string;
     /**
      * User-defined posting reference.
      * @type {string}
@@ -358,10 +358,10 @@ export interface AccountInvoiceInfoType {
     reservationInfo?: ReservationInfoType;
     /**
      * Revenue date ID of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * 
      * @type {RoomClassCodeInfoType}
@@ -418,10 +418,10 @@ export interface AccountInvoiceInfoType {
     transactionCode?: string;
     /**
      * Transaction Date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * 
      * @type {TrxInfoType}
@@ -436,10 +436,10 @@ export interface AccountInvoiceInfoType {
     transactionNo?: number;
     /**
      * Transfer date of the invoice.
-     * @type {Date}
+     * @type {string}
      * @memberof AccountInvoiceInfoType
      */
-    transferDate?: Date;
+    transferDate?: string;
     /**
      * 
      * @type {boolean}
@@ -484,13 +484,13 @@ export function AccountInvoiceInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'balance': !exists(json, 'balance') ? undefined : CurrencyAmountTypeFromJSON(json['balance']),
         'canBeModified': !exists(json, 'canBeModified') ? undefined : json['canBeModified'],
         'cashierInfo': !exists(json, 'cashierInfo') ? undefined : CashierInfoTypeFromJSON(json['cashierInfo']),
-        'closeDate': !exists(json, 'closeDate') ? undefined : (new Date(json['closeDate'])),
+        'closeDate': !exists(json, 'closeDate') ? undefined : json['closeDate'],
         'compressed': !exists(json, 'compressed') ? undefined : json['compressed'],
-        'compressedDate': !exists(json, 'compressedDate') ? undefined : (new Date(json['compressedDate'])),
+        'compressedDate': !exists(json, 'compressedDate') ? undefined : json['compressedDate'],
         'customNumbers': !exists(json, 'customNumbers') ? undefined : json['customNumbers'],
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'fiscalResponseType': !exists(json, 'fiscalResponseType') ? undefined : FiscalResponseTypeFromJSON(json['fiscalResponseType']),
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioStatus': !exists(json, 'folioStatus') ? undefined : FolioStatusTypeFromJSON(json['folioStatus']),
@@ -507,14 +507,14 @@ export function AccountInvoiceInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'parentInvoiceNo': !exists(json, 'parentInvoiceNo') ? undefined : json['parentInvoiceNo'],
         'paymentCard': !exists(json, 'paymentCard') ? undefined : ResPaymentCardTypeFromJSON(json['paymentCard']),
         'payments': !exists(json, 'payments') ? undefined : CurrencyAmountTypeFromJSON(json['payments']),
-        'postingDate': !exists(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'postingDate': !exists(json, 'postingDate') ? undefined : json['postingDate'],
         'printed': !exists(json, 'printed') ? undefined : json['printed'],
-        'printedDate': !exists(json, 'printedDate') ? undefined : (new Date(json['printedDate'])),
+        'printedDate': !exists(json, 'printedDate') ? undefined : json['printedDate'],
         'reference': !exists(json, 'reference') ? undefined : json['reference'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : ReservationInfoTypeFromJSON(json['reservationInfo']),
-        'revenueDate': !exists(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !exists(json, 'revenueDate') ? undefined : json['revenueDate'],
         'roomClass': !exists(json, 'roomClass') ? undefined : RoomClassCodeInfoTypeFromJSON(json['roomClass']),
         'source': !exists(json, 'source') ? undefined : SourceCodeInfoTypeFromJSON(json['source']),
         'statementNo': !exists(json, 'statementNo') ? undefined : json['statementNo'],
@@ -524,10 +524,10 @@ export function AccountInvoiceInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'storedFolioId': !exists(json, 'storedFolioId') ? undefined : UniqueIDTypeFromJSON(json['storedFolioId']),
         'storedFolioName': !exists(json, 'storedFolioName') ? undefined : json['storedFolioName'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionInfo': !exists(json, 'transactionInfo') ? undefined : TrxInfoTypeFromJSON(json['transactionInfo']),
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
-        'transferDate': !exists(json, 'transferDate') ? undefined : (new Date(json['transferDate'])),
+        'transferDate': !exists(json, 'transferDate') ? undefined : json['transferDate'],
         'transferredIn': !exists(json, 'transferredIn') ? undefined : json['transferredIn'],
         'transferredOut': !exists(json, 'transferredOut') ? undefined : json['transferredOut'],
     };
@@ -553,13 +553,13 @@ export function AccountInvoiceInfoTypeToJSON(value?: AccountInvoiceInfoType | nu
         'balance': CurrencyAmountTypeToJSON(value.balance),
         'canBeModified': value.canBeModified,
         'cashierInfo': CashierInfoTypeToJSON(value.cashierInfo),
-        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0,10)),
+        'closeDate': value.closeDate,
         'compressed': value.compressed,
-        'compressedDate': value.compressedDate === undefined ? undefined : (value.compressedDate.toISOString().substring(0,10)),
+        'compressedDate': value.compressedDate,
         'customNumbers': value.customNumbers,
         'fiscalBillNo': value.fiscalBillNo,
         'fiscalResponseType': FiscalResponseTypeToJSON(value.fiscalResponseType),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioStatus': FolioStatusTypeToJSON(value.folioStatus),
@@ -576,14 +576,14 @@ export function AccountInvoiceInfoTypeToJSON(value?: AccountInvoiceInfoType | nu
         'parentInvoiceNo': value.parentInvoiceNo,
         'paymentCard': ResPaymentCardTypeToJSON(value.paymentCard),
         'payments': CurrencyAmountTypeToJSON(value.payments),
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
+        'postingDate': value.postingDate,
         'printed': value.printed,
-        'printedDate': value.printedDate === undefined ? undefined : (value.printedDate.toISOString().substring(0,10)),
+        'printedDate': value.printedDate,
         'reference': value.reference,
         'remark': value.remark,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'reservationInfo': ReservationInfoTypeToJSON(value.reservationInfo),
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
+        'revenueDate': value.revenueDate,
         'roomClass': RoomClassCodeInfoTypeToJSON(value.roomClass),
         'source': SourceCodeInfoTypeToJSON(value.source),
         'statementNo': value.statementNo,
@@ -593,10 +593,10 @@ export function AccountInvoiceInfoTypeToJSON(value?: AccountInvoiceInfoType | nu
         'storedFolioId': UniqueIDTypeToJSON(value.storedFolioId),
         'storedFolioName': value.storedFolioName,
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionInfo': TrxInfoTypeToJSON(value.transactionInfo),
         'transactionNo': value.transactionNo,
-        'transferDate': value.transferDate === undefined ? undefined : (value.transferDate.toISOString().substring(0,10)),
+        'transferDate': value.transferDate,
         'transferredIn': value.transferredIn,
         'transferredOut': value.transferredOut,
     };

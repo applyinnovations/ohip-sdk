@@ -36,7 +36,7 @@ function AdvanceRoomChargesInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'availablePostingDates': !(0, runtime_1.exists)(json, 'availablePostingDates') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['availablePostingDates']),
         'generatedForEntireStay': !(0, runtime_1.exists)(json, 'generatedForEntireStay') ? undefined : json['generatedForEntireStay'],
-        'lastRoomAndTaxPostedDate': !(0, runtime_1.exists)(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
+        'lastRoomAndTaxPostedDate': !(0, runtime_1.exists)(json, 'lastRoomAndTaxPostedDate') ? undefined : json['lastRoomAndTaxPostedDate'],
         'reservation': !(0, runtime_1.exists)(json, 'reservation') ? undefined : (0, ReservationInfoType_1.ReservationInfoTypeFromJSON)(json['reservation']),
     };
 }
@@ -51,7 +51,7 @@ function AdvanceRoomChargesInfoTypeToJSON(value) {
     return {
         'availablePostingDates': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.availablePostingDates),
         'generatedForEntireStay': value.generatedForEntireStay,
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0, 10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate,
         'reservation': (0, ReservationInfoType_1.ReservationInfoTypeToJSON)(value.reservation),
     };
 }

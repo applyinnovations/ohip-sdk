@@ -17,16 +17,16 @@
 export interface TimeSpanType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof TimeSpanType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof TimeSpanType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the TimeSpanType interface.

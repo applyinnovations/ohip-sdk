@@ -236,10 +236,10 @@ export interface HousekeepingTaskTypeRoomsInner {
     turndownInfo?: TurndownInfoType;
     /**
      * The wake up time of the current date
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingTaskTypeRoomsInner
      */
-    wakeUpTime?: Date;
+    wakeUpTime?: string;
 }
 /**
  * Check if a given object implements the HousekeepingTaskTypeRoomsInner interface.

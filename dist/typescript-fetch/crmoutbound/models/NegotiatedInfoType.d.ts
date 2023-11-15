@@ -41,16 +41,16 @@ export interface NegotiatedInfoType {
     inactive?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    start?: Date;
+    start?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    end?: Date;
+    end?: string;
 }
 /**
  * Check if a given object implements the NegotiatedInfoType interface.

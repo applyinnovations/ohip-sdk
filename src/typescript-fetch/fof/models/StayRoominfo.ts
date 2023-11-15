@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface StayRoominfo {
     /**
      * Identifies Reservation arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof StayRoominfo
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Room identifier which the reservation will hold.
      * @type {string}
@@ -58,7 +58,7 @@ export function StayRoominfoFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
     };
@@ -73,7 +73,7 @@ export function StayRoominfoToJSON(value?: StayRoominfo | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'roomId': value.roomId,
         'roomType': value.roomType,
     };

@@ -37,7 +37,7 @@ function DeliveryHistoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
-        'deliveryDate': !(0, runtime_1.exists)(json, 'deliveryDate') ? undefined : (new Date(json['deliveryDate'])),
+        'deliveryDate': !(0, runtime_1.exists)(json, 'deliveryDate') ? undefined : json['deliveryDate'],
         'deliveryId': !(0, runtime_1.exists)(json, 'deliveryId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['deliveryId']),
         'deliveryMethod': !(0, runtime_1.exists)(json, 'deliveryMethod') ? undefined : (0, DeliveryMethodType_1.DeliveryMethodTypeFromJSON)(json['deliveryMethod']),
         'deliveryStatus': !(0, runtime_1.exists)(json, 'deliveryStatus') ? undefined : (0, StatusType_1.StatusTypeFromJSON)(json['deliveryStatus']),
@@ -46,7 +46,7 @@ function DeliveryHistoryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'interfaceId': !(0, runtime_1.exists)(json, 'interfaceId') ? undefined : json['interfaceId'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'resvNameId': !(0, runtime_1.exists)(json, 'resvNameId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['resvNameId']),
         'retryCount': !(0, runtime_1.exists)(json, 'retryCount') ? undefined : json['retryCount'],
     };
@@ -62,7 +62,7 @@ function DeliveryHistoryTypeToJSON(value) {
     return {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'deliveryDate': value.deliveryDate === undefined ? undefined : (value.deliveryDate.toISOString().substring(0, 10)),
+        'deliveryDate': value.deliveryDate,
         'deliveryId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.deliveryId),
         'deliveryMethod': (0, DeliveryMethodType_1.DeliveryMethodTypeToJSON)(value.deliveryMethod),
         'deliveryStatus': (0, StatusType_1.StatusTypeToJSON)(value.deliveryStatus),
@@ -71,7 +71,7 @@ function DeliveryHistoryTypeToJSON(value) {
         'interfaceId': value.interfaceId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'resvNameId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.resvNameId),
         'retryCount': value.retryCount,
     };

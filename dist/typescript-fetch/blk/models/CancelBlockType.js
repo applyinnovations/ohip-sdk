@@ -38,7 +38,7 @@ function CancelBlockTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cancellationDetails': !(0, runtime_1.exists)(json, 'cancellationDetails') ? undefined : (0, CancellationDetailsType_1.CancellationDetailsTypeFromJSON)(json['cancellationDetails']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'pMReservationsCancellationDetails': !(0, runtime_1.exists)(json, 'pMReservationsCancellationDetails') ? undefined : (0, CancellationDetailsType_1.CancellationDetailsTypeFromJSON)(json['pMReservationsCancellationDetails']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.CancelBlockTypeFromJSONTyped = CancelBlockTypeFromJSONTyped;
@@ -54,7 +54,7 @@ function CancelBlockTypeToJSON(value) {
         'cancellationDetails': (0, CancellationDetailsType_1.CancellationDetailsTypeToJSON)(value.cancellationDetails),
         'hotelId': value.hotelId,
         'pMReservationsCancellationDetails': (0, CancellationDetailsType_1.CancellationDetailsTypeToJSON)(value.pMReservationsCancellationDetails),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.CancelBlockTypeToJSON = CancelBlockTypeToJSON;

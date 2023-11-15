@@ -23,10 +23,10 @@ export interface DateUDFType {
     name?: string;
     /**
      * Value of user defined field.
-     * @type {Date}
+     * @type {string}
      * @memberof DateUDFType
      */
-    value?: Date;
+    value?: string;
     /**
      * Label of user defined field used by vendors or customers.
      * @type {string}

@@ -33,10 +33,10 @@ export interface MembershipTierPointsType {
     pointsCost?: number;
     /**
      * Date when points were created.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTierPointsType
      */
-    pointsCreditDate?: Date;
+    pointsCreditDate?: string;
     /**
      * Sum of the base revenue and bonus revenue points.
      * @type {number}
@@ -72,7 +72,7 @@ export function MembershipTierPointsTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'nightPoints': !exists(json, 'nightPoints') ? undefined : json['nightPoints'],
         'pointsCost': !exists(json, 'pointsCost') ? undefined : json['pointsCost'],
-        'pointsCreditDate': !exists(json, 'pointsCreditDate') ? undefined : (new Date(json['pointsCreditDate'])),
+        'pointsCreditDate': !exists(json, 'pointsCreditDate') ? undefined : json['pointsCreditDate'],
         'revenuePoints': !exists(json, 'revenuePoints') ? undefined : json['revenuePoints'],
         'stayPoints': !exists(json, 'stayPoints') ? undefined : json['stayPoints'],
     };
@@ -89,7 +89,7 @@ export function MembershipTierPointsTypeToJSON(value?: MembershipTierPointsType 
         
         'nightPoints': value.nightPoints,
         'pointsCost': value.pointsCost,
-        'pointsCreditDate': value.pointsCreditDate === undefined ? undefined : (value.pointsCreditDate.toISOString().substring(0,10)),
+        'pointsCreditDate': value.pointsCreditDate,
         'revenuePoints': value.revenuePoints,
         'stayPoints': value.stayPoints,
     };

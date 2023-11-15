@@ -32,7 +32,7 @@ function OverrideInstructionTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'reasonCode': !(0, runtime_1.exists)(json, 'reasonCode') ? undefined : json['reasonCode'],
         'reasonDescription': !(0, runtime_1.exists)(json, 'reasonDescription') ? undefined : json['reasonDescription'],
@@ -49,7 +49,7 @@ function OverrideInstructionTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'description': value.description,
         'reasonCode': value.reasonCode,
         'reasonDescription': value.reasonDescription,

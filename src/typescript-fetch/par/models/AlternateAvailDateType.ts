@@ -34,10 +34,10 @@ import {
 export interface AlternateAvailDateType {
     /**
      * A specific date from the alternate dates.
-     * @type {Date}
+     * @type {string}
      * @memberof AlternateAvailDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -71,7 +71,7 @@ export function AlternateAvailDateTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'rateAmount': !exists(json, 'rateAmount') ? undefined : CurrencyAmountTypeFromJSON(json['rateAmount']),
         'status': !exists(json, 'status') ? undefined : AvailabilityStatusTypeFromJSON(json['status']),
     };
@@ -86,7 +86,7 @@ export function AlternateAvailDateTypeToJSON(value?: AlternateAvailDateType | nu
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'rateAmount': CurrencyAmountTypeToJSON(value.rateAmount),
         'status': AvailabilityStatusTypeToJSON(value.status),
     };

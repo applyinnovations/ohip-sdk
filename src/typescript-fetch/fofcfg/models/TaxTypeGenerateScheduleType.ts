@@ -34,10 +34,10 @@ export interface TaxTypeGenerateScheduleType {
     rule?: TaxTypeCalcRuleType;
     /**
      * Date when this schedule will be effective.
-     * @type {Date}
+     * @type {string}
      * @memberof TaxTypeGenerateScheduleType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -60,7 +60,7 @@ export function TaxTypeGenerateScheduleTypeFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'rule': !exists(json, 'rule') ? undefined : TaxTypeCalcRuleTypeFromJSON(json['rule']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -74,7 +74,7 @@ export function TaxTypeGenerateScheduleTypeToJSON(value?: TaxTypeGenerateSchedul
     return {
         
         'rule': TaxTypeCalcRuleTypeToJSON(value.rule),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

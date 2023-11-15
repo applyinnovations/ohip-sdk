@@ -63,16 +63,16 @@ export interface ReservationRateSummaryDetailType {
     revenue?: number;
     /**
      * Date revenue calculation is based on.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryDetailType
      */
-    revenueSimulationDate?: Date;
+    revenueSimulationDate?: string;
     /**
      * Stay date for which revenue calculation is done.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryDetailType
      */
-    summaryDate?: Date;
+    summaryDate?: string;
     /**
      * Amount of tax generated separately on the revenue and package.
      * @type {number}
@@ -107,8 +107,8 @@ export function ReservationRateSummaryDetailTypeFromJSONTyped(json: any, ignoreD
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'rateSuppressed': !exists(json, 'rateSuppressed') ? undefined : json['rateSuppressed'],
         'revenue': !exists(json, 'revenue') ? undefined : json['revenue'],
-        'revenueSimulationDate': !exists(json, 'revenueSimulationDate') ? undefined : (new Date(json['revenueSimulationDate'])),
-        'summaryDate': !exists(json, 'summaryDate') ? undefined : (new Date(json['summaryDate'])),
+        'revenueSimulationDate': !exists(json, 'revenueSimulationDate') ? undefined : json['revenueSimulationDate'],
+        'summaryDate': !exists(json, 'summaryDate') ? undefined : json['summaryDate'],
         'tax': !exists(json, 'tax') ? undefined : json['tax'],
     };
 }
@@ -129,8 +129,8 @@ export function ReservationRateSummaryDetailTypeToJSON(value?: ReservationRateSu
         'ratePlanCode': value.ratePlanCode,
         'rateSuppressed': value.rateSuppressed,
         'revenue': value.revenue,
-        'revenueSimulationDate': value.revenueSimulationDate === undefined ? undefined : (value.revenueSimulationDate.toISOString().substring(0,10)),
-        'summaryDate': value.summaryDate === undefined ? undefined : (value.summaryDate.toISOString().substring(0,10)),
+        'revenueSimulationDate': value.revenueSimulationDate,
+        'summaryDate': value.summaryDate,
         'tax': value.tax,
     };
 }

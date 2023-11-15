@@ -32,8 +32,8 @@ function DateRangeTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.DateRangeTypeFromJSONTyped = DateRangeTypeFromJSONTyped;
@@ -45,8 +45,8 @@ function DateRangeTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'end': value.end,
+        'start': value.start,
     };
 }
 exports.DateRangeTypeToJSON = DateRangeTypeToJSON;

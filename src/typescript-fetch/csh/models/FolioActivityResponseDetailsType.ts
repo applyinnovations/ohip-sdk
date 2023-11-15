@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface FolioActivityResponseDetailsType {
     /**
      * Business Date.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioActivityResponseDetailsType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * Number of fiscal response attempt made for the folio
      * @type {number}
@@ -70,7 +70,7 @@ export function FolioActivityResponseDetailsTypeFromJSONTyped(json: any, ignoreD
     }
     return {
         
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'responseAttemptNo': !exists(json, 'responseAttemptNo') ? undefined : json['responseAttemptNo'],
         'responseName': !exists(json, 'responseName') ? undefined : json['responseName'],
         'responseType': !exists(json, 'responseType') ? undefined : json['responseType'],
@@ -87,7 +87,7 @@ export function FolioActivityResponseDetailsTypeToJSON(value?: FolioActivityResp
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'responseAttemptNo': value.responseAttemptNo,
         'responseName': value.responseName,
         'responseType': value.responseType,

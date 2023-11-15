@@ -124,10 +124,10 @@ export interface FolioSummaryType {
     debitFolio?: boolean;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioSummaryType
      */
-    end?: Date;
+    end?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -160,10 +160,10 @@ export interface FolioSummaryType {
     folioAmount?: CurrencyAmountType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioSummaryType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -292,10 +292,10 @@ export interface FolioSummaryType {
     revisionNo?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioSummaryType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {SupportingDocumentType}
@@ -338,13 +338,13 @@ export function FolioSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'creditFolio': !exists(json, 'creditFolio') ? undefined : json['creditFolio'],
         'customNumbers': !exists(json, 'customNumbers') ? undefined : json['customNumbers'],
         'debitFolio': !exists(json, 'debitFolio') ? undefined : json['debitFolio'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'fiscalFolioNo': !exists(json, 'fiscalFolioNo') ? undefined : json['fiscalFolioNo'],
         'fiscalInvoicingCurrencyInfo': !exists(json, 'fiscalInvoicingCurrencyInfo') ? undefined : ExchangeRateInfoTypeFromJSON(json['fiscalInvoicingCurrencyInfo']),
         'fiscalTerminalId': !exists(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
         'folioAmount': !exists(json, 'folioAmount') ? undefined : CurrencyAmountTypeFromJSON(json['folioAmount']),
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioSeqNo': !exists(json, 'folioSeqNo') ? undefined : json['folioSeqNo'],
@@ -366,7 +366,7 @@ export function FolioSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'queueName': !exists(json, 'queueName') ? undefined : json['queueName'],
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : FolioSummaryTypeReservationInfoFromJSON(json['reservationInfo']),
         'revisionNo': !exists(json, 'revisionNo') ? undefined : json['revisionNo'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'supportingDocument': !exists(json, 'supportingDocument') ? undefined : SupportingDocumentTypeFromJSON(json['supportingDocument']),
         'trxServiceType': !exists(json, 'trxServiceType') ? undefined : json['trxServiceType'],
     };
@@ -390,13 +390,13 @@ export function FolioSummaryTypeToJSON(value?: FolioSummaryType | null): any {
         'creditFolio': value.creditFolio,
         'customNumbers': value.customNumbers,
         'debitFolio': value.debitFolio,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'fiscalBillNo': value.fiscalBillNo,
         'fiscalFolioNo': value.fiscalFolioNo,
         'fiscalInvoicingCurrencyInfo': ExchangeRateInfoTypeToJSON(value.fiscalInvoicingCurrencyInfo),
         'fiscalTerminalId': value.fiscalTerminalId,
         'folioAmount': CurrencyAmountTypeToJSON(value.folioAmount),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,
@@ -418,7 +418,7 @@ export function FolioSummaryTypeToJSON(value?: FolioSummaryType | null): any {
         'queueName': value.queueName,
         'reservationInfo': FolioSummaryTypeReservationInfoToJSON(value.reservationInfo),
         'revisionNo': value.revisionNo,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'supportingDocument': SupportingDocumentTypeToJSON(value.supportingDocument),
         'trxServiceType': value.trxServiceType,
     };

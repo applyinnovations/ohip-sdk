@@ -39,10 +39,10 @@ export interface GamingRequestStatusType {
     messageText?: string;
     /**
      * Date the request was sent.
-     * @type {Date}
+     * @type {string}
      * @memberof GamingRequestStatusType
      */
-    requestDate?: Date;
+    requestDate?: string;
     /**
      * Status of the request.
      * @type {string}
@@ -79,7 +79,7 @@ export function GamingRequestStatusTypeFromJSONTyped(json: any, ignoreDiscrimina
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'messageId': !exists(json, 'messageId') ? undefined : json['messageId'],
         'messageText': !exists(json, 'messageText') ? undefined : json['messageText'],
-        'requestDate': !exists(json, 'requestDate') ? undefined : (new Date(json['requestDate'])),
+        'requestDate': !exists(json, 'requestDate') ? undefined : json['requestDate'],
         'status': !exists(json, 'status') ? undefined : json['status'],
         'statusCode': !exists(json, 'statusCode') ? undefined : json['statusCode'],
     };
@@ -97,7 +97,7 @@ export function GamingRequestStatusTypeToJSON(value?: GamingRequestStatusType | 
         'hotelId': value.hotelId,
         'messageId': value.messageId,
         'messageText': value.messageText,
-        'requestDate': value.requestDate === undefined ? undefined : (value.requestDate.toISOString().substring(0,10)),
+        'requestDate': value.requestDate,
         'status': value.status,
         'statusCode': value.statusCode,
     };

@@ -33,7 +33,7 @@ function ChannelSellLimitTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'bookingChannelCode': !(0, runtime_1.exists)(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'numberOfRooms': !(0, runtime_1.exists)(json, 'numberOfRooms') ? undefined : json['numberOfRooms'],
     };
 }
@@ -47,7 +47,7 @@ function ChannelSellLimitTypeToJSON(value) {
     }
     return {
         'bookingChannelCode': value.bookingChannelCode,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'numberOfRooms': value.numberOfRooms,
     };
 }

@@ -112,10 +112,10 @@ export interface ResGuestInfoType {
     anonymization?: AnonymizationType;
     /**
      * Date of birth
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuestInfoType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Email address
      * @type {string}
@@ -281,7 +281,7 @@ export function ResGuestInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'alternateGivenName': !exists(json, 'alternateGivenName') ? undefined : json['alternateGivenName'],
         'alternateSurname': !exists(json, 'alternateSurname') ? undefined : json['alternateSurname'],
         'anonymization': !exists(json, 'anonymization') ? undefined : AnonymizationTypeFromJSON(json['anonymization']),
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'email': !exists(json, 'email') ? undefined : json['email'],
         'externalInfo': !exists(json, 'externalInfo') ? undefined : ResGuestExternalInfoTypeFromJSON(json['externalInfo']),
         'fullName': !exists(json, 'fullName') ? undefined : json['fullName'],
@@ -323,7 +323,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
         'alternateGivenName': value.alternateGivenName,
         'alternateSurname': value.alternateSurname,
         'anonymization': AnonymizationTypeToJSON(value.anonymization),
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'email': value.email,
         'externalInfo': ResGuestExternalInfoTypeToJSON(value.externalInfo),
         'fullName': value.fullName,

@@ -28,10 +28,10 @@ import {
 export interface MasterAccountSummaryType {
     /**
      * Business Date when the reservation was created.
-     * @type {Date}
+     * @type {string}
      * @memberof MasterAccountSummaryType
      */
-    createBusinessDate?: Date;
+    createBusinessDate?: string;
     /**
      * Time stamp of the creation.
      * @type {string}
@@ -58,10 +58,10 @@ export interface MasterAccountSummaryType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof MasterAccountSummaryType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -89,12 +89,12 @@ export function MasterAccountSummaryTypeFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'createBusinessDate': !exists(json, 'createBusinessDate') ? undefined : (new Date(json['createBusinessDate'])),
+        'createBusinessDate': !exists(json, 'createBusinessDate') ? undefined : json['createBusinessDate'],
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationIdList': !exists(json, 'reservationIdList') ? undefined : ((json['reservationIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
     };
 }
@@ -108,12 +108,12 @@ export function MasterAccountSummaryTypeToJSON(value?: MasterAccountSummaryType 
     }
     return {
         
-        'createBusinessDate': value.createBusinessDate === undefined ? undefined : (value.createBusinessDate.toISOString().substring(0,10)),
+        'createBusinessDate': value.createBusinessDate,
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'reservationIdList': value.reservationIdList === undefined ? undefined : ((value.reservationIdList as Array<any>).map(UniqueIDTypeToJSON)),
     };
 }

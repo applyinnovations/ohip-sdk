@@ -36,7 +36,7 @@ function ReservationRateSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'deposit': !(0, runtime_1.exists)(json, 'deposit') ? undefined : json['deposit'],
         'details': !(0, runtime_1.exists)(json, 'details') ? undefined : (json['details'].map(ReservationRateSummaryDetailType_1.ReservationRateSummaryDetailTypeFromJSON)),
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'fixedCharges': !(0, runtime_1.exists)(json, 'fixedCharges') ? undefined : json['fixedCharges'],
         'gross': !(0, runtime_1.exists)(json, 'gross') ? undefined : json['gross'],
         'guestPay': !(0, runtime_1.exists)(json, 'guestPay') ? undefined : json['guestPay'],
@@ -44,7 +44,7 @@ function ReservationRateSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         'net': !(0, runtime_1.exists)(json, 'net') ? undefined : json['net'],
         'outStandingCostOfStay': !(0, runtime_1.exists)(json, 'outStandingCostOfStay') ? undefined : json['outStandingCostOfStay'],
         'routing': !(0, runtime_1.exists)(json, 'routing') ? undefined : json['routing'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'totalCostOfStay': !(0, runtime_1.exists)(json, 'totalCostOfStay') ? undefined : json['totalCostOfStay'],
     };
 }
@@ -60,7 +60,7 @@ function ReservationRateSummaryTypeToJSON(value) {
         'currencyCode': value.currencyCode,
         'deposit': value.deposit,
         'details': value.details === undefined ? undefined : (value.details.map(ReservationRateSummaryDetailType_1.ReservationRateSummaryDetailTypeToJSON)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'fixedCharges': value.fixedCharges,
         'gross': value.gross,
         'guestPay': value.guestPay,
@@ -68,7 +68,7 @@ function ReservationRateSummaryTypeToJSON(value) {
         'net': value.net,
         'outStandingCostOfStay': value.outStandingCostOfStay,
         'routing': value.routing,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'totalCostOfStay': value.totalCostOfStay,
     };
 }

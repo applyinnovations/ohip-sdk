@@ -64,10 +64,10 @@ export interface EventRevenueChangeType {
     eventChangeId?: UniqueIDType;
     /**
      * Date of this event
-     * @type {Date}
+     * @type {string}
      * @memberof EventRevenueChangeType
      */
-    eventDate?: Date;
+    eventDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -111,7 +111,7 @@ export function EventRevenueChangeTypeFromJSONTyped(json: any, ignoreDiscriminat
         'blockId': !exists(json, 'blockId') ? undefined : UniqueIDTypeFromJSON(json['blockId']),
         'changeUserInfo': !exists(json, 'changeUserInfo') ? undefined : LogUserInfoTypeFromJSON(json['changeUserInfo']),
         'eventChangeId': !exists(json, 'eventChangeId') ? undefined : UniqueIDTypeFromJSON(json['eventChangeId']),
-        'eventDate': !exists(json, 'eventDate') ? undefined : (new Date(json['eventDate'])),
+        'eventDate': !exists(json, 'eventDate') ? undefined : json['eventDate'],
         'eventId': !exists(json, 'eventId') ? undefined : UniqueIDTypeFromJSON(json['eventId']),
         'eventStatus': !exists(json, 'eventStatus') ? undefined : json['eventStatus'],
         'revenueChange': !exists(json, 'revenueChange') ? undefined : EventRevenueTypeFromJSON(json['revenueChange']),
@@ -131,7 +131,7 @@ export function EventRevenueChangeTypeToJSON(value?: EventRevenueChangeType | nu
         'blockId': UniqueIDTypeToJSON(value.blockId),
         'changeUserInfo': LogUserInfoTypeToJSON(value.changeUserInfo),
         'eventChangeId': UniqueIDTypeToJSON(value.eventChangeId),
-        'eventDate': value.eventDate === undefined ? undefined : (value.eventDate.toISOString().substring(0,10)),
+        'eventDate': value.eventDate,
         'eventId': UniqueIDTypeToJSON(value.eventId),
         'eventStatus': value.eventStatus,
         'revenueChange': EventRevenueTypeToJSON(value.revenueChange),

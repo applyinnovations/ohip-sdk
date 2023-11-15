@@ -40,10 +40,10 @@ import {
 export interface UserSessionInfoType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof UserSessionInfoType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * 
      * @type {string}
@@ -94,10 +94,10 @@ export interface UserSessionInfoType {
     shareProfiles?: boolean;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof UserSessionInfoType
      */
-    systemDate?: Date;
+    systemDate?: string;
     /**
      * 
      * @type {string}
@@ -125,7 +125,7 @@ export function UserSessionInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'cROCountryCode': !exists(json, 'cROCountryCode') ? undefined : json['cROCountryCode'],
         'chain': !exists(json, 'chain') ? undefined : json['chain'],
         'cro': !exists(json, 'cro') ? undefined : CodeDescriptionTypeFromJSON(json['cro']),
@@ -134,7 +134,7 @@ export function UserSessionInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'runningApp': !exists(json, 'runningApp') ? undefined : json['runningApp'],
         'sessionDefaults': !exists(json, 'sessionDefaults') ? undefined : UserSessionDefaultsTypeFromJSON(json['sessionDefaults']),
         'shareProfiles': !exists(json, 'shareProfiles') ? undefined : json['shareProfiles'],
-        'systemDate': !exists(json, 'systemDate') ? undefined : (new Date(json['systemDate'])),
+        'systemDate': !exists(json, 'systemDate') ? undefined : json['systemDate'],
         'terminal': !exists(json, 'terminal') ? undefined : json['terminal'],
     };
 }
@@ -148,7 +148,7 @@ export function UserSessionInfoTypeToJSON(value?: UserSessionInfoType | null): a
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'cROCountryCode': value.cROCountryCode,
         'chain': value.chain,
         'cro': CodeDescriptionTypeToJSON(value.cro),
@@ -157,7 +157,7 @@ export function UserSessionInfoTypeToJSON(value?: UserSessionInfoType | null): a
         'runningApp': value.runningApp,
         'sessionDefaults': UserSessionDefaultsTypeToJSON(value.sessionDefaults),
         'shareProfiles': value.shareProfiles,
-        'systemDate': value.systemDate === undefined ? undefined : (value.systemDate.toISOString().substring(0,10)),
+        'systemDate': value.systemDate,
         'terminal': value.terminal,
     };
 }

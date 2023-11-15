@@ -142,10 +142,10 @@ export interface CateringType {
     contractNumber?: string;
     /**
      * Date by which event group must make a decision on the booking.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringType
      */
-    decisionDate?: Date;
+    decisionDate?: string;
     /**
      * 
      * @type {EventAttendeesType}
@@ -160,10 +160,10 @@ export interface CateringType {
     eventOrder?: EventOrderType;
     /**
      * Date used by catering manager or coordinator to follow up on the event.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringType
      */
-    followUpDate?: Date;
+    followUpDate?: string;
     /**
      * This provides more detail the type of function for which the event is held. For example, Trade Show, Meeting, or Annual Convention.
      * @type {string}
@@ -245,10 +245,10 @@ export function CateringTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'cateringStatus': !exists(json, 'cateringStatus') ? undefined : BookingStatusDetailTypeFromJSON(json['cateringStatus']),
         'cateringStatusChangeHistory': !exists(json, 'cateringStatusChangeHistory') ? undefined : ((json['cateringStatusChangeHistory'] as Array<any>).map(BookingStatusHistoryTypeFromJSON)),
         'contractNumber': !exists(json, 'contractNumber') ? undefined : json['contractNumber'],
-        'decisionDate': !exists(json, 'decisionDate') ? undefined : (new Date(json['decisionDate'])),
+        'decisionDate': !exists(json, 'decisionDate') ? undefined : json['decisionDate'],
         'eventAttendees': !exists(json, 'eventAttendees') ? undefined : EventAttendeesTypeFromJSON(json['eventAttendees']),
         'eventOrder': !exists(json, 'eventOrder') ? undefined : EventOrderTypeFromJSON(json['eventOrder']),
-        'followUpDate': !exists(json, 'followUpDate') ? undefined : (new Date(json['followUpDate'])),
+        'followUpDate': !exists(json, 'followUpDate') ? undefined : json['followUpDate'],
         'functionInfo': !exists(json, 'functionInfo') ? undefined : json['functionInfo'],
         'hasPackageEvents': !exists(json, 'hasPackageEvents') ? undefined : json['hasPackageEvents'],
         'onSiteName': !exists(json, 'onSiteName') ? undefined : json['onSiteName'],
@@ -281,10 +281,10 @@ export function CateringTypeToJSON(value?: CateringType | null): any {
         'cateringStatus': BookingStatusDetailTypeToJSON(value.cateringStatus),
         'cateringStatusChangeHistory': value.cateringStatusChangeHistory === undefined ? undefined : ((value.cateringStatusChangeHistory as Array<any>).map(BookingStatusHistoryTypeToJSON)),
         'contractNumber': value.contractNumber,
-        'decisionDate': value.decisionDate === undefined ? undefined : (value.decisionDate.toISOString().substring(0,10)),
+        'decisionDate': value.decisionDate,
         'eventAttendees': EventAttendeesTypeToJSON(value.eventAttendees),
         'eventOrder': EventOrderTypeToJSON(value.eventOrder),
-        'followUpDate': value.followUpDate === undefined ? undefined : (value.followUpDate.toISOString().substring(0,10)),
+        'followUpDate': value.followUpDate,
         'functionInfo': value.functionInfo,
         'hasPackageEvents': value.hasPackageEvents,
         'onSiteName': value.onSiteName,

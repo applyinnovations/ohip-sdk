@@ -40,10 +40,10 @@ export interface ECertificateConsumptionType {
     authorizationCode?: string;
     /**
      * Date the certificate was consumed.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    date?: Date;
+    date?: string;
     /**
      * Email of the person who consumed the certificate.
      * @type {string}
@@ -82,10 +82,10 @@ export interface ECertificateConsumptionType {
     referenceId?: UniqueIDType;
     /**
      * Date on which the service is due (arrival date in case of reservation).
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    serviceDate?: Date;
+    serviceDate?: string;
     /**
      * 
      * @type {ECertificateConsumeSourceType}
@@ -132,14 +132,14 @@ export function ECertificateConsumptionTypeFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'authorizationCode': !exists(json, 'authorizationCode') ? undefined : json['authorizationCode'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'email': !exists(json, 'email') ? undefined : json['email'],
         'firstName': !exists(json, 'firstName') ? undefined : json['firstName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'locationType': !exists(json, 'locationType') ? undefined : json['locationType'],
         'middleName': !exists(json, 'middleName') ? undefined : json['middleName'],
         'referenceId': !exists(json, 'referenceId') ? undefined : UniqueIDTypeFromJSON(json['referenceId']),
-        'serviceDate': !exists(json, 'serviceDate') ? undefined : (new Date(json['serviceDate'])),
+        'serviceDate': !exists(json, 'serviceDate') ? undefined : json['serviceDate'],
         'source': !exists(json, 'source') ? undefined : ECertificateConsumeSourceTypeFromJSON(json['source']),
         'surname': !exists(json, 'surname') ? undefined : json['surname'],
         'userName': !exists(json, 'userName') ? undefined : json['userName'],
@@ -157,14 +157,14 @@ export function ECertificateConsumptionTypeToJSON(value?: ECertificateConsumptio
     return {
         
         'authorizationCode': value.authorizationCode,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'email': value.email,
         'firstName': value.firstName,
         'hotelId': value.hotelId,
         'locationType': value.locationType,
         'middleName': value.middleName,
         'referenceId': UniqueIDTypeToJSON(value.referenceId),
-        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substring(0,10)),
+        'serviceDate': value.serviceDate,
         'source': ECertificateConsumeSourceTypeToJSON(value.source),
         'surname': value.surname,
         'userName': value.userName,

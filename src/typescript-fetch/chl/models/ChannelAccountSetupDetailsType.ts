@@ -27,10 +27,10 @@ export interface ChannelAccountSetupDetailsType {
     chainCode?: string;
     /**
      * Contract End date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSetupDetailsType
      */
-    contractEndsOn?: Date;
+    contractEndsOn?: string;
     /**
      * Holds Currency code.
      * @type {string}
@@ -45,10 +45,10 @@ export interface ChannelAccountSetupDetailsType {
     hotelCodes?: Array<string>;
     /**
      * The date that account was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSetupDetailsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * 
      * @type {Array<string>}
@@ -57,10 +57,10 @@ export interface ChannelAccountSetupDetailsType {
     instances?: Array<string>;
     /**
      * The rebate date for the account.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSetupDetailsType
      */
-    rebateDate?: Date;
+    rebateDate?: string;
     /**
      * Property which registered this channel account.
      * @type {string}
@@ -89,12 +89,12 @@ export function ChannelAccountSetupDetailsTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
-        'contractEndsOn': !exists(json, 'contractEndsOn') ? undefined : (new Date(json['contractEndsOn'])),
+        'contractEndsOn': !exists(json, 'contractEndsOn') ? undefined : json['contractEndsOn'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'hotelCodes': !exists(json, 'hotelCodes') ? undefined : json['hotelCodes'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'instances': !exists(json, 'instances') ? undefined : json['instances'],
-        'rebateDate': !exists(json, 'rebateDate') ? undefined : (new Date(json['rebateDate'])),
+        'rebateDate': !exists(json, 'rebateDate') ? undefined : json['rebateDate'],
         'registeredHotel': !exists(json, 'registeredHotel') ? undefined : json['registeredHotel'],
     };
 }
@@ -109,12 +109,12 @@ export function ChannelAccountSetupDetailsTypeToJSON(value?: ChannelAccountSetup
     return {
         
         'chainCode': value.chainCode,
-        'contractEndsOn': value.contractEndsOn === undefined ? undefined : (value.contractEndsOn.toISOString().substring(0,10)),
+        'contractEndsOn': value.contractEndsOn,
         'currencyCode': value.currencyCode,
         'hotelCodes': value.hotelCodes,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'instances': value.instances,
-        'rebateDate': value.rebateDate === undefined ? undefined : (value.rebateDate.toISOString().substring(0,10)),
+        'rebateDate': value.rebateDate,
         'registeredHotel': value.registeredHotel,
     };
 }

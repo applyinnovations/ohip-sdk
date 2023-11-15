@@ -71,7 +71,7 @@ export interface DeleteHouseKeepingTaskSheetsRequest {
 }
 export interface DeleteHousekeepingAttendantScheduleRequest {
     hotelId: string;
-    scheduleDate: Date;
+    scheduleDate: string;
     attendantId: Array<string>;
     authorization?: string;
     xAppKey?: string;
@@ -87,14 +87,14 @@ export interface DeleteReservationHousekeepingTasksRequest {
     xHotelid?: string;
     customized?: boolean;
     cycleStartDay?: number;
-    endDate?: Date;
-    startDate?: Date;
+    endDate?: string;
+    startDate?: string;
     facilityTaskCode?: string;
     facilityTaskDescription?: string;
     facilityTaskPriority?: number;
-    taskDate?: Array<Date>;
-    taskStartDate?: Array<Date>;
-    taskEndDate?: Array<Date>;
+    taskDate?: Array<string>;
+    taskStartDate?: Array<string>;
+    taskEndDate?: Array<string>;
     stayPeriod?: Set<DeleteReservationHousekeepingTasksStayPeriodEnum>;
     frequency?: Array<number>;
     taskCycleStartDay?: Array<number>;
@@ -122,7 +122,7 @@ export interface DeleteTaskSheetRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    date?: Date;
+    date?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -133,7 +133,7 @@ export interface DeleteTaskSheetRoomsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    date?: Date;
+    date?: string;
     roomId?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -172,8 +172,8 @@ export interface GetFacilityForecastRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     codes?: Array<string>;
     usePriority?: boolean;
@@ -195,7 +195,7 @@ export interface GetGuestHousekeepingNotesRequest {
 }
 export interface GetHouseKeepingTasksRequest {
     hotelId: string;
-    taskDate: Date;
+    taskDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -225,11 +225,11 @@ export interface GetHouseKeepingTasksRequest {
 }
 export interface GetHousekeepingAttendantsScheduleRequest {
     hotelId: string;
-    scheduleStartDate: Date;
+    scheduleStartDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    scheduleEndDate?: Date;
+    scheduleEndDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -242,8 +242,8 @@ export interface GetHousekeepingDiscrepanciesRequest {
     fromRoomNumber?: string;
     toRoomNumber?: string;
     roomClass?: Array<string>;
-    housekeepingEndDate?: Date;
-    housekeepingStartDate?: Date;
+    housekeepingEndDate?: string;
+    housekeepingStartDate?: string;
     floor?: Array<string>;
     dueOut?: boolean;
     xExternalsystem?: string;
@@ -282,12 +282,12 @@ export interface GetHousekeepingOverviewRequest {
 }
 export interface GetOutOfOrderRoomsRequest {
     hotelId: string;
-    startDate: Date;
+    startDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     roomId?: string;
-    endDate?: Date;
+    endDate?: string;
     roomTypes?: Array<string>;
     roomClasses?: Array<string>;
     xExternalsystem?: string;
@@ -295,12 +295,12 @@ export interface GetOutOfOrderRoomsRequest {
 }
 export interface GetOutOfServiceRoomsRequest {
     hotelId: string;
-    startDate: Date;
+    startDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     roomId?: string;
-    endDate?: Date;
+    endDate?: string;
     roomTypes?: Array<string>;
     roomClasses?: Array<string>;
     xExternalsystem?: string;
@@ -314,8 +314,8 @@ export interface GetReservationHousekeepingScheduleRequest {
     xHotelid?: string;
     reservationIdContext?: string;
     reservationIdType?: string;
-    beginDate?: Date;
-    endDate?: Date;
+    beginDate?: string;
+    endDate?: string;
     fetchInstructions?: Set<GetReservationHousekeepingScheduleFetchInstructionsEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -363,8 +363,8 @@ export interface GetRoomMaintenanceRequest {
     maintenanceId?: string;
     maintenanceIdContext?: string;
     maintenanceIdType?: string;
-    resolvedEndDate?: Date;
-    resolvedStartDate?: Date;
+    resolvedEndDate?: string;
+    resolvedStartDate?: string;
     includeImages?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -376,7 +376,7 @@ export interface GetTaskCompanionRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    taskDate?: Date;
+    taskDate?: string;
     roomId?: string;
     skipRoomNumbers?: Array<string>;
     roomStatusToChange?: Set<GetTaskCompanionRoomStatusToChangeEnum>;

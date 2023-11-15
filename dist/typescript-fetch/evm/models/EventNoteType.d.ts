@@ -72,10 +72,10 @@ export interface EventNoteType {
     noteTitle?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof EventNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Pertain display sequence.
      * @type {number}

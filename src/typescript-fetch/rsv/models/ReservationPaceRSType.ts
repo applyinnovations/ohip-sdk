@@ -28,10 +28,10 @@ import {
 export interface ReservationPaceRSType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationPaceRSType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * a collection of reservation pace statistics.
      * @type {Array<DailyPaceStatType>}
@@ -65,7 +65,7 @@ export function ReservationPaceRSTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'dailyPaceStats': !exists(json, 'dailyPaceStats') ? undefined : ((json['dailyPaceStats'] as Array<any>).map(DailyPaceStatTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
     };
@@ -80,7 +80,7 @@ export function ReservationPaceRSTypeToJSON(value?: ReservationPaceRSType | null
     }
     return {
         
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'dailyPaceStats': value.dailyPaceStats === undefined ? undefined : ((value.dailyPaceStats as Array<any>).map(DailyPaceStatTypeToJSON)),
         'hotelId': value.hotelId,
     };

@@ -23,10 +23,10 @@ export interface CustomChargeExemptionConfigType {
     description?: string;
     /**
      * Date till the Exemption will be effective.
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionConfigType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Exemption
      * @type {string}
@@ -41,10 +41,10 @@ export interface CustomChargeExemptionConfigType {
     hotelId?: string;
     /**
      * Date when this Exemption is Inactive
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionConfigType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Indicator that tells whether to include inactive Custom Charge Ememptions.
      * @type {boolean}
@@ -65,10 +65,10 @@ export interface CustomChargeExemptionConfigType {
     propertyExemption?: boolean;
     /**
      * Date when this Exemption will be effective
-     * @type {Date}
+     * @type {string}
      * @memberof CustomChargeExemptionConfigType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the CustomChargeExemptionConfigType interface.

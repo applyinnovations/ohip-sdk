@@ -46,10 +46,10 @@ export interface BlockSummaryStatisticType {
     dailyTargetsSummaryStatistic?: Array<StatisticUnitType>;
     /**
      * Date of the block inventory statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSummaryStatisticType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
     /**
      * Statistic summary for a particular status.
      * @type {Array<StatusStatisticType>}
@@ -79,7 +79,7 @@ export function BlockSummaryStatisticTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'bookingSummaryStatistic': !exists(json, 'bookingSummaryStatistic') ? undefined : ((json['bookingSummaryStatistic'] as Array<any>).map(StatisticUnitTypeFromJSON)),
         'dailyTargetsSummaryStatistic': !exists(json, 'dailyTargetsSummaryStatistic') ? undefined : ((json['dailyTargetsSummaryStatistic'] as Array<any>).map(StatisticUnitTypeFromJSON)),
-        'statisticDate': !exists(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !exists(json, 'statisticDate') ? undefined : json['statisticDate'],
         'statusSummaryStatistic': !exists(json, 'statusSummaryStatistic') ? undefined : ((json['statusSummaryStatistic'] as Array<any>).map(StatusStatisticTypeFromJSON)),
     };
 }
@@ -95,7 +95,7 @@ export function BlockSummaryStatisticTypeToJSON(value?: BlockSummaryStatisticTyp
         
         'bookingSummaryStatistic': value.bookingSummaryStatistic === undefined ? undefined : ((value.bookingSummaryStatistic as Array<any>).map(StatisticUnitTypeToJSON)),
         'dailyTargetsSummaryStatistic': value.dailyTargetsSummaryStatistic === undefined ? undefined : ((value.dailyTargetsSummaryStatistic as Array<any>).map(StatisticUnitTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
+        'statisticDate': value.statisticDate,
         'statusSummaryStatistic': value.statusSummaryStatistic === undefined ? undefined : ((value.statusSummaryStatistic as Array<any>).map(StatusStatisticTypeToJSON)),
     };
 }

@@ -32,11 +32,11 @@ function HotelSummaryTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activeDate': !(0, runtime_1.exists)(json, 'activeDate') ? undefined : (new Date(json['activeDate'])),
+        'activeDate': !(0, runtime_1.exists)(json, 'activeDate') ? undefined : json['activeDate'],
         'chainCode': !(0, runtime_1.exists)(json, 'chainCode') ? undefined : json['chainCode'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'hotelName': !(0, runtime_1.exists)(json, 'hotelName') ? undefined : json['hotelName'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
     };
 }
 exports.HotelSummaryTypeFromJSONTyped = HotelSummaryTypeFromJSONTyped;
@@ -48,11 +48,11 @@ function HotelSummaryTypeToJSON(value) {
         return null;
     }
     return {
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0, 10)),
+        'activeDate': value.activeDate,
         'chainCode': value.chainCode,
         'hotelId': value.hotelId,
         'hotelName': value.hotelName,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
     };
 }
 exports.HotelSummaryTypeToJSON = HotelSummaryTypeToJSON;

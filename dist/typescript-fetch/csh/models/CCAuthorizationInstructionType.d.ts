@@ -27,10 +27,10 @@ export interface CCAuthorizationInstructionType {
     authorizationSetup?: CCAuthorizationInstructionTypeAuthorizationSetup;
     /**
      * The current date of the Property.
-     * @type {Date}
+     * @type {string}
      * @memberof CCAuthorizationInstructionType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      *
      * @type {CurrencyAmountType}

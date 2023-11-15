@@ -51,16 +51,16 @@ export interface MembershipTypeRuleReservationConditionsType {
     monday?: boolean;
     /**
      * Reservations with end date for which the rule is applied.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRuleReservationConditionsType
      */
-    reservationEndDate?: Date;
+    reservationEndDate?: string;
     /**
      * Reservations with start date for which the rule is applied.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTypeRuleReservationConditionsType
      */
-    reservationStartDate?: Date;
+    reservationStartDate?: string;
     /**
      * 
      * @type {boolean}
@@ -117,8 +117,8 @@ export function MembershipTypeRuleReservationConditionsTypeFromJSONTyped(json: a
         'maximumNights': !exists(json, 'maximumNights') ? undefined : json['maximumNights'],
         'minimumNights': !exists(json, 'minimumNights') ? undefined : json['minimumNights'],
         'monday': !exists(json, 'monday') ? undefined : json['monday'],
-        'reservationEndDate': !exists(json, 'reservationEndDate') ? undefined : (new Date(json['reservationEndDate'])),
-        'reservationStartDate': !exists(json, 'reservationStartDate') ? undefined : (new Date(json['reservationStartDate'])),
+        'reservationEndDate': !exists(json, 'reservationEndDate') ? undefined : json['reservationEndDate'],
+        'reservationStartDate': !exists(json, 'reservationStartDate') ? undefined : json['reservationStartDate'],
         'saturday': !exists(json, 'saturday') ? undefined : json['saturday'],
         'sunday': !exists(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !exists(json, 'thursday') ? undefined : json['thursday'],
@@ -141,8 +141,8 @@ export function MembershipTypeRuleReservationConditionsTypeToJSON(value?: Member
         'maximumNights': value.maximumNights,
         'minimumNights': value.minimumNights,
         'monday': value.monday,
-        'reservationEndDate': value.reservationEndDate === undefined ? undefined : (value.reservationEndDate.toISOString().substring(0,10)),
-        'reservationStartDate': value.reservationStartDate === undefined ? undefined : (value.reservationStartDate.toISOString().substring(0,10)),
+        'reservationEndDate': value.reservationEndDate,
+        'reservationStartDate': value.reservationStartDate,
         'saturday': value.saturday,
         'sunday': value.sunday,
         'thursday': value.thursday,

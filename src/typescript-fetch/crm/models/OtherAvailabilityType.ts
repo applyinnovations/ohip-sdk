@@ -51,16 +51,16 @@ export interface OtherAvailabilityType {
     pointsRequired?: number;
     /**
      * Beginning date of the award.
-     * @type {Date}
+     * @type {string}
      * @memberof OtherAvailabilityType
      */
-    sellBeginDate?: Date;
+    sellBeginDate?: string;
     /**
      * End date that the award will be available.
-     * @type {Date}
+     * @type {string}
      * @memberof OtherAvailabilityType
      */
-    sellEndDate?: Date;
+    sellEndDate?: string;
     /**
      * Descriptive name of the award.
      * @type {string}
@@ -99,8 +99,8 @@ export function OtherAvailabilityTypeFromJSONTyped(json: any, ignoreDiscriminato
         'awardValue': !exists(json, 'awardValue') ? undefined : json['awardValue'],
         'longDescription': !exists(json, 'longDescription') ? undefined : json['longDescription'],
         'pointsRequired': !exists(json, 'pointsRequired') ? undefined : json['pointsRequired'],
-        'sellBeginDate': !exists(json, 'sellBeginDate') ? undefined : (new Date(json['sellBeginDate'])),
-        'sellEndDate': !exists(json, 'sellEndDate') ? undefined : (new Date(json['sellEndDate'])),
+        'sellBeginDate': !exists(json, 'sellBeginDate') ? undefined : json['sellBeginDate'],
+        'sellEndDate': !exists(json, 'sellEndDate') ? undefined : json['sellEndDate'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : json['shortDescription'],
         'totalAvailablePoints': !exists(json, 'totalAvailablePoints') ? undefined : json['totalAvailablePoints'],
     };
@@ -120,8 +120,8 @@ export function OtherAvailabilityTypeToJSON(value?: OtherAvailabilityType | null
         'awardValue': value.awardValue,
         'longDescription': value.longDescription,
         'pointsRequired': value.pointsRequired,
-        'sellBeginDate': value.sellBeginDate === undefined ? undefined : (value.sellBeginDate.toISOString().substring(0,10)),
-        'sellEndDate': value.sellEndDate === undefined ? undefined : (value.sellEndDate.toISOString().substring(0,10)),
+        'sellBeginDate': value.sellBeginDate,
+        'sellEndDate': value.sellEndDate,
         'shortDescription': value.shortDescription,
         'totalAvailablePoints': value.totalAvailablePoints,
     };

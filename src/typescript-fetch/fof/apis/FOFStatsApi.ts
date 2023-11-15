@@ -43,7 +43,7 @@ export interface GetFrontOfficeStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    date?: Date;
+    date?: string;
     metric?: Set<GetFrontOfficeStatisticsMetricEnum>;
     parameterNames?: Array<string>;
     parameterValues?: Array<string>;
@@ -58,8 +58,8 @@ export interface GetFrontOfficeStatisticsWithDateRangeRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    endDate?: Date;
-    date?: Date;
+    endDate?: string;
+    date?: string;
     metric?: Set<GetFrontOfficeStatisticsWithDateRangeMetricEnum>;
     parameterNames?: Array<string>;
     parameterValues?: Array<string>;
@@ -125,7 +125,7 @@ export class FOFStatsApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.date !== undefined) {
-            queryParameters['date'] = (requestParameters.date as any).toISOString().substring(0,10);
+            queryParameters['date'] = requestParameters.date;
         }
 
         if (requestParameters.metric) {
@@ -201,11 +201,11 @@ export class FOFStatsApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.date !== undefined) {
-            queryParameters['date'] = (requestParameters.date as any).toISOString().substring(0,10);
+            queryParameters['date'] = requestParameters.date;
         }
 
         if (requestParameters.metric) {

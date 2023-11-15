@@ -81,10 +81,10 @@ export interface RatePlanShortInfoType {
     primaryDetails?: RatePlanPrimaryDetailsType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanShortInfoType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {string}

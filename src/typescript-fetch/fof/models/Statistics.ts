@@ -46,10 +46,10 @@ import {
 export interface Statistics {
     /**
      * Statistical date of the requested report.
-     * @type {Date}
+     * @type {string}
      * @memberof Statistics
      */
-    calendarDate?: Date;
+    calendarDate?: string;
     /**
      * 
      * @type {Array<InstanceLink>}
@@ -95,7 +95,7 @@ export function StatisticsFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
-        'calendarDate': !exists(json, 'calendarDate') ? undefined : (new Date(json['calendarDate'])),
+        'calendarDate': !exists(json, 'calendarDate') ? undefined : json['calendarDate'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'metricSet': !exists(json, 'metricSet') ? undefined : ((json['metricSet'] as Array<any>).map(StatisticsMetricSetInnerFromJSON)),
         'statisticsCode': !exists(json, 'statisticsCode') ? undefined : HSKStatReportCodeTypeFromJSON(json['statisticsCode']),
@@ -112,7 +112,7 @@ export function StatisticsToJSON(value?: Statistics | null): any {
     }
     return {
         
-        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0,10)),
+        'calendarDate': value.calendarDate,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'metricSet': value.metricSet === undefined ? undefined : ((value.metricSet as Array<any>).map(StatisticsMetricSetInnerToJSON)),
         'statisticsCode': HSKStatReportCodeTypeToJSON(value.statisticsCode),

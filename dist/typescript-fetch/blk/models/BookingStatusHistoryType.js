@@ -35,7 +35,7 @@ function BookingStatusHistoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'bookingStatus': !(0, runtime_1.exists)(json, 'bookingStatus') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['bookingStatus']),
         'modifierId': !(0, runtime_1.exists)(json, 'modifierId') ? undefined : json['modifierId'],
-        'modifyDateTime': !(0, runtime_1.exists)(json, 'modifyDateTime') ? undefined : (new Date(json['modifyDateTime'])),
+        'modifyDateTime': !(0, runtime_1.exists)(json, 'modifyDateTime') ? undefined : json['modifyDateTime'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
     };
 }
@@ -50,7 +50,7 @@ function BookingStatusHistoryTypeToJSON(value) {
     return {
         'bookingStatus': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.bookingStatus),
         'modifierId': value.modifierId,
-        'modifyDateTime': value.modifyDateTime === undefined ? undefined : (value.modifyDateTime.toISOString().substring(0, 10)),
+        'modifyDateTime': value.modifyDateTime,
         'sequence': value.sequence,
     };
 }

@@ -19,10 +19,10 @@ import type { PrepaidCardTransactionType } from './PrepaidCardTransactionType';
 export interface PrepaidCardDetailsType {
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    activateDate?: Date;
+    activateDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -43,10 +43,10 @@ export interface PrepaidCardDetailsType {
     debitTotal?: CurrencyAmountType;
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    expiredDate?: Date;
+    expiredDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -55,10 +55,10 @@ export interface PrepaidCardDetailsType {
     initialCreditTotal?: CurrencyAmountType;
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    initialLoadDate?: Date;
+    initialLoadDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -73,10 +73,10 @@ export interface PrepaidCardDetailsType {
     transactions?: Array<PrepaidCardTransactionType>;
     /**
      * Holds fixed charge detail.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardDetailsType
      */
-    validUntilDate?: Date;
+    validUntilDate?: string;
 }
 /**
  * Check if a given object implements the PrepaidCardDetailsType interface.

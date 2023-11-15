@@ -46,10 +46,10 @@ export interface BlockPackageType {
     consumptionDetails?: PackageConsumptionType;
     /**
      * Required value when changing a package. If the original end date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPackageType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {TimeSpanType}
@@ -82,10 +82,10 @@ export interface BlockPackageType {
     ratePlanCode?: string;
     /**
      * Required value when changing a package. If the original start date was null, then null is required.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockPackageType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -108,13 +108,13 @@ export function BlockPackageTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'consumptionDetails': !exists(json, 'consumptionDetails') ? undefined : PackageConsumptionTypeFromJSON(json['consumptionDetails']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'newTimeSpan': !exists(json, 'newTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['newTimeSpan']),
         'packageCode': !exists(json, 'packageCode') ? undefined : json['packageCode'],
         'packageGroup': !exists(json, 'packageGroup') ? undefined : json['packageGroup'],
         'packageHeaderType': !exists(json, 'packageHeaderType') ? undefined : PackageCodeHeaderTypeFromJSON(json['packageHeaderType']),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -128,13 +128,13 @@ export function BlockPackageTypeToJSON(value?: BlockPackageType | null): any {
     return {
         
         'consumptionDetails': PackageConsumptionTypeToJSON(value.consumptionDetails),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
         'packageCode': value.packageCode,
         'packageGroup': value.packageGroup,
         'packageHeaderType': PackageCodeHeaderTypeToJSON(value.packageHeaderType),
         'ratePlanCode': value.ratePlanCode,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

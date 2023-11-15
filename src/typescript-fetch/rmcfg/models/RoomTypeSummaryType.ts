@@ -27,10 +27,10 @@ export interface RoomTypeSummaryType {
     accessible?: boolean;
     /**
      * Active date of the room type.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomTypeSummaryType
      */
-    activeDate?: Date;
+    activeDate?: string;
     /**
      * Indicates the room type is inactive or not.
      * @type {boolean}
@@ -113,7 +113,7 @@ export function RoomTypeSummaryTypeFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'accessible': !exists(json, 'accessible') ? undefined : json['accessible'],
-        'activeDate': !exists(json, 'activeDate') ? undefined : (new Date(json['activeDate'])),
+        'activeDate': !exists(json, 'activeDate') ? undefined : json['activeDate'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
         'meetingRoom': !exists(json, 'meetingRoom') ? undefined : json['meetingRoom'],
         'numberOfRooms': !exists(json, 'numberOfRooms') ? undefined : json['numberOfRooms'],
@@ -137,7 +137,7 @@ export function RoomTypeSummaryTypeToJSON(value?: RoomTypeSummaryType | null): a
     return {
         
         'accessible': value.accessible,
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0,10)),
+        'activeDate': value.activeDate,
         'inactive': value.inactive,
         'meetingRoom': value.meetingRoom,
         'numberOfRooms': value.numberOfRooms,

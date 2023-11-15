@@ -38,14 +38,14 @@ function BlockAllocationWashTypeFromJSONTyped(json, ignoreDiscriminator) {
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
         'blockInventory': !(0, runtime_1.exists)(json, 'blockInventory') ? undefined : (0, BlockGridInvType_1.BlockGridInvTypeFromJSON)(json['blockInventory']),
         'byValue': !(0, runtime_1.exists)(json, 'byValue') ? undefined : json['byValue'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'genericRoomType': !(0, runtime_1.exists)(json, 'genericRoomType') ? undefined : json['genericRoomType'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'includedDays': !(0, runtime_1.exists)(json, 'includedDays') ? undefined : json['includedDays'],
         'occPercentByDay': !(0, runtime_1.exists)(json, 'occPercentByDay') ? undefined : (0, BlockAllocationWashTypeOccPercentByDay_1.BlockAllocationWashTypeOccPercentByDayFromJSON)(json['occPercentByDay']),
         'percentByDay': !(0, runtime_1.exists)(json, 'percentByDay') ? undefined : json['percentByDay'],
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.BlockAllocationWashTypeFromJSONTyped = BlockAllocationWashTypeFromJSONTyped;
@@ -60,14 +60,14 @@ function BlockAllocationWashTypeToJSON(value) {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
         'blockInventory': (0, BlockGridInvType_1.BlockGridInvTypeToJSON)(value.blockInventory),
         'byValue': value.byValue,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'genericRoomType': value.genericRoomType,
         'hotelId': value.hotelId,
         'includedDays': value.includedDays,
         'occPercentByDay': (0, BlockAllocationWashTypeOccPercentByDay_1.BlockAllocationWashTypeOccPercentByDayToJSON)(value.occPercentByDay),
         'percentByDay': value.percentByDay,
         'roomTypes': value.roomTypes,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.BlockAllocationWashTypeToJSON = BlockAllocationWashTypeToJSON;

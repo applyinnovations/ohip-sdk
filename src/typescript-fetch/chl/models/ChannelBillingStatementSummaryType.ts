@@ -40,10 +40,10 @@ export interface ChannelBillingStatementSummaryType {
     accountCodeList?: Array<string>;
     /**
      * Holds begin date of the statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementSummaryType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Flag to identify Statements generated were dirty or not.
      * @type {boolean}
@@ -52,10 +52,10 @@ export interface ChannelBillingStatementSummaryType {
     dirty?: boolean;
     /**
      * Holds end date of the statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementSummaryType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Flag to identify Statements were generated or not.
      * @type {boolean}
@@ -64,10 +64,10 @@ export interface ChannelBillingStatementSummaryType {
     generated?: boolean;
     /**
      * Holds date on which statement is locked.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementSummaryType
      */
-    lockDate?: Date;
+    lockDate?: string;
     /**
      * Holds Note for the statement.
      * @type {string}
@@ -76,10 +76,10 @@ export interface ChannelBillingStatementSummaryType {
     note?: string;
     /**
      * Holds date on which statement is created.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementSummaryType
      */
-    statementDate?: Date;
+    statementDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -114,13 +114,13 @@ export function ChannelBillingStatementSummaryTypeFromJSONTyped(json: any, ignor
     return {
         
         'accountCodeList': !exists(json, 'accountCodeList') ? undefined : json['accountCodeList'],
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'dirty': !exists(json, 'dirty') ? undefined : json['dirty'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'generated': !exists(json, 'generated') ? undefined : json['generated'],
-        'lockDate': !exists(json, 'lockDate') ? undefined : (new Date(json['lockDate'])),
+        'lockDate': !exists(json, 'lockDate') ? undefined : json['lockDate'],
         'note': !exists(json, 'note') ? undefined : json['note'],
-        'statementDate': !exists(json, 'statementDate') ? undefined : (new Date(json['statementDate'])),
+        'statementDate': !exists(json, 'statementDate') ? undefined : json['statementDate'],
         'statementId': !exists(json, 'statementId') ? undefined : UniqueIDTypeFromJSON(json['statementId']),
         'totalAmount': !exists(json, 'totalAmount') ? undefined : CurrencyAmountTypeFromJSON(json['totalAmount']),
     };
@@ -136,13 +136,13 @@ export function ChannelBillingStatementSummaryTypeToJSON(value?: ChannelBillingS
     return {
         
         'accountCodeList': value.accountCodeList,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'dirty': value.dirty,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'generated': value.generated,
-        'lockDate': value.lockDate === undefined ? undefined : (value.lockDate.toISOString().substring(0,10)),
+        'lockDate': value.lockDate,
         'note': value.note,
-        'statementDate': value.statementDate === undefined ? undefined : (value.statementDate.toISOString().substring(0,10)),
+        'statementDate': value.statementDate,
         'statementId': UniqueIDTypeToJSON(value.statementId),
         'totalAmount': CurrencyAmountTypeToJSON(value.totalAmount),
     };

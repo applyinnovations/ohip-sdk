@@ -57,16 +57,16 @@ export interface BusinessEventDetailType {
     oldValue?: string;
     /**
      * Begin date from when this value is applicable, such as daily element date, block grid date etc.
-     * @type {Date}
+     * @type {string}
      * @memberof BusinessEventDetailType
      */
-    scopeFrom?: Date;
+    scopeFrom?: string;
     /**
      * End date till when this value is applicable, such as daily element date, block grid date etc.
-     * @type {Date}
+     * @type {string}
      * @memberof BusinessEventDetailType
      */
-    scopeTo?: Date;
+    scopeTo?: string;
 }
 
 /**
@@ -94,8 +94,8 @@ export function BusinessEventDetailTypeFromJSONTyped(json: any, ignoreDiscrimina
         'elementType': !exists(json, 'elementType') ? undefined : json['elementType'],
         'newValue': !exists(json, 'newValue') ? undefined : json['newValue'],
         'oldValue': !exists(json, 'oldValue') ? undefined : json['oldValue'],
-        'scopeFrom': !exists(json, 'scopeFrom') ? undefined : (new Date(json['scopeFrom'])),
-        'scopeTo': !exists(json, 'scopeTo') ? undefined : (new Date(json['scopeTo'])),
+        'scopeFrom': !exists(json, 'scopeFrom') ? undefined : json['scopeFrom'],
+        'scopeTo': !exists(json, 'scopeTo') ? undefined : json['scopeTo'],
     };
 }
 
@@ -114,8 +114,8 @@ export function BusinessEventDetailTypeToJSON(value?: BusinessEventDetailType | 
         'elementType': value.elementType,
         'newValue': value.newValue,
         'oldValue': value.oldValue,
-        'scopeFrom': value.scopeFrom === undefined ? undefined : (value.scopeFrom.toISOString().substring(0,10)),
-        'scopeTo': value.scopeTo === undefined ? undefined : (value.scopeTo.toISOString().substring(0,10)),
+        'scopeFrom': value.scopeFrom,
+        'scopeTo': value.scopeTo,
     };
 }
 

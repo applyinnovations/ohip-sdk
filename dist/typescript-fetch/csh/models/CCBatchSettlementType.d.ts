@@ -69,10 +69,10 @@ export interface CCBatchSettlementType {
     settlementId?: UniqueIDType;
     /**
      * Transaction Date of the credit card transaction.
-     * @type {Date}
+     * @type {string}
      * @memberof CCBatchSettlementType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Window number associated with the CC settlement transaction.
      * @type {number}

@@ -52,10 +52,10 @@ export interface CateringEventBulkUpdateDetailType {
     doorcard?: string;
     /**
      * Event eventEndDate date.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventBulkUpdateDetailType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * Event eventEndDate time.
      * @type {string}
@@ -70,10 +70,10 @@ export interface CateringEventBulkUpdateDetailType {
     eventName?: TranslationTextType60;
     /**
      * Event eventStartDate date.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventBulkUpdateDetailType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * Event eventStartDate time.
      * @type {string}
@@ -158,10 +158,10 @@ export function CateringEventBulkUpdateDetailTypeFromJSONTyped(json: any, ignore
         'actualAttendees': !exists(json, 'actualAttendees') ? undefined : json['actualAttendees'],
         'displayDoorcard': !exists(json, 'displayDoorcard') ? undefined : json['displayDoorcard'],
         'doorcard': !exists(json, 'doorcard') ? undefined : json['doorcard'],
-        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
+        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
         'eventEndTime': !exists(json, 'eventEndTime') ? undefined : json['eventEndTime'],
         'eventName': !exists(json, 'eventName') ? undefined : TranslationTextType60FromJSON(json['eventName']),
-        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
+        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : json['eventStartDate'],
         'eventStartTime': !exists(json, 'eventStartTime') ? undefined : json['eventStartTime'],
         'eventStatus': !exists(json, 'eventStatus') ? undefined : BookingStatusTypeFromJSON(json['eventStatus']),
         'eventType': !exists(json, 'eventType') ? undefined : json['eventType'],
@@ -187,10 +187,10 @@ export function CateringEventBulkUpdateDetailTypeToJSON(value?: CateringEventBul
         'actualAttendees': value.actualAttendees,
         'displayDoorcard': value.displayDoorcard,
         'doorcard': value.doorcard,
-        'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0,10)),
+        'eventEndDate': value.eventEndDate,
         'eventEndTime': value.eventEndTime,
         'eventName': TranslationTextType60ToJSON(value.eventName),
-        'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0,10)),
+        'eventStartDate': value.eventStartDate,
         'eventStartTime': value.eventStartTime,
         'eventStatus': BookingStatusTypeToJSON(value.eventStatus),
         'eventType': value.eventType,

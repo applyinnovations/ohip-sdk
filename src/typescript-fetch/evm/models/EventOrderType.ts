@@ -27,10 +27,10 @@ export interface EventOrderType {
     distributed?: boolean;
     /**
      * This indicates which exchange rate date will be used for blocks when printing Banquet Event Orders. When the Distributed attribute is true this contains the date stamp of when the Distributed attribute was updated. When Distributed attribute is false, this is left blank. This date can also be taken into consideration as the 'Exchange Rate Date' when, for instance, converting catering revenue to base currency.
-     * @type {Date}
+     * @type {string}
      * @memberof EventOrderType
      */
-    distributedDate?: Date;
+    distributedDate?: string;
     /**
      * This indicates which exchange rate date will be used for blocks when printing Banquet Event Orders. When the Distributed attribute is true this contains the date/time stamp of when the Distributed attribute was updated. When Distributed attribute is false, this is left blank. This date can also be taken into consideration as the 'Exchange Rate Date' when, for instance, converting catering revenue to base currency.
      * @type {string}
@@ -59,7 +59,7 @@ export function EventOrderTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'distributed': !exists(json, 'distributed') ? undefined : json['distributed'],
-        'distributedDate': !exists(json, 'distributedDate') ? undefined : (new Date(json['distributedDate'])),
+        'distributedDate': !exists(json, 'distributedDate') ? undefined : json['distributedDate'],
         'distributedDateTime': !exists(json, 'distributedDateTime') ? undefined : json['distributedDateTime'],
     };
 }
@@ -74,7 +74,7 @@ export function EventOrderTypeToJSON(value?: EventOrderType | null): any {
     return {
         
         'distributed': value.distributed,
-        'distributedDate': value.distributedDate === undefined ? undefined : (value.distributedDate.toISOString().substring(0,10)),
+        'distributedDate': value.distributedDate,
         'distributedDateTime': value.distributedDateTime,
     };
 }

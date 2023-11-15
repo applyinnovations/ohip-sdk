@@ -34,8 +34,8 @@ function OperaRecordLockFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'createdBy': !(0, runtime_1.exists)(json, 'createdBy') ? undefined : json['createdBy'],
-        'createdOn': !(0, runtime_1.exists)(json, 'createdOn') ? undefined : (new Date(json['createdOn'])),
-        'expiresOn': !(0, runtime_1.exists)(json, 'expiresOn') ? undefined : (new Date(json['expiresOn'])),
+        'createdOn': !(0, runtime_1.exists)(json, 'createdOn') ? undefined : json['createdOn'],
+        'expiresOn': !(0, runtime_1.exists)(json, 'expiresOn') ? undefined : json['expiresOn'],
         'internal': !(0, runtime_1.exists)(json, 'internal') ? undefined : json['internal'],
         'lockHandle': !(0, runtime_1.exists)(json, 'lockHandle') ? undefined : json['lockHandle'],
         'recordId': !(0, runtime_1.exists)(json, 'recordId') ? undefined : json['recordId'],
@@ -53,8 +53,8 @@ function OperaRecordLockToJSON(value) {
     }
     return {
         'createdBy': value.createdBy,
-        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substring(0, 10)),
-        'expiresOn': value.expiresOn === undefined ? undefined : (value.expiresOn.toISOString().substring(0, 10)),
+        'createdOn': value.createdOn,
+        'expiresOn': value.expiresOn,
         'internal': value.internal,
         'lockHandle': value.lockHandle,
         'recordId': value.recordId,

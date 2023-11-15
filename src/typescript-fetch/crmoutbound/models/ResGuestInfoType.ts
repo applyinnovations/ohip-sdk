@@ -160,10 +160,10 @@ export interface ResGuestInfoType {
     email?: string;
     /**
      * Date of birth
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuestInfoType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Language identification.
      * @type {string}
@@ -289,7 +289,7 @@ export function ResGuestInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'altFullName': !exists(json, 'altFullName') ? undefined : json['altFullName'],
         'phoneNumber': !exists(json, 'phoneNumber') ? undefined : json['phoneNumber'],
         'email': !exists(json, 'email') ? undefined : json['email'],
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'language': !exists(json, 'language') ? undefined : json['language'],
         'nationality': !exists(json, 'nationality') ? undefined : CountryNameTypeFromJSON(json['nationality']),
         'vip': !exists(json, 'vip') ? undefined : VIPTypeFromJSON(json['vip']),
@@ -331,7 +331,7 @@ export function ResGuestInfoTypeToJSON(value?: ResGuestInfoType | null): any {
         'altFullName': value.altFullName,
         'phoneNumber': value.phoneNumber,
         'email': value.email,
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'language': value.language,
         'nationality': CountryNameTypeToJSON(value.nationality),
         'vip': VIPTypeToJSON(value.vip),

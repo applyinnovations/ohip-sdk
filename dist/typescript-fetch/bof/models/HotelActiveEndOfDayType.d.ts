@@ -17,10 +17,10 @@
 export interface HotelActiveEndOfDayType {
     /**
      * Current open business date of hotel.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelActiveEndOfDayType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * Hotel code of the active end of days.
      * @type {string}

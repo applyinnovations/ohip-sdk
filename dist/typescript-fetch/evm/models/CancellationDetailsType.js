@@ -35,7 +35,7 @@ function CancellationDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cancellationCode': !(0, runtime_1.exists)(json, 'cancellationCode') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['cancellationCode']),
-        'cancellationDate': !(0, runtime_1.exists)(json, 'cancellationDate') ? undefined : (new Date(json['cancellationDate'])),
+        'cancellationDate': !(0, runtime_1.exists)(json, 'cancellationDate') ? undefined : json['cancellationDate'],
         'cancellationInfo': !(0, runtime_1.exists)(json, 'cancellationInfo') ? undefined : json['cancellationInfo'],
         'cancellationNumber': !(0, runtime_1.exists)(json, 'cancellationNumber') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['cancellationNumber']),
         'destination': !(0, runtime_1.exists)(json, 'destination') ? undefined : json['destination'],
@@ -52,7 +52,7 @@ function CancellationDetailsTypeToJSON(value) {
     }
     return {
         'cancellationCode': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.cancellationCode),
-        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substring(0, 10)),
+        'cancellationDate': value.cancellationDate,
         'cancellationInfo': value.cancellationInfo,
         'cancellationNumber': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.cancellationNumber),
         'destination': value.destination,

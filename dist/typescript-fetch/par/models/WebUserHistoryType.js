@@ -34,12 +34,12 @@ function WebUserHistoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !(0, runtime_1.exists)(json, 'creatorId') ? undefined : json['creatorId'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
-        'lastLogin': !(0, runtime_1.exists)(json, 'lastLogin') ? undefined : (new Date(json['lastLogin'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
+        'lastLogin': !(0, runtime_1.exists)(json, 'lastLogin') ? undefined : json['lastLogin'],
         'lastModifierId': !(0, runtime_1.exists)(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'lastPasswordChange': !(0, runtime_1.exists)(json, 'lastPasswordChange') ? undefined : (new Date(json['lastPasswordChange'])),
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'lastPasswordChange': !(0, runtime_1.exists)(json, 'lastPasswordChange') ? undefined : json['lastPasswordChange'],
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
     };
 }
 exports.WebUserHistoryTypeFromJSONTyped = WebUserHistoryTypeFromJSONTyped;
@@ -53,12 +53,12 @@ function WebUserHistoryTypeToJSON(value) {
     return {
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
-        'lastLogin': value.lastLogin === undefined ? undefined : (value.lastLogin.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
+        'lastLogin': value.lastLogin,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPasswordChange': value.lastPasswordChange === undefined ? undefined : (value.lastPasswordChange.toISOString().substring(0, 10)),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'lastPasswordChange': value.lastPasswordChange,
+        'purgeDate': value.purgeDate,
     };
 }
 exports.WebUserHistoryTypeToJSON = WebUserHistoryTypeToJSON;

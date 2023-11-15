@@ -36,10 +36,10 @@ function NegRateAccessTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'commissionCode': !(0, runtime_1.exists)(json, 'commissionCode') ? undefined : json['commissionCode'],
         'discounts': !(0, runtime_1.exists)(json, 'discounts') ? undefined : (json['discounts'].map(ProfileDiscountType_1.ProfileDiscountTypeFromJSON)),
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'negotiatedRateOrder': !(0, runtime_1.exists)(json, 'negotiatedRateOrder') ? undefined : json['negotiatedRateOrder'],
         'newTimeSpan': !(0, runtime_1.exists)(json, 'newTimeSpan') ? undefined : (0, TimeSpanType_1.TimeSpanTypeFromJSON)(json['newTimeSpan']),
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.NegRateAccessTypeFromJSONTyped = NegRateAccessTypeFromJSONTyped;
@@ -53,10 +53,10 @@ function NegRateAccessTypeToJSON(value) {
     return {
         'commissionCode': value.commissionCode,
         'discounts': value.discounts === undefined ? undefined : (value.discounts.map(ProfileDiscountType_1.ProfileDiscountTypeToJSON)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'negotiatedRateOrder': value.negotiatedRateOrder,
         'newTimeSpan': (0, TimeSpanType_1.TimeSpanTypeToJSON)(value.newTimeSpan),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.NegRateAccessTypeToJSON = NegRateAccessTypeToJSON;

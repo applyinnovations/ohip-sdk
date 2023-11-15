@@ -142,10 +142,10 @@ export interface PrepaidCardType {
     profileId?: ProfileId;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {ReservationId}
@@ -188,7 +188,7 @@ export function PrepaidCardTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'name': !exists(json, 'name') ? undefined : json['name'],
         'pinCode': !exists(json, 'pinCode') ? undefined : json['pinCode'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
     };
 }
@@ -217,7 +217,7 @@ export function PrepaidCardTypeToJSON(value?: PrepaidCardType | null): any {
         'name': value.name,
         'pinCode': value.pinCode,
         'profileId': ProfileIdToJSON(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'reservationId': ReservationIdToJSON(value.reservationId),
     };
 }

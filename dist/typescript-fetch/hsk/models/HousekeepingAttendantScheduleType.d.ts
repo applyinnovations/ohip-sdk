@@ -23,10 +23,10 @@ export interface HousekeepingAttendantScheduleType {
     attendantId?: string;
     /**
      * Date the attendant will be assigned.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingAttendantScheduleType
      */
-    date?: Date;
+    date?: string;
     /**
      * Partial name of an attendant.
      * @type {string}

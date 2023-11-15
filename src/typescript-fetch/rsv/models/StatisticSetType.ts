@@ -46,10 +46,10 @@ export interface StatisticSetType {
     revenueCategorySummariesType?: Array<RevenueCategorySummaryType>;
     /**
      * Date of the statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticSetType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
     /**
      * Determines whether statistic date is a weekend date.
      * @type {boolean}
@@ -79,7 +79,7 @@ export function StatisticSetTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'numericCategorySummariesType': !exists(json, 'numericCategorySummariesType') ? undefined : ((json['numericCategorySummariesType'] as Array<any>).map(NumericCategorySummaryTypeFromJSON)),
         'revenueCategorySummariesType': !exists(json, 'revenueCategorySummariesType') ? undefined : ((json['revenueCategorySummariesType'] as Array<any>).map(RevenueCategorySummaryTypeFromJSON)),
-        'statisticDate': !exists(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !exists(json, 'statisticDate') ? undefined : json['statisticDate'],
         'weekendDate': !exists(json, 'weekendDate') ? undefined : json['weekendDate'],
     };
 }
@@ -95,7 +95,7 @@ export function StatisticSetTypeToJSON(value?: StatisticSetType | null): any {
         
         'numericCategorySummariesType': value.numericCategorySummariesType === undefined ? undefined : ((value.numericCategorySummariesType as Array<any>).map(NumericCategorySummaryTypeToJSON)),
         'revenueCategorySummariesType': value.revenueCategorySummariesType === undefined ? undefined : ((value.revenueCategorySummariesType as Array<any>).map(RevenueCategorySummaryTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0,10)),
+        'statisticDate': value.statisticDate,
         'weekendDate': value.weekendDate,
     };
 }

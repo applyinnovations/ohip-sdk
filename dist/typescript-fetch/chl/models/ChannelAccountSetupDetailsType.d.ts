@@ -23,10 +23,10 @@ export interface ChannelAccountSetupDetailsType {
     chainCode?: string;
     /**
      * Contract End date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSetupDetailsType
      */
-    contractEndsOn?: Date;
+    contractEndsOn?: string;
     /**
      * Holds Currency code.
      * @type {string}
@@ -41,10 +41,10 @@ export interface ChannelAccountSetupDetailsType {
     hotelCodes?: Array<string>;
     /**
      * The date that account was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSetupDetailsType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {Array<string>}
@@ -53,10 +53,10 @@ export interface ChannelAccountSetupDetailsType {
     instances?: Array<string>;
     /**
      * The rebate date for the account.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelAccountSetupDetailsType
      */
-    rebateDate?: Date;
+    rebateDate?: string;
     /**
      * Property which registered this channel account.
      * @type {string}

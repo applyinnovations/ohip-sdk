@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface BlockRateCodeValidationType {
     /**
      * End date for the rate code validation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRateCodeValidationType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel code for which rate code should be validated.
      * @type {string}
@@ -39,10 +39,10 @@ export interface BlockRateCodeValidationType {
     rateCode?: string;
     /**
      * Start date for the rate code validation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockRateCodeValidationType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -64,10 +64,10 @@ export function BlockRateCodeValidationTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -80,10 +80,10 @@ export function BlockRateCodeValidationTypeToJSON(value?: BlockRateCodeValidatio
     }
     return {
         
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'rateCode': value.rateCode,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

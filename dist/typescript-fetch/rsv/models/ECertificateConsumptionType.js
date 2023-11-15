@@ -34,7 +34,7 @@ function ECertificateConsumptionTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : json['email'],
         'firstName': !(0, runtime_1.exists)(json, 'firstName') ? undefined : json['firstName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -54,7 +54,7 @@ function ECertificateConsumptionTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'email': value.email,
         'firstName': value.firstName,
         'hotelId': value.hotelId,

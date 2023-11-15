@@ -33,10 +33,10 @@ export interface SellLimitDateRangeType {
     amount?: number;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitDateRangeType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {string}
@@ -63,10 +63,10 @@ export interface SellLimitDateRangeType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitDateRangeType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * 
      * @type {boolean}
@@ -114,12 +114,12 @@ export function SellLimitDateRangeTypeFromJSONTyped(json: any, ignoreDiscriminat
         
         'actionType': !exists(json, 'actionType') ? undefined : json['actionType'],
         'amount': !exists(json, 'amount') ? undefined : json['amount'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'flatOrPercentage': !exists(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
         'friday': !exists(json, 'friday') ? undefined : json['friday'],
         'monday': !exists(json, 'monday') ? undefined : json['monday'],
         'saturday': !exists(json, 'saturday') ? undefined : json['saturday'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'sunday': !exists(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !exists(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !exists(json, 'tuesday') ? undefined : json['tuesday'],
@@ -138,12 +138,12 @@ export function SellLimitDateRangeTypeToJSON(value?: SellLimitDateRangeType | nu
         
         'actionType': value.actionType,
         'amount': value.amount,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'flatOrPercentage': value.flatOrPercentage,
         'friday': value.friday,
         'monday': value.monday,
         'saturday': value.saturday,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

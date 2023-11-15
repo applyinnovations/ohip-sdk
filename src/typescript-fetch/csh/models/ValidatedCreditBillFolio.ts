@@ -112,10 +112,10 @@ export interface ValidatedCreditBillFolio {
     creditableAmount?: CurrencyAmountType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidatedCreditBillFolio
      */
-    end?: Date;
+    end?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -148,10 +148,10 @@ export interface ValidatedCreditBillFolio {
     folioAmount?: CurrencyAmountType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidatedCreditBillFolio
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -244,10 +244,10 @@ export interface ValidatedCreditBillFolio {
     revisionNo?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ValidatedCreditBillFolio
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -277,13 +277,13 @@ export function ValidatedCreditBillFolioFromJSONTyped(json: any, ignoreDiscrimin
         'associatedBills': !exists(json, 'associatedBills') ? undefined : json['associatedBills'],
         'creditBillGenerated': !exists(json, 'creditBillGenerated') ? undefined : json['creditBillGenerated'],
         'creditableAmount': !exists(json, 'creditableAmount') ? undefined : CurrencyAmountTypeFromJSON(json['creditableAmount']),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'fiscalFolioNo': !exists(json, 'fiscalFolioNo') ? undefined : json['fiscalFolioNo'],
         'fiscalInvoicingCurrencyInfo': !exists(json, 'fiscalInvoicingCurrencyInfo') ? undefined : ExchangeRateInfoTypeFromJSON(json['fiscalInvoicingCurrencyInfo']),
         'fiscalTerminalId': !exists(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
         'folioAmount': !exists(json, 'folioAmount') ? undefined : CurrencyAmountTypeFromJSON(json['folioAmount']),
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioStatus': !exists(json, 'folioStatus') ? undefined : FolioStatusTypeFromJSON(json['folioStatus']),
         'folioTypeName': !exists(json, 'folioTypeName') ? undefined : json['folioTypeName'],
@@ -299,7 +299,7 @@ export function ValidatedCreditBillFolioFromJSONTyped(json: any, ignoreDiscrimin
         'queueName': !exists(json, 'queueName') ? undefined : json['queueName'],
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : FolioSummaryTypeReservationInfoFromJSON(json['reservationInfo']),
         'revisionNo': !exists(json, 'revisionNo') ? undefined : json['revisionNo'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -320,13 +320,13 @@ export function ValidatedCreditBillFolioToJSON(value?: ValidatedCreditBillFolio 
         'associatedBills': value.associatedBills,
         'creditBillGenerated': value.creditBillGenerated,
         'creditableAmount': CurrencyAmountTypeToJSON(value.creditableAmount),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'fiscalBillNo': value.fiscalBillNo,
         'fiscalFolioNo': value.fiscalFolioNo,
         'fiscalInvoicingCurrencyInfo': ExchangeRateInfoTypeToJSON(value.fiscalInvoicingCurrencyInfo),
         'fiscalTerminalId': value.fiscalTerminalId,
         'folioAmount': CurrencyAmountTypeToJSON(value.folioAmount),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioStatus': FolioStatusTypeToJSON(value.folioStatus),
         'folioTypeName': value.folioTypeName,
@@ -342,7 +342,7 @@ export function ValidatedCreditBillFolioToJSON(value?: ValidatedCreditBillFolio 
         'queueName': value.queueName,
         'reservationInfo': FolioSummaryTypeReservationInfoToJSON(value.reservationInfo),
         'revisionNo': value.revisionNo,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

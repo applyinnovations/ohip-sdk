@@ -82,10 +82,10 @@ export interface BaseRatePlanScheduleDetailType {
     classifications?: RatePlanScheduleClassificationsType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BaseRatePlanScheduleDetailType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {OccupantThresholdPricingType}
@@ -118,10 +118,10 @@ export interface BaseRatePlanScheduleDetailType {
     seasonCode?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BaseRatePlanScheduleDetailType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {number}
@@ -152,13 +152,13 @@ export function BaseRatePlanScheduleDetailTypeFromJSONTyped(json: any, ignoreDis
         'adjustmentDetails': !exists(json, 'adjustmentDetails') ? undefined : ((json['adjustmentDetails'] as Array<any>).map(AdjustmentDetailTypeFromJSON)),
         'advancedBaseRateOffset': !exists(json, 'advancedBaseRateOffset') ? undefined : AdvancedBaseRateOffsetTypeFromJSON(json['advancedBaseRateOffset']),
         'classifications': !exists(json, 'classifications') ? undefined : RatePlanScheduleClassificationsTypeFromJSON(json['classifications']),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'occupantThresholdPricing': !exists(json, 'occupantThresholdPricing') ? undefined : OccupantThresholdPricingTypeFromJSON(json['occupantThresholdPricing']),
         'rateAmountBoundaries': !exists(json, 'rateAmountBoundaries') ? undefined : RateAmountBoundariesTypeFromJSON(json['rateAmountBoundaries']),
         'rateAmounts': !exists(json, 'rateAmounts') ? undefined : ScheduleRateAmountsTypeFromJSON(json['rateAmounts']),
         'rateSchedulePackages': !exists(json, 'rateSchedulePackages') ? undefined : RatePackagesTypeFromJSON(json['rateSchedulePackages']),
         'seasonCode': !exists(json, 'seasonCode') ? undefined : json['seasonCode'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'tierID': !exists(json, 'tierID') ? undefined : json['tierID'],
     };
 }
@@ -175,13 +175,13 @@ export function BaseRatePlanScheduleDetailTypeToJSON(value?: BaseRatePlanSchedul
         'adjustmentDetails': value.adjustmentDetails === undefined ? undefined : ((value.adjustmentDetails as Array<any>).map(AdjustmentDetailTypeToJSON)),
         'advancedBaseRateOffset': AdvancedBaseRateOffsetTypeToJSON(value.advancedBaseRateOffset),
         'classifications': RatePlanScheduleClassificationsTypeToJSON(value.classifications),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'occupantThresholdPricing': OccupantThresholdPricingTypeToJSON(value.occupantThresholdPricing),
         'rateAmountBoundaries': RateAmountBoundariesTypeToJSON(value.rateAmountBoundaries),
         'rateAmounts': ScheduleRateAmountsTypeToJSON(value.rateAmounts),
         'rateSchedulePackages': RatePackagesTypeToJSON(value.rateSchedulePackages),
         'seasonCode': value.seasonCode,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'tierID': value.tierID,
     };
 }

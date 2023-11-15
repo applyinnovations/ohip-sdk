@@ -27,10 +27,10 @@ export interface DepositDetailPostingTypeUpdateInfo {
     updateBy?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof DepositDetailPostingTypeUpdateInfo
      */
-    updateDate?: Date;
+    updateDate?: string;
 }
 
 /**
@@ -53,7 +53,7 @@ export function DepositDetailPostingTypeUpdateInfoFromJSONTyped(json: any, ignor
     return {
         
         'updateBy': !exists(json, 'updateBy') ? undefined : json['updateBy'],
-        'updateDate': !exists(json, 'updateDate') ? undefined : (new Date(json['updateDate'])),
+        'updateDate': !exists(json, 'updateDate') ? undefined : json['updateDate'],
     };
 }
 
@@ -67,7 +67,7 @@ export function DepositDetailPostingTypeUpdateInfoToJSON(value?: DepositDetailPo
     return {
         
         'updateBy': value.updateBy,
-        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0,10)),
+        'updateDate': value.updateDate,
     };
 }
 

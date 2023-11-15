@@ -17,10 +17,10 @@
 export interface FloorPlanRoomGuestType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof FloorPlanRoomGuestType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      *
      * @type {string}
@@ -29,10 +29,10 @@ export interface FloorPlanRoomGuestType {
     confirmationNo?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof FloorPlanRoomGuestType
      */
-    departure?: Date;
+    departure?: string;
     /**
      *
      * @type {string}

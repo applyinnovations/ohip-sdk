@@ -36,7 +36,7 @@ function HousekeepingTaskAssignmentTypeFromJSONTyped(json, ignoreDiscriminator) 
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'taskCodes': !(0, runtime_1.exists)(json, 'taskCodes') ? undefined : (json['taskCodes'].map(HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeFromJSON)),
-        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !(0, runtime_1.exists)(json, 'taskDate') ? undefined : json['taskDate'],
         'taskSheets': !(0, runtime_1.exists)(json, 'taskSheets') ? undefined : (json['taskSheets'].map(HousekeepingTaskType_1.HousekeepingTaskTypeFromJSON)),
         'taskSheetsCount': !(0, runtime_1.exists)(json, 'taskSheetsCount') ? undefined : json['taskSheetsCount'],
     };
@@ -52,7 +52,7 @@ function HousekeepingTaskAssignmentTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'taskCodes': value.taskCodes === undefined ? undefined : (value.taskCodes.map(HousekeepingTaskCodeType_1.HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0, 10)),
+        'taskDate': value.taskDate,
         'taskSheets': value.taskSheets === undefined ? undefined : (value.taskSheets.map(HousekeepingTaskType_1.HousekeepingTaskTypeToJSON)),
         'taskSheetsCount': value.taskSheetsCount,
     };

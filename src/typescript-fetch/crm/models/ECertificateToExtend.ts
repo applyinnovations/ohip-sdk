@@ -40,10 +40,10 @@ export interface ECertificateToExtend {
     certificateId?: number;
     /**
      * Indicates E-Certificate extended expiry date.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateToExtend
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * 
      * @type {Array<InstanceLink>}
@@ -78,7 +78,7 @@ export function ECertificateToExtendFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'certificateId': !exists(json, 'certificateId') ? undefined : json['certificateId'],
-        'expiryDate': !exists(json, 'expiryDate') ? undefined : (new Date(json['expiryDate'])),
+        'expiryDate': !exists(json, 'expiryDate') ? undefined : json['expiryDate'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
     };
@@ -94,7 +94,7 @@ export function ECertificateToExtendToJSON(value?: ECertificateToExtend | null):
     return {
         
         'certificateId': value.certificateId,
-        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substring(0,10)),
+        'expiryDate': value.expiryDate,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),
     };

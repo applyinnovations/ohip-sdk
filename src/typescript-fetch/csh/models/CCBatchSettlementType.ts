@@ -94,10 +94,10 @@ export interface CCBatchSettlementType {
     settlementId?: UniqueIDType;
     /**
      * Transaction Date of the credit card transaction.
-     * @type {Date}
+     * @type {string}
      * @memberof CCBatchSettlementType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Window number associated with the CC settlement transaction.
      * @type {number}
@@ -133,7 +133,7 @@ export function CCBatchSettlementTypeFromJSONTyped(json: any, ignoreDiscriminato
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'settlementAmount': !exists(json, 'settlementAmount') ? undefined : CurrencyAmountTypeFromJSON(json['settlementAmount']),
         'settlementId': !exists(json, 'settlementId') ? undefined : UniqueIDTypeFromJSON(json['settlementId']),
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'windowNo': !exists(json, 'windowNo') ? undefined : json['windowNo'],
     };
 }
@@ -155,7 +155,7 @@ export function CCBatchSettlementTypeToJSON(value?: CCBatchSettlementType | null
         'roomId': value.roomId,
         'settlementAmount': CurrencyAmountTypeToJSON(value.settlementAmount),
         'settlementId': UniqueIDTypeToJSON(value.settlementId),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'windowNo': value.windowNo,
     };
 }

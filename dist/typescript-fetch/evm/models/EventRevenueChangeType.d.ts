@@ -44,10 +44,10 @@ export interface EventRevenueChangeType {
     eventChangeId?: UniqueIDType;
     /**
      * Date of this event
-     * @type {Date}
+     * @type {string}
      * @memberof EventRevenueChangeType
      */
-    eventDate?: Date;
+    eventDate?: string;
     /**
      *
      * @type {UniqueIDType}

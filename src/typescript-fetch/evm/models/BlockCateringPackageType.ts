@@ -52,10 +52,10 @@ export interface BlockCateringPackageType {
     attendees?: CateringEventsAttendeesType;
     /**
      * Begin Date for package/template events
-     * @type {Date}
+     * @type {string}
      * @memberof BlockCateringPackageType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -174,7 +174,7 @@ export function BlockCateringPackageTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'attendees': !exists(json, 'attendees') ? undefined : CateringEventsAttendeesTypeFromJSON(json['attendees']),
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'blockId': !exists(json, 'blockId') ? undefined : UniqueIDTypeFromJSON(json['blockId']),
         'cateringPackageRemovable': !exists(json, 'cateringPackageRemovable') ? undefined : json['cateringPackageRemovable'],
         'duration': !exists(json, 'duration') ? undefined : json['duration'],
@@ -204,7 +204,7 @@ export function BlockCateringPackageTypeToJSON(value?: BlockCateringPackageType 
     return {
         
         'attendees': CateringEventsAttendeesTypeToJSON(value.attendees),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'blockId': UniqueIDTypeToJSON(value.blockId),
         'cateringPackageRemovable': value.cateringPackageRemovable,
         'duration': value.duration,

@@ -19,10 +19,10 @@ import type { HousekeepingRoomStatusType } from './HousekeepingRoomStatusType';
 export interface RoomOutOfOrderType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOutOfOrderType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {HousekeepingRoomStatusType}
@@ -61,10 +61,10 @@ export interface RoomOutOfOrderType {
     returnStatus?: HousekeepingRoomStatusType;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOutOfOrderType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the RoomOutOfOrderType interface.

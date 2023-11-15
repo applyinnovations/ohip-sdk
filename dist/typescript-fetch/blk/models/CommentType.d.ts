@@ -18,10 +18,10 @@ import type { FormattedTextTextType } from './FormattedTextTextType';
 export interface CommentType {
     /**
      * Indicates at which date an action described in the comment must be taken.
-     * @type {Date}
+     * @type {string}
      * @memberof CommentType
      */
-    actionDate?: Date;
+    actionDate?: string;
     /**
      * Specifies type of action described in the comments.
      * @type {string}

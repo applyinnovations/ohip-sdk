@@ -40,16 +40,16 @@ import {
 export interface MembershipDetailsType {
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * The card number associated with this membership.
      * @type {string}
@@ -107,8 +107,8 @@ export function MembershipDetailsTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : (new Date(json['cardExpirationDate'])),
-        'joinedDate': !exists(json, 'joinedDate') ? undefined : (new Date(json['joinedDate'])),
+        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : json['cardExpirationDate'],
+        'joinedDate': !exists(json, 'joinedDate') ? undefined : json['joinedDate'],
         'membershipCardNo': !exists(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipId': !exists(json, 'membershipId') ? undefined : UniqueIDTypeFromJSON(json['membershipId']),
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
@@ -127,8 +127,8 @@ export function MembershipDetailsTypeToJSON(value?: MembershipDetailsType | null
     }
     return {
         
-        'cardExpirationDate': value.cardExpirationDate === undefined ? undefined : (value.cardExpirationDate.toISOString().substring(0,10)),
-        'joinedDate': value.joinedDate === undefined ? undefined : (value.joinedDate.toISOString().substring(0,10)),
+        'cardExpirationDate': value.cardExpirationDate,
+        'joinedDate': value.joinedDate,
         'membershipCardNo': value.membershipCardNo,
         'membershipId': UniqueIDTypeToJSON(value.membershipId),
         'membershipLevel': value.membershipLevel,

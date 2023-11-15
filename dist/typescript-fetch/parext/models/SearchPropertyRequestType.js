@@ -37,8 +37,8 @@ function SearchPropertyRequestTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'accountId': !(0, runtime_1.exists)(json, 'accountId') ? undefined : json['accountId'],
-        'arrivalDate': (new Date(json['arrivalDate'])),
-        'departureDate': (new Date(json['departureDate'])),
+        'arrivalDate': json['arrivalDate'],
+        'departureDate': json['departureDate'],
         'hotelIds': !(0, runtime_1.exists)(json, 'hotelIds') ? undefined : json['hotelIds'],
         'includePublicRates': !(0, runtime_1.exists)(json, 'includePublicRates') ? undefined : json['includePublicRates'],
         'limit': !(0, runtime_1.exists)(json, 'limit') ? undefined : json['limit'],
@@ -58,8 +58,8 @@ function SearchPropertyRequestTypeToJSON(value) {
     }
     return {
         'accountId': value.accountId,
-        'arrivalDate': (value.arrivalDate.toISOString().substring(0, 10)),
-        'departureDate': (value.departureDate.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'hotelIds': value.hotelIds,
         'includePublicRates': value.includePublicRates,
         'limit': value.limit,

@@ -130,10 +130,10 @@ export interface ResCashieringType {
     proratedBilling?: boolean;
     /**
      * Date of the last Room And Tax posting. Used primarily to know the date in case of Advance Billing.
-     * @type {Date}
+     * @type {string}
      * @memberof ResCashieringType
      */
-    lastRoomAndTaxPostedDate?: Date;
+    lastRoomAndTaxPostedDate?: string;
     /**
      * This attribute is to verify if reverse check-in is allowed for the reservation.
      * @type {boolean}
@@ -183,7 +183,7 @@ export function ResCashieringTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'resPreConfiguredRoutingInstruction': !exists(json, 'resPreConfiguredRoutingInstruction') ? undefined : ResPreConfiguredRoutingInstrTypeFromJSON(json['resPreConfiguredRoutingInstruction']),
         'financiallyResponsible': !exists(json, 'financiallyResponsible') ? undefined : json['financiallyResponsible'],
         'proratedBilling': !exists(json, 'proratedBilling') ? undefined : json['proratedBilling'],
-        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
+        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : json['lastRoomAndTaxPostedDate'],
         'reverseCheckInAllowed': !exists(json, 'reverseCheckInAllowed') ? undefined : json['reverseCheckInAllowed'],
         'reverseAdvanceCheckInAllowed': !exists(json, 'reverseAdvanceCheckInAllowed') ? undefined : json['reverseAdvanceCheckInAllowed'],
         'transactionsPosted': !exists(json, 'transactionsPosted') ? undefined : json['transactionsPosted'],
@@ -209,7 +209,7 @@ export function ResCashieringTypeToJSON(value?: ResCashieringType | null): any {
         'resPreConfiguredRoutingInstruction': ResPreConfiguredRoutingInstrTypeToJSON(value.resPreConfiguredRoutingInstruction),
         'financiallyResponsible': value.financiallyResponsible,
         'proratedBilling': value.proratedBilling,
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0,10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate,
         'reverseCheckInAllowed': value.reverseCheckInAllowed,
         'reverseAdvanceCheckInAllowed': value.reverseAdvanceCheckInAllowed,
         'transactionsPosted': value.transactionsPosted,

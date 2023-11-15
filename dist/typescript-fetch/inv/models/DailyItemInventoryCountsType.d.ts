@@ -23,10 +23,10 @@ export interface DailyItemInventoryCountsType {
     available?: number;
     /**
      * Date of the item inventory.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyItemInventoryCountsType
      */
-    date?: Date;
+    date?: string;
     /**
      * Total Item count.
      * @type {number}

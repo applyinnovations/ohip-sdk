@@ -80,10 +80,10 @@ export interface WakeUpCallType {
     newFollowUpCallTime?: string;
     /**
      * Date on which wake up call was processed.
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallType
      */
-    processedDate?: Date;
+    processedDate?: string;
     /**
      * Time on which wake up call was processed.
      * @type {string}
@@ -92,10 +92,10 @@ export interface WakeUpCallType {
     processedTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {WakeUpCallResvInfoType}

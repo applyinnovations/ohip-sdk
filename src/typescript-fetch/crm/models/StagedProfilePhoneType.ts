@@ -46,10 +46,10 @@ export interface StagedProfilePhoneType {
     id?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfilePhoneType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * 
      * @type {TelephoneType}
@@ -86,7 +86,7 @@ export function StagedProfilePhoneTypeFromJSONTyped(json: any, ignoreDiscriminat
         'defaultConfirmation': !exists(json, 'defaultConfirmation') ? undefined : json['defaultConfirmation'],
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'id': !exists(json, 'id') ? undefined : json['id'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'telephone': !exists(json, 'telephone') ? undefined : TelephoneTypeFromJSON(json['telephone']),
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
@@ -104,7 +104,7 @@ export function StagedProfilePhoneTypeToJSON(value?: StagedProfilePhoneType | nu
         'defaultConfirmation': value.defaultConfirmation,
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'telephone': TelephoneTypeToJSON(value.telephone),
         'type': value.type,
     };

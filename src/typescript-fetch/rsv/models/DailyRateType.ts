@@ -88,10 +88,10 @@ export interface DailyRateType {
     discount?: DiscountType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateType
      */
-    end?: Date;
+    end?: string;
     /**
      * When true indicates that the rate amount has been overridden.
      * @type {boolean}
@@ -100,10 +100,10 @@ export interface DailyRateType {
     rateOverride?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {TaxesType}
@@ -140,9 +140,9 @@ export function DailyRateTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
         'decimalPlaces': !exists(json, 'decimalPlaces') ? undefined : json['decimalPlaces'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'discount': !exists(json, 'discount') ? undefined : DiscountTypeFromJSON(json['discount']),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'rateOverride': !exists(json, 'rateOverride') ? undefined : json['rateOverride'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'taxes': !exists(json, 'taxes') ? undefined : TaxesTypeFromJSON(json['taxes']),
     };
 }
@@ -165,9 +165,9 @@ export function DailyRateTypeToJSON(value?: DailyRateType | null): any {
         'decimalPlaces': value.decimalPlaces,
         'description': value.description,
         'discount': DiscountTypeToJSON(value.discount),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'rateOverride': value.rateOverride,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'taxes': TaxesTypeToJSON(value.taxes),
     };
 }

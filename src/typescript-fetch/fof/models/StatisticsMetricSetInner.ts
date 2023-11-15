@@ -34,10 +34,10 @@ export interface StatisticsMetricSetInner {
     code?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticsMetricSetInner
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {Array<HSKStatType>}
@@ -46,10 +46,10 @@ export interface StatisticsMetricSetInner {
     metrics?: Array<HSKStatType>;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticsMetricSetInner
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -72,9 +72,9 @@ export function StatisticsMetricSetInnerFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'code': !exists(json, 'code') ? undefined : json['code'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'metrics': !exists(json, 'metrics') ? undefined : ((json['metrics'] as Array<any>).map(HSKStatTypeFromJSON)),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -88,9 +88,9 @@ export function StatisticsMetricSetInnerToJSON(value?: StatisticsMetricSetInner 
     return {
         
         'code': value.code,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'metrics': value.metrics === undefined ? undefined : ((value.metrics as Array<any>).map(HSKStatTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

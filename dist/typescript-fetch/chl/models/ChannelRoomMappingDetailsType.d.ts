@@ -68,10 +68,10 @@ export interface ChannelRoomMappingDetailsType {
     description?: ChannelRoomMappingDescriptionType;
     /**
      * End date of the hotel-channel room type mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingDetailsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {ChannelMappingEnhancedDescriptionType}
@@ -80,10 +80,10 @@ export interface ChannelRoomMappingDetailsType {
     globalDescription?: ChannelMappingEnhancedDescriptionType;
     /**
      * Begin date of the channel room type mapping. This element is used for sending modified Begin date value for operation ChangeChannelRoomMapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingDetailsType
      */
-    newBeginDate?: Date;
+    newBeginDate?: string;
     /**
      * Channel Room Type. This element is used for sending modified Channel room type value for operation ChangeChannelRoomMapping.
      * @type {string}

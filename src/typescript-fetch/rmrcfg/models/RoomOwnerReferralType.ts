@@ -46,10 +46,10 @@ import {
 export interface RoomOwnerReferralType {
     /**
      * End Date of the Room Owner Referral record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnerReferralType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code of Room Owner Referral record.
      * @type {string}
@@ -64,10 +64,10 @@ export interface RoomOwnerReferralType {
     inactive?: boolean;
     /**
      * Date in which the room owner referral record was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnerReferralType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * 
      * @type {AddressType}
@@ -112,10 +112,10 @@ export interface RoomOwnerReferralType {
     roomOwnerReferralId?: number;
     /**
      * Start Date of the Room Owner Referral record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnerReferralType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -137,10 +137,10 @@ export function RoomOwnerReferralTypeFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'profileAddress': !exists(json, 'profileAddress') ? undefined : AddressTypeFromJSON(json['profileAddress']),
         'profileId': !exists(json, 'profileId') ? undefined : UniqueIDTypeFromJSON(json['profileId']),
         'profileName': !exists(json, 'profileName') ? undefined : ProfileNameTypeFromJSON(json['profileName']),
@@ -148,7 +148,7 @@ export function RoomOwnerReferralTypeFromJSONTyped(json: any, ignoreDiscriminato
         'roomId': !exists(json, 'roomId') ? undefined : json['roomId'],
         'roomOwnerId': !exists(json, 'roomOwnerId') ? undefined : json['roomOwnerId'],
         'roomOwnerReferralId': !exists(json, 'roomOwnerReferralId') ? undefined : json['roomOwnerReferralId'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -161,10 +161,10 @@ export function RoomOwnerReferralTypeToJSON(value?: RoomOwnerReferralType | null
     }
     return {
         
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'profileAddress': AddressTypeToJSON(value.profileAddress),
         'profileId': UniqueIDTypeToJSON(value.profileId),
         'profileName': ProfileNameTypeToJSON(value.profileName),
@@ -172,7 +172,7 @@ export function RoomOwnerReferralTypeToJSON(value?: RoomOwnerReferralType | null
         'roomId': value.roomId,
         'roomOwnerId': value.roomOwnerId,
         'roomOwnerReferralId': value.roomOwnerReferralId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

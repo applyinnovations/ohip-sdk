@@ -101,10 +101,10 @@ export interface RateAvailabilityType {
     roomLabel?: string;
     /**
      * The date of the reservation associated with the award. There may be more than one date (multiple nights) associated with award.
-     * @type {Date}
+     * @type {string}
      * @memberof RateAvailabilityType
      */
-    stayDate?: Date;
+    stayDate?: string;
     /**
      * Total award points available for redemption.
      * @type {number}

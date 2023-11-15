@@ -34,10 +34,10 @@ import {
 export interface RecentlyAccessedProfileType {
     /**
      * The date the record was accessed.
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedProfileType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Given name, first name or names
      * @type {string}
@@ -83,7 +83,7 @@ export function RecentlyAccessedProfileTypeFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'accessDate': !exists(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !exists(json, 'accessDate') ? undefined : json['accessDate'],
         'guestFirstName': !exists(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !exists(json, 'guestLastName') ? undefined : json['guestLastName'],
         'profileIdList': !exists(json, 'profileIdList') ? undefined : ((json['profileIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
@@ -100,7 +100,7 @@ export function RecentlyAccessedProfileTypeToJSON(value?: RecentlyAccessedProfil
     }
     return {
         
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
+        'accessDate': value.accessDate,
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'profileIdList': value.profileIdList === undefined ? undefined : ((value.profileIdList as Array<any>).map(UniqueIDTypeToJSON)),

@@ -52,16 +52,16 @@ export interface ReservationRotationPointsDetailsType {
     currentPoints?: number;
     /**
      * End date of reservation
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRotationPointsDetailsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Start date of reservation
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRotationPointsDetailsType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * 
      * @type {RotationRuleCalculationRuleType}
@@ -92,8 +92,8 @@ export function ReservationRotationPointsDetailsTypeFromJSONTyped(json: any, ign
         'adjustPointsTo': !exists(json, 'adjustPointsTo') ? undefined : json['adjustPointsTo'],
         'adjustmentReason': !exists(json, 'adjustmentReason') ? undefined : ReservationRotationPointsAdjustmentReasonTypeFromJSON(json['adjustmentReason']),
         'currentPoints': !exists(json, 'currentPoints') ? undefined : json['currentPoints'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'type': !exists(json, 'type') ? undefined : RotationRuleCalculationRuleTypeFromJSON(json['type']),
     };
 }
@@ -110,8 +110,8 @@ export function ReservationRotationPointsDetailsTypeToJSON(value?: ReservationRo
         'adjustPointsTo': value.adjustPointsTo,
         'adjustmentReason': ReservationRotationPointsAdjustmentReasonTypeToJSON(value.adjustmentReason),
         'currentPoints': value.currentPoints,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
+        'startDate': value.startDate,
         'type': RotationRuleCalculationRuleTypeToJSON(value.type),
     };
 }

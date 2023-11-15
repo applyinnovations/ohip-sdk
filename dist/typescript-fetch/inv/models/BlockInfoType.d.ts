@@ -101,16 +101,16 @@ export interface BlockInfoType {
     currencyCode?: string;
     /**
      * Date after which unused block rooms should be returned to house.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInfoType
      */
-    cutOffDate?: Date;
+    cutOffDate?: string;
     /**
      * End date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Guarantee Code for the block.
      * @type {string}
@@ -149,10 +149,10 @@ export interface BlockInfoType {
     roomSalesManager?: CodeDescriptionType;
     /**
      * Start date for this block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockInfoType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the BlockInfoType interface.

@@ -40,10 +40,10 @@ export interface MembershipTransactionDetailsType {
     transactionType?: string;
     /**
      * The date when the points were calculated.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionDetailsType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -76,10 +76,10 @@ export interface MembershipTransactionDetailsType {
     profilePromotions?: Array<string>;
     /**
      * For adjustments, the date when the points are to be credited.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionDetailsType
      */
-    pointsCreditDate?: Date;
+    pointsCreditDate?: string;
     /**
      * The average cost of the room per night.
      * @type {number}

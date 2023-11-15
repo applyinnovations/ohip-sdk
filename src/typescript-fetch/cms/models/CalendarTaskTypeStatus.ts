@@ -33,10 +33,10 @@ export interface CalendarTaskTypeStatus {
     completedBy?: string;
     /**
      * Date on which the task was completed. Ignored when task is not marked as completed.
-     * @type {Date}
+     * @type {string}
      * @memberof CalendarTaskTypeStatus
      */
-    completedOn?: Date;
+    completedOn?: string;
 }
 
 /**
@@ -60,7 +60,7 @@ export function CalendarTaskTypeStatusFromJSONTyped(json: any, ignoreDiscriminat
         
         'completed': !exists(json, 'completed') ? undefined : json['completed'],
         'completedBy': !exists(json, 'completedBy') ? undefined : json['completedBy'],
-        'completedOn': !exists(json, 'completedOn') ? undefined : (new Date(json['completedOn'])),
+        'completedOn': !exists(json, 'completedOn') ? undefined : json['completedOn'],
     };
 }
 
@@ -75,7 +75,7 @@ export function CalendarTaskTypeStatusToJSON(value?: CalendarTaskTypeStatus | nu
         
         'completed': value.completed,
         'completedBy': value.completedBy,
-        'completedOn': value.completedOn === undefined ? undefined : (value.completedOn.toISOString().substring(0,10)),
+        'completedOn': value.completedOn,
     };
 }
 

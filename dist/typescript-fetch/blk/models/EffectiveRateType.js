@@ -34,7 +34,7 @@ function EffectiveRateTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'amountBeforeTax': !(0, runtime_1.exists)(json, 'amountBeforeTax') ? undefined : json['amountBeforeTax'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'extraChildRate': !(0, runtime_1.exists)(json, 'extraChildRate') ? undefined : json['extraChildRate'],
         'extraPersonRate': !(0, runtime_1.exists)(json, 'extraPersonRate') ? undefined : json['extraPersonRate'],
         'fivePersonRate': !(0, runtime_1.exists)(json, 'fivePersonRate') ? undefined : json['fivePersonRate'],
@@ -50,7 +50,7 @@ function EffectiveRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         'rateByAgeBuckets': !(0, runtime_1.exists)(json, 'rateByAgeBuckets') ? undefined : (json['rateByAgeBuckets'].map(RateByAgeBucketType_1.RateByAgeBucketTypeFromJSON)),
         'ratePlanCode': !(0, runtime_1.exists)(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'threeChildrenRate': !(0, runtime_1.exists)(json, 'threeChildrenRate') ? undefined : json['threeChildrenRate'],
         'threePersonRate': !(0, runtime_1.exists)(json, 'threePersonRate') ? undefined : json['threePersonRate'],
         'twoChildrenRate': !(0, runtime_1.exists)(json, 'twoChildrenRate') ? undefined : json['twoChildrenRate'],
@@ -67,7 +67,7 @@ function EffectiveRateTypeToJSON(value) {
     }
     return {
         'amountBeforeTax': value.amountBeforeTax,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'extraChildRate': value.extraChildRate,
         'extraPersonRate': value.extraPersonRate,
         'fivePersonRate': value.fivePersonRate,
@@ -83,7 +83,7 @@ function EffectiveRateTypeToJSON(value) {
         'rateByAgeBuckets': value.rateByAgeBuckets === undefined ? undefined : (value.rateByAgeBuckets.map(RateByAgeBucketType_1.RateByAgeBucketTypeToJSON)),
         'ratePlanCode': value.ratePlanCode,
         'roomType': value.roomType,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'threeChildrenRate': value.threeChildrenRate,
         'threePersonRate': value.threePersonRate,
         'twoChildrenRate': value.twoChildrenRate,

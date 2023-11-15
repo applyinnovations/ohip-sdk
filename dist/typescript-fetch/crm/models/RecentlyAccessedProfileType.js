@@ -34,7 +34,7 @@ function RecentlyAccessedProfileTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : json['accessDate'],
         'guestFirstName': !(0, runtime_1.exists)(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !(0, runtime_1.exists)(json, 'guestLastName') ? undefined : json['guestLastName'],
         'profileIdList': !(0, runtime_1.exists)(json, 'profileIdList') ? undefined : (json['profileIdList'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
@@ -50,7 +50,7 @@ function RecentlyAccessedProfileTypeToJSON(value) {
         return null;
     }
     return {
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
+        'accessDate': value.accessDate,
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'profileIdList': value.profileIdList === undefined ? undefined : (value.profileIdList.map(UniqueIDType_1.UniqueIDTypeToJSON)),

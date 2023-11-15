@@ -58,10 +58,10 @@ export interface RoomTypeType {
     accessible?: boolean;
     /**
      * Active date of the room type.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomTypeType
      */
-    activeDate?: Date;
+    activeDate?: string;
     /**
      * Creates a new linked Reservation, and proceeds within check-in of the new reservation.
      * @type {boolean}
@@ -270,7 +270,7 @@ export function RoomTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'accessible': !exists(json, 'accessible') ? undefined : json['accessible'],
-        'activeDate': !exists(json, 'activeDate') ? undefined : (new Date(json['activeDate'])),
+        'activeDate': !exists(json, 'activeDate') ? undefined : json['activeDate'],
         'autoCheckin': !exists(json, 'autoCheckin') ? undefined : json['autoCheckin'],
         'autoPopulate': !exists(json, 'autoPopulate') ? undefined : json['autoPopulate'],
         'autoRoomAssign': !exists(json, 'autoRoomAssign') ? undefined : json['autoRoomAssign'],
@@ -315,7 +315,7 @@ export function RoomTypeTypeToJSON(value?: RoomTypeType | null): any {
     return {
         
         'accessible': value.accessible,
-        'activeDate': value.activeDate === undefined ? undefined : (value.activeDate.toISOString().substring(0,10)),
+        'activeDate': value.activeDate,
         'autoCheckin': value.autoCheckin,
         'autoPopulate': value.autoPopulate,
         'autoRoomAssign': value.autoRoomAssign,

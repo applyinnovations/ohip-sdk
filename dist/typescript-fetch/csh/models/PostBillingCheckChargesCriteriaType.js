@@ -41,7 +41,7 @@ function PostBillingCheckChargesCriteriaTypeFromJSONTyped(json, ignoreDiscrimina
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'items': !(0, runtime_1.exists)(json, 'items') ? undefined : (json['items'].map(PostBillingCheckChargesItemCriteriaType_1.PostBillingCheckChargesItemCriteriaTypeFromJSON)),
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'revenueDate': !(0, runtime_1.exists)(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !(0, runtime_1.exists)(json, 'revenueDate') ? undefined : json['revenueDate'],
     };
 }
 exports.PostBillingCheckChargesCriteriaTypeFromJSONTyped = PostBillingCheckChargesCriteriaTypeFromJSONTyped;
@@ -59,7 +59,7 @@ function PostBillingCheckChargesCriteriaTypeToJSON(value) {
         'hotelId': value.hotelId,
         'items': value.items === undefined ? undefined : (value.items.map(PostBillingCheckChargesItemCriteriaType_1.PostBillingCheckChargesItemCriteriaTypeToJSON)),
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0, 10)),
+        'revenueDate': value.revenueDate,
     };
 }
 exports.PostBillingCheckChargesCriteriaTypeToJSON = PostBillingCheckChargesCriteriaTypeToJSON;

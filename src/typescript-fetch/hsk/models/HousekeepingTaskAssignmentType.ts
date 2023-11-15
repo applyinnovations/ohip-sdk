@@ -46,10 +46,10 @@ export interface HousekeepingTaskAssignmentType {
     taskCodes?: Array<HousekeepingTaskCodeType>;
     /**
      * The date for which the Task Assignment is done. Date should be the current business date in most cases. Date cannot be in the past.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingTaskAssignmentType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * List of Task Sheets generated for this assignment.
      * @type {Array<HousekeepingTaskType>}
@@ -85,7 +85,7 @@ export function HousekeepingTaskAssignmentTypeFromJSONTyped(json: any, ignoreDis
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'taskCodes': !exists(json, 'taskCodes') ? undefined : ((json['taskCodes'] as Array<any>).map(HousekeepingTaskCodeTypeFromJSON)),
-        'taskDate': !exists(json, 'taskDate') ? undefined : (new Date(json['taskDate'])),
+        'taskDate': !exists(json, 'taskDate') ? undefined : json['taskDate'],
         'taskSheets': !exists(json, 'taskSheets') ? undefined : ((json['taskSheets'] as Array<any>).map(HousekeepingTaskTypeFromJSON)),
         'taskSheetsCount': !exists(json, 'taskSheetsCount') ? undefined : json['taskSheetsCount'],
     };
@@ -102,7 +102,7 @@ export function HousekeepingTaskAssignmentTypeToJSON(value?: HousekeepingTaskAss
         
         'hotelId': value.hotelId,
         'taskCodes': value.taskCodes === undefined ? undefined : ((value.taskCodes as Array<any>).map(HousekeepingTaskCodeTypeToJSON)),
-        'taskDate': value.taskDate === undefined ? undefined : (value.taskDate.toISOString().substring(0,10)),
+        'taskDate': value.taskDate,
         'taskSheets': value.taskSheets === undefined ? undefined : ((value.taskSheets as Array<any>).map(HousekeepingTaskTypeToJSON)),
         'taskSheetsCount': value.taskSheetsCount,
     };

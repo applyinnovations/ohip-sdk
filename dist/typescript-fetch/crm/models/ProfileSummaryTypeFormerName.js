@@ -33,7 +33,7 @@ function ProfileSummaryTypeFormerNameFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !(0, runtime_1.exists)(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'currencySymbol': !(0, runtime_1.exists)(json, 'currencySymbol') ? undefined : json['currencySymbol'],
@@ -60,7 +60,7 @@ function ProfileSummaryTypeFormerNameToJSON(value) {
         return null;
     }
     return {
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0, 10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'currencyCode': value.currencyCode,
         'currencySymbol': value.currencySymbol,

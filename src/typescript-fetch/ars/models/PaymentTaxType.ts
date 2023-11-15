@@ -58,10 +58,10 @@ export interface PaymentTaxType {
     nonTaxableAmount?: CurrencyAmountType;
     /**
      * The Payment Invoice date
-     * @type {Date}
+     * @type {string}
      * @memberof PaymentTaxType
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      * 
      * @type {PaymentTax}
@@ -88,10 +88,10 @@ export interface PaymentTaxType {
     transactionCode?: string;
     /**
      * Transaction Date of the Payment.
-     * @type {Date}
+     * @type {string}
      * @memberof PaymentTaxType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Billing Transaction Description.
      * @type {string}
@@ -129,12 +129,12 @@ export function PaymentTaxTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'availableCredit': !exists(json, 'availableCredit') ? undefined : CurrencyAmountTypeFromJSON(json['availableCredit']),
         'folioWindowNo': !exists(json, 'folioWindowNo') ? undefined : json['folioWindowNo'],
         'nonTaxableAmount': !exists(json, 'nonTaxableAmount') ? undefined : CurrencyAmountTypeFromJSON(json['nonTaxableAmount']),
-        'paymentDate': !exists(json, 'paymentDate') ? undefined : (new Date(json['paymentDate'])),
+        'paymentDate': !exists(json, 'paymentDate') ? undefined : json['paymentDate'],
         'paymentType': !exists(json, 'paymentType') ? undefined : PaymentTaxFromJSON(json['paymentType']),
         'taxInvoiceNo': !exists(json, 'taxInvoiceNo') ? undefined : json['taxInvoiceNo'],
         'taxableAmount': !exists(json, 'taxableAmount') ? undefined : CurrencyAmountTypeFromJSON(json['taxableAmount']),
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionDescription': !exists(json, 'transactionDescription') ? undefined : json['transactionDescription'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
@@ -153,12 +153,12 @@ export function PaymentTaxTypeToJSON(value?: PaymentTaxType | null): any {
         'availableCredit': CurrencyAmountTypeToJSON(value.availableCredit),
         'folioWindowNo': value.folioWindowNo,
         'nonTaxableAmount': CurrencyAmountTypeToJSON(value.nonTaxableAmount),
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0,10)),
+        'paymentDate': value.paymentDate,
         'paymentType': PaymentTaxToJSON(value.paymentType),
         'taxInvoiceNo': value.taxInvoiceNo,
         'taxableAmount': CurrencyAmountTypeToJSON(value.taxableAmount),
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionDescription': value.transactionDescription,
         'transactionNo': value.transactionNo,
     };

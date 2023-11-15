@@ -34,10 +34,10 @@ export interface BillingChargeType {
     approvalCode?: string;
     /**
      * Approval date of the posting.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingChargeType
      */
-    approvalDate?: Date;
+    approvalDate?: string;
     /**
      * Approval status of the posting.
      * @type {string}
@@ -94,10 +94,10 @@ export interface BillingChargeType {
     remark?: string;
     /**
      * Corrected Revenue Date.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingChargeType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Transaction number of the posting being corrected.
      * @type {number}
@@ -126,7 +126,7 @@ export function BillingChargeTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'approvalCode': !exists(json, 'approvalCode') ? undefined : json['approvalCode'],
-        'approvalDate': !exists(json, 'approvalDate') ? undefined : (new Date(json['approvalDate'])),
+        'approvalDate': !exists(json, 'approvalDate') ? undefined : json['approvalDate'],
         'approvalStatus': !exists(json, 'approvalStatus') ? undefined : json['approvalStatus'],
         'arrangementCode': !exists(json, 'arrangementCode') ? undefined : json['arrangementCode'],
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
@@ -136,7 +136,7 @@ export function BillingChargeTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'reference': !exists(json, 'reference') ? undefined : json['reference'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
-        'revenueDate': !exists(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !exists(json, 'revenueDate') ? undefined : json['revenueDate'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
 }
@@ -151,7 +151,7 @@ export function BillingChargeTypeToJSON(value?: BillingChargeType | null): any {
     return {
         
         'approvalCode': value.approvalCode,
-        'approvalDate': value.approvalDate === undefined ? undefined : (value.approvalDate.toISOString().substring(0,10)),
+        'approvalDate': value.approvalDate,
         'approvalStatus': value.approvalStatus,
         'arrangementCode': value.arrangementCode,
         'cashierId': value.cashierId,
@@ -161,7 +161,7 @@ export function BillingChargeTypeToJSON(value?: BillingChargeType | null): any {
         'quantity': value.quantity,
         'reference': value.reference,
         'remark': value.remark,
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
+        'revenueDate': value.revenueDate,
         'transactionNo': value.transactionNo,
     };
 }

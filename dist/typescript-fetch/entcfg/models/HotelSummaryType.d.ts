@@ -17,10 +17,10 @@
 export interface HotelSummaryType {
     /**
      * Date when the hotel becomes valid for use.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelSummaryType
      */
-    activeDate?: Date;
+    activeDate?: string;
     /**
      * Hotels Chain Code. This attribute uniquely assign Hotel to a single chain.
      * @type {string}
@@ -41,10 +41,10 @@ export interface HotelSummaryType {
     hotelName?: string;
     /**
      * Date when the hotel becomes invalid for use.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelSummaryType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
 }
 /**
  * Check if a given object implements the HotelSummaryType interface.

@@ -46,10 +46,10 @@ export interface AdvanceRoomChargesInfoType {
     generatedForEntireStay?: boolean;
     /**
      * Indicates the date of the stay until which the advance bill has been generated .
-     * @type {Date}
+     * @type {string}
      * @memberof AdvanceRoomChargesInfoType
      */
-    lastRoomAndTaxPostedDate?: Date;
+    lastRoomAndTaxPostedDate?: string;
     /**
      * 
      * @type {ReservationInfoType}
@@ -79,7 +79,7 @@ export function AdvanceRoomChargesInfoTypeFromJSONTyped(json: any, ignoreDiscrim
         
         'availablePostingDates': !exists(json, 'availablePostingDates') ? undefined : TimeSpanTypeFromJSON(json['availablePostingDates']),
         'generatedForEntireStay': !exists(json, 'generatedForEntireStay') ? undefined : json['generatedForEntireStay'],
-        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
+        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : json['lastRoomAndTaxPostedDate'],
         'reservation': !exists(json, 'reservation') ? undefined : ReservationInfoTypeFromJSON(json['reservation']),
     };
 }
@@ -95,7 +95,7 @@ export function AdvanceRoomChargesInfoTypeToJSON(value?: AdvanceRoomChargesInfoT
         
         'availablePostingDates': TimeSpanTypeToJSON(value.availablePostingDates),
         'generatedForEntireStay': value.generatedForEntireStay,
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0,10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate,
         'reservation': ReservationInfoTypeToJSON(value.reservation),
     };
 }

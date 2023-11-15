@@ -23,10 +23,10 @@ export interface ItemQuantityDateType {
     dailyQuantity?: number;
     /**
      * Date of the item quantity.
-     * @type {Date}
+     * @type {string}
      * @memberof ItemQuantityDateType
      */
-    quantityDate?: Date;
+    quantityDate?: string;
 }
 /**
  * Check if a given object implements the ItemQuantityDateType interface.

@@ -402,8 +402,8 @@ export interface GetConfigActivityLogRequest {
     parameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userByIds?: Array<number>;
     userForIds?: Array<number>;
@@ -476,8 +476,8 @@ export interface GetHotelBrochureRequest {
 }
 export interface GetHotelCalendarRequest {
     hotelId: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     fetchInstructions: Set<GetHotelCalendarFetchInstructionsEnum>;
     authorization?: string;
     xAppKey?: string;
@@ -578,8 +578,8 @@ export interface GetOperaSettingsRequest {
     acceptLanguage?: string;
 }
 export interface GetPropertyCalendarRequest {
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     fetchInstructions: Set<GetPropertyCalendarFetchInstructionsEnum>;
     authorization?: string;
     xAppKey?: string;
@@ -1007,7 +1007,7 @@ export interface RemoveAmenitiesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    beginDate?: Array<Date>;
+    beginDate?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1060,8 +1060,8 @@ export interface RemoveDayTypesRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1107,8 +1107,8 @@ export interface RemoveHotelEventsRequest {
     thursday?: boolean;
     tuesday?: boolean;
     wednesday?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1126,8 +1126,8 @@ export interface RemoveHotelRateRangesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1276,7 +1276,7 @@ export interface RemoveTransportationRequest {
     phoneUseType?: string;
     phoneUseTypeDescription?: string;
     phoneNumberPrimaryInd?: boolean;
-    purgeDate?: Date;
+    purgeDate?: string;
     distance?: number;
     distanceType?: string;
     drivingTime?: string;

@@ -34,10 +34,10 @@ export interface ConfigTemplateAmenityType {
     amenityType?: AmenityTypeType;
     /**
      * The date the amenity is scheduled to become active.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigTemplateAmenityType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The comments about amenity of the hotel.
      * @type {string}
@@ -52,10 +52,10 @@ export interface ConfigTemplateAmenityType {
     description?: string;
     /**
      * The date the amenity is scheduled to become inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigTemplateAmenityType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Specifies the feature code (aka amenity code).
      * @type {string}
@@ -96,10 +96,10 @@ export function ConfigTemplateAmenityTypeFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'amenityType': !exists(json, 'amenityType') ? undefined : AmenityTypeTypeFromJSON(json['amenityType']),
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'featureCode': !exists(json, 'featureCode') ? undefined : json['featureCode'],
         'newChainCode': !exists(json, 'newChainCode') ? undefined : json['newChainCode'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
@@ -116,10 +116,10 @@ export function ConfigTemplateAmenityTypeToJSON(value?: ConfigTemplateAmenityTyp
     return {
         
         'amenityType': AmenityTypeTypeToJSON(value.amenityType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'comments': value.comments,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'featureCode': value.featureCode,
         'newChainCode': value.newChainCode,
         'orderSequence': value.orderSequence,

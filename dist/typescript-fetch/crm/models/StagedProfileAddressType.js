@@ -39,7 +39,7 @@ function StagedProfileAddressTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cleansStatus': !(0, runtime_1.exists)(json, 'cleansStatus') ? undefined : (0, StagedAddressCleansStatus_1.StagedAddressCleansStatusFromJSON)(json['cleansStatus']),
         'errorDescription': !(0, runtime_1.exists)(json, 'errorDescription') ? undefined : json['errorDescription'],
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : json['id'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'postalCodeExtension': !(0, runtime_1.exists)(json, 'postalCodeExtension') ? undefined : json['postalCodeExtension'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
     };
@@ -58,7 +58,7 @@ function StagedProfileAddressTypeToJSON(value) {
         'cleansStatus': (0, StagedAddressCleansStatus_1.StagedAddressCleansStatusToJSON)(value.cleansStatus),
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'postalCodeExtension': value.postalCodeExtension,
         'type': value.type,
     };

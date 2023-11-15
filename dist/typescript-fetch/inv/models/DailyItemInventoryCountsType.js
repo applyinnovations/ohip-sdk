@@ -33,7 +33,7 @@ function DailyItemInventoryCountsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'available': !(0, runtime_1.exists)(json, 'available') ? undefined : json['available'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'total': !(0, runtime_1.exists)(json, 'total') ? undefined : json['total'],
     };
 }
@@ -47,7 +47,7 @@ function DailyItemInventoryCountsTypeToJSON(value) {
     }
     return {
         'available': value.available,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'total': value.total,
     };
 }

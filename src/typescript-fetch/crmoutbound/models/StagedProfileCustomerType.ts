@@ -118,10 +118,10 @@ export interface StagedProfileCustomerType {
     gender?: string;
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileCustomerType
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -249,7 +249,7 @@ export function StagedProfileCustomerTypeFromJSONTyped(json: any, ignoreDiscrimi
         'legalCompany': !exists(json, 'legalCompany') ? undefined : json['legalCompany'],
         'businessTitle': !exists(json, 'businessTitle') ? undefined : json['businessTitle'],
         'gender': !exists(json, 'gender') ? undefined : json['gender'],
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !exists(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'currencySymbol': !exists(json, 'currencySymbol') ? undefined : json['currencySymbol'],
@@ -288,7 +288,7 @@ export function StagedProfileCustomerTypeToJSON(value?: StagedProfileCustomerTyp
         'legalCompany': value.legalCompany,
         'businessTitle': value.businessTitle,
         'gender': value.gender,
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'currencyCode': value.currencyCode,
         'currencySymbol': value.currencySymbol,

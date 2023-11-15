@@ -36,12 +36,12 @@ function BlockWashInfoTypeBlockInfoFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'blockCode': !(0, runtime_1.exists)(json, 'blockCode') ? undefined : json['blockCode'],
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inventoryControl': !(0, runtime_1.exists)(json, 'inventoryControl') ? undefined : (0, BlockInventoryControlType_1.BlockInventoryControlTypeFromJSON)(json['inventoryControl']),
-        'shoulderEndDate': !(0, runtime_1.exists)(json, 'shoulderEndDate') ? undefined : (new Date(json['shoulderEndDate'])),
-        'shoulderStartDate': !(0, runtime_1.exists)(json, 'shoulderStartDate') ? undefined : (new Date(json['shoulderStartDate'])),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'shoulderEndDate': !(0, runtime_1.exists)(json, 'shoulderEndDate') ? undefined : json['shoulderEndDate'],
+        'shoulderStartDate': !(0, runtime_1.exists)(json, 'shoulderStartDate') ? undefined : json['shoulderStartDate'],
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.BlockWashInfoTypeBlockInfoFromJSONTyped = BlockWashInfoTypeBlockInfoFromJSONTyped;
@@ -55,12 +55,12 @@ function BlockWashInfoTypeBlockInfoToJSON(value) {
     return {
         'blockCode': value.blockCode,
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'inventoryControl': (0, BlockInventoryControlType_1.BlockInventoryControlTypeToJSON)(value.inventoryControl),
-        'shoulderEndDate': value.shoulderEndDate === undefined ? undefined : (value.shoulderEndDate.toISOString().substring(0, 10)),
-        'shoulderStartDate': value.shoulderStartDate === undefined ? undefined : (value.shoulderStartDate.toISOString().substring(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'shoulderEndDate': value.shoulderEndDate,
+        'shoulderStartDate': value.shoulderStartDate,
+        'startDate': value.startDate,
     };
 }
 exports.BlockWashInfoTypeBlockInfoToJSON = BlockWashInfoTypeBlockInfoToJSON;

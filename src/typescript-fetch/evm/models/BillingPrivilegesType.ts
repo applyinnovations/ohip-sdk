@@ -57,10 +57,10 @@ export interface BillingPrivilegesType {
     directBillAuthorized?: boolean;
     /**
      * Date when folio was closed. This works with PostStayCharging flag.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingPrivilegesType
      */
-    folioCloseDate?: Date;
+    folioCloseDate?: string;
     /**
      * Indicates if the reservation has charging privileges after checkout.
      * @type {boolean}
@@ -87,10 +87,10 @@ export interface BillingPrivilegesType {
     scheduledCheckout?: boolean;
     /**
      * Time of automatic check out if guest is schedule for automatic check out.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingPrivilegesType
      */
-    scheduledCheckoutTime?: Date;
+    scheduledCheckoutTime?: string;
     /**
      * Indicates if the guest can do video checkout
      * @type {boolean}
@@ -124,12 +124,12 @@ export function BillingPrivilegesTypeFromJSONTyped(json: any, ignoreDiscriminato
         'autoSettlementType': !exists(json, 'autoSettlementType') ? undefined : json['autoSettlementType'],
         'creditLimitAutoPay': !exists(json, 'creditLimitAutoPay') ? undefined : json['creditLimitAutoPay'],
         'directBillAuthorized': !exists(json, 'directBillAuthorized') ? undefined : json['directBillAuthorized'],
-        'folioCloseDate': !exists(json, 'folioCloseDate') ? undefined : (new Date(json['folioCloseDate'])),
+        'folioCloseDate': !exists(json, 'folioCloseDate') ? undefined : json['folioCloseDate'],
         'postStayCharging': !exists(json, 'postStayCharging') ? undefined : json['postStayCharging'],
         'postingRestriction': !exists(json, 'postingRestriction') ? undefined : json['postingRestriction'],
         'preStayCharging': !exists(json, 'preStayCharging') ? undefined : json['preStayCharging'],
         'scheduledCheckout': !exists(json, 'scheduledCheckout') ? undefined : json['scheduledCheckout'],
-        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : (new Date(json['scheduledCheckoutTime'])),
+        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : json['scheduledCheckoutTime'],
         'videoCheckout': !exists(json, 'videoCheckout') ? undefined : json['videoCheckout'],
     };
 }
@@ -149,12 +149,12 @@ export function BillingPrivilegesTypeToJSON(value?: BillingPrivilegesType | null
         'autoSettlementType': value.autoSettlementType,
         'creditLimitAutoPay': value.creditLimitAutoPay,
         'directBillAuthorized': value.directBillAuthorized,
-        'folioCloseDate': value.folioCloseDate === undefined ? undefined : (value.folioCloseDate.toISOString().substring(0,10)),
+        'folioCloseDate': value.folioCloseDate,
         'postStayCharging': value.postStayCharging,
         'postingRestriction': value.postingRestriction,
         'preStayCharging': value.preStayCharging,
         'scheduledCheckout': value.scheduledCheckout,
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0,10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime,
         'videoCheckout': value.videoCheckout,
     };
 }

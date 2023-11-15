@@ -238,10 +238,10 @@ export interface StayDetailType {
     specials?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * Color setting of the reservation.
      * @type {string}
@@ -424,10 +424,10 @@ export interface StayDetailType {
     lastModifierId?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {PMSResStatusType}
@@ -520,28 +520,28 @@ export interface StayDetailType {
     shareNumber?: string;
     /**
      * Booking date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookingDate?: Date;
+    bookingDate?: string;
     /**
      * Booked arrival date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedArrivalDate?: Date;
+    bookedArrivalDate?: string;
     /**
      * Booked departure date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    bookedDepartureDate?: Date;
+    bookedDepartureDate?: string;
     /**
      * Cancellation date of the stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailType
      */
-    cancellationDate?: Date;
+    cancellationDate?: string;
     /**
      * Number of cancelled room nights.
      * @type {number}
@@ -631,7 +631,7 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'reservationPaymentMethod': !exists(json, 'reservationPaymentMethod') ? undefined : ReservationPaymentMethodTypeFromJSON(json['reservationPaymentMethod']),
         'reservationFolioWindows': !exists(json, 'reservationFolioWindows') ? undefined : ((json['reservationFolioWindows'] as Array<any>).map(ReservationFolioWindowTypeFromJSON)),
         'specials': !exists(json, 'specials') ? undefined : json['specials'],
-        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
+        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : json['lastPrivacyPromptDate'],
         'displayColor': !exists(json, 'displayColor') ? undefined : json['displayColor'],
         'reservationIndicators': !exists(json, 'reservationIndicators') ? undefined : ((json['reservationIndicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'roomStatus': !exists(json, 'roomStatus') ? undefined : HousekeepingRoomStatusTypeFromJSON(json['roomStatus']),
@@ -662,7 +662,7 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'resStatus': !exists(json, 'resStatus') ? undefined : PMSResStatusTypeFromJSON(json['resStatus']),
         'computedResStatus': !exists(json, 'computedResStatus') ? undefined : PMSResStatusTypeFromJSON(json['computedResStatus']),
         'walkInIndicator': !exists(json, 'walkInIndicator') ? undefined : json['walkInIndicator'],
@@ -678,10 +678,10 @@ export function StayDetailTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'reservationSourceCode': !exists(json, 'reservationSourceCode') ? undefined : json['reservationSourceCode'],
         'reservationSourceType': !exists(json, 'reservationSourceType') ? undefined : json['reservationSourceType'],
         'shareNumber': !exists(json, 'shareNumber') ? undefined : json['shareNumber'],
-        'bookingDate': !exists(json, 'bookingDate') ? undefined : (new Date(json['bookingDate'])),
-        'bookedArrivalDate': !exists(json, 'bookedArrivalDate') ? undefined : (new Date(json['bookedArrivalDate'])),
-        'bookedDepartureDate': !exists(json, 'bookedDepartureDate') ? undefined : (new Date(json['bookedDepartureDate'])),
-        'cancellationDate': !exists(json, 'cancellationDate') ? undefined : (new Date(json['cancellationDate'])),
+        'bookingDate': !exists(json, 'bookingDate') ? undefined : json['bookingDate'],
+        'bookedArrivalDate': !exists(json, 'bookedArrivalDate') ? undefined : json['bookedArrivalDate'],
+        'bookedDepartureDate': !exists(json, 'bookedDepartureDate') ? undefined : json['bookedDepartureDate'],
+        'cancellationDate': !exists(json, 'cancellationDate') ? undefined : json['cancellationDate'],
         'cancelledRoomNights': !exists(json, 'cancelledRoomNights') ? undefined : json['cancelledRoomNights'],
         'noShowRoomNights': !exists(json, 'noShowRoomNights') ? undefined : json['noShowRoomNights'],
         'travelAgentReferenceId': !exists(json, 'travelAgentReferenceId') ? undefined : json['travelAgentReferenceId'],
@@ -712,7 +712,7 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
         'reservationPaymentMethod': ReservationPaymentMethodTypeToJSON(value.reservationPaymentMethod),
         'reservationFolioWindows': value.reservationFolioWindows === undefined ? undefined : ((value.reservationFolioWindows as Array<any>).map(ReservationFolioWindowTypeToJSON)),
         'specials': value.specials,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate,
         'displayColor': value.displayColor,
         'reservationIndicators': value.reservationIndicators === undefined ? undefined : ((value.reservationIndicators as Array<any>).map(IndicatorTypeToJSON)),
         'roomStatus': HousekeepingRoomStatusTypeToJSON(value.roomStatus),
@@ -743,7 +743,7 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
         'creatorId': value.creatorId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'lastModifierId': value.lastModifierId,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'resStatus': PMSResStatusTypeToJSON(value.resStatus),
         'computedResStatus': PMSResStatusTypeToJSON(value.computedResStatus),
         'walkInIndicator': value.walkInIndicator,
@@ -759,10 +759,10 @@ export function StayDetailTypeToJSON(value?: StayDetailType | null): any {
         'reservationSourceCode': value.reservationSourceCode,
         'reservationSourceType': value.reservationSourceType,
         'shareNumber': value.shareNumber,
-        'bookingDate': value.bookingDate === undefined ? undefined : (value.bookingDate.toISOString().substring(0,10)),
-        'bookedArrivalDate': value.bookedArrivalDate === undefined ? undefined : (value.bookedArrivalDate.toISOString().substring(0,10)),
-        'bookedDepartureDate': value.bookedDepartureDate === undefined ? undefined : (value.bookedDepartureDate.toISOString().substring(0,10)),
-        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substring(0,10)),
+        'bookingDate': value.bookingDate,
+        'bookedArrivalDate': value.bookedArrivalDate,
+        'bookedDepartureDate': value.bookedDepartureDate,
+        'cancellationDate': value.cancellationDate,
         'cancelledRoomNights': value.cancelledRoomNights,
         'noShowRoomNights': value.noShowRoomNights,
         'travelAgentReferenceId': value.travelAgentReferenceId,

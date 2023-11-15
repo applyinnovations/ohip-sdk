@@ -52,8 +52,8 @@ export interface DeleteExportMappingCodesRequest {
 export interface GetExportActivityLogRequest {
     hotelId: string;
     activityType: string;
-    fromDate: Date;
-    toDate: Date;
+    fromDate: string;
+    toDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -146,8 +146,8 @@ export interface GetExportSchedulesRequest {
     type?: string;
     exportGroup?: GetExportSchedulesExportGroupEnum;
     exportName?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     frequency?: GetExportSchedulesFrequencyEnum;
     includeInactive?: boolean;
     xExternalsystem?: string;

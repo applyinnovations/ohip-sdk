@@ -35,16 +35,16 @@ export interface InventoryCountsType {
     availableTentativeCount?: number;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof InventoryCountsType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof InventoryCountsType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the InventoryCountsType interface.

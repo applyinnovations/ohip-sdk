@@ -19,10 +19,10 @@ import type { WarningType } from './WarningType';
 export interface ClearAllRestrictions {
     /**
      * Use date for which the restrictions is to be cleared.
-     * @type {Date}
+     * @type {string}
      * @memberof ClearAllRestrictions
      */
-    date?: Date;
+    date?: string;
     /**
      * Used for Character Strings, length 0 to 20.
      * @type {string}

@@ -28,10 +28,10 @@ import {
 export interface ProfileSummaryTypeFormerName {
     /**
      * Indicates the date of birth as indicated in the document, in ISO 8601 prescribed format.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileSummaryTypeFormerName
      */
-    birthDate?: Date;
+    birthDate?: string;
     /**
      * Indicates the date of birth as masked.
      * @type {string}
@@ -143,7 +143,7 @@ export function ProfileSummaryTypeFormerNameFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'birthDate': !exists(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !exists(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !exists(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'currencySymbol': !exists(json, 'currencySymbol') ? undefined : json['currencySymbol'],
@@ -171,7 +171,7 @@ export function ProfileSummaryTypeFormerNameToJSON(value?: ProfileSummaryTypeFor
     }
     return {
         
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0,10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'currencyCode': value.currencyCode,
         'currencySymbol': value.currencySymbol,

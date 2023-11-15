@@ -33,14 +33,14 @@ function CustomChargeExemptionConfigTypeFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'exemption': !(0, runtime_1.exists)(json, 'exemption') ? undefined : json['exemption'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'includeInactive': !(0, runtime_1.exists)(json, 'includeInactive') ? undefined : json['includeInactive'],
         'percentage': !(0, runtime_1.exists)(json, 'percentage') ? undefined : json['percentage'],
         'propertyExemption': !(0, runtime_1.exists)(json, 'propertyExemption') ? undefined : json['propertyExemption'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.CustomChargeExemptionConfigTypeFromJSONTyped = CustomChargeExemptionConfigTypeFromJSONTyped;
@@ -53,14 +53,14 @@ function CustomChargeExemptionConfigTypeToJSON(value) {
     }
     return {
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'exemption': value.exemption,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'includeInactive': value.includeInactive,
         'percentage': value.percentage,
         'propertyExemption': value.propertyExemption,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.CustomChargeExemptionConfigTypeToJSON = CustomChargeExemptionConfigTypeToJSON;

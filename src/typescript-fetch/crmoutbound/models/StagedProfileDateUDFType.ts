@@ -27,10 +27,10 @@ export interface StagedProfileDateUDFType {
     name?: string;
     /**
      * Value of user defined field.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileDateUDFType
      */
-    value?: Date;
+    value?: string;
     /**
      * Label of user defined field used by vendors or customers.
      * @type {string}
@@ -89,7 +89,7 @@ export function StagedProfileDateUDFTypeFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'name': !exists(json, 'name') ? undefined : json['name'],
-        'value': !exists(json, 'value') ? undefined : (new Date(json['value'])),
+        'value': !exists(json, 'value') ? undefined : json['value'],
         'altname': !exists(json, 'altname') ? undefined : json['altname'],
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'tableName': !exists(json, 'tableName') ? undefined : json['tableName'],
@@ -109,7 +109,7 @@ export function StagedProfileDateUDFTypeToJSON(value?: StagedProfileDateUDFType 
     return {
         
         'name': value.name,
-        'value': value.value === undefined ? undefined : (value.value.toISOString().substring(0,10)),
+        'value': value.value,
         'altname': value.altname,
         'errorDescription': value.errorDescription,
         'tableName': value.tableName,

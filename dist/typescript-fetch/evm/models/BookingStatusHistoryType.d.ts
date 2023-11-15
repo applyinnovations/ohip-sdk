@@ -30,10 +30,10 @@ export interface BookingStatusHistoryType {
     modifierId?: string;
     /**
      * Date and time of the status change.
-     * @type {Date}
+     * @type {string}
      * @memberof BookingStatusHistoryType
      */
-    modifyDateTime?: Date;
+    modifyDateTime?: string;
     /**
      * Number indicating the sequence of status change.
      * @type {number}

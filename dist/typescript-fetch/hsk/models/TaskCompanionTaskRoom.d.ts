@@ -63,10 +63,10 @@ export interface TaskCompanionTaskRoom {
     breakOutId?: number;
     /**
      * Date the task was completed.
-     * @type {Date}
+     * @type {string}
      * @memberof TaskCompanionTaskRoom
      */
-    completedDate?: Date;
+    completedDate?: string;
     /**
      * Credits information for this Task Sheet. This could have the Total Credit information and the Travelling credits if required.
      * @type {Array<HousekeepingCreditsType>}
@@ -75,10 +75,10 @@ export interface TaskCompanionTaskRoom {
     credits?: Array<HousekeepingCreditsType>;
     /**
      * The date for which the task sheet applies.
-     * @type {Date}
+     * @type {string}
      * @memberof TaskCompanionTaskRoom
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {DepartureTaskInfoType}

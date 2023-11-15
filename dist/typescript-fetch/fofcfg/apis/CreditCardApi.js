@@ -795,7 +795,7 @@ class CreditCardApi extends runtime.BaseAPI {
                 queryParameters['cardType'] = requestParameters.cardType;
             }
             if (requestParameters.expirationDate !== undefined) {
-                queryParameters['expirationDate'] = requestParameters.expirationDate.toISOString().substring(0, 10);
+                queryParameters['expirationDate'] = requestParameters.expirationDate;
             }
             if (requestParameters.expirationDateExpired !== undefined) {
                 queryParameters['expirationDateExpired'] = requestParameters.expirationDateExpired;
@@ -894,7 +894,7 @@ class CreditCardApi extends runtime.BaseAPI {
                 queryParameters['emailFolioInfoPrimaryInd'] = requestParameters.emailFolioInfoPrimaryInd;
             }
             if (requestParameters.emailFolioInfoPurgeDate !== undefined) {
-                queryParameters['emailFolioInfoPurgeDate'] = requestParameters.emailFolioInfoPurgeDate.toISOString().substring(0, 10);
+                queryParameters['emailFolioInfoPurgeDate'] = requestParameters.emailFolioInfoPurgeDate;
             }
             if (requestParameters.emailEmailFolioInfoType !== undefined) {
                 queryParameters['emailEmailFolioInfoType'] = requestParameters.emailEmailFolioInfoType;

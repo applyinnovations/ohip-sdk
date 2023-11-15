@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface RevenueInventoryStatisticsSearchType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RevenueInventoryStatisticsSearchType
      */
-    dateRangeEnd?: Date;
+    dateRangeEnd?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RevenueInventoryStatisticsSearchType
      */
-    dateRangeStart?: Date;
+    dateRangeStart?: string;
     /**
      * Group by instructions for revenue inventory statistics that can be used in request operation. Response data will be grouped according to the values provided in this array. MarketCode and RoomType grouping is used for past and future revenue and inventory statistics while GuaranteeType is used only for future revenue and inventory statistics.
      * @type {Set<string>}
@@ -88,8 +88,8 @@ export function RevenueInventoryStatisticsSearchTypeFromJSONTyped(json: any, ign
     }
     return {
         
-        'dateRangeEnd': !exists(json, 'dateRangeEnd') ? undefined : (new Date(json['dateRangeEnd'])),
-        'dateRangeStart': !exists(json, 'dateRangeStart') ? undefined : (new Date(json['dateRangeStart'])),
+        'dateRangeEnd': !exists(json, 'dateRangeEnd') ? undefined : json['dateRangeEnd'],
+        'dateRangeStart': !exists(json, 'dateRangeStart') ? undefined : json['dateRangeStart'],
         'groupBy': !exists(json, 'groupBy') ? undefined : json['groupBy'],
         'guaranteeCodes': !exists(json, 'guaranteeCodes') ? undefined : json['guaranteeCodes'],
         'marketCodes': !exists(json, 'marketCodes') ? undefined : json['marketCodes'],
@@ -106,8 +106,8 @@ export function RevenueInventoryStatisticsSearchTypeToJSON(value?: RevenueInvent
     }
     return {
         
-        'dateRangeEnd': value.dateRangeEnd === undefined ? undefined : (value.dateRangeEnd.toISOString().substring(0,10)),
-        'dateRangeStart': value.dateRangeStart === undefined ? undefined : (value.dateRangeStart.toISOString().substring(0,10)),
+        'dateRangeEnd': value.dateRangeEnd,
+        'dateRangeStart': value.dateRangeStart,
         'groupBy': value.groupBy === undefined ? undefined : Array.from(value.groupBy as Set<any>),
         'guaranteeCodes': value.guaranteeCodes,
         'marketCodes': value.marketCodes,

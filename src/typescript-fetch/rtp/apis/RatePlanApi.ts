@@ -221,8 +221,8 @@ export interface CopyTieredRateSchedulesRequest {
 export interface DeleteBestAvailableRatesRequest {
     hotelId: string;
     code: Array<string>;
-    end: Date;
-    start: Date;
+    end: string;
+    start: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -248,8 +248,8 @@ export interface DeleteBestAvailableRatesRequest {
 export interface DeleteDailyRatePlanScheduleRangeRequest {
     ratePlanCode: string;
     hotelId: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -354,8 +354,8 @@ export interface DeleteRateAccessExclusionsRequest {
     inactive?: Array<boolean>;
     sourceType?: Array<string>;
     sourceValue?: Array<string>;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -411,8 +411,8 @@ export interface DeleteRatePlanSchedulesRequest {
     xHotelid?: string;
     tierID?: number;
     seasonCode?: string;
-    start?: Date;
-    end?: Date;
+    start?: string;
+    end?: string;
     roomType?: Array<string>;
     sunday?: boolean;
     monday?: boolean;
@@ -474,14 +474,14 @@ export interface DownloadExternalRatePlanRequest {
 
 export interface GetBestAvailableRatesRequest {
     hotelId: string;
-    startDay: Date;
+    startDay: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
     offset?: number;
     rateCode?: Array<string>;
-    endDay?: Date;
+    endDay?: string;
     daysOfWeek?: Set<GetBestAvailableRatesDaysOfWeekEnum>;
     lengthOfStay?: Set<GetBestAvailableRatesLengthOfStayEnum>;
     xExternalsystem?: string;
@@ -519,8 +519,8 @@ export interface GetNegotiatedRatesRequest {
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     includeInactiveNegotiatedRates?: boolean;
     fetchInstructionsLimit?: number;
     fetchInstructions?: Set<GetNegotiatedRatesFetchInstructionsEnum>;
@@ -535,8 +535,8 @@ export interface GetNegotiatedRatesForGivenHotelAndRateRequest {
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     includeInactiveNegotiatedRates?: boolean;
     fetchInstructionsLimit?: number;
     fetchInstructions?: Set<GetNegotiatedRatesForGivenHotelAndRateFetchInstructionsEnum>;
@@ -550,8 +550,8 @@ export interface GetNegotiatedRatesForGivenProfileRequest {
     xAppKey?: string;
     xHotelid?: string;
     limit?: number;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     hotelCode?: string;
     ratePlanCode?: string;
     includeInactiveNegotiatedRates?: boolean;
@@ -614,8 +614,8 @@ export interface GetPackagesRequest {
     hotelId?: Array<string>;
     packageCode?: Array<string>;
     descriptionWildCard?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     adults?: number;
     children?: number;
     bucket1Count?: number;
@@ -676,8 +676,8 @@ export interface GetRateActivityLogRequest {
     offset?: number;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userId?: Array<number>;
     userForIdsUserId?: Array<number>;
@@ -734,8 +734,8 @@ export interface GetRatePlanSchedulesRequest {
     tierId?: number;
     ratePlanScheduleId?: string;
     ratePlanScheduleIdType?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     roomType?: Array<string>;
     roomClass?: Array<string>;
@@ -754,7 +754,7 @@ export interface GetRatePlansRequest {
     offset?: number;
     ratePlanCode?: Array<string>;
     rateCategory?: Array<string>;
-    sellDate?: Date;
+    sellDate?: string;
     displaySet?: string;
     id?: string;
     idExtension?: number;
@@ -786,8 +786,8 @@ export interface GetRatePlansForBlockRequest {
     xAppKey?: string;
     xHotelid?: string;
     ratePlanCode?: Array<string>;
-    beginDate?: Date;
-    endDate?: Date;
+    beginDate?: string;
+    endDate?: string;
     companyId?: string;
     companyIdType?: string;
     sourceId?: string;
@@ -807,7 +807,7 @@ export interface GetRateStrategiesRequest {
     xHotelid?: string;
     limit?: number;
     offset?: number;
-    restrictionDate?: Date;
+    restrictionDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -1523,11 +1523,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         if (requestParameters.friday !== undefined) {
@@ -1655,11 +1655,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.roomType) {
@@ -2195,11 +2195,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -2507,11 +2507,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.roomType) {
@@ -2874,7 +2874,7 @@ export class RatePlanApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.startDay !== undefined) {
-            queryParameters['startDay'] = (requestParameters.startDay as any).toISOString().substring(0,10);
+            queryParameters['startDay'] = requestParameters.startDay;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -2890,7 +2890,7 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDay !== undefined) {
-            queryParameters['endDay'] = (requestParameters.endDay as any).toISOString().substring(0,10);
+            queryParameters['endDay'] = requestParameters.endDay;
         }
 
         if (requestParameters.daysOfWeek) {
@@ -3090,11 +3090,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.includeInactiveNegotiatedRates !== undefined) {
@@ -3170,11 +3170,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.includeInactiveNegotiatedRates !== undefined) {
@@ -3246,11 +3246,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.hotelCode !== undefined) {
@@ -3582,11 +3582,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.adults !== undefined) {
@@ -3890,11 +3890,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.fromDate !== undefined) {
-            queryParameters['fromDate'] = (requestParameters.fromDate as any).toISOString().substring(0,10);
+            queryParameters['fromDate'] = requestParameters.fromDate;
         }
 
         if (requestParameters.toDate !== undefined) {
-            queryParameters['toDate'] = (requestParameters.toDate as any).toISOString().substring(0,10);
+            queryParameters['toDate'] = requestParameters.toDate;
         }
 
         if (requestParameters.searchText !== undefined) {
@@ -4186,11 +4186,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -4286,7 +4286,7 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.sellDate !== undefined) {
-            queryParameters['sellDate'] = (requestParameters.sellDate as any).toISOString().substring(0,10);
+            queryParameters['sellDate'] = requestParameters.sellDate;
         }
 
         if (requestParameters.displaySet !== undefined) {
@@ -4446,11 +4446,11 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.beginDate !== undefined) {
-            queryParameters['beginDate'] = (requestParameters.beginDate as any).toISOString().substring(0,10);
+            queryParameters['beginDate'] = requestParameters.beginDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.companyId !== undefined) {
@@ -4546,7 +4546,7 @@ export class RatePlanApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.restrictionDate !== undefined) {
-            queryParameters['restrictionDate'] = (requestParameters.restrictionDate as any).toISOString().substring(0,10);
+            queryParameters['restrictionDate'] = requestParameters.restrictionDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

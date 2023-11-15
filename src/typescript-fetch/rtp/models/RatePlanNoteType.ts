@@ -64,10 +64,10 @@ export interface RatePlanNoteType {
     noteId?: UniqueIDType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
 }
 
 /**
@@ -95,7 +95,7 @@ export function RatePlanNoteTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'note': !exists(json, 'note') ? undefined : json['note'],
         'noteId': !exists(json, 'noteId') ? undefined : UniqueIDTypeFromJSON(json['noteId']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
     };
 }
 
@@ -114,7 +114,7 @@ export function RatePlanNoteTypeToJSON(value?: RatePlanNoteType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'note': value.note,
         'noteId': UniqueIDTypeToJSON(value.noteId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
     };
 }
 

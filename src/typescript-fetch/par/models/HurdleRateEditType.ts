@@ -34,10 +34,10 @@ export interface HurdleRateEditType {
     hotelId?: string;
     /**
      * Hurdle date for which the hurdle rate is scheduled.
-     * @type {Date}
+     * @type {string}
      * @memberof HurdleRateEditType
      */
-    hurdleDate?: Date;
+    hurdleDate?: string;
     /**
      * Length of stay for which the hurdle rate applies to.
      * @type {number}
@@ -96,7 +96,7 @@ export function HurdleRateEditTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'hurdleDate': !exists(json, 'hurdleDate') ? undefined : (new Date(json['hurdleDate'])),
+        'hurdleDate': !exists(json, 'hurdleDate') ? undefined : json['hurdleDate'],
         'lengthOfStay': !exists(json, 'lengthOfStay') ? undefined : json['lengthOfStay'],
         'newHurdleRate': !exists(json, 'newHurdleRate') ? undefined : HurdleRateTypeFromJSON(json['newHurdleRate']),
         'roomCategory': !exists(json, 'roomCategory') ? undefined : json['roomCategory'],
@@ -116,7 +116,7 @@ export function HurdleRateEditTypeToJSON(value?: HurdleRateEditType | null): any
     return {
         
         'hotelId': value.hotelId,
-        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substring(0,10)),
+        'hurdleDate': value.hurdleDate,
         'lengthOfStay': value.lengthOfStay,
         'newHurdleRate': HurdleRateTypeToJSON(value.newHurdleRate),
         'roomCategory': value.roomCategory,

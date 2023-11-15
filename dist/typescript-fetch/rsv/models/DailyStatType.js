@@ -34,7 +34,7 @@ function DailyStatTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockStats': !(0, runtime_1.exists)(json, 'blockStats') ? undefined : (json['blockStats'].map(BlockStatType_1.BlockStatTypeFromJSON)),
-        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : json['statisticDate'],
     };
 }
 exports.DailyStatTypeFromJSONTyped = DailyStatTypeFromJSONTyped;
@@ -47,7 +47,7 @@ function DailyStatTypeToJSON(value) {
     }
     return {
         'blockStats': value.blockStats === undefined ? undefined : (value.blockStats.map(BlockStatType_1.BlockStatTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
+        'statisticDate': value.statisticDate,
     };
 }
 exports.DailyStatTypeToJSON = DailyStatTypeToJSON;

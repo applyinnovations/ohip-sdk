@@ -13,8 +13,8 @@ import * as runtime from '../runtime';
 import type { AssociatedRoomOwnershipListDetails, GetReservationRotationPoints, GetReservationRotationPointsDetails, GetRoomRotationPoints, PutReservationRotationPointsDetails, RoomOwnersListDetails, RoomRotationPointsAdjustment, Status } from '../models/index';
 export interface GetReservationRotationPointsRequest {
     hotelId: string;
-    departureStartDate: Date;
-    departureEndDate: Date;
+    departureStartDate: string;
+    departureEndDate: string;
     roomIds: Array<string>;
     authorization?: string;
     xAppKey?: string;
@@ -45,10 +45,10 @@ export interface GetRoomOwnersRequest {
     xHotelid?: string;
     surname?: string;
     givenName?: string;
-    startDateFrom?: Date;
-    startDateTo?: Date;
-    endDateFrom?: Date;
-    endDateTo?: Date;
+    startDateFrom?: string;
+    startDateTo?: string;
+    endDateFrom?: string;
+    endDateTo?: string;
     roomClasses?: Array<string>;
     roomTypes?: Array<string>;
     roomIds?: Array<string>;
@@ -65,8 +65,8 @@ export interface GetRoomOwnershipsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     includeReferral?: boolean;
     includeAvailableRoomsOnly?: boolean;
     xExternalsystem?: string;
@@ -74,7 +74,7 @@ export interface GetRoomOwnershipsRequest {
 }
 export interface GetRoomRotationPointsRequest {
     hotelId: string;
-    roomRotationPointsDate: Date;
+    roomRotationPointsDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;

@@ -40,10 +40,10 @@ export interface BookingStatusHistoryType {
     modifierId?: string;
     /**
      * Date and time of the status change.
-     * @type {Date}
+     * @type {string}
      * @memberof BookingStatusHistoryType
      */
-    modifyDateTime?: Date;
+    modifyDateTime?: string;
     /**
      * Number indicating the sequence of status change.
      * @type {number}
@@ -73,7 +73,7 @@ export function BookingStatusHistoryTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'bookingStatus': !exists(json, 'bookingStatus') ? undefined : CodeDescriptionTypeFromJSON(json['bookingStatus']),
         'modifierId': !exists(json, 'modifierId') ? undefined : json['modifierId'],
-        'modifyDateTime': !exists(json, 'modifyDateTime') ? undefined : (new Date(json['modifyDateTime'])),
+        'modifyDateTime': !exists(json, 'modifyDateTime') ? undefined : json['modifyDateTime'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
     };
 }
@@ -89,7 +89,7 @@ export function BookingStatusHistoryTypeToJSON(value?: BookingStatusHistoryType 
         
         'bookingStatus': CodeDescriptionTypeToJSON(value.bookingStatus),
         'modifierId': value.modifierId,
-        'modifyDateTime': value.modifyDateTime === undefined ? undefined : (value.modifyDateTime.toISOString().substring(0,10)),
+        'modifyDateTime': value.modifyDateTime,
         'sequence': value.sequence,
     };
 }

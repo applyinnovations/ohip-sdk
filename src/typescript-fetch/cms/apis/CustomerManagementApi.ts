@@ -99,8 +99,8 @@ export interface GetCalendarTasksRequest {
     countSummary?: boolean;
     taskSummary?: boolean;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     completionStatus?: GetCalendarTasksCompletionStatusEnum;
     priorityCodes?: Array<string>;
@@ -143,8 +143,8 @@ export interface GetTrackItItemsRequest {
     appUserIdType?: string;
     assignedStatuses?: Set<GetTrackItItemsAssignedStatusesEnum>;
     room?: string;
-    followUpDate?: Date;
-    createdOn?: Date;
+    followUpDate?: string;
+    createdOn?: string;
     createdByUserId?: string;
     createdByUserIdContext?: string;
     createdByUserIdType?: string;
@@ -527,11 +527,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -719,11 +719,11 @@ export class CustomerManagementApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.followUpDate !== undefined) {
-            queryParameters['followUpDate'] = (requestParameters.followUpDate as any).toISOString().substring(0,10);
+            queryParameters['followUpDate'] = requestParameters.followUpDate;
         }
 
         if (requestParameters.createdOn !== undefined) {
-            queryParameters['createdOn'] = (requestParameters.createdOn as any).toISOString().substring(0,10);
+            queryParameters['createdOn'] = requestParameters.createdOn;
         }
 
         if (requestParameters.createdByUserId !== undefined) {

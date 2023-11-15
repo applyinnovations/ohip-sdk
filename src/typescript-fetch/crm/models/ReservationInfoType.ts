@@ -334,10 +334,10 @@ export interface ReservationInfoType {
     lastModifyDateTime?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationInfoType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * 
      * @type {ResMobileNotificationsType}
@@ -544,7 +544,7 @@ export function ReservationInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'keyCount': !exists(json, 'keyCount') ? undefined : json['keyCount'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
+        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : json['lastPrivacyPromptDate'],
         'mobileNotifications': !exists(json, 'mobileNotifications') ? undefined : ResMobileNotificationsTypeFromJSON(json['mobileNotifications']),
         'openFolio': !exists(json, 'openFolio') ? undefined : json['openFolio'],
         'optedForCommunication': !exists(json, 'optedForCommunication') ? undefined : json['optedForCommunication'],
@@ -607,7 +607,7 @@ export function ReservationInfoTypeToJSON(value?: ReservationInfoType | null): a
         'keyCount': value.keyCount,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate,
         'mobileNotifications': ResMobileNotificationsTypeToJSON(value.mobileNotifications),
         'openFolio': value.openFolio,
         'optedForCommunication': value.optedForCommunication,

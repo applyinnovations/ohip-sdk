@@ -40,13 +40,13 @@ function ECertificateConsumptionTypeFromJSONTyped(json, ignoreDiscriminator) {
         'firstName': !(0, runtime_1.exists)(json, 'firstName') ? undefined : json['firstName'],
         'middleName': !(0, runtime_1.exists)(json, 'middleName') ? undefined : json['middleName'],
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : json['email'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'userName': !(0, runtime_1.exists)(json, 'userName') ? undefined : json['userName'],
         'userNotes': !(0, runtime_1.exists)(json, 'userNotes') ? undefined : json['userNotes'],
         'referenceId': !(0, runtime_1.exists)(json, 'referenceId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['referenceId']),
         'locationType': !(0, runtime_1.exists)(json, 'locationType') ? undefined : json['locationType'],
         'authCode': !(0, runtime_1.exists)(json, 'authCode') ? undefined : json['authCode'],
-        'serviceDate': !(0, runtime_1.exists)(json, 'serviceDate') ? undefined : (new Date(json['serviceDate'])),
+        'serviceDate': !(0, runtime_1.exists)(json, 'serviceDate') ? undefined : json['serviceDate'],
     };
 }
 exports.ECertificateConsumptionTypeFromJSONTyped = ECertificateConsumptionTypeFromJSONTyped;
@@ -64,13 +64,13 @@ function ECertificateConsumptionTypeToJSON(value) {
         'firstName': value.firstName,
         'middleName': value.middleName,
         'email': value.email,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'userName': value.userName,
         'userNotes': value.userNotes,
         'referenceId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.referenceId),
         'locationType': value.locationType,
         'authCode': value.authCode,
-        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substring(0, 10)),
+        'serviceDate': value.serviceDate,
     };
 }
 exports.ECertificateConsumptionTypeToJSON = ECertificateConsumptionTypeToJSON;

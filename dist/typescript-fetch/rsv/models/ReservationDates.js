@@ -32,11 +32,11 @@ function ReservationDatesFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
-        'cancelledOn': !(0, runtime_1.exists)(json, 'cancelledOn') ? undefined : (new Date(json['cancelledOn'])),
+        'arrivalDate': !(0, runtime_1.exists)(json, 'arrivalDate') ? undefined : json['arrivalDate'],
+        'cancelledOn': !(0, runtime_1.exists)(json, 'cancelledOn') ? undefined : json['cancelledOn'],
         'createDateTime': !(0, runtime_1.exists)(json, 'createDateTime') ? undefined : json['createDateTime'],
-        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
-        'folioClosedOn': !(0, runtime_1.exists)(json, 'folioClosedOn') ? undefined : (new Date(json['folioClosedOn'])),
+        'departureDate': !(0, runtime_1.exists)(json, 'departureDate') ? undefined : json['departureDate'],
+        'folioClosedOn': !(0, runtime_1.exists)(json, 'folioClosedOn') ? undefined : json['folioClosedOn'],
         'lastModifyDateTime': !(0, runtime_1.exists)(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
     };
 }
@@ -49,11 +49,11 @@ function ReservationDatesToJSON(value) {
         return null;
     }
     return {
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0, 10)),
-        'cancelledOn': value.cancelledOn === undefined ? undefined : (value.cancelledOn.toISOString().substring(0, 10)),
+        'arrivalDate': value.arrivalDate,
+        'cancelledOn': value.cancelledOn,
         'createDateTime': value.createDateTime,
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0, 10)),
-        'folioClosedOn': value.folioClosedOn === undefined ? undefined : (value.folioClosedOn.toISOString().substring(0, 10)),
+        'departureDate': value.departureDate,
+        'folioClosedOn': value.folioClosedOn,
         'lastModifyDateTime': value.lastModifyDateTime,
     };
 }

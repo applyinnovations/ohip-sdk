@@ -45,10 +45,10 @@ export interface CommissionPaymentInfo {
     commissionStatus?: string;
     /**
      * The payment date
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentInfo
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      * Payment id 
      * @type {string}
@@ -92,7 +92,7 @@ export function CommissionPaymentInfoFromJSONTyped(json: any, ignoreDiscriminato
         'checkNo': !exists(json, 'checkNo') ? undefined : json['checkNo'],
         'commissionAmount': !exists(json, 'commissionAmount') ? undefined : json['commissionAmount'],
         'commissionStatus': !exists(json, 'commissionStatus') ? undefined : json['commissionStatus'],
-        'paymentDate': !exists(json, 'paymentDate') ? undefined : (new Date(json['paymentDate'])),
+        'paymentDate': !exists(json, 'paymentDate') ? undefined : json['paymentDate'],
         'paymentId': !exists(json, 'paymentId') ? undefined : json['paymentId'],
         'paymentMethod': !exists(json, 'paymentMethod') ? undefined : json['paymentMethod'],
         'remarks': !exists(json, 'remarks') ? undefined : json['remarks'],
@@ -112,7 +112,7 @@ export function CommissionPaymentInfoToJSON(value?: CommissionPaymentInfo | null
         'checkNo': value.checkNo,
         'commissionAmount': value.commissionAmount,
         'commissionStatus': value.commissionStatus,
-        'paymentDate': value.paymentDate === undefined ? undefined : (value.paymentDate.toISOString().substring(0,10)),
+        'paymentDate': value.paymentDate,
         'paymentId': value.paymentId,
         'paymentMethod': value.paymentMethod,
         'remarks': value.remarks,

@@ -59,10 +59,10 @@ export interface StagedProfilePreferenceType {
     id?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfilePreferenceType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      *
      * @type {string}

@@ -51,7 +51,7 @@ function PostRateCodeCriteriaTypeFromJSONTyped(json, ignoreDiscriminator) {
         'reference': !(0, runtime_1.exists)(json, 'reference') ? undefined : json['reference'],
         'remark': !(0, runtime_1.exists)(json, 'remark') ? undefined : json['remark'],
         'reservationId': !(0, runtime_1.exists)(json, 'reservationId') ? undefined : (0, ReservationId_1.ReservationIdFromJSON)(json['reservationId']),
-        'revenueDate': !(0, runtime_1.exists)(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !(0, runtime_1.exists)(json, 'revenueDate') ? undefined : json['revenueDate'],
     };
 }
 exports.PostRateCodeCriteriaTypeFromJSONTyped = PostRateCodeCriteriaTypeFromJSONTyped;
@@ -79,7 +79,7 @@ function PostRateCodeCriteriaTypeToJSON(value) {
         'reference': value.reference,
         'remark': value.remark,
         'reservationId': (0, ReservationId_1.ReservationIdToJSON)(value.reservationId),
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0, 10)),
+        'revenueDate': value.revenueDate,
     };
 }
 exports.PostRateCodeCriteriaTypeToJSON = PostRateCodeCriteriaTypeToJSON;

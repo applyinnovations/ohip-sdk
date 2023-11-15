@@ -36,7 +36,7 @@ function MembershipAwardPointsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'bonusPoints': !(0, runtime_1.exists)(json, 'bonusPoints') ? undefined : json['bonusPoints'],
         'miscPoints': !(0, runtime_1.exists)(json, 'miscPoints') ? undefined : json['miscPoints'],
         'totalPoints': !(0, runtime_1.exists)(json, 'totalPoints') ? undefined : json['totalPoints'],
-        'pointsExpiryDate': !(0, runtime_1.exists)(json, 'pointsExpiryDate') ? undefined : (new Date(json['pointsExpiryDate'])),
+        'pointsExpiryDate': !(0, runtime_1.exists)(json, 'pointsExpiryDate') ? undefined : json['pointsExpiryDate'],
         'ruleCode': !(0, runtime_1.exists)(json, 'ruleCode') ? undefined : json['ruleCode'],
     };
 }
@@ -53,7 +53,7 @@ function MembershipAwardPointsTypeToJSON(value) {
         'bonusPoints': value.bonusPoints,
         'miscPoints': value.miscPoints,
         'totalPoints': value.totalPoints,
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0, 10)),
+        'pointsExpiryDate': value.pointsExpiryDate,
         'ruleCode': value.ruleCode,
     };
 }

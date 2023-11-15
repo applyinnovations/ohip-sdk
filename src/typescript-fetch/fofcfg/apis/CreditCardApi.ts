@@ -232,7 +232,7 @@ export interface ValidateCreditCardTypeRequest {
     cardNumberMasked?: string;
     cardNumberType?: ValidateCreditCardTypeCardNumberTypeEnum;
     cardType?: ValidateCreditCardTypeCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: ValidateCreditCardTypeProcessingEnum;
@@ -265,7 +265,7 @@ export interface ValidateCreditCardTypeRequest {
     emailFolioInfoLastModifyDateTime?: string;
     emailFolioInfoOrderSequence?: number;
     emailFolioInfoPrimaryInd?: boolean;
-    emailFolioInfoPurgeDate?: Date;
+    emailFolioInfoPurgeDate?: string;
     emailEmailFolioInfoType?: string;
     emailFolioInfoTypeDescription?: string;
     xExternalsystem?: string;
@@ -1170,7 +1170,7 @@ export class CreditCardApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -1302,7 +1302,7 @@ export class CreditCardApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.emailFolioInfoPurgeDate !== undefined) {
-            queryParameters['emailFolioInfoPurgeDate'] = (requestParameters.emailFolioInfoPurgeDate as any).toISOString().substring(0,10);
+            queryParameters['emailFolioInfoPurgeDate'] = requestParameters.emailFolioInfoPurgeDate;
         }
 
         if (requestParameters.emailEmailFolioInfoType !== undefined) {

@@ -392,7 +392,7 @@ export interface GetMembershipTierProjectionsRequest {
     id?: string;
     idContext?: string;
     type?: string;
-    projectionDate?: Date;
+    projectionDate?: string;
     projectionType?: GetMembershipTierProjectionsProjectionTypeEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -477,8 +477,8 @@ export interface GetProfileActivityLogRequest {
     parameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    fromDate?: Date;
-    toDate?: Date;
+    fromDate?: string;
+    toDate?: string;
     searchText?: string;
     userByIDs?: Array<number>;
     userForIDs?: Array<number>;
@@ -652,7 +652,7 @@ export interface GetStagedProfilesRequest {
     region?: string;
     countryCode?: string;
     profileType?: string;
-    importDate?: Date;
+    importDate?: string;
     stageStatus?: string;
     applyTo?: GetStagedProfilesApplyToEnum;
     membershipCodes?: Array<string>;
@@ -682,7 +682,7 @@ export interface GetSuspendedAddressesRequest {
     profileType?: string;
     matchCode?: string;
     countryCode?: string;
-    validateDate?: Date;
+    validateDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }

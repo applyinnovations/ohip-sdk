@@ -42,10 +42,10 @@ export interface BaseRatePlanScheduleDetailType {
     classifications?: RatePlanScheduleClassificationsType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BaseRatePlanScheduleDetailType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {OccupantThresholdPricingType}
@@ -78,10 +78,10 @@ export interface BaseRatePlanScheduleDetailType {
     seasonCode?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof BaseRatePlanScheduleDetailType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {number}

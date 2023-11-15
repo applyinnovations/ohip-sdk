@@ -29,10 +29,10 @@ export interface NegotiatedInfoType {
     corporateAgreementId?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    end?: Date;
+    end?: string;
     /**
      * Negotiated Rate is inactive or not
      * @type {boolean}
@@ -47,10 +47,10 @@ export interface NegotiatedInfoType {
     order?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the NegotiatedInfoType interface.

@@ -32,7 +32,7 @@ function ResolveRoomMaintenanceTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'resolveDate': !(0, runtime_1.exists)(json, 'resolveDate') ? undefined : (new Date(json['resolveDate'])),
+        'resolveDate': !(0, runtime_1.exists)(json, 'resolveDate') ? undefined : json['resolveDate'],
         'resolveUser': !(0, runtime_1.exists)(json, 'resolveUser') ? undefined : json['resolveUser'],
     };
 }
@@ -45,7 +45,7 @@ function ResolveRoomMaintenanceTypeToJSON(value) {
         return null;
     }
     return {
-        'resolveDate': value.resolveDate === undefined ? undefined : (value.resolveDate.toISOString().substring(0, 10)),
+        'resolveDate': value.resolveDate,
         'resolveUser': value.resolveUser,
     };
 }

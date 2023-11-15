@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface SellLimitGridByDateRangeType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitGridByDateRangeType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {boolean}
@@ -51,10 +51,10 @@ export interface SellLimitGridByDateRangeType {
     sellLimit?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitGridByDateRangeType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {boolean}
@@ -100,12 +100,12 @@ export function SellLimitGridByDateRangeTypeFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'friday': !exists(json, 'friday') ? undefined : json['friday'],
         'monday': !exists(json, 'monday') ? undefined : json['monday'],
         'saturday': !exists(json, 'saturday') ? undefined : json['saturday'],
         'sellLimit': !exists(json, 'sellLimit') ? undefined : json['sellLimit'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'sunday': !exists(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !exists(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !exists(json, 'tuesday') ? undefined : json['tuesday'],
@@ -122,12 +122,12 @@ export function SellLimitGridByDateRangeTypeToJSON(value?: SellLimitGridByDateRa
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'friday': value.friday,
         'monday': value.monday,
         'saturday': value.saturday,
         'sellLimit': value.sellLimit,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

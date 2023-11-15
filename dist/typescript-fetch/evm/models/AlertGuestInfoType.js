@@ -34,13 +34,13 @@ function AlertGuestInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : (new Date(json['birthDate'])),
+        'birthDate': !(0, runtime_1.exists)(json, 'birthDate') ? undefined : json['birthDate'],
         'birthDateMasked': !(0, runtime_1.exists)(json, 'birthDateMasked') ? undefined : json['birthDateMasked'],
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'guestName': !(0, runtime_1.exists)(json, 'guestName') ? undefined : json['guestName'],
         'guestPreferredLanguage': !(0, runtime_1.exists)(json, 'guestPreferredLanguage') ? undefined : json['guestPreferredLanguage'],
         'lastHotelCode': !(0, runtime_1.exists)(json, 'lastHotelCode') ? undefined : json['lastHotelCode'],
-        'lastStayDate': !(0, runtime_1.exists)(json, 'lastStayDate') ? undefined : (new Date(json['lastStayDate'])),
+        'lastStayDate': !(0, runtime_1.exists)(json, 'lastStayDate') ? undefined : json['lastStayDate'],
         'membership': !(0, runtime_1.exists)(json, 'membership') ? undefined : (0, MembershipType_1.MembershipTypeFromJSON)(json['membership']),
         'preference': !(0, runtime_1.exists)(json, 'preference') ? undefined : json['preference'],
         'preference2': !(0, runtime_1.exists)(json, 'preference2') ? undefined : json['preference2'],
@@ -58,13 +58,13 @@ function AlertGuestInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'birthDate': value.birthDate === undefined ? undefined : (value.birthDate.toISOString().substring(0, 10)),
+        'birthDate': value.birthDate,
         'birthDateMasked': value.birthDateMasked,
         'comments': value.comments,
         'guestName': value.guestName,
         'guestPreferredLanguage': value.guestPreferredLanguage,
         'lastHotelCode': value.lastHotelCode,
-        'lastStayDate': value.lastStayDate === undefined ? undefined : (value.lastStayDate.toISOString().substring(0, 10)),
+        'lastStayDate': value.lastStayDate,
         'membership': (0, MembershipType_1.MembershipTypeToJSON)(value.membership),
         'preference': value.preference,
         'preference2': value.preference2,

@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface TransactionDiversionDailyDetailType {
     /**
      * Daily details Date about when the rules are posted or diverted.
-     * @type {Date}
+     * @type {string}
      * @memberof TransactionDiversionDailyDetailType
      */
-    date?: Date;
+    date?: string;
     /**
      * Transaction diversion rules that are diverted .
      * @type {number}
@@ -58,7 +58,7 @@ export function TransactionDiversionDailyDetailTypeFromJSONTyped(json: any, igno
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'diverted': !exists(json, 'diverted') ? undefined : json['diverted'],
         'posted': !exists(json, 'posted') ? undefined : json['posted'],
     };
@@ -73,7 +73,7 @@ export function TransactionDiversionDailyDetailTypeToJSON(value?: TransactionDiv
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'diverted': value.diverted,
         'posted': value.posted,
     };

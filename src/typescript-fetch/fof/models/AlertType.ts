@@ -142,10 +142,10 @@ export interface AlertType {
     printerNotification?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof AlertType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Report description. Mainly used for as a parameter for printing the alerts.
      * @type {string}
@@ -236,7 +236,7 @@ export function AlertTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'printerName': !exists(json, 'printerName') ? undefined : json['printerName'],
         'printerNotification': !exists(json, 'printerNotification') ? undefined : json['printerNotification'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reportDescription': !exists(json, 'reportDescription') ? undefined : json['reportDescription'],
         'reportId': !exists(json, 'reportId') ? undefined : UniqueIDTypeFromJSON(json['reportId']),
         'reportName': !exists(json, 'reportName') ? undefined : json['reportName'],
@@ -273,7 +273,7 @@ export function AlertTypeToJSON(value?: AlertType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'printerName': value.printerName,
         'printerNotification': value.printerNotification,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'reportDescription': value.reportDescription,
         'reportId': UniqueIDTypeToJSON(value.reportId),
         'reportName': value.reportName,

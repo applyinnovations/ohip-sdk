@@ -32,13 +32,13 @@ function MarketingTextTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'bookingChannelCode': !(0, runtime_1.exists)(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'globalTextYN': !(0, runtime_1.exists)(json, 'globalTextYN') ? undefined : json['globalTextYN'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'marketingText': !(0, runtime_1.exists)(json, 'marketingText') ? undefined : json['marketingText'],
-        'newBeginDate': !(0, runtime_1.exists)(json, 'newBeginDate') ? undefined : (new Date(json['newBeginDate'])),
+        'newBeginDate': !(0, runtime_1.exists)(json, 'newBeginDate') ? undefined : json['newBeginDate'],
         'newHotelCode': !(0, runtime_1.exists)(json, 'newHotelCode') ? undefined : json['newHotelCode'],
         'newPolicyDetail': !(0, runtime_1.exists)(json, 'newPolicyDetail') ? undefined : json['newPolicyDetail'],
         'newPolicyType': !(0, runtime_1.exists)(json, 'newPolicyType') ? undefined : json['newPolicyType'],
@@ -57,13 +57,13 @@ function MarketingTextTypeToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'bookingChannelCode': value.bookingChannelCode,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'globalTextYN': value.globalTextYN,
         'hotelId': value.hotelId,
         'marketingText': value.marketingText,
-        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substring(0, 10)),
+        'newBeginDate': value.newBeginDate,
         'newHotelCode': value.newHotelCode,
         'newPolicyDetail': value.newPolicyDetail,
         'newPolicyType': value.newPolicyType,

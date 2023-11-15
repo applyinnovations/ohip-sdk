@@ -103,7 +103,7 @@ export interface GetFolioReportRequest {
     folioWindowNo?: number;
     billNumber?: number;
     folioType?: string;
-    folioDate?: Date;
+    folioDate?: string;
     referenceCurrency?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -459,7 +459,7 @@ export class OperaContentApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
+            queryParameters['folioDate'] = requestParameters.folioDate;
         }
 
         if (requestParameters.referenceCurrency !== undefined) {

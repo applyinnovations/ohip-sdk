@@ -42,8 +42,8 @@ function MembershipClaimDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'claimNo': !(0, runtime_1.exists)(json, 'claimNo') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['claimNo']),
-        'claimDate': !(0, runtime_1.exists)(json, 'claimDate') ? undefined : (new Date(json['claimDate'])),
-        'closeDate': !(0, runtime_1.exists)(json, 'closeDate') ? undefined : (new Date(json['closeDate'])),
+        'claimDate': !(0, runtime_1.exists)(json, 'claimDate') ? undefined : json['claimDate'],
+        'closeDate': !(0, runtime_1.exists)(json, 'closeDate') ? undefined : json['closeDate'],
         'source': !(0, runtime_1.exists)(json, 'source') ? undefined : (0, ClaimSourceType_1.ClaimSourceTypeFromJSON)(json['source']),
         'callerName': !(0, runtime_1.exists)(json, 'callerName') ? undefined : json['callerName'],
         'owner': !(0, runtime_1.exists)(json, 'owner') ? undefined : json['owner'],
@@ -51,7 +51,7 @@ function MembershipClaimDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'claimType': !(0, runtime_1.exists)(json, 'claimType') ? undefined : json['claimType'],
         'origin': !(0, runtime_1.exists)(json, 'origin') ? undefined : json['origin'],
         'callerInformation': !(0, runtime_1.exists)(json, 'callerInformation') ? undefined : json['callerInformation'],
-        'replyBy': !(0, runtime_1.exists)(json, 'replyBy') ? undefined : (new Date(json['replyBy'])),
+        'replyBy': !(0, runtime_1.exists)(json, 'replyBy') ? undefined : json['replyBy'],
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'approvalStatus': !(0, runtime_1.exists)(json, 'approvalStatus') ? undefined : (0, ClaimApprovalStatusType_1.ClaimApprovalStatusTypeFromJSON)(json['approvalStatus']),
         'recordType': !(0, runtime_1.exists)(json, 'recordType') ? undefined : (0, ClaimRecordType_1.ClaimRecordTypeFromJSON)(json['recordType']),
@@ -73,8 +73,8 @@ function MembershipClaimDetailsTypeToJSON(value) {
     }
     return {
         'claimNo': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.claimNo),
-        'claimDate': value.claimDate === undefined ? undefined : (value.claimDate.toISOString().substring(0, 10)),
-        'closeDate': value.closeDate === undefined ? undefined : (value.closeDate.toISOString().substring(0, 10)),
+        'claimDate': value.claimDate,
+        'closeDate': value.closeDate,
         'source': (0, ClaimSourceType_1.ClaimSourceTypeToJSON)(value.source),
         'callerName': value.callerName,
         'owner': value.owner,
@@ -82,7 +82,7 @@ function MembershipClaimDetailsTypeToJSON(value) {
         'claimType': value.claimType,
         'origin': value.origin,
         'callerInformation': value.callerInformation,
-        'replyBy': value.replyBy === undefined ? undefined : (value.replyBy.toISOString().substring(0, 10)),
+        'replyBy': value.replyBy,
         'comments': value.comments,
         'approvalStatus': (0, ClaimApprovalStatusType_1.ClaimApprovalStatusTypeToJSON)(value.approvalStatus),
         'recordType': (0, ClaimRecordType_1.ClaimRecordTypeToJSON)(value.recordType),

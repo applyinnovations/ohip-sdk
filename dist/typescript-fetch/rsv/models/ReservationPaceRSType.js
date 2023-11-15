@@ -33,7 +33,7 @@ function ReservationPaceRSTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'dailyPaceStats': !(0, runtime_1.exists)(json, 'dailyPaceStats') ? undefined : (json['dailyPaceStats'].map(DailyPaceStatType_1.DailyPaceStatTypeFromJSON)),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
@@ -47,7 +47,7 @@ function ReservationPaceRSTypeToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'dailyPaceStats': value.dailyPaceStats === undefined ? undefined : (value.dailyPaceStats.map(DailyPaceStatType_1.DailyPaceStatTypeToJSON)),
         'hotelId': value.hotelId,
     };

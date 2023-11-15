@@ -1712,10 +1712,10 @@ class HotelConfigApi extends runtime.BaseAPI {
                 queryParameters['ratePlanCodes'] = requestParameters.ratePlanCodes;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1973,10 +1973,10 @@ class HotelConfigApi extends runtime.BaseAPI {
                 queryParameters['policyCodes'] = requestParameters.policyCodes;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -2048,7 +2048,7 @@ class HotelConfigApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.date !== undefined) {
-                queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
+                queryParameters['date'] = requestParameters.date;
             }
             if (requestParameters.ruleType !== undefined) {
                 queryParameters['ruleType'] = requestParameters.ruleType;
@@ -3960,19 +3960,19 @@ class HotelConfigApi extends runtime.BaseAPI {
                 queryParameters['ruleType'] = requestParameters.ruleType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
             }
             if (requestParameters.newStartDate !== undefined) {
-                queryParameters['newStartDate'] = requestParameters.newStartDate.toISOString().substring(0, 10);
+                queryParameters['newStartDate'] = requestParameters.newStartDate;
             }
             if (requestParameters.newEndDate !== undefined) {
-                queryParameters['newEndDate'] = requestParameters.newEndDate.toISOString().substring(0, 10);
+                queryParameters['newEndDate'] = requestParameters.newEndDate;
             }
             if (requestParameters.newDuration !== undefined) {
                 queryParameters['newDuration'] = requestParameters.newDuration;

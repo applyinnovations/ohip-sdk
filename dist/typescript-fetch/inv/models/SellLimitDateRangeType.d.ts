@@ -29,10 +29,10 @@ export interface SellLimitDateRangeType {
     amount?: number;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitDateRangeType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {string}
@@ -59,10 +59,10 @@ export interface SellLimitDateRangeType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof SellLimitDateRangeType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
      * @type {boolean}

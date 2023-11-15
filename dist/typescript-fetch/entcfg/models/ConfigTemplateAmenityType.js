@@ -34,10 +34,10 @@ function ConfigTemplateAmenityTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'amenityType': !(0, runtime_1.exists)(json, 'amenityType') ? undefined : (0, AmenityTypeType_1.AmenityTypeTypeFromJSON)(json['amenityType']),
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'comments': !(0, runtime_1.exists)(json, 'comments') ? undefined : json['comments'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'featureCode': !(0, runtime_1.exists)(json, 'featureCode') ? undefined : json['featureCode'],
         'newChainCode': !(0, runtime_1.exists)(json, 'newChainCode') ? undefined : json['newChainCode'],
         'orderSequence': !(0, runtime_1.exists)(json, 'orderSequence') ? undefined : json['orderSequence'],
@@ -53,10 +53,10 @@ function ConfigTemplateAmenityTypeToJSON(value) {
     }
     return {
         'amenityType': (0, AmenityTypeType_1.AmenityTypeTypeToJSON)(value.amenityType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'comments': value.comments,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'featureCode': value.featureCode,
         'newChainCode': value.newChainCode,
         'orderSequence': value.orderSequence,

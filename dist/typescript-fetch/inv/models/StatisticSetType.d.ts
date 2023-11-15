@@ -31,10 +31,10 @@ export interface StatisticSetType {
     revenue?: Array<RevenueCategorySummaryType>;
     /**
      * Date of the statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticSetType
      */
-    statisticDate?: Date;
+    statisticDate?: string;
     /**
      * Determines whether statistic date is a weekend date.
      * @type {boolean}

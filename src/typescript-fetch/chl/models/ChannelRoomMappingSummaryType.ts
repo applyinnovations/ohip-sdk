@@ -52,10 +52,10 @@ export interface ChannelRoomMappingSummaryType {
     bedTypeCode?: string;
     /**
      * Begin Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingSummaryType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Booking Channel Code.
      * @type {string}
@@ -94,10 +94,10 @@ export interface ChannelRoomMappingSummaryType {
     description?: ChannelRoomMappingDescriptionType;
     /**
      * End date of the hotel-channel room type mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRoomMappingSummaryType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code.
      * @type {string}
@@ -165,14 +165,14 @@ export function ChannelRoomMappingSummaryTypeFromJSONTyped(json: any, ignoreDisc
         'alternateChannelRoomType': !exists(json, 'alternateChannelRoomType') ? undefined : json['alternateChannelRoomType'],
         'baseAllocation': !exists(json, 'baseAllocation') ? undefined : json['baseAllocation'],
         'bedTypeCode': !exists(json, 'bedTypeCode') ? undefined : json['bedTypeCode'],
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'channelRateCodes': !exists(json, 'channelRateCodes') ? undefined : json['channelRateCodes'],
         'channelRoomType': !exists(json, 'channelRoomType') ? undefined : json['channelRoomType'],
         'channelRoomTypeOrder': !exists(json, 'channelRoomTypeOrder') ? undefined : json['channelRoomTypeOrder'],
         'defaultOccupancy': !exists(json, 'defaultOccupancy') ? undefined : json['defaultOccupancy'],
         'description': !exists(json, 'description') ? undefined : ChannelRoomMappingDescriptionTypeFromJSON(json['description']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'maximumOccupancy': !exists(json, 'maximumOccupancy') ? undefined : json['maximumOccupancy'],
         'noOfRateRoomsMapped': !exists(json, 'noOfRateRoomsMapped') ? undefined : json['noOfRateRoomsMapped'],
@@ -196,14 +196,14 @@ export function ChannelRoomMappingSummaryTypeToJSON(value?: ChannelRoomMappingSu
         'alternateChannelRoomType': value.alternateChannelRoomType,
         'baseAllocation': value.baseAllocation,
         'bedTypeCode': value.bedTypeCode,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'bookingChannelCode': value.bookingChannelCode,
         'channelRateCodes': value.channelRateCodes,
         'channelRoomType': value.channelRoomType,
         'channelRoomTypeOrder': value.channelRoomTypeOrder,
         'defaultOccupancy': value.defaultOccupancy,
         'description': ChannelRoomMappingDescriptionTypeToJSON(value.description),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'maximumOccupancy': value.maximumOccupancy,
         'noOfRateRoomsMapped': value.noOfRateRoomsMapped,

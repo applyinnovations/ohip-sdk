@@ -36,7 +36,7 @@ function GeneratePostingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'amount': !(0, runtime_1.exists)(json, 'amount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['amount']),
         'referenceTransactionNo': !(0, runtime_1.exists)(json, 'referenceTransactionNo') ? undefined : json['referenceTransactionNo'],
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionNo': !(0, runtime_1.exists)(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
 }
@@ -52,7 +52,7 @@ function GeneratePostingTypeToJSON(value) {
         'amount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.amount),
         'referenceTransactionNo': value.referenceTransactionNo,
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'transactionDate': value.transactionDate,
         'transactionNo': value.transactionNo,
     };
 }

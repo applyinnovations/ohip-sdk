@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface ReservationDates {
     /**
      * Date of arrival.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Date when reservation(s) was cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    cancelledOn?: Date;
+    cancelledOn?: string;
     /**
      * Date when reservation(s) was created.
      * @type {string}
@@ -39,16 +39,16 @@ export interface ReservationDates {
     createDateTime?: string;
     /**
      * Date of departure.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * Date when folio was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDates
      */
-    folioClosedOn?: Date;
+    folioClosedOn?: string;
     /**
      * Date when reservation(s) was updated.
      * @type {string}
@@ -76,11 +76,11 @@ export function ReservationDatesFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
-        'cancelledOn': !exists(json, 'cancelledOn') ? undefined : (new Date(json['cancelledOn'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
+        'cancelledOn': !exists(json, 'cancelledOn') ? undefined : json['cancelledOn'],
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
-        'departureDate': !exists(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
-        'folioClosedOn': !exists(json, 'folioClosedOn') ? undefined : (new Date(json['folioClosedOn'])),
+        'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
+        'folioClosedOn': !exists(json, 'folioClosedOn') ? undefined : json['folioClosedOn'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
     };
 }
@@ -94,11 +94,11 @@ export function ReservationDatesToJSON(value?: ReservationDates | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
-        'cancelledOn': value.cancelledOn === undefined ? undefined : (value.cancelledOn.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
+        'cancelledOn': value.cancelledOn,
         'createDateTime': value.createDateTime,
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
-        'folioClosedOn': value.folioClosedOn === undefined ? undefined : (value.folioClosedOn.toISOString().substring(0,10)),
+        'departureDate': value.departureDate,
+        'folioClosedOn': value.folioClosedOn,
         'lastModifyDateTime': value.lastModifyDateTime,
     };
 }

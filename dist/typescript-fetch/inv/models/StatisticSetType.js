@@ -36,7 +36,7 @@ function StatisticSetTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'inventory': !(0, runtime_1.exists)(json, 'inventory') ? undefined : (json['inventory'].map(NumericCategorySummaryType_1.NumericCategorySummaryTypeFromJSON)),
         'revenue': !(0, runtime_1.exists)(json, 'revenue') ? undefined : (json['revenue'].map(RevenueCategorySummaryType_1.RevenueCategorySummaryTypeFromJSON)),
-        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : (new Date(json['statisticDate'])),
+        'statisticDate': !(0, runtime_1.exists)(json, 'statisticDate') ? undefined : json['statisticDate'],
         'weekendDate': !(0, runtime_1.exists)(json, 'weekendDate') ? undefined : json['weekendDate'],
     };
 }
@@ -51,7 +51,7 @@ function StatisticSetTypeToJSON(value) {
     return {
         'inventory': value.inventory === undefined ? undefined : (value.inventory.map(NumericCategorySummaryType_1.NumericCategorySummaryTypeToJSON)),
         'revenue': value.revenue === undefined ? undefined : (value.revenue.map(RevenueCategorySummaryType_1.RevenueCategorySummaryTypeToJSON)),
-        'statisticDate': value.statisticDate === undefined ? undefined : (value.statisticDate.toISOString().substring(0, 10)),
+        'statisticDate': value.statisticDate,
         'weekendDate': value.weekendDate,
     };
 }

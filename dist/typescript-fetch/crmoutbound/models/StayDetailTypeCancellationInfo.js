@@ -34,7 +34,7 @@ function StayDetailTypeCancellationInfoFromJSONTyped(json, ignoreDiscriminator) 
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
     };
 }
 exports.StayDetailTypeCancellationInfoFromJSONTyped = StayDetailTypeCancellationInfoFromJSONTyped;
@@ -48,7 +48,7 @@ function StayDetailTypeCancellationInfoToJSON(value) {
     return {
         'description': value.description,
         'code': value.code,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
     };
 }
 exports.StayDetailTypeCancellationInfoToJSON = StayDetailTypeCancellationInfoToJSON;

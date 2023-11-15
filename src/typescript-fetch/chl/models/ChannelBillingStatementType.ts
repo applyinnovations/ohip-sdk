@@ -46,10 +46,10 @@ export interface ChannelBillingStatementType {
     accountCodeList?: Array<string>;
     /**
      * Holds begin date of the statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Provides detailed information regarding Channel Account contract.
      * @type {Array<ChannelStatementAccountType>}
@@ -64,10 +64,10 @@ export interface ChannelBillingStatementType {
     dirty?: boolean;
     /**
      * Holds end date of the statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Flag to identify Statements were generated or not.
      * @type {boolean}
@@ -76,10 +76,10 @@ export interface ChannelBillingStatementType {
     generated?: boolean;
     /**
      * Holds date on which statement is locked.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    lockDate?: Date;
+    lockDate?: string;
     /**
      * Holds Note for the statement.
      * @type {string}
@@ -88,10 +88,10 @@ export interface ChannelBillingStatementType {
     note?: string;
     /**
      * Holds date on which statement is created.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    statementDate?: Date;
+    statementDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -126,14 +126,14 @@ export function ChannelBillingStatementTypeFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'accountCodeList': !exists(json, 'accountCodeList') ? undefined : json['accountCodeList'],
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'channelAccountStatements': !exists(json, 'channelAccountStatements') ? undefined : ((json['channelAccountStatements'] as Array<any>).map(ChannelStatementAccountTypeFromJSON)),
         'dirty': !exists(json, 'dirty') ? undefined : json['dirty'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'generated': !exists(json, 'generated') ? undefined : json['generated'],
-        'lockDate': !exists(json, 'lockDate') ? undefined : (new Date(json['lockDate'])),
+        'lockDate': !exists(json, 'lockDate') ? undefined : json['lockDate'],
         'note': !exists(json, 'note') ? undefined : json['note'],
-        'statementDate': !exists(json, 'statementDate') ? undefined : (new Date(json['statementDate'])),
+        'statementDate': !exists(json, 'statementDate') ? undefined : json['statementDate'],
         'statementId': !exists(json, 'statementId') ? undefined : UniqueIDTypeFromJSON(json['statementId']),
         'totalAmount': !exists(json, 'totalAmount') ? undefined : CurrencyAmountTypeFromJSON(json['totalAmount']),
     };
@@ -149,14 +149,14 @@ export function ChannelBillingStatementTypeToJSON(value?: ChannelBillingStatemen
     return {
         
         'accountCodeList': value.accountCodeList,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'channelAccountStatements': value.channelAccountStatements === undefined ? undefined : ((value.channelAccountStatements as Array<any>).map(ChannelStatementAccountTypeToJSON)),
         'dirty': value.dirty,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'generated': value.generated,
-        'lockDate': value.lockDate === undefined ? undefined : (value.lockDate.toISOString().substring(0,10)),
+        'lockDate': value.lockDate,
         'note': value.note,
-        'statementDate': value.statementDate === undefined ? undefined : (value.statementDate.toISOString().substring(0,10)),
+        'statementDate': value.statementDate,
         'statementId': UniqueIDTypeToJSON(value.statementId),
         'totalAmount': CurrencyAmountTypeToJSON(value.totalAmount),
     };

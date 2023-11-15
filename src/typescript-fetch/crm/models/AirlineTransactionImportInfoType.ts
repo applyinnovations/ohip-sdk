@@ -34,10 +34,10 @@ export interface AirlineTransactionImportInfoType {
     description?: string;
     /**
      * The date when this batch was imported into OPERA
-     * @type {Date}
+     * @type {string}
      * @memberof AirlineTransactionImportInfoType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      * 
      * @type {AirlineImportStatusType}
@@ -66,7 +66,7 @@ export function AirlineTransactionImportInfoTypeFromJSONTyped(json: any, ignoreD
     return {
         
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'importDate': !exists(json, 'importDate') ? undefined : (new Date(json['importDate'])),
+        'importDate': !exists(json, 'importDate') ? undefined : json['importDate'],
         'status': !exists(json, 'status') ? undefined : AirlineImportStatusTypeFromJSON(json['status']),
     };
 }
@@ -81,7 +81,7 @@ export function AirlineTransactionImportInfoTypeToJSON(value?: AirlineTransactio
     return {
         
         'description': value.description,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0,10)),
+        'importDate': value.importDate,
         'status': AirlineImportStatusTypeToJSON(value.status),
     };
 }

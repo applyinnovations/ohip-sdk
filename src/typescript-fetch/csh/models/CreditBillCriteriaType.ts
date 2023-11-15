@@ -100,10 +100,10 @@ export interface CreditBillCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof CreditBillCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * 
      * @type {FolioType}
@@ -156,7 +156,7 @@ export function CreditBillCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminat
         'folioNameValue': !exists(json, 'folioNameValue') ? undefined : ((json['folioNameValue'] as Array<any>).map(NameValueHeaderDetailTypeFromJSON)),
         'fullCredit': !exists(json, 'fullCredit') ? undefined : json['fullCredit'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
+        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : json['incomeAuditDate'],
         'originalFolio': !exists(json, 'originalFolio') ? undefined : FolioTypeFromJSON(json['originalFolio']),
         'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(PaymentCriteriaTypeFromJSON)),
         'reason': !exists(json, 'reason') ? undefined : FolioReasonTypeFromJSON(json['reason']),
@@ -180,7 +180,7 @@ export function CreditBillCriteriaTypeToJSON(value?: CreditBillCriteriaType | nu
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),
         'fullCredit': value.fullCredit,
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
+        'incomeAuditDate': value.incomeAuditDate,
         'originalFolio': FolioTypeToJSON(value.originalFolio),
         'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(PaymentCriteriaTypeToJSON)),
         'reason': FolioReasonTypeToJSON(value.reason),

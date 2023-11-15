@@ -106,10 +106,10 @@ import {
 export interface RoomStayType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof RoomStayType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Number of Upsell Offers Available for this stay. This will only be populated if the Upsell Instruction is included in the Allowed Instruction request
      * @type {number}
@@ -136,10 +136,10 @@ export interface RoomStayType {
     currentRoomInfo?: CurrentRoomInfoType;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof RoomStayType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * 
      * @type {ResExpectedTimesType}
@@ -269,12 +269,12 @@ export function RoomStayTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'availableUpsellOfferCount': !exists(json, 'availableUpsellOfferCount') ? undefined : json['availableUpsellOfferCount'],
         'bookingMedium': !exists(json, 'bookingMedium') ? undefined : json['bookingMedium'],
         'bookingMediumDescription': !exists(json, 'bookingMediumDescription') ? undefined : json['bookingMediumDescription'],
         'currentRoomInfo': !exists(json, 'currentRoomInfo') ? undefined : CurrentRoomInfoTypeFromJSON(json['currentRoomInfo']),
-        'departureDate': !exists(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
         'expectedTimes': !exists(json, 'expectedTimes') ? undefined : ResExpectedTimesTypeFromJSON(json['expectedTimes']),
         'guarantee': !exists(json, 'guarantee') ? undefined : ResGuaranteeTypeFromJSON(json['guarantee']),
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
@@ -305,12 +305,12 @@ export function RoomStayTypeToJSON(value?: RoomStayType | null): any {
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'availableUpsellOfferCount': value.availableUpsellOfferCount,
         'bookingMedium': value.bookingMedium,
         'bookingMediumDescription': value.bookingMediumDescription,
         'currentRoomInfo': CurrentRoomInfoTypeToJSON(value.currentRoomInfo),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
+        'departureDate': value.departureDate,
         'expectedTimes': ResExpectedTimesTypeToJSON(value.expectedTimes),
         'guarantee': ResGuaranteeTypeToJSON(value.guarantee),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),

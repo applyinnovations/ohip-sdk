@@ -106,10 +106,10 @@ export interface RatePlanShortInfoType {
     primaryDetails?: RatePlanPrimaryDetailsType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanShortInfoType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {string}
@@ -147,7 +147,7 @@ export function RatePlanShortInfoTypeFromJSONTyped(json: any, ignoreDiscriminato
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'primaryDetails': !exists(json, 'primaryDetails') ? undefined : RatePlanPrimaryDetailsTypeFromJSON(json['primaryDetails']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
     };
 }
@@ -171,7 +171,7 @@ export function RatePlanShortInfoTypeToJSON(value?: RatePlanShortInfoType | null
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'primaryDetails': RatePlanPrimaryDetailsTypeToJSON(value.primaryDetails),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'ratePlanCode': value.ratePlanCode,
     };
 }

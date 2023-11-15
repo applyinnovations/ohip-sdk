@@ -36,10 +36,10 @@ export interface StatisticType {
     description?: string;
     /**
      * Hotel fiscal date for statistics.
-     * @type {Date}
+     * @type {string}
      * @memberof StatisticType
      */
-    fiscalDate?: Date;
+    fiscalDate?: string;
     /**
      * The IATA city code; for example DCA, ORD.
      * @type {string}

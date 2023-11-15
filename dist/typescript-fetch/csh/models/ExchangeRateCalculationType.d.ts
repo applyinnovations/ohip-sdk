@@ -32,10 +32,10 @@ export interface ExchangeRateCalculationType {
     calculatedAmount?: number;
     /**
      * Date on which the exchange is to take place.
-     * @type {Date}
+     * @type {string}
      * @memberof ExchangeRateCalculationType
      */
-    date?: Date;
+    date?: string;
     /**
      * Amount in Euro for the exchange.
      * @type {number}
@@ -50,10 +50,10 @@ export interface ExchangeRateCalculationType {
     euroExchangeRate?: number;
     /**
      * Date on which exchange rate was obtained.
-     * @type {Date}
+     * @type {string}
      * @memberof ExchangeRateCalculationType
      */
-    exchangeDate?: Date;
+    exchangeDate?: string;
     /**
      * Exchange Information - text presentation of the exchange operation including formula, buy rate, etc.
      * @type {string}

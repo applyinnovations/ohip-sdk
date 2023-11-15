@@ -52,10 +52,10 @@ export interface FolioType {
     allowConvertFolioYn?: boolean;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioType
      */
-    end?: Date;
+    end?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}
@@ -70,10 +70,10 @@ export interface FolioType {
     folioAmount?: CurrencyAmountType;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}
@@ -136,10 +136,10 @@ export interface FolioType {
     revisionNo?: number;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof FolioType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -162,10 +162,10 @@ export function FolioTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     return {
         
         'allowConvertFolioYn': !exists(json, 'allowConvertFolioYn') ? undefined : json['allowConvertFolioYn'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'fiscalBillNo': !exists(json, 'fiscalBillNo') ? undefined : json['fiscalBillNo'],
         'folioAmount': !exists(json, 'folioAmount') ? undefined : CurrencyAmountTypeFromJSON(json['folioAmount']),
-        'folioDate': !exists(json, 'folioDate') ? undefined : (new Date(json['folioDate'])),
+        'folioDate': !exists(json, 'folioDate') ? undefined : json['folioDate'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'folioNoWithPrefix': !exists(json, 'folioNoWithPrefix') ? undefined : json['folioNoWithPrefix'],
         'folioSeqNo': !exists(json, 'folioSeqNo') ? undefined : json['folioSeqNo'],
@@ -176,7 +176,7 @@ export function FolioTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'payeeInfo': !exists(json, 'payeeInfo') ? undefined : PayeeInfoTypeFromJSON(json['payeeInfo']),
         'postings': !exists(json, 'postings') ? undefined : ((json['postings'] as Array<any>).map(SummaryPostingTypeFromJSON)),
         'revisionNo': !exists(json, 'revisionNo') ? undefined : json['revisionNo'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -190,10 +190,10 @@ export function FolioTypeToJSON(value?: FolioType | null): any {
     return {
         
         'allowConvertFolioYn': value.allowConvertFolioYn,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'fiscalBillNo': value.fiscalBillNo,
         'folioAmount': CurrencyAmountTypeToJSON(value.folioAmount),
-        'folioDate': value.folioDate === undefined ? undefined : (value.folioDate.toISOString().substring(0,10)),
+        'folioDate': value.folioDate,
         'folioNo': value.folioNo,
         'folioNoWithPrefix': value.folioNoWithPrefix,
         'folioSeqNo': value.folioSeqNo,
@@ -204,7 +204,7 @@ export function FolioTypeToJSON(value?: FolioType | null): any {
         'payeeInfo': PayeeInfoTypeToJSON(value.payeeInfo),
         'postings': value.postings === undefined ? undefined : ((value.postings as Array<any>).map(SummaryPostingTypeToJSON)),
         'revisionNo': value.revisionNo,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

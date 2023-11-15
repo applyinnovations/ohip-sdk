@@ -34,10 +34,10 @@ import {
 export interface ConfigPackageScheduleType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackageScheduleType
      */
-    end?: Date;
+    end?: string;
     /**
      * Maximum number of nights that are required on a reservation to avail the package.
      * @type {number}
@@ -106,10 +106,10 @@ export interface ConfigPackageScheduleType {
     schedulePrices?: Array<HotelPackageSchedulePriceType>;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackageScheduleType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -131,7 +131,7 @@ export function ConfigPackageScheduleTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'maxNights': !exists(json, 'maxNights') ? undefined : json['maxNights'],
         'maxPersons': !exists(json, 'maxPersons') ? undefined : json['maxPersons'],
         'minNights': !exists(json, 'minNights') ? undefined : json['minNights'],
@@ -143,7 +143,7 @@ export function ConfigPackageScheduleTypeFromJSONTyped(json: any, ignoreDiscrimi
         'newTimeSpan': !exists(json, 'newTimeSpan') ? undefined : TimeSpanTypeFromJSON(json['newTimeSpan']),
         'ratePlanCode': !exists(json, 'ratePlanCode') ? undefined : json['ratePlanCode'],
         'schedulePrices': !exists(json, 'schedulePrices') ? undefined : ((json['schedulePrices'] as Array<any>).map(HotelPackageSchedulePriceTypeFromJSON)),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -156,7 +156,7 @@ export function ConfigPackageScheduleTypeToJSON(value?: ConfigPackageScheduleTyp
     }
     return {
         
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'maxNights': value.maxNights,
         'maxPersons': value.maxPersons,
         'minNights': value.minNights,
@@ -168,7 +168,7 @@ export function ConfigPackageScheduleTypeToJSON(value?: ConfigPackageScheduleTyp
         'newTimeSpan': TimeSpanTypeToJSON(value.newTimeSpan),
         'ratePlanCode': value.ratePlanCode,
         'schedulePrices': value.schedulePrices === undefined ? undefined : ((value.schedulePrices as Array<any>).map(HotelPackageSchedulePriceTypeToJSON)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
     };
 }
 

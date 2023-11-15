@@ -40,10 +40,10 @@ export interface FiscalPeriodEditType {
     newPeriod?: FiscalPeriodType;
     /**
      * Start Date of the Period
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalPeriodEditType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Id of the Year.
      * @type {number}
@@ -73,7 +73,7 @@ export function FiscalPeriodEditTypeFromJSONTyped(json: any, ignoreDiscriminator
         
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'newPeriod': !exists(json, 'newPeriod') ? undefined : FiscalPeriodTypeFromJSON(json['newPeriod']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'yearId': !exists(json, 'yearId') ? undefined : json['yearId'],
     };
 }
@@ -89,7 +89,7 @@ export function FiscalPeriodEditTypeToJSON(value?: FiscalPeriodEditType | null):
         
         'hotelId': value.hotelId,
         'newPeriod': FiscalPeriodTypeToJSON(value.newPeriod),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'yearId': value.yearId,
     };
 }

@@ -38,7 +38,7 @@ function TransactionCurrencyExchangeInfoTypeFromJSONTyped(json, ignoreDiscrimina
         'commissionPercent': !(0, runtime_1.exists)(json, 'commissionPercent') ? undefined : json['commissionPercent'],
         'currencyAmount': !(0, runtime_1.exists)(json, 'currencyAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['currencyAmount']),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'exchangeDate': !(0, runtime_1.exists)(json, 'exchangeDate') ? undefined : (new Date(json['exchangeDate'])),
+        'exchangeDate': !(0, runtime_1.exists)(json, 'exchangeDate') ? undefined : json['exchangeDate'],
         'exchangeRate': !(0, runtime_1.exists)(json, 'exchangeRate') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['exchangeRate']),
     };
 }
@@ -56,7 +56,7 @@ function TransactionCurrencyExchangeInfoTypeToJSON(value) {
         'commissionPercent': value.commissionPercent,
         'currencyAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.currencyAmount),
         'description': value.description,
-        'exchangeDate': value.exchangeDate === undefined ? undefined : (value.exchangeDate.toISOString().substring(0, 10)),
+        'exchangeDate': value.exchangeDate,
         'exchangeRate': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.exchangeRate),
     };
 }

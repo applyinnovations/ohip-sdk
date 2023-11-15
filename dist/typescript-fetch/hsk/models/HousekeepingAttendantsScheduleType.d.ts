@@ -30,10 +30,10 @@ export interface HousekeepingAttendantsScheduleType {
     hotelId?: string;
     /**
      * Schedule date of attendants' assignment. Used when attendants to scheduled are of the same date.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingAttendantsScheduleType
      */
-    scheduleDate?: Date;
+    scheduleDate?: string;
 }
 /**
  * Check if a given object implements the HousekeepingAttendantsScheduleType interface.

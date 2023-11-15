@@ -25,10 +25,10 @@ export interface ECertificateConsumptionType {
     authorizationCode?: string;
     /**
      * Date the certificate was consumed.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    date?: Date;
+    date?: string;
     /**
      * Email of the person who consumed the certificate.
      * @type {string}
@@ -67,10 +67,10 @@ export interface ECertificateConsumptionType {
     referenceId?: UniqueIDType;
     /**
      * Date on which the service is due (arrival date in case of reservation).
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateConsumptionType
      */
-    serviceDate?: Date;
+    serviceDate?: string;
     /**
      *
      * @type {ECertificateConsumeSourceType}

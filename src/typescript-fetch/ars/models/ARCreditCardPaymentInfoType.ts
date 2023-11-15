@@ -58,10 +58,10 @@ export interface ARCreditCardPaymentInfoType {
     guestName?: string;
     /**
      * Date of posting.
-     * @type {Date}
+     * @type {string}
      * @memberof ARCreditCardPaymentInfoType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * 
      * @type {ProfileId}
@@ -82,10 +82,10 @@ export interface ARCreditCardPaymentInfoType {
     remark?: string;
     /**
      * Transaction Date of the payment.
-     * @type {Date}
+     * @type {string}
      * @memberof ARCreditCardPaymentInfoType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction number of the payment.
      * @type {number}
@@ -117,11 +117,11 @@ export function ARCreditCardPaymentInfoTypeFromJSONTyped(json: any, ignoreDiscri
         'fiscalFolioNo': !exists(json, 'fiscalFolioNo') ? undefined : json['fiscalFolioNo'],
         'folioNo': !exists(json, 'folioNo') ? undefined : json['folioNo'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
-        'postingDate': !exists(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'postingDate': !exists(json, 'postingDate') ? undefined : json['postingDate'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'reference': !exists(json, 'reference') ? undefined : json['reference'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
 }
@@ -139,11 +139,11 @@ export function ARCreditCardPaymentInfoTypeToJSON(value?: ARCreditCardPaymentInf
         'fiscalFolioNo': value.fiscalFolioNo,
         'folioNo': value.folioNo,
         'guestName': value.guestName,
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
+        'postingDate': value.postingDate,
         'profileId': ProfileIdToJSON(value.profileId),
         'reference': value.reference,
         'remark': value.remark,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionNo': value.transactionNo,
     };
 }

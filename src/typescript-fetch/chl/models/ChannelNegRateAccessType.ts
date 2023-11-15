@@ -40,16 +40,16 @@ export interface ChannelNegRateAccessType {
     accessInfoDetail?: ChannelNegRateAccessDetailType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelNegRateAccessType
      */
-    end?: Date;
+    end?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelNegRateAccessType
      */
-    start?: Date;
+    start?: string;
 }
 
 /**
@@ -73,8 +73,8 @@ export function ChannelNegRateAccessTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'accessCode': !exists(json, 'accessCode') ? undefined : json['accessCode'],
         'accessInfoDetail': !exists(json, 'accessInfoDetail') ? undefined : ChannelNegRateAccessDetailTypeFromJSON(json['accessInfoDetail']),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
+        'start': !exists(json, 'start') ? undefined : json['start'],
     };
 }
 
@@ -89,8 +89,8 @@ export function ChannelNegRateAccessTypeToJSON(value?: ChannelNegRateAccessType 
         
         'accessCode': value.accessCode,
         'accessInfoDetail': ChannelNegRateAccessDetailTypeToJSON(value.accessInfoDetail),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'end': value.end,
+        'start': value.start,
     };
 }
 

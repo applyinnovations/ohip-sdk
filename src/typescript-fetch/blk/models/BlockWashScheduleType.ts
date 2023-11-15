@@ -46,10 +46,10 @@ export interface BlockWashScheduleType {
     washByRooms?: BlockGridInvType;
     /**
      * Date on which the block wash operation will be performed.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockWashScheduleType
      */
-    washDate?: Date;
+    washDate?: string;
 }
 
 /**
@@ -74,7 +74,7 @@ export function BlockWashScheduleTypeFromJSONTyped(json: any, ignoreDiscriminato
         'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
         'washByPercent': !exists(json, 'washByPercent') ? undefined : json['washByPercent'],
         'washByRooms': !exists(json, 'washByRooms') ? undefined : BlockGridInvTypeFromJSON(json['washByRooms']),
-        'washDate': !exists(json, 'washDate') ? undefined : (new Date(json['washDate'])),
+        'washDate': !exists(json, 'washDate') ? undefined : json['washDate'],
     };
 }
 
@@ -90,7 +90,7 @@ export function BlockWashScheduleTypeToJSON(value?: BlockWashScheduleType | null
         'roomTypes': value.roomTypes,
         'washByPercent': value.washByPercent,
         'washByRooms': BlockGridInvTypeToJSON(value.washByRooms),
-        'washDate': value.washDate === undefined ? undefined : (value.washDate.toISOString().substring(0,10)),
+        'washDate': value.washDate,
     };
 }
 

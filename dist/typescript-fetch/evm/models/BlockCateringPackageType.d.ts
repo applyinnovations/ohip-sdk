@@ -27,10 +27,10 @@ export interface BlockCateringPackageType {
     attendees?: CateringEventsAttendeesType;
     /**
      * Begin Date for package/template events
-     * @type {Date}
+     * @type {string}
      * @memberof BlockCateringPackageType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      *
      * @type {UniqueIDType}

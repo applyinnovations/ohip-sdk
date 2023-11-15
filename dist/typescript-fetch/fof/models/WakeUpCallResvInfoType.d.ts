@@ -22,10 +22,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface WakeUpCallResvInfoType {
     /**
      * Reservation arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallResvInfoType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Block code with which wake up call is associated.
      * @type {string}
@@ -40,10 +40,10 @@ export interface WakeUpCallResvInfoType {
     blockId?: BlockId;
     /**
      * Reservation departure date.
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallResvInfoType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Room Phone Extension Number.
      * @type {string}

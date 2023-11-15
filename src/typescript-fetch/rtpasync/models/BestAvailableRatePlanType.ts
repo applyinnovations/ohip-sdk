@@ -69,10 +69,10 @@ export interface BestAvailableRatePlanType {
     los8?: boolean;
     /**
      * Validity of best available rate plan.
-     * @type {Date}
+     * @type {string}
      * @memberof BestAvailableRatePlanType
      */
-    rateDate?: Date;
+    rateDate?: string;
     /**
      * Collection of best available rate codes.
      * @type {Array<string>}
@@ -108,7 +108,7 @@ export function BestAvailableRatePlanTypeFromJSONTyped(json: any, ignoreDiscrimi
         'los6': !exists(json, 'los6') ? undefined : json['los6'],
         'los7': !exists(json, 'los7') ? undefined : json['los7'],
         'los8': !exists(json, 'los8') ? undefined : json['los8'],
-        'rateDate': !exists(json, 'rateDate') ? undefined : (new Date(json['rateDate'])),
+        'rateDate': !exists(json, 'rateDate') ? undefined : json['rateDate'],
         'ratePlanCodes': !exists(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
     };
 }
@@ -130,7 +130,7 @@ export function BestAvailableRatePlanTypeToJSON(value?: BestAvailableRatePlanTyp
         'los6': value.los6,
         'los7': value.los7,
         'los8': value.los8,
-        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0,10)),
+        'rateDate': value.rateDate,
         'ratePlanCodes': value.ratePlanCodes,
     };
 }

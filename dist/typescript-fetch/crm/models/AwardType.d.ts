@@ -78,10 +78,10 @@ export interface AwardType {
     displaySequence?: number;
     /**
      * Expiration Date.
-     * @type {Date}
+     * @type {string}
      * @memberof AwardType
      */
-    expirationDate?: Date;
+    expirationDate?: string;
     /**
      * Confirmation Number given by a CRS application for this reservation.
      * @type {string}

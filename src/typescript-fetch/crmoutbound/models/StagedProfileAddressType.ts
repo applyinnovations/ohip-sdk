@@ -46,10 +46,10 @@ export interface StagedProfileAddressType {
     errorDescription?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileAddressType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Postal code extension.
      * @type {string}
@@ -103,7 +103,7 @@ export function StagedProfileAddressTypeFromJSONTyped(json: any, ignoreDiscrimin
         
         'address': !exists(json, 'address') ? undefined : AddressTypeFromJSON(json['address']),
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'postalCodeExtension': !exists(json, 'postalCodeExtension') ? undefined : json['postalCodeExtension'],
         'barCode': !exists(json, 'barCode') ? undefined : json['barCode'],
         'cleansStatus': !exists(json, 'cleansStatus') ? undefined : StagedAddressCleansStatusFromJSON(json['cleansStatus']),
@@ -123,7 +123,7 @@ export function StagedProfileAddressTypeToJSON(value?: StagedProfileAddressType 
         
         'address': AddressTypeToJSON(value.address),
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'postalCodeExtension': value.postalCodeExtension,
         'barCode': value.barCode,
         'cleansStatus': StagedAddressCleansStatusToJSON(value.cleansStatus),

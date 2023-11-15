@@ -52,10 +52,10 @@ export interface CCAuthorizationInstructionType {
     authorizationSetup?: CCAuthorizationInstructionTypeAuthorizationSetup;
     /**
      * The current date of the Property.
-     * @type {Date}
+     * @type {string}
      * @memberof CCAuthorizationInstructionType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -144,7 +144,7 @@ export function CCAuthorizationInstructionTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'authorizationSetup': !exists(json, 'authorizationSetup') ? undefined : CCAuthorizationInstructionTypeAuthorizationSetupFromJSON(json['authorizationSetup']),
-        'businessDate': !exists(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !exists(json, 'businessDate') ? undefined : json['businessDate'],
         'currentApprovalAmount': !exists(json, 'currentApprovalAmount') ? undefined : CurrencyAmountTypeFromJSON(json['currentApprovalAmount']),
         'incidentalAmount': !exists(json, 'incidentalAmount') ? undefined : CurrencyAmountTypeFromJSON(json['incidentalAmount']),
         'initialAuthorizationRequired': !exists(json, 'initialAuthorizationRequired') ? undefined : json['initialAuthorizationRequired'],
@@ -169,7 +169,7 @@ export function CCAuthorizationInstructionTypeToJSON(value?: CCAuthorizationInst
     return {
         
         'authorizationSetup': CCAuthorizationInstructionTypeAuthorizationSetupToJSON(value.authorizationSetup),
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0,10)),
+        'businessDate': value.businessDate,
         'currentApprovalAmount': CurrencyAmountTypeToJSON(value.currentApprovalAmount),
         'incidentalAmount': CurrencyAmountTypeToJSON(value.incidentalAmount),
         'initialAuthorizationRequired': value.initialAuthorizationRequired,

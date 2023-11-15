@@ -43,10 +43,10 @@ export interface PaymentTaxType {
     nonTaxableAmount?: CurrencyAmountType;
     /**
      * The Payment Invoice date
-     * @type {Date}
+     * @type {string}
      * @memberof PaymentTaxType
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      *
      * @type {PaymentTax}
@@ -73,10 +73,10 @@ export interface PaymentTaxType {
     transactionCode?: string;
     /**
      * Transaction Date of the Payment.
-     * @type {Date}
+     * @type {string}
      * @memberof PaymentTaxType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Billing Transaction Description.
      * @type {string}

@@ -31,10 +31,10 @@ import type { UpsellInfoType } from './UpsellInfoType';
 export interface RoomStayType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof RoomStayType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Number of Upsell Offers Available for this stay. This will only be populated if the Upsell Instruction is included in the Allowed Instruction request
      * @type {number}
@@ -61,10 +61,10 @@ export interface RoomStayType {
     currentRoomInfo?: CurrentRoomInfoType;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof RoomStayType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      *
      * @type {ResExpectedTimesType}

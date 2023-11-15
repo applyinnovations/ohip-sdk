@@ -70,10 +70,10 @@ export interface StagedProfileCommentInfoType {
     id?: string;
     /**
      * Indicates comment inactive date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileCommentInfoType
      */
-    inActiveDate?: Date;
+    inActiveDate?: string;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -138,7 +138,7 @@ export function StagedProfileCommentInfoTypeFromJSONTyped(json: any, ignoreDiscr
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'hasMore': !exists(json, 'hasMore') ? undefined : json['hasMore'],
         'id': !exists(json, 'id') ? undefined : json['id'],
-        'inActiveDate': !exists(json, 'inActiveDate') ? undefined : (new Date(json['inActiveDate'])),
+        'inActiveDate': !exists(json, 'inActiveDate') ? undefined : json['inActiveDate'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'lineNo': !exists(json, 'lineNo') ? undefined : json['lineNo'],
@@ -164,7 +164,7 @@ export function StagedProfileCommentInfoTypeToJSON(value?: StagedProfileCommentI
         'errorDescription': value.errorDescription,
         'hasMore': value.hasMore,
         'id': value.id,
-        'inActiveDate': value.inActiveDate === undefined ? undefined : (value.inActiveDate.toISOString().substring(0,10)),
+        'inActiveDate': value.inActiveDate,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'lineNo': value.lineNo,

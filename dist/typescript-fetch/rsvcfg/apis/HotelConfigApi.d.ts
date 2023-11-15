@@ -325,8 +325,8 @@ export interface GetGuaranteeCodeSchedulesRequest {
     limit?: number;
     pageNumber?: number;
     ratePlanCodes?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     guaranteeCodes?: Array<string>;
     creditRatingsCodes?: Array<string>;
@@ -384,8 +384,8 @@ export interface GetPolicySchedulesRequest {
     policyType?: GetPolicySchedulesPolicyTypeEnum;
     ratePlanCodes?: Array<string>;
     policyCodes?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     guaranteeCodes?: Array<string>;
     creditRatingsCodes?: Array<string>;
@@ -402,7 +402,7 @@ export interface GetPreCheckInRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    date?: Date;
+    date?: string;
     ruleType?: GetPreCheckInRulesRuleTypeEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -772,11 +772,11 @@ export interface RemovePreCheckInRulesRequest {
     xAppKey?: string;
     xHotelid?: string;
     ruleType?: Set<RemovePreCheckInRulesRuleTypeEnum>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
-    newStartDate?: Date;
-    newEndDate?: Date;
+    newStartDate?: string;
+    newEndDate?: string;
     newDuration?: string;
     level?: Array<string>;
     type?: Array<string>;

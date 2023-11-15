@@ -35,8 +35,8 @@ function ClaimReservationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'confirmationNo': !(0, runtime_1.exists)(json, 'confirmationNo') ? undefined : (json['confirmationNo'].map(UniqueIDType_1.UniqueIDTypeFromJSON)),
-        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : (new Date(json['arrival'])),
-        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'arrival': !(0, runtime_1.exists)(json, 'arrival') ? undefined : json['arrival'],
+        'departure': !(0, runtime_1.exists)(json, 'departure') ? undefined : json['departure'],
     };
 }
 exports.ClaimReservationInfoTypeFromJSONTyped = ClaimReservationInfoTypeFromJSONTyped;
@@ -50,8 +50,8 @@ function ClaimReservationInfoTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'confirmationNo': value.confirmationNo === undefined ? undefined : (value.confirmationNo.map(UniqueIDType_1.UniqueIDTypeToJSON)),
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0, 10)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0, 10)),
+        'arrival': value.arrival,
+        'departure': value.departure,
     };
 }
 exports.ClaimReservationInfoTypeToJSON = ClaimReservationInfoTypeToJSON;

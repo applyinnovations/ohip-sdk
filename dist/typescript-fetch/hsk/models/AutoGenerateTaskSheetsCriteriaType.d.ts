@@ -157,10 +157,10 @@ export interface AutoGenerateTaskSheetsCriteriaType {
     taskCodes?: Array<string>;
     /**
      * Task Date for which the tasks are to be generated. Date cannot be earlier than business date.
-     * @type {Date}
+     * @type {string}
      * @memberof AutoGenerateTaskSheetsCriteriaType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * Template code of the task sheet.
      * @type {string}

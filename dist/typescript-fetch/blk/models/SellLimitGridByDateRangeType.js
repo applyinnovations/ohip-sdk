@@ -32,12 +32,12 @@ function SellLimitGridByDateRangeTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'friday': !(0, runtime_1.exists)(json, 'friday') ? undefined : json['friday'],
         'monday': !(0, runtime_1.exists)(json, 'monday') ? undefined : json['monday'],
         'saturday': !(0, runtime_1.exists)(json, 'saturday') ? undefined : json['saturday'],
         'sellLimit': !(0, runtime_1.exists)(json, 'sellLimit') ? undefined : json['sellLimit'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'sunday': !(0, runtime_1.exists)(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !(0, runtime_1.exists)(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !(0, runtime_1.exists)(json, 'tuesday') ? undefined : json['tuesday'],
@@ -53,12 +53,12 @@ function SellLimitGridByDateRangeTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'friday': value.friday,
         'monday': value.monday,
         'saturday': value.saturday,
         'sellLimit': value.sellLimit,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

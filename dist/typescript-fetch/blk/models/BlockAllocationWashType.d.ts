@@ -38,10 +38,10 @@ export interface BlockAllocationWashType {
     byValue?: boolean;
     /**
      * End date for the wash operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationWashType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if the Allocation objects refer to Generic Room Types (Room Pools).
      * @type {boolean}
@@ -80,10 +80,10 @@ export interface BlockAllocationWashType {
     roomTypes?: Array<string>;
     /**
      * Start date for the wash operation.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationWashType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the BlockAllocationWashType interface.

@@ -28,10 +28,10 @@ import {
 export interface BlockAlternateDateType {
     /**
      * Alternate Begin date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAlternateDateType
      */
-    alternateBeginDate?: Date;
+    alternateBeginDate?: string;
     /**
      * 
      * @type {BlockGridRatesType}
@@ -71,7 +71,7 @@ export function BlockAlternateDateTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'alternateBeginDate': !exists(json, 'alternateBeginDate') ? undefined : (new Date(json['alternateBeginDate'])),
+        'alternateBeginDate': !exists(json, 'alternateBeginDate') ? undefined : json['alternateBeginDate'],
         'blockRates': !exists(json, 'blockRates') ? undefined : BlockGridRatesTypeFromJSON(json['blockRates']),
         'priority': !exists(json, 'priority') ? undefined : json['priority'],
         'roomCategory': !exists(json, 'roomCategory') ? undefined : json['roomCategory'],
@@ -87,7 +87,7 @@ export function BlockAlternateDateTypeToJSON(value?: BlockAlternateDateType | nu
     }
     return {
         
-        'alternateBeginDate': value.alternateBeginDate === undefined ? undefined : (value.alternateBeginDate.toISOString().substring(0,10)),
+        'alternateBeginDate': value.alternateBeginDate,
         'blockRates': BlockGridRatesTypeToJSON(value.blockRates),
         'priority': value.priority,
         'roomCategory': value.roomCategory,

@@ -70,10 +70,10 @@ export interface ConfigUpsellRuleType {
     description?: string;
     /**
      * This represents the end date of the date range for which the upsell rule is valid.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigUpsellRuleType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {FormulaType}
@@ -136,10 +136,10 @@ export interface ConfigUpsellRuleType {
     roundingRule?: RoundingRuleType;
     /**
      * This represents the begin date of the date range for which the upsell rule is valid.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigUpsellRuleType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * The "to" room type or room class for the upsell rule. This is the room type that the original room type/room class will be upsold to.
      * @type {string}
@@ -207,7 +207,7 @@ export function ConfigUpsellRuleTypeFromJSONTyped(json: any, ignoreDiscriminator
         'currencyCode': !exists(json, 'currencyCode') ? undefined : json['currencyCode'],
         'daysInAdvance': !exists(json, 'daysInAdvance') ? undefined : json['daysInAdvance'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'formula': !exists(json, 'formula') ? undefined : FormulaTypeFromJSON(json['formula']),
         'fromRoomTypeOrFromRoomClass': !exists(json, 'fromRoomTypeOrFromRoomClass') ? undefined : json['fromRoomTypeOrFromRoomClass'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -218,7 +218,7 @@ export function ConfigUpsellRuleTypeFromJSONTyped(json: any, ignoreDiscriminator
         'rateCodes': !exists(json, 'rateCodes') ? undefined : json['rateCodes'],
         'reservationTypes': !exists(json, 'reservationTypes') ? undefined : json['reservationTypes'],
         'roundingRule': !exists(json, 'roundingRule') ? undefined : RoundingRuleTypeFromJSON(json['roundingRule']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'toRoomTypeOrToRoomClass': !exists(json, 'toRoomTypeOrToRoomClass') ? undefined : json['toRoomTypeOrToRoomClass'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : TrxInfoTypeFromJSON(json['transactionCode']),
         'upsellAmount': !exists(json, 'upsellAmount') ? undefined : json['upsellAmount'],
@@ -242,7 +242,7 @@ export function ConfigUpsellRuleTypeToJSON(value?: ConfigUpsellRuleType | null):
         'currencyCode': value.currencyCode,
         'daysInAdvance': value.daysInAdvance,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'formula': FormulaTypeToJSON(value.formula),
         'fromRoomTypeOrFromRoomClass': value.fromRoomTypeOrFromRoomClass,
         'hotelId': value.hotelId,
@@ -253,7 +253,7 @@ export function ConfigUpsellRuleTypeToJSON(value?: ConfigUpsellRuleType | null):
         'rateCodes': value.rateCodes,
         'reservationTypes': value.reservationTypes,
         'roundingRule': RoundingRuleTypeToJSON(value.roundingRule),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'toRoomTypeOrToRoomClass': value.toRoomTypeOrToRoomClass,
         'transactionCode': TrxInfoTypeToJSON(value.transactionCode),
         'upsellAmount': value.upsellAmount,

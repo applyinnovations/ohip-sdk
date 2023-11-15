@@ -175,10 +175,10 @@ export interface PackagePostingType {
     postedAmount?: CurrencyAmountType;
     /**
      * Date and time of posting.
-     * @type {Date}
+     * @type {string}
      * @memberof PackagePostingType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      *
      * @type {CurrencyAmountType}
@@ -223,10 +223,10 @@ export interface PackagePostingType {
     remark?: string;
     /**
      * The date on which the transaction has its revenue effect.
-     * @type {Date}
+     * @type {string}
      * @memberof PackagePostingType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Reverse payment transaction unique identifier.
      * @type {number}
@@ -271,10 +271,10 @@ export interface PackagePostingType {
     transactionCode?: string;
     /**
      * Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof PackagePostingType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Billing Transaction Description.
      * @type {string}

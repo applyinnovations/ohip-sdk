@@ -27,10 +27,10 @@ export interface ConfigTestUpsellRuleSearchType {
     adults?: number;
     /**
      * Arrival date set in the test reservation.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigTestUpsellRuleSearchType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Signifies the channel for which the upsell rule test has to be run.
      * @type {string}
@@ -125,7 +125,7 @@ export function ConfigTestUpsellRuleSearchTypeFromJSONTyped(json: any, ignoreDis
     return {
         
         'adults': !exists(json, 'adults') ? undefined : json['adults'],
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'channel': !exists(json, 'channel') ? undefined : json['channel'],
         'children': !exists(json, 'children') ? undefined : json['children'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -151,7 +151,7 @@ export function ConfigTestUpsellRuleSearchTypeToJSON(value?: ConfigTestUpsellRul
     return {
         
         'adults': value.adults,
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'channel': value.channel,
         'children': value.children,
         'hotelId': value.hotelId,

@@ -37,7 +37,7 @@ function StagedProfileEmailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : (0, EmailType_1.EmailTypeFromJSON)(json['email']),
         'errorDescription': !(0, runtime_1.exists)(json, 'errorDescription') ? undefined : json['errorDescription'],
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : json['id'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
     };
 }
@@ -54,7 +54,7 @@ function StagedProfileEmailTypeToJSON(value) {
         'email': (0, EmailType_1.EmailTypeToJSON)(value.email),
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'type': value.type,
     };
 }

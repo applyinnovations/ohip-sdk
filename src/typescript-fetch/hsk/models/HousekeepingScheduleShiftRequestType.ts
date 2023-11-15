@@ -34,16 +34,16 @@ import {
 export interface HousekeepingScheduleShiftRequestType {
     /**
      * Begin date from which to start fetching facility tasks.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingScheduleShiftRequestType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * End date for facility task schedule request.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingScheduleShiftRequestType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * The hotel code where reservation is made.
      * @type {string}
@@ -83,8 +83,8 @@ export function HousekeepingScheduleShiftRequestTypeFromJSONTyped(json: any, ign
     }
     return {
         
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'shiftDay': !exists(json, 'shiftDay') ? undefined : HousekeepingScheduleShiftDayTypeFromJSON(json['shiftDay']),
@@ -100,8 +100,8 @@ export function HousekeepingScheduleShiftRequestTypeToJSON(value?: HousekeepingS
     }
     return {
         
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'shiftDay': HousekeepingScheduleShiftDayTypeToJSON(value.shiftDay),

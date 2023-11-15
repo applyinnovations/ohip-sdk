@@ -94,10 +94,10 @@ export interface GuestMessageType {
     message?: MessageType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof GuestMessageType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}
@@ -141,7 +141,7 @@ export function GuestMessageTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'message': !exists(json, 'message') ? undefined : MessageTypeFromJSON(json['message']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
         'url': !exists(json, 'url') ? undefined : json['url'],
     };
@@ -166,7 +166,7 @@ export function GuestMessageTypeToJSON(value?: GuestMessageType | null): any {
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'message': MessageTypeToJSON(value.message),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'type': value.type,
         'url': value.url,
     };

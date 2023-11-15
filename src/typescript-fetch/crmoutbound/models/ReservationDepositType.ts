@@ -39,16 +39,16 @@ export interface ReservationDepositType {
     amountOwed?: number;
     /**
      * Deposit Due Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    dueDate?: Date;
+    dueDate?: string;
     /**
      * Deposit Posting Date.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDepositType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * Resolves whether reservation has paid deposit.
      * @type {boolean}
@@ -85,8 +85,8 @@ export function ReservationDepositTypeFromJSONTyped(json: any, ignoreDiscriminat
         'amountRequired': !exists(json, 'amountRequired') ? undefined : json['amountRequired'],
         'amountPaid': !exists(json, 'amountPaid') ? undefined : json['amountPaid'],
         'amountOwed': !exists(json, 'amountOwed') ? undefined : json['amountOwed'],
-        'dueDate': !exists(json, 'dueDate') ? undefined : (new Date(json['dueDate'])),
-        'postingDate': !exists(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'dueDate': !exists(json, 'dueDate') ? undefined : json['dueDate'],
+        'postingDate': !exists(json, 'postingDate') ? undefined : json['postingDate'],
         'hasPaid': !exists(json, 'hasPaid') ? undefined : json['hasPaid'],
         'hasOutstanding': !exists(json, 'hasOutstanding') ? undefined : json['hasOutstanding'],
     };
@@ -104,8 +104,8 @@ export function ReservationDepositTypeToJSON(value?: ReservationDepositType | nu
         'amountRequired': value.amountRequired,
         'amountPaid': value.amountPaid,
         'amountOwed': value.amountOwed,
-        'dueDate': value.dueDate === undefined ? undefined : (value.dueDate.toISOString().substring(0,10)),
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
+        'dueDate': value.dueDate,
+        'postingDate': value.postingDate,
         'hasPaid': value.hasPaid,
         'hasOutstanding': value.hasOutstanding,
     };

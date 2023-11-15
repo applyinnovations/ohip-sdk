@@ -25,10 +25,10 @@ export interface RoomOwnershipType {
     contractNumber?: string;
     /**
      * End Date of the Room Ownership record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnershipType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Code of Room Ownership record.
      * @type {string}
@@ -79,10 +79,10 @@ export interface RoomOwnershipType {
     roomType?: string;
     /**
      * Start Date of the Room Ownership record.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomOwnershipType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Status of the Room Ownership record. (Active or Inactive)
      * @type {string}

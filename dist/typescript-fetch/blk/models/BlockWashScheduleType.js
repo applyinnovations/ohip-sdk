@@ -36,7 +36,7 @@ function BlockWashScheduleTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
         'washByPercent': !(0, runtime_1.exists)(json, 'washByPercent') ? undefined : json['washByPercent'],
         'washByRooms': !(0, runtime_1.exists)(json, 'washByRooms') ? undefined : (0, BlockGridInvType_1.BlockGridInvTypeFromJSON)(json['washByRooms']),
-        'washDate': !(0, runtime_1.exists)(json, 'washDate') ? undefined : (new Date(json['washDate'])),
+        'washDate': !(0, runtime_1.exists)(json, 'washDate') ? undefined : json['washDate'],
     };
 }
 exports.BlockWashScheduleTypeFromJSONTyped = BlockWashScheduleTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function BlockWashScheduleTypeToJSON(value) {
         'roomTypes': value.roomTypes,
         'washByPercent': value.washByPercent,
         'washByRooms': (0, BlockGridInvType_1.BlockGridInvTypeToJSON)(value.washByRooms),
-        'washDate': value.washDate === undefined ? undefined : (value.washDate.toISOString().substring(0, 10)),
+        'washDate': value.washDate,
     };
 }
 exports.BlockWashScheduleTypeToJSON = BlockWashScheduleTypeToJSON;

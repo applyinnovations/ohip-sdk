@@ -24,10 +24,10 @@ export interface ChannelSnapshotType {
     availableRooms?: number;
     /**
      * Date of the statistics and restrictions.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelSnapshotType
      */
-    date?: Date;
+    date?: string;
     /**
      * Number of rooms in inventory.
      * @type {number}

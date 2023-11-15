@@ -35,7 +35,7 @@ function FiscalPeriodEditTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'newPeriod': !(0, runtime_1.exists)(json, 'newPeriod') ? undefined : (0, FiscalPeriodType_1.FiscalPeriodTypeFromJSON)(json['newPeriod']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'yearId': !(0, runtime_1.exists)(json, 'yearId') ? undefined : json['yearId'],
     };
 }
@@ -50,7 +50,7 @@ function FiscalPeriodEditTypeToJSON(value) {
     return {
         'hotelId': value.hotelId,
         'newPeriod': (0, FiscalPeriodType_1.FiscalPeriodTypeToJSON)(value.newPeriod),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'yearId': value.yearId,
     };
 }

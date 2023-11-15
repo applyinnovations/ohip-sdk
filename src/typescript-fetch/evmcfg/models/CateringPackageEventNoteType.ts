@@ -76,10 +76,10 @@ export interface CateringPackageEventNoteType {
     noteCode?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CateringPackageEventNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Title of the Catering Package Event Note.
      * @type {string}
@@ -115,7 +115,7 @@ export function CateringPackageEventNoteTypeFromJSONTyped(json: any, ignoreDiscr
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'noteCode': !exists(json, 'noteCode') ? undefined : json['noteCode'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'title': !exists(json, 'title') ? undefined : json['title'],
     };
 }
@@ -137,7 +137,7 @@ export function CateringPackageEventNoteTypeToJSON(value?: CateringPackageEventN
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
         'noteCode': value.noteCode,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'title': value.title,
     };
 }

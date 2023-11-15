@@ -34,7 +34,7 @@ function BlockAllocationRangeTypeOverbookListInnerFromJSONTyped(json, ignoreDisc
     return {
         'overbook': !(0, runtime_1.exists)(json, 'overbook') ? undefined : json['overbook'],
         'roomType': !(0, runtime_1.exists)(json, 'roomType') ? undefined : json['roomType'],
-        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 exports.BlockAllocationRangeTypeOverbookListInnerFromJSONTyped = BlockAllocationRangeTypeOverbookListInnerFromJSONTyped;
@@ -48,7 +48,7 @@ function BlockAllocationRangeTypeOverbookListInnerToJSON(value) {
     return {
         'overbook': value.overbook,
         'roomType': value.roomType,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
+        'stayDate': value.stayDate,
     };
 }
 exports.BlockAllocationRangeTypeOverbookListInnerToJSON = BlockAllocationRangeTypeOverbookListInnerToJSON;

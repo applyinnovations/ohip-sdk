@@ -34,14 +34,14 @@ function BlockRatePlanTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'currencyCode': !(0, runtime_1.exists)(json, 'currencyCode') ? undefined : json['currencyCode'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : json['endSellDate'],
         'marketCode': !(0, runtime_1.exists)(json, 'marketCode') ? undefined : json['marketCode'],
         'negotiated': !(0, runtime_1.exists)(json, 'negotiated') ? undefined : json['negotiated'],
         'rateCode': !(0, runtime_1.exists)(json, 'rateCode') ? undefined : json['rateCode'],
         'sellSequence': !(0, runtime_1.exists)(json, 'sellSequence') ? undefined : json['sellSequence'],
         'showRateAmount': !(0, runtime_1.exists)(json, 'showRateAmount') ? undefined : json['showRateAmount'],
         'sourceCode': !(0, runtime_1.exists)(json, 'sourceCode') ? undefined : json['sourceCode'],
-        'startSellDate': !(0, runtime_1.exists)(json, 'startSellDate') ? undefined : (new Date(json['startSellDate'])),
+        'startSellDate': !(0, runtime_1.exists)(json, 'startSellDate') ? undefined : json['startSellDate'],
     };
 }
 exports.BlockRatePlanTypeFromJSONTyped = BlockRatePlanTypeFromJSONTyped;
@@ -55,14 +55,14 @@ function BlockRatePlanTypeToJSON(value) {
     return {
         'currencyCode': value.currencyCode,
         'description': value.description,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
+        'endSellDate': value.endSellDate,
         'marketCode': value.marketCode,
         'negotiated': value.negotiated,
         'rateCode': value.rateCode,
         'sellSequence': value.sellSequence,
         'showRateAmount': value.showRateAmount,
         'sourceCode': value.sourceCode,
-        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substring(0, 10)),
+        'startSellDate': value.startSellDate,
     };
 }
 exports.BlockRatePlanTypeToJSON = BlockRatePlanTypeToJSON;

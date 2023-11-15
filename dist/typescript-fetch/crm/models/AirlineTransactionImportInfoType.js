@@ -34,7 +34,7 @@ function AirlineTransactionImportInfoTypeFromJSONTyped(json, ignoreDiscriminator
     }
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : (new Date(json['importDate'])),
+        'importDate': !(0, runtime_1.exists)(json, 'importDate') ? undefined : json['importDate'],
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, AirlineImportStatusType_1.AirlineImportStatusTypeFromJSON)(json['status']),
     };
 }
@@ -48,7 +48,7 @@ function AirlineTransactionImportInfoTypeToJSON(value) {
     }
     return {
         'description': value.description,
-        'importDate': value.importDate === undefined ? undefined : (value.importDate.toISOString().substring(0, 10)),
+        'importDate': value.importDate,
         'status': (0, AirlineImportStatusType_1.AirlineImportStatusTypeToJSON)(value.status),
     };
 }

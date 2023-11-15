@@ -32,9 +32,9 @@ function HotelRateCategoryTypeRateCategoryDetailsFromJSONTyped(json, ignoreDiscr
         return json;
     }
     return {
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'rateClass': !(0, runtime_1.exists)(json, 'rateClass') ? undefined : json['rateClass'],
         'sellSequence': !(0, runtime_1.exists)(json, 'sellSequence') ? undefined : json['sellSequence'],
     };
@@ -48,9 +48,9 @@ function HotelRateCategoryTypeRateCategoryDetailsToJSON(value) {
         return null;
     }
     return {
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'rateClass': value.rateClass,
         'sellSequence': value.sellSequence,
     };

@@ -66,10 +66,10 @@ export interface CateringPackageEventNoteType {
     noteCode?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CateringPackageEventNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Title of the Catering Package Event Note.
      * @type {string}

@@ -42,10 +42,10 @@ export interface ShiftBlockCriteriaType {
     ignoreTraces?: boolean;
     /**
      * New start date of the business block.
-     * @type {Date}
+     * @type {string}
      * @memberof ShiftBlockCriteriaType
      */
-    newStartDate?: Date;
+    newStartDate?: string;
     /**
      * When true, this will overbook allocated rooms if needed.
      * @type {boolean}

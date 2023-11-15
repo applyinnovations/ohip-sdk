@@ -54,10 +54,10 @@ export interface RatePlanNoteType {
     noteId?: UniqueIDType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof RatePlanNoteType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
 }
 /**
  * Check if a given object implements the RatePlanNoteType interface.

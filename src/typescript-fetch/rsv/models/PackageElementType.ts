@@ -64,10 +64,10 @@ export interface PackageElementType {
     description?: Array<string>;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof PackageElementType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * 
      * @type {string}
@@ -106,10 +106,10 @@ export interface PackageElementType {
     sellSeparate?: boolean;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof PackageElementType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * 
      * @type {string}
@@ -143,14 +143,14 @@ export function PackageElementTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'amount': !exists(json, 'amount') ? undefined : CurrencyAmountTypeFromJSON(json['amount']),
         'calculationRule': !exists(json, 'calculationRule') ? undefined : json['calculationRule'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'endTime': !exists(json, 'endTime') ? undefined : json['endTime'],
         'includedInRate': !exists(json, 'includedInRate') ? undefined : json['includedInRate'],
         'packageCode': !exists(json, 'packageCode') ? undefined : json['packageCode'],
         'postingRhythm': !exists(json, 'postingRhythm') ? undefined : json['postingRhythm'],
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'sellSeparate': !exists(json, 'sellSeparate') ? undefined : json['sellSeparate'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'startTime': !exists(json, 'startTime') ? undefined : json['startTime'],
     };
 }
@@ -170,14 +170,14 @@ export function PackageElementTypeToJSON(value?: PackageElementType | null): any
         'amount': CurrencyAmountTypeToJSON(value.amount),
         'calculationRule': value.calculationRule,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'endTime': value.endTime,
         'includedInRate': value.includedInRate,
         'packageCode': value.packageCode,
         'postingRhythm': value.postingRhythm,
         'quantity': value.quantity,
         'sellSeparate': value.sellSeparate,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'startTime': value.startTime,
     };
 }

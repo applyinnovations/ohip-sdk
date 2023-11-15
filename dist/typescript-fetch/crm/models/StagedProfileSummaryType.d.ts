@@ -33,10 +33,10 @@ export interface StagedProfileSummaryType {
     hotelId?: string;
     /**
      * The date on which the staged profile has been received.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileSummaryType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}

@@ -34,7 +34,7 @@ function MembershipTransactionRevenueTypeFromJSONTyped(json, ignoreDiscriminator
     }
     return {
         'centralRevenue': !(0, runtime_1.exists)(json, 'centralRevenue') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['centralRevenue']),
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'pMSRevenue': !(0, runtime_1.exists)(json, 'pMSRevenue') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['pMSRevenue']),
         'qualified': !(0, runtime_1.exists)(json, 'qualified') ? undefined : json['qualified'],
         'revenueType': !(0, runtime_1.exists)(json, 'revenueType') ? undefined : json['revenueType'],
@@ -50,7 +50,7 @@ function MembershipTransactionRevenueTypeToJSON(value) {
     }
     return {
         'centralRevenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.centralRevenue),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'pMSRevenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.pMSRevenue),
         'qualified': value.qualified,
         'revenueType': value.revenueType,

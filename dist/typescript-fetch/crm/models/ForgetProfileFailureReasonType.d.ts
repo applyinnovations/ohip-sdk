@@ -17,10 +17,10 @@
 export interface ForgetProfileFailureReasonType {
     /**
      * Expected resolution date for this reason.
-     * @type {Date}
+     * @type {string}
      * @memberof ForgetProfileFailureReasonType
      */
-    expectedResolutionDate?: Date;
+    expectedResolutionDate?: string;
     /**
      * Code representing the reason why the profile is not eligible to be forgotten.
      * @type {string}

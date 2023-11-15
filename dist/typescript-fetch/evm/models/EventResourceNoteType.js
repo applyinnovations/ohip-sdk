@@ -42,7 +42,7 @@ function EventResourceNoteTypeFromJSONTyped(json, ignoreDiscriminator) {
         'noteCode': !(0, runtime_1.exists)(json, 'noteCode') ? undefined : json['noteCode'],
         'noteId': !(0, runtime_1.exists)(json, 'noteId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['noteId']),
         'noteTitle': !(0, runtime_1.exists)(json, 'noteTitle') ? undefined : json['noteTitle'],
-        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !(0, runtime_1.exists)(json, 'purgeDate') ? undefined : json['purgeDate'],
         'sequence': !(0, runtime_1.exists)(json, 'sequence') ? undefined : json['sequence'],
     };
 }
@@ -64,7 +64,7 @@ function EventResourceNoteTypeToJSON(value) {
         'noteCode': value.noteCode,
         'noteId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.noteId),
         'noteTitle': value.noteTitle,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0, 10)),
+        'purgeDate': value.purgeDate,
         'sequence': value.sequence,
     };
 }

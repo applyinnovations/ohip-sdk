@@ -24,16 +24,16 @@ export interface OperaRecordLock {
     createdBy?: string;
     /**
      * This is the time when the record was locked.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaRecordLock
      */
-    createdOn?: Date;
+    createdOn?: string;
     /**
      * This is the estimated expiry time of the lock.
-     * @type {Date}
+     * @type {string}
      * @memberof OperaRecordLock
      */
-    expiresOn?: Date;
+    expiresOn?: string;
     /**
      * Notification flag to specify if the lock is based on an Internal Opera9 lock versus an External lock.
      * @type {boolean}

@@ -34,8 +34,8 @@ function ReservationQueueInformationTypeBlockDatesFromJSONTyped(json, ignoreDisc
     return {
         'duration': !(0, runtime_1.exists)(json, 'duration') ? undefined : json['duration'],
         'durationInSeconds': !(0, runtime_1.exists)(json, 'durationInSeconds') ? undefined : json['durationInSeconds'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.ReservationQueueInformationTypeBlockDatesFromJSONTyped = ReservationQueueInformationTypeBlockDatesFromJSONTyped;
@@ -49,8 +49,8 @@ function ReservationQueueInformationTypeBlockDatesToJSON(value) {
     return {
         'duration': value.duration,
         'durationInSeconds': value.durationInSeconds,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
+        'startDate': value.startDate,
     };
 }
 exports.ReservationQueueInformationTypeBlockDatesToJSON = ReservationQueueInformationTypeBlockDatesToJSON;

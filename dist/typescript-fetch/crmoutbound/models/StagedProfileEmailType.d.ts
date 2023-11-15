@@ -30,10 +30,10 @@ export interface StagedProfileEmailType {
     errorDescription?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileEmailType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Indicates whether the email is the default confirmation method.
      * @type {boolean}

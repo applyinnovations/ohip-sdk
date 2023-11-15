@@ -52,10 +52,10 @@ export interface BillingChargesCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingChargesCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * Flag to indicate it is part of a PostIt Sale.
      * @type {boolean}
@@ -98,7 +98,7 @@ export function BillingChargesCriteriaTypeFromJSONTyped(json: any, ignoreDiscrim
         'cashierId': !exists(json, 'cashierId') ? undefined : json['cashierId'],
         'charges': !exists(json, 'charges') ? undefined : ((json['charges'] as Array<any>).map(ChargeCriteriaTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
+        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : json['incomeAuditDate'],
         'postIt': !exists(json, 'postIt') ? undefined : json['postIt'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'welcomeOfferPosting': !exists(json, 'welcomeOfferPosting') ? undefined : json['welcomeOfferPosting'],
@@ -117,7 +117,7 @@ export function BillingChargesCriteriaTypeToJSON(value?: BillingChargesCriteriaT
         'cashierId': value.cashierId,
         'charges': value.charges === undefined ? undefined : ((value.charges as Array<any>).map(ChargeCriteriaTypeToJSON)),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
+        'incomeAuditDate': value.incomeAuditDate,
         'postIt': value.postIt,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'welcomeOfferPosting': value.welcomeOfferPosting,

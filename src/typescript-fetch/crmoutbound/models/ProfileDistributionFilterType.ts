@@ -124,16 +124,16 @@ export interface ProfileDistributionFilterType {
     guestLanguages?: string;
     /**
      * From date range from for arrival or departure date on stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileDistributionFilterType
      */
-    fromStayDate?: Date;
+    fromStayDate?: string;
     /**
      * To date range from for arrival or departure date on stay record.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileDistributionFilterType
      */
-    toStayDate?: Date;
+    toStayDate?: string;
     /**
      * 
      * @type {Array<string>}
@@ -184,10 +184,10 @@ export interface ProfileDistributionFilterType {
     minimumStayResorts?: number;
     /**
      * Last server date time when the query was run.
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileDistributionFilterType
      */
-    lastRunDate?: Date;
+    lastRunDate?: string;
     /**
      * Include inactive profiles also. Inactive profiles are profiles which are marked as N on active_yn flag.
      * @type {boolean}
@@ -279,8 +279,8 @@ export function ProfileDistributionFilterTypeFromJSONTyped(json: any, ignoreDisc
         'keywordType': !exists(json, 'keywordType') ? undefined : json['keywordType'],
         'keyword': !exists(json, 'keyword') ? undefined : json['keyword'],
         'guestLanguages': !exists(json, 'guestLanguages') ? undefined : json['guestLanguages'],
-        'fromStayDate': !exists(json, 'fromStayDate') ? undefined : (new Date(json['fromStayDate'])),
-        'toStayDate': !exists(json, 'toStayDate') ? undefined : (new Date(json['toStayDate'])),
+        'fromStayDate': !exists(json, 'fromStayDate') ? undefined : json['fromStayDate'],
+        'toStayDate': !exists(json, 'toStayDate') ? undefined : json['toStayDate'],
         'roomLabels': !exists(json, 'roomLabels') ? undefined : json['roomLabels'],
         'stayResorts': !exists(json, 'stayResorts') ? undefined : json['stayResorts'],
         'stayChains': !exists(json, 'stayChains') ? undefined : json['stayChains'],
@@ -289,7 +289,7 @@ export function ProfileDistributionFilterTypeFromJSONTyped(json: any, ignoreDisc
         'totalNights': !exists(json, 'totalNights') ? undefined : json['totalNights'],
         'totalStays': !exists(json, 'totalStays') ? undefined : json['totalStays'],
         'minimumStayResorts': !exists(json, 'minimumStayResorts') ? undefined : json['minimumStayResorts'],
-        'lastRunDate': !exists(json, 'lastRunDate') ? undefined : (new Date(json['lastRunDate'])),
+        'lastRunDate': !exists(json, 'lastRunDate') ? undefined : json['lastRunDate'],
         'includeInactiveProfile': !exists(json, 'includeInactiveProfile') ? undefined : json['includeInactiveProfile'],
         'creditRating': !exists(json, 'creditRating') ? undefined : json['creditRating'],
         'topNumber': !exists(json, 'topNumber') ? undefined : json['topNumber'],
@@ -327,8 +327,8 @@ export function ProfileDistributionFilterTypeToJSON(value?: ProfileDistributionF
         'keywordType': value.keywordType,
         'keyword': value.keyword,
         'guestLanguages': value.guestLanguages,
-        'fromStayDate': value.fromStayDate === undefined ? undefined : (value.fromStayDate.toISOString().substring(0,10)),
-        'toStayDate': value.toStayDate === undefined ? undefined : (value.toStayDate.toISOString().substring(0,10)),
+        'fromStayDate': value.fromStayDate,
+        'toStayDate': value.toStayDate,
         'roomLabels': value.roomLabels,
         'stayResorts': value.stayResorts,
         'stayChains': value.stayChains,
@@ -337,7 +337,7 @@ export function ProfileDistributionFilterTypeToJSON(value?: ProfileDistributionF
         'totalNights': value.totalNights,
         'totalStays': value.totalStays,
         'minimumStayResorts': value.minimumStayResorts,
-        'lastRunDate': value.lastRunDate === undefined ? undefined : (value.lastRunDate.toISOString().substring(0,10)),
+        'lastRunDate': value.lastRunDate,
         'includeInactiveProfile': value.includeInactiveProfile,
         'creditRating': value.creditRating,
         'topNumber': value.topNumber,

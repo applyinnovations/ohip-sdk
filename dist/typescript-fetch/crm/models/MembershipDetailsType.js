@@ -35,8 +35,8 @@ function MembershipDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'cardExpirationDate': !(0, runtime_1.exists)(json, 'cardExpirationDate') ? undefined : (new Date(json['cardExpirationDate'])),
-        'joinedDate': !(0, runtime_1.exists)(json, 'joinedDate') ? undefined : (new Date(json['joinedDate'])),
+        'cardExpirationDate': !(0, runtime_1.exists)(json, 'cardExpirationDate') ? undefined : json['cardExpirationDate'],
+        'joinedDate': !(0, runtime_1.exists)(json, 'joinedDate') ? undefined : json['joinedDate'],
         'membershipCardNo': !(0, runtime_1.exists)(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipId': !(0, runtime_1.exists)(json, 'membershipId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['membershipId']),
         'membershipLevel': !(0, runtime_1.exists)(json, 'membershipLevel') ? undefined : json['membershipLevel'],
@@ -54,8 +54,8 @@ function MembershipDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'cardExpirationDate': value.cardExpirationDate === undefined ? undefined : (value.cardExpirationDate.toISOString().substring(0, 10)),
-        'joinedDate': value.joinedDate === undefined ? undefined : (value.joinedDate.toISOString().substring(0, 10)),
+        'cardExpirationDate': value.cardExpirationDate,
+        'joinedDate': value.joinedDate,
         'membershipCardNo': value.membershipCardNo,
         'membershipId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.membershipId),
         'membershipLevel': value.membershipLevel,

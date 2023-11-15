@@ -38,7 +38,7 @@ function ReservationQueueInformationTypeFromJSONTyped(json, ignoreDiscriminator)
         'averageQueueTimeToCheckIn': !(0, runtime_1.exists)(json, 'averageQueueTimeToCheckIn') ? undefined : json['averageQueueTimeToCheckIn'],
         'guestTextInfo': !(0, runtime_1.exists)(json, 'guestTextInfo') ? undefined : (0, QueueTextInfoType_1.QueueTextInfoTypeFromJSON)(json['guestTextInfo']),
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
-        'queueDate': !(0, runtime_1.exists)(json, 'queueDate') ? undefined : (new Date(json['queueDate'])),
+        'queueDate': !(0, runtime_1.exists)(json, 'queueDate') ? undefined : json['queueDate'],
         'timeSpan': !(0, runtime_1.exists)(json, 'timeSpan') ? undefined : (0, ReservationQueueInformationTypeTimeSpan_1.ReservationQueueInformationTypeTimeSpanFromJSON)(json['timeSpan']),
     };
 }
@@ -55,7 +55,7 @@ function ReservationQueueInformationTypeToJSON(value) {
         'averageQueueTimeToCheckIn': value.averageQueueTimeToCheckIn,
         'guestTextInfo': (0, QueueTextInfoType_1.QueueTextInfoTypeToJSON)(value.guestTextInfo),
         'priority': value.priority,
-        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substring(0, 10)),
+        'queueDate': value.queueDate,
         'timeSpan': (0, ReservationQueueInformationTypeTimeSpan_1.ReservationQueueInformationTypeTimeSpanToJSON)(value.timeSpan),
     };
 }

@@ -25,10 +25,10 @@ export interface AutoSettleCompFolioType {
     fiscalBillNo?: string;
     /**
      * Date of Folio Generation.
-     * @type {Date}
+     * @type {string}
      * @memberof AutoSettleCompFolioType
      */
-    folioDate?: Date;
+    folioDate?: string;
     /**
      * Folio Number.
      * @type {number}

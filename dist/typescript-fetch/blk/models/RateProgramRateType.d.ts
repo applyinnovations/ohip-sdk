@@ -25,10 +25,10 @@ export interface RateProgramRateType {
     commissionable?: boolean;
     /**
      * End date of the Room Pool Rate Program.
-     * @type {Date}
+     * @type {string}
      * @memberof RateProgramRateType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Rate Program Mobile Checkout Allowed Indicator.
      * @type {boolean}
@@ -73,10 +73,10 @@ export interface RateProgramRateType {
     sequence?: number;
     /**
      * Start date of the Room Pool Rate Program.
-     * @type {Date}
+     * @type {string}
      * @memberof RateProgramRateType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the RateProgramRateType interface.

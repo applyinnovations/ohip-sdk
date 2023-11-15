@@ -39,10 +39,10 @@ export interface BillingPrivilegesType {
     postStayCharging?: boolean;
     /**
      * Date when folio was closed. This works with PostStayCharging flag.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingPrivilegesType
      */
-    folioCloseDate?: Date;
+    folioCloseDate?: string;
     /**
      * Indicates if the guest is scheduled for automatic check out.
      * @type {boolean}
@@ -51,10 +51,10 @@ export interface BillingPrivilegesType {
     scheduledCheckout?: boolean;
     /**
      * Time of automatic check out if guest is schedule for automatic check out.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingPrivilegesType
      */
-    scheduledCheckoutTime?: Date;
+    scheduledCheckoutTime?: string;
     /**
      * If Direct bill is authorized this will hold User ID who authorized it.
      * @type {boolean}
@@ -121,9 +121,9 @@ export function BillingPrivilegesTypeFromJSONTyped(json: any, ignoreDiscriminato
         'postingRestriction': !exists(json, 'postingRestriction') ? undefined : json['postingRestriction'],
         'preStayCharging': !exists(json, 'preStayCharging') ? undefined : json['preStayCharging'],
         'postStayCharging': !exists(json, 'postStayCharging') ? undefined : json['postStayCharging'],
-        'folioCloseDate': !exists(json, 'folioCloseDate') ? undefined : (new Date(json['folioCloseDate'])),
+        'folioCloseDate': !exists(json, 'folioCloseDate') ? undefined : json['folioCloseDate'],
         'scheduledCheckout': !exists(json, 'scheduledCheckout') ? undefined : json['scheduledCheckout'],
-        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : (new Date(json['scheduledCheckoutTime'])),
+        'scheduledCheckoutTime': !exists(json, 'scheduledCheckoutTime') ? undefined : json['scheduledCheckoutTime'],
         'directBillAuthorized': !exists(json, 'directBillAuthorized') ? undefined : json['directBillAuthorized'],
         'videoCheckout': !exists(json, 'videoCheckout') ? undefined : json['videoCheckout'],
         'allowAutoCheckin': !exists(json, 'allowAutoCheckin') ? undefined : json['allowAutoCheckin'],
@@ -146,9 +146,9 @@ export function BillingPrivilegesTypeToJSON(value?: BillingPrivilegesType | null
         'postingRestriction': value.postingRestriction,
         'preStayCharging': value.preStayCharging,
         'postStayCharging': value.postStayCharging,
-        'folioCloseDate': value.folioCloseDate === undefined ? undefined : (value.folioCloseDate.toISOString().substring(0,10)),
+        'folioCloseDate': value.folioCloseDate,
         'scheduledCheckout': value.scheduledCheckout,
-        'scheduledCheckoutTime': value.scheduledCheckoutTime === undefined ? undefined : (value.scheduledCheckoutTime.toISOString().substring(0,10)),
+        'scheduledCheckoutTime': value.scheduledCheckoutTime,
         'directBillAuthorized': value.directBillAuthorized,
         'videoCheckout': value.videoCheckout,
         'allowAutoCheckin': value.allowAutoCheckin,

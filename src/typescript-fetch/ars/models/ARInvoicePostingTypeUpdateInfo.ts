@@ -27,10 +27,10 @@ export interface ARInvoicePostingTypeUpdateInfo {
     updateBy?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoicePostingTypeUpdateInfo
      */
-    updateDate?: Date;
+    updateDate?: string;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ARInvoicePostingTypeUpdateInfoFromJSONTyped(json: any, ignoreDis
     return {
         
         'updateBy': !exists(json, 'updateBy') ? undefined : json['updateBy'],
-        'updateDate': !exists(json, 'updateDate') ? undefined : (new Date(json['updateDate'])),
+        'updateDate': !exists(json, 'updateDate') ? undefined : json['updateDate'],
     };
 }
 
@@ -67,7 +67,7 @@ export function ARInvoicePostingTypeUpdateInfoToJSON(value?: ARInvoicePostingTyp
     return {
         
         'updateBy': value.updateBy,
-        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0,10)),
+        'updateDate': value.updateDate,
     };
 }
 

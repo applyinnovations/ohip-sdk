@@ -28,10 +28,10 @@ import {
 export interface SystemRoomTypeType {
     /**
      * Inactive date of room type external system.
-     * @type {Date}
+     * @type {string}
      * @memberof SystemRoomTypeType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * 
      * @type {CodeDescriptionType}
@@ -59,7 +59,7 @@ export function SystemRoomTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'roomTypeCode': !exists(json, 'roomTypeCode') ? undefined : CodeDescriptionTypeFromJSON(json['roomTypeCode']),
     };
 }
@@ -73,7 +73,7 @@ export function SystemRoomTypeTypeToJSON(value?: SystemRoomTypeType | null): any
     }
     return {
         
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'roomTypeCode': CodeDescriptionTypeToJSON(value.roomTypeCode),
     };
 }

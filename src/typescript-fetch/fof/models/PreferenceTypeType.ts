@@ -88,10 +88,10 @@ export interface PreferenceTypeType {
     preferenceTypeDescription?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof PreferenceTypeType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Whether this preference is reservation preference or not.
      * @type {boolean}
@@ -135,7 +135,7 @@ export function PreferenceTypeTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'preference': !exists(json, 'preference') ? undefined : ((json['preference'] as Array<any>).map(PreferenceTypeFromJSON)),
         'preferenceType': !exists(json, 'preferenceType') ? undefined : json['preferenceType'],
         'preferenceTypeDescription': !exists(json, 'preferenceTypeDescription') ? undefined : json['preferenceTypeDescription'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationPreference': !exists(json, 'reservationPreference') ? undefined : json['reservationPreference'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
     };
@@ -160,7 +160,7 @@ export function PreferenceTypeTypeToJSON(value?: PreferenceTypeType | null): any
         'preference': value.preference === undefined ? undefined : ((value.preference as Array<any>).map(PreferenceTypeToJSON)),
         'preferenceType': value.preferenceType,
         'preferenceTypeDescription': value.preferenceTypeDescription,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'reservationPreference': value.reservationPreference,
         'sequence': value.sequence,
     };

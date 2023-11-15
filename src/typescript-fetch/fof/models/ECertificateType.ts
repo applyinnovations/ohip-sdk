@@ -82,10 +82,10 @@ export interface ECertificateType {
     awardPoints?: number;
     /**
      * Date on which the cancellation was requested.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    cancelRequestDate?: Date;
+    cancelRequestDate?: string;
     /**
      * System generated unique certificate id.
      * @type {number}
@@ -118,10 +118,10 @@ export interface ECertificateType {
     eCertificateInfo?: ECertificateInfoType;
     /**
      * Date of expiry.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * Number of times e-certificate is already extended.
      * @type {number}
@@ -142,16 +142,16 @@ export interface ECertificateType {
     inLieuSequence?: number;
     /**
      * Date the record was marked as inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Date when certificate was issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * 
      * @type {ECertificateIssueType}
@@ -160,10 +160,10 @@ export interface ECertificateType {
     issueType?: ECertificateIssueType;
     /**
      * New Date of expiry to extend e-certificate.
-     * @type {Date}
+     * @type {string}
      * @memberof ECertificateType
      */
-    newExpiryDate?: Date;
+    newExpiryDate?: string;
     /**
      * In case of in lieu of certificate this will contain the original certificate no.
      * @type {string}
@@ -229,20 +229,20 @@ export function ECertificateTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'awardId': !exists(json, 'awardId') ? undefined : AwardIdFromJSON(json['awardId']),
         'awardPoints': !exists(json, 'awardPoints') ? undefined : json['awardPoints'],
-        'cancelRequestDate': !exists(json, 'cancelRequestDate') ? undefined : (new Date(json['cancelRequestDate'])),
+        'cancelRequestDate': !exists(json, 'cancelRequestDate') ? undefined : json['cancelRequestDate'],
         'certificateId': !exists(json, 'certificateId') ? undefined : json['certificateId'],
         'certificateNo': !exists(json, 'certificateNo') ? undefined : json['certificateNo'],
         'consumptionDetail': !exists(json, 'consumptionDetail') ? undefined : ECertificateConsumptionTypeFromJSON(json['consumptionDetail']),
         'databaseId': !exists(json, 'databaseId') ? undefined : json['databaseId'],
         'eCertificateInfo': !exists(json, 'eCertificateInfo') ? undefined : ECertificateInfoTypeFromJSON(json['eCertificateInfo']),
-        'expiryDate': !exists(json, 'expiryDate') ? undefined : (new Date(json['expiryDate'])),
+        'expiryDate': !exists(json, 'expiryDate') ? undefined : json['expiryDate'],
         'extensionCount': !exists(json, 'extensionCount') ? undefined : json['extensionCount'],
         'generationDetail': !exists(json, 'generationDetail') ? undefined : ECertificateGenerationTypeFromJSON(json['generationDetail']),
         'inLieuSequence': !exists(json, 'inLieuSequence') ? undefined : json['inLieuSequence'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
-        'issueDate': !exists(json, 'issueDate') ? undefined : (new Date(json['issueDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
+        'issueDate': !exists(json, 'issueDate') ? undefined : json['issueDate'],
         'issueType': !exists(json, 'issueType') ? undefined : ECertificateIssueTypeFromJSON(json['issueType']),
-        'newExpiryDate': !exists(json, 'newExpiryDate') ? undefined : (new Date(json['newExpiryDate'])),
+        'newExpiryDate': !exists(json, 'newExpiryDate') ? undefined : json['newExpiryDate'],
         'originalCertificateNo': !exists(json, 'originalCertificateNo') ? undefined : json['originalCertificateNo'],
         'originalVoucherNo': !exists(json, 'originalVoucherNo') ? undefined : json['originalVoucherNo'],
         'printed': !exists(json, 'printed') ? undefined : json['printed'],
@@ -264,20 +264,20 @@ export function ECertificateTypeToJSON(value?: ECertificateType | null): any {
         
         'awardId': AwardIdToJSON(value.awardId),
         'awardPoints': value.awardPoints,
-        'cancelRequestDate': value.cancelRequestDate === undefined ? undefined : (value.cancelRequestDate.toISOString().substring(0,10)),
+        'cancelRequestDate': value.cancelRequestDate,
         'certificateId': value.certificateId,
         'certificateNo': value.certificateNo,
         'consumptionDetail': ECertificateConsumptionTypeToJSON(value.consumptionDetail),
         'databaseId': value.databaseId,
         'eCertificateInfo': ECertificateInfoTypeToJSON(value.eCertificateInfo),
-        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substring(0,10)),
+        'expiryDate': value.expiryDate,
         'extensionCount': value.extensionCount,
         'generationDetail': ECertificateGenerationTypeToJSON(value.generationDetail),
         'inLieuSequence': value.inLieuSequence,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
-        'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
+        'issueDate': value.issueDate,
         'issueType': ECertificateIssueTypeToJSON(value.issueType),
-        'newExpiryDate': value.newExpiryDate === undefined ? undefined : (value.newExpiryDate.toISOString().substring(0,10)),
+        'newExpiryDate': value.newExpiryDate,
         'originalCertificateNo': value.originalCertificateNo,
         'originalVoucherNo': value.originalVoucherNo,
         'printed': value.printed,

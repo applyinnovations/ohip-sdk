@@ -64,16 +64,16 @@ export interface PrepaidCardTransactionType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardTransactionType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Transaction number of the Prepaid card transaction.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardTransactionType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction number of the Prepaid card transaction.
      * @type {number}
@@ -112,8 +112,8 @@ export function PrepaidCardTransactionTypeFromJSONTyped(json: any, ignoreDiscrim
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
         'transactionType': !exists(json, 'transactionType') ? undefined : PrepaidCardTrxTypeTypeFromJSON(json['transactionType']),
     };
@@ -133,8 +133,8 @@ export function PrepaidCardTransactionTypeToJSON(value?: PrepaidCardTransactionT
         'creatorId': value.creatorId,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
+        'transactionDate': value.transactionDate,
         'transactionNo': value.transactionNo,
         'transactionType': PrepaidCardTrxTypeTypeToJSON(value.transactionType),
     };

@@ -448,10 +448,10 @@ export interface ProfileType {
     protectedBy?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof ProfileType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Hotel which this profile is registered with. This attribute is not used for configuration.
      * @type {string}
@@ -617,7 +617,7 @@ export function ProfileTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'profileRestrictions': !exists(json, 'profileRestrictions') ? undefined : ProfileRestrictionsFromJSON(json['profileRestrictions']),
         'profileType': !exists(json, 'profileType') ? undefined : ProfileTypeTypeFromJSON(json['profileType']),
         'protectedBy': !exists(json, 'protectedBy') ? undefined : json['protectedBy'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'registeredProperty': !exists(json, 'registeredProperty') ? undefined : json['registeredProperty'],
         'relationships': !exists(json, 'relationships') ? undefined : ProfileTypeRelationshipsFromJSON(json['relationships']),
         'relationshipsSummary': !exists(json, 'relationshipsSummary') ? undefined : ProfileTypeRelationshipsSummaryFromJSON(json['relationshipsSummary']),
@@ -684,7 +684,7 @@ export function ProfileTypeToJSON(value?: ProfileType | null): any {
         'profileRestrictions': ProfileRestrictionsToJSON(value.profileRestrictions),
         'profileType': ProfileTypeTypeToJSON(value.profileType),
         'protectedBy': value.protectedBy,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'registeredProperty': value.registeredProperty,
         'relationships': ProfileTypeRelationshipsToJSON(value.relationships),
         'relationshipsSummary': ProfileTypeRelationshipsSummaryToJSON(value.relationshipsSummary),

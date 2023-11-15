@@ -33,7 +33,7 @@ function PrivacyInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'marketResearchParticipation': !(0, runtime_1.exists)(json, 'marketResearchParticipation') ? undefined : json['marketResearchParticipation'],
-        'lastPrivacyPromptDate': !(0, runtime_1.exists)(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
+        'lastPrivacyPromptDate': !(0, runtime_1.exists)(json, 'lastPrivacyPromptDate') ? undefined : json['lastPrivacyPromptDate'],
         'infoFromThirdParty': !(0, runtime_1.exists)(json, 'infoFromThirdParty') ? undefined : json['infoFromThirdParty'],
         'autoEnrollLoyaltyProgram': !(0, runtime_1.exists)(json, 'autoEnrollLoyaltyProgram') ? undefined : json['autoEnrollLoyaltyProgram'],
         'allowPhone': !(0, runtime_1.exists)(json, 'allowPhone') ? undefined : json['allowPhone'],
@@ -58,7 +58,7 @@ function PrivacyInfoTypeToJSON(value) {
     }
     return {
         'marketResearchParticipation': value.marketResearchParticipation,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0, 10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate,
         'infoFromThirdParty': value.infoFromThirdParty,
         'autoEnrollLoyaltyProgram': value.autoEnrollLoyaltyProgram,
         'allowPhone': value.allowPhone,

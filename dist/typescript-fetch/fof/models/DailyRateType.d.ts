@@ -74,10 +74,10 @@ export interface DailyRateType {
     discount?: DiscountType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {FeesType}
@@ -92,10 +92,10 @@ export interface DailyRateType {
     rateOverride?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {TaxesType}

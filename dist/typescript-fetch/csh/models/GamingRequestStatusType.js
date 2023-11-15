@@ -35,7 +35,7 @@ function GamingRequestStatusTypeFromJSONTyped(json, ignoreDiscriminator) {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'messageId': !(0, runtime_1.exists)(json, 'messageId') ? undefined : json['messageId'],
         'messageText': !(0, runtime_1.exists)(json, 'messageText') ? undefined : json['messageText'],
-        'requestDate': !(0, runtime_1.exists)(json, 'requestDate') ? undefined : (new Date(json['requestDate'])),
+        'requestDate': !(0, runtime_1.exists)(json, 'requestDate') ? undefined : json['requestDate'],
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : json['status'],
         'statusCode': !(0, runtime_1.exists)(json, 'statusCode') ? undefined : json['statusCode'],
     };
@@ -52,7 +52,7 @@ function GamingRequestStatusTypeToJSON(value) {
         'hotelId': value.hotelId,
         'messageId': value.messageId,
         'messageText': value.messageText,
-        'requestDate': value.requestDate === undefined ? undefined : (value.requestDate.toISOString().substring(0, 10)),
+        'requestDate': value.requestDate,
         'status': value.status,
         'statusCode': value.statusCode,
     };

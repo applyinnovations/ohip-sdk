@@ -36,10 +36,10 @@ export interface SalesAllowanceType {
     booked?: number;
     /**
      * Ceiling date for the Sales Allowance.
-     * @type {Date}
+     * @type {string}
      * @memberof SalesAllowanceType
      */
-    ceilingDate?: Date;
+    ceilingDate?: string;
     /**
      *
      * @type {SalesAllowanceIDType}

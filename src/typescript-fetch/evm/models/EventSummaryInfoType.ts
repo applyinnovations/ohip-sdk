@@ -238,10 +238,10 @@ export interface EventSummaryInfoType {
     hotelId?: string;
     /**
      * Inactivation date of the event.
-     * @type {Date}
+     * @type {string}
      * @memberof EventSummaryInfoType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Flag to indicate if the event space is associated from the Package.
      * @type {boolean}
@@ -418,7 +418,7 @@ export function EventSummaryInfoTypeFromJSONTyped(json: any, ignoreDiscriminator
         'hasPartialPostings': !exists(json, 'hasPartialPostings') ? undefined : json['hasPartialPostings'],
         'hasPostings': !exists(json, 'hasPostings') ? undefined : json['hasPostings'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'includeSpaceInPackage': !exists(json, 'includeSpaceInPackage') ? undefined : json['includeSpaceInPackage'],
         'indicators': !exists(json, 'indicators') ? undefined : ((json['indicators'] as Array<any>).map(IndicatorTypeFromJSON)),
         'loudEvent': !exists(json, 'loudEvent') ? undefined : json['loudEvent'],
@@ -481,7 +481,7 @@ export function EventSummaryInfoTypeToJSON(value?: EventSummaryInfoType | null):
         'hasPartialPostings': value.hasPartialPostings,
         'hasPostings': value.hasPostings,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'includeSpaceInPackage': value.includeSpaceInPackage,
         'indicators': value.indicators === undefined ? undefined : ((value.indicators as Array<any>).map(IndicatorTypeToJSON)),
         'loudEvent': value.loudEvent,

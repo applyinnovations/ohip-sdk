@@ -97,10 +97,10 @@ export interface CateringType {
     contractNumber?: string;
     /**
      * Date by which event group must make a decision on the booking.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringType
      */
-    decisionDate?: Date;
+    decisionDate?: string;
     /**
      *
      * @type {EventAttendeesType}
@@ -115,10 +115,10 @@ export interface CateringType {
     eventOrder?: EventOrderType;
     /**
      * Date used by catering manager or coordinator to follow up on the event.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringType
      */
-    followUpDate?: Date;
+    followUpDate?: string;
     /**
      * This provides more detail the type of function for which the event is held. For example, Trade Show, Meeting, or Annual Convention.
      * @type {string}

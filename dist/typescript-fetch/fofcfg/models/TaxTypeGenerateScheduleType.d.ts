@@ -24,10 +24,10 @@ export interface TaxTypeGenerateScheduleType {
     rule?: TaxTypeCalcRuleType;
     /**
      * Date when this schedule will be effective.
-     * @type {Date}
+     * @type {string}
      * @memberof TaxTypeGenerateScheduleType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the TaxTypeGenerateScheduleType interface.

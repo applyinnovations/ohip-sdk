@@ -29,16 +29,16 @@ export interface ProductAvailabilityType {
     awardType?: string;
     /**
      * The valid time period from when the award can be issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ProductAvailabilityType
      */
-    awardValidFrom?: Date;
+    awardValidFrom?: string;
     /**
      * The valid time to an issued award.
-     * @type {Date}
+     * @type {string}
      * @memberof ProductAvailabilityType
      */
-    awardValidTo?: Date;
+    awardValidTo?: string;
     /**
      * The cancel penalty charge.
      * @type {number}

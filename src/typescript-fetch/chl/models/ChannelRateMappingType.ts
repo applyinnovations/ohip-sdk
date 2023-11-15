@@ -64,10 +64,10 @@ export interface ChannelRateMappingType {
     allowRestrictionUpdate?: boolean;
     /**
      * Begin date of the channel rate code mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRateMappingType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Block Rate Indicator.
      * @type {string}
@@ -118,10 +118,10 @@ export interface ChannelRateMappingType {
     description?: ChannelRateMappingDescriptionType;
     /**
      * End date of the channel rate code mapping.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelRateMappingType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * True if the mapping has channel negotiated rates, otherwise false.
      * @type {boolean}
@@ -211,7 +211,7 @@ export function ChannelRateMappingTypeFromJSONTyped(json: any, ignoreDiscriminat
         
         'allowRateUpdate': !exists(json, 'allowRateUpdate') ? undefined : json['allowRateUpdate'],
         'allowRestrictionUpdate': !exists(json, 'allowRestrictionUpdate') ? undefined : json['allowRestrictionUpdate'],
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'blockRateIndicator': !exists(json, 'blockRateIndicator') ? undefined : json['blockRateIndicator'],
         'bookingChannelCode': !exists(json, 'bookingChannelCode') ? undefined : json['bookingChannelCode'],
         'carrierInfo': !exists(json, 'carrierInfo') ? undefined : CarrierInfoTypeFromJSON(json['carrierInfo']),
@@ -220,7 +220,7 @@ export function ChannelRateMappingTypeFromJSONTyped(json: any, ignoreDiscriminat
         'channelRatePlanOrder': !exists(json, 'channelRatePlanOrder') ? undefined : json['channelRatePlanOrder'],
         'channelRatePlanWebName': !exists(json, 'channelRatePlanWebName') ? undefined : json['channelRatePlanWebName'],
         'description': !exists(json, 'description') ? undefined : ChannelRateMappingDescriptionTypeFromJSON(json['description']),
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hasChannelNegotiatedRates': !exists(json, 'hasChannelNegotiatedRates') ? undefined : json['hasChannelNegotiatedRates'],
         'hasNegotiatedRates': !exists(json, 'hasNegotiatedRates') ? undefined : json['hasNegotiatedRates'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -246,7 +246,7 @@ export function ChannelRateMappingTypeToJSON(value?: ChannelRateMappingType | nu
         
         'allowRateUpdate': value.allowRateUpdate,
         'allowRestrictionUpdate': value.allowRestrictionUpdate,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'blockRateIndicator': value.blockRateIndicator,
         'bookingChannelCode': value.bookingChannelCode,
         'carrierInfo': CarrierInfoTypeToJSON(value.carrierInfo),
@@ -255,7 +255,7 @@ export function ChannelRateMappingTypeToJSON(value?: ChannelRateMappingType | nu
         'channelRatePlanOrder': value.channelRatePlanOrder,
         'channelRatePlanWebName': value.channelRatePlanWebName,
         'description': ChannelRateMappingDescriptionTypeToJSON(value.description),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hasChannelNegotiatedRates': value.hasChannelNegotiatedRates,
         'hasNegotiatedRates': value.hasNegotiatedRates,
         'hotelId': value.hotelId,

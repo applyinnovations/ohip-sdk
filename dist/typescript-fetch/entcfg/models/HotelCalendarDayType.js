@@ -34,7 +34,7 @@ function HotelCalendarDayTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'dayType': !(0, runtime_1.exists)(json, 'dayType') ? undefined : (0, HotelCalendarDayTypeType_1.HotelCalendarDayTypeTypeFromJSON)(json['dayType']),
         'events': !(0, runtime_1.exists)(json, 'events') ? undefined : (json['events'].map(HotelCalendarEventType_1.HotelCalendarEventTypeFromJSON)),
     };
@@ -48,7 +48,7 @@ function HotelCalendarDayTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'dayType': (0, HotelCalendarDayTypeType_1.HotelCalendarDayTypeTypeToJSON)(value.dayType),
         'events': value.events === undefined ? undefined : (value.events.map(HotelCalendarEventType_1.HotelCalendarEventTypeToJSON)),
     };

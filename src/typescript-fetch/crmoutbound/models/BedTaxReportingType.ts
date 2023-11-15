@@ -33,16 +33,16 @@ export interface BedTaxReportingType {
     visaNumber?: string;
     /**
      * Visa Issue Date used for Maldives Bed Tax Reporting.
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxReportingType
      */
-    visaIssueDate?: Date;
+    visaIssueDate?: string;
     /**
      * Visa Expiration Date used for Maldives Bed Tax Reporting
-     * @type {Date}
+     * @type {string}
      * @memberof BedTaxReportingType
      */
-    visaExpiryDate?: Date;
+    visaExpiryDate?: string;
     /**
      * Number of days for which the Maldives tax is applicable.
      * @type {number}
@@ -72,8 +72,8 @@ export function BedTaxReportingTypeFromJSONTyped(json: any, ignoreDiscriminator:
         
         'taxRegistrationNo': !exists(json, 'taxRegistrationNo') ? undefined : json['taxRegistrationNo'],
         'visaNumber': !exists(json, 'visaNumber') ? undefined : json['visaNumber'],
-        'visaIssueDate': !exists(json, 'visaIssueDate') ? undefined : (new Date(json['visaIssueDate'])),
-        'visaExpiryDate': !exists(json, 'visaExpiryDate') ? undefined : (new Date(json['visaExpiryDate'])),
+        'visaIssueDate': !exists(json, 'visaIssueDate') ? undefined : json['visaIssueDate'],
+        'visaExpiryDate': !exists(json, 'visaExpiryDate') ? undefined : json['visaExpiryDate'],
         'taxableDays': !exists(json, 'taxableDays') ? undefined : json['taxableDays'],
     };
 }
@@ -89,8 +89,8 @@ export function BedTaxReportingTypeToJSON(value?: BedTaxReportingType | null): a
         
         'taxRegistrationNo': value.taxRegistrationNo,
         'visaNumber': value.visaNumber,
-        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substring(0,10)),
-        'visaExpiryDate': value.visaExpiryDate === undefined ? undefined : (value.visaExpiryDate.toISOString().substring(0,10)),
+        'visaIssueDate': value.visaIssueDate,
+        'visaExpiryDate': value.visaExpiryDate,
         'taxableDays': value.taxableDays,
     };
 }

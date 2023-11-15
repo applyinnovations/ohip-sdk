@@ -43,10 +43,10 @@ export interface TrackItItemType {
     description?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof TrackItItemType
      */
-    followUpDate?: Date;
+    followUpDate?: string;
     /**
      *
      * @type {TrackItGroup}

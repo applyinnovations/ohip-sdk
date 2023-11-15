@@ -220,10 +220,10 @@ export interface PackagePostingType {
     postedAmount?: CurrencyAmountType;
     /**
      * Date and time of posting.
-     * @type {Date}
+     * @type {string}
      * @memberof PackagePostingType
      */
-    postingDate?: Date;
+    postingDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -268,10 +268,10 @@ export interface PackagePostingType {
     remark?: string;
     /**
      * The date on which the transaction has its revenue effect.
-     * @type {Date}
+     * @type {string}
      * @memberof PackagePostingType
      */
-    revenueDate?: Date;
+    revenueDate?: string;
     /**
      * Reverse payment transaction unique identifier.
      * @type {number}
@@ -316,10 +316,10 @@ export interface PackagePostingType {
     transactionCode?: string;
     /**
      * Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof PackagePostingType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Billing Transaction Description.
      * @type {string}
@@ -390,7 +390,7 @@ export function PackagePostingTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'packageCode': !exists(json, 'packageCode') ? undefined : json['packageCode'],
         'paidOut': !exists(json, 'paidOut') ? undefined : json['paidOut'],
         'postedAmount': !exists(json, 'postedAmount') ? undefined : CurrencyAmountTypeFromJSON(json['postedAmount']),
-        'postingDate': !exists(json, 'postingDate') ? undefined : (new Date(json['postingDate'])),
+        'postingDate': !exists(json, 'postingDate') ? undefined : json['postingDate'],
         'price': !exists(json, 'price') ? undefined : CurrencyAmountTypeFromJSON(json['price']),
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
@@ -398,7 +398,7 @@ export function PackagePostingTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'reference': !exists(json, 'reference') ? undefined : json['reference'],
         'referenceTransactionNo': !exists(json, 'referenceTransactionNo') ? undefined : json['referenceTransactionNo'],
         'remark': !exists(json, 'remark') ? undefined : json['remark'],
-        'revenueDate': !exists(json, 'revenueDate') ? undefined : (new Date(json['revenueDate'])),
+        'revenueDate': !exists(json, 'revenueDate') ? undefined : json['revenueDate'],
         'reversePaymentTransactionNo': !exists(json, 'reversePaymentTransactionNo') ? undefined : json['reversePaymentTransactionNo'],
         'roundingDifferenceTrx': !exists(json, 'roundingDifferenceTrx') ? undefined : json['roundingDifferenceTrx'],
         'serviceRecovery': !exists(json, 'serviceRecovery') ? undefined : json['serviceRecovery'],
@@ -406,7 +406,7 @@ export function PackagePostingTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'taxInvoiceNo': !exists(json, 'taxInvoiceNo') ? undefined : json['taxInvoiceNo'],
         'transactionAmount': !exists(json, 'transactionAmount') ? undefined : json['transactionAmount'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionDescription': !exists(json, 'transactionDescription') ? undefined : json['transactionDescription'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
         'transactionType': !exists(json, 'transactionType') ? undefined : CashieringTransactionTypeTypeFromJSON(json['transactionType']),
@@ -448,7 +448,7 @@ export function PackagePostingTypeToJSON(value?: PackagePostingType | null): any
         'packageCode': value.packageCode,
         'paidOut': value.paidOut,
         'postedAmount': CurrencyAmountTypeToJSON(value.postedAmount),
-        'postingDate': value.postingDate === undefined ? undefined : (value.postingDate.toISOString().substring(0,10)),
+        'postingDate': value.postingDate,
         'price': CurrencyAmountTypeToJSON(value.price),
         'quantity': value.quantity,
         'rateCode': value.rateCode,
@@ -456,7 +456,7 @@ export function PackagePostingTypeToJSON(value?: PackagePostingType | null): any
         'reference': value.reference,
         'referenceTransactionNo': value.referenceTransactionNo,
         'remark': value.remark,
-        'revenueDate': value.revenueDate === undefined ? undefined : (value.revenueDate.toISOString().substring(0,10)),
+        'revenueDate': value.revenueDate,
         'reversePaymentTransactionNo': value.reversePaymentTransactionNo,
         'roundingDifferenceTrx': value.roundingDifferenceTrx,
         'serviceRecovery': value.serviceRecovery,
@@ -464,7 +464,7 @@ export function PackagePostingTypeToJSON(value?: PackagePostingType | null): any
         'taxInvoiceNo': value.taxInvoiceNo,
         'transactionAmount': value.transactionAmount,
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionDescription': value.transactionDescription,
         'transactionNo': value.transactionNo,
         'transactionType': CashieringTransactionTypeTypeToJSON(value.transactionType),

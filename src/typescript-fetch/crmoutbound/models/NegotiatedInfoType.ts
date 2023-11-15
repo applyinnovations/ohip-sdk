@@ -45,16 +45,16 @@ export interface NegotiatedInfoType {
     inactive?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    start?: Date;
+    start?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegotiatedInfoType
      */
-    end?: Date;
+    end?: string;
 }
 
 /**
@@ -80,8 +80,8 @@ export function NegotiatedInfoTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'comissionCode': !exists(json, 'comissionCode') ? undefined : json['comissionCode'],
         'order': !exists(json, 'order') ? undefined : json['order'],
         'inactive': !exists(json, 'inactive') ? undefined : json['inactive'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
+        'end': !exists(json, 'end') ? undefined : json['end'],
     };
 }
 
@@ -98,8 +98,8 @@ export function NegotiatedInfoTypeToJSON(value?: NegotiatedInfoType | null): any
         'comissionCode': value.comissionCode,
         'order': value.order,
         'inactive': value.inactive,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'start': value.start,
+        'end': value.end,
     };
 }
 

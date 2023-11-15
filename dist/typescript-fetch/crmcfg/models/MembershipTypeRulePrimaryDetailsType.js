@@ -37,12 +37,12 @@ function MembershipTypeRulePrimaryDetailsTypeFromJSONTyped(json, ignoreDiscrimin
     }
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'membershipTypeRuleId': !(0, runtime_1.exists)(json, 'membershipTypeRuleId') ? undefined : (0, MembershipTypeRuleIDType_1.MembershipTypeRuleIDTypeFromJSON)(json['membershipTypeRuleId']),
         'pointsType': !(0, runtime_1.exists)(json, 'pointsType') ? undefined : (0, RulePointsTypeType_1.RulePointsTypeTypeFromJSON)(json['pointsType']),
         'ruleBasedOn': !(0, runtime_1.exists)(json, 'ruleBasedOn') ? undefined : (0, MembershipTypeRuleBasedOnType_1.MembershipTypeRuleBasedOnTypeFromJSON)(json['ruleBasedOn']),
-        'ruleEndDate': !(0, runtime_1.exists)(json, 'ruleEndDate') ? undefined : (new Date(json['ruleEndDate'])),
-        'ruleStartDate': !(0, runtime_1.exists)(json, 'ruleStartDate') ? undefined : (new Date(json['ruleStartDate'])),
+        'ruleEndDate': !(0, runtime_1.exists)(json, 'ruleEndDate') ? undefined : json['ruleEndDate'],
+        'ruleStartDate': !(0, runtime_1.exists)(json, 'ruleStartDate') ? undefined : json['ruleStartDate'],
         'transactionCode': !(0, runtime_1.exists)(json, 'transactionCode') ? undefined : (0, MembershipTypeRuleTransactionCodeType_1.MembershipTypeRuleTransactionCodeTypeFromJSON)(json['transactionCode']),
     };
 }
@@ -56,12 +56,12 @@ function MembershipTypeRulePrimaryDetailsTypeToJSON(value) {
     }
     return {
         'description': value.description,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'membershipTypeRuleId': (0, MembershipTypeRuleIDType_1.MembershipTypeRuleIDTypeToJSON)(value.membershipTypeRuleId),
         'pointsType': (0, RulePointsTypeType_1.RulePointsTypeTypeToJSON)(value.pointsType),
         'ruleBasedOn': (0, MembershipTypeRuleBasedOnType_1.MembershipTypeRuleBasedOnTypeToJSON)(value.ruleBasedOn),
-        'ruleEndDate': value.ruleEndDate === undefined ? undefined : (value.ruleEndDate.toISOString().substring(0, 10)),
-        'ruleStartDate': value.ruleStartDate === undefined ? undefined : (value.ruleStartDate.toISOString().substring(0, 10)),
+        'ruleEndDate': value.ruleEndDate,
+        'ruleStartDate': value.ruleStartDate,
         'transactionCode': (0, MembershipTypeRuleTransactionCodeType_1.MembershipTypeRuleTransactionCodeTypeToJSON)(value.transactionCode),
     };
 }

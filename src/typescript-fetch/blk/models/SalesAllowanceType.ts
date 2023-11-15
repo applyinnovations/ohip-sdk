@@ -46,10 +46,10 @@ export interface SalesAllowanceType {
     booked?: number;
     /**
      * Ceiling date for the Sales Allowance.
-     * @type {Date}
+     * @type {string}
      * @memberof SalesAllowanceType
      */
-    ceilingDate?: Date;
+    ceilingDate?: string;
     /**
      * 
      * @type {SalesAllowanceIDType}
@@ -98,7 +98,7 @@ export function SalesAllowanceTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         'allotmentDeductQty': !exists(json, 'allotmentDeductQty') ? undefined : json['allotmentDeductQty'],
         'available': !exists(json, 'available') ? undefined : json['available'],
         'booked': !exists(json, 'booked') ? undefined : json['booked'],
-        'ceilingDate': !exists(json, 'ceilingDate') ? undefined : (new Date(json['ceilingDate'])),
+        'ceilingDate': !exists(json, 'ceilingDate') ? undefined : json['ceilingDate'],
         'ceilingId': !exists(json, 'ceilingId') ? undefined : SalesAllowanceIDTypeFromJSON(json['ceilingId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'overBooked': !exists(json, 'overBooked') ? undefined : json['overBooked'],
@@ -118,7 +118,7 @@ export function SalesAllowanceTypeToJSON(value?: SalesAllowanceType | null): any
         'allotmentDeductQty': value.allotmentDeductQty,
         'available': value.available,
         'booked': value.booked,
-        'ceilingDate': value.ceilingDate === undefined ? undefined : (value.ceilingDate.toISOString().substring(0,10)),
+        'ceilingDate': value.ceilingDate,
         'ceilingId': SalesAllowanceIDTypeToJSON(value.ceilingId),
         'hotelId': value.hotelId,
         'overBooked': value.overBooked,

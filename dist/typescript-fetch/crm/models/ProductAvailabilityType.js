@@ -34,8 +34,8 @@ function ProductAvailabilityTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'awardNumber': !(0, runtime_1.exists)(json, 'awardNumber') ? undefined : json['awardNumber'],
         'awardType': !(0, runtime_1.exists)(json, 'awardType') ? undefined : json['awardType'],
-        'awardValidFrom': !(0, runtime_1.exists)(json, 'awardValidFrom') ? undefined : (new Date(json['awardValidFrom'])),
-        'awardValidTo': !(0, runtime_1.exists)(json, 'awardValidTo') ? undefined : (new Date(json['awardValidTo'])),
+        'awardValidFrom': !(0, runtime_1.exists)(json, 'awardValidFrom') ? undefined : json['awardValidFrom'],
+        'awardValidTo': !(0, runtime_1.exists)(json, 'awardValidTo') ? undefined : json['awardValidTo'],
         'cancelPenaltyCharge': !(0, runtime_1.exists)(json, 'cancelPenaltyCharge') ? undefined : json['cancelPenaltyCharge'],
         'cancelPenaltyDays': !(0, runtime_1.exists)(json, 'cancelPenaltyDays') ? undefined : json['cancelPenaltyDays'],
         'cancelPenaltyPoints': !(0, runtime_1.exists)(json, 'cancelPenaltyPoints') ? undefined : json['cancelPenaltyPoints'],
@@ -59,8 +59,8 @@ function ProductAvailabilityTypeToJSON(value) {
     return {
         'awardNumber': value.awardNumber,
         'awardType': value.awardType,
-        'awardValidFrom': value.awardValidFrom === undefined ? undefined : (value.awardValidFrom.toISOString().substring(0, 10)),
-        'awardValidTo': value.awardValidTo === undefined ? undefined : (value.awardValidTo.toISOString().substring(0, 10)),
+        'awardValidFrom': value.awardValidFrom,
+        'awardValidTo': value.awardValidTo,
         'cancelPenaltyCharge': value.cancelPenaltyCharge,
         'cancelPenaltyDays': value.cancelPenaltyDays,
         'cancelPenaltyPoints': value.cancelPenaltyPoints,

@@ -1976,7 +1976,7 @@ class ReservationConfigApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.stayDate !== undefined) {
-                queryParameters['stayDate'] = requestParameters.stayDate.toISOString().substring(0, 10);
+                queryParameters['stayDate'] = requestParameters.stayDate;
             }
             if (requestParameters.rule !== undefined) {
                 queryParameters['rule'] = requestParameters.rule;

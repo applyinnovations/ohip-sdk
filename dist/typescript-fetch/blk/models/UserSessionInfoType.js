@@ -35,7 +35,7 @@ function UserSessionInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'cROCountryCode': !(0, runtime_1.exists)(json, 'cROCountryCode') ? undefined : json['cROCountryCode'],
         'chain': !(0, runtime_1.exists)(json, 'chain') ? undefined : json['chain'],
         'cro': !(0, runtime_1.exists)(json, 'cro') ? undefined : (0, CodeDescriptionType_1.CodeDescriptionTypeFromJSON)(json['cro']),
@@ -44,7 +44,7 @@ function UserSessionInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'runningApp': !(0, runtime_1.exists)(json, 'runningApp') ? undefined : json['runningApp'],
         'sessionDefaults': !(0, runtime_1.exists)(json, 'sessionDefaults') ? undefined : (0, UserSessionDefaultsType_1.UserSessionDefaultsTypeFromJSON)(json['sessionDefaults']),
         'shareProfiles': !(0, runtime_1.exists)(json, 'shareProfiles') ? undefined : json['shareProfiles'],
-        'systemDate': !(0, runtime_1.exists)(json, 'systemDate') ? undefined : (new Date(json['systemDate'])),
+        'systemDate': !(0, runtime_1.exists)(json, 'systemDate') ? undefined : json['systemDate'],
         'terminal': !(0, runtime_1.exists)(json, 'terminal') ? undefined : json['terminal'],
     };
 }
@@ -57,7 +57,7 @@ function UserSessionInfoTypeToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'cROCountryCode': value.cROCountryCode,
         'chain': value.chain,
         'cro': (0, CodeDescriptionType_1.CodeDescriptionTypeToJSON)(value.cro),
@@ -66,7 +66,7 @@ function UserSessionInfoTypeToJSON(value) {
         'runningApp': value.runningApp,
         'sessionDefaults': (0, UserSessionDefaultsType_1.UserSessionDefaultsTypeToJSON)(value.sessionDefaults),
         'shareProfiles': value.shareProfiles,
-        'systemDate': value.systemDate === undefined ? undefined : (value.systemDate.toISOString().substring(0, 10)),
+        'systemDate': value.systemDate,
         'terminal': value.terminal,
     };
 }

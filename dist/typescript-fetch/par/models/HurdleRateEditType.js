@@ -34,7 +34,7 @@ function HurdleRateEditTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'hurdleDate': !(0, runtime_1.exists)(json, 'hurdleDate') ? undefined : (new Date(json['hurdleDate'])),
+        'hurdleDate': !(0, runtime_1.exists)(json, 'hurdleDate') ? undefined : json['hurdleDate'],
         'lengthOfStay': !(0, runtime_1.exists)(json, 'lengthOfStay') ? undefined : json['lengthOfStay'],
         'newHurdleRate': !(0, runtime_1.exists)(json, 'newHurdleRate') ? undefined : (0, HurdleRateType_1.HurdleRateTypeFromJSON)(json['newHurdleRate']),
         'roomCategory': !(0, runtime_1.exists)(json, 'roomCategory') ? undefined : json['roomCategory'],
@@ -53,7 +53,7 @@ function HurdleRateEditTypeToJSON(value) {
     }
     return {
         'hotelId': value.hotelId,
-        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substring(0, 10)),
+        'hurdleDate': value.hurdleDate,
         'lengthOfStay': value.lengthOfStay,
         'newHurdleRate': (0, HurdleRateType_1.HurdleRateTypeToJSON)(value.newHurdleRate),
         'roomCategory': value.roomCategory,

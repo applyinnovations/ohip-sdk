@@ -32,10 +32,10 @@ function CriteriaFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'endLastModifiedDate': !(0, runtime_1.exists)(json, 'endLastModifiedDate') ? undefined : json['endLastModifiedDate'],
-        'occupancyDate': !(0, runtime_1.exists)(json, 'occupancyDate') ? undefined : (new Date(json['occupancyDate'])),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'occupancyDate': !(0, runtime_1.exists)(json, 'occupancyDate') ? undefined : json['occupancyDate'],
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'startLastModifiedDate': !(0, runtime_1.exists)(json, 'startLastModifiedDate') ? undefined : json['startLastModifiedDate'],
     };
 }
@@ -48,10 +48,10 @@ function CriteriaToJSON(value) {
         return null;
     }
     return {
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'endLastModifiedDate': value.endLastModifiedDate,
-        'occupancyDate': value.occupancyDate === undefined ? undefined : (value.occupancyDate.toISOString().substring(0, 10)),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'occupancyDate': value.occupancyDate,
+        'startDate': value.startDate,
         'startLastModifiedDate': value.startLastModifiedDate,
     };
 }

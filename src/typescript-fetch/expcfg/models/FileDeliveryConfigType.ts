@@ -130,10 +130,10 @@ export interface FileDeliveryConfigType {
     validAuthentication?: boolean;
     /**
      * Date and time when the last validation of connection information was performed.
-     * @type {Date}
+     * @type {string}
      * @memberof FileDeliveryConfigType
      */
-    validUpdateDate?: Date;
+    validUpdateDate?: string;
 }
 
 /**
@@ -172,7 +172,7 @@ export function FileDeliveryConfigTypeFromJSONTyped(json: any, ignoreDiscriminat
         'useSOAPProtocol': !exists(json, 'useSOAPProtocol') ? undefined : json['useSOAPProtocol'],
         'userId': !exists(json, 'userId') ? undefined : json['userId'],
         'validAuthentication': !exists(json, 'validAuthentication') ? undefined : json['validAuthentication'],
-        'validUpdateDate': !exists(json, 'validUpdateDate') ? undefined : (new Date(json['validUpdateDate'])),
+        'validUpdateDate': !exists(json, 'validUpdateDate') ? undefined : json['validUpdateDate'],
     };
 }
 
@@ -202,7 +202,7 @@ export function FileDeliveryConfigTypeToJSON(value?: FileDeliveryConfigType | nu
         'useSOAPProtocol': value.useSOAPProtocol,
         'userId': value.userId,
         'validAuthentication': value.validAuthentication,
-        'validUpdateDate': value.validUpdateDate === undefined ? undefined : (value.validUpdateDate.toISOString().substring(0,10)),
+        'validUpdateDate': value.validUpdateDate,
     };
 }
 

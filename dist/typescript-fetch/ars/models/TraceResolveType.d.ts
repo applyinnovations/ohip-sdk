@@ -23,10 +23,10 @@ export interface TraceResolveType {
     resolvedBy?: string;
     /**
      * Date the trace was resolved
-     * @type {Date}
+     * @type {string}
      * @memberof TraceResolveType
      */
-    resolvedOn?: Date;
+    resolvedOn?: string;
 }
 /**
  * Check if a given object implements the TraceResolveType interface.

@@ -69,10 +69,10 @@ export interface EmailType {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof EmailType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Defines the purpose of the e-mail address (e.g. personal, business, listserve).
      * @type {string}
@@ -125,7 +125,7 @@ export function EmailTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
         'primaryInd': !exists(json, 'primaryInd') ? undefined : json['primaryInd'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
         'typeDescription': !exists(json, 'typeDescription') ? undefined : json['typeDescription'],
     };
@@ -148,7 +148,7 @@ export function EmailTypeToJSON(value?: EmailType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'orderSequence': value.orderSequence,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'type': value.type,
         'typeDescription': value.typeDescription,
     };

@@ -58,7 +58,7 @@ export interface GetFolioReportRequest {
     folioWindowNo?: number;
     billNumber?: number;
     folioType?: string;
-    folioDate?: Date;
+    folioDate?: string;
     referenceCurrency?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;

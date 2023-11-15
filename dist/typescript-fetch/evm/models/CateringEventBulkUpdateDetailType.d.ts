@@ -37,10 +37,10 @@ export interface CateringEventBulkUpdateDetailType {
     doorcard?: string;
     /**
      * Event eventEndDate date.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventBulkUpdateDetailType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * Event eventEndDate time.
      * @type {string}
@@ -55,10 +55,10 @@ export interface CateringEventBulkUpdateDetailType {
     eventName?: TranslationTextType60;
     /**
      * Event eventStartDate date.
-     * @type {Date}
+     * @type {string}
      * @memberof CateringEventBulkUpdateDetailType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * Event eventStartDate time.
      * @type {string}

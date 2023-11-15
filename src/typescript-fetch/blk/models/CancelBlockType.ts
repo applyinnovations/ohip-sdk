@@ -58,10 +58,10 @@ export interface CancelBlockType {
     pMReservationsCancellationDetails?: CancellationDetailsType;
     /**
      * Start date of the block to be cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof CancelBlockType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -87,7 +87,7 @@ export function CancelBlockTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
         'cancellationDetails': !exists(json, 'cancellationDetails') ? undefined : CancellationDetailsTypeFromJSON(json['cancellationDetails']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'pMReservationsCancellationDetails': !exists(json, 'pMReservationsCancellationDetails') ? undefined : CancellationDetailsTypeFromJSON(json['pMReservationsCancellationDetails']),
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -104,7 +104,7 @@ export function CancelBlockTypeToJSON(value?: CancelBlockType | null): any {
         'cancellationDetails': CancellationDetailsTypeToJSON(value.cancellationDetails),
         'hotelId': value.hotelId,
         'pMReservationsCancellationDetails': CancellationDetailsTypeToJSON(value.pMReservationsCancellationDetails),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

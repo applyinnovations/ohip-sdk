@@ -32,16 +32,16 @@ export interface MembershipClaimDetailsType {
     claimNo?: UniqueIDType;
     /**
      * Date the claim was made.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimDetailsType
      */
-    claimDate?: Date;
+    claimDate?: string;
     /**
      * If the status is closed, the date the claim was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimDetailsType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      *
      * @type {ClaimSourceType}
@@ -86,10 +86,10 @@ export interface MembershipClaimDetailsType {
     callerInformation?: string;
     /**
      * The date, if any, by which a response to the caller was promised.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimDetailsType
      */
-    replyBy?: Date;
+    replyBy?: string;
     /**
      * Additional comments or steps taken to resolve the claim..
      * @type {string}

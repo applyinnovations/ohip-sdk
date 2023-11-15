@@ -27,10 +27,10 @@ export interface AuthorizationHistoryType {
     approvalAmount?: CurrencyAmountType;
     /**
      * The corresponding business date for this record.
-     * @type {Date}
+     * @type {string}
      * @memberof AuthorizationHistoryType
      */
-    businessDate?: Date;
+    businessDate?: string;
     /**
      *
      * @type {AuthorizationHistoryTypeCardPaymentInformation}
@@ -63,10 +63,10 @@ export interface AuthorizationHistoryType {
     lastModifyDateTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof AuthorizationHistoryType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {AuthorizationHistoryTypeStatus}

@@ -46,10 +46,10 @@ export interface BorrowCandidateType {
     blockId?: BlockId;
     /**
      * The date on which rooms need to be borrowed for the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BorrowCandidateType
      */
-    borrowDate?: Date;
+    borrowDate?: string;
     /**
      * Holds the information about a borrowable room type and available rooms for each borrow date.
      * @type {Array<BorrowableInventoryType>}
@@ -96,7 +96,7 @@ export function BorrowCandidateTypeFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'borrowDate': !exists(json, 'borrowDate') ? undefined : (new Date(json['borrowDate'])),
+        'borrowDate': !exists(json, 'borrowDate') ? undefined : json['borrowDate'],
         'borrowableInventoryList': !exists(json, 'borrowableInventoryList') ? undefined : ((json['borrowableInventoryList'] as Array<any>).map(BorrowableInventoryTypeFromJSON)),
         'existingReservationId': !exists(json, 'existingReservationId') ? undefined : UniqueIDTypeFromJSON(json['existingReservationId']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -114,7 +114,7 @@ export function BorrowCandidateTypeToJSON(value?: BorrowCandidateType | null): a
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'borrowDate': value.borrowDate === undefined ? undefined : (value.borrowDate.toISOString().substring(0,10)),
+        'borrowDate': value.borrowDate,
         'borrowableInventoryList': value.borrowableInventoryList === undefined ? undefined : ((value.borrowableInventoryList as Array<any>).map(BorrowableInventoryTypeToJSON)),
         'existingReservationId': UniqueIDTypeToJSON(value.existingReservationId),
         'hotelId': value.hotelId,

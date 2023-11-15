@@ -40,10 +40,10 @@ export interface MembershipTransactionRateType {
     currency?: string;
     /**
      * Indicates start date of the reservation.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionRateType
      */
-    fromDate?: Date;
+    fromDate?: string;
     /**
      * Indicates the Market code linked to rate code.
      * @type {string}
@@ -64,10 +64,10 @@ export interface MembershipTransactionRateType {
     rateCode?: string;
     /**
      * Indicates end date of the reservation.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipTransactionRateType
      */
-    toDate?: Date;
+    toDate?: string;
 }
 
 /**
@@ -91,11 +91,11 @@ export function MembershipTransactionRateTypeFromJSONTyped(json: any, ignoreDisc
         
         'centralRateAmount': !exists(json, 'centralRateAmount') ? undefined : CurrencyAmountTypeFromJSON(json['centralRateAmount']),
         'currency': !exists(json, 'currency') ? undefined : json['currency'],
-        'fromDate': !exists(json, 'fromDate') ? undefined : (new Date(json['fromDate'])),
+        'fromDate': !exists(json, 'fromDate') ? undefined : json['fromDate'],
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
         'pMSRateAmount': !exists(json, 'pMSRateAmount') ? undefined : CurrencyAmountTypeFromJSON(json['pMSRateAmount']),
         'rateCode': !exists(json, 'rateCode') ? undefined : json['rateCode'],
-        'toDate': !exists(json, 'toDate') ? undefined : (new Date(json['toDate'])),
+        'toDate': !exists(json, 'toDate') ? undefined : json['toDate'],
     };
 }
 
@@ -110,11 +110,11 @@ export function MembershipTransactionRateTypeToJSON(value?: MembershipTransactio
         
         'centralRateAmount': CurrencyAmountTypeToJSON(value.centralRateAmount),
         'currency': value.currency,
-        'fromDate': value.fromDate === undefined ? undefined : (value.fromDate.toISOString().substring(0,10)),
+        'fromDate': value.fromDate,
         'marketCode': value.marketCode,
         'pMSRateAmount': CurrencyAmountTypeToJSON(value.pMSRateAmount),
         'rateCode': value.rateCode,
-        'toDate': value.toDate === undefined ? undefined : (value.toDate.toISOString().substring(0,10)),
+        'toDate': value.toDate,
     };
 }
 

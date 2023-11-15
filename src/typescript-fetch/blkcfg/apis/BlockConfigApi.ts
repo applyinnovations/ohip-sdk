@@ -60,8 +60,8 @@ import {
 
 export interface DeleteBlockSalesAllowanceRangeRequest {
     hotelId: string;
-    endDate: Date;
-    startDate: Date;
+    endDate: string;
+    startDate: string;
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
@@ -100,8 +100,8 @@ export interface GetBlockSalesAllowanceRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    endDateRange?: Date;
-    startDateRange?: Date;
+    endDateRange?: string;
+    startDateRange?: string;
     includeRestricted?: boolean;
     roomTypesCodes?: Array<string>;
     xExternalsystem?: string;
@@ -322,11 +322,11 @@ export class BlockConfigApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.friday !== undefined) {
@@ -518,11 +518,11 @@ export class BlockConfigApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.endDateRange !== undefined) {
-            queryParameters['endDateRange'] = (requestParameters.endDateRange as any).toISOString().substring(0,10);
+            queryParameters['endDateRange'] = requestParameters.endDateRange;
         }
 
         if (requestParameters.startDateRange !== undefined) {
-            queryParameters['startDateRange'] = (requestParameters.startDateRange as any).toISOString().substring(0,10);
+            queryParameters['startDateRange'] = requestParameters.startDateRange;
         }
 
         if (requestParameters.includeRestricted !== undefined) {

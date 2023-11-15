@@ -46,10 +46,10 @@ export interface GeneratePostingType {
     transactionCode?: string;
     /**
      * Transaction Date.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratePostingType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction Number for which request is being submitted.
      * @type {number}
@@ -80,7 +80,7 @@ export function GeneratePostingTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'amount': !exists(json, 'amount') ? undefined : CurrencyAmountTypeFromJSON(json['amount']),
         'referenceTransactionNo': !exists(json, 'referenceTransactionNo') ? undefined : json['referenceTransactionNo'],
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : json['transactionNo'],
     };
 }
@@ -97,7 +97,7 @@ export function GeneratePostingTypeToJSON(value?: GeneratePostingType | null): a
         'amount': CurrencyAmountTypeToJSON(value.amount),
         'referenceTransactionNo': value.referenceTransactionNo,
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionNo': value.transactionNo,
     };
 }

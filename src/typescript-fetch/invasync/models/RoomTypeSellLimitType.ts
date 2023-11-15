@@ -27,10 +27,10 @@ export interface RoomTypeSellLimitType {
     amount?: number;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof RoomTypeSellLimitType
      */
-    date?: Date;
+    date?: string;
     /**
      * Indicates if sell limit is flat or percentage.
      * @type {string}
@@ -76,7 +76,7 @@ export function RoomTypeSellLimitTypeFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'amount': !exists(json, 'amount') ? undefined : json['amount'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'flatOrPercentage': !exists(json, 'flatOrPercentage') ? undefined : json['flatOrPercentage'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
     };
@@ -92,7 +92,7 @@ export function RoomTypeSellLimitTypeToJSON(value?: RoomTypeSellLimitType | null
     return {
         
         'amount': value.amount,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'flatOrPercentage': value.flatOrPercentage,
         'roomType': value.roomType,
     };

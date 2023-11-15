@@ -37,8 +37,8 @@ function OtherAvailabilityTypeFromJSONTyped(json, ignoreDiscriminator) {
         'awardValue': !(0, runtime_1.exists)(json, 'awardValue') ? undefined : json['awardValue'],
         'longDescription': !(0, runtime_1.exists)(json, 'longDescription') ? undefined : json['longDescription'],
         'pointsRequired': !(0, runtime_1.exists)(json, 'pointsRequired') ? undefined : json['pointsRequired'],
-        'sellBeginDate': !(0, runtime_1.exists)(json, 'sellBeginDate') ? undefined : (new Date(json['sellBeginDate'])),
-        'sellEndDate': !(0, runtime_1.exists)(json, 'sellEndDate') ? undefined : (new Date(json['sellEndDate'])),
+        'sellBeginDate': !(0, runtime_1.exists)(json, 'sellBeginDate') ? undefined : json['sellBeginDate'],
+        'sellEndDate': !(0, runtime_1.exists)(json, 'sellEndDate') ? undefined : json['sellEndDate'],
         'shortDescription': !(0, runtime_1.exists)(json, 'shortDescription') ? undefined : json['shortDescription'],
         'totalAvailablePoints': !(0, runtime_1.exists)(json, 'totalAvailablePoints') ? undefined : json['totalAvailablePoints'],
     };
@@ -57,8 +57,8 @@ function OtherAvailabilityTypeToJSON(value) {
         'awardValue': value.awardValue,
         'longDescription': value.longDescription,
         'pointsRequired': value.pointsRequired,
-        'sellBeginDate': value.sellBeginDate === undefined ? undefined : (value.sellBeginDate.toISOString().substring(0, 10)),
-        'sellEndDate': value.sellEndDate === undefined ? undefined : (value.sellEndDate.toISOString().substring(0, 10)),
+        'sellBeginDate': value.sellBeginDate,
+        'sellEndDate': value.sellEndDate,
         'shortDescription': value.shortDescription,
         'totalAvailablePoints': value.totalAvailablePoints,
     };

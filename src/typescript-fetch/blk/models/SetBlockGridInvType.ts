@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface SetBlockGridInvType {
     /**
      * Indicates the cutoff date.Date when inventory left in the block will be cut-off.
-     * @type {Date}
+     * @type {string}
      * @memberof SetBlockGridInvType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Indicates whether to overbook the rooms in case there are not enough rooms at the house or room type level.
      * @type {boolean}
@@ -82,7 +82,7 @@ export function SetBlockGridInvTypeFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : (new Date(json['cutoffDate'])),
+        'cutoffDate': !exists(json, 'cutoffDate') ? undefined : json['cutoffDate'],
         'forceOverbook': !exists(json, 'forceOverbook') ? undefined : json['forceOverbook'],
         'fourPerson': !exists(json, 'fourPerson') ? undefined : json['fourPerson'],
         'onePerson': !exists(json, 'onePerson') ? undefined : json['onePerson'],
@@ -101,7 +101,7 @@ export function SetBlockGridInvTypeToJSON(value?: SetBlockGridInvType | null): a
     }
     return {
         
-        'cutoffDate': value.cutoffDate === undefined ? undefined : (value.cutoffDate.toISOString().substring(0,10)),
+        'cutoffDate': value.cutoffDate,
         'forceOverbook': value.forceOverbook,
         'fourPerson': value.fourPerson,
         'onePerson': value.onePerson,

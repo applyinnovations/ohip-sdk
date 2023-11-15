@@ -76,16 +76,16 @@ export interface AmountType {
     effectiveRate?: TotalType;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof AmountType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
     /**
      * 
      * @type {PointsType}
@@ -135,8 +135,8 @@ export function AmountTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'base': !exists(json, 'base') ? undefined : TotalTypeFromJSON(json['base']),
         'discount': !exists(json, 'discount') ? undefined : DiscountTypeFromJSON(json['discount']),
         'effectiveRate': !exists(json, 'effectiveRate') ? undefined : TotalTypeFromJSON(json['effectiveRate']),
-        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
-        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
+        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
+        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : json['eventStartDate'],
         'requiredPoints': !exists(json, 'requiredPoints') ? undefined : PointsTypeFromJSON(json['requiredPoints']),
         'shareDistributionInstruction': !exists(json, 'shareDistributionInstruction') ? undefined : ShareDistributionInstructionTypeFromJSON(json['shareDistributionInstruction']),
         'shareRatePercentage': !exists(json, 'shareRatePercentage') ? undefined : json['shareRatePercentage'],
@@ -157,8 +157,8 @@ export function AmountTypeToJSON(value?: AmountType | null): any {
         'base': TotalTypeToJSON(value.base),
         'discount': DiscountTypeToJSON(value.discount),
         'effectiveRate': TotalTypeToJSON(value.effectiveRate),
-        'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0,10)),
-        'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0,10)),
+        'eventEndDate': value.eventEndDate,
+        'eventStartDate': value.eventStartDate,
         'requiredPoints': PointsTypeToJSON(value.requiredPoints),
         'shareDistributionInstruction': ShareDistributionInstructionTypeToJSON(value.shareDistributionInstruction),
         'shareRatePercentage': value.shareRatePercentage,

@@ -70,10 +70,10 @@ export interface RoomMaintenanceType {
     maintenanceId?: UniqueIDType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof RoomMaintenanceType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Maintenance remarks
      * @type {string}

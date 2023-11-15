@@ -231,10 +231,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -825,10 +825,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['channelRatePlanCodeOrder'] = requestParameters.channelRatePlanCodeOrder;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1164,13 +1164,13 @@ class ChannelApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate;
             }
             if (requestParameters.channelRoomType !== undefined) {
                 queryParameters['channelRoomType'] = requestParameters.channelRoomType;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -1359,10 +1359,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1440,10 +1440,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1578,10 +1578,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -1662,10 +1662,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['description'] = requestParameters.description;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -2279,10 +2279,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['statementIdType'] = requestParameters.statementIdType;
             }
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.profileId) {
                 queryParameters['profileId'] = requestParameters.profileId;
@@ -2591,7 +2591,7 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['policyDetail'] = requestParameters.policyDetail;
             }
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate;
             }
             if (requestParameters.filterHotelIds) {
                 queryParameters['filterHotelIds'] = requestParameters.filterHotelIds;
@@ -2840,10 +2840,10 @@ class ChannelApi extends runtime.BaseAPI {
                 queryParameters['requestType'] = requestParameters.requestType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -3236,7 +3236,7 @@ class ChannelApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate;
             }
             if (requestParameters.channelRoomType !== undefined) {
                 queryParameters['channelRoomType'] = requestParameters.channelRoomType;

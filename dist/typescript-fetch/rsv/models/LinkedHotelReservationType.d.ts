@@ -205,10 +205,10 @@ export interface LinkedHotelReservationType {
     confirmationLetters?: Array<ConfirmationType>;
     /**
      * Business Date when the reservation was created.
-     * @type {Date}
+     * @type {string}
      * @memberof LinkedHotelReservationType
      */
-    createBusinessDate?: Date;
+    createBusinessDate?: string;
     /**
      * Time stamp of the creation.
      * @type {string}
@@ -451,10 +451,10 @@ export interface LinkedHotelReservationType {
     profileAwards?: Array<AwardType>;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof LinkedHotelReservationType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {ReservationQueueInformationType}
@@ -463,10 +463,10 @@ export interface LinkedHotelReservationType {
     queue?: ReservationQueueInformationType;
     /**
      * Business Date when the reservation was last reinstated.
-     * @type {Date}
+     * @type {string}
      * @memberof LinkedHotelReservationType
      */
-    reinstateDate?: Date;
+    reinstateDate?: string;
     /**
      * Criteria for fetching Activity Bookings.
      * @type {Array<FetchActivityBookingsType>}

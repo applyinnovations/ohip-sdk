@@ -204,10 +204,10 @@ export interface HotelReservationType {
     confirmationLetters?: Array<ConfirmationType>;
     /**
      * Business Date when the reservation was created.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationType
      */
-    createBusinessDate?: Date;
+    createBusinessDate?: string;
     /**
      * Time stamp of the creation.
      * @type {string}
@@ -432,10 +432,10 @@ export interface HotelReservationType {
     profileAwards?: Array<AwardType>;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      *
      * @type {ReservationQueueInformationType}
@@ -444,10 +444,10 @@ export interface HotelReservationType {
     queue?: ReservationQueueInformationType;
     /**
      * Business Date when the reservation was last reinstated.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationType
      */
-    reinstateDate?: Date;
+    reinstateDate?: string;
     /**
      * Criteria for fetching Activity Bookings.
      * @type {Array<FetchActivityBookingsType>}

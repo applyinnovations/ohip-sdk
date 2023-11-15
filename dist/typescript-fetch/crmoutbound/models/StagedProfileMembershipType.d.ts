@@ -203,22 +203,22 @@ export interface StagedProfileMembershipType {
     centralSetup?: boolean;
     /**
      * Indicates when the member signed up for the loyalty program.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    signupDate?: Date;
+    signupDate?: string;
     /**
      * Indicates the starting date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    effectiveDate?: Date;
+    effectiveDate?: string;
     /**
      * Indicates the ending date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    expireDate?: Date;
+    expireDate?: string;
     /**
      * When true, indicates that the ExpireDate is the first day after the applicable period (e.g. when expire date is Oct 15 the last date of the period is Oct 14).
      * @type {boolean}
@@ -281,10 +281,10 @@ export interface StagedProfileMembershipType {
     membershipStatus?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Device encoded string.
      * @type {string}
@@ -293,10 +293,10 @@ export interface StagedProfileMembershipType {
     deviceCode?: string;
     /**
      * Device disabled date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileMembershipType
      */
-    deviceDisabledDate?: Date;
+    deviceDisabledDate?: string;
     /**
      * Indicates if existing information for primary membership should be overwritten.
      * @type {boolean}

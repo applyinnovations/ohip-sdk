@@ -112,10 +112,10 @@ export interface HotelInfoTypeAddress {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof HotelInfoTypeAddress
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * The region code of the hotel.
      * @type {string}
@@ -181,7 +181,7 @@ export function HotelInfoTypeAddressFromJSONTyped(json: any, ignoreDiscriminator
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'postalCode': !exists(json, 'postalCode') ? undefined : json['postalCode'],
         'primaryInd': !exists(json, 'primaryInd') ? undefined : json['primaryInd'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'regionCode': !exists(json, 'regionCode') ? undefined : json['regionCode'],
         'state': !exists(json, 'state') ? undefined : json['state'],
         'type': !exists(json, 'type') ? undefined : json['type'],
@@ -213,7 +213,7 @@ export function HotelInfoTypeAddressToJSON(value?: HotelInfoTypeAddress | null):
         'lastModifyDateTime': value.lastModifyDateTime,
         'postalCode': value.postalCode,
         'primaryInd': value.primaryInd,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'regionCode': value.regionCode,
         'state': value.state,
         'type': value.type,

@@ -34,10 +34,10 @@ import {
 export interface ActivityStatReportType {
     /**
      * Statistical date of the requested report.
-     * @type {Date}
+     * @type {string}
      * @memberof ActivityStatReportType
      */
-    calendarDate?: Date;
+    calendarDate?: string;
     /**
      * The code that identifies a hotel chain or management group. The hotel chain code is decided between vendors. This attribute is optional if the hotel is an independent property that can be identified by the HotelCode attribute.
      * @type {string}
@@ -113,7 +113,7 @@ export function ActivityStatReportTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'calendarDate': !exists(json, 'calendarDate') ? undefined : (new Date(json['calendarDate'])),
+        'calendarDate': !exists(json, 'calendarDate') ? undefined : json['calendarDate'],
         'chainCode': !exists(json, 'chainCode') ? undefined : json['chainCode'],
         'chainName': !exists(json, 'chainName') ? undefined : json['chainName'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -135,7 +135,7 @@ export function ActivityStatReportTypeToJSON(value?: ActivityStatReportType | nu
     }
     return {
         
-        'calendarDate': value.calendarDate === undefined ? undefined : (value.calendarDate.toISOString().substring(0,10)),
+        'calendarDate': value.calendarDate,
         'chainCode': value.chainCode,
         'chainName': value.chainName,
         'description': value.description,

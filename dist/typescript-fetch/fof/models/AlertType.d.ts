@@ -112,10 +112,10 @@ export interface AlertType {
     printerNotification?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof AlertType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Report description. Mainly used for as a parameter for printing the alerts.
      * @type {string}

@@ -27,10 +27,10 @@ export interface DailyItemInventoryCountsType {
     available?: number;
     /**
      * Date of the item inventory.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyItemInventoryCountsType
      */
-    date?: Date;
+    date?: string;
     /**
      * Total Item count.
      * @type {number}
@@ -59,7 +59,7 @@ export function DailyItemInventoryCountsTypeFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'available': !exists(json, 'available') ? undefined : json['available'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'total': !exists(json, 'total') ? undefined : json['total'],
     };
 }
@@ -74,7 +74,7 @@ export function DailyItemInventoryCountsTypeToJSON(value?: DailyItemInventoryCou
     return {
         
         'available': value.available,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'total': value.total,
     };
 }

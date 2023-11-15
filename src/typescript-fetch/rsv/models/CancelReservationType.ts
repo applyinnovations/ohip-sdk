@@ -352,10 +352,10 @@ export interface CancelReservationType {
     lastModifyDateTime?: string;
     /**
      * Last Privacy Prompt Date
-     * @type {Date}
+     * @type {string}
      * @memberof CancelReservationType
      */
-    lastPrivacyPromptDate?: Date;
+    lastPrivacyPromptDate?: string;
     /**
      * 
      * @type {ResMobileNotificationsType}
@@ -394,10 +394,10 @@ export interface CancelReservationType {
     preRegistered?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof CancelReservationType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {ReservationQueueInformationType}
@@ -582,14 +582,14 @@ export function CancelReservationTypeFromJSONTyped(json: any, ignoreDiscriminato
         'keyCount': !exists(json, 'keyCount') ? undefined : json['keyCount'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : (new Date(json['lastPrivacyPromptDate'])),
+        'lastPrivacyPromptDate': !exists(json, 'lastPrivacyPromptDate') ? undefined : json['lastPrivacyPromptDate'],
         'mobileNotifications': !exists(json, 'mobileNotifications') ? undefined : ResMobileNotificationsTypeFromJSON(json['mobileNotifications']),
         'openFolio': !exists(json, 'openFolio') ? undefined : json['openFolio'],
         'optedForCommunication': !exists(json, 'optedForCommunication') ? undefined : json['optedForCommunication'],
         'overrideExternalChecks': !exists(json, 'overrideExternalChecks') ? undefined : json['overrideExternalChecks'],
         'paymentMethod': !exists(json, 'paymentMethod') ? undefined : json['paymentMethod'],
         'preRegistered': !exists(json, 'preRegistered') ? undefined : json['preRegistered'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'queue': !exists(json, 'queue') ? undefined : ReservationQueueInformationTypeFromJSON(json['queue']),
         'refResId': !exists(json, 'refResId') ? undefined : UniqueIDTypeFromJSON(json['refResId']),
         'reservationCommunication': !exists(json, 'reservationCommunication') ? undefined : ResCommunicationTypeFromJSON(json['reservationCommunication']),
@@ -650,14 +650,14 @@ export function CancelReservationTypeToJSON(value?: CancelReservationType | null
         'keyCount': value.keyCount,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPrivacyPromptDate': value.lastPrivacyPromptDate === undefined ? undefined : (value.lastPrivacyPromptDate.toISOString().substring(0,10)),
+        'lastPrivacyPromptDate': value.lastPrivacyPromptDate,
         'mobileNotifications': ResMobileNotificationsTypeToJSON(value.mobileNotifications),
         'openFolio': value.openFolio,
         'optedForCommunication': value.optedForCommunication,
         'overrideExternalChecks': value.overrideExternalChecks,
         'paymentMethod': value.paymentMethod,
         'preRegistered': value.preRegistered,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'queue': ReservationQueueInformationTypeToJSON(value.queue),
         'refResId': UniqueIDTypeToJSON(value.refResId),
         'reservationCommunication': ResCommunicationTypeToJSON(value.reservationCommunication),

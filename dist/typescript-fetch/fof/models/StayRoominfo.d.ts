@@ -17,10 +17,10 @@
 export interface StayRoominfo {
     /**
      * Identifies Reservation arrival date.
-     * @type {Date}
+     * @type {string}
      * @memberof StayRoominfo
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Room identifier which the reservation will hold.
      * @type {string}

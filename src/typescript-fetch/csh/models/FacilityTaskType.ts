@@ -34,10 +34,10 @@ import {
 export interface FacilityTaskType {
     /**
      * The Date on which the task is applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof FacilityTaskType
      */
-    date?: Date;
+    date?: string;
     /**
      * List of the facility codes.
      * @type {Array<FacilityCodeType>}
@@ -71,7 +71,7 @@ export function FacilityTaskTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'supplies': !exists(json, 'supplies') ? undefined : ((json['supplies'] as Array<any>).map(FacilityCodeTypeFromJSON)),
         'task': !exists(json, 'task') ? undefined : HousekeepingTaskCodeTypeFromJSON(json['task']),
     };
@@ -86,7 +86,7 @@ export function FacilityTaskTypeToJSON(value?: FacilityTaskType | null): any {
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'supplies': value.supplies === undefined ? undefined : ((value.supplies as Array<any>).map(FacilityCodeTypeToJSON)),
         'task': HousekeepingTaskCodeTypeToJSON(value.task),
     };

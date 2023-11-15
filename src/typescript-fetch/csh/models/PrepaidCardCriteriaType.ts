@@ -160,10 +160,10 @@ export interface PrepaidCardCriteriaType {
     profileId?: ProfileId;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardCriteriaType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {ReservationId}
@@ -220,7 +220,7 @@ export function PrepaidCardCriteriaTypeFromJSONTyped(json: any, ignoreDiscrimina
         'pinCode': !exists(json, 'pinCode') ? undefined : json['pinCode'],
         'postChargeToRoom': !exists(json, 'postChargeToRoom') ? undefined : json['postChargeToRoom'],
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationId': !exists(json, 'reservationId') ? undefined : ReservationIdFromJSON(json['reservationId']),
         'saleCriteria': !exists(json, 'saleCriteria') ? undefined : SaleCriteriaTypeFromJSON(json['saleCriteria']),
         'vendorInterfaceID': !exists(json, 'vendorInterfaceID') ? undefined : json['vendorInterfaceID'],
@@ -253,7 +253,7 @@ export function PrepaidCardCriteriaTypeToJSON(value?: PrepaidCardCriteriaType | 
         'pinCode': value.pinCode,
         'postChargeToRoom': value.postChargeToRoom,
         'profileId': ProfileIdToJSON(value.profileId),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'reservationId': ReservationIdToJSON(value.reservationId),
         'saleCriteria': SaleCriteriaTypeToJSON(value.saleCriteria),
         'vendorInterfaceID': value.vendorInterfaceID,

@@ -51,10 +51,10 @@ export interface BlockHeaderInfoType {
     currencyCode?: string;
     /**
      * End date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Guarantee Code for the block.
      * @type {string}
@@ -93,16 +93,16 @@ export interface BlockHeaderInfoType {
     rateCode?: string;
     /**
      * Shoulder end date of the block, applicable if the block is elastic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    shoulderEndDate?: Date;
+    shoulderEndDate?: string;
     /**
      * Shoulder start date of the block, applicable if the block is elastic.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    shoulderStartDate?: Date;
+    shoulderStartDate?: string;
     /**
      *
      * @type {BlockSourceOfSaleType}
@@ -111,10 +111,10 @@ export interface BlockHeaderInfoType {
     sourceOfSale?: BlockSourceOfSaleType;
     /**
      * Start date of the block.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockHeaderInfoType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Indicates whether rates are suppressed.
      * @type {boolean}

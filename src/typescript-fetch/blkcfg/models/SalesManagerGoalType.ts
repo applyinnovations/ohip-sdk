@@ -52,10 +52,10 @@ export interface SalesManagerGoalType {
     activityType?: string;
     /**
      * Specifies the Arrival End Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    arrivalEndDate?: Date;
+    arrivalEndDate?: string;
     /**
      * Specifies if this is a Arrival or a Production Goal
      * @type {boolean}
@@ -70,10 +70,10 @@ export interface SalesManagerGoalType {
     arrivalPeriodCode?: string;
     /**
      * Specifies the Arrival Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    arrivalStartDate?: Date;
+    arrivalStartDate?: string;
     /**
      * 
      * @type {CurrencyAmountType}
@@ -148,10 +148,10 @@ export interface SalesManagerGoalType {
     otherRevenue?: CurrencyAmountType;
     /**
      * Specifies the Production End Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    productionEndDate?: Date;
+    productionEndDate?: string;
     /**
      * Specifies the Production Period Code
      * @type {string}
@@ -160,10 +160,10 @@ export interface SalesManagerGoalType {
     productionPeriodCode?: string;
     /**
      * Specifies the Production Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof SalesManagerGoalType
      */
-    productionStartDate?: Date;
+    productionStartDate?: string;
     /**
      * Room Nights assigned for the goal
      * @type {number}
@@ -206,10 +206,10 @@ export function SalesManagerGoalTypeFromJSONTyped(json: any, ignoreDiscriminator
         'activitiesCount': !exists(json, 'activitiesCount') ? undefined : json['activitiesCount'],
         'activity': !exists(json, 'activity') ? undefined : json['activity'],
         'activityType': !exists(json, 'activityType') ? undefined : json['activityType'],
-        'arrivalEndDate': !exists(json, 'arrivalEndDate') ? undefined : (new Date(json['arrivalEndDate'])),
+        'arrivalEndDate': !exists(json, 'arrivalEndDate') ? undefined : json['arrivalEndDate'],
         'arrivalGoal': !exists(json, 'arrivalGoal') ? undefined : json['arrivalGoal'],
         'arrivalPeriodCode': !exists(json, 'arrivalPeriodCode') ? undefined : json['arrivalPeriodCode'],
-        'arrivalStartDate': !exists(json, 'arrivalStartDate') ? undefined : (new Date(json['arrivalStartDate'])),
+        'arrivalStartDate': !exists(json, 'arrivalStartDate') ? undefined : json['arrivalStartDate'],
         'averageFBCheck': !exists(json, 'averageFBCheck') ? undefined : CurrencyAmountTypeFromJSON(json['averageFBCheck']),
         'averageRate': !exists(json, 'averageRate') ? undefined : CurrencyAmountTypeFromJSON(json['averageRate']),
         'cateringCovers': !exists(json, 'cateringCovers') ? undefined : json['cateringCovers'],
@@ -222,9 +222,9 @@ export function SalesManagerGoalTypeFromJSONTyped(json: any, ignoreDiscriminator
         'marketCode': !exists(json, 'marketCode') ? undefined : json['marketCode'],
         'nameId': !exists(json, 'nameId') ? undefined : UniqueIDTypeFromJSON(json['nameId']),
         'otherRevenue': !exists(json, 'otherRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['otherRevenue']),
-        'productionEndDate': !exists(json, 'productionEndDate') ? undefined : (new Date(json['productionEndDate'])),
+        'productionEndDate': !exists(json, 'productionEndDate') ? undefined : json['productionEndDate'],
         'productionPeriodCode': !exists(json, 'productionPeriodCode') ? undefined : json['productionPeriodCode'],
-        'productionStartDate': !exists(json, 'productionStartDate') ? undefined : (new Date(json['productionStartDate'])),
+        'productionStartDate': !exists(json, 'productionStartDate') ? undefined : json['productionStartDate'],
         'roomNights': !exists(json, 'roomNights') ? undefined : json['roomNights'],
         'roomRevenue': !exists(json, 'roomRevenue') ? undefined : CurrencyAmountTypeFromJSON(json['roomRevenue']),
         'transientRoom': !exists(json, 'transientRoom') ? undefined : json['transientRoom'],
@@ -243,10 +243,10 @@ export function SalesManagerGoalTypeToJSON(value?: SalesManagerGoalType | null):
         'activitiesCount': value.activitiesCount,
         'activity': value.activity,
         'activityType': value.activityType,
-        'arrivalEndDate': value.arrivalEndDate === undefined ? undefined : (value.arrivalEndDate.toISOString().substring(0,10)),
+        'arrivalEndDate': value.arrivalEndDate,
         'arrivalGoal': value.arrivalGoal,
         'arrivalPeriodCode': value.arrivalPeriodCode,
-        'arrivalStartDate': value.arrivalStartDate === undefined ? undefined : (value.arrivalStartDate.toISOString().substring(0,10)),
+        'arrivalStartDate': value.arrivalStartDate,
         'averageFBCheck': CurrencyAmountTypeToJSON(value.averageFBCheck),
         'averageRate': CurrencyAmountTypeToJSON(value.averageRate),
         'cateringCovers': value.cateringCovers,
@@ -259,9 +259,9 @@ export function SalesManagerGoalTypeToJSON(value?: SalesManagerGoalType | null):
         'marketCode': value.marketCode,
         'nameId': UniqueIDTypeToJSON(value.nameId),
         'otherRevenue': CurrencyAmountTypeToJSON(value.otherRevenue),
-        'productionEndDate': value.productionEndDate === undefined ? undefined : (value.productionEndDate.toISOString().substring(0,10)),
+        'productionEndDate': value.productionEndDate,
         'productionPeriodCode': value.productionPeriodCode,
-        'productionStartDate': value.productionStartDate === undefined ? undefined : (value.productionStartDate.toISOString().substring(0,10)),
+        'productionStartDate': value.productionStartDate,
         'roomNights': value.roomNights,
         'roomRevenue': CurrencyAmountTypeToJSON(value.roomRevenue),
         'transientRoom': value.transientRoom,

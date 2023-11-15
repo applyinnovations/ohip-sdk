@@ -38,8 +38,8 @@ function BusinessEventDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
         'elementType': !(0, runtime_1.exists)(json, 'elementType') ? undefined : json['elementType'],
         'newValue': !(0, runtime_1.exists)(json, 'newValue') ? undefined : json['newValue'],
         'oldValue': !(0, runtime_1.exists)(json, 'oldValue') ? undefined : json['oldValue'],
-        'scopeFrom': !(0, runtime_1.exists)(json, 'scopeFrom') ? undefined : (new Date(json['scopeFrom'])),
-        'scopeTo': !(0, runtime_1.exists)(json, 'scopeTo') ? undefined : (new Date(json['scopeTo'])),
+        'scopeFrom': !(0, runtime_1.exists)(json, 'scopeFrom') ? undefined : json['scopeFrom'],
+        'scopeTo': !(0, runtime_1.exists)(json, 'scopeTo') ? undefined : json['scopeTo'],
     };
 }
 exports.BusinessEventDetailTypeFromJSONTyped = BusinessEventDetailTypeFromJSONTyped;
@@ -57,8 +57,8 @@ function BusinessEventDetailTypeToJSON(value) {
         'elementType': value.elementType,
         'newValue': value.newValue,
         'oldValue': value.oldValue,
-        'scopeFrom': value.scopeFrom === undefined ? undefined : (value.scopeFrom.toISOString().substring(0, 10)),
-        'scopeTo': value.scopeTo === undefined ? undefined : (value.scopeTo.toISOString().substring(0, 10)),
+        'scopeFrom': value.scopeFrom,
+        'scopeTo': value.scopeTo,
     };
 }
 exports.BusinessEventDetailTypeToJSON = BusinessEventDetailTypeToJSON;

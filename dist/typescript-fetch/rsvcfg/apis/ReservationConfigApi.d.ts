@@ -394,7 +394,7 @@ export interface GetUpsellRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stayDate?: Date;
+    stayDate?: string;
     rule?: string;
     searchByRoomType?: boolean;
     fromCodes?: Array<string>;

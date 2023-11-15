@@ -35,10 +35,10 @@ export interface MembershipClaimSummaryType {
     approvalStatus?: ClaimApprovalStatusType;
     /**
      * Arrival date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * More information related to call that help to resolve the claim..
      * @type {string}
@@ -53,10 +53,10 @@ export interface MembershipClaimSummaryType {
     callerName?: string;
     /**
      * Date the claim was made.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    claimDate?: Date;
+    claimDate?: string;
     /**
      *
      * @type {UniqueIDType}
@@ -77,10 +77,10 @@ export interface MembershipClaimSummaryType {
     claimType?: string;
     /**
      * If the status is closed, the date the claim was closed.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    closeDate?: Date;
+    closeDate?: string;
     /**
      * Unique Id that references an object uniquely in the system.
      * @type {Array<UniqueIDType>}
@@ -89,10 +89,10 @@ export interface MembershipClaimSummaryType {
     confirmationNo?: Array<UniqueIDType>;
     /**
      * Departure date for the stay associated with this claim.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Property where the stay took place.
      * @type {string}
@@ -143,10 +143,10 @@ export interface MembershipClaimSummaryType {
     recordType?: ClaimRecordType;
     /**
      * The date, if any, by which a response to the caller was promised.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipClaimSummaryType
      */
-    replyBy?: Date;
+    replyBy?: string;
     /**
      *
      * @type {ClaimSourceType}

@@ -17,16 +17,16 @@
 export interface TimeSpanType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof TimeSpanType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof TimeSpanType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {string}

@@ -17,10 +17,10 @@
 export interface ARAccountTypeLastStatementInfo {
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
-     * @type {Date}
+     * @type {string}
      * @memberof ARAccountTypeLastStatementInfo
      */
-    dateSent?: Date;
+    dateSent?: string;
     /**
      * Indicates that statement history exists.
      * @type {boolean}

@@ -346,10 +346,10 @@ export interface SubAllocationType {
     masterBlockInfo?: MasterBlockInfoType;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof SubAllocationType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * Rate Program contains rate information required for block creation, like room pool, rate amount, market code, etc. Only available if configured in OPERA Cloud.
      * @type {Array<RateProgramType>}
@@ -456,7 +456,7 @@ export function SubAllocationTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'markAsRecentlyAccessed': !exists(json, 'markAsRecentlyAccessed') ? undefined : json['markAsRecentlyAccessed'],
         'masterAllocationInfo': !exists(json, 'masterAllocationInfo') ? undefined : MasterSubBlockBaseInfoTypeFromJSON(json['masterAllocationInfo']),
         'masterBlockInfo': !exists(json, 'masterBlockInfo') ? undefined : MasterBlockInfoTypeFromJSON(json['masterBlockInfo']),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'ratePrograms': !exists(json, 'ratePrograms') ? undefined : ((json['ratePrograms'] as Array<any>).map(RateProgramTypeFromJSON)),
         'reservationDetails': !exists(json, 'reservationDetails') ? undefined : BlockReservationDetailsTypeFromJSON(json['reservationDetails']),
         'reservationPolicies': !exists(json, 'reservationPolicies') ? undefined : ((json['reservationPolicies'] as Array<any>).map(ReservationPoliciesTypeFromJSON)),
@@ -504,7 +504,7 @@ export function SubAllocationTypeToJSON(value?: SubAllocationType | null): any {
         'markAsRecentlyAccessed': value.markAsRecentlyAccessed,
         'masterAllocationInfo': MasterSubBlockBaseInfoTypeToJSON(value.masterAllocationInfo),
         'masterBlockInfo': MasterBlockInfoTypeToJSON(value.masterBlockInfo),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'ratePrograms': value.ratePrograms === undefined ? undefined : ((value.ratePrograms as Array<any>).map(RateProgramTypeToJSON)),
         'reservationDetails': BlockReservationDetailsTypeToJSON(value.reservationDetails),
         'reservationPolicies': value.reservationPolicies === undefined ? undefined : ((value.reservationPolicies as Array<any>).map(ReservationPoliciesTypeToJSON)),

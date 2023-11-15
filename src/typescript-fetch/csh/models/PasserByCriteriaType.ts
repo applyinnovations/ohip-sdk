@@ -94,10 +94,10 @@ export interface PasserByCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof PasserByCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * The payment information to be posted.
      * @type {Array<PaymentCriteriaType>}
@@ -149,7 +149,7 @@ export function PasserByCriteriaTypeFromJSONTyped(json: any, ignoreDiscriminator
         'fiscalTerminalId': !exists(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
         'folioNameValue': !exists(json, 'folioNameValue') ? undefined : ((json['folioNameValue'] as Array<any>).map(NameValueHeaderDetailTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
+        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : json['incomeAuditDate'],
         'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(PaymentCriteriaTypeFromJSON)),
         'profileId': !exists(json, 'profileId') ? undefined : ProfileIdFromJSON(json['profileId']),
         'reason': !exists(json, 'reason') ? undefined : FolioReasonTypeFromJSON(json['reason']),
@@ -172,7 +172,7 @@ export function PasserByCriteriaTypeToJSON(value?: PasserByCriteriaType | null):
         'fiscalTerminalId': value.fiscalTerminalId,
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
+        'incomeAuditDate': value.incomeAuditDate,
         'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(PaymentCriteriaTypeToJSON)),
         'profileId': ProfileIdToJSON(value.profileId),
         'reason': FolioReasonTypeToJSON(value.reason),

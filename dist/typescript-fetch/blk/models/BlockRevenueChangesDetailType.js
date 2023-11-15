@@ -36,11 +36,11 @@ function BlockRevenueChangesDetailTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockOwner': !(0, runtime_1.exists)(json, 'blockOwner') ? undefined : (json['blockOwner'].map(BlockOwnersType_1.BlockOwnersTypeFromJSON)),
-        'changeDate': !(0, runtime_1.exists)(json, 'changeDate') ? undefined : (new Date(json['changeDate'])),
+        'changeDate': !(0, runtime_1.exists)(json, 'changeDate') ? undefined : json['changeDate'],
         'nights': !(0, runtime_1.exists)(json, 'nights') ? undefined : json['nights'],
         'roomRevenue': !(0, runtime_1.exists)(json, 'roomRevenue') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['roomRevenue']),
         'roomStatus': !(0, runtime_1.exists)(json, 'roomStatus') ? undefined : json['roomStatus'],
-        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : json['stayDate'],
         'userDetails': !(0, runtime_1.exists)(json, 'userDetails') ? undefined : (0, LogUserInfoType_1.LogUserInfoTypeFromJSON)(json['userDetails']),
     };
 }
@@ -54,11 +54,11 @@ function BlockRevenueChangesDetailTypeToJSON(value) {
     }
     return {
         'blockOwner': value.blockOwner === undefined ? undefined : (value.blockOwner.map(BlockOwnersType_1.BlockOwnersTypeToJSON)),
-        'changeDate': value.changeDate === undefined ? undefined : (value.changeDate.toISOString().substring(0, 10)),
+        'changeDate': value.changeDate,
         'nights': value.nights,
         'roomRevenue': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.roomRevenue),
         'roomStatus': value.roomStatus,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
+        'stayDate': value.stayDate,
         'userDetails': (0, LogUserInfoType_1.LogUserInfoTypeToJSON)(value.userDetails),
     };
 }

@@ -23,10 +23,10 @@ export interface RoomTypeSellLimitType {
     amount?: number;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof RoomTypeSellLimitType
      */
-    date?: Date;
+    date?: string;
     /**
      *
      * @type {string}

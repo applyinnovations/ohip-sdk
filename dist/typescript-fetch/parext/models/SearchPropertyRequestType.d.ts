@@ -25,16 +25,16 @@ export interface SearchPropertyRequestType {
     accountId?: string;
     /**
      * Arrival/Check-in Date
-     * @type {Date}
+     * @type {string}
      * @memberof SearchPropertyRequestType
      */
-    arrivalDate: Date;
+    arrivalDate: string;
     /**
      * Departure/Check-out Date
-     * @type {Date}
+     * @type {string}
      * @memberof SearchPropertyRequestType
      */
-    departureDate: Date;
+    departureDate: string;
     /**
      * List of hotelIds for search criteria.
      * @type {Array<string>}

@@ -24,10 +24,10 @@ export interface AssociatedRoomOwnershipInfoType {
     associatedRoomOwnershipType?: AssociatedRoomOwnershipType;
     /**
      * End date of Room Ownership contract
-     * @type {Date}
+     * @type {string}
      * @memberof AssociatedRoomOwnershipInfoType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Hotel Id
      * @type {string}
@@ -60,10 +60,10 @@ export interface AssociatedRoomOwnershipInfoType {
     roomType?: string;
     /**
      * Start date of Room Ownership contract
-     * @type {Date}
+     * @type {string}
      * @memberof AssociatedRoomOwnershipInfoType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the AssociatedRoomOwnershipInfoType interface.

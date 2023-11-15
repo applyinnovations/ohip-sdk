@@ -91,10 +91,10 @@ export interface UpsellInfoTypeUpsellInfo {
     totalUpsellPoints?: number;
     /**
      * The date on which reservation is upgraded.
-     * @type {Date}
+     * @type {string}
      * @memberof UpsellInfoTypeUpsellInfo
      */
-    upsellDate?: Date;
+    upsellDate?: string;
     /**
      * User who upgraded the reservation.
      * @type {string}

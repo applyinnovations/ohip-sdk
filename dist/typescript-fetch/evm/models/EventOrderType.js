@@ -33,7 +33,7 @@ function EventOrderTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'distributed': !(0, runtime_1.exists)(json, 'distributed') ? undefined : json['distributed'],
-        'distributedDate': !(0, runtime_1.exists)(json, 'distributedDate') ? undefined : (new Date(json['distributedDate'])),
+        'distributedDate': !(0, runtime_1.exists)(json, 'distributedDate') ? undefined : json['distributedDate'],
         'distributedDateTime': !(0, runtime_1.exists)(json, 'distributedDateTime') ? undefined : json['distributedDateTime'],
     };
 }
@@ -47,7 +47,7 @@ function EventOrderTypeToJSON(value) {
     }
     return {
         'distributed': value.distributed,
-        'distributedDate': value.distributedDate === undefined ? undefined : (value.distributedDate.toISOString().substring(0, 10)),
+        'distributedDate': value.distributedDate,
         'distributedDateTime': value.distributedDateTime,
     };
 }

@@ -44,7 +44,7 @@ function AuthorizerCreditTypeFromJSONTyped(json, ignoreDiscriminator) {
         'creditLimit': !(0, runtime_1.exists)(json, 'creditLimit') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['creditLimit']),
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'inheritAuthorizerRateCode': !(0, runtime_1.exists)(json, 'inheritAuthorizerRateCode') ? undefined : json['inheritAuthorizerRateCode'],
-        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !(0, runtime_1.exists)(json, 'transactionDate') ? undefined : json['transactionDate'],
     };
 }
 exports.AuthorizerCreditTypeFromJSONTyped = AuthorizerCreditTypeFromJSONTyped;
@@ -65,7 +65,7 @@ function AuthorizerCreditTypeToJSON(value) {
         'creditLimit': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.creditLimit),
         'hotelId': value.hotelId,
         'inheritAuthorizerRateCode': value.inheritAuthorizerRateCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0, 10)),
+        'transactionDate': value.transactionDate,
     };
 }
 exports.AuthorizerCreditTypeToJSON = AuthorizerCreditTypeToJSON;

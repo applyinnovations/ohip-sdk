@@ -33,7 +33,7 @@ function DailyPaceStatTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'channel': !(0, runtime_1.exists)(json, 'channel') ? undefined : json['channel'],
-        'consideredDate': !(0, runtime_1.exists)(json, 'consideredDate') ? undefined : (new Date(json['consideredDate'])),
+        'consideredDate': !(0, runtime_1.exists)(json, 'consideredDate') ? undefined : json['consideredDate'],
         'rooms': !(0, runtime_1.exists)(json, 'rooms') ? undefined : json['rooms'],
     };
 }
@@ -47,7 +47,7 @@ function DailyPaceStatTypeToJSON(value) {
     }
     return {
         'channel': value.channel,
-        'consideredDate': value.consideredDate === undefined ? undefined : (value.consideredDate.toISOString().substring(0, 10)),
+        'consideredDate': value.consideredDate,
         'rooms': value.rooms,
     };
 }

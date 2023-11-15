@@ -31,8 +31,8 @@ export interface GetBlockStatsRequest {
     xHotelid?: string;
     hotelId?: string;
     reportCode?: Set<GetBlockStatsReportCodeEnum>;
-    reportEndDate?: Array<Date>;
-    reportStartDate?: Array<Date>;
+    reportEndDate?: Array<string>;
+    reportStartDate?: Array<string>;
     statisticalCode?: Set<GetBlockStatsStatisticalCodeEnum>;
     reportParametersParameterName?: Array<string>;
     reportParametersParameterValue?: Array<string>;

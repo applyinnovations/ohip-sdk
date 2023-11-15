@@ -32,11 +32,11 @@ function RatePlanAdvancedPostingRhythmTypeFromJSONTyped(json, ignoreDiscriminato
         return json;
     }
     return {
-        'beginSellDate': !(0, runtime_1.exists)(json, 'beginSellDate') ? undefined : (new Date(json['beginSellDate'])),
+        'beginSellDate': !(0, runtime_1.exists)(json, 'beginSellDate') ? undefined : json['beginSellDate'],
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'eligibleFreeNights': !(0, runtime_1.exists)(json, 'eligibleFreeNights') ? undefined : json['eligibleFreeNights'],
-        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : json['endSellDate'],
         'repeatWithinSellSegment': !(0, runtime_1.exists)(json, 'repeatWithinSellSegment') ? undefined : json['repeatWithinSellSegment'],
         'repeatWithinStay': !(0, runtime_1.exists)(json, 'repeatWithinStay') ? undefined : json['repeatWithinStay'],
         'requiredPaidNights': !(0, runtime_1.exists)(json, 'requiredPaidNights') ? undefined : json['requiredPaidNights'],
@@ -51,11 +51,11 @@ function RatePlanAdvancedPostingRhythmTypeToJSON(value) {
         return null;
     }
     return {
-        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substring(0, 10)),
+        'beginSellDate': value.beginSellDate,
         'code': value.code,
         'description': value.description,
         'eligibleFreeNights': value.eligibleFreeNights,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
+        'endSellDate': value.endSellDate,
         'repeatWithinSellSegment': value.repeatWithinSellSegment,
         'repeatWithinStay': value.repeatWithinStay,
         'requiredPaidNights': value.requiredPaidNights,

@@ -34,10 +34,10 @@ export interface CommissionPaymentActivityStatusCriteriaType {
     status?: CommissionPaymentActivityStatusType;
     /**
      * Date applied when new status is applied. Used in Unpresented and Reconcile.
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentActivityStatusCriteriaType
      */
-    statusDate?: Date;
+    statusDate?: string;
 }
 
 /**
@@ -60,7 +60,7 @@ export function CommissionPaymentActivityStatusCriteriaTypeFromJSONTyped(json: a
     return {
         
         'status': !exists(json, 'status') ? undefined : CommissionPaymentActivityStatusTypeFromJSON(json['status']),
-        'statusDate': !exists(json, 'statusDate') ? undefined : (new Date(json['statusDate'])),
+        'statusDate': !exists(json, 'statusDate') ? undefined : json['statusDate'],
     };
 }
 
@@ -74,7 +74,7 @@ export function CommissionPaymentActivityStatusCriteriaTypeToJSON(value?: Commis
     return {
         
         'status': CommissionPaymentActivityStatusTypeToJSON(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0,10)),
+        'statusDate': value.statusDate,
     };
 }
 

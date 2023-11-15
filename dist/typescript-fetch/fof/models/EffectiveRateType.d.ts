@@ -24,10 +24,10 @@ export interface EffectiveRateType {
     amountBeforeTax?: number;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof EffectiveRateType
      */
-    end?: Date;
+    end?: string;
     /**
      * Rate amount for each extra Child.
      * @type {number}
@@ -120,10 +120,10 @@ export interface EffectiveRateType {
     roomType?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof EffectiveRateType
      */
-    start?: Date;
+    start?: string;
     /**
      * Rate amount for three Children.
      * @type {number}

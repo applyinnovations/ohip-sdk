@@ -26,10 +26,10 @@ export interface GeneratedExportType {
     checksumEnabled?: boolean;
     /**
      * The beginning date for the export.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratedExportType
      */
-    dataFromDate?: Date;
+    dataFromDate?: string;
     /**
      *
      * @type {ExportHeaderSummaryType}
@@ -38,10 +38,10 @@ export interface GeneratedExportType {
     dataHeader?: ExportHeaderSummaryType;
     /**
      * The ending date for the export.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratedExportType
      */
-    dataToDate?: Date;
+    dataToDate?: string;
     /**
      *
      * @type {UniqueIDType}
@@ -50,10 +50,10 @@ export interface GeneratedExportType {
     exportDataId?: UniqueIDType;
     /**
      * The date that the export was generated.
-     * @type {Date}
+     * @type {string}
      * @memberof GeneratedExportType
      */
-    generatedDate?: Date;
+    generatedDate?: string;
     /**
      * The errors generated during the export.
      * @type {string}

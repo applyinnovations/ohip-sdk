@@ -26,10 +26,10 @@ export interface ChannelBillingStatementType {
     accountCodeList?: Array<string>;
     /**
      * Holds begin date of the statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Provides detailed information regarding Channel Account contract.
      * @type {Array<ChannelStatementAccountType>}
@@ -44,10 +44,10 @@ export interface ChannelBillingStatementType {
     dirty?: boolean;
     /**
      * Holds end date of the statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Flag to identify Statements were generated or not.
      * @type {boolean}
@@ -56,10 +56,10 @@ export interface ChannelBillingStatementType {
     generated?: boolean;
     /**
      * Holds date on which statement is locked.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    lockDate?: Date;
+    lockDate?: string;
     /**
      * Holds Note for the statement.
      * @type {string}
@@ -68,10 +68,10 @@ export interface ChannelBillingStatementType {
     note?: string;
     /**
      * Holds date on which statement is created.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelBillingStatementType
      */
-    statementDate?: Date;
+    statementDate?: string;
     /**
      *
      * @type {UniqueIDType}

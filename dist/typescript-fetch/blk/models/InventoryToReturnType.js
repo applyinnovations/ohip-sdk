@@ -35,7 +35,7 @@ function InventoryToReturnTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'blockId': !(0, runtime_1.exists)(json, 'blockId') ? undefined : (0, BlockId_1.BlockIdFromJSON)(json['blockId']),
-        'returnDate': !(0, runtime_1.exists)(json, 'returnDate') ? undefined : (new Date(json['returnDate'])),
+        'returnDate': !(0, runtime_1.exists)(json, 'returnDate') ? undefined : json['returnDate'],
         'returnRooms': !(0, runtime_1.exists)(json, 'returnRooms') ? undefined : (json['returnRooms'].map(ReturnRoomType_1.ReturnRoomTypeFromJSON)),
     };
 }
@@ -49,7 +49,7 @@ function InventoryToReturnTypeToJSON(value) {
     }
     return {
         'blockId': (0, BlockId_1.BlockIdToJSON)(value.blockId),
-        'returnDate': value.returnDate === undefined ? undefined : (value.returnDate.toISOString().substring(0, 10)),
+        'returnDate': value.returnDate,
         'returnRooms': value.returnRooms === undefined ? undefined : (value.returnRooms.map(ReturnRoomType_1.ReturnRoomTypeToJSON)),
     };
 }

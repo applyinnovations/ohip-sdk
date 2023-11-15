@@ -53,10 +53,10 @@ export interface BillingPrivilegesType {
     directBillAuthorized?: boolean;
     /**
      * Date when folio was closed. This works with PostStayCharging flag.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingPrivilegesType
      */
-    folioCloseDate?: Date;
+    folioCloseDate?: string;
     /**
      * Indicates if the reservation has charging privileges after checkout.
      * @type {boolean}
@@ -83,10 +83,10 @@ export interface BillingPrivilegesType {
     scheduledCheckout?: boolean;
     /**
      * Time of automatic check out if guest is schedule for automatic check out.
-     * @type {Date}
+     * @type {string}
      * @memberof BillingPrivilegesType
      */
-    scheduledCheckoutTime?: Date;
+    scheduledCheckoutTime?: string;
     /**
      * Indicates if the guest can do video checkout
      * @type {boolean}

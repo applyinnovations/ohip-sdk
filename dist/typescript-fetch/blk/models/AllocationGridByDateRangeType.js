@@ -34,13 +34,13 @@ function AllocationGridByDateRangeTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'friday': !(0, runtime_1.exists)(json, 'friday') ? undefined : json['friday'],
         'inventory': !(0, runtime_1.exists)(json, 'inventory') ? undefined : (0, SetBlockGridInvType_1.SetBlockGridInvTypeFromJSON)(json['inventory']),
         'monday': !(0, runtime_1.exists)(json, 'monday') ? undefined : json['monday'],
         'rate': !(0, runtime_1.exists)(json, 'rate') ? undefined : (0, BlockGridRatesType_1.BlockGridRatesTypeFromJSON)(json['rate']),
         'saturday': !(0, runtime_1.exists)(json, 'saturday') ? undefined : json['saturday'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'sunday': !(0, runtime_1.exists)(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !(0, runtime_1.exists)(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !(0, runtime_1.exists)(json, 'tuesday') ? undefined : json['tuesday'],
@@ -56,13 +56,13 @@ function AllocationGridByDateRangeTypeToJSON(value) {
         return null;
     }
     return {
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'friday': value.friday,
         'inventory': (0, SetBlockGridInvType_1.SetBlockGridInvTypeToJSON)(value.inventory),
         'monday': value.monday,
         'rate': (0, BlockGridRatesType_1.BlockGridRatesTypeToJSON)(value.rate),
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

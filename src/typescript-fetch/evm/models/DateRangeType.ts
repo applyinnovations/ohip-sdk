@@ -21,16 +21,16 @@ import { exists, mapValues } from '../runtime';
 export interface DateRangeType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DateRangeType
      */
-    eventEndDate?: Date;
+    eventEndDate?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof DateRangeType
      */
-    eventStartDate?: Date;
+    eventStartDate?: string;
 }
 
 /**
@@ -52,8 +52,8 @@ export function DateRangeTypeFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : (new Date(json['eventEndDate'])),
-        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : (new Date(json['eventStartDate'])),
+        'eventEndDate': !exists(json, 'eventEndDate') ? undefined : json['eventEndDate'],
+        'eventStartDate': !exists(json, 'eventStartDate') ? undefined : json['eventStartDate'],
     };
 }
 
@@ -66,8 +66,8 @@ export function DateRangeTypeToJSON(value?: DateRangeType | null): any {
     }
     return {
         
-        'eventEndDate': value.eventEndDate === undefined ? undefined : (value.eventEndDate.toISOString().substring(0,10)),
-        'eventStartDate': value.eventStartDate === undefined ? undefined : (value.eventStartDate.toISOString().substring(0,10)),
+        'eventEndDate': value.eventEndDate,
+        'eventStartDate': value.eventStartDate,
     };
 }
 

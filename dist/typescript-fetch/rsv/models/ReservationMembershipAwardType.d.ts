@@ -23,10 +23,10 @@ export interface ReservationMembershipAwardType {
     actualCancelPoints?: number;
     /**
      * The arrival date of the stay for when the award is associated.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationMembershipAwardType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Indicates if the Award is based on RATE, PRODUCT or UPGRADE.
      * @type {string}
@@ -35,10 +35,10 @@ export interface ReservationMembershipAwardType {
     awardBasedOn?: string;
     /**
      * If the reservation associated with the award was cancelled, the reservation cancellation date appears here.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationMembershipAwardType
      */
-    awardCancelDate?: Date;
+    awardCancelDate?: string;
     /**
      * Unique ID for the award cancellation if cancelled.
      * @type {number}
@@ -65,10 +65,10 @@ export interface ReservationMembershipAwardType {
     cancelPenaltyPoints?: number;
     /**
      * Date when the award was issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationMembershipAwardType
      */
-    dateAwarded?: Date;
+    dateAwarded?: string;
     /**
      * The card number associated with this membership.
      * @type {string}

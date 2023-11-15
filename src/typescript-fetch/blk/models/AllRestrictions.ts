@@ -46,10 +46,10 @@ export interface AllRestrictions {
     blockId?: BlockId;
     /**
      * Date for which restrictions should be cleared.
-     * @type {Date}
+     * @type {string}
      * @memberof AllRestrictions
      */
-    date?: Date;
+    date?: string;
     /**
      * Used for codes in the OPERA Code tables. Possible values of this pattern are 1, 101, 101.EQP, or 101.EQP.X.
      * @type {string}
@@ -90,7 +90,7 @@ export function AllRestrictionsFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
@@ -107,7 +107,7 @@ export function AllRestrictionsToJSON(value?: AllRestrictions | null): any {
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'hotelId': value.hotelId,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),

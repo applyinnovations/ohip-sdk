@@ -34,10 +34,10 @@ export interface TransactionType {
     transactionCode?: string;
     /**
      * Transaction date.
-     * @type {Date}
+     * @type {string}
      * @memberof TransactionType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * Transaction description.
      * @type {string}
@@ -72,7 +72,7 @@ export function TransactionTypeFromJSONTyped(json: any, ignoreDiscriminator: boo
     return {
         
         'transactionCode': !exists(json, 'transactionCode') ? undefined : json['transactionCode'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'transactionDescription': !exists(json, 'transactionDescription') ? undefined : json['transactionDescription'],
         'transactionNo': !exists(json, 'transactionNo') ? undefined : CodeDescriptionTypeFromJSON(json['transactionNo']),
     };
@@ -88,7 +88,7 @@ export function TransactionTypeToJSON(value?: TransactionType | null): any {
     return {
         
         'transactionCode': value.transactionCode,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'transactionDescription': value.transactionDescription,
         'transactionNo': CodeDescriptionTypeToJSON(value.transactionNo),
     };

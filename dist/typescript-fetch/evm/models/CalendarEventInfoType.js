@@ -39,7 +39,7 @@ function CalendarEventInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'attendees': !(0, runtime_1.exists)(json, 'attendees') ? undefined : json['attendees'],
-        'createdOn': !(0, runtime_1.exists)(json, 'createdOn') ? undefined : (new Date(json['createdOn'])),
+        'createdOn': !(0, runtime_1.exists)(json, 'createdOn') ? undefined : json['createdOn'],
         'eventBookingInfo': !(0, runtime_1.exists)(json, 'eventBookingInfo') ? undefined : (0, EventBookingInfoType_1.EventBookingInfoTypeFromJSON)(json['eventBookingInfo']),
         'eventDisplay': !(0, runtime_1.exists)(json, 'eventDisplay') ? undefined : (0, EventDisplayType_1.EventDisplayTypeFromJSON)(json['eventDisplay']),
         'eventName': !(0, runtime_1.exists)(json, 'eventName') ? undefined : json['eventName'],
@@ -73,7 +73,7 @@ function CalendarEventInfoTypeToJSON(value) {
     }
     return {
         'attendees': value.attendees,
-        'createdOn': value.createdOn === undefined ? undefined : (value.createdOn.toISOString().substring(0, 10)),
+        'createdOn': value.createdOn,
         'eventBookingInfo': (0, EventBookingInfoType_1.EventBookingInfoTypeToJSON)(value.eventBookingInfo),
         'eventDisplay': (0, EventDisplayType_1.EventDisplayTypeToJSON)(value.eventDisplay),
         'eventName': value.eventName,

@@ -85,10 +85,10 @@ export interface ResCashieringType {
     proratedBilling?: boolean;
     /**
      * Date of the last Room And Tax posting. Used primarily to know the date in case of Advance Billing.
-     * @type {Date}
+     * @type {string}
      * @memberof ResCashieringType
      */
-    lastRoomAndTaxPostedDate?: Date;
+    lastRoomAndTaxPostedDate?: string;
     /**
      * This attribute is to verify if reverse check-in is allowed for the reservation.
      * @type {boolean}

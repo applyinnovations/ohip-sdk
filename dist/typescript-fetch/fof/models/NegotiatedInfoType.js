@@ -34,10 +34,10 @@ function NegotiatedInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'comissionCode': !(0, runtime_1.exists)(json, 'comissionCode') ? undefined : json['comissionCode'],
         'corporateAgreementId': !(0, runtime_1.exists)(json, 'corporateAgreementId') ? undefined : json['corporateAgreementId'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
         'order': !(0, runtime_1.exists)(json, 'order') ? undefined : json['order'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
     };
 }
 exports.NegotiatedInfoTypeFromJSONTyped = NegotiatedInfoTypeFromJSONTyped;
@@ -51,10 +51,10 @@ function NegotiatedInfoTypeToJSON(value) {
     return {
         'comissionCode': value.comissionCode,
         'corporateAgreementId': value.corporateAgreementId,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'inactive': value.inactive,
         'order': value.order,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
     };
 }
 exports.NegotiatedInfoTypeToJSON = NegotiatedInfoTypeToJSON;

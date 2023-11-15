@@ -18,10 +18,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface TicketType {
     /**
      * Tickets comsumption date.
-     * @type {Date}
+     * @type {string}
      * @memberof TicketType
      */
-    consumptionDate?: Date;
+    consumptionDate?: string;
     /**
      * Package description.
      * @type {string}
@@ -30,10 +30,10 @@ export interface TicketType {
     description?: string;
     /**
      * Tickets issue date.
-     * @type {Date}
+     * @type {string}
      * @memberof TicketType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * Package Code.
      * @type {string}

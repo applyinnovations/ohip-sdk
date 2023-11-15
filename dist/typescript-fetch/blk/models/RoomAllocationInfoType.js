@@ -38,7 +38,7 @@ function RoomAllocationInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
         'extendedStay': !(0, runtime_1.exists)(json, 'extendedStay') ? undefined : json['extendedStay'],
         'roomGridDetails': !(0, runtime_1.exists)(json, 'roomGridDetails') ? undefined : (json['roomGridDetails'].map(RoomGridDetailsType_1.RoomGridDetailsTypeFromJSON)),
         'roomGridInvSummary': !(0, runtime_1.exists)(json, 'roomGridInvSummary') ? undefined : (json['roomGridInvSummary'].map(BlockGridInvType_1.BlockGridInvTypeFromJSON)),
-        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !(0, runtime_1.exists)(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 exports.RoomAllocationInfoTypeFromJSONTyped = RoomAllocationInfoTypeFromJSONTyped;
@@ -54,7 +54,7 @@ function RoomAllocationInfoTypeToJSON(value) {
         'extendedStay': value.extendedStay,
         'roomGridDetails': value.roomGridDetails === undefined ? undefined : (value.roomGridDetails.map(RoomGridDetailsType_1.RoomGridDetailsTypeToJSON)),
         'roomGridInvSummary': value.roomGridInvSummary === undefined ? undefined : (value.roomGridInvSummary.map(BlockGridInvType_1.BlockGridInvTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0, 10)),
+        'stayDate': value.stayDate,
     };
 }
 exports.RoomAllocationInfoTypeToJSON = RoomAllocationInfoTypeToJSON;

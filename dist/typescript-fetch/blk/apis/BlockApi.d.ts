@@ -74,8 +74,8 @@ export interface DeleteBlockOwnersRequest {
 export interface DeleteBlockRestrictionRequest {
     blockId: string;
     hotelId: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     code: DeleteBlockRestrictionCodeEnum;
     authorization?: string;
     xAppKey?: string;
@@ -100,7 +100,7 @@ export interface GetBlockRequest {
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
-    startDate?: Date;
+    startDate?: string;
     numberOfDays?: number;
     roomAllocationCriteria?: Set<GetBlockRoomAllocationCriteriaEnum>;
     roomTypes?: Array<string>;
@@ -128,8 +128,8 @@ export interface GetBlockActivityLogRequest {
     moduleParamsParameterValue?: Array<string>;
     activityGroup?: string;
     activityType?: string;
-    activityParamsFromDate?: Date;
-    activityParamsToDate?: Date;
+    activityParamsFromDate?: string;
+    activityParamsToDate?: string;
     activityParamsSearchText?: string;
     userByIDsUserId?: Array<number>;
     userForIDsUserId?: Array<number>;
@@ -152,7 +152,7 @@ export interface GetBlockAvailabilityRequest {
     xAppKey?: string;
     xHotelid?: string;
     overrideRateCode?: boolean;
-    arrivalDate?: Date;
+    arrivalDate?: string;
     nights?: number;
     adults?: number;
     children?: number;
@@ -176,7 +176,7 @@ export interface GetBlockByExtIdRequest {
     markAsRecentlyAccessed?: boolean;
     fetchInstructions?: Set<GetBlockByExtIdFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
-    startDate?: Date;
+    startDate?: string;
     numberOfDays?: number;
     roomAllocationCriteria?: Set<GetBlockByExtIdRoomAllocationCriteriaEnum>;
     roomTypes?: Array<string>;
@@ -191,8 +191,8 @@ export interface GetBlockDailyStatisticsRequest {
     limit?: number;
     offset?: number;
     hotelId?: string;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -252,8 +252,8 @@ export interface GetBlockRestrictionsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     roomType?: Array<string>;
     xExternalsystem?: string;
@@ -268,8 +268,8 @@ export interface GetBlockRevenueChangesRequest {
     offset?: number;
     hotelId?: string;
     status?: Array<string>;
-    changeEndDate?: Date;
-    changeStartDate?: Date;
+    changeEndDate?: string;
+    changeStartDate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
 }
@@ -280,8 +280,8 @@ export interface GetBlockRoomTypesRequest {
     xHotelid?: string;
     hotelId?: string;
     fetchAllocatedRoomTypes?: boolean;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     fetchGenericRoomTypes?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -301,7 +301,7 @@ export interface GetBlockStatisticsRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelId?: string;
-    startDate?: Date;
+    startDate?: string;
     numberOfDays?: number;
     statisticsInstructions?: Set<GetBlockStatisticsStatisticsInstructionsEnum>;
     roomTypeHotelId?: Array<string>;
@@ -332,8 +332,8 @@ export interface GetBlockStatusChangesRequest {
     limit?: number;
     offset?: number;
     hotelId?: string;
-    changeEndDate?: Date;
-    changeStartDate?: Date;
+    changeEndDate?: string;
+    changeStartDate?: string;
     currentStatus?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -378,20 +378,20 @@ export interface GetBlocksRequest {
     blockStatus?: Array<string>;
     cateringStatus?: Array<string>;
     createdByUser?: string;
-    blockStartEndDate?: Date;
-    blockStartStartDate?: Date;
-    blockEndEndDate?: Date;
-    blockEndStartDate?: Date;
-    reservationArrival?: Date;
-    reservationDeparture?: Date;
+    blockStartEndDate?: string;
+    blockStartStartDate?: string;
+    blockEndEndDate?: string;
+    blockEndStartDate?: string;
+    reservationArrival?: string;
+    reservationDeparture?: string;
     includeShoulderDates?: boolean;
-    stayDate?: Date;
-    blockCreatedOnEndDate?: Date;
-    blockCreatedOnStartDate?: Date;
-    decisionEndDate?: Date;
-    decisionStartDate?: Date;
-    cutOffEndDate?: Date;
-    cutOffStartDate?: Date;
+    stayDate?: string;
+    blockCreatedOnEndDate?: string;
+    blockCreatedOnStartDate?: string;
+    decisionEndDate?: string;
+    decisionStartDate?: string;
+    cutOffEndDate?: string;
+    cutOffStartDate?: string;
     category?: Set<GetBlocksCategoryEnum>;
     name?: Array<string>;
     attachedProfileId?: string;
@@ -406,7 +406,7 @@ export interface GetBlocksRequest {
     orderType?: Set<GetBlocksOrderTypeEnum>;
     fetchInstructions?: Set<GetBlocksFetchInstructionsEnum>;
     fetchAllocatedRoomTypes?: boolean;
-    additionalCriteriaStartDate?: Date;
+    additionalCriteriaStartDate?: string;
     numberOfDays?: number;
     adults?: number;
     children?: number;
@@ -430,7 +430,7 @@ export interface GetBlocksRequest {
     customNumericUDFsValue?: Array<number>;
     customDateUDFsAltname?: Array<string>;
     customDateUDFsName?: Array<string>;
-    customDateUDFsValue?: Array<Date>;
+    customDateUDFsValue?: Array<string>;
     accessRestriction?: Set<GetBlocksAccessRestrictionEnum>;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -441,7 +441,7 @@ export interface GetDefaultBlockCodeRequest {
     xHotelid?: string;
     hotelId?: string;
     blockName?: string;
-    startDate?: Date;
+    startDate?: string;
     blockCodeTemplate?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -449,7 +449,7 @@ export interface GetDefaultBlockCodeRequest {
 export interface GetInventoryToBorrowRequest {
     hotelId: string;
     blockId: string;
-    startDate: Date;
+    startDate: string;
     requiredRooms: Array<number>;
     authorization?: string;
     xAppKey?: string;
@@ -459,10 +459,10 @@ export interface GetInventoryToBorrowRequest {
     existingReservationId?: string;
     existingReservationIdType?: string;
     roomType?: string;
-    endDate?: Date;
+    endDate?: string;
     duration?: string;
     numberOfRooms?: number;
-    borrowDate?: Array<Date>;
+    borrowDate?: Array<string>;
     overrideRateCode?: boolean;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -498,8 +498,8 @@ export interface GetTracesByDateRangeRequest {
     xAppKey?: string;
     xHotelid?: string;
     hotelIds?: Array<string>;
-    beginDate?: Date;
-    endDate?: Date;
+    beginDate?: string;
+    endDate?: string;
     department?: Array<string>;
     xExternalsystem?: string;
     acceptLanguage?: string;

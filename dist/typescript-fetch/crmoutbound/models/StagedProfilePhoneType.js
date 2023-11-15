@@ -35,7 +35,7 @@ function StagedProfilePhoneTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'telephone': !(0, runtime_1.exists)(json, 'telephone') ? undefined : (0, TelephoneType_1.TelephoneTypeFromJSON)(json['telephone']),
         'errorDescription': !(0, runtime_1.exists)(json, 'errorDescription') ? undefined : json['errorDescription'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'defaultConfirmation': !(0, runtime_1.exists)(json, 'defaultConfirmation') ? undefined : json['defaultConfirmation'],
         'id': !(0, runtime_1.exists)(json, 'id') ? undefined : json['id'],
         'type': !(0, runtime_1.exists)(json, 'type') ? undefined : json['type'],
@@ -52,7 +52,7 @@ function StagedProfilePhoneTypeToJSON(value) {
     return {
         'telephone': (0, TelephoneType_1.TelephoneTypeToJSON)(value.telephone),
         'errorDescription': value.errorDescription,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'defaultConfirmation': value.defaultConfirmation,
         'id': value.id,
         'type': value.type,

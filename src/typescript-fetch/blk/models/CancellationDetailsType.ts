@@ -40,10 +40,10 @@ export interface CancellationDetailsType {
     cancellationCode?: CodeDescriptionType;
     /**
      * Date on which block was canceled.
-     * @type {Date}
+     * @type {string}
      * @memberof CancellationDetailsType
      */
-    cancellationDate?: Date;
+    cancellationDate?: string;
     /**
      * Cancellation information provided by the customer.
      * @type {string}
@@ -90,7 +90,7 @@ export function CancellationDetailsTypeFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'cancellationCode': !exists(json, 'cancellationCode') ? undefined : CodeDescriptionTypeFromJSON(json['cancellationCode']),
-        'cancellationDate': !exists(json, 'cancellationDate') ? undefined : (new Date(json['cancellationDate'])),
+        'cancellationDate': !exists(json, 'cancellationDate') ? undefined : json['cancellationDate'],
         'cancellationInfo': !exists(json, 'cancellationInfo') ? undefined : json['cancellationInfo'],
         'cancellationNumber': !exists(json, 'cancellationNumber') ? undefined : UniqueIDTypeFromJSON(json['cancellationNumber']),
         'destination': !exists(json, 'destination') ? undefined : json['destination'],
@@ -108,7 +108,7 @@ export function CancellationDetailsTypeToJSON(value?: CancellationDetailsType | 
     return {
         
         'cancellationCode': CodeDescriptionTypeToJSON(value.cancellationCode),
-        'cancellationDate': value.cancellationDate === undefined ? undefined : (value.cancellationDate.toISOString().substring(0,10)),
+        'cancellationDate': value.cancellationDate,
         'cancellationInfo': value.cancellationInfo,
         'cancellationNumber': UniqueIDTypeToJSON(value.cancellationNumber),
         'destination': value.destination,

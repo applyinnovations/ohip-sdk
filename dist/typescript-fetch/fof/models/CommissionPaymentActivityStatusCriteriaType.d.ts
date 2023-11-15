@@ -24,10 +24,10 @@ export interface CommissionPaymentActivityStatusCriteriaType {
     status?: CommissionPaymentActivityStatusType;
     /**
      * Date applied when new status is applied. Used in Unpresented and Reconcile.
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentActivityStatusCriteriaType
      */
-    statusDate?: Date;
+    statusDate?: string;
 }
 /**
  * Check if a given object implements the CommissionPaymentActivityStatusCriteriaType interface.

@@ -443,7 +443,7 @@ export interface RemoveRoomTypePoolRequest {
     roomType?: Array<string>;
     roomClass?: Array<string>;
     shortDescription?: Array<string>;
-    activeDate?: Array<Date>;
+    activeDate?: Array<string>;
     pseudo?: Array<boolean>;
     accessible?: Array<boolean>;
     sendToInterface?: Array<boolean>;

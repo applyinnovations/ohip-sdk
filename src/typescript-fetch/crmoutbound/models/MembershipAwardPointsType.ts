@@ -45,10 +45,10 @@ export interface MembershipAwardPointsType {
     totalPoints?: number;
     /**
      * The date until points are eligible for redemption based on membership type configuration.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipAwardPointsType
      */
-    pointsExpiryDate?: Date;
+    pointsExpiryDate?: string;
     /**
      * Rule Code for award points.
      * @type {string}
@@ -80,7 +80,7 @@ export function MembershipAwardPointsTypeFromJSONTyped(json: any, ignoreDiscrimi
         'bonusPoints': !exists(json, 'bonusPoints') ? undefined : json['bonusPoints'],
         'miscPoints': !exists(json, 'miscPoints') ? undefined : json['miscPoints'],
         'totalPoints': !exists(json, 'totalPoints') ? undefined : json['totalPoints'],
-        'pointsExpiryDate': !exists(json, 'pointsExpiryDate') ? undefined : (new Date(json['pointsExpiryDate'])),
+        'pointsExpiryDate': !exists(json, 'pointsExpiryDate') ? undefined : json['pointsExpiryDate'],
         'ruleCode': !exists(json, 'ruleCode') ? undefined : json['ruleCode'],
     };
 }
@@ -98,7 +98,7 @@ export function MembershipAwardPointsTypeToJSON(value?: MembershipAwardPointsTyp
         'bonusPoints': value.bonusPoints,
         'miscPoints': value.miscPoints,
         'totalPoints': value.totalPoints,
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0,10)),
+        'pointsExpiryDate': value.pointsExpiryDate,
         'ruleCode': value.ruleCode,
     };
 }

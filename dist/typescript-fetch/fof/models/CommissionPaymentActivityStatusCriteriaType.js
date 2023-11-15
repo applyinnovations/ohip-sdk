@@ -34,7 +34,7 @@ function CommissionPaymentActivityStatusCriteriaTypeFromJSONTyped(json, ignoreDi
     }
     return {
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, CommissionPaymentActivityStatusType_1.CommissionPaymentActivityStatusTypeFromJSON)(json['status']),
-        'statusDate': !(0, runtime_1.exists)(json, 'statusDate') ? undefined : (new Date(json['statusDate'])),
+        'statusDate': !(0, runtime_1.exists)(json, 'statusDate') ? undefined : json['statusDate'],
     };
 }
 exports.CommissionPaymentActivityStatusCriteriaTypeFromJSONTyped = CommissionPaymentActivityStatusCriteriaTypeFromJSONTyped;
@@ -47,7 +47,7 @@ function CommissionPaymentActivityStatusCriteriaTypeToJSON(value) {
     }
     return {
         'status': (0, CommissionPaymentActivityStatusType_1.CommissionPaymentActivityStatusTypeToJSON)(value.status),
-        'statusDate': value.statusDate === undefined ? undefined : (value.statusDate.toISOString().substring(0, 10)),
+        'statusDate': value.statusDate,
     };
 }
 exports.CommissionPaymentActivityStatusCriteriaTypeToJSON = CommissionPaymentActivityStatusCriteriaTypeToJSON;

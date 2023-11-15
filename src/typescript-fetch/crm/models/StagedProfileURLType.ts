@@ -39,10 +39,10 @@ export interface StagedProfileURLType {
     id?: string;
     /**
      * Inactivation date of the record.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileURLType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * A reference to the type of object defined by the UniqueID element.
      * @type {string}
@@ -73,7 +73,7 @@ export function StagedProfileURLTypeFromJSONTyped(json: any, ignoreDiscriminator
         'defaultConfirmation': !exists(json, 'defaultConfirmation') ? undefined : json['defaultConfirmation'],
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'id': !exists(json, 'id') ? undefined : json['id'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
 }
@@ -90,7 +90,7 @@ export function StagedProfileURLTypeToJSON(value?: StagedProfileURLType | null):
         'defaultConfirmation': value.defaultConfirmation,
         'errorDescription': value.errorDescription,
         'id': value.id,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
         'type': value.type,
     };
 }

@@ -76,16 +76,16 @@ export interface MembershipDetailsType {
     membershipLevel?: string;
     /**
      * Date when the member enrolled for the membership.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    joinedDate?: Date;
+    joinedDate?: string;
     /**
      * Membership card expiration date.
-     * @type {Date}
+     * @type {string}
      * @memberof MembershipDetailsType
      */
-    cardExpirationDate?: Date;
+    cardExpirationDate?: string;
 }
 
 /**
@@ -113,8 +113,8 @@ export function MembershipDetailsTypeFromJSONTyped(json: any, ignoreDiscriminato
         'membershipCardNo': !exists(json, 'membershipCardNo') ? undefined : json['membershipCardNo'],
         'membershipType': !exists(json, 'membershipType') ? undefined : CodeDescriptionTypeFromJSON(json['membershipType']),
         'membershipLevel': !exists(json, 'membershipLevel') ? undefined : json['membershipLevel'],
-        'joinedDate': !exists(json, 'joinedDate') ? undefined : (new Date(json['joinedDate'])),
-        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : (new Date(json['cardExpirationDate'])),
+        'joinedDate': !exists(json, 'joinedDate') ? undefined : json['joinedDate'],
+        'cardExpirationDate': !exists(json, 'cardExpirationDate') ? undefined : json['cardExpirationDate'],
     };
 }
 
@@ -133,8 +133,8 @@ export function MembershipDetailsTypeToJSON(value?: MembershipDetailsType | null
         'membershipCardNo': value.membershipCardNo,
         'membershipType': CodeDescriptionTypeToJSON(value.membershipType),
         'membershipLevel': value.membershipLevel,
-        'joinedDate': value.joinedDate === undefined ? undefined : (value.joinedDate.toISOString().substring(0,10)),
-        'cardExpirationDate': value.cardExpirationDate === undefined ? undefined : (value.cardExpirationDate.toISOString().substring(0,10)),
+        'joinedDate': value.joinedDate,
+        'cardExpirationDate': value.cardExpirationDate,
     };
 }
 

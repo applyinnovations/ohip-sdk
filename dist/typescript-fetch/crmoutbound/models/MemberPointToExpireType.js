@@ -32,7 +32,7 @@ function MemberPointToExpireTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'pointsExpiryDate': !(0, runtime_1.exists)(json, 'pointsExpiryDate') ? undefined : (new Date(json['pointsExpiryDate'])),
+        'pointsExpiryDate': !(0, runtime_1.exists)(json, 'pointsExpiryDate') ? undefined : json['pointsExpiryDate'],
         'pointsToExpire': !(0, runtime_1.exists)(json, 'pointsToExpire') ? undefined : json['pointsToExpire'],
         'previousPointsToExpire': !(0, runtime_1.exists)(json, 'previousPointsToExpire') ? undefined : json['previousPointsToExpire'],
         'extend': !(0, runtime_1.exists)(json, 'extend') ? undefined : json['extend'],
@@ -48,7 +48,7 @@ function MemberPointToExpireTypeToJSON(value) {
         return null;
     }
     return {
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0, 10)),
+        'pointsExpiryDate': value.pointsExpiryDate,
         'pointsToExpire': value.pointsToExpire,
         'previousPointsToExpire': value.previousPointsToExpire,
         'extend': value.extend,

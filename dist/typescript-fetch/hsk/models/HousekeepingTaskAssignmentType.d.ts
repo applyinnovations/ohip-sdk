@@ -31,10 +31,10 @@ export interface HousekeepingTaskAssignmentType {
     taskCodes?: Array<HousekeepingTaskCodeType>;
     /**
      * The date for which the Task Assignment is done. Date should be the current business date in most cases. Date cannot be in the past.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingTaskAssignmentType
      */
-    taskDate?: Date;
+    taskDate?: string;
     /**
      * List of Task Sheets generated for this assignment.
      * @type {Array<HousekeepingTaskType>}

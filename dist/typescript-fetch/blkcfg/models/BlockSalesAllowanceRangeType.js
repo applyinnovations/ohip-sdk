@@ -33,7 +33,7 @@ function BlockSalesAllowanceRangeTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'cutoffDays': !(0, runtime_1.exists)(json, 'cutoffDays') ? undefined : json['cutoffDays'],
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'friday': !(0, runtime_1.exists)(json, 'friday') ? undefined : json['friday'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'incrementFlag': !(0, runtime_1.exists)(json, 'incrementFlag') ? undefined : json['incrementFlag'],
@@ -41,7 +41,7 @@ function BlockSalesAllowanceRangeTypeFromJSONTyped(json, ignoreDiscriminator) {
         'overwriteExistingSalesAllowance': !(0, runtime_1.exists)(json, 'overwriteExistingSalesAllowance') ? undefined : json['overwriteExistingSalesAllowance'],
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
         'saturday': !(0, runtime_1.exists)(json, 'saturday') ? undefined : json['saturday'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'sunday': !(0, runtime_1.exists)(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !(0, runtime_1.exists)(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !(0, runtime_1.exists)(json, 'tuesday') ? undefined : json['tuesday'],
@@ -59,7 +59,7 @@ function BlockSalesAllowanceRangeTypeToJSON(value) {
     }
     return {
         'cutoffDays': value.cutoffDays,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'friday': value.friday,
         'hotelId': value.hotelId,
         'incrementFlag': value.incrementFlag,
@@ -67,7 +67,7 @@ function BlockSalesAllowanceRangeTypeToJSON(value) {
         'overwriteExistingSalesAllowance': value.overwriteExistingSalesAllowance,
         'quantity': value.quantity,
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

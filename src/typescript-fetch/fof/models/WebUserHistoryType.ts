@@ -33,16 +33,16 @@ export interface WebUserHistoryType {
     creatorId?: string;
     /**
      * Inactive date.
-     * @type {Date}
+     * @type {string}
      * @memberof WebUserHistoryType
      */
-    inactiveDate?: Date;
+    inactiveDate?: string;
     /**
      * Last login date.
-     * @type {Date}
+     * @type {string}
      * @memberof WebUserHistoryType
      */
-    lastLogin?: Date;
+    lastLogin?: string;
     /**
      * Identifies the last software system or person to modify a record.
      * @type {string}
@@ -57,16 +57,16 @@ export interface WebUserHistoryType {
     lastModifyDateTime?: string;
     /**
      * Last Password change date.
-     * @type {Date}
+     * @type {string}
      * @memberof WebUserHistoryType
      */
-    lastPasswordChange?: Date;
+    lastPasswordChange?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof WebUserHistoryType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
 }
 
 /**
@@ -90,12 +90,12 @@ export function WebUserHistoryTypeFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
-        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
-        'lastLogin': !exists(json, 'lastLogin') ? undefined : (new Date(json['lastLogin'])),
+        'inactiveDate': !exists(json, 'inactiveDate') ? undefined : json['inactiveDate'],
+        'lastLogin': !exists(json, 'lastLogin') ? undefined : json['lastLogin'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
-        'lastPasswordChange': !exists(json, 'lastPasswordChange') ? undefined : (new Date(json['lastPasswordChange'])),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'lastPasswordChange': !exists(json, 'lastPasswordChange') ? undefined : json['lastPasswordChange'],
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
     };
 }
 
@@ -110,12 +110,12 @@ export function WebUserHistoryTypeToJSON(value?: WebUserHistoryType | null): any
         
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0,10)),
-        'lastLogin': value.lastLogin === undefined ? undefined : (value.lastLogin.toISOString().substring(0,10)),
+        'inactiveDate': value.inactiveDate,
+        'lastLogin': value.lastLogin,
         'lastModifierId': value.lastModifierId,
         'lastModifyDateTime': value.lastModifyDateTime,
-        'lastPasswordChange': value.lastPasswordChange === undefined ? undefined : (value.lastPasswordChange.toISOString().substring(0,10)),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'lastPasswordChange': value.lastPasswordChange,
+        'purgeDate': value.purgeDate,
     };
 }
 

@@ -48,10 +48,10 @@ export interface ResCashieringType {
     folioTexts?: Array<FolioTextsTypeInner>;
     /**
      * Date of the last Room And Tax posting. Used primarily to know the date in case of Advance Billing.
-     * @type {Date}
+     * @type {string}
      * @memberof ResCashieringType
      */
-    lastRoomAndTaxPostedDate?: Date;
+    lastRoomAndTaxPostedDate?: string;
     /**
      *
      * @type {ResPreConfiguredRoutingInstrType}

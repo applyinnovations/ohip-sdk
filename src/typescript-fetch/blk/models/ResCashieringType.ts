@@ -100,10 +100,10 @@ export interface ResCashieringType {
     folioTexts?: Array<FolioTextsTypeInner>;
     /**
      * Date of the last Room And Tax posting. Used primarily to know the date in case of Advance Billing.
-     * @type {Date}
+     * @type {string}
      * @memberof ResCashieringType
      */
-    lastRoomAndTaxPostedDate?: Date;
+    lastRoomAndTaxPostedDate?: string;
     /**
      * 
      * @type {ResPeriodicFolioType}
@@ -178,7 +178,7 @@ export function ResCashieringTypeFromJSONTyped(json: any, ignoreDiscriminator: b
         'compAccounting': !exists(json, 'compAccounting') ? undefined : ResCompAccountingTypeFromJSON(json['compAccounting']),
         'financiallyResponsible': !exists(json, 'financiallyResponsible') ? undefined : json['financiallyResponsible'],
         'folioTexts': !exists(json, 'folioTexts') ? undefined : ((json['folioTexts'] as Array<any>).map(FolioTextsTypeInnerFromJSON)),
-        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : (new Date(json['lastRoomAndTaxPostedDate'])),
+        'lastRoomAndTaxPostedDate': !exists(json, 'lastRoomAndTaxPostedDate') ? undefined : json['lastRoomAndTaxPostedDate'],
         'periodicFolio': !exists(json, 'periodicFolio') ? undefined : ResPeriodicFolioTypeFromJSON(json['periodicFolio']),
         'proratedBilling': !exists(json, 'proratedBilling') ? undefined : json['proratedBilling'],
         'reservationPreConfiguredRoutingInstruction': !exists(json, 'reservationPreConfiguredRoutingInstruction') ? undefined : ResPreConfiguredRoutingInstrTypeFromJSON(json['reservationPreConfiguredRoutingInstruction']),
@@ -204,7 +204,7 @@ export function ResCashieringTypeToJSON(value?: ResCashieringType | null): any {
         'compAccounting': ResCompAccountingTypeToJSON(value.compAccounting),
         'financiallyResponsible': value.financiallyResponsible,
         'folioTexts': value.folioTexts === undefined ? undefined : ((value.folioTexts as Array<any>).map(FolioTextsTypeInnerToJSON)),
-        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate === undefined ? undefined : (value.lastRoomAndTaxPostedDate.toISOString().substring(0,10)),
+        'lastRoomAndTaxPostedDate': value.lastRoomAndTaxPostedDate,
         'periodicFolio': ResPeriodicFolioTypeToJSON(value.periodicFolio),
         'proratedBilling': value.proratedBilling,
         'reservationPreConfiguredRoutingInstruction': ResPreConfiguredRoutingInstrTypeToJSON(value.reservationPreConfiguredRoutingInstruction),

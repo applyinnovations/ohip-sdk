@@ -33,10 +33,10 @@ export interface BlockAllocationRangeTypeOverbookListInner {
     roomType?: string;
     /**
      * Date which has to be overbooked or excluded.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAllocationRangeTypeOverbookListInner
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 
 /**
@@ -60,7 +60,7 @@ export function BlockAllocationRangeTypeOverbookListInnerFromJSONTyped(json: any
         
         'overbook': !exists(json, 'overbook') ? undefined : json['overbook'],
         'roomType': !exists(json, 'roomType') ? undefined : json['roomType'],
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 
@@ -75,7 +75,7 @@ export function BlockAllocationRangeTypeOverbookListInnerToJSON(value?: BlockAll
         
         'overbook': value.overbook,
         'roomType': value.roomType,
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
     };
 }
 

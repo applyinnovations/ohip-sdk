@@ -29,10 +29,10 @@ export interface BlockSalesAllowanceType {
     booked?: number;
     /**
      * Contains cutoff date for sales allowance.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSalesAllowanceType
      */
-    cutoffDate?: Date;
+    cutoffDate?: string;
     /**
      * Contains Hotel Code.
      * @type {string}
@@ -59,10 +59,10 @@ export interface BlockSalesAllowanceType {
     roomType?: string;
     /**
      * Contains sales allowance date.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockSalesAllowanceType
      */
-    salesAllowanceDate?: Date;
+    salesAllowanceDate?: string;
 }
 /**
  * Check if a given object implements the BlockSalesAllowanceType interface.

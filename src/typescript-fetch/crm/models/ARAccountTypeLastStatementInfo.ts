@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface ARAccountTypeLastStatementInfo {
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
-     * @type {Date}
+     * @type {string}
      * @memberof ARAccountTypeLastStatementInfo
      */
-    dateSent?: Date;
+    dateSent?: string;
     /**
      * Indicates that statement history exists.
      * @type {boolean}
@@ -70,7 +70,7 @@ export function ARAccountTypeLastStatementInfoFromJSONTyped(json: any, ignoreDis
     }
     return {
         
-        'dateSent': !exists(json, 'dateSent') ? undefined : (new Date(json['dateSent'])),
+        'dateSent': !exists(json, 'dateSent') ? undefined : json['dateSent'],
         'historyExists': !exists(json, 'historyExists') ? undefined : json['historyExists'],
         'reportFileName': !exists(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportName': !exists(json, 'reportName') ? undefined : json['reportName'],
@@ -87,7 +87,7 @@ export function ARAccountTypeLastStatementInfoToJSON(value?: ARAccountTypeLastSt
     }
     return {
         
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0,10)),
+        'dateSent': value.dateSent,
         'historyExists': value.historyExists,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,

@@ -472,10 +472,10 @@ export interface HotelReservationType {
     computedReservationStatus?: PMSResStatusType;
     /**
      * Business Date when the reservation was created.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationType
      */
-    createBusinessDate?: Date;
+    createBusinessDate?: string;
     /**
      * Time stamp of the creation.
      * @type {string}
@@ -712,10 +712,10 @@ export interface HotelReservationType {
     profileAwards?: Array<AwardType>;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {ReservationQueueInformationType}
@@ -724,10 +724,10 @@ export interface HotelReservationType {
     queue?: ReservationQueueInformationType;
     /**
      * Business Date when the reservation was last reinstated.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelReservationType
      */
-    reinstateDate?: Date;
+    reinstateDate?: string;
     /**
      * List of awards.
      * @type {Array<AwardType>}
@@ -938,7 +938,7 @@ export function HotelReservationTypeFromJSONTyped(json: any, ignoreDiscriminator
         'comments': !exists(json, 'comments') ? undefined : ((json['comments'] as Array<any>).map(CommentInfoTypeFromJSON)),
         'compAuthorizer': !exists(json, 'compAuthorizer') ? undefined : CompAuthorizerInfoTypeFromJSON(json['compAuthorizer']),
         'computedReservationStatus': !exists(json, 'computedReservationStatus') ? undefined : PMSResStatusTypeFromJSON(json['computedReservationStatus']),
-        'createBusinessDate': !exists(json, 'createBusinessDate') ? undefined : (new Date(json['createBusinessDate'])),
+        'createBusinessDate': !exists(json, 'createBusinessDate') ? undefined : json['createBusinessDate'],
         'createDateTime': !exists(json, 'createDateTime') ? undefined : json['createDateTime'],
         'creatorId': !exists(json, 'creatorId') ? undefined : json['creatorId'],
         'customChargeExemptionDetails': !exists(json, 'customChargeExemptionDetails') ? undefined : ((json['customChargeExemptionDetails'] as Array<any>).map(CustomChargeExemptionTypeFromJSON)),
@@ -978,9 +978,9 @@ export function HotelReservationTypeFromJSONTyped(json: any, ignoreDiscriminator
         'primaryEnrollmentResort': !exists(json, 'primaryEnrollmentResort') ? undefined : json['primaryEnrollmentResort'],
         'printRate': !exists(json, 'printRate') ? undefined : json['printRate'],
         'profileAwards': !exists(json, 'profileAwards') ? undefined : ((json['profileAwards'] as Array<any>).map(AwardTypeFromJSON)),
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'queue': !exists(json, 'queue') ? undefined : ReservationQueueInformationTypeFromJSON(json['queue']),
-        'reinstateDate': !exists(json, 'reinstateDate') ? undefined : (new Date(json['reinstateDate'])),
+        'reinstateDate': !exists(json, 'reinstateDate') ? undefined : json['reinstateDate'],
         'reservationAwards': !exists(json, 'reservationAwards') ? undefined : ((json['reservationAwards'] as Array<any>).map(AwardTypeFromJSON)),
         'reservationCommunication': !exists(json, 'reservationCommunication') ? undefined : ResCommunicationTypeFromJSON(json['reservationCommunication']),
         'reservationGuests': !exists(json, 'reservationGuests') ? undefined : ((json['reservationGuests'] as Array<any>).map(ResGuestTypeFromJSON)),
@@ -1042,7 +1042,7 @@ export function HotelReservationTypeToJSON(value?: HotelReservationType | null):
         'comments': value.comments === undefined ? undefined : ((value.comments as Array<any>).map(CommentInfoTypeToJSON)),
         'compAuthorizer': CompAuthorizerInfoTypeToJSON(value.compAuthorizer),
         'computedReservationStatus': PMSResStatusTypeToJSON(value.computedReservationStatus),
-        'createBusinessDate': value.createBusinessDate === undefined ? undefined : (value.createBusinessDate.toISOString().substring(0,10)),
+        'createBusinessDate': value.createBusinessDate,
         'createDateTime': value.createDateTime,
         'creatorId': value.creatorId,
         'customChargeExemptionDetails': value.customChargeExemptionDetails === undefined ? undefined : ((value.customChargeExemptionDetails as Array<any>).map(CustomChargeExemptionTypeToJSON)),
@@ -1082,9 +1082,9 @@ export function HotelReservationTypeToJSON(value?: HotelReservationType | null):
         'primaryEnrollmentResort': value.primaryEnrollmentResort,
         'printRate': value.printRate,
         'profileAwards': value.profileAwards === undefined ? undefined : ((value.profileAwards as Array<any>).map(AwardTypeToJSON)),
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'queue': ReservationQueueInformationTypeToJSON(value.queue),
-        'reinstateDate': value.reinstateDate === undefined ? undefined : (value.reinstateDate.toISOString().substring(0,10)),
+        'reinstateDate': value.reinstateDate,
         'reservationAwards': value.reservationAwards === undefined ? undefined : ((value.reservationAwards as Array<any>).map(AwardTypeToJSON)),
         'reservationCommunication': ResCommunicationTypeToJSON(value.reservationCommunication),
         'reservationGuests': value.reservationGuests === undefined ? undefined : ((value.reservationGuests as Array<any>).map(ResGuestTypeToJSON)),

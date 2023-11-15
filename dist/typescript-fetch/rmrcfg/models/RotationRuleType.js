@@ -38,7 +38,7 @@ function RotationRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'calculationRule': !(0, runtime_1.exists)(json, 'calculationRule') ? undefined : (0, RotationRuleCalculationRuleType_1.RotationRuleCalculationRuleTypeFromJSON)(json['calculationRule']),
         'daysOfWeek': !(0, runtime_1.exists)(json, 'daysOfWeek') ? undefined : (0, DaysOfWeekAttrType_1.DaysOfWeekAttrTypeFromJSON)(json['daysOfWeek']),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'multiplier': !(0, runtime_1.exists)(json, 'multiplier') ? undefined : json['multiplier'],
         'points': !(0, runtime_1.exists)(json, 'points') ? undefined : json['points'],
         'rateCodes': !(0, runtime_1.exists)(json, 'rateCodes') ? undefined : json['rateCodes'],
@@ -47,7 +47,7 @@ function RotationRuleTypeFromJSONTyped(json, ignoreDiscriminator) {
         'roomTypes': !(0, runtime_1.exists)(json, 'roomTypes') ? undefined : json['roomTypes'],
         'ruleId': !(0, runtime_1.exists)(json, 'ruleId') ? undefined : json['ruleId'],
         'setupType': !(0, runtime_1.exists)(json, 'setupType') ? undefined : (0, RotationRuleSetupType_1.RotationRuleSetupTypeFromJSON)(json['setupType']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'status': !(0, runtime_1.exists)(json, 'status') ? undefined : (0, RotationRuleStatusType_1.RotationRuleStatusTypeFromJSON)(json['status']),
     };
 }
@@ -62,7 +62,7 @@ function RotationRuleTypeToJSON(value) {
     return {
         'calculationRule': (0, RotationRuleCalculationRuleType_1.RotationRuleCalculationRuleTypeToJSON)(value.calculationRule),
         'daysOfWeek': (0, DaysOfWeekAttrType_1.DaysOfWeekAttrTypeToJSON)(value.daysOfWeek),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'multiplier': value.multiplier,
         'points': value.points,
         'rateCodes': value.rateCodes,
@@ -71,7 +71,7 @@ function RotationRuleTypeToJSON(value) {
         'roomTypes': value.roomTypes,
         'ruleId': value.ruleId,
         'setupType': (0, RotationRuleSetupType_1.RotationRuleSetupTypeToJSON)(value.setupType),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'status': (0, RotationRuleStatusType_1.RotationRuleStatusTypeToJSON)(value.status),
     };
 }

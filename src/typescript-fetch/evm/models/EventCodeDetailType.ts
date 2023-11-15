@@ -58,10 +58,10 @@ export interface EventCodeDetailType {
     color?: StatusColorType;
     /**
      * Date for which the event code is applicable.
-     * @type {Date}
+     * @type {string}
      * @memberof EventCodeDetailType
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {CodeDescriptionType}
@@ -110,7 +110,7 @@ export function EventCodeDetailTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : json['blockStatus'],
         'color': !exists(json, 'color') ? undefined : StatusColorTypeFromJSON(json['color']),
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'event': !exists(json, 'event') ? undefined : CodeDescriptionTypeFromJSON(json['event']),
         'eventCodeType': !exists(json, 'eventCodeType') ? undefined : EventCodeTypeTypeFromJSON(json['eventCodeType']),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
@@ -130,7 +130,7 @@ export function EventCodeDetailTypeToJSON(value?: EventCodeDetailType | null): a
         'blockName': value.blockName,
         'blockStatus': value.blockStatus,
         'color': StatusColorTypeToJSON(value.color),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'event': CodeDescriptionTypeToJSON(value.event),
         'eventCodeType': EventCodeTypeTypeToJSON(value.eventCodeType),
         'hotelId': value.hotelId,

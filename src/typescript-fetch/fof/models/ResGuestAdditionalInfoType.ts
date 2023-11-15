@@ -28,10 +28,10 @@ import {
 export interface ResGuestAdditionalInfoType {
     /**
      * Entry Date into the country. (Croatian Requirements).
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuestAdditionalInfoType
      */
-    dateOfEntry?: Date;
+    dateOfEntry?: string;
     /**
      * Guest Classification for the data export.
      * @type {string}
@@ -95,7 +95,7 @@ export function ResGuestAdditionalInfoTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'dateOfEntry': !exists(json, 'dateOfEntry') ? undefined : (new Date(json['dateOfEntry'])),
+        'dateOfEntry': !exists(json, 'dateOfEntry') ? undefined : json['dateOfEntry'],
         'guestClassification': !exists(json, 'guestClassification') ? undefined : json['guestClassification'],
         'guestStatus': !exists(json, 'guestStatus') ? undefined : json['guestStatus'],
         'lastStay': !exists(json, 'lastStay') ? undefined : GuestLastStayInfoTypeFromJSON(json['lastStay']),
@@ -115,7 +115,7 @@ export function ResGuestAdditionalInfoTypeToJSON(value?: ResGuestAdditionalInfoT
     }
     return {
         
-        'dateOfEntry': value.dateOfEntry === undefined ? undefined : (value.dateOfEntry.toISOString().substring(0,10)),
+        'dateOfEntry': value.dateOfEntry,
         'guestClassification': value.guestClassification,
         'guestStatus': value.guestStatus,
         'lastStay': GuestLastStayInfoTypeToJSON(value.lastStay),

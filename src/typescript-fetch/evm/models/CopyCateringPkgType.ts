@@ -64,10 +64,10 @@ export interface CopyCateringPkgType {
     copyStatusMode?: CopyStatusModeType;
     /**
      * Specifies a single date.
-     * @type {Array<Date>}
+     * @type {Array<string>}
      * @memberof CopyCateringPkgType
      */
-    copyToDates?: Array<Date>;
+    copyToDates?: Array<string>;
     /**
      * Hotel code where the package will be copied.
      * @type {string}

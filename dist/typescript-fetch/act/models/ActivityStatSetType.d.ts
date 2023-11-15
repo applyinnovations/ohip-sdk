@@ -18,10 +18,10 @@ import type { ActivityStatType } from './ActivityStatType';
 export interface ActivityStatSetType {
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ActivityStatSetType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {string}
@@ -30,10 +30,10 @@ export interface ActivityStatSetType {
     owner?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ActivityStatSetType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {Array<ActivityStatType>}

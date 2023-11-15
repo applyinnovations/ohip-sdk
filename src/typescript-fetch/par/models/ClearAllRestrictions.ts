@@ -34,10 +34,10 @@ import {
 export interface ClearAllRestrictions {
     /**
      * Use date for which the restrictions is to be cleared.
-     * @type {Date}
+     * @type {string}
      * @memberof ClearAllRestrictions
      */
-    date?: Date;
+    date?: string;
     /**
      * Used for Character Strings, length 0 to 20.
      * @type {string}
@@ -77,7 +77,7 @@ export function ClearAllRestrictionsFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'links': !exists(json, 'links') ? undefined : ((json['links'] as Array<any>).map(InstanceLinkFromJSON)),
         'warnings': !exists(json, 'warnings') ? undefined : ((json['warnings'] as Array<any>).map(WarningTypeFromJSON)),
@@ -93,7 +93,7 @@ export function ClearAllRestrictionsToJSON(value?: ClearAllRestrictions | null):
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'hotelId': value.hotelId,
         'links': value.links === undefined ? undefined : ((value.links as Array<any>).map(InstanceLinkToJSON)),
         'warnings': value.warnings === undefined ? undefined : ((value.warnings as Array<any>).map(WarningTypeToJSON)),

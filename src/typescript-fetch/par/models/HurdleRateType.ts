@@ -45,10 +45,10 @@ export interface HurdleRateType {
     hurdle?: number;
     /**
      * Hurdle date for which the hurdle rate is scheduled.
-     * @type {Date}
+     * @type {string}
      * @memberof HurdleRateType
      */
-    hurdleDate?: Date;
+    hurdleDate?: string;
     /**
      * Length of stay for which the hurdle rate applies to.
      * @type {number}
@@ -122,7 +122,7 @@ export function HurdleRateTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'delta': !exists(json, 'delta') ? undefined : json['delta'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hurdle': !exists(json, 'hurdle') ? undefined : json['hurdle'],
-        'hurdleDate': !exists(json, 'hurdleDate') ? undefined : (new Date(json['hurdleDate'])),
+        'hurdleDate': !exists(json, 'hurdleDate') ? undefined : json['hurdleDate'],
         'lengthOfStay': !exists(json, 'lengthOfStay') ? undefined : json['lengthOfStay'],
         'maxSolds': !exists(json, 'maxSolds') ? undefined : json['maxSolds'],
         'override': !exists(json, 'override') ? undefined : json['override'],
@@ -147,7 +147,7 @@ export function HurdleRateTypeToJSON(value?: HurdleRateType | null): any {
         'delta': value.delta,
         'hotelId': value.hotelId,
         'hurdle': value.hurdle,
-        'hurdleDate': value.hurdleDate === undefined ? undefined : (value.hurdleDate.toISOString().substring(0,10)),
+        'hurdleDate': value.hurdleDate,
         'lengthOfStay': value.lengthOfStay,
         'maxSolds': value.maxSolds,
         'override': value.override,

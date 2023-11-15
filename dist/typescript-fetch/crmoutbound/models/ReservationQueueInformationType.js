@@ -39,7 +39,7 @@ function ReservationQueueInformationTypeFromJSONTyped(json, ignoreDiscriminator)
         'priority': !(0, runtime_1.exists)(json, 'priority') ? undefined : json['priority'],
         'avgQueueTimeToCheckIn': !(0, runtime_1.exists)(json, 'avgQueueTimeToCheckIn') ? undefined : json['avgQueueTimeToCheckIn'],
         'avgQueueTimeCurrentReservations': !(0, runtime_1.exists)(json, 'avgQueueTimeCurrentReservations') ? undefined : json['avgQueueTimeCurrentReservations'],
-        'queueDate': !(0, runtime_1.exists)(json, 'queueDate') ? undefined : (new Date(json['queueDate'])),
+        'queueDate': !(0, runtime_1.exists)(json, 'queueDate') ? undefined : json['queueDate'],
     };
 }
 exports.ReservationQueueInformationTypeFromJSONTyped = ReservationQueueInformationTypeFromJSONTyped;
@@ -56,7 +56,7 @@ function ReservationQueueInformationTypeToJSON(value) {
         'priority': value.priority,
         'avgQueueTimeToCheckIn': value.avgQueueTimeToCheckIn,
         'avgQueueTimeCurrentReservations': value.avgQueueTimeCurrentReservations,
-        'queueDate': value.queueDate === undefined ? undefined : (value.queueDate.toISOString().substring(0, 10)),
+        'queueDate': value.queueDate,
     };
 }
 exports.ReservationQueueInformationTypeToJSON = ReservationQueueInformationTypeToJSON;

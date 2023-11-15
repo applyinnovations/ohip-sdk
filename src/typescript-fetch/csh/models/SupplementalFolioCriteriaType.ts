@@ -88,10 +88,10 @@ export interface SupplementalFolioCriteriaType {
     hotelId?: string;
     /**
      * Date of the Audit. This is used when postings are being created using the Income Audit functionality.
-     * @type {Date}
+     * @type {string}
      * @memberof SupplementalFolioCriteriaType
      */
-    incomeAuditDate?: Date;
+    incomeAuditDate?: string;
     /**
      * 
      * @type {FolioType}
@@ -137,7 +137,7 @@ export function SupplementalFolioCriteriaTypeFromJSONTyped(json: any, ignoreDisc
         'fiscalTerminalId': !exists(json, 'fiscalTerminalId') ? undefined : json['fiscalTerminalId'],
         'folioNameValue': !exists(json, 'folioNameValue') ? undefined : ((json['folioNameValue'] as Array<any>).map(NameValueHeaderDetailTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : (new Date(json['incomeAuditDate'])),
+        'incomeAuditDate': !exists(json, 'incomeAuditDate') ? undefined : json['incomeAuditDate'],
         'originalFolio': !exists(json, 'originalFolio') ? undefined : FolioTypeFromJSON(json['originalFolio']),
         'payments': !exists(json, 'payments') ? undefined : ((json['payments'] as Array<any>).map(PaymentCriteriaTypeFromJSON)),
         'trxServiceType': !exists(json, 'trxServiceType') ? undefined : json['trxServiceType'],
@@ -159,7 +159,7 @@ export function SupplementalFolioCriteriaTypeToJSON(value?: SupplementalFolioCri
         'fiscalTerminalId': value.fiscalTerminalId,
         'folioNameValue': value.folioNameValue === undefined ? undefined : ((value.folioNameValue as Array<any>).map(NameValueHeaderDetailTypeToJSON)),
         'hotelId': value.hotelId,
-        'incomeAuditDate': value.incomeAuditDate === undefined ? undefined : (value.incomeAuditDate.toISOString().substring(0,10)),
+        'incomeAuditDate': value.incomeAuditDate,
         'originalFolio': FolioTypeToJSON(value.originalFolio),
         'payments': value.payments === undefined ? undefined : ((value.payments as Array<any>).map(PaymentCriteriaTypeToJSON)),
         'trxServiceType': value.trxServiceType,

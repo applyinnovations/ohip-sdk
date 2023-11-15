@@ -18,16 +18,16 @@ import type { ReservationId } from './ReservationId';
 export interface ReservationHousekeepingScheduleSearchType {
     /**
      * Begin date from which to start fetching facility tasks.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationHousekeepingScheduleSearchType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * End date for facility task schedule request.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationHousekeepingScheduleSearchType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * The hotel code where reservation is made.
      * @type {string}

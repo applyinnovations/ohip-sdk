@@ -31,10 +31,10 @@ export interface AdvanceRoomChargesInfoType {
     generatedForEntireStay?: boolean;
     /**
      * Indicates the date of the stay until which the advance bill has been generated .
-     * @type {Date}
+     * @type {string}
      * @memberof AdvanceRoomChargesInfoType
      */
-    lastRoomAndTaxPostedDate?: Date;
+    lastRoomAndTaxPostedDate?: string;
     /**
      *
      * @type {ReservationInfoType}

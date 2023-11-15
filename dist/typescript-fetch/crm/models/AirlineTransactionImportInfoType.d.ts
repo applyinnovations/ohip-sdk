@@ -24,10 +24,10 @@ export interface AirlineTransactionImportInfoType {
     description?: string;
     /**
      * The date when this batch was imported into OPERA
-     * @type {Date}
+     * @type {string}
      * @memberof AirlineTransactionImportInfoType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      *
      * @type {AirlineImportStatusType}

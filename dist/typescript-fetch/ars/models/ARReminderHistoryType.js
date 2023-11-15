@@ -33,7 +33,7 @@ function ARReminderHistoryTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'age': !(0, runtime_1.exists)(json, 'age') ? undefined : json['age'],
-        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : (new Date(json['dateSent'])),
+        'dateSent': !(0, runtime_1.exists)(json, 'dateSent') ? undefined : json['dateSent'],
         'reportFileName': !(0, runtime_1.exists)(json, 'reportFileName') ? undefined : json['reportFileName'],
         'reportName': !(0, runtime_1.exists)(json, 'reportName') ? undefined : json['reportName'],
     };
@@ -48,7 +48,7 @@ function ARReminderHistoryTypeToJSON(value) {
     }
     return {
         'age': value.age,
-        'dateSent': value.dateSent === undefined ? undefined : (value.dateSent.toISOString().substring(0, 10)),
+        'dateSent': value.dateSent,
         'reportFileName': value.reportFileName,
         'reportName': value.reportName,
     };

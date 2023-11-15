@@ -27,10 +27,10 @@ export interface DailyPaceStatType {
     channel?: string;
     /**
      * The day to which the information belongs.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyPaceStatType
      */
-    consideredDate?: Date;
+    consideredDate?: string;
     /**
      * Number of rooms reserved.
      * @type {number}
@@ -59,7 +59,7 @@ export function DailyPaceStatTypeFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'channel': !exists(json, 'channel') ? undefined : json['channel'],
-        'consideredDate': !exists(json, 'consideredDate') ? undefined : (new Date(json['consideredDate'])),
+        'consideredDate': !exists(json, 'consideredDate') ? undefined : json['consideredDate'],
         'rooms': !exists(json, 'rooms') ? undefined : json['rooms'],
     };
 }
@@ -74,7 +74,7 @@ export function DailyPaceStatTypeToJSON(value?: DailyPaceStatType | null): any {
     return {
         
         'channel': value.channel,
-        'consideredDate': value.consideredDate === undefined ? undefined : (value.consideredDate.toISOString().substring(0,10)),
+        'consideredDate': value.consideredDate,
         'rooms': value.rooms,
     };
 }

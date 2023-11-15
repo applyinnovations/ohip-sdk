@@ -29,16 +29,16 @@ export interface ReservationQueueInformationTypeTimeSpan {
     durationInSeconds?: number;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeTimeSpan
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeTimeSpan
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the ReservationQueueInformationTypeTimeSpan interface.

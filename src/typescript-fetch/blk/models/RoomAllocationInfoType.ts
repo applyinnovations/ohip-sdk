@@ -58,10 +58,10 @@ export interface RoomAllocationInfoType {
     roomGridInvSummary?: Array<BlockGridInvType>;
     /**
      * Indicates the date of the room allocation or rate amount.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomAllocationInfoType
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 
 /**
@@ -87,7 +87,7 @@ export function RoomAllocationInfoTypeFromJSONTyped(json: any, ignoreDiscriminat
         'extendedStay': !exists(json, 'extendedStay') ? undefined : json['extendedStay'],
         'roomGridDetails': !exists(json, 'roomGridDetails') ? undefined : ((json['roomGridDetails'] as Array<any>).map(RoomGridDetailsTypeFromJSON)),
         'roomGridInvSummary': !exists(json, 'roomGridInvSummary') ? undefined : ((json['roomGridInvSummary'] as Array<any>).map(BlockGridInvTypeFromJSON)),
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 
@@ -104,7 +104,7 @@ export function RoomAllocationInfoTypeToJSON(value?: RoomAllocationInfoType | nu
         'extendedStay': value.extendedStay,
         'roomGridDetails': value.roomGridDetails === undefined ? undefined : ((value.roomGridDetails as Array<any>).map(RoomGridDetailsTypeToJSON)),
         'roomGridInvSummary': value.roomGridInvSummary === undefined ? undefined : ((value.roomGridInvSummary as Array<any>).map(BlockGridInvTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
     };
 }
 

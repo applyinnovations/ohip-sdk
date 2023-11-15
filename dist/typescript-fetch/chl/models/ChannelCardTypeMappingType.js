@@ -36,7 +36,7 @@ function ChannelCardTypeMappingTypeFromJSONTyped(json, ignoreDiscriminator) {
         'cardType': !(0, runtime_1.exists)(json, 'cardType') ? undefined : json['cardType'],
         'channelCardType': !(0, runtime_1.exists)(json, 'channelCardType') ? undefined : json['channelCardType'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'newChannelCardType': !(0, runtime_1.exists)(json, 'newChannelCardType') ? undefined : json['newChannelCardType'],
     };
 }
@@ -53,7 +53,7 @@ function ChannelCardTypeMappingTypeToJSON(value) {
         'cardType': value.cardType,
         'channelCardType': value.channelCardType,
         'hotelId': value.hotelId,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'newChannelCardType': value.newChannelCardType,
     };
 }

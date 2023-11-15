@@ -33,7 +33,7 @@ function UpsellDailyRateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'requiredAmount': !(0, runtime_1.exists)(json, 'requiredAmount') ? undefined : (0, AmountPointsType_1.AmountPointsTypeFromJSON)(json['requiredAmount']),
     };
 }
@@ -46,7 +46,7 @@ function UpsellDailyRateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'requiredAmount': (0, AmountPointsType_1.AmountPointsTypeToJSON)(value.requiredAmount),
     };
 }

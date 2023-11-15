@@ -23,10 +23,10 @@ export interface ARInvoicePostingTypeUpdateInfo {
     updateBy?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ARInvoicePostingTypeUpdateInfo
      */
-    updateDate?: Date;
+    updateDate?: string;
 }
 /**
  * Check if a given object implements the ARInvoicePostingTypeUpdateInfo interface.

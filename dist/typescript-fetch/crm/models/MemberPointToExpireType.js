@@ -34,7 +34,7 @@ function MemberPointToExpireTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'awardGenerationMethod': !(0, runtime_1.exists)(json, 'awardGenerationMethod') ? undefined : json['awardGenerationMethod'],
         'extend': !(0, runtime_1.exists)(json, 'extend') ? undefined : json['extend'],
-        'pointsExpiryDate': !(0, runtime_1.exists)(json, 'pointsExpiryDate') ? undefined : (new Date(json['pointsExpiryDate'])),
+        'pointsExpiryDate': !(0, runtime_1.exists)(json, 'pointsExpiryDate') ? undefined : json['pointsExpiryDate'],
         'pointsToExpire': !(0, runtime_1.exists)(json, 'pointsToExpire') ? undefined : json['pointsToExpire'],
         'previousPointsToExpire': !(0, runtime_1.exists)(json, 'previousPointsToExpire') ? undefined : json['previousPointsToExpire'],
     };
@@ -50,7 +50,7 @@ function MemberPointToExpireTypeToJSON(value) {
     return {
         'awardGenerationMethod': value.awardGenerationMethod,
         'extend': value.extend,
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0, 10)),
+        'pointsExpiryDate': value.pointsExpiryDate,
         'pointsToExpire': value.pointsToExpire,
         'previousPointsToExpire': value.previousPointsToExpire,
     };

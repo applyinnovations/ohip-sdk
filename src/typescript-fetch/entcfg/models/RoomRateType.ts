@@ -154,10 +154,10 @@ export interface RoomRateType {
     discountAllowed?: boolean;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    end?: Date;
+    end?: string;
     /**
      * Fixed Rate Indicator.
      * @type {boolean}
@@ -304,10 +304,10 @@ export interface RoomRateType {
     sourceCodeDescription?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RoomRateType
      */
-    start?: Date;
+    start?: string;
     /**
      * Profile associated with the room Stay.
      * @type {Array<ReservationProfileType>}
@@ -376,7 +376,7 @@ export function RoomRateTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'complimentary': !exists(json, 'complimentary') ? undefined : json['complimentary'],
         'credentialsRequired': !exists(json, 'credentialsRequired') ? undefined : json['credentialsRequired'],
         'discountAllowed': !exists(json, 'discountAllowed') ? undefined : json['discountAllowed'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'fixedRate': !exists(json, 'fixedRate') ? undefined : json['fixedRate'],
         'foreignExchange': !exists(json, 'foreignExchange') ? undefined : ForeignExchangeTypeFromJSON(json['foreignExchange']),
         'guestCounts': !exists(json, 'guestCounts') ? undefined : GuestCountsTypeFromJSON(json['guestCounts']),
@@ -401,7 +401,7 @@ export function RoomRateTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'roomTypeCharged': !exists(json, 'roomTypeCharged') ? undefined : json['roomTypeCharged'],
         'sourceCode': !exists(json, 'sourceCode') ? undefined : json['sourceCode'],
         'sourceCodeDescription': !exists(json, 'sourceCodeDescription') ? undefined : json['sourceCodeDescription'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'stayProfiles': !exists(json, 'stayProfiles') ? undefined : ((json['stayProfiles'] as Array<any>).map(ReservationProfileTypeFromJSON)),
         'suppressRate': !exists(json, 'suppressRate') ? undefined : json['suppressRate'],
         'taxFreeGuestCounts': !exists(json, 'taxFreeGuestCounts') ? undefined : GuestCountsTypeFromJSON(json['taxFreeGuestCounts']),
@@ -431,7 +431,7 @@ export function RoomRateTypeToJSON(value?: RoomRateType | null): any {
         'complimentary': value.complimentary,
         'credentialsRequired': value.credentialsRequired,
         'discountAllowed': value.discountAllowed,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'fixedRate': value.fixedRate,
         'foreignExchange': ForeignExchangeTypeToJSON(value.foreignExchange),
         'guestCounts': GuestCountsTypeToJSON(value.guestCounts),
@@ -456,7 +456,7 @@ export function RoomRateTypeToJSON(value?: RoomRateType | null): any {
         'roomTypeCharged': value.roomTypeCharged,
         'sourceCode': value.sourceCode,
         'sourceCodeDescription': value.sourceCodeDescription,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'stayProfiles': value.stayProfiles === undefined ? undefined : ((value.stayProfiles as Array<any>).map(ReservationProfileTypeToJSON)),
         'suppressRate': value.suppressRate,
         'taxFreeGuestCounts': GuestCountsTypeToJSON(value.taxFreeGuestCounts),

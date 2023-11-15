@@ -142,10 +142,10 @@ export interface StagedProfileType {
     hotelId?: string;
     /**
      * The date on which the staged profile has been received.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileType
      */
-    importDate?: Date;
+    importDate?: string;
     /**
      * Type of the staged profile.
      * @type {string}

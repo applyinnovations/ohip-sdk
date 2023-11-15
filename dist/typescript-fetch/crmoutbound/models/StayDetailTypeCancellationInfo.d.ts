@@ -29,10 +29,10 @@ export interface StayDetailTypeCancellationInfo {
     code?: string;
     /**
      * Date when reservation was last cancelled.
-     * @type {Date}
+     * @type {string}
      * @memberof StayDetailTypeCancellationInfo
      */
-    date?: Date;
+    date?: string;
 }
 /**
  * Check if a given object implements the StayDetailTypeCancellationInfo interface.

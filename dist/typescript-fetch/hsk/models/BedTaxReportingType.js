@@ -34,8 +34,8 @@ function BedTaxReportingTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'taxRegistrationNo': !(0, runtime_1.exists)(json, 'taxRegistrationNo') ? undefined : json['taxRegistrationNo'],
         'taxableDays': !(0, runtime_1.exists)(json, 'taxableDays') ? undefined : json['taxableDays'],
-        'visaExpiryDate': !(0, runtime_1.exists)(json, 'visaExpiryDate') ? undefined : (new Date(json['visaExpiryDate'])),
-        'visaIssueDate': !(0, runtime_1.exists)(json, 'visaIssueDate') ? undefined : (new Date(json['visaIssueDate'])),
+        'visaExpiryDate': !(0, runtime_1.exists)(json, 'visaExpiryDate') ? undefined : json['visaExpiryDate'],
+        'visaIssueDate': !(0, runtime_1.exists)(json, 'visaIssueDate') ? undefined : json['visaIssueDate'],
         'visaNumber': !(0, runtime_1.exists)(json, 'visaNumber') ? undefined : json['visaNumber'],
     };
 }
@@ -50,8 +50,8 @@ function BedTaxReportingTypeToJSON(value) {
     return {
         'taxRegistrationNo': value.taxRegistrationNo,
         'taxableDays': value.taxableDays,
-        'visaExpiryDate': value.visaExpiryDate === undefined ? undefined : (value.visaExpiryDate.toISOString().substring(0, 10)),
-        'visaIssueDate': value.visaIssueDate === undefined ? undefined : (value.visaIssueDate.toISOString().substring(0, 10)),
+        'visaExpiryDate': value.visaExpiryDate,
+        'visaIssueDate': value.visaIssueDate,
         'visaNumber': value.visaNumber,
     };
 }

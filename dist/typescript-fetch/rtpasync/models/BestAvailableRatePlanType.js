@@ -40,7 +40,7 @@ function BestAvailableRatePlanTypeFromJSONTyped(json, ignoreDiscriminator) {
         'los6': !(0, runtime_1.exists)(json, 'los6') ? undefined : json['los6'],
         'los7': !(0, runtime_1.exists)(json, 'los7') ? undefined : json['los7'],
         'los8': !(0, runtime_1.exists)(json, 'los8') ? undefined : json['los8'],
-        'rateDate': !(0, runtime_1.exists)(json, 'rateDate') ? undefined : (new Date(json['rateDate'])),
+        'rateDate': !(0, runtime_1.exists)(json, 'rateDate') ? undefined : json['rateDate'],
         'ratePlanCodes': !(0, runtime_1.exists)(json, 'ratePlanCodes') ? undefined : json['ratePlanCodes'],
     };
 }
@@ -61,7 +61,7 @@ function BestAvailableRatePlanTypeToJSON(value) {
         'los6': value.los6,
         'los7': value.los7,
         'los8': value.los8,
-        'rateDate': value.rateDate === undefined ? undefined : (value.rateDate.toISOString().substring(0, 10)),
+        'rateDate': value.rateDate,
         'ratePlanCodes': value.ratePlanCodes,
     };
 }

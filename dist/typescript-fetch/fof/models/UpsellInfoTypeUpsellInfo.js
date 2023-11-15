@@ -46,7 +46,7 @@ function UpsellInfoTypeUpsellInfoFromJSONTyped(json, ignoreDiscriminator) {
         'totalUpsellCharge': !(0, runtime_1.exists)(json, 'totalUpsellCharge') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalUpsellCharge']),
         'totalUpsellMoneyAmount': !(0, runtime_1.exists)(json, 'totalUpsellMoneyAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalUpsellMoneyAmount']),
         'totalUpsellPoints': !(0, runtime_1.exists)(json, 'totalUpsellPoints') ? undefined : json['totalUpsellPoints'],
-        'upsellDate': !(0, runtime_1.exists)(json, 'upsellDate') ? undefined : (new Date(json['upsellDate'])),
+        'upsellDate': !(0, runtime_1.exists)(json, 'upsellDate') ? undefined : json['upsellDate'],
         'upsellUser': !(0, runtime_1.exists)(json, 'upsellUser') ? undefined : json['upsellUser'],
     };
 }
@@ -71,7 +71,7 @@ function UpsellInfoTypeUpsellInfoToJSON(value) {
         'totalUpsellCharge': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalUpsellCharge),
         'totalUpsellMoneyAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalUpsellMoneyAmount),
         'totalUpsellPoints': value.totalUpsellPoints,
-        'upsellDate': value.upsellDate === undefined ? undefined : (value.upsellDate.toISOString().substring(0, 10)),
+        'upsellDate': value.upsellDate,
         'upsellUser': value.upsellUser,
     };
 }

@@ -34,10 +34,10 @@ export interface ConfigHotelAmenityType {
     amenityType?: AmenityTypeType;
     /**
      * The date the amenity is scheduled to become active.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigHotelAmenityType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * The comments about amenity of the hotel.
      * @type {string}
@@ -52,10 +52,10 @@ export interface ConfigHotelAmenityType {
     description?: string;
     /**
      * The date the amenity is scheduled to become inactive.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigHotelAmenityType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Specifies the feature code (aka amenity code).
      * @type {string}
@@ -82,10 +82,10 @@ export interface ConfigHotelAmenityType {
     newAmenityCode?: string;
     /**
      * The new date the amenity is scheduled to become active.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigHotelAmenityType
      */
-    newBeginDate?: Date;
+    newBeginDate?: string;
     /**
      * Display Order sequence.
      * @type {number}
@@ -120,15 +120,15 @@ export function ConfigHotelAmenityTypeFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
         'amenityType': !exists(json, 'amenityType') ? undefined : AmenityTypeTypeFromJSON(json['amenityType']),
-        'beginDate': !exists(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !exists(json, 'beginDate') ? undefined : json['beginDate'],
         'comments': !exists(json, 'comments') ? undefined : json['comments'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'featureCode': !exists(json, 'featureCode') ? undefined : json['featureCode'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'hours': !exists(json, 'hours') ? undefined : json['hours'],
         'newAmenityCode': !exists(json, 'newAmenityCode') ? undefined : json['newAmenityCode'],
-        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : (new Date(json['newBeginDate'])),
+        'newBeginDate': !exists(json, 'newBeginDate') ? undefined : json['newBeginDate'],
         'orderSequence': !exists(json, 'orderSequence') ? undefined : json['orderSequence'],
         'priceRange': !exists(json, 'priceRange') ? undefined : json['priceRange'],
     };
@@ -144,15 +144,15 @@ export function ConfigHotelAmenityTypeToJSON(value?: ConfigHotelAmenityType | nu
     return {
         
         'amenityType': AmenityTypeTypeToJSON(value.amenityType),
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0,10)),
+        'beginDate': value.beginDate,
         'comments': value.comments,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'featureCode': value.featureCode,
         'hotelId': value.hotelId,
         'hours': value.hours,
         'newAmenityCode': value.newAmenityCode,
-        'newBeginDate': value.newBeginDate === undefined ? undefined : (value.newBeginDate.toISOString().substring(0,10)),
+        'newBeginDate': value.newBeginDate,
         'orderSequence': value.orderSequence,
         'priceRange': value.priceRange,
     };

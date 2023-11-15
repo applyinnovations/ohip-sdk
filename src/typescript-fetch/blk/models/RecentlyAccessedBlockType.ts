@@ -34,10 +34,10 @@ import {
 export interface RecentlyAccessedBlockType {
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof RecentlyAccessedBlockType
      */
-    accessDate?: Date;
+    accessDate?: string;
     /**
      * Business Block Code
      * @type {string}
@@ -95,7 +95,7 @@ export function RecentlyAccessedBlockTypeFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'accessDate': !exists(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !exists(json, 'accessDate') ? undefined : json['accessDate'],
         'blockCode': !exists(json, 'blockCode') ? undefined : json['blockCode'],
         'blockIdList': !exists(json, 'blockIdList') ? undefined : ((json['blockIdList'] as Array<any>).map(UniqueIDTypeFromJSON)),
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
@@ -114,7 +114,7 @@ export function RecentlyAccessedBlockTypeToJSON(value?: RecentlyAccessedBlockTyp
     }
     return {
         
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0,10)),
+        'accessDate': value.accessDate,
         'blockCode': value.blockCode,
         'blockIdList': value.blockIdList === undefined ? undefined : ((value.blockIdList as Array<any>).map(UniqueIDTypeToJSON)),
         'blockName': value.blockName,

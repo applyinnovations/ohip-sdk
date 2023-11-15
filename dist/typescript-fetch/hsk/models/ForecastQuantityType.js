@@ -33,7 +33,7 @@ function ForecastQuantityTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'isWeekend': !(0, runtime_1.exists)(json, 'isWeekend') ? undefined : json['isWeekend'],
         'quantity': !(0, runtime_1.exists)(json, 'quantity') ? undefined : json['quantity'],
         'roomTypeBreakDown': !(0, runtime_1.exists)(json, 'roomTypeBreakDown') ? undefined : (json['roomTypeBreakDown'].map(RoomTypeTaskType_1.RoomTypeTaskTypeFromJSON)),
@@ -48,7 +48,7 @@ function ForecastQuantityTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'isWeekend': value.isWeekend,
         'quantity': value.quantity,
         'roomTypeBreakDown': value.roomTypeBreakDown === undefined ? undefined : (value.roomTypeBreakDown.map(RoomTypeTaskType_1.RoomTypeTaskTypeToJSON)),

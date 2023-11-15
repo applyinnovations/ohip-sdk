@@ -284,10 +284,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['code'] = requestParameters.code;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.friday !== undefined) {
                 queryParameters['friday'] = requestParameters.friday;
@@ -389,10 +389,10 @@ class RatePlanApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.roomType) {
                 queryParameters['roomType'] = requestParameters.roomType.join(runtime.COLLECTION_FORMATS["csv"]);
@@ -842,10 +842,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['sourceValue'] = requestParameters.sourceValue;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
@@ -1106,10 +1106,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['seasonCode'] = requestParameters.seasonCode;
             }
             if (requestParameters.start !== undefined) {
-                queryParameters['start'] = requestParameters.start.toISOString().substring(0, 10);
+                queryParameters['start'] = requestParameters.start;
             }
             if (requestParameters.end !== undefined) {
-                queryParameters['end'] = requestParameters.end.toISOString().substring(0, 10);
+                queryParameters['end'] = requestParameters.end;
             }
             if (requestParameters.roomType) {
                 queryParameters['roomType'] = requestParameters.roomType;
@@ -1417,7 +1417,7 @@ class RatePlanApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.startDay !== undefined) {
-                queryParameters['startDay'] = requestParameters.startDay.toISOString().substring(0, 10);
+                queryParameters['startDay'] = requestParameters.startDay;
             }
             if (requestParameters.limit !== undefined) {
                 queryParameters['limit'] = requestParameters.limit;
@@ -1429,7 +1429,7 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['rateCode'] = requestParameters.rateCode;
             }
             if (requestParameters.endDay !== undefined) {
-                queryParameters['endDay'] = requestParameters.endDay.toISOString().substring(0, 10);
+                queryParameters['endDay'] = requestParameters.endDay;
             }
             if (requestParameters.daysOfWeek) {
                 queryParameters['daysOfWeek'] = requestParameters.daysOfWeek;
@@ -1597,10 +1597,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['limit'] = requestParameters.limit;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.includeInactiveNegotiatedRates !== undefined) {
                 queryParameters['includeInactiveNegotiatedRates'] = requestParameters.includeInactiveNegotiatedRates;
@@ -1663,10 +1663,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['limit'] = requestParameters.limit;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.includeInactiveNegotiatedRates !== undefined) {
                 queryParameters['includeInactiveNegotiatedRates'] = requestParameters.includeInactiveNegotiatedRates;
@@ -1726,10 +1726,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['limit'] = requestParameters.limit;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.hotelCode !== undefined) {
                 queryParameters['hotelCode'] = requestParameters.hotelCode;
@@ -2008,10 +2008,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['descriptionWildCard'] = requestParameters.descriptionWildCard;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.adults !== undefined) {
                 queryParameters['adults'] = requestParameters.adults;
@@ -2257,10 +2257,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['activityType'] = requestParameters.activityType;
             }
             if (requestParameters.fromDate !== undefined) {
-                queryParameters['fromDate'] = requestParameters.fromDate.toISOString().substring(0, 10);
+                queryParameters['fromDate'] = requestParameters.fromDate;
             }
             if (requestParameters.toDate !== undefined) {
-                queryParameters['toDate'] = requestParameters.toDate.toISOString().substring(0, 10);
+                queryParameters['toDate'] = requestParameters.toDate;
             }
             if (requestParameters.searchText !== undefined) {
                 queryParameters['searchText'] = requestParameters.searchText;
@@ -2503,10 +2503,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['ratePlanScheduleIdType'] = requestParameters.ratePlanScheduleIdType;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.duration !== undefined) {
                 queryParameters['duration'] = requestParameters.duration;
@@ -2584,7 +2584,7 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['rateCategory'] = requestParameters.rateCategory;
             }
             if (requestParameters.sellDate !== undefined) {
-                queryParameters['sellDate'] = requestParameters.sellDate.toISOString().substring(0, 10);
+                queryParameters['sellDate'] = requestParameters.sellDate;
             }
             if (requestParameters.displaySet !== undefined) {
                 queryParameters['displaySet'] = requestParameters.displaySet;
@@ -2716,10 +2716,10 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['ratePlanCode'] = requestParameters.ratePlanCode;
             }
             if (requestParameters.beginDate !== undefined) {
-                queryParameters['beginDate'] = requestParameters.beginDate.toISOString().substring(0, 10);
+                queryParameters['beginDate'] = requestParameters.beginDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.companyId !== undefined) {
                 queryParameters['companyId'] = requestParameters.companyId;
@@ -2797,7 +2797,7 @@ class RatePlanApi extends runtime.BaseAPI {
                 queryParameters['offset'] = requestParameters.offset;
             }
             if (requestParameters.restrictionDate !== undefined) {
-                queryParameters['restrictionDate'] = requestParameters.restrictionDate.toISOString().substring(0, 10);
+                queryParameters['restrictionDate'] = requestParameters.restrictionDate;
             }
             const headerParameters = {};
             if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {

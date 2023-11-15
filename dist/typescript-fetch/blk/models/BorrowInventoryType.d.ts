@@ -25,10 +25,10 @@ export interface BorrowInventoryType {
     blockId?: BlockId;
     /**
      * The date on which rooms need to be borrowed for the block either from another room type in the block or from House if the block is elastic.
-     * @type {Date}
+     * @type {string}
      * @memberof BorrowInventoryType
      */
-    borrowDate?: Date;
+    borrowDate?: string;
     /**
      * Specifies the number of rooms to be borrowed from the room type or House.
      * @type {Array<BorrowRoomType>}

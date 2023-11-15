@@ -17,10 +17,10 @@
 export interface AutoFolioSettlementCriteriaType {
     /**
      * Date since the last auto folio settlement.
-     * @type {Date}
+     * @type {string}
      * @memberof AutoFolioSettlementCriteriaType
      */
-    dateSinceLastAutoSettled?: Date;
+    dateSinceLastAutoSettled?: string;
     /**
      * Days since the last auto folio settlement.
      * @type {number}

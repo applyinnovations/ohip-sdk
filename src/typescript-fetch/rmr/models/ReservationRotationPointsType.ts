@@ -34,16 +34,16 @@ import {
 export interface ReservationRotationPointsType {
     /**
      * Reservation arrival date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRotationPointsType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Reservation departure date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRotationPointsType
      */
-    departureDate?: Date;
+    departureDate?: string;
     /**
      * The guest name on the reservation.
      * @type {string}
@@ -107,8 +107,8 @@ export function ReservationRotationPointsTypeFromJSONTyped(json: any, ignoreDisc
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
-        'departureDate': !exists(json, 'departureDate') ? undefined : (new Date(json['departureDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
+        'departureDate': !exists(json, 'departureDate') ? undefined : json['departureDate'],
         'guestName': !exists(json, 'guestName') ? undefined : json['guestName'],
         'nights': !exists(json, 'nights') ? undefined : json['nights'],
         'pointsAdjusted': !exists(json, 'pointsAdjusted') ? undefined : json['pointsAdjusted'],
@@ -128,8 +128,8 @@ export function ReservationRotationPointsTypeToJSON(value?: ReservationRotationP
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
-        'departureDate': value.departureDate === undefined ? undefined : (value.departureDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
+        'departureDate': value.departureDate,
         'guestName': value.guestName,
         'nights': value.nights,
         'pointsAdjusted': value.pointsAdjusted,

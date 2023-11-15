@@ -34,16 +34,16 @@ function PrepaidCardDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'activateDate': !(0, runtime_1.exists)(json, 'activateDate') ? undefined : (new Date(json['activateDate'])),
+        'activateDate': !(0, runtime_1.exists)(json, 'activateDate') ? undefined : json['activateDate'],
         'balanceTotal': !(0, runtime_1.exists)(json, 'balanceTotal') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['balanceTotal']),
         'creditTotal': !(0, runtime_1.exists)(json, 'creditTotal') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['creditTotal']),
         'debitTotal': !(0, runtime_1.exists)(json, 'debitTotal') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['debitTotal']),
-        'expiredDate': !(0, runtime_1.exists)(json, 'expiredDate') ? undefined : (new Date(json['expiredDate'])),
+        'expiredDate': !(0, runtime_1.exists)(json, 'expiredDate') ? undefined : json['expiredDate'],
         'initialCreditTotal': !(0, runtime_1.exists)(json, 'initialCreditTotal') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['initialCreditTotal']),
-        'initialLoadDate': !(0, runtime_1.exists)(json, 'initialLoadDate') ? undefined : (new Date(json['initialLoadDate'])),
+        'initialLoadDate': !(0, runtime_1.exists)(json, 'initialLoadDate') ? undefined : json['initialLoadDate'],
         'reservedTotal': !(0, runtime_1.exists)(json, 'reservedTotal') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['reservedTotal']),
         'transactions': !(0, runtime_1.exists)(json, 'transactions') ? undefined : (json['transactions'].map(PrepaidCardTransactionType_1.PrepaidCardTransactionTypeFromJSON)),
-        'validUntilDate': !(0, runtime_1.exists)(json, 'validUntilDate') ? undefined : (new Date(json['validUntilDate'])),
+        'validUntilDate': !(0, runtime_1.exists)(json, 'validUntilDate') ? undefined : json['validUntilDate'],
     };
 }
 exports.PrepaidCardDetailsTypeFromJSONTyped = PrepaidCardDetailsTypeFromJSONTyped;
@@ -55,16 +55,16 @@ function PrepaidCardDetailsTypeToJSON(value) {
         return null;
     }
     return {
-        'activateDate': value.activateDate === undefined ? undefined : (value.activateDate.toISOString().substring(0, 10)),
+        'activateDate': value.activateDate,
         'balanceTotal': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.balanceTotal),
         'creditTotal': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.creditTotal),
         'debitTotal': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.debitTotal),
-        'expiredDate': value.expiredDate === undefined ? undefined : (value.expiredDate.toISOString().substring(0, 10)),
+        'expiredDate': value.expiredDate,
         'initialCreditTotal': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.initialCreditTotal),
-        'initialLoadDate': value.initialLoadDate === undefined ? undefined : (value.initialLoadDate.toISOString().substring(0, 10)),
+        'initialLoadDate': value.initialLoadDate,
         'reservedTotal': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.reservedTotal),
         'transactions': value.transactions === undefined ? undefined : (value.transactions.map(PrepaidCardTransactionType_1.PrepaidCardTransactionTypeToJSON)),
-        'validUntilDate': value.validUntilDate === undefined ? undefined : (value.validUntilDate.toISOString().substring(0, 10)),
+        'validUntilDate': value.validUntilDate,
     };
 }
 exports.PrepaidCardDetailsTypeToJSON = PrepaidCardDetailsTypeToJSON;

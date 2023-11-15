@@ -18,10 +18,10 @@ import type { UniqueIDType } from './UniqueIDType';
 export interface PreArrivalMemberReservationType {
     /**
      * Arrival Date.
-     * @type {Date}
+     * @type {string}
      * @memberof PreArrivalMemberReservationType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * Date on which Reservation is Created.
      * @type {string}

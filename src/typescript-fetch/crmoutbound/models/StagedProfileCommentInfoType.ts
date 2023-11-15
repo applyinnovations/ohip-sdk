@@ -64,10 +64,10 @@ export interface StagedProfileCommentInfoType {
     lineNo?: number;
     /**
      * Indicates comment inactive date.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileCommentInfoType
      */
-    inActiveDate?: Date;
+    inActiveDate?: string;
     /**
      * The error in a user defined field in a staged profile with an invalid status.
      * @type {string}
@@ -131,7 +131,7 @@ export function StagedProfileCommentInfoTypeFromJSONTyped(json: any, ignoreDiscr
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'lastModifierId': !exists(json, 'lastModifierId') ? undefined : json['lastModifierId'],
         'lineNo': !exists(json, 'lineNo') ? undefined : json['lineNo'],
-        'inActiveDate': !exists(json, 'inActiveDate') ? undefined : (new Date(json['inActiveDate'])),
+        'inActiveDate': !exists(json, 'inActiveDate') ? undefined : json['inActiveDate'],
         'errorDescription': !exists(json, 'errorDescription') ? undefined : json['errorDescription'],
         'valid': !exists(json, 'valid') ? undefined : json['valid'],
         'allRowsFetched': !exists(json, 'allRowsFetched') ? undefined : json['allRowsFetched'],
@@ -156,7 +156,7 @@ export function StagedProfileCommentInfoTypeToJSON(value?: StagedProfileCommentI
         'lastModifyDateTime': value.lastModifyDateTime,
         'lastModifierId': value.lastModifierId,
         'lineNo': value.lineNo,
-        'inActiveDate': value.inActiveDate === undefined ? undefined : (value.inActiveDate.toISOString().substring(0,10)),
+        'inActiveDate': value.inActiveDate,
         'errorDescription': value.errorDescription,
         'valid': value.valid,
         'allRowsFetched': value.allRowsFetched,

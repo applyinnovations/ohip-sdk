@@ -24,10 +24,10 @@ export interface DailyRatePlanScheduleType {
     rateAmounts?: ScheduleRateAmountsType;
     /**
      * The rate date for which the daily rate amounts will be applied.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRatePlanScheduleType
      */
-    rateDate?: Date;
+    rateDate?: string;
     /**
      * The rate code for which the daily rate amounts will be applied.
      * @type {string}

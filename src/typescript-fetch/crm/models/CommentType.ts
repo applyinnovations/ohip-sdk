@@ -28,10 +28,10 @@ import {
 export interface CommentType {
     /**
      * Indicates at which date an action described in the comment must be taken.
-     * @type {Date}
+     * @type {string}
      * @memberof CommentType
      */
-    actionDate?: Date;
+    actionDate?: string;
     /**
      * Specifies type of action described in the comments.
      * @type {string}
@@ -143,7 +143,7 @@ export function CommentTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean
     }
     return {
         
-        'actionDate': !exists(json, 'actionDate') ? undefined : (new Date(json['actionDate'])),
+        'actionDate': !exists(json, 'actionDate') ? undefined : json['actionDate'],
         'actionType': !exists(json, 'actionType') ? undefined : json['actionType'],
         'commentTitle': !exists(json, 'commentTitle') ? undefined : json['commentTitle'],
         'confidential': !exists(json, 'confidential') ? undefined : json['confidential'],
@@ -171,7 +171,7 @@ export function CommentTypeToJSON(value?: CommentType | null): any {
     }
     return {
         
-        'actionDate': value.actionDate === undefined ? undefined : (value.actionDate.toISOString().substring(0,10)),
+        'actionDate': value.actionDate,
         'actionType': value.actionType,
         'commentTitle': value.commentTitle,
         'confidential': value.confidential,

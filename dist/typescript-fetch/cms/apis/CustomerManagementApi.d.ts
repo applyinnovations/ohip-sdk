@@ -68,8 +68,8 @@ export interface GetCalendarTasksRequest {
     countSummary?: boolean;
     taskSummary?: boolean;
     hotelIds?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     completionStatus?: GetCalendarTasksCompletionStatusEnum;
     priorityCodes?: Array<string>;
@@ -111,8 +111,8 @@ export interface GetTrackItItemsRequest {
     appUserIdType?: string;
     assignedStatuses?: Set<GetTrackItItemsAssignedStatusesEnum>;
     room?: string;
-    followUpDate?: Date;
-    createdOn?: Date;
+    followUpDate?: string;
+    createdOn?: string;
     createdByUserId?: string;
     createdByUserIdContext?: string;
     createdByUserIdType?: string;

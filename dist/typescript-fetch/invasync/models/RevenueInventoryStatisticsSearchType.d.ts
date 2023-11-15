@@ -17,16 +17,16 @@
 export interface RevenueInventoryStatisticsSearchType {
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RevenueInventoryStatisticsSearchType
      */
-    dateRangeEnd?: Date;
+    dateRangeEnd?: string;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RevenueInventoryStatisticsSearchType
      */
-    dateRangeStart?: Date;
+    dateRangeStart?: string;
     /**
      * Group by instructions for revenue inventory statistics that can be used in request operation. Response data will be grouped according to the values provided in this array. MarketCode and RoomType grouping is used for past and future revenue and inventory statistics while GuaranteeType is used only for future revenue and inventory statistics.
      * @type {Set<string>}

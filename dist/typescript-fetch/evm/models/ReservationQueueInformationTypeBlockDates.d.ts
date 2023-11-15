@@ -29,16 +29,16 @@ export interface ReservationQueueInformationTypeBlockDates {
     durationInSeconds?: number;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeBlockDates
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationQueueInformationTypeBlockDates
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the ReservationQueueInformationTypeBlockDates interface.

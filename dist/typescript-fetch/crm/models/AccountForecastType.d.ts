@@ -68,16 +68,16 @@ export interface AccountForecastType {
     periodDescription?: string;
     /**
      * Specifies the Period End Date
-     * @type {Date}
+     * @type {string}
      * @memberof AccountForecastType
      */
-    periodEndDate?: Date;
+    periodEndDate?: string;
     /**
      * Specifies the Period Start Date
-     * @type {Date}
+     * @type {string}
      * @memberof AccountForecastType
      */
-    periodStartDate?: Date;
+    periodStartDate?: string;
     /**
      * Room Nights for the forecast
      * @type {number}

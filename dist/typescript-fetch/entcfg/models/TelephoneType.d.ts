@@ -83,10 +83,10 @@ export interface TelephoneType {
     primaryInd?: boolean;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof TelephoneType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
 }
 /**
  * Check if a given object implements the TelephoneType interface.

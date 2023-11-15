@@ -45,10 +45,10 @@ export interface ConfigUpsellRuleType {
     description?: string;
     /**
      * This represents the end date of the date range for which the upsell rule is valid.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigUpsellRuleType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      *
      * @type {FormulaType}
@@ -111,10 +111,10 @@ export interface ConfigUpsellRuleType {
     roundingRule?: RoundingRuleType;
     /**
      * This represents the begin date of the date range for which the upsell rule is valid.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigUpsellRuleType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * The "to" room type or room class for the upsell rule. This is the room type that the original room type/room class will be upsold to.
      * @type {string}

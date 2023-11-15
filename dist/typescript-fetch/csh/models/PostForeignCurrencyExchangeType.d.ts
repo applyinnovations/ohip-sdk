@@ -27,10 +27,10 @@ export interface PostForeignCurrencyExchangeType {
     cashierId?: number;
     /**
      * Date on which exchange rate was obtained.
-     * @type {Date}
+     * @type {string}
      * @memberof PostForeignCurrencyExchangeType
      */
-    exchangeDate?: Date;
+    exchangeDate?: string;
     /**
      * Exchange references.
      * @type {string}

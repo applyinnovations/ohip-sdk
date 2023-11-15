@@ -59,16 +59,16 @@ export interface ReservationRateSummaryDetailType {
     revenue?: number;
     /**
      * Date revenue calculation is based on.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryDetailType
      */
-    revenueSimulationDate?: Date;
+    revenueSimulationDate?: string;
     /**
      * Stay date for which revenue calculation is done.
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationRateSummaryDetailType
      */
-    summaryDate?: Date;
+    summaryDate?: string;
     /**
      * Amount of tax generated separately on the revenue and package.
      * @type {number}

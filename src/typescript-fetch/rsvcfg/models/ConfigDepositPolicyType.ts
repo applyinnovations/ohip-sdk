@@ -100,10 +100,10 @@ export interface ConfigDepositPolicyType {
     sequence?: number;
     /**
      * Transaction Date associated with the deposit policy
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigDepositPolicyType
      */
-    transactionDate?: Date;
+    transactionDate?: string;
     /**
      * 
      * @type {DepositCancelRevenueType}
@@ -141,7 +141,7 @@ export function ConfigDepositPolicyTypeFromJSONTyped(json: any, ignoreDiscrimina
         'manual': !exists(json, 'manual') ? undefined : json['manual'],
         'policyCode': !exists(json, 'policyCode') ? undefined : json['policyCode'],
         'sequence': !exists(json, 'sequence') ? undefined : json['sequence'],
-        'transactionDate': !exists(json, 'transactionDate') ? undefined : (new Date(json['transactionDate'])),
+        'transactionDate': !exists(json, 'transactionDate') ? undefined : json['transactionDate'],
         'typeOfCharges': !exists(json, 'typeOfCharges') ? undefined : DepositCancelRevenueTypeFromJSON(json['typeOfCharges']),
     };
 }
@@ -165,7 +165,7 @@ export function ConfigDepositPolicyTypeToJSON(value?: ConfigDepositPolicyType | 
         'manual': value.manual,
         'policyCode': value.policyCode,
         'sequence': value.sequence,
-        'transactionDate': value.transactionDate === undefined ? undefined : (value.transactionDate.toISOString().substring(0,10)),
+        'transactionDate': value.transactionDate,
         'typeOfCharges': DepositCancelRevenueTypeToJSON(value.typeOfCharges),
     };
 }

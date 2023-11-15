@@ -20,8 +20,8 @@ export interface GetMembershipDetailsRequest {
     membershipType?: string;
     membershipId?: string;
     hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     mode?: GetMembershipDetailsModeEnum;
     xTransactionId?: string;
     acceptLanguage?: string;

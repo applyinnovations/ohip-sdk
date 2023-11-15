@@ -64,10 +64,10 @@ import {
 export interface ResGuaranteeSearchType {
     /**
      * Arrival Date of the guest.
-     * @type {Date}
+     * @type {string}
      * @memberof ResGuaranteeSearchType
      */
-    arrivalDate?: Date;
+    arrivalDate?: string;
     /**
      * 
      * @type {BlockId}
@@ -155,7 +155,7 @@ export function ResGuaranteeSearchTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : (new Date(json['arrivalDate'])),
+        'arrivalDate': !exists(json, 'arrivalDate') ? undefined : json['arrivalDate'],
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
         'fetchInstruction': !exists(json, 'fetchInstruction') ? undefined : ResGuaranteeFetchInstructionsTypeFromJSON(json['fetchInstruction']),
         'guaranteeCode': !exists(json, 'guaranteeCode') ? undefined : json['guaranteeCode'],
@@ -179,7 +179,7 @@ export function ResGuaranteeSearchTypeToJSON(value?: ResGuaranteeSearchType | nu
     }
     return {
         
-        'arrivalDate': value.arrivalDate === undefined ? undefined : (value.arrivalDate.toISOString().substring(0,10)),
+        'arrivalDate': value.arrivalDate,
         'blockId': BlockIdToJSON(value.blockId),
         'fetchInstruction': ResGuaranteeFetchInstructionsTypeToJSON(value.fetchInstruction),
         'guaranteeCode': value.guaranteeCode,

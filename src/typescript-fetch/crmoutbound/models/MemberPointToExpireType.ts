@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface MemberPointToExpireType {
     /**
      * The date when the member future award points will expire.
-     * @type {Date}
+     * @type {string}
      * @memberof MemberPointToExpireType
      */
-    pointsExpiryDate?: Date;
+    pointsExpiryDate?: string;
     /**
      * Displays the total number of points that will expire on the expiration date.
      * @type {number}
@@ -70,7 +70,7 @@ export function MemberPointToExpireTypeFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'pointsExpiryDate': !exists(json, 'pointsExpiryDate') ? undefined : (new Date(json['pointsExpiryDate'])),
+        'pointsExpiryDate': !exists(json, 'pointsExpiryDate') ? undefined : json['pointsExpiryDate'],
         'pointsToExpire': !exists(json, 'pointsToExpire') ? undefined : json['pointsToExpire'],
         'previousPointsToExpire': !exists(json, 'previousPointsToExpire') ? undefined : json['previousPointsToExpire'],
         'extend': !exists(json, 'extend') ? undefined : json['extend'],
@@ -87,7 +87,7 @@ export function MemberPointToExpireTypeToJSON(value?: MemberPointToExpireType | 
     }
     return {
         
-        'pointsExpiryDate': value.pointsExpiryDate === undefined ? undefined : (value.pointsExpiryDate.toISOString().substring(0,10)),
+        'pointsExpiryDate': value.pointsExpiryDate,
         'pointsToExpire': value.pointsToExpire,
         'previousPointsToExpire': value.previousPointsToExpire,
         'extend': value.extend,

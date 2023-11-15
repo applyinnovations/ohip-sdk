@@ -34,10 +34,10 @@ import {
 export interface HotelCalendarDayType {
     /**
      * Indicates a specific hotel for which the calendar is being represented.
-     * @type {Date}
+     * @type {string}
      * @memberof HotelCalendarDayType
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {HotelCalendarDayTypeType}
@@ -71,7 +71,7 @@ export function HotelCalendarDayTypeFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'dayType': !exists(json, 'dayType') ? undefined : HotelCalendarDayTypeTypeFromJSON(json['dayType']),
         'events': !exists(json, 'events') ? undefined : ((json['events'] as Array<any>).map(HotelCalendarEventTypeFromJSON)),
     };
@@ -86,7 +86,7 @@ export function HotelCalendarDayTypeToJSON(value?: HotelCalendarDayType | null):
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'dayType': HotelCalendarDayTypeTypeToJSON(value.dayType),
         'events': value.events === undefined ? undefined : ((value.events as Array<any>).map(HotelCalendarEventTypeToJSON)),
     };

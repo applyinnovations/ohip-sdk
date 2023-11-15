@@ -36,10 +36,10 @@ function ChannelStatementAccountTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'accountCode': !(0, runtime_1.exists)(json, 'accountCode') ? undefined : json['accountCode'],
-        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : (new Date(json['beginDate'])),
+        'beginDate': !(0, runtime_1.exists)(json, 'beginDate') ? undefined : json['beginDate'],
         'channelAccountStatementDetails': !(0, runtime_1.exists)(json, 'channelAccountStatementDetails') ? undefined : (json['channelAccountStatementDetails'].map(ChannelStatementDetailType_1.ChannelStatementDetailTypeFromJSON)),
         'contractId': !(0, runtime_1.exists)(json, 'contractId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['contractId']),
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'note': !(0, runtime_1.exists)(json, 'note') ? undefined : json['note'],
         'profileId': !(0, runtime_1.exists)(json, 'profileId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['profileId']),
         'totalDetailsAmount': !(0, runtime_1.exists)(json, 'totalDetailsAmount') ? undefined : (0, CurrencyAmountType_1.CurrencyAmountTypeFromJSON)(json['totalDetailsAmount']),
@@ -55,10 +55,10 @@ function ChannelStatementAccountTypeToJSON(value) {
     }
     return {
         'accountCode': value.accountCode,
-        'beginDate': value.beginDate === undefined ? undefined : (value.beginDate.toISOString().substring(0, 10)),
+        'beginDate': value.beginDate,
         'channelAccountStatementDetails': value.channelAccountStatementDetails === undefined ? undefined : (value.channelAccountStatementDetails.map(ChannelStatementDetailType_1.ChannelStatementDetailTypeToJSON)),
         'contractId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.contractId),
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'note': value.note,
         'profileId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.profileId),
         'totalDetailsAmount': (0, CurrencyAmountType_1.CurrencyAmountTypeToJSON)(value.totalDetailsAmount),

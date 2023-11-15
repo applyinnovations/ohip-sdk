@@ -39,12 +39,12 @@ function RatePlanPrimaryDetailsTypeFromJSONTyped(json, ignoreDiscriminator) {
         'approvalStatus': !(0, runtime_1.exists)(json, 'approvalStatus') ? undefined : (0, RatePlanApprovalStatusType_1.RatePlanApprovalStatusTypeFromJSON)(json['approvalStatus']),
         'baseType': !(0, runtime_1.exists)(json, 'baseType') ? undefined : (0, BaseType_1.BaseTypeFromJSON)(json['baseType']),
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : (0, TranslationTextType2000_1.TranslationTextType2000FromJSON)(json['description']),
-        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !(0, runtime_1.exists)(json, 'endSellDate') ? undefined : json['endSellDate'],
         'lockStatus': !(0, runtime_1.exists)(json, 'lockStatus') ? undefined : (0, RateCodeLockStatusType_1.RateCodeLockStatusTypeFromJSON)(json['lockStatus']),
         'privilegedRate': !(0, runtime_1.exists)(json, 'privilegedRate') ? undefined : json['privilegedRate'],
         'privilegedRateRestriction': !(0, runtime_1.exists)(json, 'privilegedRateRestriction') ? undefined : json['privilegedRateRestriction'],
         'sellSequence': !(0, runtime_1.exists)(json, 'sellSequence') ? undefined : json['sellSequence'],
-        'startSellDate': !(0, runtime_1.exists)(json, 'startSellDate') ? undefined : (new Date(json['startSellDate'])),
+        'startSellDate': !(0, runtime_1.exists)(json, 'startSellDate') ? undefined : json['startSellDate'],
     };
 }
 exports.RatePlanPrimaryDetailsTypeFromJSONTyped = RatePlanPrimaryDetailsTypeFromJSONTyped;
@@ -59,12 +59,12 @@ function RatePlanPrimaryDetailsTypeToJSON(value) {
         'approvalStatus': (0, RatePlanApprovalStatusType_1.RatePlanApprovalStatusTypeToJSON)(value.approvalStatus),
         'baseType': (0, BaseType_1.BaseTypeToJSON)(value.baseType),
         'description': (0, TranslationTextType2000_1.TranslationTextType2000ToJSON)(value.description),
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0, 10)),
+        'endSellDate': value.endSellDate,
         'lockStatus': (0, RateCodeLockStatusType_1.RateCodeLockStatusTypeToJSON)(value.lockStatus),
         'privilegedRate': value.privilegedRate,
         'privilegedRateRestriction': value.privilegedRateRestriction,
         'sellSequence': value.sellSequence,
-        'startSellDate': value.startSellDate === undefined ? undefined : (value.startSellDate.toISOString().substring(0, 10)),
+        'startSellDate': value.startSellDate,
     };
 }
 exports.RatePlanPrimaryDetailsTypeToJSON = RatePlanPrimaryDetailsTypeToJSON;

@@ -18,10 +18,10 @@ import type { RoomTypeTaskType } from './RoomTypeTaskType';
 export interface ForecastQuantityType {
     /**
      * Date of the statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof ForecastQuantityType
      */
-    date?: Date;
+    date?: string;
     /**
      * Indicates whether the day is a weekend day or not.
      * @type {boolean}

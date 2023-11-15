@@ -35,8 +35,8 @@ export interface GetProfileMembershipStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     transactionDetail?: boolean;
     xExternalsystem?: string;
@@ -50,8 +50,8 @@ export interface GetProfileStatisticsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    stayFrom?: Date;
-    stayTo?: Date;
+    stayFrom?: string;
+    stayTo?: string;
     summary?: boolean;
     passerBy?: boolean;
     contactProfileRoleType?: GetProfileStatisticsContactProfileRoleTypeEnum;
@@ -102,11 +102,11 @@ export class ProfileStatisticsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -190,11 +190,11 @@ export class ProfileStatisticsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.stayFrom !== undefined) {
-            queryParameters['stayFrom'] = (requestParameters.stayFrom as any).toISOString().substring(0,10);
+            queryParameters['stayFrom'] = requestParameters.stayFrom;
         }
 
         if (requestParameters.stayTo !== undefined) {
-            queryParameters['stayTo'] = (requestParameters.stayTo as any).toISOString().substring(0,10);
+            queryParameters['stayTo'] = requestParameters.stayTo;
         }
 
         if (requestParameters.summary !== undefined) {

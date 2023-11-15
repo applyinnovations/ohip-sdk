@@ -35,10 +35,10 @@ function FiscalPeriodTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : json['code'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'periodType': !(0, runtime_1.exists)(json, 'periodType') ? undefined : (0, YearTypeType_1.YearTypeTypeFromJSON)(json['periodType']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'year': !(0, runtime_1.exists)(json, 'year') ? undefined : json['year'],
         'yearId': !(0, runtime_1.exists)(json, 'yearId') ? undefined : json['yearId'],
     };
@@ -54,10 +54,10 @@ function FiscalPeriodTypeToJSON(value) {
     return {
         'code': value.code,
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
         'periodType': (0, YearTypeType_1.YearTypeTypeToJSON)(value.periodType),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'year': value.year,
         'yearId': value.yearId,
     };

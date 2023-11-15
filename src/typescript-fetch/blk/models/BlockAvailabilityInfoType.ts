@@ -40,10 +40,10 @@ export interface BlockAvailabilityInfoType {
     roomInfo?: Array<BlockAvailabilityRoomInfoType>;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof BlockAvailabilityInfoType
      */
-    stayDate?: Date;
+    stayDate?: string;
 }
 
 /**
@@ -67,7 +67,7 @@ export function BlockAvailabilityInfoTypeFromJSONTyped(json: any, ignoreDiscrimi
         
         'extendedStay': !exists(json, 'extendedStay') ? undefined : json['extendedStay'],
         'roomInfo': !exists(json, 'roomInfo') ? undefined : ((json['roomInfo'] as Array<any>).map(BlockAvailabilityRoomInfoTypeFromJSON)),
-        'stayDate': !exists(json, 'stayDate') ? undefined : (new Date(json['stayDate'])),
+        'stayDate': !exists(json, 'stayDate') ? undefined : json['stayDate'],
     };
 }
 
@@ -82,7 +82,7 @@ export function BlockAvailabilityInfoTypeToJSON(value?: BlockAvailabilityInfoTyp
         
         'extendedStay': value.extendedStay,
         'roomInfo': value.roomInfo === undefined ? undefined : ((value.roomInfo as Array<any>).map(BlockAvailabilityRoomInfoTypeToJSON)),
-        'stayDate': value.stayDate === undefined ? undefined : (value.stayDate.toISOString().substring(0,10)),
+        'stayDate': value.stayDate,
     };
 }
 

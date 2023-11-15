@@ -31,10 +31,10 @@ export interface NegRateAccessType {
     discounts?: Array<ProfileDiscountType>;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegRateAccessType
      */
-    end?: Date;
+    end?: string;
     /**
      * Sequence for the negotiated rate.
      * @type {number}
@@ -49,10 +49,10 @@ export interface NegRateAccessType {
     newTimeSpan?: TimeSpanType;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof NegRateAccessType
      */
-    start?: Date;
+    start?: string;
 }
 /**
  * Check if a given object implements the NegRateAccessType interface.

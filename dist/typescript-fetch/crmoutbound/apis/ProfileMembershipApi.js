@@ -78,10 +78,10 @@ class ProfileMembershipApi extends runtime.BaseAPI {
                 queryParameters['hotelId'] = requestParameters.hotelId;
             }
             if (requestParameters.startDate !== undefined) {
-                queryParameters['startDate'] = requestParameters.startDate.toISOString().substring(0, 10);
+                queryParameters['startDate'] = requestParameters.startDate;
             }
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.mode !== undefined) {
                 queryParameters['mode'] = requestParameters.mode;

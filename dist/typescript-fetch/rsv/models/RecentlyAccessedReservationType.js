@@ -35,7 +35,7 @@ function RecentlyAccessedReservationTypeFromJSONTyped(json, ignoreDiscriminator)
         return json;
     }
     return {
-        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : (new Date(json['accessDate'])),
+        'accessDate': !(0, runtime_1.exists)(json, 'accessDate') ? undefined : json['accessDate'],
         'guestFirstName': !(0, runtime_1.exists)(json, 'guestFirstName') ? undefined : json['guestFirstName'],
         'guestLastName': !(0, runtime_1.exists)(json, 'guestLastName') ? undefined : json['guestLastName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
@@ -54,7 +54,7 @@ function RecentlyAccessedReservationTypeToJSON(value) {
         return null;
     }
     return {
-        'accessDate': value.accessDate === undefined ? undefined : (value.accessDate.toISOString().substring(0, 10)),
+        'accessDate': value.accessDate,
         'guestFirstName': value.guestFirstName,
         'guestLastName': value.guestLastName,
         'hotelId': value.hotelId,

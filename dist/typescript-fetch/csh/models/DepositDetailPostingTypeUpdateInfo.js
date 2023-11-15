@@ -33,7 +33,7 @@ function DepositDetailPostingTypeUpdateInfoFromJSONTyped(json, ignoreDiscriminat
     }
     return {
         'updateBy': !(0, runtime_1.exists)(json, 'updateBy') ? undefined : json['updateBy'],
-        'updateDate': !(0, runtime_1.exists)(json, 'updateDate') ? undefined : (new Date(json['updateDate'])),
+        'updateDate': !(0, runtime_1.exists)(json, 'updateDate') ? undefined : json['updateDate'],
     };
 }
 exports.DepositDetailPostingTypeUpdateInfoFromJSONTyped = DepositDetailPostingTypeUpdateInfoFromJSONTyped;
@@ -46,7 +46,7 @@ function DepositDetailPostingTypeUpdateInfoToJSON(value) {
     }
     return {
         'updateBy': value.updateBy,
-        'updateDate': value.updateDate === undefined ? undefined : (value.updateDate.toISOString().substring(0, 10)),
+        'updateDate': value.updateDate,
     };
 }
 exports.DepositDetailPostingTypeUpdateInfoToJSON = DepositDetailPostingTypeUpdateInfoToJSON;

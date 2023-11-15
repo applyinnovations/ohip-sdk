@@ -38,10 +38,10 @@ export interface RestrictionSetHistoryType {
     appliedDate?: string;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RestrictionSetHistoryType
      */
-    end?: Date;
+    end?: string;
     /**
      *
      * @type {boolean}
@@ -92,10 +92,10 @@ export interface RestrictionSetHistoryType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof RestrictionSetHistoryType
      */
-    start?: Date;
+    start?: string;
     /**
      *
      * @type {boolean}

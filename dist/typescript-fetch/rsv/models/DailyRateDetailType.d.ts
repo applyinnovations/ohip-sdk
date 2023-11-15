@@ -38,10 +38,10 @@ export interface DailyRateDetailType {
     discountAllowed?: boolean;
     /**
      * The date of the reservation stay. If the same details need to be applied to a date range of the stay, then the Start Date and End Date would specify the range.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateDetailType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Indicates if the rate is fixed and could be different from the default rate amount of the rate code.
      * @type {boolean}
@@ -104,10 +104,10 @@ export interface DailyRateDetailType {
     sourceCode?: string;
     /**
      * The date of the reservation stay.
-     * @type {Date}
+     * @type {string}
      * @memberof DailyRateDetailType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 /**
  * Check if a given object implements the DailyRateDetailType interface.

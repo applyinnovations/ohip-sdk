@@ -27,10 +27,10 @@ export interface HousekeepingAttendantScheduleType {
     attendantId?: string;
     /**
      * Date the attendant will be assigned.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingAttendantScheduleType
      */
-    date?: Date;
+    date?: string;
     /**
      * Partial name of an attendant.
      * @type {string}
@@ -59,7 +59,7 @@ export function HousekeepingAttendantScheduleTypeFromJSONTyped(json: any, ignore
     return {
         
         'attendantId': !exists(json, 'attendantId') ? undefined : json['attendantId'],
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'name': !exists(json, 'name') ? undefined : json['name'],
     };
 }
@@ -74,7 +74,7 @@ export function HousekeepingAttendantScheduleTypeToJSON(value?: HousekeepingAtte
     return {
         
         'attendantId': value.attendantId,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'name': value.name,
     };
 }

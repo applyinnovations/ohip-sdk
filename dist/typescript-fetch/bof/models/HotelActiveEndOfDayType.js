@@ -32,7 +32,7 @@ function HotelActiveEndOfDayTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
     };
 }
@@ -45,7 +45,7 @@ function HotelActiveEndOfDayTypeToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'hotelId': value.hotelId,
     };
 }

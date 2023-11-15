@@ -33,16 +33,16 @@ export interface ProductAvailabilityType {
     awardType?: string;
     /**
      * The valid time period from when the award can be issued.
-     * @type {Date}
+     * @type {string}
      * @memberof ProductAvailabilityType
      */
-    awardValidFrom?: Date;
+    awardValidFrom?: string;
     /**
      * The valid time to an issued award.
-     * @type {Date}
+     * @type {string}
      * @memberof ProductAvailabilityType
      */
-    awardValidTo?: Date;
+    awardValidTo?: string;
     /**
      * The cancel penalty charge.
      * @type {number}
@@ -126,8 +126,8 @@ export function ProductAvailabilityTypeFromJSONTyped(json: any, ignoreDiscrimina
         
         'awardNumber': !exists(json, 'awardNumber') ? undefined : json['awardNumber'],
         'awardType': !exists(json, 'awardType') ? undefined : json['awardType'],
-        'awardValidFrom': !exists(json, 'awardValidFrom') ? undefined : (new Date(json['awardValidFrom'])),
-        'awardValidTo': !exists(json, 'awardValidTo') ? undefined : (new Date(json['awardValidTo'])),
+        'awardValidFrom': !exists(json, 'awardValidFrom') ? undefined : json['awardValidFrom'],
+        'awardValidTo': !exists(json, 'awardValidTo') ? undefined : json['awardValidTo'],
         'cancelPenaltyCharge': !exists(json, 'cancelPenaltyCharge') ? undefined : json['cancelPenaltyCharge'],
         'cancelPenaltyDays': !exists(json, 'cancelPenaltyDays') ? undefined : json['cancelPenaltyDays'],
         'cancelPenaltyPoints': !exists(json, 'cancelPenaltyPoints') ? undefined : json['cancelPenaltyPoints'],
@@ -152,8 +152,8 @@ export function ProductAvailabilityTypeToJSON(value?: ProductAvailabilityType | 
         
         'awardNumber': value.awardNumber,
         'awardType': value.awardType,
-        'awardValidFrom': value.awardValidFrom === undefined ? undefined : (value.awardValidFrom.toISOString().substring(0,10)),
-        'awardValidTo': value.awardValidTo === undefined ? undefined : (value.awardValidTo.toISOString().substring(0,10)),
+        'awardValidFrom': value.awardValidFrom,
+        'awardValidTo': value.awardValidTo,
         'cancelPenaltyCharge': value.cancelPenaltyCharge,
         'cancelPenaltyDays': value.cancelPenaltyDays,
         'cancelPenaltyPoints': value.cancelPenaltyPoints,

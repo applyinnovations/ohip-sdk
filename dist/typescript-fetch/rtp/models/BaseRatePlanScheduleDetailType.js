@@ -42,13 +42,13 @@ function BaseRatePlanScheduleDetailTypeFromJSONTyped(json, ignoreDiscriminator) 
         'adjustmentDetails': !(0, runtime_1.exists)(json, 'adjustmentDetails') ? undefined : (json['adjustmentDetails'].map(AdjustmentDetailType_1.AdjustmentDetailTypeFromJSON)),
         'advancedBaseRateOffset': !(0, runtime_1.exists)(json, 'advancedBaseRateOffset') ? undefined : (0, AdvancedBaseRateOffsetType_1.AdvancedBaseRateOffsetTypeFromJSON)(json['advancedBaseRateOffset']),
         'classifications': !(0, runtime_1.exists)(json, 'classifications') ? undefined : (0, RatePlanScheduleClassificationsType_1.RatePlanScheduleClassificationsTypeFromJSON)(json['classifications']),
-        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !(0, runtime_1.exists)(json, 'end') ? undefined : json['end'],
         'occupantThresholdPricing': !(0, runtime_1.exists)(json, 'occupantThresholdPricing') ? undefined : (0, OccupantThresholdPricingType_1.OccupantThresholdPricingTypeFromJSON)(json['occupantThresholdPricing']),
         'rateAmountBoundaries': !(0, runtime_1.exists)(json, 'rateAmountBoundaries') ? undefined : (0, RateAmountBoundariesType_1.RateAmountBoundariesTypeFromJSON)(json['rateAmountBoundaries']),
         'rateAmounts': !(0, runtime_1.exists)(json, 'rateAmounts') ? undefined : (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeFromJSON)(json['rateAmounts']),
         'rateSchedulePackages': !(0, runtime_1.exists)(json, 'rateSchedulePackages') ? undefined : (0, RatePackagesType_1.RatePackagesTypeFromJSON)(json['rateSchedulePackages']),
         'seasonCode': !(0, runtime_1.exists)(json, 'seasonCode') ? undefined : json['seasonCode'],
-        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !(0, runtime_1.exists)(json, 'start') ? undefined : json['start'],
         'tierID': !(0, runtime_1.exists)(json, 'tierID') ? undefined : json['tierID'],
     };
 }
@@ -64,13 +64,13 @@ function BaseRatePlanScheduleDetailTypeToJSON(value) {
         'adjustmentDetails': value.adjustmentDetails === undefined ? undefined : (value.adjustmentDetails.map(AdjustmentDetailType_1.AdjustmentDetailTypeToJSON)),
         'advancedBaseRateOffset': (0, AdvancedBaseRateOffsetType_1.AdvancedBaseRateOffsetTypeToJSON)(value.advancedBaseRateOffset),
         'classifications': (0, RatePlanScheduleClassificationsType_1.RatePlanScheduleClassificationsTypeToJSON)(value.classifications),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0, 10)),
+        'end': value.end,
         'occupantThresholdPricing': (0, OccupantThresholdPricingType_1.OccupantThresholdPricingTypeToJSON)(value.occupantThresholdPricing),
         'rateAmountBoundaries': (0, RateAmountBoundariesType_1.RateAmountBoundariesTypeToJSON)(value.rateAmountBoundaries),
         'rateAmounts': (0, ScheduleRateAmountsType_1.ScheduleRateAmountsTypeToJSON)(value.rateAmounts),
         'rateSchedulePackages': (0, RatePackagesType_1.RatePackagesTypeToJSON)(value.rateSchedulePackages),
         'seasonCode': value.seasonCode,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0, 10)),
+        'start': value.start,
         'tierID': value.tierID,
     };
 }

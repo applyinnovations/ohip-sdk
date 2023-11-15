@@ -64,10 +64,10 @@ export interface PrepaidCardInfoType {
     cardNumberMasked?: string;
     /**
      * Expiry Date of the prepaid card.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    expiryDate?: Date;
+    expiryDate?: string;
     /**
      * Hotel context for the prepaid card.
      * @type {string}
@@ -82,10 +82,10 @@ export interface PrepaidCardInfoType {
     initialCredit?: CurrencyAmountType;
     /**
      * Initial Load Date of the prepaid card.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    initialLoadDate?: Date;
+    initialLoadDate?: string;
     /**
      * 
      * @type {UniqueIDType}
@@ -94,10 +94,10 @@ export interface PrepaidCardInfoType {
     interfaceId?: UniqueIDType;
     /**
      * Issue Date of the prepaid card.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    issueDate?: Date;
+    issueDate?: string;
     /**
      * Indicate if opera transactions are included on the transactions list.
      * @type {boolean}
@@ -136,10 +136,10 @@ export interface PrepaidCardInfoType {
     totalDebit?: CurrencyAmountType;
     /**
      * Validity of the prepaid card amount.
-     * @type {Date}
+     * @type {string}
      * @memberof PrepaidCardInfoType
      */
-    validUntil?: Date;
+    validUntil?: string;
     /**
      * Indicate if vendor transactions are included on the transactions list.
      * @type {boolean}
@@ -171,19 +171,19 @@ export function PrepaidCardInfoTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'balance': !exists(json, 'balance') ? undefined : CurrencyAmountTypeFromJSON(json['balance']),
         'cardNo': !exists(json, 'cardNo') ? undefined : json['cardNo'],
         'cardNumberMasked': !exists(json, 'cardNumberMasked') ? undefined : json['cardNumberMasked'],
-        'expiryDate': !exists(json, 'expiryDate') ? undefined : (new Date(json['expiryDate'])),
+        'expiryDate': !exists(json, 'expiryDate') ? undefined : json['expiryDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'initialCredit': !exists(json, 'initialCredit') ? undefined : CurrencyAmountTypeFromJSON(json['initialCredit']),
-        'initialLoadDate': !exists(json, 'initialLoadDate') ? undefined : (new Date(json['initialLoadDate'])),
+        'initialLoadDate': !exists(json, 'initialLoadDate') ? undefined : json['initialLoadDate'],
         'interfaceId': !exists(json, 'interfaceId') ? undefined : UniqueIDTypeFromJSON(json['interfaceId']),
-        'issueDate': !exists(json, 'issueDate') ? undefined : (new Date(json['issueDate'])),
+        'issueDate': !exists(json, 'issueDate') ? undefined : json['issueDate'],
         'operaTransactionsActive': !exists(json, 'operaTransactionsActive') ? undefined : json['operaTransactionsActive'],
         'prepaidCardTransactions': !exists(json, 'prepaidCardTransactions') ? undefined : ((json['prepaidCardTransactions'] as Array<any>).map(PrepaidCardTransactionInfoTypeFromJSON)),
         'reservationId': !exists(json, 'reservationId') ? undefined : UniqueIDTypeFromJSON(json['reservationId']),
         'reservedAmount': !exists(json, 'reservedAmount') ? undefined : CurrencyAmountTypeFromJSON(json['reservedAmount']),
         'totalCredit': !exists(json, 'totalCredit') ? undefined : CurrencyAmountTypeFromJSON(json['totalCredit']),
         'totalDebit': !exists(json, 'totalDebit') ? undefined : CurrencyAmountTypeFromJSON(json['totalDebit']),
-        'validUntil': !exists(json, 'validUntil') ? undefined : (new Date(json['validUntil'])),
+        'validUntil': !exists(json, 'validUntil') ? undefined : json['validUntil'],
         'vendorTransactionsActive': !exists(json, 'vendorTransactionsActive') ? undefined : json['vendorTransactionsActive'],
     };
 }
@@ -201,19 +201,19 @@ export function PrepaidCardInfoTypeToJSON(value?: PrepaidCardInfoType | null): a
         'balance': CurrencyAmountTypeToJSON(value.balance),
         'cardNo': value.cardNo,
         'cardNumberMasked': value.cardNumberMasked,
-        'expiryDate': value.expiryDate === undefined ? undefined : (value.expiryDate.toISOString().substring(0,10)),
+        'expiryDate': value.expiryDate,
         'hotelId': value.hotelId,
         'initialCredit': CurrencyAmountTypeToJSON(value.initialCredit),
-        'initialLoadDate': value.initialLoadDate === undefined ? undefined : (value.initialLoadDate.toISOString().substring(0,10)),
+        'initialLoadDate': value.initialLoadDate,
         'interfaceId': UniqueIDTypeToJSON(value.interfaceId),
-        'issueDate': value.issueDate === undefined ? undefined : (value.issueDate.toISOString().substring(0,10)),
+        'issueDate': value.issueDate,
         'operaTransactionsActive': value.operaTransactionsActive,
         'prepaidCardTransactions': value.prepaidCardTransactions === undefined ? undefined : ((value.prepaidCardTransactions as Array<any>).map(PrepaidCardTransactionInfoTypeToJSON)),
         'reservationId': UniqueIDTypeToJSON(value.reservationId),
         'reservedAmount': CurrencyAmountTypeToJSON(value.reservedAmount),
         'totalCredit': CurrencyAmountTypeToJSON(value.totalCredit),
         'totalDebit': CurrencyAmountTypeToJSON(value.totalDebit),
-        'validUntil': value.validUntil === undefined ? undefined : (value.validUntil.toISOString().substring(0,10)),
+        'validUntil': value.validUntil,
         'vendorTransactionsActive': value.vendorTransactionsActive,
     };
 }

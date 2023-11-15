@@ -29,10 +29,10 @@ export interface DateUDFType {
     name?: string;
     /**
      * Value of user defined field.
-     * @type {Date}
+     * @type {string}
      * @memberof DateUDFType
      */
-    value?: Date;
+    value?: string;
 }
 /**
  * Check if a given object implements the DateUDFType interface.

@@ -34,7 +34,7 @@ function TrackItLogTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : (new Date(json['businessDate'])),
+        'businessDate': !(0, runtime_1.exists)(json, 'businessDate') ? undefined : json['businessDate'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'logDate': !(0, runtime_1.exists)(json, 'logDate') ? undefined : json['logDate'],
@@ -54,7 +54,7 @@ function TrackItLogTypeToJSON(value) {
         return null;
     }
     return {
-        'businessDate': value.businessDate === undefined ? undefined : (value.businessDate.toISOString().substring(0, 10)),
+        'businessDate': value.businessDate,
         'description': value.description,
         'hotelId': value.hotelId,
         'logDate': value.logDate,

@@ -28,10 +28,10 @@ import {
 export interface ExcludedDateType {
     /**
      * Contains exclusion date.
-     * @type {Date}
+     * @type {string}
      * @memberof ExcludedDateType
      */
-    date?: Date;
+    date?: string;
     /**
      * 
      * @type {ExclusionReasonType}
@@ -59,7 +59,7 @@ export function ExcludedDateTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'reason': !exists(json, 'reason') ? undefined : ExclusionReasonTypeFromJSON(json['reason']),
     };
 }
@@ -73,7 +73,7 @@ export function ExcludedDateTypeToJSON(value?: ExcludedDateType | null): any {
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'reason': ExclusionReasonTypeToJSON(value.reason),
     };
 }

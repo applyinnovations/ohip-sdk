@@ -27,10 +27,10 @@ export interface ConfigPackagePrimaryDetailsType {
     arrangementCode?: string;
     /**
      * Indicates the begin sell date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackagePrimaryDetailsType
      */
-    beginSellDate?: Date;
+    beginSellDate?: string;
     /**
      * The description of the package.
      * @type {string}
@@ -39,10 +39,10 @@ export interface ConfigPackagePrimaryDetailsType {
     description?: string;
     /**
      * Indicates the eventEndDate sell date of the package.
-     * @type {Date}
+     * @type {string}
      * @memberof ConfigPackagePrimaryDetailsType
      */
-    endSellDate?: Date;
+    endSellDate?: string;
     /**
      * The Forecast group package belongs to.
      * @type {string}
@@ -77,9 +77,9 @@ export function ConfigPackagePrimaryDetailsTypeFromJSONTyped(json: any, ignoreDi
     return {
         
         'arrangementCode': !exists(json, 'arrangementCode') ? undefined : json['arrangementCode'],
-        'beginSellDate': !exists(json, 'beginSellDate') ? undefined : (new Date(json['beginSellDate'])),
+        'beginSellDate': !exists(json, 'beginSellDate') ? undefined : json['beginSellDate'],
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endSellDate': !exists(json, 'endSellDate') ? undefined : (new Date(json['endSellDate'])),
+        'endSellDate': !exists(json, 'endSellDate') ? undefined : json['endSellDate'],
         'forecastGroup': !exists(json, 'forecastGroup') ? undefined : json['forecastGroup'],
         'shortDescription': !exists(json, 'shortDescription') ? undefined : json['shortDescription'],
     };
@@ -95,9 +95,9 @@ export function ConfigPackagePrimaryDetailsTypeToJSON(value?: ConfigPackagePrima
     return {
         
         'arrangementCode': value.arrangementCode,
-        'beginSellDate': value.beginSellDate === undefined ? undefined : (value.beginSellDate.toISOString().substring(0,10)),
+        'beginSellDate': value.beginSellDate,
         'description': value.description,
-        'endSellDate': value.endSellDate === undefined ? undefined : (value.endSellDate.toISOString().substring(0,10)),
+        'endSellDate': value.endSellDate,
         'forecastGroup': value.forecastGroup,
         'shortDescription': value.shortDescription,
     };

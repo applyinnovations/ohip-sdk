@@ -34,16 +34,16 @@ export interface HSKStatSetType {
     code?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof HSKStatSetType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof HSKStatSetType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {Array<HSKStatType>}
@@ -72,8 +72,8 @@ export function HSKStatSetTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'code': !exists(json, 'code') ? undefined : json['code'],
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'stat': !exists(json, 'stat') ? undefined : ((json['stat'] as Array<any>).map(HSKStatTypeFromJSON)),
     };
 }
@@ -88,8 +88,8 @@ export function HSKStatSetTypeToJSON(value?: HSKStatSetType | null): any {
     return {
         
         'code': value.code,
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'end': value.end,
+        'start': value.start,
         'stat': value.stat === undefined ? undefined : ((value.stat as Array<any>).map(HSKStatTypeToJSON)),
     };
 }

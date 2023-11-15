@@ -28,10 +28,10 @@ import {
 export interface ForecastTotalsQuantityType {
     /**
      * Date of the statistic.
-     * @type {Date}
+     * @type {string}
      * @memberof ForecastTotalsQuantityType
      */
-    date?: Date;
+    date?: string;
     /**
      * Indicates whether the day is a weekend day or not.
      * @type {boolean}
@@ -77,7 +77,7 @@ export function ForecastTotalsQuantityTypeFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'date': !exists(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !exists(json, 'date') ? undefined : json['date'],
         'isWeekend': !exists(json, 'isWeekend') ? undefined : json['isWeekend'],
         'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
         'roomTypeBreakDown': !exists(json, 'roomTypeBreakDown') ? undefined : ((json['roomTypeBreakDown'] as Array<any>).map(RoomTypeTaskTypeFromJSON)),
@@ -94,7 +94,7 @@ export function ForecastTotalsQuantityTypeToJSON(value?: ForecastTotalsQuantityT
     }
     return {
         
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0,10)),
+        'date': value.date,
         'isWeekend': value.isWeekend,
         'quantity': value.quantity,
         'roomTypeBreakDown': value.roomTypeBreakDown === undefined ? undefined : ((value.roomTypeBreakDown as Array<any>).map(RoomTypeTaskTypeToJSON)),

@@ -59,10 +59,10 @@ export interface StagedProfileDateUDFType {
     valid?: boolean;
     /**
      * Value of user defined field.
-     * @type {Date}
+     * @type {string}
      * @memberof StagedProfileDateUDFType
      */
-    value?: Date;
+    value?: string;
 }
 /**
  * Check if a given object implements the StagedProfileDateUDFType interface.

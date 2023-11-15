@@ -41,10 +41,10 @@ export interface RewardsInfoType {
     meetingPlanner?: boolean;
     /**
      * Indicates membership date of the guest
-     * @type {Date}
+     * @type {string}
      * @memberof RewardsInfoType
      */
-    membershipDate?: Date;
+    membershipDate?: string;
     /**
      * Indicates membership id of the guest.
      * @type {number}

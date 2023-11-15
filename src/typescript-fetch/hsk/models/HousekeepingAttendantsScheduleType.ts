@@ -40,10 +40,10 @@ export interface HousekeepingAttendantsScheduleType {
     hotelId?: string;
     /**
      * Schedule date of attendants' assignment. Used when attendants to scheduled are of the same date.
-     * @type {Date}
+     * @type {string}
      * @memberof HousekeepingAttendantsScheduleType
      */
-    scheduleDate?: Date;
+    scheduleDate?: string;
 }
 
 /**
@@ -67,7 +67,7 @@ export function HousekeepingAttendantsScheduleTypeFromJSONTyped(json: any, ignor
         
         'attendantsSchedule': !exists(json, 'attendantsSchedule') ? undefined : ((json['attendantsSchedule'] as Array<any>).map(HousekeepingAttendantScheduleTypeFromJSON)),
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'scheduleDate': !exists(json, 'scheduleDate') ? undefined : (new Date(json['scheduleDate'])),
+        'scheduleDate': !exists(json, 'scheduleDate') ? undefined : json['scheduleDate'],
     };
 }
 
@@ -82,7 +82,7 @@ export function HousekeepingAttendantsScheduleTypeToJSON(value?: HousekeepingAtt
         
         'attendantsSchedule': value.attendantsSchedule === undefined ? undefined : ((value.attendantsSchedule as Array<any>).map(HousekeepingAttendantScheduleTypeToJSON)),
         'hotelId': value.hotelId,
-        'scheduleDate': value.scheduleDate === undefined ? undefined : (value.scheduleDate.toISOString().substring(0,10)),
+        'scheduleDate': value.scheduleDate,
     };
 }
 

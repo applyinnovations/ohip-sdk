@@ -88,7 +88,7 @@ export interface GetExternalProfilesRequest {
     membershipNumber?: string;
     membershipType?: string;
     arNumber?: string;
-    birthDate?: Date;
+    birthDate?: string;
     acceptLanguage?: string;
 }
 
@@ -98,8 +98,8 @@ export interface GetGamingOffersRequest {
     authorization?: string;
     xAppKey?: string;
     hotelId?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     acceptLanguage?: string;
 }
 
@@ -346,7 +346,7 @@ export class ProfileExternalApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.birthDate !== undefined) {
-            queryParameters['birthDate'] = (requestParameters.birthDate as any).toISOString().substring(0,10);
+            queryParameters['birthDate'] = requestParameters.birthDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -402,11 +402,11 @@ export class ProfileExternalApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

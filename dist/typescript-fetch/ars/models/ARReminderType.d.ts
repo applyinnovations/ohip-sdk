@@ -74,10 +74,10 @@ export interface ARReminderType {
     lastCycle?: number;
     /**
      * The date of the Last Reminder Sent.
-     * @type {Date}
+     * @type {string}
      * @memberof ARReminderType
      */
-    lastReminderSent?: Date;
+    lastReminderSent?: string;
     /**
      * The Reminder Letter name which is to be used for this Reminder based on the setup on the Account Type.
      * @type {string}

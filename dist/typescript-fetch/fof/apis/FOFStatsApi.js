@@ -66,7 +66,7 @@ class FOFStatsApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.date !== undefined) {
-                queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
+                queryParameters['date'] = requestParameters.date;
             }
             if (requestParameters.metric) {
                 queryParameters['metric'] = requestParameters.metric;
@@ -129,10 +129,10 @@ class FOFStatsApi extends runtime.BaseAPI {
             }
             const queryParameters = {};
             if (requestParameters.endDate !== undefined) {
-                queryParameters['endDate'] = requestParameters.endDate.toISOString().substring(0, 10);
+                queryParameters['endDate'] = requestParameters.endDate;
             }
             if (requestParameters.date !== undefined) {
-                queryParameters['date'] = requestParameters.date.toISOString().substring(0, 10);
+                queryParameters['date'] = requestParameters.date;
             }
             if (requestParameters.metric) {
                 queryParameters['metric'] = requestParameters.metric;

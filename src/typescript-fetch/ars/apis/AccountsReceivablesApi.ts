@@ -250,8 +250,8 @@ export interface GetARCreditCardPaymentsRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    endDate?: Date;
-    startDate?: Date;
+    endDate?: string;
+    startDate?: string;
     limit?: number;
     offset?: number;
     xExternalsystem?: string;
@@ -311,22 +311,22 @@ export interface GetARStatementsRequest {
     accountNo?: Array<string>;
     accountName?: Array<string>;
     canBeModified?: Array<boolean>;
-    closeDate?: Array<Date>;
+    closeDate?: Array<string>;
     fiscalBillNo?: Array<string>;
-    folioDate?: Array<Date>;
+    folioDate?: Array<string>;
     folioNo?: Array<number>;
     folioStatus?: Set<GetARStatementsFolioStatusEnum>;
     folioTypeName?: Array<string>;
     internalFolioWindowID?: Array<string>;
     invoiceNo?: Array<number>;
     invoiceType?: Set<GetARStatementsInvoiceTypeEnum>;
-    postingDate?: Array<Date>;
-    revenueDate?: Array<Date>;
+    postingDate?: Array<string>;
+    revenueDate?: Array<string>;
     statementNo?: Array<number>;
     status?: Array<string>;
-    transferDate?: Array<Date>;
+    transferDate?: Array<string>;
     invoiceTransactionCode?: Array<string>;
-    transactionDate?: Array<Date>;
+    transactionDate?: Array<string>;
     transactionNo?: Array<number>;
     invoiceHotelIds?: Array<string>;
     reservationId?: string;
@@ -350,7 +350,7 @@ export interface GetARStatementsRequest {
     adjusted?: Array<boolean>;
     parentInvoiceNo?: Array<number>;
     compressed?: Array<boolean>;
-    compressedDate?: Array<Date>;
+    compressedDate?: Array<string>;
     transferredOut?: Array<boolean>;
     transferredIn?: Array<boolean>;
     marketDescription?: string;
@@ -392,7 +392,7 @@ export interface GetARStatementsRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetARStatementsCardOrTokenEnum;
     cardType?: GetARStatementsCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetARStatementsProcessingEnum;
@@ -414,7 +414,7 @@ export interface GetARStatementsRequest {
     phone?: string;
     allowPartialTransferYn?: Array<boolean>;
     printed?: Array<boolean>;
-    printedDate?: Array<Date>;
+    printedDate?: Array<string>;
     storedFolioId?: string;
     storedFolioIdContext?: string;
     storedFolioType?: string;
@@ -423,12 +423,12 @@ export interface GetARStatementsRequest {
     storedDebitFolioIdContext?: string;
     storedDebitFolioType?: string;
     storedDebitFolioName?: Array<string>;
-    balanceForwardDate?: Date;
+    balanceForwardDate?: string;
     inclFolios?: boolean;
     inclPrinted?: boolean;
     inclZero?: boolean;
-    filterEndDate?: Date;
-    filterStartDate?: Date;
+    filterEndDate?: string;
+    filterStartDate?: string;
     statementText?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -440,8 +440,8 @@ export interface GetARTransactionsRequest {
     xAppKey?: string;
     xHotelid?: string;
     accounts?: string;
-    endDate?: Date;
-    startDate?: Date;
+    endDate?: string;
+    startDate?: string;
     fromAmount?: number;
     fromCurrencyCode?: string;
     toAmount?: number;
@@ -545,22 +545,22 @@ export interface GetInvoicePostingsRequest {
     xAppKey?: string;
     xHotelid?: string;
     canBeModified?: boolean;
-    closeDate?: Date;
+    closeDate?: string;
     fiscalBillNo?: string;
-    folioDate?: Date;
+    folioDate?: string;
     folioNo?: number;
     folioStatus?: GetInvoicePostingsFolioStatusEnum;
     folioTypeName?: string;
     internalFolioWindowID?: string;
     invoiceNo?: number;
     invoiceType?: GetInvoicePostingsInvoiceTypeEnum;
-    postingDate?: Date;
-    revenueDate?: Date;
+    postingDate?: string;
+    revenueDate?: string;
     statementNo?: number;
     status?: string;
-    transferDate?: Date;
+    transferDate?: string;
     postingTransactionCode?: string;
-    transactionDate?: Date;
+    transactionDate?: string;
     transactionNo?: number;
     cashierId?: number;
     hotelId?: string;
@@ -585,7 +585,7 @@ export interface GetInvoicePostingsRequest {
     adjusted?: boolean;
     parentInvoiceNo?: number;
     compressed?: boolean;
-    compressedDate?: Date;
+    compressedDate?: string;
     transferredOut?: boolean;
     transferredIn?: boolean;
     marketDescription?: string;
@@ -627,7 +627,7 @@ export interface GetInvoicePostingsRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetInvoicePostingsCardOrTokenEnum;
     cardType?: GetInvoicePostingsCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetInvoicePostingsProcessingEnum;
@@ -649,7 +649,7 @@ export interface GetInvoicePostingsRequest {
     phone?: string;
     allowPartialTransferYn?: boolean;
     printed?: boolean;
-    printedDate?: Date;
+    printedDate?: string;
     storedFolioId?: string;
     storedFolioIdContext?: string;
     storedFolioType?: string;
@@ -668,8 +668,8 @@ export interface GetInvoicePostingsRequest {
     additionalFilterCashierId?: number;
     additionalFilterTransactionCode?: Array<string>;
     additionalFilterTransactionSubGroupCode?: Array<string>;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     referenceWildCard?: string;
     supplementWildCard?: string;
     checkNumberWildCard?: string;
@@ -690,8 +690,8 @@ export interface GetInvoicesOnHoldRequest {
     accountType?: string;
     accountNo?: string;
     accountName?: string;
-    endDate?: Date;
-    startDate?: Date;
+    endDate?: string;
+    startDate?: string;
     folios?: string;
     invoices?: number;
     fiscalBillNo?: string;
@@ -710,8 +710,8 @@ export interface GetInvoicesPaymentsRequest {
     limit?: number;
     offset?: number;
     hotelIds?: Array<string>;
-    end?: Date;
-    start?: Date;
+    end?: string;
+    start?: string;
     guestDisplayName?: string;
     remark?: string;
     reference?: string;
@@ -776,7 +776,7 @@ export interface GetRemindersHistoryRequest {
     accountType?: string;
     accountNo?: string;
     accountName?: string;
-    dateSent?: Date;
+    dateSent?: string;
     reportFileNameWildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -794,22 +794,22 @@ export interface GetStatementsRequest {
     accountNo?: Array<string>;
     accountName?: Array<string>;
     canBeModified?: Array<boolean>;
-    closeDate?: Array<Date>;
+    closeDate?: Array<string>;
     fiscalBillNo?: Array<string>;
-    folioDate?: Array<Date>;
+    folioDate?: Array<string>;
     folioNo?: Array<number>;
     folioStatus?: Set<GetStatementsFolioStatusEnum>;
     folioTypeName?: Array<string>;
     internalFolioWindowID?: Array<string>;
     invoiceNo?: Array<number>;
     invoiceType?: Set<GetStatementsInvoiceTypeEnum>;
-    postingDate?: Array<Date>;
-    revenueDate?: Array<Date>;
+    postingDate?: Array<string>;
+    revenueDate?: Array<string>;
     statementNo?: Array<number>;
     status?: Array<string>;
-    transferDate?: Array<Date>;
+    transferDate?: Array<string>;
     invoiceTransactionCode?: Array<string>;
-    transactionDate?: Array<Date>;
+    transactionDate?: Array<string>;
     transactionNo?: Array<number>;
     invoiceHotelIds?: Array<string>;
     reservationId?: string;
@@ -833,7 +833,7 @@ export interface GetStatementsRequest {
     adjusted?: Array<boolean>;
     parentInvoiceNo?: Array<number>;
     compressed?: Array<boolean>;
-    compressedDate?: Array<Date>;
+    compressedDate?: Array<string>;
     transferredOut?: Array<boolean>;
     transferredIn?: Array<boolean>;
     marketDescription?: string;
@@ -875,7 +875,7 @@ export interface GetStatementsRequest {
     cardNumberMasked?: string;
     cardOrToken?: GetStatementsCardOrTokenEnum;
     cardType?: GetStatementsCardTypeEnum;
-    expirationDate?: Date;
+    expirationDate?: string;
     expirationDateExpired?: boolean;
     expirationDateMasked?: string;
     processing?: GetStatementsProcessingEnum;
@@ -897,7 +897,7 @@ export interface GetStatementsRequest {
     phone?: string;
     allowPartialTransferYn?: Array<boolean>;
     printed?: Array<boolean>;
-    printedDate?: Array<Date>;
+    printedDate?: Array<string>;
     storedFolioId?: string;
     storedFolioIdContext?: string;
     storedFolioType?: string;
@@ -906,12 +906,12 @@ export interface GetStatementsRequest {
     storedDebitFolioIdContext?: string;
     storedDebitFolioType?: string;
     storedDebitFolioName?: Array<string>;
-    balanceForwardDate?: Date;
+    balanceForwardDate?: string;
     inclFolios?: boolean;
     inclPrinted?: boolean;
     inclZero?: boolean;
-    filterEndDate?: Date;
-    filterStartDate?: Date;
+    filterEndDate?: string;
+    filterStartDate?: string;
     statementText?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -926,7 +926,7 @@ export interface GetStatementsHistoryRequest {
     xHotelid?: string;
     accountNo?: string;
     accountName?: string;
-    dateSent?: Date;
+    dateSent?: string;
     reportFileNameWildCard?: string;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1788,11 +1788,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -2388,7 +2388,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -2512,7 +2512,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.balanceForwardDate !== undefined) {
-            queryParameters['balanceForwardDate'] = (requestParameters.balanceForwardDate as any).toISOString().substring(0,10);
+            queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate;
         }
 
         if (requestParameters.inclFolios !== undefined) {
@@ -2528,11 +2528,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.filterEndDate !== undefined) {
-            queryParameters['filterEndDate'] = (requestParameters.filterEndDate as any).toISOString().substring(0,10);
+            queryParameters['filterEndDate'] = requestParameters.filterEndDate;
         }
 
         if (requestParameters.filterStartDate !== undefined) {
-            queryParameters['filterStartDate'] = (requestParameters.filterStartDate as any).toISOString().substring(0,10);
+            queryParameters['filterStartDate'] = requestParameters.filterStartDate;
         }
 
         if (requestParameters.statementText !== undefined) {
@@ -2600,11 +2600,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.fromAmount !== undefined) {
@@ -3118,7 +3118,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.closeDate !== undefined) {
-            queryParameters['closeDate'] = (requestParameters.closeDate as any).toISOString().substring(0,10);
+            queryParameters['closeDate'] = requestParameters.closeDate;
         }
 
         if (requestParameters.fiscalBillNo !== undefined) {
@@ -3126,7 +3126,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.folioDate !== undefined) {
-            queryParameters['folioDate'] = (requestParameters.folioDate as any).toISOString().substring(0,10);
+            queryParameters['folioDate'] = requestParameters.folioDate;
         }
 
         if (requestParameters.folioNo !== undefined) {
@@ -3154,11 +3154,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.postingDate !== undefined) {
-            queryParameters['postingDate'] = (requestParameters.postingDate as any).toISOString().substring(0,10);
+            queryParameters['postingDate'] = requestParameters.postingDate;
         }
 
         if (requestParameters.revenueDate !== undefined) {
-            queryParameters['revenueDate'] = (requestParameters.revenueDate as any).toISOString().substring(0,10);
+            queryParameters['revenueDate'] = requestParameters.revenueDate;
         }
 
         if (requestParameters.statementNo !== undefined) {
@@ -3170,7 +3170,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transferDate !== undefined) {
-            queryParameters['transferDate'] = (requestParameters.transferDate as any).toISOString().substring(0,10);
+            queryParameters['transferDate'] = requestParameters.transferDate;
         }
 
         if (requestParameters.postingTransactionCode !== undefined) {
@@ -3178,7 +3178,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.transactionDate !== undefined) {
-            queryParameters['transactionDate'] = (requestParameters.transactionDate as any).toISOString().substring(0,10);
+            queryParameters['transactionDate'] = requestParameters.transactionDate;
         }
 
         if (requestParameters.transactionNo !== undefined) {
@@ -3278,7 +3278,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.compressedDate !== undefined) {
-            queryParameters['compressedDate'] = (requestParameters.compressedDate as any).toISOString().substring(0,10);
+            queryParameters['compressedDate'] = requestParameters.compressedDate;
         }
 
         if (requestParameters.transferredOut !== undefined) {
@@ -3446,7 +3446,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -3534,7 +3534,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.printedDate !== undefined) {
-            queryParameters['printedDate'] = (requestParameters.printedDate as any).toISOString().substring(0,10);
+            queryParameters['printedDate'] = requestParameters.printedDate;
         }
 
         if (requestParameters.storedFolioId !== undefined) {
@@ -3610,11 +3610,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         if (requestParameters.referenceWildCard !== undefined) {
@@ -3714,11 +3714,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.folios !== undefined) {
@@ -3810,11 +3810,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.end !== undefined) {
-            queryParameters['end'] = (requestParameters.end as any).toISOString().substring(0,10);
+            queryParameters['end'] = requestParameters.end;
         }
 
         if (requestParameters.start !== undefined) {
-            queryParameters['start'] = (requestParameters.start as any).toISOString().substring(0,10);
+            queryParameters['start'] = requestParameters.start;
         }
 
         if (requestParameters.guestDisplayName !== undefined) {
@@ -4142,7 +4142,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.dateSent !== undefined) {
-            queryParameters['dateSent'] = (requestParameters.dateSent as any).toISOString().substring(0,10);
+            queryParameters['dateSent'] = requestParameters.dateSent;
         }
 
         if (requestParameters.reportFileNameWildCard !== undefined) {
@@ -4555,7 +4555,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.expirationDate !== undefined) {
-            queryParameters['expirationDate'] = (requestParameters.expirationDate as any).toISOString().substring(0,10);
+            queryParameters['expirationDate'] = requestParameters.expirationDate;
         }
 
         if (requestParameters.expirationDateExpired !== undefined) {
@@ -4679,7 +4679,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.balanceForwardDate !== undefined) {
-            queryParameters['balanceForwardDate'] = (requestParameters.balanceForwardDate as any).toISOString().substring(0,10);
+            queryParameters['balanceForwardDate'] = requestParameters.balanceForwardDate;
         }
 
         if (requestParameters.inclFolios !== undefined) {
@@ -4695,11 +4695,11 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.filterEndDate !== undefined) {
-            queryParameters['filterEndDate'] = (requestParameters.filterEndDate as any).toISOString().substring(0,10);
+            queryParameters['filterEndDate'] = requestParameters.filterEndDate;
         }
 
         if (requestParameters.filterStartDate !== undefined) {
-            queryParameters['filterStartDate'] = (requestParameters.filterStartDate as any).toISOString().substring(0,10);
+            queryParameters['filterStartDate'] = requestParameters.filterStartDate;
         }
 
         if (requestParameters.statementText !== undefined) {
@@ -4776,7 +4776,7 @@ export class AccountsReceivablesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.dateSent !== undefined) {
-            queryParameters['dateSent'] = (requestParameters.dateSent as any).toISOString().substring(0,10);
+            queryParameters['dateSent'] = requestParameters.dateSent;
         }
 
         if (requestParameters.reportFileNameWildCard !== undefined) {

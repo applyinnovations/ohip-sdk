@@ -34,9 +34,9 @@ function FiscalYearTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
-        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !(0, runtime_1.exists)(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
         'year': !(0, runtime_1.exists)(json, 'year') ? undefined : json['year'],
         'yearId': !(0, runtime_1.exists)(json, 'yearId') ? undefined : json['yearId'],
         'yearType': !(0, runtime_1.exists)(json, 'yearType') ? undefined : (0, YearTypeType_1.YearTypeTypeFromJSON)(json['yearType']),
@@ -52,9 +52,9 @@ function FiscalYearTypeToJSON(value) {
     }
     return {
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0, 10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
         'year': value.year,
         'yearId': value.yearId,
         'yearType': (0, YearTypeType_1.YearTypeTypeToJSON)(value.yearType),

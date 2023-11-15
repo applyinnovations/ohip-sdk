@@ -36,7 +36,7 @@ function RotationPeriodTypeFromJSONTyped(json, ignoreDiscriminator) {
         'forceRecalculate': !(0, runtime_1.exists)(json, 'forceRecalculate') ? undefined : json['forceRecalculate'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'periodFrequency': !(0, runtime_1.exists)(json, 'periodFrequency') ? undefined : (0, RotationPeriodFrequencyType_1.RotationPeriodFrequencyTypeFromJSON)(json['periodFrequency']),
-        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !(0, runtime_1.exists)(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 exports.RotationPeriodTypeFromJSONTyped = RotationPeriodTypeFromJSONTyped;
@@ -51,7 +51,7 @@ function RotationPeriodTypeToJSON(value) {
         'forceRecalculate': value.forceRecalculate,
         'hotelId': value.hotelId,
         'periodFrequency': (0, RotationPeriodFrequencyType_1.RotationPeriodFrequencyTypeToJSON)(value.periodFrequency),
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0, 10)),
+        'startDate': value.startDate,
     };
 }
 exports.RotationPeriodTypeToJSON = RotationPeriodTypeToJSON;

@@ -100,10 +100,10 @@ export interface WakeUpCallType {
     newFollowUpCallTime?: string;
     /**
      * Date on which wake up call was processed.
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallType
      */
-    processedDate?: Date;
+    processedDate?: string;
     /**
      * Time on which wake up call was processed.
      * @type {string}
@@ -112,10 +112,10 @@ export interface WakeUpCallType {
     processedTime?: string;
     /**
      * Date an item will be purged from a database (e.g., from a live database to an archive).
-     * @type {Date}
+     * @type {string}
      * @memberof WakeUpCallType
      */
-    purgeDate?: Date;
+    purgeDate?: string;
     /**
      * 
      * @type {WakeUpCallResvInfoType}
@@ -165,9 +165,9 @@ export function WakeUpCallTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
         'lastModifyDateTime': !exists(json, 'lastModifyDateTime') ? undefined : json['lastModifyDateTime'],
         'newCallTime': !exists(json, 'newCallTime') ? undefined : json['newCallTime'],
         'newFollowUpCallTime': !exists(json, 'newFollowUpCallTime') ? undefined : json['newFollowUpCallTime'],
-        'processedDate': !exists(json, 'processedDate') ? undefined : (new Date(json['processedDate'])),
+        'processedDate': !exists(json, 'processedDate') ? undefined : json['processedDate'],
         'processedTime': !exists(json, 'processedTime') ? undefined : json['processedTime'],
-        'purgeDate': !exists(json, 'purgeDate') ? undefined : (new Date(json['purgeDate'])),
+        'purgeDate': !exists(json, 'purgeDate') ? undefined : json['purgeDate'],
         'reservationInfo': !exists(json, 'reservationInfo') ? undefined : WakeUpCallResvInfoTypeFromJSON(json['reservationInfo']),
         'status': !exists(json, 'status') ? undefined : WakeUpCallStatusTypeFromJSON(json['status']),
         'timeSpan': !exists(json, 'timeSpan') ? undefined : TimeSpanTypeFromJSON(json['timeSpan']),
@@ -193,9 +193,9 @@ export function WakeUpCallTypeToJSON(value?: WakeUpCallType | null): any {
         'lastModifyDateTime': value.lastModifyDateTime,
         'newCallTime': value.newCallTime,
         'newFollowUpCallTime': value.newFollowUpCallTime,
-        'processedDate': value.processedDate === undefined ? undefined : (value.processedDate.toISOString().substring(0,10)),
+        'processedDate': value.processedDate,
         'processedTime': value.processedTime,
-        'purgeDate': value.purgeDate === undefined ? undefined : (value.purgeDate.toISOString().substring(0,10)),
+        'purgeDate': value.purgeDate,
         'reservationInfo': WakeUpCallResvInfoTypeToJSON(value.reservationInfo),
         'status': WakeUpCallStatusTypeToJSON(value.status),
         'timeSpan': TimeSpanTypeToJSON(value.timeSpan),

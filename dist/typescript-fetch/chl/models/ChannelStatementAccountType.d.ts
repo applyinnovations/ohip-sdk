@@ -26,10 +26,10 @@ export interface ChannelStatementAccountType {
     accountCode?: string;
     /**
      * Holds begin date of the account statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelStatementAccountType
      */
-    beginDate?: Date;
+    beginDate?: string;
     /**
      * Provides detailed information regarding Channel Account statements.
      * @type {Array<ChannelStatementDetailType>}
@@ -44,10 +44,10 @@ export interface ChannelStatementAccountType {
     contractId?: UniqueIDType;
     /**
      * Holds end date of the account statement.
-     * @type {Date}
+     * @type {string}
      * @memberof ChannelStatementAccountType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Holds Note for the account statement.
      * @type {string}

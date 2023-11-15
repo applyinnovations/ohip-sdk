@@ -45,10 +45,10 @@ export interface TourSeriesBlockType {
     hotelId?: string;
     /**
      * The start date of the tour series block.
-     * @type {Date}
+     * @type {string}
      * @memberof TourSeriesBlockType
      */
-    startDate?: Date;
+    startDate?: string;
 }
 
 /**
@@ -74,7 +74,7 @@ export function TourSeriesBlockTypeFromJSONTyped(json: any, ignoreDiscriminator:
         'blockName': !exists(json, 'blockName') ? undefined : json['blockName'],
         'blockStatus': !exists(json, 'blockStatus') ? undefined : json['blockStatus'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
     };
 }
 
@@ -91,7 +91,7 @@ export function TourSeriesBlockTypeToJSON(value?: TourSeriesBlockType | null): a
         'blockName': value.blockName,
         'blockStatus': value.blockStatus,
         'hotelId': value.hotelId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
     };
 }
 

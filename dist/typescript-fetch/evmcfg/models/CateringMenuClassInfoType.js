@@ -34,7 +34,7 @@ function CateringMenuClassInfoTypeFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'eventTypes': !(0, runtime_1.exists)(json, 'eventTypes') ? undefined : json['eventTypes'],
         'inactive': !(0, runtime_1.exists)(json, 'inactive') ? undefined : json['inactive'],
-        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : (new Date(json['inactiveDate'])),
+        'inactiveDate': !(0, runtime_1.exists)(json, 'inactiveDate') ? undefined : json['inactiveDate'],
         'name': !(0, runtime_1.exists)(json, 'name') ? undefined : json['name'],
         'webBookable': !(0, runtime_1.exists)(json, 'webBookable') ? undefined : json['webBookable'],
     };
@@ -50,7 +50,7 @@ function CateringMenuClassInfoTypeToJSON(value) {
     return {
         'eventTypes': value.eventTypes,
         'inactive': value.inactive,
-        'inactiveDate': value.inactiveDate === undefined ? undefined : (value.inactiveDate.toISOString().substring(0, 10)),
+        'inactiveDate': value.inactiveDate,
         'name': value.name,
         'webBookable': value.webBookable,
     };

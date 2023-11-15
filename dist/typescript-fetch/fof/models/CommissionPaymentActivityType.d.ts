@@ -74,10 +74,10 @@ export interface CommissionPaymentActivityType {
     payee?: string;
     /**
      * Payment date of commission
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentActivityType
      */
-    paymentDate?: Date;
+    paymentDate?: string;
     /**
      *
      * @type {UniqueIDType}
@@ -92,10 +92,10 @@ export interface CommissionPaymentActivityType {
     status?: CommissionPaymentActivityStatusType;
     /**
      * Status date of payment activity
-     * @type {Date}
+     * @type {string}
      * @memberof CommissionPaymentActivityType
      */
-    statusDate?: Date;
+    statusDate?: string;
 }
 /**
  * Check if a given object implements the CommissionPaymentActivityType interface.

@@ -24,10 +24,10 @@ export interface RateAnalysisType {
     code?: RateAnalysisCodeType;
     /**
      * The date of the analysis.
-     * @type {Date}
+     * @type {string}
      * @memberof RateAnalysisType
      */
-    date?: Date;
+    date?: string;
     /**
      * The description of the restriction which was analyzed.
      * @type {string}

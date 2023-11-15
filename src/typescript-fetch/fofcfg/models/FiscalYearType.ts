@@ -34,10 +34,10 @@ export interface FiscalYearType {
     description?: string;
     /**
      * End Date of the Year.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalYearType
      */
-    endDate?: Date;
+    endDate?: string;
     /**
      * Resort for which the Year is defined.
      * @type {string}
@@ -46,10 +46,10 @@ export interface FiscalYearType {
     hotelId?: string;
     /**
      * Start Date of the Year.
-     * @type {Date}
+     * @type {string}
      * @memberof FiscalYearType
      */
-    startDate?: Date;
+    startDate?: string;
     /**
      * Number of the Year.
      * @type {number}
@@ -90,9 +90,9 @@ export function FiscalYearTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'description': !exists(json, 'description') ? undefined : json['description'],
-        'endDate': !exists(json, 'endDate') ? undefined : (new Date(json['endDate'])),
+        'endDate': !exists(json, 'endDate') ? undefined : json['endDate'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
-        'startDate': !exists(json, 'startDate') ? undefined : (new Date(json['startDate'])),
+        'startDate': !exists(json, 'startDate') ? undefined : json['startDate'],
         'year': !exists(json, 'year') ? undefined : json['year'],
         'yearId': !exists(json, 'yearId') ? undefined : json['yearId'],
         'yearType': !exists(json, 'yearType') ? undefined : YearTypeTypeFromJSON(json['yearType']),
@@ -109,9 +109,9 @@ export function FiscalYearTypeToJSON(value?: FiscalYearType | null): any {
     return {
         
         'description': value.description,
-        'endDate': value.endDate === undefined ? undefined : (value.endDate.toISOString().substring(0,10)),
+        'endDate': value.endDate,
         'hotelId': value.hotelId,
-        'startDate': value.startDate === undefined ? undefined : (value.startDate.toISOString().substring(0,10)),
+        'startDate': value.startDate,
         'year': value.year,
         'yearId': value.yearId,
         'yearType': YearTypeTypeToJSON(value.yearType),

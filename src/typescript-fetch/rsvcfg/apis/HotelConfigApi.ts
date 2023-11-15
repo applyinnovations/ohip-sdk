@@ -551,8 +551,8 @@ export interface GetGuaranteeCodeSchedulesRequest {
     limit?: number;
     pageNumber?: number;
     ratePlanCodes?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     guaranteeCodes?: Array<string>;
     creditRatingsCodes?: Array<string>;
@@ -614,8 +614,8 @@ export interface GetPolicySchedulesRequest {
     policyType?: GetPolicySchedulesPolicyTypeEnum;
     ratePlanCodes?: Array<string>;
     policyCodes?: Array<string>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
     guaranteeCodes?: Array<string>;
     creditRatingsCodes?: Array<string>;
@@ -633,7 +633,7 @@ export interface GetPreCheckInRulesRequest {
     authorization?: string;
     xAppKey?: string;
     xHotelid?: string;
-    date?: Date;
+    date?: string;
     ruleType?: GetPreCheckInRulesRuleTypeEnum;
     xExternalsystem?: string;
     acceptLanguage?: string;
@@ -1039,11 +1039,11 @@ export interface RemovePreCheckInRulesRequest {
     xAppKey?: string;
     xHotelid?: string;
     ruleType?: Set<RemovePreCheckInRulesRuleTypeEnum>;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     duration?: string;
-    newStartDate?: Date;
-    newEndDate?: Date;
+    newStartDate?: string;
+    newEndDate?: string;
     newDuration?: string;
     level?: Array<string>;
     type?: Array<string>;
@@ -3110,11 +3110,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3426,11 +3426,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -3518,7 +3518,7 @@ export class HotelConfigApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters.date !== undefined) {
-            queryParameters['date'] = (requestParameters.date as any).toISOString().substring(0,10);
+            queryParameters['date'] = requestParameters.date;
         }
 
         if (requestParameters.ruleType !== undefined) {
@@ -5784,11 +5784,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.startDate !== undefined) {
-            queryParameters['startDate'] = (requestParameters.startDate as any).toISOString().substring(0,10);
+            queryParameters['startDate'] = requestParameters.startDate;
         }
 
         if (requestParameters.endDate !== undefined) {
-            queryParameters['endDate'] = (requestParameters.endDate as any).toISOString().substring(0,10);
+            queryParameters['endDate'] = requestParameters.endDate;
         }
 
         if (requestParameters.duration !== undefined) {
@@ -5796,11 +5796,11 @@ export class HotelConfigApi extends runtime.BaseAPI {
         }
 
         if (requestParameters.newStartDate !== undefined) {
-            queryParameters['newStartDate'] = (requestParameters.newStartDate as any).toISOString().substring(0,10);
+            queryParameters['newStartDate'] = requestParameters.newStartDate;
         }
 
         if (requestParameters.newEndDate !== undefined) {
-            queryParameters['newEndDate'] = (requestParameters.newEndDate as any).toISOString().substring(0,10);
+            queryParameters['newEndDate'] = requestParameters.newEndDate;
         }
 
         if (requestParameters.newDuration !== undefined) {

@@ -33,7 +33,7 @@ function BlockStatisticsDateTypeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'roomStatisticsList': !(0, runtime_1.exists)(json, 'roomStatisticsList') ? undefined : (json['roomStatisticsList'].map(BlockRoomStatisticsType_1.BlockRoomStatisticsTypeFromJSON)),
         'total': !(0, runtime_1.exists)(json, 'total') ? undefined : json['total'],
     };
@@ -47,7 +47,7 @@ function BlockStatisticsDateTypeToJSON(value) {
         return null;
     }
     return {
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'roomStatisticsList': value.roomStatisticsList === undefined ? undefined : (value.roomStatisticsList.map(BlockRoomStatisticsType_1.BlockRoomStatisticsTypeToJSON)),
         'total': value.total,
     };

@@ -40,10 +40,10 @@ export interface CreateBlockRestrictionType {
     blockId?: BlockId;
     /**
      * The ending value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateBlockRestrictionType
      */
-    end?: Date;
+    end?: string;
     /**
      * 
      * @type {boolean}
@@ -82,10 +82,10 @@ export interface CreateBlockRestrictionType {
     saturday?: boolean;
     /**
      * The starting value of the date range.
-     * @type {Date}
+     * @type {string}
      * @memberof CreateBlockRestrictionType
      */
-    start?: Date;
+    start?: string;
     /**
      * 
      * @type {boolean}
@@ -132,14 +132,14 @@ export function CreateBlockRestrictionTypeFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'blockId': !exists(json, 'blockId') ? undefined : BlockIdFromJSON(json['blockId']),
-        'end': !exists(json, 'end') ? undefined : (new Date(json['end'])),
+        'end': !exists(json, 'end') ? undefined : json['end'],
         'friday': !exists(json, 'friday') ? undefined : json['friday'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'monday': !exists(json, 'monday') ? undefined : json['monday'],
         'restrictionStatus': !exists(json, 'restrictionStatus') ? undefined : RestrictionStatusTypeFromJSON(json['restrictionStatus']),
         'roomTypes': !exists(json, 'roomTypes') ? undefined : json['roomTypes'],
         'saturday': !exists(json, 'saturday') ? undefined : json['saturday'],
-        'start': !exists(json, 'start') ? undefined : (new Date(json['start'])),
+        'start': !exists(json, 'start') ? undefined : json['start'],
         'sunday': !exists(json, 'sunday') ? undefined : json['sunday'],
         'thursday': !exists(json, 'thursday') ? undefined : json['thursday'],
         'tuesday': !exists(json, 'tuesday') ? undefined : json['tuesday'],
@@ -157,14 +157,14 @@ export function CreateBlockRestrictionTypeToJSON(value?: CreateBlockRestrictionT
     return {
         
         'blockId': BlockIdToJSON(value.blockId),
-        'end': value.end === undefined ? undefined : (value.end.toISOString().substring(0,10)),
+        'end': value.end,
         'friday': value.friday,
         'hotelId': value.hotelId,
         'monday': value.monday,
         'restrictionStatus': RestrictionStatusTypeToJSON(value.restrictionStatus),
         'roomTypes': value.roomTypes,
         'saturday': value.saturday,
-        'start': value.start === undefined ? undefined : (value.start.toISOString().substring(0,10)),
+        'start': value.start,
         'sunday': value.sunday,
         'thursday': value.thursday,
         'tuesday': value.tuesday,

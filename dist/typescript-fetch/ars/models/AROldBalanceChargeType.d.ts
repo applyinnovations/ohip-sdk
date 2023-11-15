@@ -25,10 +25,10 @@ export interface AROldBalanceChargeType {
     amount?: CurrencyAmountType;
     /**
      * Date of the Posting.
-     * @type {Date}
+     * @type {string}
      * @memberof AROldBalanceChargeType
      */
-    date?: Date;
+    date?: string;
     /**
      * The Fiscal Bill number of this posting
      * @type {string}

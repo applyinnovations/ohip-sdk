@@ -35,14 +35,14 @@ function ECertificateConsumptionTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'authorizationCode': !(0, runtime_1.exists)(json, 'authorizationCode') ? undefined : json['authorizationCode'],
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'email': !(0, runtime_1.exists)(json, 'email') ? undefined : json['email'],
         'firstName': !(0, runtime_1.exists)(json, 'firstName') ? undefined : json['firstName'],
         'hotelId': !(0, runtime_1.exists)(json, 'hotelId') ? undefined : json['hotelId'],
         'locationType': !(0, runtime_1.exists)(json, 'locationType') ? undefined : json['locationType'],
         'middleName': !(0, runtime_1.exists)(json, 'middleName') ? undefined : json['middleName'],
         'referenceId': !(0, runtime_1.exists)(json, 'referenceId') ? undefined : (0, UniqueIDType_1.UniqueIDTypeFromJSON)(json['referenceId']),
-        'serviceDate': !(0, runtime_1.exists)(json, 'serviceDate') ? undefined : (new Date(json['serviceDate'])),
+        'serviceDate': !(0, runtime_1.exists)(json, 'serviceDate') ? undefined : json['serviceDate'],
         'source': !(0, runtime_1.exists)(json, 'source') ? undefined : (0, ECertificateConsumeSourceType_1.ECertificateConsumeSourceTypeFromJSON)(json['source']),
         'surname': !(0, runtime_1.exists)(json, 'surname') ? undefined : json['surname'],
         'userName': !(0, runtime_1.exists)(json, 'userName') ? undefined : json['userName'],
@@ -59,14 +59,14 @@ function ECertificateConsumptionTypeToJSON(value) {
     }
     return {
         'authorizationCode': value.authorizationCode,
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'email': value.email,
         'firstName': value.firstName,
         'hotelId': value.hotelId,
         'locationType': value.locationType,
         'middleName': value.middleName,
         'referenceId': (0, UniqueIDType_1.UniqueIDTypeToJSON)(value.referenceId),
-        'serviceDate': value.serviceDate === undefined ? undefined : (value.serviceDate.toISOString().substring(0, 10)),
+        'serviceDate': value.serviceDate,
         'source': (0, ECertificateConsumeSourceType_1.ECertificateConsumeSourceTypeToJSON)(value.source),
         'surname': value.surname,
         'userName': value.userName,

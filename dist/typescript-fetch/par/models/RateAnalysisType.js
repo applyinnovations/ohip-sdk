@@ -34,7 +34,7 @@ function RateAnalysisTypeFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'code': !(0, runtime_1.exists)(json, 'code') ? undefined : (0, RateAnalysisCodeType_1.RateAnalysisCodeTypeFromJSON)(json['code']),
-        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : (new Date(json['date'])),
+        'date': !(0, runtime_1.exists)(json, 'date') ? undefined : json['date'],
         'description': !(0, runtime_1.exists)(json, 'description') ? undefined : json['description'],
     };
 }
@@ -48,7 +48,7 @@ function RateAnalysisTypeToJSON(value) {
     }
     return {
         'code': (0, RateAnalysisCodeType_1.RateAnalysisCodeTypeToJSON)(value.code),
-        'date': value.date === undefined ? undefined : (value.date.toISOString().substring(0, 10)),
+        'date': value.date,
         'description': value.description,
     };
 }

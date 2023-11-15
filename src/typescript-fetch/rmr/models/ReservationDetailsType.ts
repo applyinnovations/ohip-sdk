@@ -34,16 +34,16 @@ import {
 export interface ReservationDetailsType {
     /**
      * Reservation arrival date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDetailsType
      */
-    arrival?: Date;
+    arrival?: string;
     /**
      * Reservation departure date
-     * @type {Date}
+     * @type {string}
      * @memberof ReservationDetailsType
      */
-    departure?: Date;
+    departure?: string;
     /**
      * Given name, first name or names
      * @type {string}
@@ -107,8 +107,8 @@ export function ReservationDetailsTypeFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'arrival': !exists(json, 'arrival') ? undefined : (new Date(json['arrival'])),
-        'departure': !exists(json, 'departure') ? undefined : (new Date(json['departure'])),
+        'arrival': !exists(json, 'arrival') ? undefined : json['arrival'],
+        'departure': !exists(json, 'departure') ? undefined : json['departure'],
         'givenName': !exists(json, 'givenName') ? undefined : json['givenName'],
         'hotelId': !exists(json, 'hotelId') ? undefined : json['hotelId'],
         'nights': !exists(json, 'nights') ? undefined : json['nights'],
@@ -128,8 +128,8 @@ export function ReservationDetailsTypeToJSON(value?: ReservationDetailsType | nu
     }
     return {
         
-        'arrival': value.arrival === undefined ? undefined : (value.arrival.toISOString().substring(0,10)),
-        'departure': value.departure === undefined ? undefined : (value.departure.toISOString().substring(0,10)),
+        'arrival': value.arrival,
+        'departure': value.departure,
         'givenName': value.givenName,
         'hotelId': value.hotelId,
         'nights': value.nights,
