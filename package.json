@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "reset-docs": "cd hospitality-api-docs && git reset --hard && cd ..",
-    "clean": "rm -rf src && rm -rf dist",
+    "clean": "find src -type f ! -name '*authenticationMiddleware.*' -exec rm {} + && find src -type d -empty -delete && rm -rf dist",
     "build": "openapi-generator-cli generate > build.log",
     "compile": "yarn tsc -p tsconfig.typescript-fetch.json"
   },
