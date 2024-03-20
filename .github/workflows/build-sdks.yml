@@ -3,7 +3,7 @@ name: Build sdks and push to release branch
 on:
   push:
     branches:
-      - main
+      - go-sdk-without-auth
 
 permissions:
   contents: write
@@ -28,7 +28,7 @@ jobs:
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
       - name: Checkout to release branch
-        run: git checkout -b "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+        run: git checkout -b "releases/go-sdk-without-auth"
 
       - uses: actions/setup-node@v3
         timeout-minutes: 2

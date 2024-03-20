@@ -4,6 +4,22 @@
   "generator-cli": {
     "version": "7.1.0",
     "generators": {
+      "go": {
+        "generatorName": "go",
+        "output": "./dist/go/#{name}",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
+        "gitRepoId": "ohip-sdk",
+        "gitUserId": "applyinnovations",
+        "templateDir": "./templates/go",
+        "skipOperationExample": true,
+        "additionalProperties": {
+          "isGoSubmodule": true,
+          "packageName": "#{name}",
+          "structPrefix": true,
+          "enumClassPrefix": true,
+          "modulePath": "dist/go"
+        }
+      },
       "typescript-fetch": {
         "generatorName": "typescript-fetch",
         "output": "./src/typescript-fetch/#{name}",
