@@ -11,6 +11,14 @@
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "skipOperationExample": true,
         "typeMappings": "Date=string"
+      },
+      "go": {
+        "generatorName": "go",
+        "output": "./dist/go/#{name}",
+        "templateDir": "templates/go",
+        "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
+        "skipOperationExample": true,
+        "typeMappings": "Date=string"
       }
     }
   }
