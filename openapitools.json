@@ -25,7 +25,8 @@
           "packageName": "#{name}",
           "structPrefix": true,
           "enumClassPrefix": true,
-          "modulePath": "dist/go"
+          "modulePath": "dist/go",
+          "withCustomMiddlewareFunction": true
         }
       }
     }
