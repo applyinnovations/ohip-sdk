@@ -15,10 +15,18 @@
       "go": {
         "generatorName": "go",
         "output": "./dist/go/#{name}",
-        "templateDir": "templates/go",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
+        "gitRepoId": "ohip-sdk",
+        "gitUserId": "applyinnovations",
+        "templateDir": "./templates/go",
         "skipOperationExample": true,
-        "typeMappings": "Date=string"
+        "additionalProperties": {
+          "isGoSubmodule": true,
+          "packageName": "#{name}",
+          "structPrefix": true,
+          "enumClassPrefix": true,
+          "modulePath": "dist/go"
+        }
       }
     }
   }
