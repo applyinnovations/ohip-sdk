@@ -14,7 +14,7 @@ jobs:
 
     env:
       HOSPITALITY_API_DOCS_DIR: hospitality-api-docs
-      HOSPITALITY_API_DOCS_BRANCH: property_23.2_applyinnovations_patch
+      HOSPITALITY_API_DOCS_BRANCH: property_23.5.0.0_applyinnovations_patch
 
     steps:
       - name: Checkout
