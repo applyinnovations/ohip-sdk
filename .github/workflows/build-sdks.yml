@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - fix-go-sdk
 
 permissions:
   contents: write
@@ -28,7 +29,7 @@ jobs:
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
       - name: Checkout to release branch
-        run: git checkout -b "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+        run: git checkout -b "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev"
 
       - uses: actions/setup-node@v3
         timeout-minutes: 2
@@ -70,7 +71,7 @@ jobs:
         run: |
           git add dist/**/* src/**/*
           git commit -m 'generated sdks for release' --quiet
-          git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force --tags
+          git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev" --force --tags
 
       - name: Get release branch commit sha
         id: release_commit
