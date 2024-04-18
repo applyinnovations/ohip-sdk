@@ -8,7 +8,7 @@ hospitality-api-docs
 .envrc
 
 dist
-src
+src/typescript-fetch
 
 *.log
 
