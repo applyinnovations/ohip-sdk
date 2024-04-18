@@ -82,8 +82,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           prerelease: false
-          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
-          target_commitish: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev
+          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev
+          target_commitish: releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev
           body: |
             Updated to match commit `${{ steps.ohip_commit.outputs.commit_sha }}` @ oracle/hospitality-api-docs
             - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_commit.outputs.commit_sha }}
