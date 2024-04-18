@@ -10,7 +10,7 @@
         "templateDir": "templates/typescript-fetch",
         "glob": "./hospitality-api-docs/rest-api-specs/property/*.json",
         "skipOperationExample": true,
-        "typeMappings": "Date=string"
+        "typeMappings": "Date=string,DateTime=string"
       },
       "go": {
         "generatorName": "go",
@@ -20,6 +20,7 @@
         "gitUserId": "applyinnovations",
         "templateDir": "./templates/go",
         "skipOperationExample": true,
+        "typeMappings": "Date=string,DateTime=string",
         "additionalProperties": {
           "isGoSubmodule": true,
           "packageName": "#{name}",
