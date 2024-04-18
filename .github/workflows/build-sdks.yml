@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - fix-go-sdk
 
 permissions:
   contents: write
@@ -29,7 +28,7 @@ jobs:
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
       - name: Checkout to release branch
-        run: git checkout -b "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev"
+        run: git checkout -b "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
 
       - uses: actions/setup-node@v3
         timeout-minutes: 2
@@ -71,8 +70,8 @@ jobs:
         run: |
           git add dist/**/* src/**/*
           git commit -m 'generated sdks for release' --quiet
-          git tag "${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev"
-          git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev" --force --tags
+          git tag "${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+          git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force --tags
 
       - name: Get release branch commit sha
         id: release_commit
@@ -82,8 +81,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           prerelease: false
-          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev
-          target_commitish: releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev
+          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
+          target_commitish: releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}
           body: |
             Updated to match commit `${{ steps.ohip_commit.outputs.commit_sha }}` @ oracle/hospitality-api-docs
             - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_commit.outputs.commit_sha }}
