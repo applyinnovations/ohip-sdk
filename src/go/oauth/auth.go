@@ -73,7 +73,6 @@ type AuthClient struct {
 }
 
 func (c *AuthClient) HttpMiddleware(req *http.Request) error {
-	fmt.Printf("%+v", req.Header)
 	err := updateToken(c)
 	if err != nil {
 		return err

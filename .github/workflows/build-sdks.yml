@@ -71,6 +71,7 @@ jobs:
         run: |
           git add dist/**/* src/**/*
           git commit -m 'generated sdks for release' --quiet
+          git tag "${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev"
           git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev" --force --tags
 
       - name: Get release branch commit sha
@@ -82,7 +83,7 @@ jobs:
         with:
           prerelease: false
           tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
-          target_commitish: releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}
+          target_commitish: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}-dev
           body: |
             Updated to match commit `${{ steps.ohip_commit.outputs.commit_sha }}` @ oracle/hospitality-api-docs
             - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_commit.outputs.commit_sha }}
