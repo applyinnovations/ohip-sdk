@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "reset-docs": "cd hospitality-api-docs && git reset --hard && cd ..",
-    "clean": "find src -type f ! -name '*authenticationMiddleware.*' -exec rm {} + && find src -type d -empty -delete && rm -rf dist",
-    "add-auth": "cp src/go/authentication_middleware.go dist/go/oauth/",
-    "build": "openapi-generator-cli generate > build.log && yarn add-auth",
+    "clean": "find src/typescript-fetch -type f ! -name '*authenticationMiddleware.*' -exec rm {} + && find src -type d -empty -delete && rm -rf dist",
+    "copy-go": "cp -r src/go/* dist/go/",
+    "build": "openapi-generator-cli generate > build.log && yarn copy-go",
     "compile": "yarn tsc -p tsconfig.typescript-fetch.json"
   },
   "files": [
