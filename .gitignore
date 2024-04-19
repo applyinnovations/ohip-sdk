@@ -7,9 +7,11 @@ hospitality-api-docs
 .DS_store
 .envrc
 
+src
 dist
-src/typescript-fetch
 
 *.log
 
 !src/typescript-fetch/authenticationMiddleware.ts
+!src/go/authenticationMiddleware.go
+
