@@ -13,8 +13,9 @@ import (
 	"time"
 )
 
-const MAX_MS = 10 * 1000
+const AUTHENTICATION_TIMEOUT = 10 * time.Second
 const MAX_RETRIES = 7
+const TOKEN_EXPIRY_BUFFER = 30 * time.Second
 
 type OhipCredential struct {
 	Username string
@@ -28,7 +29,7 @@ type NewOhipCredentialsProviderParams struct {
 }
 
 type OhipCredentialsProvider struct {
-	authenticating sync.Mutex
+	authenticating *TimeoutMutex
 	ohip           *AuthenticationAPIService
 	credentials    []OhipCredential
 	appKey         string
@@ -45,21 +46,17 @@ func NewOhipCredentialsProvider(params NewOhipCredentialsProviderParams) *OhipCr
 	apiClient := NewAPIClient(configuration)
 
 	return &OhipCredentialsProvider{
-		ohip:        apiClient.AuthenticationAPI,
-		credentials: params.Credentials,
-		appKey:      params.AppKey,
+		authenticating: &TimeoutMutex{},
+		ohip:           apiClient.AuthenticationAPI,
+		credentials:    params.Credentials,
+		appKey:         params.AppKey,
 	}
 }
 
 func (c *OhipCredentialsProvider) AuthenticationMiddleware(req *http.Request) error {
-	c.authenticating.Lock()
-	defer c.authenticating.Unlock()
-
-	if c.accessToken == "" || isAccessTokenExpired(c.accessToken) {
-		err := c.renewCredentials(0)
-		if err != nil {
-			return nil
-		}
+	err := c.loadToken()
+	if err != nil {
+		return err
 	}
 
 	req.Header["Authorization"] = []string{"Bearer " + c.accessToken}
@@ -67,22 +64,45 @@ func (c *OhipCredentialsProvider) AuthenticationMiddleware(req *http.Request) er
 	return nil
 }
 
-func (c *OhipCredentialsProvider) SetToken(token string) {
-	if c.accessToken == token {
+func (c *OhipCredentialsProvider) GetAccessToken() (string, error) {
+	err := c.loadToken()
+
+	return c.accessToken, err
+}
+
+func (c *OhipCredentialsProvider) loadToken() error {
+	err := c.authenticating.Lock(AUTHENTICATION_TIMEOUT)
+	if err != nil {
+		return errors.New("OHIP_AUTH_ERR: timeout reached while attempting to authenticate")
+	}
+	defer c.authenticating.Unlock()
+
+	if c.accessToken == "" || isAccessTokenExpired(c.accessToken) {
+		err := c.renewCredentials(0)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (c *OhipCredentialsProvider) SetAccessToken(accessToken string) {
+	if c.accessToken == accessToken {
 		return
 	}
 
-	if isAccessTokenExpired(token) {
+	if isAccessTokenExpired(accessToken) {
 		// token is already expired
 		return
 	}
 
-	if c.accessToken != "" && getJWTExpiryDate(token).Before(getJWTExpiryDate(c.accessToken)) {
+	if c.accessToken != "" && getJWTExpiryDate(accessToken).Before(getJWTExpiryDate(c.accessToken).Add(-TOKEN_EXPIRY_BUFFER)) {
 		// token is not expired but it will expire before the current token
 		return
 	}
 
-	c.accessToken = token
+	c.accessToken = accessToken
 }
 
 func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
@@ -110,19 +130,15 @@ func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 }
 
 func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (string, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), MAX_MS*time.Millisecond)
-	defer cancel()
+	ctx := context.Background()
 
-	resp, _, err := c.ohip.GetToken(ctx).
+	resp, _, err := c.ohip.
+		GetToken(ctx).
 		XAppKey(c.appKey).
 		GrantType("password").
 		Username(credential.Username).
 		Password(credential.Password).
 		Execute()
-
-	if ctx.Err() != nil {
-		err = ctx.Err()
-	}
 
 	if err == nil && resp.GetAccessToken() == "" {
 		fmt.Println("OHIP_AUTH_ERR: access token missing from response")
@@ -132,7 +148,7 @@ func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (str
 }
 
 func isAccessTokenExpired(accessToken string) bool {
-	return time.Now().After(getJWTExpiryDate(accessToken))
+	return time.Now().Add(-TOKEN_EXPIRY_BUFFER).After(getJWTExpiryDate(accessToken))
 }
 
 func getJWTExpiryDate(token string) time.Time {
@@ -160,4 +176,28 @@ func getJWTExpiryDate(token string) time.Time {
 
 type OhipJWT struct {
 	ExpiresAt int64 `json:"exp"`
+}
+
+type TimeoutMutex struct {
+	mutex sync.Mutex
+}
+
+func (tm *TimeoutMutex) Lock(timeout time.Duration) error {
+	ch := make(chan struct{}, 1)
+	go func() {
+		tm.mutex.Lock()
+		ch <- struct{}{}
+		close(ch)
+	}()
+
+	select {
+	case <-ch:
+		return nil // Lock acquired
+	case <-time.After(timeout):
+		return errors.New("timed out") // Timed out
+	}
+}
+
+func (tm *TimeoutMutex) Unlock() {
+	tm.mutex.Unlock()
 }
