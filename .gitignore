@@ -8,8 +8,9 @@ hospitality-api-docs
 .envrc
 
 dist
-src
 
 *.log
 
+src/typescript-fetch
 !src/typescript-fetch/authenticationMiddleware.ts
+

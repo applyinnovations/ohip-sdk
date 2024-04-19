@@ -70,6 +70,7 @@ jobs:
         run: |
           git add dist/**/* src/**/*
           git commit -m 'generated sdks for release' --quiet
+          git tag "${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
           git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force --tags
 
       - name: Get release branch commit sha
