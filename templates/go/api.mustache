@@ -236,11 +236,9 @@ func (a *{{{classname}}}Service) {{nickname}}Execute(r {{#structPrefix}}{{&class
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 {{#headerParams}}
-	{{^required}}
 	if r.{{paramName}} != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "{{{baseName}}}", r.{{paramName}}, "{{collectionFormat}}")
 	}
-	{{/required}}
 {{/headerParams}}
 {{#formParams}}
 {{#isFile}}
