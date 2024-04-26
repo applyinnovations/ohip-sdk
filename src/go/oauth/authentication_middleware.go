@@ -15,7 +15,7 @@ import (
 
 const AUTHENTICATION_TIMEOUT = 10 * time.Second
 const MAX_RETRIES = 7
-const TOKEN_EXPIRY_BUFFER = 30 * time.Second
+const TOKEN_EXPIRY_BUFFER = 300 * time.Second
 
 type OhipCredential struct {
 	Username string

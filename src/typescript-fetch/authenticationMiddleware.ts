@@ -2,7 +2,7 @@ import { AuthenticationApi, Configuration, RequestContext } from './oauth';
 
 const MAX_MS = 10 * 1000;
 const MAX_RETRIES = 7;
-const TOKEN_EXPIRY_BUFFER = 30 * 1000;
+const TOKEN_EXPIRY_BUFFER = 300 * 1000;
 
 type OhipCredential = {
   username: string;
