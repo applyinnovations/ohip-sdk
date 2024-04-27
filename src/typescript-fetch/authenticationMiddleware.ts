@@ -54,8 +54,7 @@ export class OhipCredentialsProvider {
 
     if (
       this.access_token &&
-      getJWTExpiryDate(access_token) <
-        getJWTExpiryDate(this.access_token) - TOKEN_EXPIRY_BUFFER
+      getJWTExpiryDate(access_token) < getJWTExpiryDate(this.access_token)
     ) {
       return;
     }
@@ -148,7 +147,7 @@ function isAccessTokenExpired(token?: string) {
     return true;
   }
 
-  return getJWTExpiryDate(token) < +new Date() - TOKEN_EXPIRY_BUFFER;
+  return getJWTExpiryDate(token) < +new Date() + TOKEN_EXPIRY_BUFFER;
 }
 
 function getJWTExpiryDate(token: string): number {
