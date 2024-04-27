@@ -97,7 +97,7 @@ func (c *OhipCredentialsProvider) SetAccessToken(accessToken string) {
 		return
 	}
 
-	if c.accessToken != "" && getJWTExpiryDate(accessToken).Before(getJWTExpiryDate(c.accessToken).Add(-TOKEN_EXPIRY_BUFFER)) {
+	if c.accessToken != "" && getJWTExpiryDate(accessToken).Before(getJWTExpiryDate(c.accessToken)) {
 		// token is not expired but it will expire before the current token
 		return
 	}
@@ -148,7 +148,7 @@ func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (str
 }
 
 func isAccessTokenExpired(accessToken string) bool {
-	return time.Now().Add(-TOKEN_EXPIRY_BUFFER).After(getJWTExpiryDate(accessToken))
+	return time.Now().Add(TOKEN_EXPIRY_BUFFER).After(getJWTExpiryDate(accessToken))
 }
 
 func getJWTExpiryDate(token string) time.Time {
