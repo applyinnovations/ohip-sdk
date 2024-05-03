@@ -64,20 +64,20 @@ func (c *OhipCredentialsProvider) AuthenticationMiddleware(req *http.Request) er
 	return nil
 }
 
-func (c *OhipCredentialsProvider) GetAccessToken() (string, error) {
-	err := c.loadToken()
+func (c *OhipCredentialsProvider) GetAccessToken(forceGetNewToken bool) (string, error) {
+	err := c.loadToken(forceGetNewToken)
 
 	return c.accessToken, err
 }
 
-func (c *OhipCredentialsProvider) loadToken() error {
+func (c *OhipCredentialsProvider) loadToken(skipExpiryCheck bool) error {
 	err := c.authenticating.Lock(AUTHENTICATION_TIMEOUT)
 	if err != nil {
 		return errors.New("OHIP_AUTH_ERR: timeout reached while attempting to authenticate")
 	}
 	defer c.authenticating.Unlock()
 
-	if c.accessToken == "" || isAccessTokenExpired(c.accessToken) {
+	if c.accessToken == "" || skipExpiryCheck || isAccessTokenExpired(c.accessToken) {
 		err := c.renewCredentials(0)
 		if err != nil {
 			return err
