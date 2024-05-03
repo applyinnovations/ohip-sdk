@@ -15,7 +15,7 @@ import (
 
 const AUTHENTICATION_TIMEOUT = 10 * time.Second
 const MAX_RETRIES = 7
-const TOKEN_EXPIRY_BUFFER = 30 * time.Second
+const TOKEN_EXPIRY_BUFFER = 300 * time.Second
 
 type OhipCredential struct {
 	Username string
@@ -97,7 +97,7 @@ func (c *OhipCredentialsProvider) SetAccessToken(accessToken string) {
 		return
 	}
 
-	if c.accessToken != "" && getJWTExpiryDate(accessToken).Before(getJWTExpiryDate(c.accessToken).Add(-TOKEN_EXPIRY_BUFFER)) {
+	if c.accessToken != "" && getJWTExpiryDate(accessToken).Before(getJWTExpiryDate(c.accessToken)) {
 		// token is not expired but it will expire before the current token
 		return
 	}
@@ -148,7 +148,7 @@ func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (str
 }
 
 func isAccessTokenExpired(accessToken string) bool {
-	return time.Now().Add(-TOKEN_EXPIRY_BUFFER).After(getJWTExpiryDate(accessToken))
+	return time.Now().Add(TOKEN_EXPIRY_BUFFER).After(getJWTExpiryDate(accessToken))
 }
 
 func getJWTExpiryDate(token string) time.Time {

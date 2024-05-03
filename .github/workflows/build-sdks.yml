@@ -15,7 +15,7 @@ jobs:
     env:
       HOSPITALITY_API_DOCS_DIR: hospitality-api-docs
       HOSPITALITY_API_DOCS_BRANCH: property_23.5.0.0_applyinnovations_patch
-      SDK_VERSION: 1.0.0
+      SDK_VERSION: 1.0.2
 
     steps:
       - name: Checkout
@@ -29,7 +29,7 @@ jobs:
           ref: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}
 
       - name: Checkout to release branch
-        run: git checkout -b "releases/${{ env.SDK_VERSION }}-${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
+        run: git checkout -b "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}"
 
       - uses: actions/setup-node@v3
         timeout-minutes: 2
@@ -71,8 +71,8 @@ jobs:
         run: |
           git add dist/**/* src/**/*
           git commit -m 'generated sdks for release' --quiet
-          git tag "${{ env.SDK_VERSION }}-${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
-          git push --set-upstream origin "releases/${{ env.SDK_VERSION }}-${{ env.HOSPITALITY_API_DOCS_BRANCH }}" --force --tags
+          git tag "${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}"
+          git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}" --force --tags
 
       - name: Get release branch commit sha
         id: release_commit
@@ -82,8 +82,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           prerelease: false
-          tag_name: '${{ env.SDK_VERSION }}-${{ env.HOSPITALITY_API_DOCS_BRANCH }}'
-          target_commitish: 'releases/${{ env.SDK_VERSION }}-${{ env.HOSPITALITY_API_DOCS_BRANCH }}'
+          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}
+          target_commitish: releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}
           body: |
             Updated to match commit `${{ steps.ohip_commit.outputs.commit_sha }}` @ oracle/hospitality-api-docs
             - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_commit.outputs.commit_sha }}
