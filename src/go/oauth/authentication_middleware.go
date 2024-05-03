@@ -54,7 +54,7 @@ func NewOhipCredentialsProvider(params NewOhipCredentialsProviderParams) *OhipCr
 }
 
 func (c *OhipCredentialsProvider) AuthenticationMiddleware(req *http.Request) error {
-	err := c.loadToken()
+	err := c.loadToken(false)
 	if err != nil {
 		return err
 	}
