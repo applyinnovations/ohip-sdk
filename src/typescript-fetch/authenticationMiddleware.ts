@@ -108,7 +108,6 @@ export class OhipCredentialsProvider {
 
   async getAccessToken() {
     await this.loadToken();
-
     return this.access_token;
   }
 
@@ -126,9 +125,10 @@ export class OhipCredentialsProvider {
     }
   }
 
-  async authenticationMiddleware(context: RequestContext) {
+  async authenticationMiddleware(
+    context: RequestContext,
+  ): Promise<RequestContext> {
     await this.loadToken();
-
     return {
       ...context,
       init: {
@@ -146,7 +146,6 @@ function isAccessTokenExpired(token?: string) {
   if (!token) {
     return true;
   }
-
   return getJWTExpiryDate(token) < +new Date() + TOKEN_EXPIRY_BUFFER;
 }
 
@@ -165,7 +164,6 @@ function getJWTExpiryDate(token: string): number {
   } catch (error) {
     return 0;
   }
-
   return claims.exp * 1000; // Convert seconds to milliseconds
 }
 

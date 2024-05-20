@@ -11,6 +11,6 @@ dist
 
 *.log
 
-src/typescript-fetch
+src/typescript-fetch/**/*
 !src/typescript-fetch/authenticationMiddleware.ts
-
+!src/typescript-fetch/cashierMappingMiddleware.ts
