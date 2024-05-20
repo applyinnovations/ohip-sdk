@@ -19,13 +19,14 @@ export class OhipCashierMappingProvider {
     context: RequestContext,
   ): Promise<RequestContext> {
     const matchPattern = /"cashierId":-1/g;
-    const headersString = JSON.stringify(context.init.headers);
-    const bodyString = JSON.stringify(context.init.body);
+    const { headers, body } = context.init;
+    const headersString = JSON.stringify(headers);
+    const mustReplaceBody =
+      typeof body === 'string' && !!body.match(matchPattern);
     const mustReplaceHeaders = !!headersString?.match(matchPattern);
-    const mustReplaceBody = !!bodyString?.match(matchPattern);
     if (!mustReplaceHeaders && !mustReplaceBody) return context;
     // @ts-ignore
-    const token = context.init.headers?.Authorization?.split(' ')[1];
+    const token = headers?.Authorization?.split(' ')[1];
     const sub = getSubFromOhipAccessToken(token);
     if (!sub) throw new Error('invalid access token or sub missing');
     const cashierId = this.usernameToCashierIdMapping[sub];
@@ -38,11 +39,11 @@ export class OhipCashierMappingProvider {
       init: {
         ...context.init,
         body: mustReplaceBody
-          ? JSON.parse(bodyString.replace(matchPattern, newCashierIdString))
-          : context.init.body,
+          ? body.replace(matchPattern, newCashierIdString)
+          : body,
         headers: mustReplaceHeaders
           ? JSON.parse(headersString.replace(matchPattern, newCashierIdString))
-          : context.init.headers,
+          : headers,
       },
     };
   }
