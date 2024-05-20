@@ -8,7 +8,7 @@ interface OhipJWT {
   sub: string;
 }
 
-export class OhipCredentialsProvider {
+export class OhipCashierMappingProvider {
   usernameToCashierIdMapping: OhipCashierMapping;
   keyToReplaceWithCashierId: string;
 
