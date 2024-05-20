@@ -21,8 +21,8 @@ export class OhipCashierMappingProvider {
     const matchPattern = /"cashierId":-1/g;
     const headersString = JSON.stringify(context.init.headers);
     const bodyString = JSON.stringify(context.init.body);
-    const mustReplaceHeaders = !!headersString.match(matchPattern);
-    const mustReplaceBody = !!bodyString.match(matchPattern);
+    const mustReplaceHeaders = !!headersString?.match(matchPattern);
+    const mustReplaceBody = !!bodyString?.match(matchPattern);
     if (!mustReplaceHeaders && !mustReplaceBody) return context;
     // @ts-ignore
     const token = context.init.headers?.Authorization?.split(' ')[1];
