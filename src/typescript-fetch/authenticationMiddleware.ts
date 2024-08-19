@@ -24,6 +24,7 @@ export class OhipCredentialsProvider {
   appKey: string;
   credentials: OhipCredential[];
   access_token?: string;
+  last_working_credential_idx: number = 0;
 
   constructor({
     appKey,
@@ -44,22 +45,22 @@ export class OhipCredentialsProvider {
 
   async setAccessToken(access_token: string) {
     if (this.access_token == access_token) {
-      return;
+      return false;
     }
 
     if (isAccessTokenExpired(access_token)) {
       // token is already expired
-      return;
+      return false;
     }
 
-    if (
-      this.access_token &&
-      getJWTExpiryDate(access_token) < getJWTExpiryDate(this.access_token)
-    ) {
-      return;
+    if (this.access_token &&
+      getJWTExpiryDate(access_token) < getJWTExpiryDate(this.access_token)) {
+      return false;
     }
 
     this.access_token = access_token;
+
+    return true;
   }
 
   async renewCredentials({
@@ -79,16 +80,20 @@ export class OhipCredentialsProvider {
         );
       }
       await delay(retryPeriod);
+      // add last working credential index to start trying the last known good credential first
+      const credential_idx = (retryCount + this.last_working_credential_idx) % this.credentials.length;
       const credentials =
-        this.credentials[retryCount % this.credentials.length];
+        this.credentials[credential_idx];
       try {
         const res = await this.ohip.getToken({
           xAppKey: this.appKey,
           grantType: 'password',
           ...credentials,
         });
-        if (res.accessToken && res.expiresIn) {
-          this.access_token = res.accessToken;
+        if (res.accessToken
+          && res.expiresIn
+          && await this.setAccessToken(res.accessToken)) {
+          this.last_working_credential_idx = credential_idx;
         } else {
           throw Error(
             `OHIP_AUTH_ERR: access_token and expires_in missing from response`,
