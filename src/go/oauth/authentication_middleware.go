@@ -115,6 +115,7 @@ func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 		if retryCount < MAX_RETRIES {
 			newRetryCount := retryCount + 1
 			fmt.Printf("OHIP_AUTH_ERR: %s\n", err.Error())
+			fmt.Printf("OHIP_LOG: used credential[%d] with username: %s\n", retryCount, credential.Username)
 			fmt.Printf("OHIP_LOG: attempting %d retry\n", newRetryCount)
 			return c.renewCredentials(newRetryCount)
 		}
