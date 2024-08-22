@@ -40,9 +40,6 @@ func NewOhipCredentialsProvider(params NewOhipCredentialsProviderParams) *OhipCr
 	configuration := NewConfiguration()
 	configuration.Host = params.Host
 	configuration.Scheme = "https"
-	configuration.DefaultHeader = map[string]string{
-		"x-app-key": params.AppKey,
-	}
 	apiClient := NewAPIClient(configuration)
 
 	return &OhipCredentialsProvider{
