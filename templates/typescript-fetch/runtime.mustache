@@ -401,7 +401,7 @@ export class JSONApiResponse<T> {
 
     async value(): Promise<T> {
         if (this.raw.status === 204) {
-          return {};
+          return {} as T;
         }
 
         return this.transformer(await this.raw.json());
