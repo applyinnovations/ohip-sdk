@@ -130,9 +130,11 @@ export class BaseAPI {
         const response = await this.fetchApi(url, init);
 
         // for no content responses, return an empty body
-        if (response && response.status === 204 && await response.clone().text() === "") {
-            return new Response("{}", { status: 200 });
-        }
+        return new Response('{}', {
+          status: 200,
+          statusText: response.statusText,
+          headers: new Headers(response.headers),
+        });
 
         if (response && (response.status >= 200 && response.status < 300)) {
             return response;
