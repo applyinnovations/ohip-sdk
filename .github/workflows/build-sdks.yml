@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: applyinnovations
+    runs-on: self-hosted
 
     env:
       HOSPITALITY_API_DOCS_DIR: hospitality-api-docs
