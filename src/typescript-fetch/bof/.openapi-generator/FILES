@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+apis/BackOfficeOperationsApi.ts
+apis/index.ts
+index.ts
+models/BusinessDate.ts
+models/ErrorInstance.ts
+models/ExceptionDetailType.ts
+models/HotelActiveEndOfDayType.ts
+models/InstanceLink.ts
+models/WarningType.ts
+models/index.ts
+runtime.ts
