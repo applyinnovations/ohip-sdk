@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - 24.4.0.0 
 
 permissions:
   contents: write
@@ -42,48 +43,48 @@ jobs:
       - name: Build sdks
         run: yarn build
 
-      - name: Upload build.log as an artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-log
-          path: build.log
+      # - name: Upload build.log as an artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: build-log
+      #     path: build.log
 
       - name: Compile
         run: yarn compile
 
-      - name: Get hospitality-api-docs's commit sha
-        id: ohip_commit
-        run: echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
-
-      - name: Remove dist and src from gitignore
-        run: sed -i '/dist/d' ./.gitignore && sed -i '/src/d' ./.gitignore
-
-      - name: Set github actor to actions bot
-        run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+      # - name: Get hospitality-api-docs's commit sha
+      #   id: ohip_commit
+      #   run: echo "commit_sha=$(git --git-dir=${{ env.HOSPITALITY_API_DOCS_DIR }}/.git rev-parse HEAD)" >> $GITHUB_OUTPUT
+      #
+      # - name: Remove dist and src from gitignore
+      #   run: sed -i '/dist/d' ./.gitignore && sed -i '/src/d' ./.gitignore
+      #
+      # - name: Set github actor to actions bot
+      #   run: |
+      #     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git config --global user.name "github-actions[bot]"
 
       # # create tags for each go submodule
       # - name: Create tags for each go submodule
       #   run: ls -d dist/go/*/ | xargs -I {} bash -c "git tag {}${{ env.HOSPITALITY_API_DOCS_BRANCH }}"
 
-      - name: Push release files to release branch
-        run: |
-          git add dist/**/* src/**/*
-          git commit -m 'generated sdks for release' --quiet
-          git tag "${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}"
-          git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}" --force --tags
-
-      - name: Get release branch commit sha
-        id: release_commit
-        run: echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          prerelease: false
-          tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}
-          target_commitish: releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}
-          body: |
-            Updated to match commit `${{ steps.ohip_commit.outputs.commit_sha }}` @ oracle/hospitality-api-docs
-            - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_commit.outputs.commit_sha }}
+      # - name: Push release files to release branch
+      #   run: |
+      #     git add dist/**/* src/**/*
+      #     git commit -m 'generated sdks for release' --quiet
+      #     git tag "${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}"
+      #     git push --set-upstream origin "releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}" --force --tags
+      #
+      # - name: Get release branch commit sha
+      #   id: release_commit
+      #   run: echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+      #
+      # - name: Create Release
+      #   uses: softprops/action-gh-release@v1
+      #   with:
+      #     prerelease: false
+      #     tag_name: ${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}
+      #     target_commitish: releases/${{ env.HOSPITALITY_API_DOCS_BRANCH }}_v${{ env.SDK_VERSION }}
+      #     body: |
+      #       Updated to match commit `${{ steps.ohip_commit.outputs.commit_sha }}` @ oracle/hospitality-api-docs
+      #       - https://github.com/oracle/hospitality-api-docs/commit/${{ steps.ohip_commit.outputs.commit_sha }}
