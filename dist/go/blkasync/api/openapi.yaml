@@ -1,0 +1,2792 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "APIs to cater Block Reservation related asynchronous functionality\
+    \ in OPERA.<br /><br /> Compatible with OPERA Cloud release 24.4.<br /><br /><p>\
+    \ This document and all content within is available under the Universal Permissive\
+    \ License v 1.0 (https://oss.oracle.com/licenses/upl). Copyright (c) 2020, 2024\
+    \ Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPERA Cloud Block Reservation Asynchronous API
+  version: "24.4"
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /blk/async/v1
+tags:
+- description: The Block Async Service Web Service provides capability to implement
+    block related asynchronous operations in OPERA Cloud.
+  name: BlockAsync
+paths:
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/blocks/allocationSummary:
+    post:
+      description: "This API will fetch Block allocation information for a hotel,\
+        \ and specified date range. The block allocated inventory, rates and room\
+        \ type statistics are returned as part of the response. The maximum limit\
+        \ of date range (whether using start/endDate or startLastModifiedDate/endLastModifiedDate)\
+        \ is 94 days, but the recommendation is to use a date range proportionate\
+        \ to the size of the hotel.   Every identical request (employing the same\
+        \ query parameters) for the getBlockAllocationSummary operation when requesting\
+        \ data with start/endDate or startLastModifiedDate/endLastModifiedDate, necessitates\
+        \ a mandatory 30-minute interval between submissions. Please note that this\
+        \ limit applies regardless of whether the POST, HEAD, and GET cycle has been\
+        \ completed. The API returns a header parameter location that can be used\
+        \ in the getBlockAllocationSummaryProcessStatus operation.  Use event-driven\
+        \ APIs -(see https://docs.oracle.com/cd/F29336_01/doc.201/f27480/c_business_events.htm#OHIPU-BusinessEvents-F0AC1F1C)\
+        \ -to get real-time block updates. <p><strong>OperationId:</strong>startBlockAllocationSummaryProcess</p>"
+      operationId: startBlockAllocationSummaryProcess
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/criteria'
+        description: Request object for fetching block allocation summary asynchronously.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/links'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of process status resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API facilitates fetching block allocation summary for a Hotel.
+      tags:
+      - BlockAsync
+      x-interaction:
+      - async-polling
+      x-codegen-request-body-name: criteria
+  /externalSystems/{extSystemCode}/hotels/{hotelId}/blocks/allocationSummary/{requestId}:
+    get:
+      description: "This API will fetch Block allocation information for a hotel,\
+        \ and specified date range.  The block allocated inventory, rates and room\
+        \ type statistics are returned as part of the response. <p><strong>OperationId:</strong>getBlockAllocationSummary</p>"
+      operationId: getBlockAllocationSummary
+      parameters:
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/blockAllocationSummary'
+          description: Callback request object for fetched block allocation summary.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockAllocationSummary not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns a hotel's block allocation summary for a scheduled
+        process.
+      tags:
+      - BlockAsync
+    head:
+      description: ' <p><strong>OperationId:</strong>getBlockAllocationSummaryProcessStatus</p>'
+      operationId: getBlockAllocationSummaryProcessStatus
+      parameters:
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: extSystemCode
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Processing
+                - Invalid
+                type: string
+            Cache-Control:
+              description: number of seconds to wait before polling again.
+              schema:
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "201":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Completed
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource once the status of process
+                run is Complete.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns the status of asynchronous process scheduled for given
+        id.
+      tags:
+      - BlockAsync
+  /hotels/{hotelId}/blocks/{blockId}/allocation:
+    post:
+      description: Use this API to add block room type allocations and rates to a
+        specified Block. <p><strong>OperationId:</strong>startBlockAllocationProcess</p>
+      operationId: startBlockAllocationProcess
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/allocation'
+        description: A Request message that sets the room allocations as a collection
+          of room types and dates.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/links'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of process status resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API facilitates setting Block Allocations for a Hotel.
+      tags:
+      - BlockAsync
+      x-interaction:
+      - async-polling
+      x-codegen-request-body-name: allocation
+  /hotels/{hotelId}/blocks/{blockId}/allocation/{requestId}:
+    get:
+      description: This API will fetch Block allocation warnings for a hotel to allow
+        for overbooking information to be returned as part of the response. <p><strong>OperationId:</strong>getBlockAllocationProcessInfo</p>
+      operationId: getBlockAllocationProcessInfo
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/processDetails'
+          description: Callback request object for fetched block allocation process
+            information.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: BlockAllocationProcessInfo not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns information about the set allocation process.
+      tags:
+      - BlockAsync
+    head:
+      description: ' <p><strong>OperationId:</strong>getBlockAllocationProcessStatus</p>'
+      operationId: getBlockAllocationProcessStatus
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Processing
+                - Invalid
+                type: string
+            Cache-Control:
+              description: number of seconds to wait before polling again.
+              schema:
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "201":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Completed
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource once the status of process
+                run is Complete.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns the status of asynchronous process scheduled for given
+        id.
+      tags:
+      - BlockAsync
+  /hotels/{hotelId}/blocks/{blockId}/allocationRanges:
+    post:
+      description: "Use this API to set business block allocation for one or more\
+        \ date ranges, which are within business block date range, and for a list\
+        \ of room types. <p><strong>OperationId:</strong>startAllocationRangesProcess</p>"
+      operationId: startAllocationRangesProcess
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/allocationRanges'
+        description: Request for updating block allocations for ranges of dates and
+          list of room types.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/links'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of process status resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API facilitates setting Block Allocation Ranges for a Hotel.
+      tags:
+      - BlockAsync
+      x-interaction:
+      - async-polling
+      x-codegen-request-body-name: allocationRanges
+  /hotels/{hotelId}/blocks/{blockId}/allocationRanges/{requestId}:
+    get:
+      description: This API will fetch Block allocation ranges warnings for a hotel
+        to allow for overbooking information to be returned as part of the response.
+        <p><strong>OperationId:</strong>getAllocationRangesProcessInfo</p>
+      operationId: getAllocationRangesProcessInfo
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/processDetails'
+          description: Callback request object for fetched block allocation process
+            information.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: AllocationRangesProcessInfo not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns information about the set allocation ranges process.
+      tags:
+      - BlockAsync
+    head:
+      description: ' <p><strong>OperationId:</strong>getAllocationRangesProcessStatus</p>'
+      operationId: getAllocationRangesProcessStatus
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Processing
+                - Invalid
+                type: string
+            Cache-Control:
+              description: number of seconds to wait before polling again.
+              schema:
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "201":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Completed
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource once the status of process
+                run is Complete.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns the status of asynchronous process scheduled for given
+        id.
+      tags:
+      - BlockAsync
+  /hotels/{hotelId}/blocks/{blockId}/shift:
+    post:
+      description: Use this API to move or shift the dates of a block in OPERA. <p><strong>OperationId:</strong>startShiftBlockProcess</p>
+      operationId: startShiftBlockProcess
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/blockToShift'
+        description: Request object to shift business block starting date.
+        required: true
+      responses:
+        "202":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/links'
+          description: HATEOAS links which help the consumer to navigate to resources
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of process status resource
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: Shifts the Block start date.
+      tags:
+      - BlockAsync
+      x-interaction:
+      - async-polling
+      x-codegen-request-body-name: blockToShift
+  /hotels/{hotelId}/blocks/{blockId}/shift/{requestId}:
+    get:
+      description: This API will fetch shift Block warnings and errors to be returned
+        as part of the response. <p><strong>OperationId:</strong>getShiftBlockProcessInfo</p>
+      operationId: getShiftBlockProcessInfo
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/processDetails'
+          description: Callback request object for fetched shift block process information.
+          headers:
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "204":
+          content: {}
+          description: Shift Block information not found.
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns information about the shift block process.
+      tags:
+      - BlockAsync
+    head:
+      description: ' <p><strong>OperationId:</strong>getShiftBlockProcessStatus</p>'
+      operationId: getShiftBlockProcessStatus
+      parameters:
+      - in: path
+        name: hotelId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Unique OPERA Block ID which is used to find a Block from OPERA.
+          This ID is a primary identification of a Block in OPERA.
+        in: path
+        name: blockId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - in: path
+        name: requestId
+        required: true
+        schema:
+          maxLength: 2000
+          minLength: 1
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner's Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      - description: Mandatory parameter to identify the hotel code where the end
+          user is logged in
+        in: header
+        name: x-hotelid
+        required: true
+        schema:
+          type: string
+      - description: Language code
+        in: header
+        name: Accept-Language
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Processing
+                - Invalid
+                type: string
+            Cache-Control:
+              description: number of seconds to wait before polling again.
+              schema:
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+        "201":
+          content: {}
+          description: Response for status of scheduled asynchronous process.
+          headers:
+            Status:
+              description: Status of the requested process.
+              schema:
+                enum:
+                - Completed
+                type: string
+            Content-Language:
+              description: Audience language
+              schema:
+                pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+                type: string
+            Location:
+              description: Location of newly created resource once the status of process
+                run is Complete.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "404":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: Resource not found
+        "405":
+          content: {}
+          description: Method not allowed
+        "406":
+          content: {}
+          description: Not acceptable.
+        "413":
+          content: {}
+          description: Request Entity Too Large
+        "414":
+          content: {}
+          description: Request URI Too Large
+        "415":
+          content: {}
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/exceptionDetailType'
+          description: System Error
+        "502":
+          content: {}
+          description: Bad Gateway
+        "503":
+          content: {}
+          description: Service Unavailable
+      summary: This API returns the status of asynchronous process scheduled for given
+        id.
+      tags:
+      - BlockAsync
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner's Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+    x-hotelid:
+      description: Mandatory parameter to identify the hotel code where the end user
+        is logged in
+      in: header
+      name: x-hotelid
+      required: true
+      schema:
+        type: string
+    Accept-Language:
+      description: Language code
+      in: header
+      name: Accept-Language
+      schema:
+        type: string
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Bad Request
+    "401":
+      content: {}
+      description: Unauthorized
+    "403":
+      content: {}
+      description: Forbidden
+    "404":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: Resource not found
+    "405":
+      content: {}
+      description: Method not allowed
+    "406":
+      content: {}
+      description: Not acceptable.
+    "413":
+      content: {}
+      description: Request Entity Too Large
+    "414":
+      content: {}
+      description: Request URI Too Large
+    "415":
+      content: {}
+      description: Unsupported Media Type
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exceptionDetailType'
+      description: System Error
+    "502":
+      content: {}
+      description: Bad Gateway
+    "503":
+      content: {}
+      description: Service Unavailable
+  schemas:
+    exceptionDetailType:
+      description: Complex type that contains error details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+        o:errorDetails:
+          description: "Details of the error message, consisting of a hierarchical\
+            \ tree structure."
+          items:
+            $ref: '#/components/schemas/errorInstance'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+      title: Error Detail
+      type: object
+    errorInstance:
+      description: Complex type that contains error instance details for a REST call.
+      properties:
+        type:
+          description: "Absolute URI [RFC3986] that identifies the problem type. \
+            \ When dereferenced, it SHOULD provide a human-readable summary of the\
+            \ problem (for example, using HTML)."
+          type: string
+        title:
+          description: "Short, human-readable summary of the problem.  The summary\
+            \ SHOULD NOT change for subsequent occurrences of the problem, except\
+            \ for purposes of localization."
+          type: string
+        status:
+          description: "HTTP status code for this occurrence of the problem, set by\
+            \ the origin server."
+          type: integer
+        detail:
+          description: Human-readable description specific to this occurrence of the
+            problem.
+          type: string
+        instance:
+          description: Absolute URI that identifies the specific occurrence of the
+            problem.  It may or may not provide additional information if dereferenced.
+          type: string
+        o:errorCode:
+          description: "Application error code, which is different from HTTP error\
+            \ code."
+          type: string
+        o:errorPath:
+          description: Path to the problem at the resource or property level.
+          type: string
+      title: Error Instance Details
+      type: object
+    instanceLink:
+      description: Metadata describing link description objects that MAY appear in
+        the JSON instance representation.
+      properties:
+        href:
+          description: "URI [RFC3986] or URI Template [RFC6570]. If the value is set\
+            \ to URI Template, then the \"templated\" property must be set to true."
+          type: string
+        rel:
+          description: "Name of the link relation that, in addition to the type property,\
+            \ can be used to retrieve link details. For example, href or profile."
+          type: string
+        templated:
+          default: false
+          description: "Boolean flag that specifies that \"href\" property is a URI\
+            \ or URI Template. If the property is a URI template, set this value to\
+            \ true. By default, this value is false."
+          type: boolean
+        method:
+          description: HTTP method for requesting the target of the link.
+          enum:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+          - HEAD
+          type: string
+        targetSchema:
+          description: "Link to the metadata of the resource, such as JSON-schema,\
+            \ that describes the resource expected when dereferencing the target resource.."
+          type: string
+        operationId:
+          description: "The operationId of the path you can call to follow this link.\
+            \  This allows you to look up not only the path and method, but the description\
+            \ of that path and any parameters you need to supply."
+          type: string
+        title:
+          description: Exact copy of the "summary" field on the linked operation.
+          type: string
+      type: object
+    links:
+      items:
+        $ref: '#/components/schemas/instanceLink'
+      type: array
+    warningType:
+      description: Used when a message has been successfully processed to report any
+        warnings or business errors that occurred.
+      properties:
+        value:
+          description: Property Value
+          type: string
+        shortText:
+          description: An abbreviated version of the error in textual format.
+          maxLength: 2000
+          type: string
+        code:
+          description: "If present, this refers to a table of coded values exchanged\
+            \ between applications to identify errors or warnings."
+          maxLength: 20
+          minLength: 0
+          type: string
+        docURL:
+          description: "If present, this URL refers to an online description of the\
+            \ error that occurred."
+          maxLength: 2000
+          type: string
+        status:
+          description: "If present, recommended values are those enumerated in the\
+            \ ErrorRS, (NotProcessed Incomplete Complete Unknown) however, the data\
+            \ type is designated as string data, recognizing that trading partners\
+            \ may identify additional status conditions not included in the enumeration."
+          maxLength: 2000
+          type: string
+        tag:
+          description: "If present, this attribute may identify an unknown or misspelled\
+            \ tag that caused an error in processing. It is recommended that the Tag\
+            \ attribute use XPath notation to identify the location of a tag in the\
+            \ event that more than one tag of the same name is present in the document.\
+            \ Alternatively, the tag name alone can be used to identify missing data\
+            \ [Type=ReqFieldMissing]."
+          maxLength: 2000
+          type: string
+        recordId:
+          description: "If present, this attribute allows for batch processing and\
+            \ the identification of the record that failed amongst a group of records.\
+            \ This value may contain a concatenation of a unique failed transaction\
+            \ ID with specific record(s) associated with that transaction."
+          maxLength: 2000
+          type: string
+        type:
+          description: The Warning element MUST contain the Type attribute that uses
+            a recommended set of values to indicate the warning type. The validating
+            XSD can expect to accept values that it has NOT been explicitly coded
+            for and process them by using Type ="Unknown".
+          maxLength: 20
+          minLength: 0
+          type: string
+        language:
+          description: Language identification.
+          pattern: "[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*"
+          type: string
+        rph:
+          description: Reference Place Holder used as an index for this warning.
+          maxLength: 8
+          minLength: 1
+          type: string
+      type: object
+    warningsType:
+      description: Used in conjunction with the Success element to define a business
+        error.
+      items:
+        $ref: '#/components/schemas/warningType'
+      maxItems: 100
+      type: array
+    blockAllocationSummaryType:
+      properties:
+        blockId:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          type: number
+        blockCode:
+          description: Defined block code for the block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        blockName:
+          description: Name of the block.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        masterBlockId:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          type: number
+        status:
+          description: Booking Status of the block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        marketCode:
+          description: Market Code of the block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        cutOffDate:
+          format: date-time
+          type: string
+        cutOffDays:
+          type: integer
+        cancellationDate:
+          description: Cancellation Date.
+          format: date-time
+          type: string
+        cancellationCode:
+          description: Code that idenfies the reason for cancellation.
+          maxLength: 20
+          minLength: 0
+          type: string
+        cancellationDescription:
+          description: Description that explains the reason for cancellation.
+          maxLength: 2000
+          minLength: 0
+          type: string
+        cateringOwner:
+          description: Catering Owner
+          type: integer
+        cateringOwnerCode:
+          description: Primary Catering Owner Code
+          maxLength: 10
+          minLength: 0
+          type: string
+        cateringOwnerResort:
+          description: Property of Catering Owner
+          maxLength: 20
+          minLength: 0
+          type: string
+        owner:
+          description: Owner ID
+          type: integer
+        ownerCode:
+          description: Block Owner Code
+          maxLength: 10
+          minLength: 0
+          type: string
+        ownerResort:
+          description: Property of Business Block Owner
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomsOwner:
+          description: Rooms Owner
+          type: integer
+        roomsOwnerCode:
+          description: Primary Rooms Owner Code
+          maxLength: 10
+          minLength: 0
+          type: string
+        roomsOwnerResort:
+          description: Property of Rooms Owner
+          maxLength: 20
+          minLength: 0
+          type: string
+        createDateTime:
+          description: The business date the block was created.
+          format: date-time
+          type: string
+        blockType:
+          description: "Indicates the internal type of the block like G, etc."
+          maxLength: 1
+          minLength: 0
+          type: string
+        reservationMethod:
+          description: Booking Method.
+          maxLength: 20
+          minLength: 0
+          type: string
+        ratePlanCode:
+          description: Rate code associated with Block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        lastModifiedDate:
+          description: Date Time when the block was modified last.
+          format: date-time
+          type: string
+        sourceCode:
+          description: Source of the Block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        allocationDates:
+          items:
+            $ref: '#/components/schemas/roomAllocationDateType'
+          maxItems: 4000
+          type: array
+        bookingMedium:
+          description: Booking Medium/Origin Code of the Block.
+          maxLength: 20
+          minLength: 0
+          type: string
+        blockProfiles:
+          $ref: '#/components/schemas/blockAllocationSummaryType_blockProfiles'
+      type: object
+    blockProfilesType:
+      description: A collection of Profile objects or Unique IDs of Profiles.
+      properties:
+        profileIdList:
+          description: Unique Id that references an object uniquely in the system.
+          items:
+            $ref: '#/components/schemas/uniqueID_Type'
+          maxItems: 4000
+          type: array
+        profile:
+          $ref: '#/components/schemas/profileType'
+        blockProfileType:
+          $ref: '#/components/schemas/blockProfileTypeType'
+      type: object
+    uniqueIDListType:
+      description: Unique Id that references an object uniquely in the system.
+      items:
+        $ref: '#/components/schemas/uniqueID_Type'
+      maxItems: 4000
+      type: array
+    uniqueID_Type:
+      description: An identifier used to uniquely reference an object in a system.
+      properties:
+        id:
+          description: A unique identifying value assigned by the creating system.
+          maxLength: 80
+          minLength: 0
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    profileType:
+      description: Type provides the detailed information about the profile and its
+        children.
+      properties:
+        customer:
+          $ref: '#/components/schemas/customerType'
+        company:
+          $ref: '#/components/schemas/companyType'
+        profileType:
+          $ref: '#/components/schemas/profileTypeType'
+      type: object
+    customerType:
+      description: Contains basic data on the customer's identity.
+      properties:
+        personName:
+          description: Detailed name information for thecustomer.
+          items:
+            $ref: '#/components/schemas/personNameType'
+          maxItems: 5
+          type: array
+      type: object
+    profileTypeType:
+      description: The types of Profile handled by the web service.
+      enum:
+      - Guest
+      - Agent
+      - Company
+      - Group
+      - Source
+      - Employee
+      - Hotel
+      - Vendor
+      - Contact
+      - Purge
+      - BusinessHeader
+      - BillingAccount
+      - Activity
+      - Potential
+      - Account
+      type: string
+    personNameType:
+      description: This provides name information for a person.
+      properties:
+        givenName:
+          description: "Given name, first name or names."
+          maxLength: 40
+          minLength: 0
+          type: string
+        surname:
+          description: "Family name, last name."
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    companyType:
+      properties:
+        companyName:
+          description: Name of the company.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    blockProfileTypeType:
+      description: Simple type for block profile types.
+      enum:
+      - Company
+      - Group
+      - Agent
+      - Source
+      - CompanyContact
+      - AgentContact
+      - SourceContact
+      type: string
+    roomAllocationDateType:
+      properties:
+        allocationDate:
+          description: The block date for which the allocation details are listed.
+          format: date-time
+          type: string
+        allocations:
+          items:
+            $ref: '#/components/schemas/roomAllocationDetailsType'
+          maxItems: 4000
+          type: array
+      type: object
+    roomAllocationDetailsType:
+      properties:
+        originalRooms:
+          description: The total original( forecasted ) rooms for the block.
+          type: integer
+        roomType:
+          description: The room type for which the allocation details are listed.
+          maxLength: 20
+          minLength: 0
+          type: string
+        currentRooms:
+          description: The total current( projected + pickup ) rooms for the block.
+          type: integer
+        pickupRooms:
+          description: The total pickup rooms for the block.
+          type: integer
+        inventory:
+          $ref: '#/components/schemas/blockGridInvType'
+        rates:
+          $ref: '#/components/schemas/blockGridRatesType'
+        actualRevenue:
+          $ref: '#/components/schemas/blockActualRevenueType'
+        potentialRevenue:
+          $ref: '#/components/schemas/blockPotenitalRevenueType'
+      type: object
+    blockGridInvType:
+      description: Indicates the inventory values ( occupancy or availability ) per
+        person occupancy.
+      properties:
+        onePerson:
+          description: Indicates the one person inventory value ( occupancy or availability
+            ).
+          type: integer
+        twoPerson:
+          description: Indicates the two person inventory value ( occupancy or availability
+            ).
+          type: integer
+        threePerson:
+          description: Indicates the three person inventory value ( occupancy or availability
+            ).
+          type: integer
+        fourPerson:
+          description: Indicates the four person inventory value ( occupancy or availability
+            ).
+          type: integer
+        sellLimit:
+          description: Indicates the sell limit
+          type: integer
+        cutoffDate:
+          description: Indicates the cutoff date.Date when inventory left in the block
+            will be cut-off.
+          format: date
+          type: string
+      type: object
+    blockActualRevenueType:
+      description: "Indicates the sum of revenue breakup per room type per block per\
+        \ allocation date for the reservations. Applicable for past dates, business\
+        \ date or future dates."
+      properties:
+        roomRevenue:
+          description: Indicates room revenue amount.
+          type: number
+        foodRevenue:
+          description: Indicates food revenue amount.
+          type: number
+        otherRevenue:
+          description: Indicates other revenue amount.
+          type: number
+        nonRevenue:
+          description: Indicates non revenue amount.
+          type: number
+        totalRevenue:
+          description: Indicates total revenue amount.
+          type: number
+        roomRevenueTax:
+          description: Indicates room revenue tax amount.
+          type: number
+        foodRevenueTax:
+          description: Indicates food revenue tax amount.
+          type: number
+        otherRevenueTax:
+          description: Indicates other revenue tax amount.
+          type: number
+        nonRevenueTax:
+          description: Indicates non revenue tax amount.
+          type: number
+        totalRevenueTax:
+          description: Indicates total revenue tax amount.
+          type: number
+        currency:
+          description: Currency code to reflect the currency in which an amount may
+            be expressed.
+          type: string
+      type: object
+    blockPotenitalRevenueType:
+      description: Indicates the sum of revenue breakup per room type per block per
+        allocation date for the reservations. Applicable for business date or future
+        dates.
+      properties:
+        roomRevenue:
+          description: Indicates room revenue amount.
+          type: number
+        foodRevenue:
+          description: Indicates food revenue amount.
+          type: number
+        otherRevenue:
+          description: Indicates other revenue amount.
+          type: number
+        nonRevenue:
+          description: Indicates non revenue amount.
+          type: number
+        totalRevenue:
+          description: Indicates total revenue amount.
+          type: number
+        roomRevenueTax:
+          description: Indicates room revenue tax amount.
+          type: number
+        foodRevenueTax:
+          description: Indicates food revenue tax amount.
+          type: number
+        otherRevenueTax:
+          description: Indicates other revenue tax amount.
+          type: number
+        nonRevenueTax:
+          description: Indicates non revenue tax amount.
+          type: number
+        totalRevenueTax:
+          description: Indicates total revenue tax amount.
+          type: number
+        currency:
+          description: Currency code to reflect the currency in which an amount may
+            be expressed.
+          type: string
+      type: object
+    blockGridRatesType:
+      description: Indicates the rate amount values per person occupancy.
+      properties:
+        onePerson:
+          description: Indicates the one person occupancy rate amount.
+          type: number
+        twoPerson:
+          description: Indicates the two person occupancy rate amount.
+          type: number
+        threePerson:
+          description: Indicates the three person occupancy rate amount.
+          type: number
+        fourPerson:
+          description: Indicates the four person occupancy rate amount.
+          type: number
+        extraPerson:
+          description: Indicates the extra person occupancy rate amount.
+          type: number
+      type: object
+    criteria:
+      description: Request object for fetching block allocation summary asynchronously.
+      properties:
+        startDate:
+          format: date
+          type: string
+        endDate:
+          format: date
+          type: string
+        occupancyDate:
+          format: date
+          type: string
+        startLastModifiedDate:
+          format: date-time
+          type: string
+        endLastModifiedDate:
+          format: date-time
+          type: string
+      type: object
+    blockAllocationSummary:
+      description: Response object for fetched block allocation summary.
+      items:
+        $ref: '#/components/schemas/blockAllocationSummaryType'
+      maxItems: 4000
+      type: array
+    blockId:
+      description: "An identifier used to uniquely reference an object in a system\
+        \ (e.g. an airline reservation reference, customer profile reference, booking\
+        \ confirmation number, or a reference to a previous availability quote)."
+      properties:
+        url:
+          description: URL that identifies the location associated with the record
+            identified by the UniqueID.
+          type: string
+        type:
+          description: A reference to the type of object defined by the UniqueID element.
+          maxLength: 20
+          minLength: 0
+          type: string
+        instance:
+          description: The identification of a record as it exists at a point in time.
+            An instance is used in update messages where the sender must assure the
+            server that the update sent refers to the most recent modification level
+            of the object being updated.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idContext:
+          description: "Used to identify the source of the identifier (e.g., IATA,\
+            \ ABTA)."
+          maxLength: 80
+          minLength: 0
+          type: string
+        id:
+          description: A unique identifying value assigned by the creating system.
+            The ID attribute may be used to reference a primary-key value within a
+            database or in a particular implementation.
+          maxLength: 80
+          minLength: 0
+          type: string
+        idExtension:
+          description: Additional identifying value assigned by the creating system.
+          type: integer
+      type: object
+    setBlockGridInvType:
+      description: Indicates the inventory values (occupancy or availability) per
+        person occupancy.
+      properties:
+        onePerson:
+          description: Indicates the one person inventory value (occupancy or availability).
+          type: integer
+        twoPerson:
+          description: Indicates the two person inventory value (occupancy or availability).
+          type: integer
+        threePerson:
+          description: Indicates the three person inventory value (occupancy or availability).
+          type: integer
+        fourPerson:
+          description: Indicates the four person inventory value (occupancy or availability).
+          type: integer
+        sellLimit:
+          description: Indicates the sell limit
+          type: integer
+        cutoffDate:
+          description: Indicates the cutoff date.Date when inventory left in the block
+            will be cut-off.
+          format: date
+          type: string
+        forceOverbook:
+          description: Indicates whether to overbook the rooms in case there are not
+            enough rooms at the house or room type level.
+          type: boolean
+      type: object
+    allocationGridByDateRangeType:
+      description: Indicates the block allocations for a date range. This can be rooms
+        or rate amounts.
+      properties:
+        inventory:
+          $ref: '#/components/schemas/setBlockGridInvType'
+        rate:
+          $ref: '#/components/schemas/blockGridRatesType'
+        start:
+          description: The starting value of the date range.
+          format: date
+          type: string
+        end:
+          description: The ending value of the date range.
+          format: date
+          type: string
+        sunday:
+          type: boolean
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+      type: object
+    allocationGridByDateRangesType:
+      description: "A collection of Allocation objects for a block, such as Current\
+        \ Rooms, Original Rooms, Rate Amounts, etc."
+      properties:
+        roomAllocationInfo:
+          description: Allocation objects for a block.
+          items:
+            $ref: '#/components/schemas/allocationGridByDateRangeType'
+          maxItems: 100
+          type: array
+        allocation:
+          description: Indicates the type of the Allocation objects.
+          maxLength: 40
+          minLength: 0
+          type: string
+      type: object
+    sellLimitGridByDateRangeType:
+      description: Indicates the sell limits for a date range. This will be rooms.
+      properties:
+        start:
+          description: The starting value of the date range.
+          format: date
+          type: string
+        end:
+          description: The ending value of the date range.
+          format: date
+          type: string
+        sunday:
+          type: boolean
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+        sellLimit:
+          description: Indicates the sell limit for the date range.
+          type: integer
+      type: object
+    allocationGridByRoomTypeType:
+      description: A collection of Allocation objects for a block defined by room
+        type.
+      properties:
+        allocationGridDates:
+          description: Allocation objects for a block by date ranges.
+          items:
+            $ref: '#/components/schemas/allocationGridByDateRangesType'
+          maxItems: 100
+          type: array
+        sellLimitGridDates:
+          description: Sell limits for a block by date ranges.
+          items:
+            $ref: '#/components/schemas/sellLimitGridByDateRangeType'
+          maxItems: 100
+          type: array
+        roomType:
+          description: Indicates the room type of the Allocation objects.
+          maxLength: 20
+          minLength: 0
+          type: string
+      type: object
+    allocationGridByRoomTypesType:
+      description: A collection of Allocation objects for a block defined by room
+        type.
+      properties:
+        hotelId:
+          description: Opera Hotel code for the Set Allocation Grid request.
+          maxLength: 20
+          minLength: 0
+          type: string
+        blockId:
+          $ref: '#/components/schemas/blockId'
+        allocationRoomTypes:
+          description: Allocation objects of a block grouped by room types.
+          items:
+            $ref: '#/components/schemas/allocationGridByRoomTypeType'
+          maxItems: 100
+          type: array
+        genericRoomType:
+          description: Indicates if the Allocation objects refer to Generic Room Types
+            (Room Pools).
+          type: boolean
+      type: object
+    allocation:
+      description: A Request message that sets the room allocations as a collection
+        of room types and dates.
+      properties:
+        criteria:
+          $ref: '#/components/schemas/allocationGridByRoomTypesType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 100
+          type: array
+      type: object
+    statusType:
+      description: Status of the process.
+      enum:
+      - Success
+      - Error
+      - Running
+      - Stopped
+      - Warning
+      - Failed
+      - Started
+      - CompletedWithLogs
+      type: string
+    codeDescriptionType:
+      description: This contains a generic code and description information.
+      properties:
+        code:
+          description: Code.
+          maxLength: 20
+          minLength: 0
+          type: string
+        description:
+          description: description.
+          maxLength: 2000
+          minLength: 0
+          type: string
+      type: object
+    cateringEventsProcessedInfoType:
+      description: Status/Info of the processed events.
+      properties:
+        hotelId:
+          description: Hotel code where event will be copied.
+          maxLength: 20
+          minLength: 0
+          type: string
+        blockId:
+          $ref: '#/components/schemas/blockId'
+        eventName:
+          description: Name of event.
+          maxLength: 60
+          minLength: 0
+          type: string
+        eventType:
+          description: Type of event.
+          maxLength: 20
+          minLength: 0
+          type: string
+        eventDate:
+          description: Date of the event
+          format: date
+          type: string
+        room:
+          $ref: '#/components/schemas/codeDescriptionType'
+        status:
+          description: "Status of the processed event. e.g Completed, Not Processed."
+          type: string
+        reason:
+          description: Reason for not processing the event.
+          type: string
+        processingInfoType:
+          description: Flag to indicate the warning messages from the API
+          type: string
+        processingInfoCode:
+          description: Erorr/Warning code for not processing th event.
+          maxLength: 200
+          minLength: 0
+          type: string
+      type: object
+    cateringEventsProcessedInfoList:
+      description: Status/Info of the processed events.
+      items:
+        $ref: '#/components/schemas/cateringEventsProcessedInfoType'
+      maxItems: 4000
+      type: array
+    processDetails:
+      description: Response object to hold the details of process.
+      properties:
+        status:
+          $ref: '#/components/schemas/statusType'
+        cateringEventsProcessedInfo:
+          description: Status/Info of the processed events.
+          items:
+            $ref: '#/components/schemas/cateringEventsProcessedInfoType'
+          maxItems: 4000
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 100
+          type: array
+      type: object
+    allocationType:
+      description: Simple type for block allocation used in room rate grid.
+      enum:
+      - Initial
+      - Actual
+      - Rates
+      - Pickup
+      - Contract
+      - Available
+      - Pickupperc
+      - Changes
+      - Released
+      - Houseavailability
+      - SellLimit
+      - AvailableSellLimit
+      - MasterAllocInitial
+      - Allocated
+      - SubAllocResv
+      - CutoffDate
+      - ForecastRooms
+      - ForecastRates
+      type: string
+    blockRangeModeType:
+      description: Enumerates range operation modes.
+      enum:
+      - Core
+      - ShoulderStart
+      - ShoulderEnd
+      type: string
+    blockAllocationRangeType:
+      description: Container for information related to block allocation range update
+        operation
+      properties:
+        blockId:
+          $ref: '#/components/schemas/blockId'
+        hotelId:
+          maxLength: 20
+          minLength: 0
+          type: string
+        roomTypes:
+          description: List of room types for which the range update has to be applied.
+          items:
+            maxLength: 20
+            minLength: 0
+            type: string
+          maxItems: 4000
+          type: array
+        beginDate:
+          description: Begin date for range update operation.
+          format: date
+          type: string
+        endDate:
+          description: End date for range update operation.
+          format: date
+          type: string
+        allocationType:
+          $ref: '#/components/schemas/allocationType'
+        incrementFlag:
+          description: Flag to indicate if the occupancy data is absolute or relative
+            to the current value.
+          type: boolean
+        blockInventory:
+          $ref: '#/components/schemas/blockGridInvType'
+        blockRates:
+          $ref: '#/components/schemas/blockGridRatesType'
+        cutoffDate:
+          description: Date after which unused block rooms should be returned to house.
+          format: date
+          type: string
+        cutoffDays:
+          description: Number of days from block start date after which unused block
+            rooms should be returned to house.
+          type: integer
+        overrideCutoffSchedule:
+          description: "A true value indicates that the cutoff schedule, if added\
+            \ to Business Block, can be overridden."
+          type: boolean
+        includedDays:
+          maxLength: 8
+          minLength: 0
+          type: string
+        rangeMode:
+          $ref: '#/components/schemas/blockRangeModeType'
+        overbookList:
+          description: Date which has to be overbooked or excluded.
+          items:
+            $ref: '#/components/schemas/blockAllocationRangeType_overbookList_inner'
+          maxItems: 4000
+          type: array
+        genericRoomType:
+          description: Indicates if the Allocation objects refer to Generic Room Types
+            (Room Pools).
+          type: boolean
+      type: object
+    blockAllocationRanges:
+      description: Collection of block allocation ranges.
+      properties:
+        blockAllocationRanges:
+          description: Collection of Range information for the block allocation ranges
+            operation.
+          items:
+            $ref: '#/components/schemas/blockAllocationRangeType'
+          maxItems: 20
+          type: array
+      type: object
+    allocationRanges:
+      description: Request for setting block allocation for ranges of dates for a
+        list of room types.
+      properties:
+        allocationRanges:
+          $ref: '#/components/schemas/blockAllocationRanges'
+        genericRoomType:
+          description: Indicates if the Allocation objects refer to Generic Room Types
+            (Room Pools).
+          type: boolean
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 100
+          type: array
+      type: object
+    shiftBlockCriteriaType:
+      properties:
+        newStartDate:
+          description: New start date of the business block.
+          format: date
+          type: string
+        removeAlternateDates:
+          description: "When true, this will remove alternate dates for this block\
+            \ before shifting dates."
+          type: boolean
+        validateAlternateDates:
+          description: "When true, this will validate alternate dates for this block\
+            \ before shifting dates."
+          type: boolean
+        overbookAll:
+          description: "When true, this will overbook allocated rooms if needed."
+          type: boolean
+        validatePreAllocatedRooms:
+          description: "When true, this will validate if there are rooms pre-allocated\
+            \ before shifting the block dates."
+          type: boolean
+        validateTraces:
+          description: "When true, this will validate if there are active traces before\
+            \ shifting the block dates."
+          type: boolean
+        overrideEventsProcessingWarnings:
+          description: Indicates whether to ignore any warning during applying the
+            changes to the events associated with the current block.
+          type: boolean
+      type: object
+    blockToShift:
+      description: Request object to shift business block starting date.
+      properties:
+        criteria:
+          $ref: '#/components/schemas/shiftBlockCriteriaType'
+        links:
+          items:
+            $ref: '#/components/schemas/instanceLink'
+          type: array
+        warnings:
+          description: Used in conjunction with the Success element to define a business
+            error.
+          items:
+            $ref: '#/components/schemas/warningType'
+          maxItems: 100
+          type: array
+      type: object
+    blockAllocationSummaryType_blockProfiles:
+      description: A collection of all the Primary Profiles associated to a this block.
+      properties:
+        blockProfile:
+          description: The list of primary profiles associated with the block.
+          items:
+            $ref: '#/components/schemas/blockProfilesType'
+          maxItems: 4000
+          type: array
+      type: object
+    blockAllocationRangeType_overbookList_inner:
+      properties:
+        stayDate:
+          description: Date which has to be overbooked or excluded.
+          format: date
+          type: string
+        roomType:
+          description: Room type that has to be overbooked or excluded.
+          maxLength: 20
+          minLength: 0
+          type: string
+        overbook:
+          description: A true value indicates that the date/room type should be overbooked
+            for inventory. A false value indicates that this combination should be
+            excluded from range.
+          type: boolean
+      type: object
+x-original-swagger-version: "2.0"
