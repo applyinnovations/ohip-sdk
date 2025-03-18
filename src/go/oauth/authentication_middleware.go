@@ -22,10 +22,20 @@ type OhipCredential struct {
 	Password string
 }
 
+type GrantTypeEnum string
+
+const (
+	GrantTypePassword          GrantTypeEnum = "password"
+	GrantTypeClientCredentials GrantTypeEnum = "client_credentials"
+)
+
 type NewOhipCredentialsProviderParams struct {
-	Host        string
-	AppKey      string
-	Credentials []OhipCredential
+	Host         string
+	AppKey       string
+	Credentials  []OhipCredential
+	GrantType    GrantTypeEnum
+	Scope        *string
+	EnterpriseId *string
 }
 
 type OhipCredentialsProvider struct {
@@ -34,6 +44,9 @@ type OhipCredentialsProvider struct {
 	credentials    []OhipCredential
 	appKey         string
 	accessToken    string
+	grantType      GrantTypeEnum
+	scope          *string
+	enterpriseId   *string
 }
 
 func NewOhipCredentialsProvider(params NewOhipCredentialsProviderParams) *OhipCredentialsProvider {
@@ -42,11 +55,25 @@ func NewOhipCredentialsProvider(params NewOhipCredentialsProviderParams) *OhipCr
 	configuration.Scheme = "https"
 	apiClient := NewAPIClient(configuration)
 
+	if params.GrantType == GrantTypeClientCredentials {
+		if params.EnterpriseId == nil {
+			fmt.Println("GrantTypeClientCredentials requires enterpriseId")
+			return nil
+		}
+		if params.Scope == nil {
+			fmt.Println("GrantTypeClientCredentials requires enterpriseId")
+			return nil
+		}
+	}
+
 	return &OhipCredentialsProvider{
 		authenticating: &TimeoutMutex{},
 		ohip:           apiClient.AuthenticationAPI,
+		grantType:      params.GrantType,
 		credentials:    params.Credentials,
 		appKey:         params.AppKey,
+		enterpriseId:   params.EnterpriseId,
+		scope:          params.Scope,
 	}
 }
 
@@ -130,12 +157,20 @@ func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (string, error) {
 	ctx := context.Background()
 
-	resp, _, err := c.ohip.
+	client := c.ohip.
 		GetToken(ctx).
 		XAppKey(c.appKey).
-		GrantType("password").
 		Username(credential.Username).
 		Password(credential.Password).
+		GrantType(string(c.grantType))
+
+	if c.grantType == GrantTypeClientCredentials {
+		client = client.
+			EnterpriseId(*c.enterpriseId).
+			Scope(*c.scope)
+	}
+
+	resp, _, err := client.
 		Execute()
 
 	if err == nil && resp.GetAccessToken() == "" {

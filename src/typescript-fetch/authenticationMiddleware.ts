@@ -9,6 +9,11 @@ type OhipCredential = {
   password: string;
 };
 
+export enum GrantTypeEnum {
+  password = 'password',
+  client_credentials = 'client_credentials',
+}
+
 interface OhipJWT {
   exp: number;
 }
@@ -23,22 +28,31 @@ export class OhipCredentialsProvider {
   ohip: AuthenticationApi;
   appKey: string;
   credentials: OhipCredential[];
+  grantType: GrantTypeEnum;
+  scope?: string;
+  enterpriseId?: string;
   access_token?: string;
   last_working_credential_idx: number = 0;
 
   constructor({
     appKey,
     credentials,
+    enterpriseId,
+    grantType,
     host,
   }: {
     appKey: string;
     host: string;
     credentials: OhipCredential[];
+    grantType: GrantTypeEnum;
+    enterpriseId?: string;
     access_token?: string; // bearer token
     expiry?: number; // epoch seconds
   }) {
     this.authenticating = false;
     this.credentials = credentials;
+    this.enterpriseId = enterpriseId;
+    this.grantType = grantType;
     this.appKey = appKey;
     this.ohip = new AuthenticationApi(new Configuration({ host }));
   }
@@ -70,6 +84,18 @@ export class OhipCredentialsProvider {
     retryCount: number;
     start?: number;
   }) {
+    if (this.grantType === GrantTypeEnum.client_credentials) {
+      if (!this.enterpriseId) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires enterpriseId`,
+        );
+      }
+      if (!this.scope) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires scopes`,
+        );
+      }
+    }
     this.authenticating = true;
     try {
       // contact ohip for new credentials
@@ -87,8 +113,14 @@ export class OhipCredentialsProvider {
       try {
         const res = await this.ohip.getToken({
           xAppKey: this.appKey,
-          grantType: 'password',
-          ...credentials,
+          grantType: this.grantType,
+          ...(this.grantType === GrantTypeEnum.client_credentials && {
+            enterpriseId: this.enterpriseId,
+            scope: this.scope,
+          }),
+          ...(
+            this.grantType === GrantTypeEnum.password && credentials
+          )
         });
         if (res.accessToken
           && res.expiresIn
