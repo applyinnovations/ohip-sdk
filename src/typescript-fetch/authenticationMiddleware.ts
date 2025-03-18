@@ -37,8 +37,9 @@ export class OhipCredentialsProvider {
   constructor({
     appKey,
     credentials,
-    enterpriseId,
     grantType,
+    enterpriseId,
+    scope,
     host,
   }: {
     appKey: string;
@@ -46,13 +47,15 @@ export class OhipCredentialsProvider {
     credentials: OhipCredential[];
     grantType: GrantTypeEnum;
     enterpriseId?: string;
+    scope?: string;
     access_token?: string; // bearer token
     expiry?: number; // epoch seconds
   }) {
     this.authenticating = false;
     this.credentials = credentials;
-    this.enterpriseId = enterpriseId;
     this.grantType = grantType;
+    this.enterpriseId = enterpriseId;
+    this.scope = scope;
     this.appKey = appKey;
     this.ohip = new AuthenticationApi(new Configuration({ host }));
   }

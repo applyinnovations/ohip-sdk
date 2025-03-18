@@ -16,7 +16,7 @@ jobs:
     env:
       HOSPITALITY_API_DOCS_DIR: hospitality-api-docs
       HOSPITALITY_API_DOCS_BRANCH: property_24.4.0.0-applyinnovations_patch
-      SDK_VERSION: 1.0.10-rc000
+      SDK_VERSION: 1.0.10-rc001
 
     steps:
       - name: Checkout
