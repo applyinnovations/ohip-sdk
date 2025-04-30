@@ -34,7 +34,7 @@ export class OhipCredentialsProvider {
   scope?: string;
   enterpriseId?: string;
   access_token?: string;
-  last_working_credential_idx: number = 0;
+  last_working_credential_idx?: number = 0;
 
   constructor({
     appKey,
@@ -48,7 +48,7 @@ export class OhipCredentialsProvider {
   }: {
     appKey: string;
     host: string;
-    credentials: OhipCredential[];
+    credentials?: OhipCredential[];
     grantType: GrantTypeEnum;
     clientId?: string;
     clientSecret?: string;
@@ -58,7 +58,7 @@ export class OhipCredentialsProvider {
     expiry?: number; // epoch seconds
   }) {
     this.authenticating = false;
-    this.credentials = credentials;
+    this.credentials = credentials || [];
     this.grantType = grantType;
     this.enterpriseId = enterpriseId;
     this.clientId = clientId;
@@ -137,8 +137,8 @@ export class OhipCredentialsProvider {
       }
       await delay(retryPeriod);
       // add last working credential index to start trying the last known good credential first
-      const credential_idx = (retryCount + this.last_working_credential_idx) % this.credentials.length;
-      const credentials =
+      const credential_idx = this.credentials.length ? (retryCount + (this.last_working_credential_idx || 0)) % this.credentials.length : undefined;
+      const credentials = credential_idx &&
         this.credentials[credential_idx];
       try {
         const res = await this.ohip.getToken({
