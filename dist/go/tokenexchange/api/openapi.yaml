@@ -1,0 +1,493 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: hospitality_apis_ww_grp@oracle.com
+  description: "Oracle Token Exchange Service Specification<br /><br /> Compatible\
+    \ with OPERA Cloud release 1.0.1.<br /><br /><p> This document and all content\
+    \ within is available under the Universal Permissive License v 1.0 (https://oss.oracle.com/licenses/upl).\
+    \ Copyright (c) 2020, 2024 Oracle and/or its affiliates.</p>"
+  license:
+    name: UPL
+    url: https://opensource.org/licenses/upl
+  termsOfService: https://www.oracle.com/legal/terms.html
+  title: OPI Token Exchange Service API
+  version: 1.0.1
+externalDocs:
+  description: Find out more about Oracle Hospitality
+  url: https://docs.oracle.com/en/industries/hospitality/integration_platforms.html
+servers:
+- url: /tokenExchange/v1
+tags:
+- description: Hotel Endpoints
+  name: Hotels
+paths:
+  /hotels/{hotelCode}/tokens:
+    post:
+      description: Converts Primary Account Number (PAN) into Token issued by Payment
+        Service Providers
+      operationId: openPaymentTokenExchange
+      parameters:
+      - description: OPERA Hotel Code
+        example: Hotel123
+        in: path
+        name: hotelCode
+        required: true
+        schema:
+          type: string
+      - description: Bearer token that needs to be passed which is generated post
+          user authentication
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
+      - description: Client or Partner Application Key
+        in: header
+        name: x-app-key
+        required: true
+        schema:
+          pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/openPaymentTokenExchange_request'
+        description: TokenRequest object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openPaymentTokenExchange_200_response'
+          description: Successful Operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openPaymentTokenExchange_400_response'
+          description: The request received was invalid
+        "401":
+          content: {}
+          description: Client request lacks valid authentication credentials for the
+            requested resource
+        "403":
+          content: {}
+          description: Client request lacks permissions for the requested resource
+        "404":
+          content: {}
+          description: The target resouce was not found
+        "405":
+          content: {}
+          description: Method not allowed for the target resource
+        "406":
+          content: {}
+          description: The Server cannot produce a response matching the values in
+            the request's content headers
+        "415":
+          content: {}
+          description: The server refuses to accept the request because the payload
+            is in an unsupported format
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openPaymentTokenExchange_422_response'
+          description: The server received a decline response from the upstream server
+            it accessed in attempting to complete the request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openPaymentTokenExchange_500_response'
+          description: The server encountered an internal error or misconfiguration
+            and was unable to complete the request
+        "502":
+          content: {}
+          description: The server received an invalid response from the upstream server
+            it accessed in attempting to complete the request
+        "503":
+          content: {}
+          description: The server is not ready to handle the request
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openPaymentTokenExchange_504_response'
+          description: The server did not receive a timely response from an upstream
+            server it needed to access in order to complete the request
+      security:
+      - jwt: []
+      summary: Card Tokenization
+      tags:
+      - Hotels
+      x-codegen-request-body-name: body
+components:
+  parameters:
+    authKey:
+      description: Bearer token that needs to be passed which is generated post user
+        authentication
+      in: header
+      name: authorization
+      required: true
+      schema:
+        type: string
+    x-app-key:
+      description: Client or Partner Application Key
+      in: header
+      name: x-app-key
+      required: true
+      schema:
+        pattern: "^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89aAbB][a-f0-9]{3}-[a-f0-9]{12}$"
+        type: string
+  schemas:
+    CardInfo:
+      description: JSON object containing the card information
+      properties:
+        expiryDate:
+          description: "Expiration Date, YYMM format"
+          example: "2312"
+          pattern: "^[0-9]{2}(0[1-9]|1[0-2])$"
+          type: string
+        pan:
+          description: Primary Account Number (PAN)
+          example: "1111222233334444"
+          pattern: "^[0-9]{8,19}$"
+          type: string
+        recordNumber:
+          description: "Record number, the value must be unique within the collection"
+          example: 1
+          format: int32
+          minimum: 1
+          type: integer
+      required:
+      - expiryDate
+      - pan
+      - recordNumber
+      type: object
+    ProblemDetail:
+      description: Problem Details for HTTP APIs
+      properties:
+        correlationId:
+          description: Unique identifier value that is attached to the request that
+            allows reference to a particular transaction
+          example: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+          type: string
+        detail:
+          description: Detailed error message
+          example: There are validation errors for the object
+          type: string
+        o:errorCode:
+          description: Application specific error code
+          example: OPICS-BAD_REQUEST
+          type: string
+        o:errorDetails:
+          description: Drill down to the details
+          items:
+            $ref: '#/components/schemas/ProblemDetail'
+          type: array
+        o:errorPath:
+          description: JSON path to indicate where the error occurs
+          example: "cards[1]"
+          type: string
+        status:
+          description: HTTP status code
+          example: 400
+          format: int32
+          type: integer
+        title:
+          description: Summary error message
+          example: Bad Request
+          type: string
+        type:
+          description: HTTP error code page
+          example: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+          type: string
+      required:
+      - title
+      - type
+      type: object
+    TokenInfo:
+      description: TokenInfo object
+      properties:
+        cardType:
+          description: OPERA Card Type
+          example: VA
+          type: string
+        expiryDate:
+          description: "Expiration Date, YYMM format"
+          example: "2312"
+          type: string
+        pan:
+          description: Masked Primary Account Number (PAN)
+          example: XXXXXXXXXXXX4444
+          type: string
+        recordNumber:
+          description: Record number
+          example: 1
+          format: int32
+          type: integer
+        token:
+          description: Card Token
+          example: "483204890324827"
+          type: string
+      required:
+      - cardType
+      - expiryDate
+      - pan
+      - recordNumber
+      - token
+      type: object
+    openPaymentTokenExchange_request:
+      description: JSON object containing the card information
+      properties:
+        expiryDate:
+          description: "Expiration Date, YYMM format"
+          example: "2312"
+          pattern: "^[0-9]{2}(0[1-9]|1[0-2])$"
+          type: string
+        pan:
+          description: Primary Account Number (PAN)
+          example: "1111222233334444"
+          pattern: "^[0-9]{8,19}$"
+          type: string
+      required:
+      - expiryDate
+      - pan
+      type: object
+    openPaymentTokenExchange_200_response:
+      description: TokenResponse object
+      properties:
+        cardType:
+          description: OPERA Card Type
+          example: VA
+          type: string
+        expiryDate:
+          description: "Expiration Date, YYMM format"
+          example: "2312"
+          type: string
+        pan:
+          description: Masked Primary Account Number (PAN)
+          example: XXXXXXXXXXXX4444
+          type: string
+        token:
+          description: Card Token
+          example: "483204890324827"
+          type: string
+      required:
+      - cardType
+      - expiryDate
+      - pan
+      - token
+      type: object
+    openPaymentTokenExchange_400_response:
+      description: Problem Details for HTTP APIs
+      example:
+        correlationId: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+        detail: There are validation errors for the object in the request
+        o:errorCode: OPICS-BAD_REQUEST
+        o:errorDetails:
+        - o:errorCode: OPICS-0300
+          o:errorPath: expiryDate
+          title: expiryDate must be in the form of YYMM
+          type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+        status: 400
+        title: Bad Request
+        type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+      properties:
+        correlationId:
+          description: Unique identifier value that is attached to the request that
+            allows reference to a particular transaction
+          example: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+          type: string
+        detail:
+          description: Detailed error message
+          example: There are validation errors for the object
+          type: string
+        o:errorCode:
+          description: Application specific error code
+          example: OPICS-BAD_REQUEST
+          type: string
+        o:errorDetails:
+          description: Drill down to the details
+          items:
+            $ref: '#/components/schemas/ProblemDetail'
+          type: array
+        o:errorPath:
+          description: JSON path to indicate where the error occurs
+          example: "cards[1]"
+          type: string
+        status:
+          description: HTTP status code
+          example: 400
+          format: int32
+          type: integer
+        title:
+          description: Summary error message
+          example: Bad Request
+          type: string
+        type:
+          description: HTTP error code page
+          example: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+          type: string
+      required:
+      - title
+      - type
+      type: object
+    openPaymentTokenExchange_422_response:
+      description: Problem Details for HTTP APIs
+      example:
+        correlationId: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+        detail: "Transaction declined by Payment Service Provider. Decline code: 05\
+          \ - Do Not Honor"
+        o:errorCode: OPICS-0204
+        status: 422
+        title: Unprocessable Entity
+        type: https://webconcepts.info/specs/IETF/RFC/4918
+      properties:
+        correlationId:
+          description: Unique identifier value that is attached to the request that
+            allows reference to a particular transaction
+          example: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+          type: string
+        detail:
+          description: Detailed error message
+          example: There are validation errors for the object
+          type: string
+        o:errorCode:
+          description: Application specific error code
+          example: OPICS-BAD_REQUEST
+          type: string
+        o:errorDetails:
+          description: Drill down to the details
+          items:
+            $ref: '#/components/schemas/ProblemDetail'
+          type: array
+        o:errorPath:
+          description: JSON path to indicate where the error occurs
+          example: "cards[1]"
+          type: string
+        status:
+          description: HTTP status code
+          example: 400
+          format: int32
+          type: integer
+        title:
+          description: Summary error message
+          example: Bad Request
+          type: string
+        type:
+          description: HTTP error code page
+          example: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+          type: string
+      required:
+      - title
+      - type
+      type: object
+    openPaymentTokenExchange_500_response:
+      description: Problem Details for HTTP APIs
+      example:
+        correlationId: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+        detail: The server encountered an internal error or misconfiguration and was
+          unable to complete your request
+        o:errorCode: OPICS-INTERNAL_SERVER_ERROR
+        status: 500
+        title: Internal Server Error
+        type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
+      properties:
+        correlationId:
+          description: Unique identifier value that is attached to the request that
+            allows reference to a particular transaction
+          example: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+          type: string
+        detail:
+          description: Detailed error message
+          example: There are validation errors for the object
+          type: string
+        o:errorCode:
+          description: Application specific error code
+          example: OPICS-BAD_REQUEST
+          type: string
+        o:errorDetails:
+          description: Drill down to the details
+          items:
+            $ref: '#/components/schemas/ProblemDetail'
+          type: array
+        o:errorPath:
+          description: JSON path to indicate where the error occurs
+          example: "cards[1]"
+          type: string
+        status:
+          description: HTTP status code
+          example: 400
+          format: int32
+          type: integer
+        title:
+          description: Summary error message
+          example: Bad Request
+          type: string
+        type:
+          description: HTTP error code page
+          example: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+          type: string
+      required:
+      - title
+      - type
+      type: object
+    openPaymentTokenExchange_504_response:
+      description: Problem Details for HTTP APIs
+      example:
+        correlationId: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+        detail: The server did not receive a timely response from an upstream server
+          it needed to access in order to complete your request
+        o:errorCode: OPICS-0100
+        status: 504
+        title: Gateway Timeout
+        type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.5
+      properties:
+        correlationId:
+          description: Unique identifier value that is attached to the request that
+            allows reference to a particular transaction
+          example: MzdhODNkZmMtNzk5YS00OTYxLTg3YTMtM2ZkYTE4YjJlMzc0
+          type: string
+        detail:
+          description: Detailed error message
+          example: There are validation errors for the object
+          type: string
+        o:errorCode:
+          description: Application specific error code
+          example: OPICS-BAD_REQUEST
+          type: string
+        o:errorDetails:
+          description: Drill down to the details
+          items:
+            $ref: '#/components/schemas/ProblemDetail'
+          type: array
+        o:errorPath:
+          description: JSON path to indicate where the error occurs
+          example: "cards[1]"
+          type: string
+        status:
+          description: HTTP status code
+          example: 400
+          format: int32
+          type: integer
+        title:
+          description: Summary error message
+          example: Bad Request
+          type: string
+        type:
+          description: HTTP error code page
+          example: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
+          type: string
+      required:
+      - title
+      - type
+      type: object
+  securitySchemes:
+    jwt:
+      in: header
+      name: Authorization
+      type: apiKey
+x-original-swagger-version: "2.0"
