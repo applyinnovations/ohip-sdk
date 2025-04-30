@@ -160,14 +160,19 @@ func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (str
 	client := c.ohip.
 		GetToken(ctx).
 		XAppKey(c.appKey).
-		Username(credential.Username).
-		Password(credential.Password).
 		GrantType(string(c.grantType))
 
 	if c.grantType == GrantTypeClientCredentials {
 		client = client.
 			EnterpriseId(*c.enterpriseId).
 			Scope(*c.scope)
+
+		authString := []byte(credential.Username + ":" + credential.Password)
+		c.ohip.client.cfg.AddDefaultHeader("Authorization", "Basic "+base64.StdEncoding.EncodeToString(authString))
+	} else {
+		client = client.
+			Username(credential.Username).
+			Password(credential.Password)
 	}
 
 	resp, _, err := client.
