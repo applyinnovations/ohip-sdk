@@ -29,6 +29,8 @@ export class OhipCredentialsProvider {
   appKey: string;
   credentials: OhipCredential[];
   grantType: GrantTypeEnum;
+  clientId?: string;
+  clientSecret?: string;
   scope?: string;
   enterpriseId?: string;
   access_token?: string;
@@ -38,6 +40,8 @@ export class OhipCredentialsProvider {
     appKey,
     credentials,
     grantType,
+    clientId,
+    clientSecret,
     enterpriseId,
     scope,
     host,
@@ -46,6 +50,8 @@ export class OhipCredentialsProvider {
     host: string;
     credentials: OhipCredential[];
     grantType: GrantTypeEnum;
+    clientId?: string;
+    clientSecret?: string;
     enterpriseId?: string;
     scope?: string;
     access_token?: string; // bearer token
@@ -55,9 +61,30 @@ export class OhipCredentialsProvider {
     this.credentials = credentials;
     this.grantType = grantType;
     this.enterpriseId = enterpriseId;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
     this.scope = scope;
     this.appKey = appKey;
-    this.ohip = new AuthenticationApi(new Configuration({ host }));
+
+    if (grantType === GrantTypeEnum.client_credentials) {
+      if (clientId) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires clientId`,
+        );
+      }
+      if (clientSecret) {
+        throw Error(
+          `OHIP_AUTH_ERR: client_credentials grant type requires clientSecret`,
+        );
+      }
+      this.ohip = new AuthenticationApi(new Configuration({
+        host,
+        username: clientId,
+        password: clientSecret,
+      }));
+    } else {
+      this.ohip = new AuthenticationApi(new Configuration({ host }));
+    }
   }
 
   async setAccessToken(access_token: string) {
@@ -124,12 +151,6 @@ export class OhipCredentialsProvider {
           ...(
             this.grantType === GrantTypeEnum.password && credentials
           )
-        }, {
-          ...(this.grantType === GrantTypeEnum.client_credentials && credentials.username && credentials.password && {
-            headers: {
-              'Authorization': `Basic ${Buffer.from(`${credentials.username}:${credentials.password}`).toString('base64')}`,
-            }
-          }),
         });
         if (res.accessToken
           && res.expiresIn
