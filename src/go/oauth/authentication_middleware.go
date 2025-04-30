@@ -146,8 +146,12 @@ func (c *OhipCredentialsProvider) SetAccessToken(accessToken string) {
 func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 	retryPeriod := math.Pow(float64(retryCount), 2) * 100
 	time.Sleep(time.Duration(retryPeriod) * time.Millisecond)
+	var credential *OhipCredential = nil
 
-	credential := c.credentials[retryCount%len(c.credentials)]
+	if len(c.credentials) > 0 {
+		credential = &c.credentials[retryCount%len(c.credentials)]
+	} else {
+	}
 	accessToken, err := c.getAccessToken(credential)
 	if err != nil {
 		if retryCount < MAX_RETRIES {
@@ -168,7 +172,7 @@ func (c *OhipCredentialsProvider) renewCredentials(retryCount int) error {
 	return nil
 }
 
-func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (string, error) {
+func (c *OhipCredentialsProvider) getAccessToken(credential *OhipCredential) (string, error) {
 	ctx := context.Background()
 
 	client := c.ohip.
@@ -177,7 +181,6 @@ func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (str
 		GrantType(string(c.grantType))
 
 	if c.grantType == GrantTypeClientCredentials {
-		fmt.Printf("grant type is set\n\n\n")
 		client = client.
 			EnterpriseId(*c.enterpriseId).
 			Scope(*c.scope)
