@@ -34,6 +34,8 @@ type NewOhipCredentialsProviderParams struct {
 	AppKey       string
 	Credentials  []OhipCredential
 	GrantType    GrantTypeEnum
+	ClientID     *string
+	ClientSecret *string
 	Scope        *string
 	EnterpriseId *string
 }
@@ -53,18 +55,30 @@ func NewOhipCredentialsProvider(params NewOhipCredentialsProviderParams) *OhipCr
 	configuration := NewConfiguration()
 	configuration.Host = params.Host
 	configuration.Scheme = "https"
-	apiClient := NewAPIClient(configuration)
 
 	if params.GrantType == GrantTypeClientCredentials {
 		if params.EnterpriseId == nil {
-			fmt.Println("GrantTypeClientCredentials requires enterpriseId")
+			fmt.Println("GrantTypeClientCredentials requires EnterpriseId")
 			return nil
 		}
 		if params.Scope == nil {
-			fmt.Println("GrantTypeClientCredentials requires enterpriseId")
+			fmt.Println("GrantTypeClientCredentials requires Scope")
 			return nil
 		}
+		if params.ClientID == nil {
+			fmt.Println("GrantTypeClientCredentials requires ClientID")
+			return nil
+		}
+		if params.ClientSecret == nil {
+			fmt.Println("GrantTypeClientCredentials requires ClientSecret")
+			return nil
+		}
+
+		authString := []byte(*params.ClientID + ":" + *params.ClientSecret)
+		configuration.AddDefaultHeader("Authorization", "Basic "+base64.StdEncoding.EncodeToString(authString))
 	}
+
+	apiClient := NewAPIClient(configuration)
 
 	return &OhipCredentialsProvider{
 		authenticating: &TimeoutMutex{},
@@ -163,12 +177,10 @@ func (c *OhipCredentialsProvider) getAccessToken(credential OhipCredential) (str
 		GrantType(string(c.grantType))
 
 	if c.grantType == GrantTypeClientCredentials {
+		fmt.Printf("grant type is set\n\n\n")
 		client = client.
 			EnterpriseId(*c.enterpriseId).
 			Scope(*c.scope)
-
-		authString := []byte(credential.Username + ":" + credential.Password)
-		c.ohip.client.cfg.AddDefaultHeader("Authorization", "Basic "+base64.StdEncoding.EncodeToString(authString))
 	} else {
 		client = client.
 			Username(credential.Username).
