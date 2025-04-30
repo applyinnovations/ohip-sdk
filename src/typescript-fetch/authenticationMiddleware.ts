@@ -67,12 +67,12 @@ export class OhipCredentialsProvider {
     this.appKey = appKey;
 
     if (grantType === GrantTypeEnum.client_credentials) {
-      if (clientId) {
+      if (!clientId) {
         throw Error(
           `OHIP_AUTH_ERR: client_credentials grant type requires clientId`,
         );
       }
-      if (clientSecret) {
+      if (!clientSecret) {
         throw Error(
           `OHIP_AUTH_ERR: client_credentials grant type requires clientSecret`,
         );
