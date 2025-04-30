@@ -124,6 +124,12 @@ export class OhipCredentialsProvider {
           ...(
             this.grantType === GrantTypeEnum.password && credentials
           )
+        }, {
+          ...(this.grantType === GrantTypeEnum.client_credentials && credentials.username && credentials.password && {
+            headers: {
+              'Authorization': `Basic ${Buffer.from(`${credentials.username}:${credentials.password}`).toString('base64')}`,
+            }
+          }),
         });
         if (res.accessToken
           && res.expiresIn
